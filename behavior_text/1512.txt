@@ -1,0 +1,55 @@
+#1512 - Distant Sea Talent, Ruka
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1512
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19426:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (19427:83) Come and play with us! + Distant Sea's Domain
+ | Absorb damage when combos <= 8 for 5 turns + Change board size to 7x6 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 19
+     | condition: 33% chance
+     | (19433:105) Tail Kick
+     | RCV 50% for 1 turn, Deal 95% damage
+     | condition: 33% chance
+     | (19434:39) Spinning Jump
+     | Movetime 50% for 1 turn, Deal 100% damage
+     | condition: 34% chance
+     | (19435:15) Landing
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: turn 5 while HP > 19
+     | (19430:83) Distant Sea's Wave Wall + Deadly Current
+     | Void damage >= 50,000,000 for 999 turns + Player -99% HP
+   | group:
+     | condition: 33% chance
+     | (19433:105) Tail Kick
+     | RCV 50% for 1 turn, Deal 95% damage
+     | condition: 33% chance
+     | (19434:39) Spinning Jump
+     | Movetime 50% for 1 turn, Deal 100% damage
+     | condition: 34% chance
+     | (19435:15) Landing
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (19436:83) Deadly Current + Dolphin Boost
+     | Player -99% HP + Increase damage to 200% for the next 999 turns
+   | group:
+     | (19438:15) Endolphin Tackle
+     | Deal 400% damage (4 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (19439:83) Healing Current + Dolphin Boost
+   | Enemy recover 50% HP + Increase damage to 200% for the next 999 turns

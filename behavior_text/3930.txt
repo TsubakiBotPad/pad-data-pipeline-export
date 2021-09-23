@@ -1,0 +1,48 @@
+#3930 - Colorful Benevolence Dragon Caller, Ideal
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3930
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 5435, 3954, 3955 on team
+ | (13905:83) It's dangerous, so don't get close + Young Dragon's Divine Protection
+ | Voids status ailments for 999 turns + Void damage >= 20,000,000 for 3 turns
+ | (13904:83) Oh! A guest I guess? + Young Dragon's Divine Protection
+ | Voids status ailments for 999 turns + Void damage >= 20,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 50% chance
+     | (13912:85) Misconversion
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 90% damage
+     | condition: 50% chance
+     | (13913:15) Concept Break
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 3 while HP > 49
+     | (13914:15) Forbidden Force
+     | Deal 500% damage (5 hits, 100% each)
+   | group:
+   | condition: turn 4 while HP > 49
+     | (13909:83) Could you help me for the experiment + Summoning Dragon's Guidance
+     | Absorb damage when combos <= 7 for 5 turns + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (13912:85) Misconversion
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 90% damage
+     | condition: 50% chance
+     | (13913:15) Concept Break
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (13909:83) Could you help me for the experiment + Summoning Dragon's Guidance
+   | Absorb damage when combos <= 7 for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (13914:15) Forbidden Force
+   | Deal 500% damage (5 hits, 100% each)

@@ -1,0 +1,51 @@
+#566 - Goemon, the Thief
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 10
+
+#3: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 9
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 8
+
+#5: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 2, target rnd 7
+
+#6: ESBoardChange(84:18673) -> Behold the spectacular fireworks!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire
+
+#7: ESBoardChange(84:18674) -> Behold the spectacular fireworks!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Water
+
+#8: ESBoardChange(84:18675) -> Behold the spectacular fireworks!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Wood
+
+#9: ESBoardChange(84:18676) -> Behold the spectacular fireworks!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Light
+
+#10: ESBoardChange(84:18677) -> Behold the spectacular fireworks!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Dark
+
+#11: ESFixedStart(101:18680) -> Hyaaaa!
+Fix orb movement starting point to random position on the board
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:18678) -> Darn it!
+	Do nothing

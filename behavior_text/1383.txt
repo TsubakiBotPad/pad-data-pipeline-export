@@ -1,0 +1,42 @@
+#1383 - ギニュー特戦隊・リクーム
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1383
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1129:50) お命頂戴!!!とうっ!!!
+ | Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1127:66) リクーム…
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1092:15) キック！
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1127:66) リクーム…
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1093:48) イレイザーガン!!!!
+     | Change a random attribute to Jammer orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1094:66) リクーム…ウルトラ…ファイティング…
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1095:15) ボンバー!!!
+     | Deal 500% damage (5 hits, 100% each)

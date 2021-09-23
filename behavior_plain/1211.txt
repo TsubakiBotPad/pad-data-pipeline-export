@@ -1,0 +1,31 @@
+#1211 - Devil of the Depths, Kraken
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindAttribute(2:1386) -> Creeping Hand of Evil
+Bind Wood cards for 3 turns
+
+#5: ESBlind62(62:1432) -> Blackout
+Blind all orbs on the board, Deal 25% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBindAttack(63:1387) -> Tentacle Attack
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 2 random subs for 2 turns, Deal 75% damage
+
+#8: ESAttackMultihit(15:1388) -> Hard Tentacle
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 150% damage (3 hits, 50% each)

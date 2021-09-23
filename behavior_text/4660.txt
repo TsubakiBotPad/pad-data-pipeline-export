@@ -1,0 +1,38 @@
+#4660 - サウスポーの守護神・アテナ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4660
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10635:83) I'll try my best! + Well, now for a fair game!
+ | Voids status ailments for 999 turns + Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (10636:108) Shining Straight
+     | Change all Heal orbs to Light orbs, Deal 100% damage
+     | (10637:48) Orb Curve
+     | Change a random attribute to Wood orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (10640:83) Were you surprised? + Even looking like this, you're strong!
+     | Blind all orbs on the board + Deal 120% damage (6 hits, 20% each), Deal 120% damage (6 hits, 20% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10641:17) You got burned!
+   | Increase damage to 150% for the next 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (10642:66) Let's end this!
+     | Do nothing
+   | group:
+     | (10643:15) Starburst!!!
+     | Deal 300% damage (10 hits, 30% each)

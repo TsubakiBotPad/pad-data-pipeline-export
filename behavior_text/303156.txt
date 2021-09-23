@@ -1,0 +1,24 @@
+#303156 - Another Crusader
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303156
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18068:83) Hewaffung Wand + Brennstoff Gewinnen
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 50,000,000 for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18071:15) Eisen Zorn
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 50% chance
+   | (18072:92) Drehung Klinge
+   | Spawn 4 random Wood and Jammer orbs, Deal 90% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18073:17) Macht Befreiung
+   | Increase damage to 200% for the next 999 turns

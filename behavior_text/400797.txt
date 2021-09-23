@@ -1,0 +1,27 @@
+#400797 - Alt. TAMADRA
+monster size: 1
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 400797
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25510:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25486:53) Protect-TAMA!
+ | Absorb Light damage for 10 turns
+ group:
+ | group:
+   | (25485:92) TAMA-TAMA!
+   | Spawn 2 random Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 4
+   | (25484:86) Heal-TAMA!
+   | Enemy recover 100% HP
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (25487:83) Protect-TAMA! + Angry-TAMA!
+ | Voids status ailments for 999 turns + Increase damage to 1,000% for the next 999 turns

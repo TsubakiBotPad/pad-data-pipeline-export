@@ -1,0 +1,41 @@
+#101365 - Alt. Shadow Moon Dragon Knight, Mulan
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESDamageShield(74:8473) -> Soon, I shall...
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESStatusShield(20:8474) -> ...test your abilities!
+	Voids status ailments for 5 turns
+
+#3: ESDebuffMovetime(39:8476) -> Violet Moonflower Eyes
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Movetime -2s for 5 turns
+
+#4: ESRandomSpawn(92:8477) -> Lunar Sky Cataclysm
+Condition: One-time use & when Light, Dark, or Heal orbs are on the board (ai:100 rnd:0) (cost: 8)
+Spawn 16 random Dark orbs, Deal 170% damage
+
+#5: ESAttackMultihit(15:8478) -> Nine Dragon Claws - Leilei
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 198% damage (9 hits, 22% each)
+
+#6: ESAttackMultihit(15:8479) -> Moonlight Sword Dance
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 255% damage (3 hits, 85% each)
+
+#7: ESAbsorbCombo(67:8480) -> The end is nigh
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 7 for 1 turn
+
+#8: ESGravity(50:8481) -> Moon's Falling Petals
+Player -1,000% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

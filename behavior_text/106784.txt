@@ -1,0 +1,36 @@
+#106784 - The Girl Bewitched by a Cat, Tsubasa Hanekawa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106784
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21312:83) Meow! + Nyahaha!
+ | Bind active skills for 5 turns + Deal 150% damage (3 hits, 50% each), Deal 150% damage (3 hits, 50% each)
+ group:
+ | group:
+   | condition: 33% chance
+   | (21113:1) You're not needed anymore, meow.
+   | Bind 1 random card for 3 turns, Deal 80% damage
+   | condition: 33% chance
+   | (21112:94) Don't scream.
+   | Lock 6 random orbs, Deal 90% damage
+   | condition: 34% chance
+   | (21111:48) That's perfect then, meow.
+   | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (21114:20) You scare me...
+   | Voids status ailments for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21115:17) Nyahahahaha!
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | (21116:86) Energy Drain
+     | Enemy recover 5% HP, Deal 80% damage

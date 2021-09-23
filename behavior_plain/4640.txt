@@ -1,0 +1,101 @@
+#4640 - Seven Seas Companion Dragon, Renya
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDamageShield(74:10336) -> Major Protection
+Reduce damage from all sources by 75% for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttributeBlock(107:10335) -> Red Exception
+Unable to match Fire orbs for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 24
+
+#13: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 20
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 26
+
+#16: ESOrbChangeAttack(48:10339) -> Träne Gerinnsel
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Water orbs, Deal 105% damage
+
+#17: ESOrbChangeAttackBits(108:10340) -> Veränderung
+Condition: 33% chance (ai:0 rnd:33)
+Change all Dark orbs to Water orbs, Deal 110% damage
+
+#18: ESAttackMultihit(15:10341) -> Claw Slasher
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	[0] ESCloud(104:10342) -> Groß Wolke
+	A 3×3 square of clouds appears for 1 turn at a random location
+	[1] ESAttackUPRemainingEnemies(17:10343) -> Calm Fighting Spirit
+	Increase damage to 200% for the next 99 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:10345) -> Zwei Flügel
+Deal 180% damage (2 hits, 90% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#27: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 29
+
+#28: ESBoardChangeAttackBits(85:10338) -> Wasser Enclosure
+Change all orbs to Water, Wood, Dark, and Heal, Deal 120% damage
+
+#29: ESDebuffMovetime(39:10337) -> Brechen Feder
+Movetime -1s for 2 turns
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn

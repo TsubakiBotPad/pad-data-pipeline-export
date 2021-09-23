@@ -1,0 +1,31 @@
+#5260 - Lyserg Diethel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5260
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17662:74) I'm pleased to make your acquaintance.
+ | Reduce damage from all sources by 30% for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (13275:101) Homing Pendulum
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | condition: 33% chance
+   | (13276:109) I have to put them to the test.
+   | Random 1 orbs change every 2.0s for 1 turn, Deal 90% damage
+   | condition: 34% chance
+   | (13278:15) You'll have to fight me whether you want to or not!
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (13277:17) Now I'm going to get serious!
+   | Increase damage to 150% for the next 5 turns
+ | group:
+ | condition: hp <= 15
+   | (17670:83) Take this!! + Big Ben Wire Frame!!!
+   | Lock 5 random orbs + Deal 75% damage (5 hits, 15% each), Deal 75% damage (5 hits, 15% each)

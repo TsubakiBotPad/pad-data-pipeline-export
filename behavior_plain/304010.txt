@@ -1,0 +1,36 @@
+#304010 - Fall Chrysanthemum Virtue, Xiu Min
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:18088) -> Noble One's Modesty
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:18089) -> Devotion to Innocence
+	Specific orbs change every 1.0s for 10 turns
+
+#3: ESChangeAttribute(46:18082) -> Yellow Chrysanthemum
+Change own attribute to Light, Deal 150% damage
+
+#4: ESAttackUPCooldown(19:18112) -> Noble One's Mastery
+Increase damage to 1,000% for the next 999 turns
+
+#5: ESSpinnersRandom(109:18090) -> Season of Transition
+Condition: 33% chance (ai:0 rnd:33)
+Random 2 orbs change every 0.5s for 1 turn, Deal 100% damage
+
+#6: ESSpinnersRandom(109:18091) -> Season of Transition
+Condition: 34% chance (ai:0 rnd:34)
+Random 4 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#7: ESSpinnersRandom(109:18092) -> Season of Transition
+Condition: 33% chance (ai:0 rnd:33)
+Random 6 orbs change every 2.0s for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

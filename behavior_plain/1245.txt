@@ -1,0 +1,35 @@
+#1245 - Shining Monk, Xuanzang
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:58) -> Evil Vanquishing Sacred Seal
+Absorb Dark damage for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindTarget(54:59) -> Kongoken
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind player leader for 5 turns
+
+#7: ESAttackMultihit(15:60) -> Tengen Bodhisattva Palm
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 210% damage (3 hits, 70% each)
+
+#8: ESOrbChangeAttack(48:57) -> Light Buddhist Magic
+Condition: 50% chance (ai:50 rnd:0)
+Change all Dark orbs to Light orbs, Deal 75% damage
+
+#9: ESAttackMultihit(15:65) -> Jewel Dragon Summoning
+Deal 105% damage (3 hits, 35% each)

@@ -1,0 +1,36 @@
+#1844 - Knight Dragon King, Nordis
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 1844
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2456:72) 龍騎士風ドラゴン・パッシブ
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (2457:20) I'm honored to face you!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | (2458:15) Ha!
+   | Deal 120% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (2459:74) His shield is raised
+   | Reduce damage from all sources by 50% for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | (2460:15) Take that!
+   | Deal 130% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (2459:74) His shield is raised
+   | Reduce damage from all sources by 50% for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (2461:15) Triple Thrust
+   | Deal 180% damage (3 hits, 60% each)

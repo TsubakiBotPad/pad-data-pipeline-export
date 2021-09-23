@@ -1,0 +1,151 @@
+  monster_id: 103983
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 8447
+        }
+      }
+    }
+  }
+  levels {
+    level: 4
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 8447
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 8442
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8443
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 2
+            trigger_turn_end: 4
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 50
+              }
+              enemy_skill_id: 8437
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8438
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 5
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8445
+            }
+          }
+        }
+      }
+      children {
+        group {
+          children {
+            behavior {
+              condition {
+                use_chance: 50
+              }
+              enemy_skill_id: 8437
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8438
+            }
+          }
+        }
+      }
+    }
+    groups {
+      group_type: REMAINING
+      condition {
+        hp_threshold: 100
+        trigger_enemies_remaining: 1
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8443
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 2
+            trigger_turn_end: 4
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 50
+              }
+              enemy_skill_id: 8437
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8438
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 5
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8444
+            }
+          }
+        }
+      }
+    }
+  }

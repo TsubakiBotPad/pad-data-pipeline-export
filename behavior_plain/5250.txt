@@ -1,0 +1,58 @@
+#5250 - Hao, the Future King
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:17661) -> Weaklings.
+Absorb damage when combos <= 6 for 6 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 11
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#8: ESAttackMultihit(15:13313) -> I'll destroy you next.
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#9: ESRandomSpawn(92:13314) -> I've already been to hell. Boring...
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Fire and Dark orbs, Deal 95% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESSkillDelay(89:13317) -> It's a feast.
+	Delay active skills by 1~3 turns
+	[1] ESOrbChangeAttack(48:13318) -> Spirit of Fire
+	Change a random attribute to Jammer orbs, Deal 200% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESGravity(50:13315) -> The rest of you can live a little longer.
+Player -99% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

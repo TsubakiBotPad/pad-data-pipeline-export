@@ -1,0 +1,26 @@
+#3214 - Wind Imp
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3214
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5804:13) Blow it hard!
+ | Change 2 random orb types to Jammer orbs
+ group:
+ condition: execute repeatedly, turn 1 of 2, hp <= 100
+ | (5807:85) Shakuhachi Whirlwind
+ | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 60% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (5805:17) Demon Solo
+   | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | (5806:68) Resonating Wood
+   | Wood skyfall +15% for 10 turns, Deal 50% damage

@@ -1,0 +1,117 @@
+#3587 - Twinblade Mechanical Star God, Algedi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:26140) -> The stars...are beautiful...
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:26141) -> Did you make...a wish...?
+	Void damage >= 10,000,000 for 7 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 7, target rnd 26
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#10: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAbsorbCombo(67:26152) -> Capricorn's Starslash
+	Absorb damage when combos <= 6 for 1 turn
+	[1] ESAttackMultihit(15:26148) -> Star Dust - Land
+	Deal 120% damage (3 hits, 40% each)
+
+#11: SkillSet:
+	[0] ESBlindStickyRandom(97:26154) -> Mechanical Star God's Gloom
+	Blind all orbs for 1 turn
+	[1] ESAttackMultihit(15:26148) -> Star Dust - Land
+	Deal 120% damage (3 hits, 40% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:26144) -> Capricorn's Windy Mechanical Star
+	Bind awoken skills for 1 turn
+	[1] ESOrbSealRow(100:26145) -> Mechanical Star God's Sanctuary
+	Seal the 1st row for 7 turns
+	[2] ESAttackUPRemainingEnemies(17:26110) -> Milky Way's Miracle
+	Increase damage to 150% for the next 999 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbChangeAttackBits(108:26147) -> Mechanical Star God's Gift
+	Change all Fire orbs to Wood orbs, Deal 10% damage
+	[1] ESAttackMultihit(15:26148) -> Star Dust - Land
+	Deal 120% damage (3 hits, 40% each)
+
+#18: SkillSet:
+	[0] ESDebuffATK(130:26150) -> Mechanical Star God's Gaze
+	ATK -50% for 1 turn
+	[1] ESAttackMultihit(15:26148) -> Star Dust - Land
+	Deal 120% damage (3 hits, 40% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: ESInactivity66(66:26103) -> They gaze at the stars
+Do nothing
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:26142) -> Star Dust - Miracle
+Deal 2,100% damage (7 hits, 300% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	[0] ESNoSkyfall(127:26106) -> Sudden Change of Weather
+	No skyfall for 7 turns
+	[1] ESBlindStickySkyfall(128:26107) -> Tearful Rain of Sadness
+	For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttributeResist(72:26155) -> Fire Halved
+Reduce damage from Fire attrs by 50%
+
+#29: ESSuperResolve(129:26121) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

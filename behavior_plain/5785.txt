@@ -1,0 +1,64 @@
+#5785 - Seto Kaiba & Obelisk the Tormentor
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESCloud(104:15806) -> Duel!
+	A 2×2 square of clouds appears for 5 turns at a random location
+	[1] ESDamageShield(74:15807) -> My mighty Egyptian God is here at last! 
+	Reduce damage from all sources by 50% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 8
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#5: ESAttackMultihit(15:15808) -> Obelisk! Attack!
+Condition: 50% chance (ai:50 rnd:0)
+Deal 90% damage
+
+#6: ESAttackMultihit(15:15811) -> Nothing can stop the wrath of Obelisk!
+Deal 94% damage (2 hits, 47% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESSkillDelay(89:15809) -> Spell Card "Command Silencer"
+Delay active skills by 2 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESJammerChangeRandom(13:15810) -> Trap Card "Life Shaver"
+Change 2 random orb types to Jammer orbs
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:15812) -> Fist of Fate
+Deal 160% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttributeResist(72:15828) -> Grass/Light Halved
+Reduce damage from Wood and Light attrs by 50%

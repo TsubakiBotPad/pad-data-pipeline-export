@@ -1,0 +1,75 @@
+#3712 - Awoken Uriel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:17067) -> Agile Wings of Heaven
+	Absorb damage when combos <= 8 for 999 turns
+	[1] ESGravity(50:17068) -> Resolve in a Crisis
+	Player -99% HP
+	[2] ESOrbSealRow(100:17069) -> Unblessed Future
+	Seal the 1st row for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESRowSpawnMulti(79:17070) -> Divine Inferno
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Fire orbs, Deal 100% damage
+
+#7: ESOrbChangeAttack(48:17071) -> Divine Fire's Ashes
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Jammer orbs, Deal 105% damage
+
+#8: ESAttackMultihit(15:17072) -> Divine Light's Radiance
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: SkillSet:
+	[0] ESBlind5(5:17074) -> Extinguished Divine Light
+	Blind all orbs on the board
+	[1] ESBombFixedSpawn(103:17075) -> Gift for Evil
+	Spawn Bomb orbs in the specified positions
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 2, target rnd 16
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:17078) -> Judgment of Evil
+	Increase damage to 200% for the next 999 turns
+	[1] ESDebuffMovetime(39:17079) -> Sacred Protection
+	Movetime -3s for 1 turn
+
+#16: ESAttackMultihit(15:17076) -> Blazing Flame Attack
+Deal 300% damage (3 hits, 100% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:17080) -> Resolve
+Survive attacks with 1 HP when HP > 50%

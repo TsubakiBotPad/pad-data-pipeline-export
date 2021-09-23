@@ -1,0 +1,37 @@
+#104971 - ひも爺
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 104971
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12062:67) ひもじぃ～
+ | Absorb damage when combos <= 5 for 99 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (11896:15) ひもっ！
+   | Deal 110% damage
+   | condition: 40% chance
+   | (11897:92) メシの時間じゃ！
+   | Spawn 3 random Heal orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (11899:86) ひもじインパクト
+     | Enemy recover 100% HP
+   | group:
+     | condition: 50% chance
+     | (11900:48) ヨダレが止まら～ん！
+     | Change a random attribute to Water orbs, Deal 100% damage
+     | condition: 50% chance
+     | (11901:94) コレは　ワシのメシじゃ～！
+     | Lock 10 random orbs, Deal 110% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1 while HP > 29, hp <= 100
+ | (12063:88) ひもじいのぅ…
+ | Bind awoken skills for 3 turns

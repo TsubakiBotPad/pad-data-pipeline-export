@@ -1,0 +1,24 @@
+#1658 - Armored Dual Blade Knight, Creuse
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 1658
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7698:72) Dark & Water damage halved
+ | Reduce damage from Water and Dark attrs by 50%
+ type: PREEMPT
+ | (7695:110) Purge
+ | Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-3 of 4
+   | (7696:15) Death Viper Slash
+   | Deal 500% damage (2 hits, 250% each)
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (7697:19) Evil Crest
+   | Increase damage to 250% for the next 1 turn

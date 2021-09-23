@@ -1,0 +1,31 @@
+#101063 - Alt. Bone Fish
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 6, target rnd 6
+
+#3: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 8, target rnd 6
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 10, target rnd 6
+
+#5: ESCloud(104:16090) -> Gyo gyo!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A column of clouds appears for 3 turns at 1st row, 1st column
+
+#6: ESOrbSealColumn(99:16091) -> Gyo gyo!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 6th column for 3 turns
+
+#7: ESRandomSpawn(92:16092) -> Bonn bonn
+Spawn 1 random Poison orb, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

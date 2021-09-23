@@ -1,0 +1,79 @@
+#4975 - ブシニャン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindRandomSub(65:12018) -> それがしは　ブシニャン！
+	Bind 1 random sub for 3 turns
+	[1] ESGravity(50:12019) -> いざ　参るっ！
+	Player -75% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESAttackUPRemainingEnemies(17:12023) -> 精神統一でござる…
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#6: ESRandomSpawn(92:12020) -> お主に　斬れるでござるか？
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Jammer orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:12021) -> 閃光斬りっ！
+Condition: 33% chance (ai:0 rnd:33)
+Deal 105% damage (3 hits, 35% each)
+
+#8: ESOrbChangeAttack(48:12022) -> 旋風斬りっ！！
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Wood orbs, Deal 95% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:12025) -> こうなったら　奥の手でござる！
+	Increase damage to 150% for the next 5 turns
+	[1] ESAbsorbCombo(67:12026) -> ぬははは！　勝利はもらった！
+	Absorb damage when combos <= 5 for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESBindRandomSub(65:12028) -> ぶ　武士の情け…
+	Bind 4 random subs for 1 turn
+	[1] ESInactivity66(66:12029) -> しばし待たれよっ！
+	Do nothing
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:12030) -> かつおブシ斬り
+Deal 210% damage (6 hits, 35% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:12045) -> 根性
+Survive attacks with 1 HP when HP > 50%

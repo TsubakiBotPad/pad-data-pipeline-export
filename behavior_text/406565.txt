@@ -1,0 +1,74 @@
+#406565 - Enmu
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 406565
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20118:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20158:1) To die as you dream...
+ | Bind 4 random cards for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (20136:83) All human hearts are the same. + Fragile and weak like glasswork.
+     | Do nothing + Lock 8 random orbs
+   | group:
+   | condition: turn 2 while HP > 49
+     | (20190:83) Oh, you're awake? + You should have stayed asleep.
+     | Do nothing + Player -5% HP
+   | group:
+   | condition: turn 3 while HP > 49
+     | (20067:63) Blood Demon Art: Whispers of Forced Unconscious Hypnosis
+     | Bind player leader for 1 turn, Deal 50% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (20192:50) Go to sleeeeep...
+     | Player -10% HP
+   | group:
+   | condition: turn 5 while HP > 49
+     | (20096:89) Sleeep...
+     | Delay active skills by 0~1 turns
+   | group:
+   | condition: turn 6 while HP > 49
+     | (20107:2) Sleeep!!
+     | Bind Light cards for 1 turn
+     | condition: 50% chance
+     | (20066:92) Hee hee!
+     | Spawn 4 random Dark orbs, Deal 90% damage
+     | (20065:15) Tee hee hee!
+     | Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (20066:92) Hee hee!
+     | Spawn 4 random Dark orbs, Deal 90% damage
+     | (20065:15) Tee hee hee!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20191:83) There it is! + That's the expression I wanted to see!
+     | Player -5% HP + Blind random 1~2 orbs for 1 turn
+   | group:
+   | condition: turn 2
+     | (20163:17) While you were deep asleep...
+     | Increase damage to 110% for the next 999 turns
+   | group:
+   | condition: turn 3
+     | (20165:127) Won't you just leave them for me to eat later?
+     | No skyfall for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (20181:62) Can you protect them...by yourself?
+     | Blind all orbs on the board, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (20072:63) Blood Demon Art: Eyes of Forced Unconscious Hypnosis
+     | Bind both leaders for 1 turn, Deal 120% damage

@@ -1,0 +1,77 @@
+#4585 - Yog-Sothoth, the Limitless
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4585
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11515:106) Enemy's next turn changed in anger
+ | Enemy turn counter change to 1 when HP <= 50%
+ | (11539:72) Dark damage halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (11514:20) Concept of Boundless Worlds
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 10% chance
+   | (11541:6) Death of Sudden Help
+   | Voids player buff effects
+   | condition: 60% chance
+   | (11523:15) A Sound like Nothing from this Universe
+   | Deal 100% damage (2 hits, 50% each)
+   | condition: 20% chance
+   | (11524:85) Holiness That Transcends All Existence
+   | Change all orbs to Light, Heal, Jammer, and Poison, Deal 90% damage
+   | condition: 20% chance
+   | (11526:109) Gathering of the Repulsive Suns
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 90% damage
+   | (11525:97) Emptiness of The Eternal One
+   | Blind random 5 orbs for 2 turns, Deal 95% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | condition: 20% chance
+   | (11516:53) Dark Dreams of Suffering Delusion
+   | Absorb Fire and Water damage for 5 turns
+   | condition: 20% chance
+   | (11517:53) Dark Dreams of Suffering Delusion
+   | Absorb Wood and Dark damage for 5 turns
+   | condition: 20% chance
+   | (11518:53) Dark Dreams of Suffering Delusion
+   | Absorb Water and Light damage for 5 turns
+   | condition: 20% chance
+   | (11519:53) Dark Dreams of Suffering Delusion
+   | Absorb Light and Dark damage for 5 turns
+   | condition: 20% chance
+   | (11520:53) Dark Dreams of Suffering Delusion
+   | Absorb Fire and Wood damage for 5 turns
+ | group:
+ | condition: turns 2-4 while HP > 9, hp <= 14
+   | (11521:88) He Who Shall Not Be Named
+   | Bind awoken skills for 5 turns
+   | condition: 10% chance
+   | (11541:6) Death of Sudden Help
+   | Voids player buff effects
+   | condition: 60% chance
+   | (11523:15) A Sound like Nothing from this Universe
+   | Deal 100% damage (2 hits, 50% each)
+   | condition: 20% chance
+   | (11524:85) Holiness That Transcends All Existence
+   | Change all orbs to Light, Heal, Jammer, and Poison, Deal 90% damage
+   | condition: 20% chance
+   | (11526:109) Gathering of the Repulsive Suns
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 90% damage
+   | (11525:97) Emptiness of The Eternal One
+   | Blind random 5 orbs for 2 turns, Deal 95% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turns 2-4
+     | (11521:88) He Who Shall Not Be Named
+     | Bind awoken skills for 5 turns
+   | group:
+     | (11522:15) The Ultimate Origin of All Things
+     | Deal 3,000% damage (6 hits, 500% each)

@@ -1,0 +1,27 @@
+#3111 - Guardian of Paradise, Metatron
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3111
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18969:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18970:83) Are you ready to go swimming? + Great! Let's go!
+ | Bind 6 random cards for 3 turns + Bind awoken skills for 3 turns
+ group:
+ | group:
+   | (18973:83) Swim faster! + Hya!
+   | Player -50% HP + Deal 100% damage, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (18979:15) That's enough for today!
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18976:83) That was pretty tough... + But we're just getting started!
+   | Enemy recover 50% HP + Void damage >= 5,000,000 for 999 turns

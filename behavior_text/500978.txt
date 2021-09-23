@@ -1,0 +1,24 @@
+#500978 - Black Pirate Dragon, Blackbeard
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500978
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27085:128) If you wanna know more, you'll have to defeat me!
+ | For 3 turns, 15% chance for skyfall orbs to be blinded for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (27089:97) Pitch Black Cannon
+   | Blind random 1~2 orbs for 1 turn, Deal 80% damage
+   | condition: 50% chance
+   | (27090:15) Claw of Destiny
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (27086:83) Now I'm angry... + You'll regret this!
+   | Increase damage to 150% for the next 999 turns + Blind all orbs on the board

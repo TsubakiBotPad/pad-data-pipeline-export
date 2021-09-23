@@ -1,0 +1,26 @@
+#400051 - Alt. Emerald Carbuncle
+monster size: 2
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 5
+
+#2: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#3: ESAttackMultihit(15:19201) -> Jewelry Strike
+Deal 100% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESChangeAttribute(46:20950) -> Indiscriminate Carnage
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSuperResolve(129:21018) -> Alt. Super Resolve
+Damage which would reduce HP from above 75% to below 75% is nullified

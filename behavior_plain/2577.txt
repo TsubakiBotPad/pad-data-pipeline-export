@@ -1,0 +1,65 @@
+#2577 - Ancient Flame Dragon, Ammonite
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDamageShield(74:3658) -> Shell Seclusion
+Reduce damage from all sources by 50% for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:3613) -> Wind-Up Full Throttle
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#9: ESRandomSpawn(92:3761) -> Incandescent Ocean
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire
+
+#10: ESGravity(50:3663) -> Full Spiral
+Condition: When < 10% HP (ai:100 rnd:0)
+Player -100% HP
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESRandomSpawn(92:3659) -> Three Hearts Clutch
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 3 random Heal orbs, Deal 130% damage
+
+#14: ESOrbLock(94:3660) -> Seven Ties Tentacle
+Condition: 33% chance (ai:0 rnd:33)
+Lock 7 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+
+#15: ESRandomSpawn(92:3760) -> Nine Flames Breath
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 9 random Fire orbs, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#18: ESDamageShield(74:3658) -> Shell Seclusion
+Reduce damage from all sources by 50% for 1 turn

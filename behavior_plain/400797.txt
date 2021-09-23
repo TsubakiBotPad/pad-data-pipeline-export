@@ -1,0 +1,46 @@
+#400797 - Alt. TAMADRA
+monster size: 1
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:25486) -> Protect-TAMA!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Light damage for 10 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 7
+
+#5: ESRandomSpawn(92:25485) -> TAMA-TAMA!
+Spawn 2 random Light orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESRecoverEnemy86(86:25484) -> Heal-TAMA!
+Enemy recover 100% HP
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:25488) -> Protect-TAMA!
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:25489) -> Angry-TAMA!
+	Increase damage to 1,000% for the next 999 turns
+
+#10: ESRandomSpawn(92:25485) -> TAMA-TAMA!
+Spawn 2 random Light orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:25510) -> Resolve
+Survive attacks with 1 HP when HP > 50%

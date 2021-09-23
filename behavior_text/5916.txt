@@ -1,0 +1,31 @@
+#5916 - 大ガマ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5916
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16483:50) Skull Splitter
+ | Player -50% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16484:76) Waterfall
+     | Change the 4th column to Water orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16483:50) Skull Splitter
+     | Player -50% HP
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (16485:17) Unforgivable
+     | Increase damage to 150% for the next 3 turns
+   | group:
+     | (16486:92) Toadal Dude Transformation
+     | Spawn 4 random Water orbs, Deal 120% damage

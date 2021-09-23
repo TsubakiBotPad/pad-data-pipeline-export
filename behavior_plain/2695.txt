@@ -1,0 +1,51 @@
+#2695 - Squad 11 Captain, Kenpachi Zaraki
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkillDelay(89:17441) -> I'm here to kill you or die.
+Delay active skills by 1~3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESSkyfall(68:17443) -> This is where the fun begins.
+Condition: 50% chance (ai:50 rnd:0)
+Jammer skyfall +10% for 2 turns, Deal 120% damage
+
+#8: ESJammerChangeRandom(13:17444) -> For now let's just enjoy the fight!
+Change 1 random orb type to Jammer orbs, Deal 120% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESAttackUPRemainingEnemies(17:17442) -> I knew you could do it.
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 4 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:17445) -> What a disappointing finish.
+	Do nothing

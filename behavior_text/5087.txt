@@ -1,0 +1,57 @@
+#5087 - Guile
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5087
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12545:39) No need for talk. Let's do this.
+ | Movetime -3s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | condition: 33% chance
+     | (12546:83) Bullet Revolver + Sonic Boom
+     | Deal 105% damage (3 hits, 35% each) + Change the 3rd row to Wood orbs, Deal 105% damage (3 hits, 35% each)
+     | condition: 33% chance
+     | (12549:83) Taurus Combination + Disable Skill + Somersault Kick
+     | Deal 40% damage (2 hits, 20% each) + Deal 100% damage + Change the 4th column to Wood orbs, Deal 40% damage (2 hits, 20% each)
+     | condition: 34% chance
+     | (12552:83) Sonic Blade + Sonic Cross
+     | Spawn 1 random Wood orb + Change the 3rd and 4th rows to Wood orbs, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (12555:15) Sonic Hurricane
+     | Deal 300% damage (6 hits, 50% each)
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | condition: 25% chance
+     | (12557:83) Sonic Break + Sonic Break
+     | Change a random attribute to Wood orbs + Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 33% chance
+     | (12546:83) Bullet Revolver + Sonic Boom
+     | Deal 105% damage (3 hits, 35% each) + Change the 3rd row to Wood orbs, Deal 105% damage (3 hits, 35% each)
+     | condition: 33% chance
+     | (12549:83) Taurus Combination + Disable Skill + Somersault Kick
+     | Deal 40% damage (2 hits, 20% each) + Deal 100% damage + Change the 4th column to Wood orbs, Deal 40% damage (2 hits, 20% each)
+     | condition: 34% chance
+     | (12552:83) Sonic Blade + Sonic Cross
+     | Spawn 1 random Wood orb + Change the 3rd and 4th rows to Wood orbs, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (12555:15) Sonic Hurricane
+     | Deal 300% damage (6 hits, 50% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (12556:17) Solid Puncher
+   | Increase damage to 150% for the next 5 turns
+ | group:
+ | condition: hp <= 15
+   | (12559:15) Sonic Tempest
+   | Deal 360% damage (9 hits, 40% each)

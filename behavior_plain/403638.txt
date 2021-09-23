@@ -1,0 +1,66 @@
+#403638 - Alt. Cthulhu, the Nightmare Incarnate
+monster size: 5
+new AI: True
+start/max counter: 10
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:6787) -> Concept of Boundless Worlds
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:6788) -> Dormant Oceanic Evil
+	A row of clouds appears for 30 turns at 5th row, 1st column
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:6797) -> Eternal Cell Regeneration
+	Enemy recover 100% HP
+	[1] ESAttackMultihit(15:6794) -> Veracity of the Cosmic Grotesque
+	Deal 30,000% damage (10 hits, 3,000% each)
+
+#7: ESAttackMultihit(15:6794) -> Veracity of the Cosmic Grotesque
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 30,000% damage (10 hits, 3,000% each)
+
+#8: ESSkyfall(68:6790) -> Nature's Encroaching Nightmare
+Condition: One-time use (ai:100 rnd:0) (cost: 10)
+Mortal Poison skyfall +15% for 15 turns, Deal 550% damage
+
+#9: ESAbsorbCombo(67:13763) -> Doomsday Sanctuary
+Absorb damage when combos <= 7 for 999 turns
+
+#10: ESRandomSpawn(92:6792) -> Ruler of the One and Only Ocean
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 9 random Water orbs, Deal 340% damage
+
+#11: ESAttackMultihit(15:6793) -> Father Dagon and His Deep Ones
+Condition: 25% chance (ai:0 rnd:25)
+Deal 400% damage (8 hits, 50% each)
+
+#12: ESDebuffMovetime(39:6795) -> Sealing Silence of the Deep
+Condition: 25% chance (ai:0 rnd:25)
+Movetime 25% for 1 turn, Deal 360% damage
+
+#13: ESOrbLock(94:6796) -> Dreaded Celestial
+Condition: 25% chance (ai:0 rnd:25)
+Lock 15 random orbs, Deal 380% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:6799) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#16: ESAttributeResist(72:13762) -> Half Water Wood
+Reduce damage from Water and Wood attrs by 50%

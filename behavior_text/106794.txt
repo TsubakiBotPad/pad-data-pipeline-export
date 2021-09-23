@@ -1,0 +1,33 @@
+#106794 - Yotsugi Ononoki
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 106794
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21315:110) Hello.
+ | Specific orbs change every 1.0s for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21118:105) You make me laugh.
+     | RCV 50% for 3 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | (21119:50) Sure, that's fine.
+     | Player -50% HP
+   | group:
+   | condition: turn 3 while HP > 49
+     | (21120:127) Don't fool yourself.
+     | No skyfall for 1 turn
+   | group:
+     | (21121:92) You're still weaker than I am.
+     | Spawn 4 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (21122:83) Unlimited Rule Book + I said, with a posed look.
+   | Spawn 4 random Dark orbs + Lock all Dark orbs, Deal 120% damage

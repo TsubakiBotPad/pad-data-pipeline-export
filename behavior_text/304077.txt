@@ -1,0 +1,57 @@
+#304077 - Scion of the Flame, Kyo Kusanagi
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 304077
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19768:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (19767:83) Resistance is flammable. + Let's go! + This is it!
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 5 turns + Reduce damage from all sources by 50% for 5 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (19780:83) 115 Shiki: Dokugami + 401 Shiki: Tsumiyomi
+     | Spawn 4 random Poison orbs + Change the 1st column to Fire orbs, Deal 105% damage
+     | (19781:83) 115 Shiki: Dokugami + 402 Shiki: Batsuyomi
+     | Spawn 4 random Poison orbs + RCV 50% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 5
+     | (19774:89) Stop moping around and butch up, you weenie!
+     | Delay active skills by 6 turns, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (19780:83) 115 Shiki: Dokugami + 401 Shiki: Tsumiyomi
+     | Spawn 4 random Poison orbs + Change the 1st column to Fire orbs, Deal 105% damage
+     | (19781:83) 115 Shiki: Dokugami + 402 Shiki: Batsuyomi
+     | Spawn 4 random Poison orbs + RCV 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (19776:17) No one can snuff my flame!
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 2
+     | (19777:88) I'll show you the fist of the Kusanagi!
+     | Bind awoken skills for 5 turns
+     | (19779:85) Saishuu Kessen Ougi: Mushiki
+     | Change all orbs to Fire, Heal, and Poison, Deal 150% damage
+   | group:
+   | condition: turns 3-4
+     | (19779:85) Saishuu Kessen Ougi: Mushiki
+     | Change all orbs to Fire, Heal, and Poison, Deal 150% damage
+   | group:
+     | (19779:85) Saishuu Kessen Ougi: Mushiki
+     | Change all orbs to Fire, Heal, and Poison, Deal 150% damage
+ | group:
+ | condition: hp <= 1
+   | (19778:85) Saishuu Kessen Ougi: Mushiki
+   | Change all orbs to Fire, Heal, and Poison, Deal 5,000% damage

@@ -1,0 +1,121 @@
+#201841 - Giant Arched Sea Dragon King, Volsung
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:11278) -> ESBranchCard
+Branch on player_cards HAS [2442, 2443, 3768, 3769, 4812], target rnd 6
+
+#5: SkillSet:
+	[0] ESStatusShield(20:11272) -> Are thou worthy of mine power?
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:11273) -> We shall see...
+	Locked Fire and Water skyfall +100% for 99 turns
+
+#6: SkillSet:
+	[0] ESStatusShield(20:11272) -> Are thou worthy of mine power?
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:11275) -> I shall make sure of thy intent!
+	Locked Fire and Water skyfall +100% for 99 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESSkillDelay(89:3250) -> Wrath of Water
+	Delay active skills by 5 turns
+	[1] ESBindAttack(63:3251) -> Swirl Cage
+	Bind 6 random cards for 5 turns, Deal 2,500% damage
+
+#9: ESAttackMultihit(15:3247) -> Flare Stream
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 500% damage (5 hits, 100% each)
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 90, target rnd 16
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 65, target rnd 25
+
+#13: ESAttackMultihit(15:3246) -> Vortex Breath
+Condition: 50% chance (ai:0 rnd:50)
+Deal 150% damage (3 hits, 50% each)
+
+#14: ESRowSpawnMulti(79:3248) -> Press Wave
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSkillDelay(89:3260) -> Power Suction
+Delay active skills by 3 turns
+
+#17: ESAttackMultihit(15:3246) -> Vortex Breath
+Deal 150% damage (3 hits, 50% each)
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: ESBranchCard(90:3253) -> ESBranchCard
+Branch on player_cards HAS [1948, 1949], target rnd 23
+
+#21: ESBranchCard(90:3255) -> ESBranchCard
+Branch on player_cards HAS [2442, 2443], target rnd 24
+
+#22: SkillSet:
+	[0] ESGravity(50:3257) -> Flare Tick Explosion
+	Player -99% HP
+	[1] ESBindSkill(14:3258) -> Sea King's Eye
+	Bind active skills for 10 turns
+
+#23: SkillSet:
+	[0] ESGravity(50:3257) -> Flare Tick Explosion
+	Player -99% HP
+	[1] ESBindSkill(14:3258) -> Sea King's Eye
+	Bind active skills for 10 turns
+
+#24: SkillSet:
+	[0] ESGravity(50:3257) -> Flare Tick Explosion
+	Player -99% HP
+	[1] ESBindSkill(14:3258) -> Sea King's Eye
+	Bind active skills for 10 turns
+
+#25: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#26: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#27: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 29
+
+#28: ESAttackMultihit(15:3246) -> Vortex Breath
+Deal 150% damage (3 hits, 50% each)
+
+#29: ESAbsorbAttribute(53:3249) -> Anti-Plant
+Condition: When < 65% HP (ai:100 rnd:0)
+Absorb Wood damage for 3 turns
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: SkillSet:
+	Condition: On death (ai:0 rnd:0)

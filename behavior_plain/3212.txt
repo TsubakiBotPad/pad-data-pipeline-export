@@ -1,0 +1,61 @@
+#3212 - Fire Imp
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbLock(94:5709) -> Burning!
+Lock 8 random orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 13
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESAttackUPRemainingEnemies(17:5710) -> Demon Solo
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#12: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#13: ESBlind62(62:5712) -> Smoking Biwa
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board, Deal 40% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: ESSkyfall(68:5711) -> Resonating Fire
+Fire skyfall +15% for 10 turns, Deal 50% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 13
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

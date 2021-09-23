@@ -1,0 +1,41 @@
+#205605 - Dancing Girl of Eternity, Shizuka Gozen
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205605
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14701:83) Hate... Hate, hate, hate! + Uuuuugh! + Quavering Drums - Tempest
+ | Void damage >= 2,000,000 for 3 turns + Do nothing + Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (14695:15) Slicing Wind
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | (14696:92) Torrential Rain
+     | Spawn 6 random Dark orbs, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (14697:63) Vortex Drop
+     | Bind 1 random sub for 2~3 turns, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (14698:15) Ravaging Wind
+     | Deal 120% damage (10 hits, 12% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (14699:77) Waterfall Cascade
+     | Change the 1st, 3rd, and 5th columns to Dark orbs, Deal 115% damage
+ | group:
+ | condition: hp <= 19
+   | condition: 50% chance, at most 3 times
+   | (14706:79) Quavering Drums - Vengeful Arrow
+   | Change the 3rd row to Dark orbs, Deal 300% damage
+   | (14705:77) Soul Storm of Enmity
+   | Change the 3rd and 4th columns to Dark orbs, Deal 250% damage

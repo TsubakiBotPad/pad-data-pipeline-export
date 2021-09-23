@@ -1,0 +1,62 @@
+#6567 - Yahaba & Susamaru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDebuffMovetime(39:20028) -> How will we kill them?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -2s for 5 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESOrbSealColumn(99:20032) -> Blood Demon Art: Koketsu Arrow
+Seal the 1st column for 3 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESRandomSpawn(92:20029) -> Brutally of course!
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Fire orbs, Deal 80% damage
+
+#11: ESAttackMultihit(15:20030) -> You stay away from me!
+Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:20037) -> Kya haha!
+	Voids status ailments for 999 turns
+	[1] ESColumnSpawnMulti(76:20034) -> Isn't this fun?
+	Change the 1st column to Fire orbs
+	[2] ESColumnSpawnMulti(76:20035) -> What fun this is!
+	Change the 6th column to Dark orbs
+
+#14: ESRandomSpawn(92:20036) -> Mari Balls
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 2 random Fire and Dark orbs, Deal 100% damage
+
+#15: ESAttackMultihit(15:20038) -> Now then, let's keep playing.
+Deal 110% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,27 @@
+#1502 - Fire Dragon Swordsman
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1502
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18579:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18583:97) Fire Dragon's Scale
+ | Blind random 10 orbs for 3 turns
+ group:
+ | group:
+   | (18584:15) Dragon Strike Sword
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 1
+   | (18585:50) Dragon Strike Fireblade
+   | Player -150% HP
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (18580:83) Dragon Strike Stance + Dragon Swordsman's Resolve
+ | Absorb damage when combos <= 7 for 999 turns + Increase damage to 300% for the next 999 turns

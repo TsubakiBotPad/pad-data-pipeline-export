@@ -1,0 +1,38 @@
+#2328 - Misato&AAA Wunder, Main Battery Gunfire
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESGravity(50:18287) -> Emergency Launch!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Player -75% HP
+
+#3: ESDamageShield(74:18288) -> A.T. field at maximum strength!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 10 turns
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAttackUPRemainingEnemies(17:18289) -> All main guns, ready salvo!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESRowSpawnMulti(79:18290) -> Fire!
+Change the 2nd row to Fire orbs and the 4th row to Fire orbs, Deal 90% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

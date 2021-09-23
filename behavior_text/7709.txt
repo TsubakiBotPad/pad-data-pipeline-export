@@ -1,0 +1,26 @@
+#7709 - ヒュンケル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7709
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (28064:87) 生命をかけて挑んで来い!!
+ | Absorb damage when damage >= 10,000,000 for 3 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | (28008:6) オレをなめているのか？
+   | Voids player buff effects
+   | (28009:92) 覚悟しろ！
+   | Spawn 5 random Dark and Jammer orbs
+ | group:
+ | condition: turn 3
+   | (28010:17) 終わりだ
+   | Increase damage to 150% for the next 999 turns
+ | group:
+   | (28011:77) ブラッディ―スクライド―――ッ!!!
+   | Change the 1st column to Dark orbs and the 6th column to Dark orbs, Deal 100% damage

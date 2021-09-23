@@ -1,0 +1,77 @@
+#2878 - Gleaming Rabbit Dragon, Fragrem
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2878
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4220:73) Dragonbound's Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (4506:72) Dark Halven
+ | Reduce damage from Dark attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (4220:73) Dragonbound's Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (4506:72) Dark Halven
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (4491:83) Tell me your wish! + Shine Flare Ring
+ | Voids status ailments for 5 turns + Change all orbs to Fire, Light, and Heal, Deal 130% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2440, 2441 on team
+     | (4493:14) Your friends are so important?
+     | Bind active skills for 3 turns
+     | (4494:14) Brightness Blink
+     | Bind active skills for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4495:74) Leap
+     | Reduce damage from all sources by 50% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 30% chance
+     | (4498:15) Shining Claw
+     | Deal 185% damage (5 hits, 37% each)
+     | condition: 50% chance
+     | (4496:77) Orange Light's Judging Spirit
+     | Change the 5th column to Light orbs and the 6th column to Fire orbs, Deal 170% damage
+     | (4497:92) Brightness Guidance
+     | Spawn 8 random Light orbs, Deal 170% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4501:83) Gleaming Rabbit Dragon's Trial + Flower Piercing Light
+     | Absorb Light damage for 1 turn + Change the 2nd and 5th columns to Light orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4503:74) Big Jump
+     | Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 30% chance
+     | (4498:15) Shining Claw
+     | Deal 185% damage (5 hits, 37% each)
+     | condition: 50% chance
+     | (4496:77) Orange Light's Judging Spirit
+     | Change the 5th column to Light orbs and the 6th column to Fire orbs, Deal 170% damage
+     | (4497:92) Brightness Guidance
+     | Spawn 8 random Light orbs, Deal 170% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4504:83) Overcoming Will + Big Jump
+     | Enemy recover 19% HP + Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4505:83) Shining Claw + Shine Flare Ring
+     | Deal 185% damage (5 hits, 37% each) + Change all orbs to Fire, Light, and Heal, Deal 185% damage (5 hits, 37% each)

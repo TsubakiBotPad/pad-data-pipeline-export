@@ -1,0 +1,52 @@
+#101207 - Alt. 5 Mechdragon Combo, Demon Hadar
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101207
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7621:72) Hadar Halved
+ | Reduce damage from Fire and Dark attrs by 50%
+
+level: 3
+ type: PASSIVE
+ | (7621:72) Hadar Halved
+ | Reduce damage from Fire and Dark attrs by 50%
+ type: PREEMPT
+ | (7619:83) Barrier Field + Demon Cyclone
+ | Voids status ailments for 999 turns + RCV 50% for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (955:64) Genocide Missile Type 0
+     | Change 6 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | (954:15) Improved Endless Noble Claws
+     | Deal 150~175% damage (6~7 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (953:62) Dark Cyclone Blast
+     | Blind all orbs on the board, Deal 125% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (951:15) High Megiddo Cannon
+     | Deal 200% damage (2 hits, 100% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (952:63) Freezing Crusher
+     | Bind 4 random subs for 2 turns, Deal 75% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (957:66) Limiter Off
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (956:15) Ultimate Stream
+     | Deal 900% damage (3 hits, 300% each)

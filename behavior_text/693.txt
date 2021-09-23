@@ -1,0 +1,36 @@
+#693 - Noble Wolf King Hero, Cu Chulainn
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 693
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (460:55) Fight me with all your strength!
+ | Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 70% chance
+     | (448:15) Whirlwind Barrage
+     | Deal 100~150% damage (4~6 hits, 25% each)
+   | group:
+     | condition: 30% chance
+     | (447:48) Wolf Attack
+     | Change a random attribute to Jammer orbs, Deal 70% damage
+     | condition: 70% chance
+     | (448:15) Whirlwind Barrage
+     | Deal 100~150% damage (4~6 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (450:15) Finale
+     | Deal 125% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (449:50) Pitch Black Assassin's Dagger
+     | Player -99% HP

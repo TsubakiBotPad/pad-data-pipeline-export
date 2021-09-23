@@ -1,0 +1,79 @@
+#2891 - Light Guiding Star Machine, Orpharion
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:5853) -> My name is Orpharion!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:5854) -> Paradiso Puma
+	Absorb damage when combos <= 6 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 16
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#8: ESOrbSealRow(100:5856) -> Sopra Perdere
+Condition: 20% chance (ai:0 rnd:20)
+Seal the 1st row for 1 turn, Deal 100% damage
+
+#9: ESBlindStickyRandom(97:5857) -> Oscurità Alcuni
+Condition: 20% chance (ai:0 rnd:20)
+Blind random 4~10 orbs for 1 turn, Deal 100% damage
+
+#10: ESOrbLock(94:5858) -> Chiave a Spina
+Condition: 20% chance (ai:0 rnd:20)
+Lock 11 random orbs, Deal 100% damage
+
+#11: ESBindAttack(63:5859) -> Anestesia Spada
+Condition: 20% chance (ai:0 rnd:20)
+Bind 1 random card for 2 turns, Deal 100% damage
+
+#12: ESBindAwoken(88:5860) -> Nessuno Spazio
+Condition: 20% chance (ai:0 rnd:20)
+Bind awoken skills for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESDispel(6:5862) -> Angelo Lacrima
+	Voids player buff effects
+	[1] ESAttackMultihit(15:5863) -> Innumerevoli Ferite
+	Deal 5,000% damage (10 hits, 500% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESSkillDelay(89:5861) -> Disperazione
+Delay active skills by 99 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:5865) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#21: ESAttributeResist(72:5866) -> Dark Halved
+Reduce damage from Dark attrs by 50%

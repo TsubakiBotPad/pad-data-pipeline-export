@@ -1,0 +1,27 @@
+#4193 - Water Scroll Dragon
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4193
+approved: False
+
+level: 4
+ group:
+ | group:
+   | condition: 50% chance
+   | (9187:50) Gyah!
+   | Player -50% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (9188:100) Gyoooun!
+     | Seal the 1st row for 2 turns
+   | group:
+     | condition: 50% chance
+     | (9189:15) Grrroarrr!
+     | Deal 135% damage (3 hits, 45% each)
+     | condition: 50% chance
+     | (9187:50) Gyah!
+     | Player -50% HP

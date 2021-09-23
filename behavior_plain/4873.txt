@@ -1,0 +1,31 @@
+#4873 - Silica
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealRow(100:16441) -> I'm going to do my best too!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 5th row for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 7
+
+#4: ESOrbChangeAttack(48:16442) -> Hyaaaaaaa!
+Condition: 50% chance (ai:50 rnd:0)
+Change all Dark orbs to Water orbs, Deal 90% damage
+
+#5: ESAttackMultihit(15:16443) -> Ha!
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESColumnSpawnMulti(76:16444) -> Pina! Bubble Breath Attack!
+Change the 4th column to Water orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

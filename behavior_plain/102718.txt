@@ -1,0 +1,124 @@
+#102718 - Alt. Original Goddess, Gaia Dragon
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:8752) -> Antivirus
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:8753) -> Gigantic Body
+	Reduce damage from all sources by 75% for 7 turns
+	[2] ESVoidShield(71:8754) -> Energy Calm
+	Void damage >= 20,000,000 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRandomSpawn(92:2972) -> The huge body started to move
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Spawn 3 random Jammer orbs
+
+#7: ESStorePower(8:2973) -> It raises its arm
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Increase damage to 690% for the next attack
+
+#8: ESRandomSpawn(92:2974) -> It rearranges its posture
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Spawn 3 random Jammer orbs
+
+#9: ESStorePower(8:2975) -> It raises its arm again
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Increase damage to 690% for the next attack
+
+#10: ESBlind5(5:2976) -> It opens its mouth
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 21
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 20
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 1)
+	[0] ESColumnSpawnMulti(77:2977) -> Gaia Beam
+	Change the 3rd and 4th columns to Wood orbs, Deal 450% damage
+	[1] ESAbsorbAttribute(53:2985) -> Inhale
+	Absorb Fire and Water damage for 3 turns
+
+#15: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 1)
+	[0] ESColumnSpawnMulti(77:2977) -> Gaia Beam
+	Change the 3rd and 4th columns to Wood orbs, Deal 450% damage
+	[1] ESAbsorbAttribute(53:2986) -> Inhale
+	Absorb Water and Wood damage for 3 turns
+
+#16: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 1)
+	[0] ESColumnSpawnMulti(77:2977) -> Gaia Beam
+	Change the 3rd and 4th columns to Wood orbs, Deal 450% damage
+	[1] ESAbsorbAttribute(53:2987) -> Inhale
+	Absorb Wood and Light damage for 3 turns
+
+#17: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 1)
+	[0] ESColumnSpawnMulti(77:2977) -> Gaia Beam
+	Change the 3rd and 4th columns to Wood orbs, Deal 450% damage
+	[1] ESAbsorbAttribute(53:2988) -> Inhale
+	Absorb Light and Dark damage for 3 turns
+
+#18: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 1)
+	[0] ESColumnSpawnMulti(77:2977) -> Gaia Beam
+	Change the 3rd and 4th columns to Wood orbs, Deal 450% damage
+	[1] ESAbsorbAttribute(53:2989) -> Inhale
+	Absorb Fire and Dark damage for 3 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSkillDelay(89:2979) -> Skill Break
+Delay active skills by 3~5 turns, Deal 260% damage
+
+#21: ESGravity(50:2978) -> Grand Ray
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -500% HP
+
+#22: ESGravity(50:2984) -> Grand Ray
+Condition: When < 20% HP (ai:100 rnd:0)
+Player -500% HP
+
+#23: ESRecoverEnemy86(86:2982) -> Cell Mending
+Condition: 50% chance when < 30% HP (ai:50 rnd:0)
+Enemy recover 10% HP, Deal 420% damage
+
+#24: ESBindAttack(63:2983) -> Great Vine
+Condition: When < 30% HP (ai:100 rnd:0)
+Bind 1 random card for 5 turns, Deal 410% damage
+
+#25: ESOrbLock(94:2980) -> Hardened Sign
+Condition: 50% chance (ai:50 rnd:0)
+Lock 6 random orbs, Deal 340% damage
+
+#26: ESBlind62(62:2981) -> Earth's Mantle Press
+Blind all orbs on the board, Deal 360% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttributeResist(72:8804) -> GaiaDra Wood Halved
+Reduce damage from Wood attrs by 50%

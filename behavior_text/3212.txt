@@ -1,0 +1,26 @@
+#3212 - Fire Imp
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3212
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5709:94) Burning!
+ | Lock 8 random orbs
+ group:
+ condition: execute repeatedly, turn 1 of 2, hp <= 100
+ | (5712:62) Smoking Biwa
+ | Blind all orbs on the board, Deal 40% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (5710:17) Demon Solo
+   | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | (5711:68) Resonating Fire
+   | Fire skyfall +15% for 10 turns, Deal 50% damage

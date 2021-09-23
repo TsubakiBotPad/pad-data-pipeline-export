@@ -1,0 +1,40 @@
+#7504 - 釘崎野薔薇
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:26674) -> If you won't come out...
+	Do nothing
+	[1] ESGravity(50:26675) -> ...I'll just exorcise you.
+	Player -75% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: SkillSet:
+	[0] ESOrbLock(94:26677) -> You might want to pull those out...
+	Lock 2 random orbs
+	[1] ESBoardChangeAttackBits(85:26678) -> Or my cursed energy will flow into you.
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:26680) -> I don't think so!
+	Bind awoken skills for 1 turn
+	[1] ESOrbChangeAttack(48:26681) -> Hairpin
+	Change a random attribute to Water orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:26682) -> Resonance
+Deal 250% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

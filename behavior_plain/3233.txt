@@ -1,0 +1,141 @@
+#3233 - Morning Sun Dragon Caller, Kanna
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 7
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:7030) -> Barrier Charm
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:7031) -> Heavenly Mirror Scales
+	Absorb damage when damage >= 6,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESBindAwoken(88:7060) -> Light Mist
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:7061) -> Light
+	Change all orbs to Light, Deal 6,000% damage
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: SkillSet:
+	Condition: One-time use (ai:0 rnd:17) (cost: 5)
+	[0] ESAbsorbAttribute(53:7037) -> Thousand-Seal Prison
+	Absorb Dark damage for 2 turns
+	[1] ESBindAttack(63:7039) -> Silk Chains
+	Bind 1 random card for 2 turns, Deal 260% damage
+
+#10: SkillSet:
+	Condition: One-time use (ai:0 rnd:17) (cost: 4)
+	[0] ESAbsorbAttribute(53:7036) -> Thousand-Seal Prison
+	Absorb Light damage for 2 turns
+	[1] ESBindAttack(63:7039) -> Silk Chains
+	Bind 1 random card for 2 turns, Deal 260% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:0 rnd:17) (cost: 3)
+	[0] ESAbsorbAttribute(53:7035) -> Thousand-Seal Prison
+	Absorb Wood damage for 2 turns
+	[1] ESBindAttack(63:7039) -> Silk Chains
+	Bind 1 random card for 2 turns, Deal 260% damage
+
+#12: SkillSet:
+	Condition: One-time use (ai:0 rnd:17) (cost: 2)
+	[0] ESAbsorbAttribute(53:7034) -> Thousand-Seal Prison
+	Absorb Water damage for 2 turns
+	[1] ESBindAttack(63:7039) -> Silk Chains
+	Bind 1 random card for 2 turns, Deal 260% damage
+
+#13: SkillSet:
+	Condition: One-time use (ai:0 rnd:17) (cost: 1)
+	[0] ESAbsorbAttribute(53:7033) -> Thousand-Seal Prison
+	Absorb Fire damage for 2 turns
+	[1] ESBindAttack(63:7039) -> Silk Chains
+	Bind 1 random card for 2 turns, Deal 260% damage
+
+#14: SkillSet:
+	Condition: One-time use (ai:0 rnd:15) (cost: 6)
+	[0] ESDebuffRCV(105:7038) -> Disturbed Forest
+	RCV 50% for 2 turns
+	[1] ESBindAttack(63:7039) -> Silk Chains
+	Bind 1 random card for 2 turns, Deal 260% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 25
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 6)
+	[0] ESOrbLock(94:7046) -> Fire Beacon
+	Lock all Fire orbs
+	[1] ESAttackMultihit(15:7051) -> Glistening Sword
+	Deal 300% damage (2 hits, 150% each)
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 5)
+	[0] ESOrbLock(94:7047) -> Water Beacon
+	Lock all Water orbs
+	[1] ESAttackMultihit(15:7051) -> Glistening Sword
+	Deal 300% damage (2 hits, 150% each)
+
+#20: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESOrbLock(94:7048) -> Wood Beacon
+	Lock all Wood orbs
+	[1] ESAttackMultihit(15:7051) -> Glistening Sword
+	Deal 300% damage (2 hits, 150% each)
+
+#21: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESOrbLock(94:7049) -> Light Beacon
+	Lock all Light orbs
+	[1] ESAttackMultihit(15:7051) -> Glistening Sword
+	Deal 300% damage (2 hits, 150% each)
+
+#22: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESOrbLock(94:7050) -> Dark Beacon
+	Lock all Dark orbs
+	[1] ESAttackMultihit(15:7051) -> Glistening Sword
+	Deal 300% damage (2 hits, 150% each)
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:7052) -> Sky Dragon's Tears
+	Spawn 3 random Heal orbs
+	[1] ESGravity(50:7053) -> Vulnerable Scent
+	Player -99% HP
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#26: ESBlind62(62:7088) -> Lightraider Amulet
+Blind all orbs on the board, Deal 250% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn

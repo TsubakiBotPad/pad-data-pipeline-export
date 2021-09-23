@@ -1,0 +1,28 @@
+#7064 - Pixel Sagat
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:22988) -> I will win, no matter how many new scars I gain along the way!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESAbsorbCombo(67:22989) -> Tiger Carry
+	Absorb damage when combos <= 6 for 999 turns
+	[2] ESRowSpawnMulti(79:22990) -> Tiger Shot
+	Change the 1st row to Fire orbs, Deal 100% damage
+	[3] ESRandomSpawn(92:22991) -> Tiger Knee Crush
+	Spawn 4 random Water, Wood, Light, Dark, and Heal orbs
+
+#3: SkillSet:
+	[0] ESRowSpawnMulti(79:22993) -> Tiger Shot
+	Change the 1st row to Fire orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:22994) -> Tiger Knee Crush
+	Spawn 4 random Water, Wood, Light, Dark, and Heal orbs
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn

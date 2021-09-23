@@ -1,0 +1,38 @@
+#100091 - Alt. Siren
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRandomSpawn(92:5663) -> Guard Stance-Water
+Condition: When fire orbs are on the board (ai:100 rnd:0)
+Change all Fire orbs to Heal orbs
+
+#5: ESBindAttack(63:5668) -> The Sound of Confinement
+Bind 1 random sub for 2 turns, Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESColumnSpawnMulti(76:5665) -> Noise Affliction
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 6th column to Poison orbs
+
+#8: ESBindAttack(63:5668) -> The Sound of Confinement
+Condition: 50% chance (ai:50 rnd:0)
+Bind 1 random sub for 2 turns, Deal 80% damage
+
+#9: ESRandomSpawn(92:5667) -> Sparkling Voice
+Spawn 1 random Water orb, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

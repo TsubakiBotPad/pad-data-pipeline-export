@@ -1,0 +1,114 @@
+#3804 - Yiazmat
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShield(71:7733) -> Safety
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESStatusShield(20:7717) -> Shell
+	Voids status ailments for 999 turns
+	[2] ESAbsorbAttribute(53:7718) -> Holy Absorb
+	Absorb Light damage for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPRemainingEnemies(17:7720) -> Growing Threat
+Condition: When < 10% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#7: ESDamageShield(74:7721) -> Protect
+Condition: When < 50% HP (ai:100 rnd:0)
+Reduce damage from all sources by 50% for 20 turns
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 28
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 18
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESAttackMultihit(15:7722) -> Rake
+Condition: 20% chance (ai:0 rnd:20)
+Deal 180% damage
+
+#12: ESBindAwoken(88:7723) -> White Breath
+Condition: 15% chance (ai:0 rnd:15)
+Bind awoken skills for 1 turn, Deal 240% damage
+
+#13: ESBindAttack(63:7724) -> Stone Breath
+Condition: 15% chance (ai:0 rnd:15)
+Bind 1 random card for 3~5 turns, Deal 210% damage
+
+#14: ESAttackMultihit(15:7725) -> Combo Attack
+Condition: 20% chance (ai:0 rnd:20)
+Deal 200% damage (2 hits, 100% each)
+
+#15: ESAttackMultihit(15:7726) -> Combo Attack
+Condition: 20% chance (ai:0 rnd:20)
+Deal 300% damage (3 hits, 100% each)
+
+#16: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 10% chance (ai:0 rnd:10)
+Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 22
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: ESSkyfall(68:7727) -> Cyclone
+Poison skyfall +5% for 99 turns, Deal 240% damage
+
+#21: ESAttackMultihit(15:7728) -> Cyclone
+Deal 240% damage
+
+#22: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 26
+
+#23: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#24: ESAttackMultihit(15:7729) -> Death Strike
+Condition: 10% chance (ai:10 rnd:0)
+Deal 700% damage
+
+#25: ESAttackMultihit(15:7730) -> Combo Attack
+Deal 350~450% damage (7~9 hits, 50% each)
+
+#26: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#27: ESAttackMultihit(15:7728) -> Cyclone
+Deal 240% damage
+
+#28: ESSkyfall(68:7727) -> Cyclone
+Poison skyfall +5% for 99 turns, Deal 240% damage
+
+#29: ESAttackMultihit(15:7731) -> Cyclone
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 240% damage
+
+#30: ESAttackMultihit(15:7729) -> Death Strike
+Condition: 20% chance (ai:20 rnd:0)
+Deal 700% damage
+
+#31: ESAttackMultihit(15:7732) -> Combo Attack
+Deal 350~600% damage (7~12 hits, 50% each)

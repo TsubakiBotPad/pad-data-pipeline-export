@@ -1,0 +1,41 @@
+#102405 - Alt. Master Candy Collector, Wicked Lady
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlind5(5:11394) -> Halloween World
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board
+
+#3: ESRandomSpawn(92:11395) -> Hi♪ Want some sweets?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 4 random Mortal Poison orbs
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESAttackMultihit(15:11396) -> Candle Nails
+Condition: 50% chance (ai:50 rnd:0)
+Deal 110% damage (2 hits, 55% each)
+
+#6: ESRandomSpawn(92:11398) -> Sweet Wink
+Spawn 9 random Poison orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESBindRandomSub(65:11397) -> Pumpkin Charm
+Bind 4 random subs for 2~3 turns, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

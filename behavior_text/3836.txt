@@ -1,0 +1,45 @@
+#3836 - Water Warchief Dragon, Senshu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3836
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7905:83) Water Orb Eyes + Flowing Hydro Cannon
+ | Absorb Water damage for 5 turns + Lock all Water orbs, Deal 70% damage
+ group:
+ | group:
+   | condition: 70% chance
+   | (7907:108) Gust of Wind
+   | Change all Wood orbs to Water orbs, Deal 70% damage
+   | (7906:62) Silent Sand
+   | Blind all orbs on the board, Deal 70% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (7910:83) Clearwater Reflection + Vitality Pulse
+   | Absorb damage when damage >= 1,000,000 for 10 turns + Wood skyfall +25% for 10 turns
+ | group:
+ | condition: hp <= 39
+   | (7915:83) Ripple + Copious Dragon Fangs
+   | Reduce damage from all sources by 35% for 1 turn + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | (7916:83) Ripple + Copious Dragon Fangs
+   | Reduce damage from all sources by 50% for 1 turn + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 19
+   | (7917:83) Ripple + Copious Dragon Fangs
+   | Reduce damage from all sources by 75% for 1 turn + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (7918:39) Open Ocean
+     | Movetime 25% for 1 turn, Deal 250% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (7917:83) Ripple + Copious Dragon Fangs
+     | Reduce damage from all sources by 75% for 1 turn + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)

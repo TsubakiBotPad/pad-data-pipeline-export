@@ -1,0 +1,69 @@
+#1100 - Sea God's Songstress, Siren
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESGravity(50:1086) -> Abyssal Pressure
+Player -99% HP
+
+#5: ESNone(0:0) -> ESNone
+nothing
+
+#6: ESBindAttribute(2:1076) -> Voice of Misfortune
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind Wood cards for 2~3 turns
+
+#7: ESNone(0:0) -> ESNone
+nothing
+
+#8: ESNone(0:0) -> ESNone
+nothing
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESAttackMultihit(15:1077) -> Song of Destruction
+Deal 50% damage
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESAttackMultihit(15:1078) -> Song of Destruction
+Deal 100% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESAttackMultihit(15:1079) -> Song of Destruction
+Deal 200% damage
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 21
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11110
+
+#21: ESAttackMultihit(15:1080) -> Song of Destruction
+Deal 800% damage

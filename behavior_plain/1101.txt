@@ -1,0 +1,31 @@
+#1101 - World Tree Sprite, Alraune
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRecoverPlayer(55:921) -> Song of Rest
+Player recover 100% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindRandomSub(65:923) -> Lullaby
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 4 random subs for 2~4 turns
+
+#7: ESAttackMultihit(15:945) -> Flower Storm
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 150% damage (3 hits, 50% each)
+
+#8: ESOrbChangeAttack(48:922) -> Guardian of the World Tree
+Change all Heal orbs to Wood orbs, Deal 80% damage

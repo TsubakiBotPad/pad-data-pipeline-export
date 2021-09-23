@@ -1,0 +1,52 @@
+#1734 - Green Star Vanquishing Deity, Perseus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1734
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (13154:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (13155:83) Leaping Sword Technique + Evil Destroying Sword Slash
+ | Absorb damage when combos <= 7 for 10 turns + Bind Dark cards for 10 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (13161:77) Evil Vanquishing Sword
+   | Change the 1st and 6th columns to Wood orbs, Deal 95% damage
+   | condition: 25% chance
+   | (13162:89) Phantom Sword
+   | Delay active skills by 0~2 turns, Deal 100% damage
+   | condition: 25% chance
+   | (13163:94) Constraining Sword
+   | Lock 10 random orbs, Deal 105% damage
+   | condition: 25% chance
+   | (13164:15) Perfect Strike Sword
+   | Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 74
+   | (13158:83) Evil Vanquishing Shield + Talented Man's Sword
+   | Voids status ailments for 999 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (13165:39) Constraining Martial Art
+     | Movetime 25% for 1 turn
+   | group:
+     | (13166:15) Hero's Sword
+     | Deal 420% damage (6 hits, 70% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (13167:83) Unbreakable Will + Sacred Treasures' Protection
+     | Enemy recover 75% HP + Reduce damage from all sources by 75% for 10 turns
+   | group:
+   | condition: turn 2
+     | (13165:39) Constraining Martial Art
+     | Movetime 25% for 1 turn

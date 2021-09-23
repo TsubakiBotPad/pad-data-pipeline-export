@@ -1,0 +1,31 @@
+#6674 - Ghostly Goldfish-Girl, Usui
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6674
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (20661:85) Source of Life
+ | Change all orbs to Fire and Water, Deal 80% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (20662:68) Bubble Dance
+   | Water skyfall +15% for 5 turns, Deal 100% damage
+   | condition: 33% chance
+   | (20663:92) Beat of Life
+   | Spawn 5 random Fire orbs, Deal 95% damage
+   | condition: 34% chance
+   | (20664:15) Pulsing Current
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (20665:83) Source of Life + Path to Life
+   | Change all orbs to Fire and Water + Seal the 1st row for 5 turns, Deal 80% damage
+ | group:
+ | condition: hp <= 9
+   | (20667:15) Lost Soul
+   | Deal 300% damage (3 hits, 100% each)

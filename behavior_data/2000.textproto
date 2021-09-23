@@ -1,0 +1,40 @@
+  monster_id: 2000
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        behavior {
+          enemy_skill_id: 485
+        }
+      }
+    }
+    groups {
+      group_type: REMAINING
+      condition {
+        hp_threshold: 100
+        trigger_enemies_remaining: 2
+      }
+      children {
+        behavior {
+          enemy_skill_id: 2010
+        }
+      }
+    }
+    groups {
+      group_type: REMAINING
+      condition {
+        hp_threshold: 100
+        trigger_enemies_remaining: 1
+        trigger_turn: 1
+      }
+      children {
+        behavior {
+          enemy_skill_id: 6526
+        }
+      }
+    }
+  }

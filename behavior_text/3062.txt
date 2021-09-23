@@ -1,0 +1,79 @@
+#3062 - Destruction Blade Mechanical Star God, Castor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3062
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26188:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ | (26121:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (26173:83) The stars are so pretty! + Hey! Did you make a wish?!
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (26184:83) Mechanical Star God's Defense + Astrocharge - Dark
+     | Reduce damage from all sources by 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26186:83) Mechanical Star God's Vigor + Astrocharge - Dark
+     | Spawn 9 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 7 while HP > 19
+     | (26105:83) Sudden Change of Weather + Tearful Rain of Sadness
+     | No skyfall for 7 turns + For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+   | group:
+     | condition: 50% chance
+     | (26184:83) Mechanical Star God's Defense + Astrocharge - Dark
+     | Reduce damage from all sources by 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26186:83) Mechanical Star God's Vigor + Astrocharge - Dark
+     | Spawn 9 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (26177:83) Mechanical Demolition Star of Gemini + Milky Way's Miracle
+     | Specific orbs change every 1.0s for 7 turns + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (26179:83) Mechanical Dark Star of Gemini + Astrocharge - Dark
+     | Change the 3rd row to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (26182:83) Mechanical Destruction Star of Gemini + Astrocharge - Dark
+     | Change the 3rd column to Light orbs and the 4th column to Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (26179:83) Mechanical Dark Star of Gemini + Astrocharge - Dark
+     | Change the 3rd row to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 5 while HP > 19
+     | (26182:83) Mechanical Destruction Star of Gemini + Astrocharge - Dark
+     | Change the 3rd column to Light orbs and the 4th column to Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 6 while HP > 19
+     | (26179:83) Mechanical Dark Star of Gemini + Astrocharge - Dark
+     | Change the 3rd row to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26179:83) Mechanical Dark Star of Gemini + Astrocharge - Dark
+     | Change the 3rd row to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26182:83) Mechanical Destruction Star of Gemini + Astrocharge - Dark
+     | Change the 3rd column to Light orbs and the 4th column to Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26103:66) They gaze at the stars
+     | Do nothing
+   | group:
+     | (26176:15) Cosmic Charge - Dark
+     | Deal 2,100% damage (7 hits, 300% each)

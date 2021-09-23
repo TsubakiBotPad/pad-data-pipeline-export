@@ -1,0 +1,29 @@
+#4035 - Lust
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4035
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8482:20) I thought we had something.
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (8483:48) Too slow!
+   | Change a random attribute to Water orbs, Deal 100% damage
+ | group:
+   | condition: 40% chance
+   | (8487:15) Ultimate Spear
+   | Deal 120% damage
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (8486:83) It's pointless! + It'll take more than that to kill me!
+   | Do nothing + Enemy recover 50% HP
+ | group:
+ | condition: turn 3, hp <= 19
+   | (8488:17) AAAAAAAAH!!!
+   | Increase damage to 150% for the next 999 turns

@@ -1,0 +1,53 @@
+#6299 - 「ワン・フォー・オール」緑谷出久
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:18480) -> Leave it to me!
+	Movetime 50% for 5 turns
+	[1] ESSpinnersRandom(109:18481) -> Full Cowl: Shoot Style
+	Random 3 orbs change every 1.5s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESLeaderSwap(75:18482) -> I won't let you!!
+Leader changes to random sub for 1 turn, Deal 80% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESOrbChangeAttack(48:18484) -> SMASH
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#10: ESAttackMultihit(15:18483) -> One For All 20%
+Deal 110% damage (2 hits, 55% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESDamageShield(74:18485) -> If you want to fight...l won't hold back!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 5 turns
+
+#13: ESRandomSpawn(92:18486) -> Manchester Smash
+Spawn 5 random Fire and Wood orbs, Deal 120% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

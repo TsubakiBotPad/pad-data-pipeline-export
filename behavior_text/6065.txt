@@ -1,0 +1,52 @@
+#6065 - Shigeshige Tokugawa
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 6065
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (16921:89) Lower your weapons.
+   | Delay active skills by 2 turns
+ | group:
+   | condition: 30% chance
+   | (16922:1) We've wasted too much time fighting. 
+   | Bind 2 random cards for 3 turns, Deal 95% damage
+   | (16923:15) Clear a path.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16924:17) I order you as shogun. 
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16925:15) Take out the rebels.
+     | Deal 150% damage
+
+level: 4
+ type: PREEMPT
+ | (16921:89) Lower your weapons.
+ | Delay active skills by 2 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (16922:1) We've wasted too much time fighting. 
+   | Bind 2 random cards for 3 turns, Deal 95% damage
+   | (16923:15) Clear a path.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16924:17) I order you as shogun. 
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16925:15) Take out the rebels.
+     | Deal 150% damage

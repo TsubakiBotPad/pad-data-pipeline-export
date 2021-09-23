@@ -1,0 +1,40 @@
+#4096 - Andy Bogard
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:19665) -> Hmph...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock 10 random orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESColumnSpawnMulti(77:19668) -> Genei Shiranui
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd column to Water orbs, Deal 95% damage
+
+#5: ESOrbLock(94:19667) -> Yah!
+Condition: 33% chance (ai:0 rnd:33)
+Lock 5 random orbs, Deal 98% damage
+
+#6: ESAttackMultihit(15:19666) -> Zan-ei Ken
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESOrbSealColumn(99:19669) -> A fight is decided in a flash!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 1st column for 5 turns
+
+#9: ESRowSpawnMulti(79:19670) -> Hishou Ryusei Ken
+Change the 3rd row to Light orbs, Deal 120% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

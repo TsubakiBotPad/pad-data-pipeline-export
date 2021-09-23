@@ -1,0 +1,79 @@
+#4242 - Awoken Antares
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4242
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26120:72) Water Halved
+ | Reduce damage from Water attrs by 50%
+ | (26220:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (26100:83) The stars are so beautiful... + Did you make your wish?
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 8 for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (26116:83) Mechanical Star God's Shackles + Astrocharge - Flare
+     | Seal the 1st row for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26118:83) Mechanical Burning Star of Scorpius + Astrocharge - Flare
+     | Player -99% HP + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 7 while HP > 19
+     | (26105:83) Sudden Change of Weather + Tearful Rain of Sadness
+     | No skyfall for 7 turns + For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+   | group:
+     | condition: 50% chance
+     | (26116:83) Mechanical Star God's Shackles + Astrocharge - Flare
+     | Seal the 1st row for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26118:83) Mechanical Burning Star of Scorpius + Astrocharge - Flare
+     | Player -99% HP + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (26108:83) Mechanical Chaos Star of Scorpius + Milky Way's Miracle
+     | Movetime 50% for 7 turns + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (26111:83) Mechanical Star God's Tactics + Astrocharge - Flare
+     | A 3×3 square of clouds appears for 1 turn at a random location + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (26114:83) Mechanical Flame Star of Scorpius + Astrocharge - Flare
+     | RCV 25% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (26111:83) Mechanical Star God's Tactics + Astrocharge - Flare
+     | A 3×3 square of clouds appears for 1 turn at a random location + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 5 while HP > 19
+     | (26114:83) Mechanical Flame Star of Scorpius + Astrocharge - Flare
+     | RCV 25% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 6 while HP > 19
+     | (26111:83) Mechanical Star God's Tactics + Astrocharge - Flare
+     | A 3×3 square of clouds appears for 1 turn at a random location + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26111:83) Mechanical Star God's Tactics + Astrocharge - Flare
+     | A 3×3 square of clouds appears for 1 turn at a random location + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26114:83) Mechanical Flame Star of Scorpius + Astrocharge - Flare
+     | RCV 25% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26103:66) They gaze at the stars
+     | Do nothing
+   | group:
+     | (26104:15) Cosmic Charge - Flare
+     | Deal 2,100% damage (7 hits, 300% each)

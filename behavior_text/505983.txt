@@ -1,0 +1,33 @@
+#505983 - Chthonic Conquering Dragon Assassin, Shivnia
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 505983
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23358:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23359:83) Go, Shamli. + Yeah, alright.
+ | No skyfall for 3 turns + Void damage >= 1,000,000 for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (23362:83) Kekeke, let's get 'em! + Quiet down, Shamli.
+     | Spawn 7 random Water, Light, Dark, and Heal orbs + Deal 100% damage, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (23368:83) Jeez, what a drag! + It is a bit...
+     | Spawn 10 random Water, Light, and Dark orbs + Deal 102% damage (2 hits, 51% each), Deal 102% damage (2 hits, 51% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (23371:83) Pretty good, ain't they! + Yeah, not bad...
+   | Increase damage to 150% for the next 999 turns + RCV 50% for 3 turns
+ | group:
+ | condition: turn 2, hp <= 24
+   | (23374:83) We're in trouble here! + Looks like it...
+   | Reduce damage from all sources by 50% for 3 turns + Blind all orbs on the board, Deal 100% damage

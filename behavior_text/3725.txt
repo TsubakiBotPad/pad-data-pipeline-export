@@ -1,0 +1,113 @@
+#3725 - Dark Orb Dragon, Eyro
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 3725
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7701:83) Black Smokescreen + Timed Explosion
+ | Blind orbs in specific positions for 1 turn + Spawn 6 random locked Bomb orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | (7704:83) Darkened Scale Armor + Usurper's Divine Protection
+     | Reduce damage from all sources by 75% for 4 turns + Locked random skyfall +25% for 7 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (7710:108) Anarchy
+     | Change all Jammer orbs to Poison orbs, Deal 150% damage
+     | (7709:64) Anarchy
+     | Change 4 random orbs to Poison orbs, Deal 110% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (7711:108) Gnawing Fangs
+     | Change all Poison orbs to Jammer orbs, Deal 130% damage
+     | (7712:108) Gnawing Fangs
+     | Change all Heal orbs to Jammer orbs, Deal 130% damage
+     | (7713:94) Black Tempered Bow
+     | Lock all Jammer orbs, Deal 100% damage
+     | (7714:50) Black Tempered Bow
+     | Player -90% HP
+   | group:
+   | condition: turn 4 while HP > 19
+     | (7710:108) Anarchy
+     | Change all Jammer orbs to Poison orbs, Deal 150% damage
+     | (7709:64) Anarchy
+     | Change 4 random orbs to Poison orbs, Deal 110% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (7707:17) Resentful Stare
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 8
+     | (7711:108) Gnawing Fangs
+     | Change all Poison orbs to Jammer orbs, Deal 130% damage
+     | (7712:108) Gnawing Fangs
+     | Change all Heal orbs to Jammer orbs, Deal 130% damage
+     | (7713:94) Black Tempered Bow
+     | Lock all Jammer orbs, Deal 100% damage
+     | (7714:50) Black Tempered Bow
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 8
+     | (7710:108) Anarchy
+     | Change all Jammer orbs to Poison orbs, Deal 150% damage
+     | (7709:64) Anarchy
+     | Change 4 random orbs to Poison orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 8
+     | (7711:108) Gnawing Fangs
+     | Change all Poison orbs to Jammer orbs, Deal 130% damage
+     | (7712:108) Gnawing Fangs
+     | Change all Heal orbs to Jammer orbs, Deal 130% damage
+     | (7713:94) Black Tempered Bow
+     | Lock all Jammer orbs, Deal 100% damage
+     | (7714:50) Black Tempered Bow
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 8
+     | (7708:74) Darkened Scale Armor
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 5 of 8
+     | (7710:108) Anarchy
+     | Change all Jammer orbs to Poison orbs, Deal 150% damage
+     | (7709:64) Anarchy
+     | Change 4 random orbs to Poison orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 8
+     | (7711:108) Gnawing Fangs
+     | Change all Poison orbs to Jammer orbs, Deal 130% damage
+     | (7712:108) Gnawing Fangs
+     | Change all Heal orbs to Jammer orbs, Deal 130% damage
+     | (7713:94) Black Tempered Bow
+     | Lock all Jammer orbs, Deal 100% damage
+     | (7714:50) Black Tempered Bow
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 7 of 8
+     | (7710:108) Anarchy
+     | Change all Jammer orbs to Poison orbs, Deal 150% damage
+     | (7709:64) Anarchy
+     | Change 4 random orbs to Poison orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 8 of 8
+     | (7708:74) Darkened Scale Armor
+     | Reduce damage from all sources by 75% for 4 turns
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 69
+   | (7706:83) Darkened Scale Armor + Fortuitous Yin and Yang
+   | Reduce damage from all sources by 75% for 4 turns + Heal and Jammer skyfall +20% for 7 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (7715:84) Extreme Dragon Eyes
+     | Change all orbs to Jammer
+   | group:
+     | (7716:85) Darklight Calamity
+     | Change all orbs to Dark and Jammer, Deal 3,000% damage

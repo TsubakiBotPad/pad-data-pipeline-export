@@ -1,0 +1,33 @@
+#3995 - Masquerade Patron, Nene
+monster size: 5
+new AI: True
+start/max counter: 19
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 10)
+	[0] ESAbsorbThreshold(87:19857) -> So much tasty candy!
+	Absorb damage when damage >= 15,000,000 for 10 turns
+	[1] ESDebuffRCV(105:19858) -> Will you give me some sweets too?
+	RCV 50% for 10 turns
+
+#3: ESOrbLock(94:19859) -> Crunchy Rice Crackers
+Condition: One-time use (ai:33 rnd:0) (cost: 1)
+Lock 15 random orbs, Deal 105% damage
+
+#4: ESCloud(104:19861) -> Sweet Steamed Buns
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 100% damage
+
+#5: ESBlindStickyRandom(97:19860) -> Bean Jam Pancakes
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind random 10 orbs for 1 turn, Deal 95% damage
+
+#6: ESAttackMultihit(15:19862) -> Harmony of Japanese Sweets
+Deal 400% damage (4 hits, 100% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

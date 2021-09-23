@@ -1,0 +1,54 @@
+#3453 - Soul Reclaimer God of Dark Riches, Osiris
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3453
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27606:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (27578:83) 冥穣神の魂 + 冥穣の摂理 + …逃がしません
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 5 turns + Unable to match Heal orbs for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (27600:83) 冥穣神の呪壁 + メジェバインド
+     | Reduce damage from all sources by 50% for 1 turn + Bind player leader for 2 turns, Deal 100% damage
+     | (27603:83) 冥穣神の奪取 + メジェブラスト
+     | Absorb damage when combos <= 7 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: turn 5 while HP > 14
+     | (27590:83) 冥穣神の活力 + メジェロック + メジェパワー
+     | Spawn 15 random Wood orbs + Lock all Wood orbs + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (27600:83) 冥穣神の呪壁 + メジェバインド
+     | Reduce damage from all sources by 50% for 1 turn + Bind player leader for 2 turns, Deal 100% damage
+     | (27603:83) 冥穣神の奪取 + メジェブラスト
+     | Absorb damage when combos <= 7 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (27594:83) 冥穣神の賜物 + メジェブラスト
+   | Spawn Bomb orbs in the specified positions + Deal 108% damage (3 hits, 36% each), Deal 108% damage (3 hits, 36% each)
+   | (27597:83) Wフォレストサイン + メジェブラスト
+   | Change the 1st and 6th columns to Wood orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (27586:83) …終わりにしようか + メジェターン
+     | No skyfall for 1 turn + Specific orbs change every 1.0s for 1 turn
+   | group:
+     | (27589:15) …メ・ジ・エンド
+     | Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: hp <= 1
+   | (27582:83) …… + 冥穣神の怪光 + 冥穣神の呪い
+   | Enemy recover 100% HP + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Change player HP to 50% for 1 turn

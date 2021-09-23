@@ -1,0 +1,33 @@
+#5000 - New Year's Hunting Princess, Artemis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:16155) -> Let's purify evil!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Jammer skyfall +20% for 5 turns
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 5
+
+#4: ESAbsorbCombo(67:16159) -> Purification Ceremony
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 6 for 5 turns
+
+#5: ESOrbChangeAttackBits(108:16156) -> Demon Repelling Arrow Shot
+Change all Jammer orbs to Wood orbs, Deal 110% damage
+
+#6: ESRandomSpawn(92:16157) -> The purification isn't enough!
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Jammer orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:16158) -> Rain of attacks
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

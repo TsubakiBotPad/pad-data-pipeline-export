@@ -1,0 +1,153 @@
+#2897 - Jörmungandr-Ullr
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 64)
+	[0] ESAbsorbCombo(67:7089) -> I shall test your abilities, adventurer
+	Absorb damage when combos <= 3 for 1 turn
+	[1] ESBoardChange(84:7090) -> I'm hoping for a good combo!
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[2] ESRandomSpawn(92:7091) -> Now then - show me your glow!
+	Spawn 14 random Jammer orbs
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 4, target rnd 7
+
+#6: ESGravity(50:7115) -> Is that your best? Then begone!
+Player -1,000% HP
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESAbsorbCombo(67:7093) -> This is just the beginning
+	Absorb damage when combos <= 4 for 1 turn
+	[1] ESBoardChange(84:7094) -> How tedious...
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[2] ESBlind5(5:7095) -> Just let me enjoy this
+	Blind all orbs on the board
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 5, target rnd 13
+
+#12: ESGravity(50:7115) -> Is that your best? Then begone!
+Player -1,000% HP
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESAbsorbCombo(67:7097) -> Feeling the heat?
+	Absorb damage when combos <= 5 for 1 turn
+	[1] ESBoardChange(84:7098) -> Suppose we take things up a notch?
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison
+	[2] ESCloud(104:7099) -> How's this?
+	A column of clouds appears for 1 turn at 1st row, 1st column
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 21
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#17: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 19
+
+#18: ESGravity(50:7115) -> Is that your best? Then begone!
+Player -1,000% HP
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAbsorbCombo(67:7101) -> Not too shabby
+	Absorb damage when combos <= 6 for 1 turn
+	[1] ESRowSpawnMulti(78:7102) -> What's wrong? You're all sweaty...
+	Change the 3rd row to Jammer orbs
+	[2] ESRandomSpawn(92:7103) -> Surely you're not done yet?
+	Spawn 3 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 27
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#23: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 7, target rnd 25
+
+#24: ESGravity(50:7115) -> Is that your best? Then begone!
+Player -1,000% HP
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESAbsorbCombo(67:7105) -> Nobody's lasted this long in a while...
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESBombFixedSpawn(103:7106) -> But now it's do or die!
+	Spawn Bomb orbs in the specified positions
+	[2] ESRandomSpawn(92:7117) -> Let's see you get past this!
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 33
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#29: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 31
+
+#30: ESGravity(50:7116) -> Pathetic! Come back when you're stronger
+Player -1,000% HP
+
+#31: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:7108) -> Hmph, impressive
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESRandomSpawn(92:7109) -> The end is nigh...
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[2] ESFixedStart(101:7110) -> Don't let up now!
+	Fix orb movement starting point to random position on the board
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 9, target rnd 35
+
+#34: ESGravity(50:7116) -> Pathetic! Come back when you're stronger
+Player -1,000% HP
+
+#35: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:7112) -> You have proven yourself, adventurer
+	Do nothing
+	[1] ESEndBattle(40:7113) -> This was great for killing time
+	Reduce self HP to 0
+
+#36: ESEndPath(36:26) -> ESEndPath
+end_turn

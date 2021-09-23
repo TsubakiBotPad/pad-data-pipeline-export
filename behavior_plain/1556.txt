@@ -1,0 +1,71 @@
+#1556 - Demon Slayer, Susano no Mikoto
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:14393) -> Can you break my guard?
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:14394) -> Hmm, you don't give up do you?
+	Reduce damage from all sources by 95% for 3 turns
+
+#3: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 7
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 12
+
+#5: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:14399) -> Hmm, not bad!
+	Enemy recover 100% HP
+	[1] ESVoidShield(71:14400) -> Ready yourself for the onslaught
+	Void damage >= 5,000,000 for 999 turns
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#8: ESOrbChangeAttack(48:14401) -> Silencing Slice
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:14402) -> Destructive Lingering Light
+Condition: 33% chance (ai:0 rnd:33)
+Deal 112% damage (8 hits, 14% each)
+
+#10: ESRandomSpawn(92:14403) -> Furiously Falling Foliage
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 8 random Wood orbs, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESGravity(50:14396) -> Can you handle it?
+	Player -75% HP
+	[1] ESAttackMultihit(15:14397) -> Get ready to be torn to shreds
+	Deal 300% damage (3 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBindAwoken(88:14404) -> Won't you quench my thirst?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#15: ESAttackMultihit(15:14405) -> I lost my buzz...
+Deal 500% damage (10 hits, 50% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESTurnChangePassive(106:14391) -> Hmm, interesting...
+Enemy turn counter change to 1 when HP <= 50%

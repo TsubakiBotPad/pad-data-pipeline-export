@@ -1,0 +1,31 @@
+#6389 - Summer Festival Norn, Planar
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6389
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18990:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18991:83) Let's enjoy ourselves! + It's a festival!
+ | Voids status ailments for 999 turns + Void damage >= 15,000,000 for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18997:15) Water Balloon Yo-Yo
+   | Deal 120% damage (2 hits, 60% each)
+   | condition: 50% chance
+   | (18998:92) Skyrockets
+   | Spawn 6 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (18994:83) The festival's in full swing! + It's really bustling!
+   | Increase damage to 150% for the next 999 turns + Absorb damage when combos <= 6 for 999 turns
+ | group:
+ | condition: hp <= 9
+   | (18999:85) Paper Lantern Sparks
+   | Change all orbs to Fire, Deal 300% damage

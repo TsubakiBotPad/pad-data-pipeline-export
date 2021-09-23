@@ -1,0 +1,74 @@
+#204846 - Violent Tiger God, Takeda Shingen
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:23942) -> Takeda Diamond Protective Crest
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:23943) -> Wisdom of the Teikin Ourai Texts
+	Void damage >= 10,000,000 for 5 turns
+	[2] ESSkyfall(68:23944) -> Swift Tiger's Blazing Army
+	Fire and Wood skyfall +25% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESOrbLock(94:23953) -> Tiger Dragon Fan
+Lock all Fire and Wood orbs, Deal 110% damage
+
+#5: ESRandomSpawn(92:23954) -> Violent Forest Fan
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Wood orbs, Deal 100% damage
+
+#6: ESBoardChangeAttackBits(85:23952) -> Flame Formation Fan
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Heal, and Jammer, Deal 80% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:23946) -> Violent Tiger Fan Dance
+	Increase damage to 200% for the next 999 turns
+	[1] ESAttributeBlock(107:23947) -> Furinkazan Stance
+	Unable to match Fire and Wood orbs for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRowSpawnMulti(79:23948) -> Swift as the Dragon Wind
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 1st and 2nd rows to Wood orbs, Deal 80% damage
+
+#13: ESOrbSealColumn(99:23949) -> Quiet as the Dragon Forest
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+
+#14: ESBoardChangeAttackBits(85:23950) -> Fierce as Dragon Fire
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all orbs to Fire, Deal 150% damage
+
+#15: ESOrbLock(94:23951) -> Immovable as the Dragon Mountain
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs
+
+#16: ESBoardChangeAttackBits(85:23955) -> Swift Tiger Fierce Dragon Fan
+Change all orbs to Fire and Wood, Deal 3,000% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:23940) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

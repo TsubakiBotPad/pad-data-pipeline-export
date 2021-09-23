@@ -1,0 +1,64 @@
+#205005 - Servant, Saber Alter
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:19522) -> Who is it, you ask?
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESVoidShield(71:19523) -> That's something that should  be obvious with one look.
+	Void damage >= 3,000,000 for 5 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESOrbChangeAttack(48:12220) -> Ha!
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Jammer orbs, Deal 95% damage
+
+#8: ESSkillDelay(89:12221) -> Yah!
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#9: ESAttackMultihit(15:12222) -> Hmph!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 115% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: ESDebuffRCV(105:12219) -> Don't bother.
+RCV 50% for 3 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBindAwoken(88:12223) -> I'm telling you, don't bother with it.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#16: ESColumnSpawnMulti(77:12224) -> Excalibur Morgan
+Change the 3rd and 4th columns to Dark orbs, Deal 250% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

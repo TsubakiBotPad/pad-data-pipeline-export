@@ -1,0 +1,55 @@
+#5768 - Kamen Rider Fourze
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlind62(62:20886) -> Space is here!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBombRandomSpawn(102:20889) -> Launcher Module
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Bomb orbs, Deal 90% damage
+
+#6: ESBombFixedSpawn(103:20890) -> Rocket Module
+Condition: 33% chance (ai:0 rnd:33)
+Spawn Bomb orbs in the specified positions, Deal 80% damage
+
+#7: ESAttackMultihit(15:20888) -> Drill Module
+Condition: 34% chance (ai:0 rnd:34)
+Deal 102% damage (3 hits, 34% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 5
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESBindRandom(1:20887) -> One-on-one, let's go!
+Bind 5 random cards for 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackUPRemainingEnemies(17:20891) -> Limit Break
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#14: ESBombRandomSpawn(102:20892) -> Rider Rocket Drill Space Kick
+Spawn 6 random Bomb orbs, Deal 80% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

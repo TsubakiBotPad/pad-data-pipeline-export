@@ -1,0 +1,46 @@
+#500776 - Omega Night Skydragon, Elysium
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:14543) -> Lightning Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 4 for 5 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESInactivity66(66:14544) -> Storing up power
+Do nothing
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttackUPRemainingEnemies(17:14545) -> Full Power Release
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 1 turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESColumnSpawnMulti(77:14546) -> Night Cracking Lightning Spear
+Change the 3rd and 4th columns to Light orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,102 @@
+#5133 - Dark Blade Divine Queen, Hera - Luna
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAttackMultihit(15:13826) -> Divine Queen's Rite
+	Deal 300% damage
+	[1] ESStatusShield(20:13827) -> Protection of the Gods
+	Voids status ailments for 3 turns
+	[2] ESAbsorbCombo(67:13828) -> Divine Queen's Trial
+	Absorb damage when combos <= 7 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 27
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 21
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 99, target rnd 12
+
+#11: ESJammerChangeRandom(13:13832) -> Mischief by God
+Change 2 random orb types to Jammer orbs, Deal 80% damage
+
+#12: ESAttackMultihit(15:13833) -> Double Slap
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#13: ESBindAttack(63:13834) -> Shadow Bind
+Condition: 50% chance (ai:0 rnd:50)
+Bind friend leader for 2 turns, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 8
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 19
+
+#18: ESAbsorbCombo(67:13830) -> Dark Matter
+Absorb damage when combos <= 6 for 99 turns
+
+#19: SkillSet:
+	[0] ESAbsorbCombo(67:13830) -> Dark Matter
+	Absorb damage when combos <= 6 for 99 turns
+	[1] ESBindRandom(1:13831) -> Divine Queen's Breath
+	Bind 6 random cards for 3 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 25
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#23: ESBindAwoken(88:13835) -> Charging Magical Power
+Bind awoken skills for 3 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttackMultihit(15:13836) -> Meteor Graviton Bomb
+Deal 800% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESRecoverEnemy86(86:13837) -> Praise of the Gods
+Enemy recover 85% HP
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESResolve(73:13824) -> Resolve
+Survive attacks with 1 HP when HP > 85%

@@ -1,0 +1,123 @@
+#405173 - Quiet Night Storyteller, Scheherazade
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:12699) -> Will you listen to me?
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:12700) -> This is my spun story
+	Void damage >= 60,000,000 for 999 turns
+	[2] ESSpinnersFixed(110:12701) -> That I mysteriously invite you to
+	Specific orbs change every 1.0s for 99 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 26
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 21
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 20
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 19
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 18
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 17
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 16
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 15
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 14
+
+#13: SkillSet:
+	[0] ESCloud(104:12703) -> The beginning is one thought
+	A 2×2 square of clouds appears for 3 turns at a random location
+	[1] ESDebuffMovetime(39:12704) -> So old, everyone has forgotten
+	Movetime -3s for 3 turns, Deal 100% damage
+
+#14: SkillSet:
+	[0] ESSkyfallLocked(96:12706) -> From many seas swirling together
+	Locked random skyfall +50% for 5 turns
+	[1] ESAttackMultihit(15:12707) -> The world was born
+	Deal 120% damage (3 hits, 40% each)
+
+#15: SkillSet:
+	[0] ESBindRandomSub(65:12709) -> The strongest of us remaining for aeons
+	Bind 4 random subs for 5 turns
+	[1] ESSkillDelay(89:12710) -> Pushed down into hell
+	Delay active skills by 4~6 turns, Deal 110% damage
+
+#16: SkillSet:
+	[0] ESAbsorbAttribute(53:12712) -> Inside a complex cage
+	Absorb Light and Dark damage for 3 turns
+	[1] ESSpinnersFixed(110:12713) -> Truth hidden behind a colorful lie
+	Specific orbs change every 1.0s for 1 turn, Deal 60% damage
+
+#17: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:12715) -> Then, we became people...
+	Increase damage to 150% for the next 3 turns
+	[1] ESBindSkill(14:12716) -> As if it were from the beginning
+	Bind active skills for 5 turns, Deal 100% damage
+
+#18: SkillSet:
+	[0] ESDamageShield(74:12718) -> Time flows again...
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESOrbChangeAttack(48:12719) -> And I could dream
+	Change a random attribute to Jammer orbs, Deal 100% damage
+
+#19: SkillSet:
+	[0] ESAbsorbCombo(67:12721) -> Outside this cage I grasped thoughts
+	Absorb damage when combos <= 6 for 5 turns
+	[1] ESChangeAttribute(46:12722) -> And pursued a visible truth
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#20: SkillSet:
+	[0] ESSkyfall(68:12724) -> Much knowledge clouds the eyes
+	Poison skyfall +15% for 5 turns
+	[1] ESOrbLock(94:12725) -> You can't escape the invisible chains
+	Lock 15 random orbs, Deal 120% damage
+
+#21: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#22: ESOrbSealRow(100:12726) -> Would you want to hear it again?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 1st and 5th rows for 1 turn
+
+#23: ESSetCounter(25:15) -> ESSetCounter
+counter = 8
+
+#24: SkillSet:
+	[0] ESBindAwoken(88:12729) -> The night is over so that's all for now.
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:12730) -> Let's continue tomorrow
+	Deal 1,500% damage (5 hits, 300% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESRecoverEnemy86(86:12762) -> One Thousand and One Nights
+Enemy recover 100% HP
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESResolve(73:12727) -> Schehera Resolve
+Survive attacks with 1 HP when HP > 90%

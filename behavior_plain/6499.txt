@@ -1,0 +1,40 @@
+#6499 - Orochi Leona
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:19738) -> Hraaaaah!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock all orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRecoverEnemy86(86:19741) -> Storm Bringer
+Condition: 20% chance (ai:0 rnd:20)
+Enemy recover 5% HP, Deal 95% damage
+
+#5: ESRandomSpawn(92:19740) -> Gliding Buster
+Condition: 40% chance (ai:0 rnd:40)
+Spawn 6 random Dark orbs, Deal 98% damage
+
+#6: ESAttackMultihit(15:19739) -> Moon Slasher
+Condition: 40% chance (ai:0 rnd:40)
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:19742) -> Raaaauuugh!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#9: ESAttackMultihit(15:19743) -> Gravity Storm
+Deal 99% damage (3 hits, 33% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

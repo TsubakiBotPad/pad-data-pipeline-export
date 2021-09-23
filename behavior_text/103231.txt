@@ -1,0 +1,27 @@
+#103231 - Alt. Earl of Halloween Fever, Count Pumpkin
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103231
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11364:97) Pumpkin Night
+ | Blind random 10 orbs for 2 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (11365:39) Trick & Trick
+   | Movetime 25% for 2 turns, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (11366:101) Pumpkin Magic
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | (11367:15) Nightmare Stick
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (11368:109) Wonder Card
+   | Random 3 orbs change every 1.5s for 5 turns, Deal 100% damage

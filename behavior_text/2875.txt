@@ -1,0 +1,73 @@
+#2875 - Purifying Thunder Dragon, Sedin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2875
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4383:72) Water Halven
+ | Reduce damage from Water attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (4383:72) Water Halven
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (4355:83) This wishful soul looks tasty + Dividing Damage
+ | Voids status ailments for 5 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 1946, 1947, 2744 on team
+     | (4360:83) Hurry! Let me eat your soul! + Sunrise Zone
+     | Absorb damage when combos <= 5 for 1 turn + Change all orbs to Fire, Light, Dark, and Heal, Deal 150% damage
+     | (4361:83) Auroral Chains + Sunrise Zone
+     | Absorb damage when combos <= 5 for 1 turn + Change all orbs to Fire, Light, Dark, and Heal, Deal 150% damage
+   | group:
+     | condition: 30% chance
+     | (4362:92) Dawn Guidance
+     | Spawn 6 random Heal orbs, Deal 175% damage
+     | condition: 20% chance
+     | (4367:83) Thunder Roar + Heat Roar
+     | Change the 2nd column to Light orbs + Change the 4th column to Fire orbs, Deal 40% damage
+     | condition: 15% chance
+     | (4368:83) Thunder Roar + Prominence Bullet
+     | Change the 2nd column to Light orbs + Deal 60% damage (3 hits, 20% each), Deal 40% damage
+     | condition: 15% chance
+     | (4369:83) Prominence Breath + Heat Roar
+     | Deal 60% damage + Change the 4th column to Fire orbs, Deal 60% damage
+     | condition: 20% chance
+     | (4370:83) Prominence Breath + Prominence Bullet
+     | Deal 60% damage + Deal 60% damage (3 hits, 20% each), Deal 60% damage
+ | group:
+ | condition: turn 2 while HP > 49, hp <= 74
+   | (4361:83) Auroral Chains + Sunrise Zone
+   | Absorb damage when combos <= 5 for 1 turn + Change all orbs to Fire, Light, Dark, and Heal, Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4373:83) Purifying Thunder Dragon's Trial + Rising Sun's Blazing Whirlpool
+     | Absorb Fire damage for 1 turn + Bind 4 random cards for 1 turn, Deal 100% damage
+   | group:
+     | condition: 34% chance
+     | (4377:83) Twin Prominence + Double-headed Gaze
+     | Deal 120% damage (4 hits, 30% each) + Lock 10 random orbs, Deal 120% damage (4 hits, 30% each)
+     | condition: 50% chance
+     | (4378:83) Red Heat's Purifying Thunder + Double-headed Gaze
+     | Change the 2nd column to Light orbs and the 4th column to Fire orbs + Lock 10 random orbs, Deal 80% damage
+     | (4362:92) Dawn Guidance
+     | Spawn 6 random Heal orbs, Deal 175% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (4382:83) Overcoming Will + Dragonbound's Wrath
+     | Enemy recover 29% HP + Increase damage to 200% for the next 999 turns
+   | group:
+     | (4380:83) Twin Prominence + Sunrise Zone
+     | Deal 120% damage (4 hits, 30% each) + Change all orbs to Fire, Light, Dark, and Heal, Deal 120% damage (4 hits, 30% each)

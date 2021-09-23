@@ -1,0 +1,59 @@
+#2140 - Private Military Arkham Knight
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkillDelay(89:2579) -> Abandon All Hope
+Delay active skills by 0~1 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#9: ESOrbChangeSingle(4:2580) -> Private Army
+Condition: One-time use (ai:0 rnd:30) (cost: 1)
+Change all Heal orbs to Jammer orbs, Deal 30% damage
+
+#10: ESRowSpawnMulti(79:2581) -> Drone Forces
+Condition: 30% chance (ai:0 rnd:30)
+Change the 1st row to Jammer orbs, Deal 80% damage
+
+#11: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 30% chance (ai:0 rnd:30)
+Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	[0] ESDebuffMovetime(39:2582) -> I know how you think!
+	Movetime -1s for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:2583) -> I know how to beat you!
+	Increase damage to 200% for the next 999 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

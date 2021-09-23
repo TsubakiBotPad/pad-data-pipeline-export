@@ -1,0 +1,160 @@
+#4062 - Ruining Hands War Goddess, Morrigu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:8864) -> I'm...the strongest!!!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8865) -> X Wall
+	Void damage >= 25,000,000 for 99 turns
+	[2] ESAbsorbCombo(67:8866) -> Absorb Sechs
+	Absorb damage when combos <= 6 for 99 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 36
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 30
+
+#11: ESInactivity66(66:8891) -> Hold
+Do nothing
+
+#12: ESOrbChangeAttack(48:8889) -> Sacrifice Saber
+Change all Poison orbs to Dark orbs, Deal 170% damage
+
+#13: ESOrbChangeAttack(48:8890) -> Drill Break
+Change all Jammer orbs to Fire orbs, Deal 150% damage
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 24
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: SkillSet:
+	[0] ESColumnSpawnMulti(77:8868) -> Double Sacrifice
+	Change the 1st column to Poison orbs and the 6th column to Jammer orbs, Deal 120% damage
+	[1] ESAttributeBlock(107:8869) -> Twin Protection
+	Unable to match Jammer and Poison orbs for 1 turn
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 1)
+	[0] ESOrbSealColumn(99:8871) -> Protective Wall
+	Seal the 6th column for 1 turn
+	[1] ESBombFixedSpawn(103:8872) -> Burst Out
+	Spawn Bomb orbs in the specified positions
+	[2] ESAttackMultihit(15:8897) -> Hyah!!!
+	Deal 100% damage
+
+#20: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbSealColumn(99:8874) -> Protective Wall
+	Seal the 1st column for 1 turn
+	[1] ESBlindStickyFixed(98:8875) -> Cross Saber
+	Blind orbs in specific positions for 1 turn
+	[2] ESAttackMultihit(15:8897) -> Hyah!!!
+	Deal 100% damage
+
+#21: ESColumnSpawnMulti(77:8877) -> Double Sacrifice
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st column to Poison orbs and the 6th column to Jammer orbs, Deal 120% damage
+
+#22: ESColumnSpawnMulti(77:8878) -> Twin Strike
+Change the 1st column to Dark orbs and the 6th column to Fire orbs, Deal 140% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 1)
+	[0] ESBlindStickyFixed(98:8879) -> Double Saber
+	Blind orbs in specific positions for 1 turn
+	[1] ESOrbLock(94:8880) -> X Field
+	Lock all orbs
+	[2] ESAttackMultihit(15:8897) -> Hyah!!!
+	Deal 100% damage
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbSealRow(100:8882) -> Protective Wall
+	Seal the 1st row for 1 turn
+	[1] ESBlindStickyFixed(98:8884) -> Cross Saber
+	Blind orbs in specific positions for 1 turn
+	[2] ESBombFixedSpawn(103:8883) -> Burst Out
+	Spawn Bomb orbs in the specified positions
+
+#26: ESRowSpawnMulti(79:8886) -> Double Sacrifice
+Condition: 33% chance (ai:33 rnd:0)
+Change the 1st row to Poison orbs and the 5th row to Jammer orbs, Deal 120% damage
+
+#27: ESRowSpawnMulti(79:8887) -> Twin Strike
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st row to Dark orbs and the 5th row to Fire orbs, Deal 120% damage
+
+#28: ESAttackMultihit(15:8888) -> Cross Rush
+Deal 160% damage (4 hits, 40% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 34
+
+#31: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#32: SkillSet:
+	[0] ESRecoverEnemy86(86:8894) -> Aaaahhhhhh! I won't forgive you!!
+	Enemy recover 30% HP
+	[1] ESBindAwoken(88:8895) -> I'll weaken you!!
+	Bind awoken skills for 5 turns
+
+#33: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#34: ESBoardChangeAttackBits(85:8893) -> Twin Explosion
+Change all orbs to Fire and Dark, Deal 400% damage
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#37: ESBoardChangeAttackBits(85:8892) -> Extreme Burst
+Change all orbs to Jammer, Deal 370% damage
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#39: ESTypeResist(118:8863) -> Machine Boss Resistance
+Reduce damage from Machine types by 50%

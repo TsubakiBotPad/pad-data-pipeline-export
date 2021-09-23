@@ -1,0 +1,56 @@
+#3736 - Zealous Boneclad Dragonbound, Hermé-Do
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 3736
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7419:83) You're not going anywhere! + Have a taste of true fear! + World Grudge
+ | Voids status ailments for 999 turns + Spawn 13 random Poison orbs + Lock 13 random orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (7420:48) Agonizing Sacrifice
+     | Change all Poison orbs to Mortal Poison orbs, Deal 200% damage
+     | (7423:83) A Reward For Your Agony + Ominous Sorcery
+     | Player recover 100% HP + Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 20% chance
+     | (7430:83) Desperation + Acid Breath
+     | Absorb Fire damage for 3 turns + Change a random attribute to Jammer orbs, Deal 170% damage
+     | condition: 25% chance
+     | (7431:83) Desperation + Acid Breath
+     | Absorb Water damage for 3 turns + Change a random attribute to Jammer orbs, Deal 170% damage
+     | condition: 33% chance
+     | (7432:83) Desperation + Acid Breath
+     | Absorb Wood damage for 3 turns + Change a random attribute to Jammer orbs, Deal 170% damage
+     | condition: 50% chance
+     | (7433:83) Desperation + Acid Breath
+     | Absorb Light damage for 3 turns + Change a random attribute to Jammer orbs, Deal 170% damage
+     | (7434:83) Desperation + Acid Breath
+     | Absorb Dark damage for 3 turns + Change a random attribute to Jammer orbs, Deal 170% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 40% chance
+     | (7435:92) Red Dragon Liquid
+     | Spawn 5 random Water orbs, Deal 130% damage
+     | condition: 20% chance
+     | (7438:68) Corpse Dragon's Curse
+     | Poison skyfall +10% for 10 turns
+     | condition: 40% chance
+     | (7439:15) Abyssal Pain
+     | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (7440:97) Accursed Eclipse
+     | Blind random 13 orbs for 13 turns, Deal 100% damage
+   | group:
+     | (7443:83) Virulent Sorcery + Deadly Poison
+     | Bind awoken skills for 10 turns + Change a random attribute to Mortal Poison orbs, Deal 1,200% damage

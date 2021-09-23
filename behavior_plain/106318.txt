@@ -1,0 +1,35 @@
+#106318 - 蛙吹梅雨
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESCloud(104:18450) -> Call me Tsu.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+A 1×7 rectangle of clouds appears for 8 turns at a random location
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:18451) -> Ribbit
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 6 random Water orbs, Deal 90% damage
+
+#5: ESOrbLock(94:18453) -> How cruel...
+Lock 10 random orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAbsorbAttribute(53:18452) -> Camouflage
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Wood damage for 5 turns
+
+#8: ESBoardChangeAttackBits(85:18454) -> Round Up
+Change all orbs to Water, Wood, and Heal, Deal 115% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

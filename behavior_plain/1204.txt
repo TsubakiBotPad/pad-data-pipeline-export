@@ -1,0 +1,29 @@
+#1204 - The Ninth Angel
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#5: ESBlind62(62:18312) -> Corrosion
+Blind all orbs on the board, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBlindStickyRandom(97:18311) -> Corrosion
+Blind random 4~6 orbs for 1 turn, Deal 120% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

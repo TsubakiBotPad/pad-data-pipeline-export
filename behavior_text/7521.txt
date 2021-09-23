@@ -1,0 +1,38 @@
+#7521 - パンダ
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 7521
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26635:127) Well, let's just get along.
+ | No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (26636:67) Woah!
+   | Absorb damage when combos <= 5 for 1 turn, Deal 95% damage
+   | condition: 50% chance
+   | (26637:74) Poof!
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (26638:71) I have to block it!
+     | Void damage >= 3,000,000 for 4 turns
+   | group:
+   | condition: turn 2
+     | (26639:66) You don't like being similar to me?
+     | Do nothing
+   | group:
+   | condition: turn 3
+     | (26640:66) You wound me.
+     | Do nothing
+   | group:
+   | condition: turn 4
+     | (26641:17) I think it actually hurts!
+     | Increase damage to 300% for the next 999 turns

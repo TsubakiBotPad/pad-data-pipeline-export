@@ -1,0 +1,38 @@
+#1664 - God of Dark Riches, Osiris
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1664
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10065:72) Fire Att. Halved
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (10058:83) Crown of Death + Dark Cloud
+ | Absorb damage when damage >= 4,000,000 for 10 turns + A 1×2 rectangle of clouds appears for 10 turns at a random location
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 19
+     | condition: 50% chance
+     | (10063:79) Hudr Leaf
+     | Change the 2nd and 3rd rows to Wood and Jammer orbs, Deal 120% damage
+     | (10064:89) Uwaaba
+     | Delay active skills by 0~3 turns, Deal 120% damage
+   | group:
+   | condition: turn 10 while HP > 19
+     | (10062:83) The Malice of Rebellion + Aaru's Throne
+     | Movetime 50% for 10 turns + Increase damage to 150% for the next 99 turns
+   | group:
+     | condition: 50% chance
+     | (10063:79) Hudr Leaf
+     | Change the 2nd and 3rd rows to Wood and Jammer orbs, Deal 120% damage
+     | (10064:89) Uwaaba
+     | Delay active skills by 0~3 turns, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | (10059:15) Almulk Ghadab
+   | Deal 270% damage (3 hits, 90% each)

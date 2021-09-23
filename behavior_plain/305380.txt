@@ -1,0 +1,58 @@
+#305380 - Beast-Taming Newlywed, Panera
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24828) -> Let's live happily!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:24829) -> Pledging Hoop
+	Absorb damage when damage >= 20,000,000 for 6 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 10
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#6: ESRandomSpawn(92:24831) -> Today is the best day ever!
+Spawn 6 random Light and Heal orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRandomSpawn(92:24832) -> Let's liven things up!
+Spawn 6 random Fire and Light orbs, Deal 105% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSkillDelay(89:24833) -> Starbreeze Hoop
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 10 turns
+
+#11: ESAttackMultihit(15:24834) -> Panera's Grand Show
+Deal 1,000% damage (10 hits, 100% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESRecoverEnemy86(86:24835) -> It's not over yet!
+	Enemy recover 100% HP
+	[1] ESOrbLock(94:24836) -> Let's enjoy ourselves even more!
+	Lock all orbs
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:24838) -> Resolve
+Survive attacks with 1 HP when HP > 50%

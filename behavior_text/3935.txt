@@ -1,0 +1,27 @@
+#3935 - Thorn Protection Dragon Caller, Weld
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3935
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 3942, 3943 on team
+ | (13854:67) I see you're here as expected
+ | Absorb damage when combos <= 7 for 3 turns
+ | (13853:67) What business do you have in this place?
+ | Absorb damage when combos <= 7 for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (13855:88) I'll tie you up if you make a scene here
+   | Bind awoken skills for 1 turn
+ | group:
+ | condition: turn 2
+   | (13856:65) Thorn Fang's Detainment
+   | Bind 4 random subs for 3 turns
+ | group:
+   | (13857:85) Hydrosnake
+   | Change all orbs to Fire, Water, and Heal, Deal 200% damage

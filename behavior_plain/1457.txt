@@ -1,0 +1,31 @@
+#1457 - 黄金聖闘士・魚座のアフロディーテ
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInactivity66(66:1205) -> 魚座のアフロディーテ!!
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:1208) -> うけよブラッディローズ!!
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 150% damage
+
+#7: ESPoisonChangeRandomAttack(64:1206) -> ロイヤルデモンローズ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change 6 random orbs to Poison orbs, Deal 50% damage
+
+#8: ESAttackMultihit(15:1207) -> ピラニアンローズ!!
+Deal 100% damage (5 hits, 20% each)

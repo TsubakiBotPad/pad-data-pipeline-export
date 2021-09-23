@@ -1,0 +1,38 @@
+#100111 - Alt. Vampire Lord
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100111
+approved: False
+
+level: 9
+ group:
+ | condition: 50% chance
+ | (9126:86) Bloody Stealing
+ | Enemy recover 10% HP, Deal 70% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (9125:15) Nightmare Crush
+ | Deal 180% damage (3 hits, 60% each)
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (9127:52) Bloody Sharing
+ | Enemy ally recover 50% HP
+
+level: 10
+ type: PREEMPT
+ | (9124:5) World of Darkness
+ | Blind all orbs on the board
+ group:
+ | condition: 50% chance
+ | (9126:86) Bloody Stealing
+ | Enemy recover 10% HP, Deal 70% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (9125:15) Nightmare Crush
+ | Deal 180% damage (3 hits, 60% each)
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (9127:52) Bloody Sharing
+ | Enemy ally recover 50% HP

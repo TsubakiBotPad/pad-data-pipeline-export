@@ -1,0 +1,49 @@
+#101425 - Alt. Decisive General, Zhang Fei
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDebuffMovetime(39:1301) -> I'm Zhang Yide!
+Movetime -1s for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESOrbChangeAttack(48:1302) -> White Tiger Lance
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Dark orbs, Deal 90% damage
+
+#8: ESAttackMultihit(15:1303) -> Fierce Tiger Barrage
+Deal 120% damage (4 hits, 30% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESInactivity66(66:1304) -> This will finish it!!
+Condition: When < 50% HP (ai:100 rnd:0)
+Do nothing
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:1305) -> Western Blasting Formation
+Deal 200% damage

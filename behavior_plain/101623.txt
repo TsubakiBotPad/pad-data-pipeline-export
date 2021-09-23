@@ -1,0 +1,101 @@
+#101623 - Alt. Ebon Sorcerer, Dill Sirius
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 5, target rnd 21
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:19134) -> Thanatos! Rain death upon them all!
+	Jammer and Poison skyfall +15% for 10 turns
+	[1] ESDebuffRCV(105:19135) -> Magic Spell
+	RCV 10% for 4 turns
+	[2] ESBlindStickyRandom(97:19136) -> Death Count
+	Blind all orbs for 4 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: SkillSet:
+	[0] ESOrbChangeAttack(48:19138) -> Dark Spell
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[1] ESGravity(50:19139) -> Die once!
+	Player -50% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: SkillSet:
+	[0] ESOrbChangeAttack(48:19138) -> Dark Spell
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[1] ESGravity(50:19141) -> Die twice!
+	Player -75% HP
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: SkillSet:
+	[0] ESOrbChangeAttack(48:19138) -> Dark Spell
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[1] ESGravity(50:19143) -> Die thrice!
+	Player -99% HP
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	[0] ESOrbChangeAttack(48:19138) -> Dark Spell
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[1] ESGravity(50:19145) -> Just die!
+	Player -150% HP
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:19154) -> Thanatos! Rain death upon them all!
+	Jammer and Poison skyfall +10% for 10 turns
+	[1] ESDebuffRCV(105:19155) -> Magic Spell
+	RCV 25% for 4 turns
+	[2] ESBlindStickyRandom(97:19156) -> Death Count
+	Blind all orbs for 4 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

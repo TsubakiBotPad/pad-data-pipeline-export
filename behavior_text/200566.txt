@@ -1,0 +1,23 @@
+#200566 - Alt. Goemon, the Thief
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200566
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25268:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25545:83) The Great Thief's Secret Technique + Ninja Art Firecrackers
+ | Void damage >= 15,000,000 for 999 turns + Change all orbs to Fire
+ group:
+ | group:
+   | (25549:15) Coin Throw
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 1
+   | (25550:83) Golden Pipe + Ninja Art Firecrackers + Hyaaaa!
+   | Enemy recover 100% HP + Change all orbs to Fire + Lock all Fire orbs, Deal 500% damage

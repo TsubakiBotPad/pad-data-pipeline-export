@@ -1,0 +1,29 @@
+#206789 - Karen Araragi
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 206789
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21243:39) I'm not going to talk about this.
+ | Movetime -3s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (21244:75) Throw
+     | Leader changes to random sub for 1 turn, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (21246:94) Don't try and stop me!
+     | Lock 6 random orbs, Deal 70% damage
+     | (21247:15) Give it up, already.
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (21245:17) That woke me up!
+   | Increase damage to 150% for the next 5 turns

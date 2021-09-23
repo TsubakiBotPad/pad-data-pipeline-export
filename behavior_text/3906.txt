@@ -1,0 +1,40 @@
+#3906 - Piercing-Eyed Dragon Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3906
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8461:83) Thousand-Word Sutra + Yin-Yang Dragon - Attack Fangs
+ | Voids status ailments for 999 turns + Absorb Light and Dark damage for 3 turns, Deal 200% damage
+ group:
+ | group:
+ | condition: turns 1-2
+   | (8465:83) Elemental Reincarnation + Vicious Khakkhara Thrust
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 220% damage, Deal 220% damage
+ | group:
+ | condition: turn 3
+   | (8462:87) 3,000 Rising Dragon Talismans
+   | Absorb damage when damage >= 10,000,000 for 10 turns
+ | group:
+ | condition: turns 4-6
+   | (8465:83) Elemental Reincarnation + Vicious Khakkhara Thrust
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 220% damage, Deal 220% damage
+ | group:
+ | condition: turn 7
+   | (8468:83) Instant Purification + Aim for high combos!
+   | Reduce damage from all sources by 99% for 1 turn + Movetime -1s for 10 turns
+ | group:
+   | condition: when 10 combos last turn
+   | (8469:92) Heavenly Palm
+   | Spawn 3 random Heal orbs, Deal 200% damage
+   | condition: when 6 combos last turn
+   | (8470:13) Cruelty
+   | Change 1 random orb type to Jammer orbs, Deal 230% damage
+   | (8472:48) Chaos
+   | Change all Jammer orbs to Light orbs, Deal 1,000% damage
+   | (8471:15) The Truth of Suffering
+   | Deal 280% damage (4 hits, 70% each)

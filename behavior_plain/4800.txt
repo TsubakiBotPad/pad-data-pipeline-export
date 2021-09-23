@@ -1,0 +1,123 @@
+#4800 - Battle Master Dragon Caller, Valeria
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:11181) -> ESBranchCard
+Branch on player_cards HAS [4806, 4807, 4808, 4809], target rnd 6
+
+#5: SkillSet:
+	[0] ESStatusShield(20:11178) -> Oh, you came to the right place!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:11179) -> Receive my training!
+	Void damage >= 8,000,000 for 99 turns
+
+#6: SkillSet:
+	[0] ESStatusShield(20:11178) -> Oh, you came to the right place!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:11180) -> I will train diligently today
+	Void damage >= 8,000,000 for 99 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: SkillSet:
+	[0] ESAbsorbCombo(67:11183) -> Come at me with all your strength!
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESDamageShield(74:11184) -> Your attacks won't get through
+	Reduce damage from all sources by 75% for 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 16
+
+#15: SkillSet:
+	[0] ESDebuffMovetime(39:11186) -> I've not had my full of training yet!
+	Movetime 200% for 3 turns
+	[1] ESAbsorbCombo(67:11187) -> Train properly!
+	Absorb damage when combos <= 7 for 10 turns
+
+#16: SkillSet:
+	[0] ESDebuffRCV(105:11189) -> Well, this has a lot of promise
+	RCV 200% for 3 turns
+	[1] ESDamageShield(74:11190) -> Come and fight me!
+	Reduce damage from all sources by 75% for 99 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 28
+
+#19: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 25
+
+#20: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 28
+
+#21: ESSkillDelay(89:11192) -> Put your back into it!
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#22: ESBindRandomSub(65:11193) -> What's wrong? Shameful display!
+Condition: 33% chance (ai:0 rnd:33)
+Bind 3 random subs for 2 turns, Deal 95% damage
+
+#23: ESAttackMultihit(15:11194) -> No time to rest!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 108% damage (4 hits, 27% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESRecoverPlayer(55:11195) -> Catch your breath!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player recover 100% HP
+
+#26: ESAttackMultihit(15:11196) -> Will you survive my attack?
+Deal 280% damage (8 hits, 35% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 21
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#30: ESAttackUPRemainingEnemies(17:11191) -> Not enough fighting spirit!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 99 turns
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11197) -> What? You're on an errand?
+	Do nothing

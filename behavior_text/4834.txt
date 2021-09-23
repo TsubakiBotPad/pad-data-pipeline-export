@@ -1,0 +1,48 @@
+#4834 - Chosen War Goddess, Valkyrie - Ciel
+monster size: 5
+new AI: True
+start/max counter: 9
+counter increment: 1
+monster_id: 4834
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11547:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (11548:83) White Valkyrie Shield + Fylgja's Clothing + Discerning Lifechains + Fighting Maiden's Appearance
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 999 turns + RCV 50% for 10 turns + Delay active skills by 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | (11556:15) Double Slash
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (11558:83) Discerning Lifechains + Mighty Bash
+     | RCV 50% for 10 turns + Player -75% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (11553:83) Resurrection + Heavenly Decision
+     | Enemy recover 100% HP + Locked random skyfall +100% for 99 turns
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | (11557:15) Triple Slash
+     | Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (11558:83) Discerning Lifechains + Mighty Bash
+     | RCV 50% for 10 turns + Player -75% HP
+ | group:
+ | condition: hp <= 7
+   | group:
+   | condition: turn 2
+     | (11560:17) Last Judgement
+     | Increase damage to 200% for the next 99 turns
+   | group:
+     | (11561:83) Sweeping Spirit Garments + Valkyrie Blade - Ciel
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,000~2,500% damage (4~5 hits, 500% each), Deal 2,000~2,500% damage (4~5 hits, 500% each)

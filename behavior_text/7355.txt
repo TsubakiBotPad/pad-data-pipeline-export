@@ -1,0 +1,31 @@
+#7355 - Phantasmal Rafflesia Darkfairy, Jera
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7355
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 2558, 2559, 3588, 3589 on team
+ | (24047:70) I can't stand that guy with the thin arms!
+ | Do nothing
+ | (24045:127) Looks like you've got some fight in you!
+ | No skyfall for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (24241:62) Tiger's Glare
+   | Blind all orbs on the board, Deal 80% damage
+   | condition: 50% chance
+   | (24240:79) Crimson-Black Blade
+   | Change the 1st row to Fire orbs and the 5th row to Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24046:86) You're not half bad!
+   | Enemy recover 30% HP
+ | group:
+ | condition: hp <= 9
+   | (24065:79) Dark Demon's Splitting Slash
+   | Change the 1st and 2nd rows to Dark orbs, Deal 150% damage

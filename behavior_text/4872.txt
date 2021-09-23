@@ -1,0 +1,32 @@
+#4872 - Lisbeth
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4872
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16437:50) Let's get the lead out and kick his ass!
+ | Player -50% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16438:13) This is really tough to deal with.
+     | Change 1 random orb type to Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16440:15) Hyaa!
+     | Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16439:17) Haaaaaaaa!
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16440:15) Hyaa!
+     | Deal 110% damage

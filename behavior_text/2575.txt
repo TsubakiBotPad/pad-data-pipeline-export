@@ -1,0 +1,35 @@
+#2575 - Ancient Fire Dragon, Anomalocaris
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2575
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3614:68) Crimson Cambria
+ | Fire skyfall +15% for 99 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (3616:48) Target Predation - Water
+   | Change all Water orbs to Jammer orbs, Deal 100% damage
+   | condition: 20% chance
+   | (3618:48) Target Predation - Heal
+   | Change all Heal orbs to Jammer orbs, Deal 120% damage
+   | condition: 30% chance
+   | (3617:92) Red Whip
+   | Spawn 4 random Fire orbs, Deal 120% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (3619:74) Sensing Danger
+   | Reduce damage from all sources by 50% for 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3615:15) Enraged Tentacles Annihilation
+   | Deal 300% damage
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (3613:17) Wind-Up Full Throttle
+ | Increase damage to 200% for the next 999 turns

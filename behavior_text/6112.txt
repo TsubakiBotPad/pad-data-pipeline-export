@@ -1,0 +1,37 @@
+#6112 - Archery Club's Ray of Hope, Apollo
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6112
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23054:83) I'll teach you how to pierce your target. + Quiet your heart and feel the sun.
+ | Lock all Heal orbs + Change all orbs to Light, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (23058:53) Shining Heart
+     | Absorb Light damage for 10 turns
+   | group:
+     | (23059:48) Sunlight Shot
+     | Change all Wood orbs to Light orbs, Deal 120% damage
+     | (23057:92) Warbler Arrow
+     | Spawn 6 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (23060:83) Draw Back + Stand Tall + Deep Breath
+     | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 5 turns + Increase damage to 200% for the next 5 turns
+   | group:
+   | condition: turn 2 while HP > 9
+     | (23058:53) Shining Heart
+     | Absorb Light damage for 10 turns
+ | group:
+ | condition: hp <= 9
+   | (23064:85) Sunburst Arrow
+   | Change all orbs to Fire, Wood, and Light, Deal 230% damage

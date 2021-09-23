@@ -1,0 +1,64 @@
+#6622 - Masquerade Dancer, Durga
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:20254) -> You did well to make it this far...
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:20255) -> But can you defeat me?
+	Absorb damage when damage >= 20,000,000 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: SkillSet:
+	[0] ESGravity(50:20260) -> You're still standing after that?
+	Player -50% HP
+	[1] ESAttackMultihit(15:20261) -> Well then, here I come!
+	Deal 100% damage (4 hits, 25% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDamageShield(74:20257) -> Protect me!
+	Reduce damage from all sources by 75% for 99 turns
+	[1] ESAttackUPRemainingEnemies(17:20258) -> It's show time!
+	Increase damage to 200% for the next 999 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 6
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:20263) -> Prepare yourself
+	Bind awoken skills for 1 turn
+	[1] ESSkillDelay(89:20264) -> This is it for you
+	Delay active skills by 5 turns
+
+#14: ESAttackMultihit(15:20265) -> Is that all you've got?
+Deal 750% damage (5 hits, 150% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

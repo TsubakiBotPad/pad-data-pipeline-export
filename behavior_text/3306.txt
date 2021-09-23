@@ -1,0 +1,39 @@
+#3306 - Glauca
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 3306
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6067:72) Light Att. halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (6060:67) Here is your peace -  by steel's swift descent!
+ | Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (6064:82) Regular Attack
+   | Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (6061:79) Who do you pray to?
+   | Change the 2nd row to Dark orbs, Deal 150% damage
+ | group:
+ | condition: turn 3
+   | (6065:82) Regular Attack
+   | Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (6062:77) Abandon your prayers.
+   | Change the 2nd column to Dark orbs, Deal 150% damage
+ | group:
+ | condition: turn 5
+   | (6066:82) Regular Attack
+   | Deal 100% damage
+ | group:
+   | (6063:15) You are out of time.
+   | Deal 600% damage (3 hits, 200% each)

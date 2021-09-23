@@ -1,0 +1,56 @@
+#6895 - Constance Maggie
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindRandom(1:21843) -> I'll catch you red-handed!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 6 random cards for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#4: ESDebuffATK(130:21848) -> Relaxant
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+ATK -50% for 3 turns
+
+#5: ESRandomSpawn(92:21844) -> Black Darts
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Dark orbs, Deal 80% damage
+
+#6: ESOrbLock(94:21845) -> That's unfair!
+Condition: 25% chance (ai:0 rnd:25)
+Lock 5 random orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:21846) -> Don't you care at all!?
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage
+
+#8: ESBindRandom(1:21847) -> Tranquilizers
+Condition: 25% chance (ai:0 rnd:25)
+Bind 1 random card for 3 turns, Deal 70% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESBindRandom(1:21849) -> I won't let you go!
+Bind 2 random cards for 3 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESPoisonChangeRandomAttack(64:21850) -> Neurotoxin Ferté Bernard
+Change 3 random orbs to Poison orbs, Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,37 @@
+#204648 - Great Witch of the Glowing Gates, Saline
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:14446) -> Magic Circle's Counter Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Void damage >= 90,000,000 for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 8
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 6
+
+#5: ESSkyfall(68:14470) -> Large Light Mana
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Light skyfall +15% for 10 turns
+
+#6: ESAttackMultihit(15:14453) -> Brutal Light Wave Strike
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBoardChangeAttackBits(85:14454) -> Divine Halo
+Change all orbs to Light, Deal 1,000% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESTurnChangePassive(106:14445) -> Magical Power Boost
+Enemy turn counter change to 1 when HP <= 50%

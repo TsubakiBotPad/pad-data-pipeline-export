@@ -1,0 +1,38 @@
+#6479 - Geese Howard
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 6479
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19650:74) Come on!
+ | Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (19652:1) Know your place.
+     | Bind 2 random cards for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-5 of 5
+     | condition: 33% chance
+     | (19651:79) Reppuu Ken
+     | Change the 1st row to Light orbs, Deal 95% damage
+     | condition: 33% chance
+     | (19653:79) Double Reppuu Ken
+     | Change the 1st and 5th rows to Light orbs, Deal 100% damage
+     | condition: 34% chance
+     | (19655:15) Shippuu Ken
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19658:83) I wasn't too serious there, but it was pretty fun. + Come at me as though you're ready to die!
+     | Voids status ailments for 4 turns + Increase damage to 150% for the next 4 turns
+   | group:
+     | (19657:15) Raging Storm
+     | Deal 180% damage (6 hits, 30% each)

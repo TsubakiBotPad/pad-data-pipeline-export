@@ -1,0 +1,45 @@
+#7709 - ヒュンケル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbThreshold(87:28064) -> 生命をかけて挑んで来い!!
+Absorb damage when damage >= 10,000,000 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 11
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESDispel(6:28008) -> オレをなめているのか？
+Voids player buff effects
+
+#9: ESRandomSpawn(92:28009) -> 覚悟しろ！
+Spawn 5 random Dark and Jammer orbs
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPRemainingEnemies(17:28010) -> 終わりだ
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#12: ESColumnSpawnMulti(77:28011) -> ブラッディ―スクライド―――ッ!!!
+Change the 1st column to Dark orbs and the 6th column to Dark orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

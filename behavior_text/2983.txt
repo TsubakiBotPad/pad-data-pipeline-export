@@ -1,0 +1,38 @@
+#2983 - Awoken Kushinadahime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2983
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6378:106) Enemy's next turn changed in anger
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | condition: when 2323 on team
+ | (6373:83) You ate my dango, didn't you! + Blessed Harvest + Vines get in the way of the puzzle!
+ | Absorb damage when combos <= 6 for 999 turns + Voids status ailments for 999 turns + Movetime 25% for 6 turns
+ | condition: when 2322 on team
+ | (6376:83) Frightened and on the verge of tears + Blessed Harvest + Vines get in the way of the puzzle!
+ | Absorb damage when combos <= 6 for 999 turns + Voids status ailments for 999 turns + Movetime 25% for 6 turns
+ | (6369:83) Let's take it nice and slow + Blessed Harvest + Vines get in the way of the puzzle!
+ | Absorb damage when combos <= 6 for 999 turns + Voids status ailments for 999 turns + Movetime 25% for 6 turns
+ group:
+ | group:
+   | (6381:83) Benevolent Protection + Lifespan Diminisher + Ruined Harvest Mudslide
+   | Reduce damage from all sources by 75% for 1 turn + Change the 3rd row to Heal orbs + Change all Heal orbs to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (6384:83) Lifespan Diminisher + Insidious Impurity
+   | Change the 3rd row to Heal orbs + Change all Heal orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (6386:75) It's time for your punishment!
+     | Leader changes to random sub for 1 turn
+   | group:
+     | (6387:50) Judgment Slash
+     | Player -300% HP

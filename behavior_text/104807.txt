@@ -1,0 +1,27 @@
+#104807 - Newcomer Sword Dragon Caller, Lieto
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104807
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10743:62) Dim Mist
+ | Blind all orbs on the board, Deal 50% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (10744:97) Fading Shape
+   | Blind random 1~2 orbs for 3 turns, Deal 100% damage
+   | (10745:15) Deltmis
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10746:89) Dark Shine
+   | Delay active skills by 0~3 turns
+ | group:
+ | condition: hp <= 9
+   | (10747:97) Anghel Feldamis
+   | Blind random 4~8 orbs for 1 turn, Deal 180% damage

@@ -1,0 +1,19 @@
+#587 - Werewolf
+monster size: 2
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackUPRemainingEnemies(17:516) -> Howl of Anger
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 10 turns
+
+#4: ESAttackMultihit(15:240) -> Wolf Combo
+Condition: 70% chance when < 70% HP (ai:70 rnd:0)
+Deal 125% damage (5 hits, 25% each)

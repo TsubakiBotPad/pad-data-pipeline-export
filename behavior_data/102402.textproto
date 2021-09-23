@@ -1,0 +1,215 @@
+  monster_id: 102402
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 3357
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3363
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 3
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3359
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 3360
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 3
+                trigger_turn: 2
+                trigger_turn_end: 3
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 3360
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+            trigger_turn: 1
+            always_trigger_above: 29
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 33
+              }
+              enemy_skill_id: 3358
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 33
+              }
+              enemy_skill_id: 3361
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 34
+              }
+              enemy_skill_id: 3362
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 29
+            trigger_turn: 1
+            always_trigger_above: 19
+          }
+          children {
+            behavior {
+              condition {
+                trigger_monsters: 1423
+                trigger_monsters: 1925
+                trigger_monsters: 2179
+              }
+              enemy_skill_id: 3366
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 3378
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 19
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  condition {
+                    trigger_monsters: 1423
+                    trigger_monsters: 1925
+                    trigger_monsters: 2179
+                  }
+                  enemy_skill_id: 3366
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3375
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3378
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 3
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3375
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3359
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 3360
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 3
+                trigger_turn: 2
+                trigger_turn_end: 3
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 3375
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 3360
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

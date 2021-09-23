@@ -1,0 +1,60 @@
+#102127 - Alt. Light Mech General, Sherospada
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkillDelay(89:12099) -> Downer Bullet
+Delay active skills by 1~6 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDebuffMovetime(39:12100) -> Backdraft
+Condition: When < 1% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Movetime 50% for 10 turns, Deal 150% damage
+
+#7: ESAttackMultihit(15:3200) -> Backward Impact
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 500% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#9: ESAttackMultihit(15:3197) -> Energy Shotgun
+Condition: 60% chance (ai:0 rnd:60)
+Deal 120% damage (6 hits, 20% each)
+
+#10: ESColumnSpawnMulti(77:3198) -> Keen Edge
+Condition: 40% chance (ai:0 rnd:40)
+Change the 2nd column to Jammer orbs and the 4th column to Poison orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:3199) -> High-End Booster
+	Increase damage to 200% for the next 999 turns
+	[1] ESGravity(50:3229) -> Energy Counter
+	Player -99% HP
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:3215) -> Golem Spirit
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,37 @@
+#5718 - 五ツ橋ギン＆７００ひかりレールスター
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5718
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15248:20) ぶち面白くなってきたぁ！
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (15251:15) ぶち当たるぜ！
+   | Deal 80% damage (2 hits, 40% each)
+   | condition: 33% chance
+   | (15252:104) ぶち面白れぇ！
+   | A 2×1 rectangle of clouds appears for 1 turn at a random location
+   | condition: 33% chance
+   | (15253:108) カンカンガン
+   | Change all Fire, Water, and Wood orbs to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (15250:67) ぶち面白くねぇ……！
+     | Absorb damage when combos <= 3 for 3 turns
+   | group:
+     | condition: 33% chance
+     | (15253:108) カンカンガン
+     | Change all Fire, Water, and Wood orbs to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 14
+   | (15249:74) ぶち無茶な奴だぜ
+   | Reduce damage from all sources by 30% for 2 turns

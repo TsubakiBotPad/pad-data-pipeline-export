@@ -1,0 +1,43 @@
+#102751 - Alt. Awoken Persephone
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102751
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17134:83) Eleusinian Mysteries + Catastrophic Flower Picking + Descent to the Underworld
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 10,000,000 for 999 turns + Movetime 25% for 10 turns, Deal 70% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-3 while HP > 9
+     | condition: 33% chance
+     | (15642:83) Rejection of Hades' Realm + Ominous Daffodil of Abduction
+     | Deal 60% damage (3 hits, 20% each) + Poison skyfall +15% for 1 turn, Deal 60% damage (3 hits, 20% each)
+     | condition: 33% chance
+     | (15643:83) Rejection of Hades' Realm + Invitation to the Underworld
+     | Deal 60% damage (3 hits, 20% each) + Deal 55% damage, Deal 60% damage (3 hits, 20% each)
+     | condition: 34% chance
+     | (15644:83) Rejection of Hades' Realm + Protective Cradle
+     | Deal 60% damage (3 hits, 20% each) + Lock 10 random orbs, Deal 60% damage (3 hits, 20% each)
+   | group:
+   | condition: turn 4 while HP > 9
+     | (15639:83) Realm of Hades' Law + Goddess' Divine Grace
+     | Movetime -4s for 99 turns + Unable to match Poison orbs for 3 turns
+   | group:
+     | condition: 33% chance
+     | (15642:83) Rejection of Hades' Realm + Ominous Daffodil of Abduction
+     | Deal 60% damage (3 hits, 20% each) + Poison skyfall +15% for 1 turn, Deal 60% damage (3 hits, 20% each)
+     | condition: 33% chance
+     | (15643:83) Rejection of Hades' Realm + Invitation to the Underworld
+     | Deal 60% damage (3 hits, 20% each) + Deal 55% damage, Deal 60% damage (3 hits, 20% each)
+     | condition: 34% chance
+     | (15644:83) Rejection of Hades' Realm + Protective Cradle
+     | Deal 60% damage (3 hits, 20% each) + Lock 10 random orbs, Deal 60% damage (3 hits, 20% each)
+ | group:
+ | condition: hp <= 9
+   | (15649:92) Bane Harvest
+   | Spawn 15 random Mortal Poison orbs, Deal 300% damage

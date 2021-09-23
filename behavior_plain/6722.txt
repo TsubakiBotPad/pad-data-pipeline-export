@@ -1,0 +1,70 @@
+#6722 - Kamen Rider Saber
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:20919) -> I'm the one who decides how this story ends!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:20922) -> Brave Dragon
+	Void damage >= 12,000,000 for 3 turns
+	[2] ESAbsorbAttribute(53:20920) -> Rekka, Unsheathed!
+	Absorb Fire damage for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 16
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 13
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESOrbChangeAttack(48:20923) -> Dragon Wonder
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Fire orbs, Deal 95% damage
+
+#8: ESOrbLock(94:20921) -> I'll save everything!
+Lock 15 random orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:20926) -> Hissatsu Dokuha!
+	Bind awoken skills for 1 turn
+	[1] ESGravity(50:20928) -> Rekka, Unsheathed! Dragon Issatsu Giri!
+	Player -75% HP
+
+#11: ESBombFixedSpawn(103:20927) -> Kaen Juujizan
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 6
+
+#14: ESDamageShield(74:20924) -> I'll keep my promise.
+Reduce damage from all sources by 50% for 5 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBoardChangeAttackBits(85:20925) -> Hiryuu Shuugekiha
+Change all orbs to Fire, Deal 5,000% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:20915) -> Resolve
+Survive attacks with 1 HP when HP > 50%

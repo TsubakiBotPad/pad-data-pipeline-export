@@ -1,0 +1,65 @@
+#4179 - Warrior Goddess of Gelid Brilliance, Aife
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRowSpawnMulti(79:16510) -> Bunny Beam
+Condition: 20% chance (ai:20 rnd:0)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#5: ESInactivity66(66:16511) -> Thanks for eight great years TAMA!
+Condition: 20% chance (ai:20 rnd:0)
+Do nothing
+
+#6: ESInactivity66(66:16512) -> We hope you keep playing TAMA!
+Condition: One-time use (ai:20 rnd:0) (cost: 1)
+Do nothing
+
+#7: ESBlind5(5:16513) -> I'm only just getting started!
+Condition: 20% chance (ai:20 rnd:0)
+Blind all orbs on the board
+
+#8: ESAttackMultihit(15:16514) -> A test before we begin
+Deal 145% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 13
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 99, target rnd 15
+
+#13: ESPoisonChangeRandom(57:16508) -> Enraged
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Change a random attribute to Poison orbs
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 2, target rnd 13
+
+#16: ESAttackUPRemainingEnemies(17:16509) -> It's pretty important!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 3 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESGravity(50:16535) -> Guard Break
+Player -99% HP

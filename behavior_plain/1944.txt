@@ -1,0 +1,27 @@
+#1944 - Kaguya-Hime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:13557) -> Have you decided on your wish?
+	Movetime 120% for 5 turns
+	[1] ESNoSkyfall(127:13552) -> Moonlight Shadow 
+	No skyfall for 5 turns
+	[2] ESRandomSpawn(92:13553) -> Brilliant Star Gem
+	Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#3: ESColumnSpawnMulti(77:13554) -> Ascension
+Condition: 50% chance when < 30% HP (ai:50 rnd:0)
+Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 200% damage
+
+#4: ESRandomSpawn(92:13556) -> Brilliant Star Gem
+Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

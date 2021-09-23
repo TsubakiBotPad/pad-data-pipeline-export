@@ -1,0 +1,45 @@
+#206342 - Captivating Trapthorn Dragon, Zelenbus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206342
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18162:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18163:83) Defensive Plant Wall + Soft Shell + Draining Nectar
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 999 turns + ATK -75% for 10 turns, Deal 50% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (18168:89) Acidic Sap
+   | Delay active skills by 0~2 turns, Deal 100% damage
+   | condition: 50% chance
+   | (18169:15) Vine Thorn Whip
+   | Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (18170:83) Recovery-Suppressing Pollen + Vine Thorn Whip
+     | RCV 50% for 10 turns + Deal 112% damage (4 hits, 28% each), Deal 112% damage (4 hits, 28% each)
+   | group:
+     | condition: 50% chance
+     | (18174:83) Crunching Jaws + Acidic Sap
+     | Player -75% HP + Delay active skills by 0~2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (18175:83) Crunching Jaws + Vine Thorn Whip
+     | Player -75% HP + Deal 112% damage (4 hits, 28% each), Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (18177:83) Power-Dissolving Fluids + Caustic Sap
+     | Bind awoken skills for 5 turns + Delay active skills by 5 turns
+   | group:
+     | (18180:83) Camouflage + Shredding Thorn Whip Fury
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 700% damage (7 hits, 100% each), Deal 700% damage (7 hits, 100% each)

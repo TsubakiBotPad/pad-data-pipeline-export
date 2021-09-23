@@ -1,0 +1,66 @@
+#1246 - Gleaming-Eyed Dragon Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRecoverPlayer(55:3057) -> You made it!
+Player recover 100% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESSkillDelay(89:3058) -> Dragon Monk Telekinesis
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 0~4 turns
+
+#8: ESBindAttack(63:3059) -> Dragon Monk Binding Law of Tathagata
+Condition: 30% chance (ai:30 rnd:0)
+Bind 1 random card for 4 turns, Deal 100% damage
+
+#9: ESAttackMultihit(15:3060) -> Rakshasa Power
+Deal 150% damage (3 hits, 50% each)
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESVoidShield(71:3061) -> Dragon God's Mysterious Power
+Void damage >= 100,000 for 2 turns
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: SkillSet:
+	[0] ESRowSpawnMulti(79:3063) -> Scriptures of the Dragon God Caste
+	Change the 1st and 5th rows to Light and Jammer orbs, Deal 10% damage
+	[1] ESColumnSpawnMulti(77:3064) -> Puzzle is rearranged
+	Change the 1st, 3rd, and 5th columns to Light, Heal, and Jammer orbs, Deal 10% damage
+	[2] ESDebuffMovetime(39:3065) -> Alright, let's see you get rid of the evil
+	Movetime -3s for 1 turn
+
+#16: ESOrbChangeAttack(48:3066) -> Chaos
+Change all Jammer orbs to Light orbs, Deal 1,000% damage
+
+#17: ESAttackMultihit(15:3062) -> Vicious Khakkhara Thrust
+Deal 200% damage
+
+#18: ESAttributeResist(72:3069) -> Xuanzang Passive
+Reduce damage from Dark attrs by 50%

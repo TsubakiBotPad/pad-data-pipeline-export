@@ -1,0 +1,31 @@
+#203895 - Augite Dragon Emperor, Sherias Roots
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203895
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20830:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (20831:83) Elemental Shield + Draconic Aura + Dragon Senses
+ | Voids status ailments for 999 turns + Void damage >= 200,000,000 for 999 turns + Reduce damage from all sources by 90% for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (20835:15) Dragon Emperor's Feather Blast
+   | Deal 100% damage (2 hits, 50% each)
+   | condition: 50% chance
+   | (20840:85) Total Orb Force
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (20837:83) Draconic Force + Elemental Aura + Dragon Emperor's Feather Blast
+   | Increase damage to 200% for the next 999 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 9
+   | (20836:15) Augite Elemental Blast
+   | Deal 2,500% damage (5 hits, 500% each)

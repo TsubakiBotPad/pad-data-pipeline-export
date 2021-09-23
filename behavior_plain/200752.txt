@@ -1,0 +1,22 @@
+#200752 - Kirin of the Aurora, Sakuya
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedStart(101:20810) -> The tale of the Four Guardians is out.
+	Fix orb movement starting point to random position on the board
+	[1] ESInactivity66(66:20811) -> Select Story in the Dungeon tab
+	Do nothing
+	[2] ESInactivity66(66:20812) -> But first you'll need to clear
+	Do nothing
+	[3] ESEndBattle(40:20813) -> You can win all sorts of rewards.
+	Reduce self HP to 0
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn

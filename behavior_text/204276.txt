@@ -1,0 +1,26 @@
+#204276 - Reincarnated Perseus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204276
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20841:126) Prepare the field for battle!
+ | Change board size to 7x6 for 99 turns
+ | (20842:83) Seems like you have Orbs to spare. + Drown in the rain! + Sacred Treasures' Protection
+ | Absorb damage when combos <= 12 for 999 turns + For 99 turns, 20% chance for skyfall orbs to be blinded for turn + Reduce damage from all sources by 75% for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (20845:102) Explosive Charge
+   | Spawn 8 random Bomb orbs, Deal 100% damage
+   | condition: 50% chance
+   | (20846:15) Rapid Charge
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 9
+   | (20847:15) Godspeed Charge
+   | Deal 2,000% damage (4 hits, 500% each)

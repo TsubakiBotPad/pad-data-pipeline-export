@@ -1,0 +1,68 @@
+#102104 - Alt. Graceful General, Zhou Yu
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:2268) -> Guardian Dragon Barrier
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESBlind5(5:2269) -> Behold, Zhou Yu's ingenuity!
+	Blind all orbs on the board
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESStatusShield(20:2271) -> Barrier
+	Voids status ailments for 999 turns
+	[1] ESAttackMultihit(15:2272) -> Ambush
+	Deal 100% damage (5 hits, 20% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:2278) -> Celestial Dance
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 300% damage (6 hits, 50% each)
+
+#11: SkillSet:
+	Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRowSpawnMulti(79:2280) -> Besieged by Fire
+	Change the 1st row to Fire orbs and the 5th row to Fire orbs, Deal 60% damage
+	[1] ESColumnSpawnMulti(77:2281) -> Can you prevail?
+	Change the 1st column to Fire orbs and the 6th column to Fire orbs, Deal 60% damage
+
+#12: ESAttackMultihit(15:2275) -> Sword Dance
+Condition: 60% chance (ai:0 rnd:60)
+Deal 78~130% damage (3~5 hits, 26% each)
+
+#13: ESRandomSpawn(92:2296) -> Falling Rock Trap
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 5 random Jammer orbs, Deal 120% damage
+
+#14: ESPoisonChangeRandomAttack(64:2276) -> Guardian Dragon's Venomous Talons
+Condition: 20% chance (ai:0 rnd:20)
+Change 4 random orbs to Poison orbs, Deal 80% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:2266) -> 周瑜・パッシブ
+Condition: 20% chance (ai:0 rnd:20)
+Survive attacks with 1 HP when HP > 50%

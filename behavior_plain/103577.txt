@@ -1,0 +1,151 @@
+#103577 - Alt. Eighth Dragon Caller, Tidebringer Amnel
+monster size: 5
+new AI: True
+start/max counter: 10
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShield(71:7000) -> Light Dragon Barrier
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESStatusShield(20:7001) -> Guardian Dragon Formation
+	Voids status ailments for 999 turns
+	[2] ESBindRandomSub(65:7002) -> Blazing Sun Prison
+	Bind 4 random subs for 15 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESDispel(6:7020) -> Photon Break
+	Voids player buff effects
+	[1] ESAttackMultihit(15:7021) -> Myriad Meteor Ray
+	Deal 18,000% damage (6 hits, 3,000% each)
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 14
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 26
+
+#10: ESChangeAttribute(46:7018) -> Change mon Attaque
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Light or Water, Deal 320% damage
+
+#11: ESBindAwoken(88:7019) -> Divine Charm
+Condition: 30% chance (ai:0 rnd:30)
+Bind awoken skills for 1 turn, Deal 290% damage
+
+#12: ESAbsorbCombo(67:7017) -> Prism Burst
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 8 for 1 turn, Deal 290% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	Condition: One-time use (ai:0 rnd:34) (cost: 1)
+	[0] ESAbsorbAttribute(53:7004) -> Deep Shadow
+	Absorb Dark damage for 3 turns
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#17: SkillSet:
+	Condition: One-time use (ai:0 rnd:33) (cost: 3)
+	[0] ESAttackMultihit(15:7005) -> Cyclone
+	Deal 280% damage (2 hits, 140% each)
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#18: SkillSet:
+	Condition: One-time use (ai:0 rnd:33) (cost: 6)
+	[0] ESDamageShield(74:7006) -> Shell Scales
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 9
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAttackMultihit(15:7005) -> Cyclone
+	Deal 280% damage (2 hits, 140% each)
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESDamageShield(74:7006) -> Shell Scales
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:7004) -> Deep Shadow
+	Absorb Dark damage for 3 turns
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 10
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#28: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAttackMultihit(15:7005) -> Cyclone
+	Deal 280% damage (2 hits, 140% each)
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#29: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:7006) -> Shell Scales
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#30: SkillSet:
+	[0] ESAbsorbAttribute(53:7004) -> Deep Shadow
+	Absorb Dark damage for 3 turns
+	[1] ESAttackMultihit(15:7007) -> Shining Stream
+	Deal 480% damage (4 hits, 120% each)
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESAttributeResist(72:7023) -> Light damage halved
+Reduce damage from Light attrs by 50%
+
+#33: ESResolve(73:12175) -> Dragonbound Soul Spirit
+Survive attacks with 1 HP when HP > 99%

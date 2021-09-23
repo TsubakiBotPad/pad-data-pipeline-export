@@ -1,0 +1,39 @@
+#200322 - Blue Flame Ifrit
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindSkill(14:25288) -> Wave of Water
+	Bind active skills for 5 turns
+	[1] ESGravity(50:25289) -> Blue Flame Claw
+	Player -75% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESRandomSpawn(92:25290) -> Magma Breath
+Spawn 3 random Fire orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:25292) -> Dragon Water Spirit
+	Increase damage to 500% for the next 999 turns
+	[1] ESGravity(50:25293) -> Blue Flame Dragon Claw
+	Player -99% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

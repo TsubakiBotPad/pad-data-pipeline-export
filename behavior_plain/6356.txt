@@ -1,0 +1,39 @@
+#6356 - Bewitching Chthonic Goddess, Allatu
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:29249) -> 冥底神の魂
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:29250) -> 突破できるかしら
+	Bind awoken skills for 1 turn
+	[2] ESOrbSealRow(100:29251) -> 冥域の炎海
+	Seal the 1st row for 99 turns
+	[3] ESAbsorbCombo(67:29252) -> 冥域の炎霧
+	Absorb damage when combos <= 13 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#7: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#8: ESAttackMultihit(15:29253) -> ダークリベレーション
+Deal 2,100% damage (7 hits, 300% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

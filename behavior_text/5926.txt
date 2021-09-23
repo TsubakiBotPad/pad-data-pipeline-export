@@ -1,0 +1,30 @@
+#5926 - ＵＳＡピョン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 5926
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16507:68) Hail
+ | Water skyfall +15% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (16508:57) Enraged
+     | Change a random attribute to Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | (16506:15) Shot
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (16510:79) Bunny Beam
+   | Change the 3rd row to Water orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 49
+ | (16509:17) It's pretty important!
+ | Increase damage to 150% for the next 3 turns

@@ -1,0 +1,24 @@
+#708 - The Fifth Angel - Assault Mode
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBindRandom(1:18324) -> Tentacles
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 5 turns, Deal 80% damage
+
+#5: ESAttackMultihit(15:18333) -> Cut Down
+Deal 90~150% damage (3~5 hits, 30% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

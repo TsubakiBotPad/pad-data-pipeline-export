@@ -1,0 +1,80 @@
+#102838 - Alt. White Monkey Retainer, Hanuman
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 102838
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4203:83) Fight is Everything!! + Vayu's Divine Protection
+ | Delay active skills by 10 turns + Absorb damage when damage >= 1,000,000 for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (4204:68) Prasaadah Tapah
+     | Heal skyfall +10% for 5 turns, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | (4205:92) Maitrii Kleza
+     | Spawn 3 random Heal orbs, Deal 130% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | (4206:62) Darsana Layaanaam
+     | Blind all orbs on the board, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (4207:50) Pramaada Dukkha
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (4208:86) Aatma Yogah
+     | Enemy recover 5%~8% HP, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (4209:15) Nairantarya
+     | Deal 132% damage (3 hits, 44% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (4210:67) Guruh Karma
+     | Absorb damage when combos <= 6 for 1 turn, Deal 140% damage
+ | group:
+ | condition: turn 4 while HP > 9, hp <= 49
+   | (4211:63) Pratibandhii
+   | Bind 1 random card for 3 turns, Deal 150% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 15% chance
+     | (4248:48) Pratisedha
+     | Change all Heal orbs to Jammer orbs, Deal 160% damage
+     | (4207:50) Pramaada Dukkha
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | condition: 15% chance
+     | (4248:48) Pratisedha
+     | Change all Heal orbs to Jammer orbs, Deal 160% damage
+     | (4208:86) Aatma Yogah
+     | Enemy recover 5%~8% HP, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | condition: 15% chance
+     | (4248:48) Pratisedha
+     | Change all Heal orbs to Jammer orbs, Deal 160% damage
+     | (4209:15) Nairantarya
+     | Deal 132% damage (3 hits, 44% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | condition: 15% chance
+     | (4248:48) Pratisedha
+     | Change all Heal orbs to Jammer orbs, Deal 160% damage
+     | (4210:67) Guruh Karma
+     | Absorb damage when combos <= 6 for 1 turn, Deal 140% damage
+ | group:
+ | condition: hp <= 9
+   | (4212:15) Daurmanasya
+   | Deal 300% damage (3 hits, 100% each)

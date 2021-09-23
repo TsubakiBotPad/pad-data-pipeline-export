@@ -1,0 +1,54 @@
+#3868 - Pixel Enchantress of the Sea, Siren
+monster size: 4
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 3868
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16324:50) Abyssal Pressure
+ | Player -99% HP
+ group:
+ | group:
+ | condition: turn 1
+   | (16326:15) Song of Destruction
+   | Deal 50% damage
+ | group:
+ | condition: turn 2
+   | (16327:15) Song of Destruction
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 3
+   | (16328:15) Song of Destruction
+   | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: turn 4
+   | (16329:15) Song of Destruction
+   | Deal 240% damage (4 hits, 60% each)
+ | group:
+   | (16330:15) Song of Destruction
+   | Deal 350% damage (5 hits, 70% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (16325:83) Healing Prayer + Abyssal Pressure
+   | Enemy ally recover 50% HP + Player -99% HP
+ | group:
+ | condition: turn 2
+   | (16326:15) Song of Destruction
+   | Deal 50% damage
+ | group:
+ | condition: turn 3
+   | (16327:15) Song of Destruction
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 4
+   | (16328:15) Song of Destruction
+   | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: turn 5
+   | (16329:15) Song of Destruction
+   | Deal 240% damage (4 hits, 60% each)

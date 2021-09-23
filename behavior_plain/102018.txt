@@ -1,0 +1,47 @@
+#102018 - Hera-Ur-Senpai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkillDelay(89:2034) -> I found the new kid!♪
+Delay active skills by 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:2037) -> Now I'm mad!!
+Condition: When < 70% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#9: ESAttackMultihit(15:2038) -> Ur FEVER!
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 210% damage (3 hits, 70% each)
+
+#10: ESNone(0:0) -> ESNone
+nothing
+
+#11: ESOrbChangeAttack(48:2035) -> OMG!!
+Condition: 50% chance (ai:50 rnd:0)
+Change all Water orbs to Fire orbs, Deal 180% damage
+
+#12: ESAttackMultihit(15:2036) -> Take that!
+Deal 200% damage (2 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

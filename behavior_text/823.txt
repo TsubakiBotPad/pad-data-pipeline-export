@@ -1,0 +1,33 @@
+#823 - Torrential Fenrir Knight, Kamui
+monster size: 5
+new AI: False
+start/max counter: 0
+counter increment: 0
+monster_id: 823
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1619:39) Attack Signal
+ | Movetime -1s for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | (1620:15) First Strike
+   | Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (1621:15) Second Strike
+   | Deal 160% damage (2 hits, 80% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | (1622:15) Third Strike
+   | Deal 240% damage (3 hits, 80% each)
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (1623:15) Fourth Strike
+   | Deal 320% damage (4 hits, 80% each)
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (1624:15) Final Strike
+   | Deal 2,000% damage (4 hits, 500% each)

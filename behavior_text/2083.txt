@@ -1,0 +1,54 @@
+#2083 - Magic Hand Slayer Goddess, Durga
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2083
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22765:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (22766:83) Slayer Goddess' Invitation + Divine Instruments' Domain + Mark of Sealing
+ | Absorb damage when damage >= 50,000,000 for 999 turns + Jammer skyfall +20% for 10 turns + Unable to match Jammer orbs for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (22769:108) Evil Vanquishing Darkness
+     | Change all Jammer orbs to Dark orbs, Deal 130% damage
+     | condition: 33% chance
+     | (22770:108) Divine Instrument Strike
+     | Change all Dark orbs to Jammer orbs, Deal 100% damage
+     | condition: 33% chance
+     | (22771:109) Speardance Strikes
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+     | condition: 34% chance
+     | (22772:15) Blade of the Four Origins
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (22798:83) Magic Hand's Fighting Spirit + Guiding Wedge
+     | Increase damage to 200% for the next 999 turns + Locked random skyfall +50% for 99 turns
+   | group:
+   | condition: turns 6-11 while HP > 9
+     | (22769:108) Evil Vanquishing Darkness
+     | Change all Jammer orbs to Dark orbs, Deal 130% damage
+     | condition: 33% chance
+     | (22770:108) Divine Instrument Strike
+     | Change all Dark orbs to Jammer orbs, Deal 100% damage
+     | condition: 33% chance
+     | (22771:109) Speardance Strikes
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+     | condition: 34% chance
+     | (22772:15) Blade of the Four Origins
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+     | (22776:15) Secret Blade of the Four Origins
+     | Deal 300% damage (6 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (22773:83) Mark of Destruction + Guiding Wedge
+   | Bind awoken skills for 1 turn + Locked random skyfall +50% for 99 turns

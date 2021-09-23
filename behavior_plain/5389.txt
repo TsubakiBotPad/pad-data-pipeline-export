@@ -1,0 +1,71 @@
+#5389 - Dorothy
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:20201) -> Brainless Scarecrow
+	Absorb damage when combos <= 5 for 999 turns
+	[1] ESSkyfallLocked(96:20202) -> Heartless Tin Woodman
+	Locked random skyfall +25% for 10 turns
+	[2] ESDebuffRCV(105:20203) -> Cowardly Lion
+	RCV 50% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 16
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 15
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 14
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 13
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 14
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 13
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 15
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 14
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:20205) -> Magic of the Silver Shoes
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:20206) -> Swaying Straw Swing
+	Change all orbs to Wood, Light, and Heal, Deal 100% damage
+
+#14: SkillSet:
+	[0] ESBlind5(5:20208) -> Magic of the Silver Shoes
+	Blind all orbs on the board
+	[1] ESDebuffMovetime(39:20209) -> Woodman's Slipped Axe
+	Movetime 150% for 1 turn, Deal 110% damage
+
+#15: SkillSet:
+	[0] ESSpinnersFixed(110:20211) -> Magic of the Silver Shoes
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESFixedStart(101:20212) -> Spooked Lion's Charge
+	Fix orb movement starting point to random position on the board, Deal 105% damage
+
+#16: ESAttackMultihit(15:20213) -> Wish Granting Power
+Deal 1,000% damage (5 hits, 200% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

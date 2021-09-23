@@ -1,0 +1,51 @@
+#5612 - Jabberwock
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESNoSkyfall(127:20244) -> Primal Truth
+	No skyfall for 10 turns
+	[1] ESDebuffRCV(105:20245) -> Frenzied Admiration
+	RCV 50% for 10 turns
+	[2] ESDebuffMovetime(39:19596) -> Jabberwocky
+	Movetime -2s for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 9
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBombRandomSpawn(102:20249) -> Fragile Sphere
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Bomb orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:20250) -> Struggle's Gleam
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Poison orbs, Deal 90% damage
+
+#7: ESBlindStickyRandom(97:20251) -> Twilight Shine
+Condition: 34% chance (ai:0 rnd:34)
+Blind random 3 orbs for 1 turn, Deal 95% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:20247) -> Luster Fragment
+	Increase damage to 200% for the next 999 turns
+	[1] ESBindAwoken(88:20248) -> Infinity Fame
+	Bind awoken skills for 1 turn, Deal 50% damage
+
+#10: ESAttackMultihit(15:20252) -> Beyond Eternity
+Deal 300% damage (10 hits, 30% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

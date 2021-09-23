@@ -1,0 +1,53 @@
+#200402 - Alt. Griffin
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:26381) -> Ithavoll Wind
+Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#8: ESGravity(50:26386) -> Down Burst - Ur
+Player -75% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBindAwoken(88:26389) -> Gloomy Turbulence
+Bind awoken skills for 1 turn
+
+#11: ESColumnSpawnMulti(77:26390) -> Niflstormur
+Change the 1st and 2nd columns to Wood and Jammer orbs and the 5th and 6th columns to Wood and Jammer orbs, Deal 170% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESRowSpawnMulti(79:26387) -> Air Cleave
+Change the 1st row to Wood orbs and the 5th row to Wood orbs, Deal 150% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:26380) -> ＿Griffin 1 Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

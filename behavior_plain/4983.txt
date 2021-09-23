@@ -1,0 +1,64 @@
+#4983 - ツチノコ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESRecoverPlayer(55:11926) -> ツチノコスマイル
+	Player recover 100% HP
+	[1] ESDebuffMovetime(39:11927) -> しあわせ　あげちゃうっ！
+	Movetime 150% for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESAttackMultihit(15:11928) -> カプッ！
+Condition: 25% chance (ai:0 rnd:25)
+Deal 110% damage
+
+#10: ESOrbChangeAttack(48:11929) -> クローバー　ふやしちゃおっ！
+Condition: 25% chance (ai:0 rnd:25)
+Change a random attribute to Wood orbs, Deal 90% damage
+
+#11: ESRowSpawnMulti(79:11930) -> しあわせだなぁ～
+Condition: 25% chance (ai:0 rnd:25)
+Change the 3rd row to Heal orbs, Deal 100% damage
+
+#12: ESBindRandomSub(65:11931) -> みんな　なかよくしよっ！
+Condition: One-time use (ai:0 rnd:25) (cost: 1)
+Bind 4 random subs for 1 turn, Deal 80% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESAttackUPRemainingEnemies(17:11932) -> キュピーン！
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 5 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

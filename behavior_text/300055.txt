@@ -1,0 +1,22 @@
+#300055 - Amethyst Carbuncle
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300055
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19200:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19205:50) Amethyst Darkness
+ | Player -99% HP
+ group:
+ | (19201:15) Jewelry Strike
+ | Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (19409:17) Wave of Carnage
+ | Increase damage to 700% for the next 999 turns

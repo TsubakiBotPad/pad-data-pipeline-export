@@ -1,0 +1,42 @@
+#301412 - Red Riding Hood
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersFixed(110:24408) -> Innocent Smile
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESRandomSpawn(92:24409) -> Gift of Fruit
+Spawn 2 random Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#8: ESChangeAttribute(46:24403) -> Radiant Flash
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 1,000% damage
+
+#9: SkillSet:
+	[0] ESChangeAttribute(46:24401) -> Iridescent Shine
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:24402) -> Radiant Flash
+	Deal 1,000% damage (5 hits, 200% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:24407) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,42 @@
+#203234 - Nightshade Sun Dragon Caller, Kanna
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:25570) -> Shadow Mirror Scales
+	Absorb damage when combos <= 8 for 6 turns
+	[1] ESBlindStickySkyfall(128:25571) -> Dark Star
+	For 6 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 7
+
+#5: ESOrbLock(94:25572) -> Beacon
+Lock 10 random orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 10
+
+#8: ESOrbLock(94:25573) -> Ultimate Beacon
+Lock all orbs, Deal 150% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:25574) -> Dark Shadow Talisman
+Deal 1,500% damage (5 hits, 300% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

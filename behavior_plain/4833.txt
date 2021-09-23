@@ -1,0 +1,133 @@
+#4833 - Old Castle Illuminating Dragon Caller, Myne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:11313) -> Oh! Who are you?!
+	Movetime 50% for 15 turns
+	[1] ESDamageShield(74:11314) -> She's vigilant
+	Reduce damage from all sources by 75% for 15 turns
+	[2] ESStatusShield(20:11315) -> Magic Dragon Costume
+	Voids status ailments for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 24
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 14, target rnd 27
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 13
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 14
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 85, target rnd 15
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 16
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 95, target rnd 17
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 96, target rnd 18
+
+#13: SkillSet:
+	Condition: 17% chance (ai:17 rnd:0)
+	[0] ESGravity(50:11322) -> Aaah! The sweets!
+	Player -50% HP
+	[1] ESOrbChangeAttackBits(108:11328) -> Lucky Cookie
+	Change all Light orbs to Heal orbs, Deal 65% damage
+
+#14: SkillSet:
+	Condition: 20% chance (ai:20 rnd:0)
+	[0] ESGravity(50:11322) -> Aaah! The sweets!
+	Player -50% HP
+	[1] ESBoardChangeAttackBits(85:11327) -> Rainbow Gummy
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 53% damage
+
+#15: SkillSet:
+	Condition: 25% chance (ai:25 rnd:0)
+	[0] ESGravity(50:11322) -> Aaah! The sweets!
+	Player -50% HP
+	[1] ESCloud(104:11326) -> Whipped Cream
+	A 2×3 rectangle of clouds appears for 1 turn at 2nd row, 3rd column, Deal 49% damage
+
+#16: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESGravity(50:11322) -> Aaah! The sweets!
+	Player -50% HP
+	[1] ESOrbSealRow(100:11325) -> Chewing Gum
+	Seal the 1st row for 1 turn, Deal 48% damage
+
+#17: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESGravity(50:11322) -> Aaah! The sweets!
+	Player -50% HP
+	[1] ESBlindStickyRandom(97:11324) -> Bitter Chocolate
+	Blind random 6 orbs for 1 turn, Deal 51% damage
+
+#18: SkillSet:
+	[0] ESGravity(50:11322) -> Aaah! The sweets!
+	Player -50% HP
+	[1] ESSpinnersRandom(109:11323) -> Spinning Candy
+	Random 4 orbs change every 1.0s for 1 turn, Deal 50% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#22: SkillSet:
+	[0] ESGravity(50:11330) -> Fell down with force
+	Player -99% HP
+	[1] ESBombRandomSpawn(102:11331) -> Sweets scattered all over the place
+	Spawn 10 random locked Bomb orbs
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlind5(5:11333) -> Bats are swarming in
+	Blind all orbs on the board
+	[1] ESBindAwoken(88:11334) -> She stumbled on a pumpkin
+	Bind awoken skills for 5 turns
+
+#25: ESAttackMultihit(15:11335) -> Lots of sweets went flying
+Deal 1,200% damage (6 hits, 200% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#28: ESAbsorbThreshold(87:11403) -> Sweet Pocket
+Absorb damage when damage >= 15,000,000 for 99 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11651) -> Oooh... The sweets are all gone...
+	Do nothing

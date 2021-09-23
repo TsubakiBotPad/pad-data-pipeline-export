@@ -1,0 +1,80 @@
+#5904 - Blue Yin Dragon, Ryuunsai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:20703) -> The Farthest Realm
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:20704) -> Beckon to Soar the Skies
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:20705) -> The Hour of Life and Death
+	Absorb damage when combos <= 8 for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 14
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbChangeAttackBits(108:20710) -> Roaring Flood of Thunder
+	Change all Heal orbs to Water orbs, Deal 50% damage
+	[1] ESSpinnersRandom(109:20711) -> Twisting Water
+	Random 3 orbs change every 1.0s for 1 turn, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESGravity(50:20713) -> Fatal Collapse
+	Player -100% HP
+	[1] ESDebuffRCV(105:20714) -> Water of Mourning
+	RCV 50% for 1 turn, Deal 50% damage
+
+#8: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAttackMultihit(15:20716) -> Deadly Water Breath
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESDebuffMovetime(39:20717) -> Water of Plunder
+	Movetime 50% for 1 turn, Deal 45% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESDebuffATK(130:20707) -> Heaven's Trial
+	ATK -75% for 99 turns
+	[1] ESSkillDelay(89:20708) -> Stripped of Power
+	Delay active skills by 6 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:20718) -> Whirlpool of Ashes
+Deal 2,000% damage (10 hits, 200% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:20701) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#17: ESNone(136:19049) -> ESNone
+nothing
+
+#18: ESAttributeResist(72:20700) -> Light & Dark halved
+Reduce damage from Light and Dark attrs by 50%

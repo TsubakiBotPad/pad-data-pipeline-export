@@ -1,0 +1,47 @@
+#202199 - Dark Gear
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESVoidShield(71:26068) -> Whirring Gears
+Void damage >= 10 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESFixedTarget(112:26069) -> Execute Operation
+Forces attacks to hit this enemy for 99 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#11: ESRandomSpawn(92:26070) -> Dark energy required.
+Spawn 5 random Dark orbs, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESEndBattle(40:26078) -> Charging target lost.
+Reduce self HP to 0
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

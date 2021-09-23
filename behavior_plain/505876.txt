@@ -1,0 +1,44 @@
+#505876 - Black Fox of the Autumn Moon, Amakozumi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:22100) -> Hehe, entertain me!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 90% for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESOrbChangeAttack(48:22101) -> Memoirs of a Quiet Night
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#5: ESRandomSpawn(92:22102) -> Dark Night's Trick
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Jammer orbs, Deal 90% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESDebuffATK(130:22104) -> Excellent!
+	ATK -75% for 5 turns
+	[1] ESOrbSealRow(100:22105) -> Fox Spirit of the Autumn Moon
+	Seal the 1st row for 5 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:21985) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

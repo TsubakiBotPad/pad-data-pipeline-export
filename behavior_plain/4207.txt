@@ -1,0 +1,39 @@
+#4207 - Valentine Azure Princess, Carat
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:21927) -> Hey, let's eat together!
+	Locked random skyfall +50% for 5 turns
+	[1] ESOrbLock(94:21928) -> Try my yummy sweets!
+	Lock 15 random orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESBlindStickyRandom(97:21930) -> Have some chocolates
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 4~6 orbs for 1 turn, Deal 80% damage
+
+#5: ESRandomSpawn(92:21929) -> Have some cookies
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Fire orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:21931) -> Have a star
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:21932) -> Do you want more?
+Deal 200% damage (2 hits, 100% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

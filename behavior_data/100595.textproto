@@ -1,0 +1,39 @@
+  monster_id: 100595
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 10706
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 74
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 40
+          }
+          enemy_skill_id: 101
+        }
+      }
+    }
+    groups {
+      group_type: REMAINING
+      condition {
+        trigger_enemies_remaining: 1
+        trigger_turn: 1
+        always_trigger_above: 1
+      }
+      children {
+        behavior {
+          enemy_skill_id: 270
+        }
+      }
+    }
+  }

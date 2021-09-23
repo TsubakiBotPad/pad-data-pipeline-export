@@ -1,0 +1,45 @@
+#1001 - Deathly Hell Deity Jackal, Anubis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbSealRow(100:20388) -> Countdown to the Underworld
+	Seal the 1st row for 10 turns
+	[1] ESAbsorbCombo(67:20389) -> Dark Wolf Revelations
+	Absorb damage when combos <= 8 for 11 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 8
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESOrbLock(94:20390) -> Call from the Underworld
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:20391) -> Path to the Underworld
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Light and Dark orbs, Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESAttackUPRemainingEnemies(17:20392) -> Dark Wolf Howl
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

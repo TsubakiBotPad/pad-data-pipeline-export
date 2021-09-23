@@ -1,0 +1,86 @@
+#104319 - Younger Toguro
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:9437) -> 変身１回目戸愚呂弟
+Condition: On death (ai:0 rnd:0)
+Show message: First, let's have a dry run.|I'll start with 80 percent!
+
+#3: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 6
+
+#4: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 3, target rnd 22
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESInactivity66(66:9430) -> It's been ages since I was contracted for such a fight.
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:9431) -> Muscle Manipulation
+	Increase damage to 120% for the next 3 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 18
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 16
+
+#13: ESColumnSpawnMulti(77:9433) -> No. This does not involve you.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 4th column to Jammer orbs, Deal 60% damage
+
+#14: ESAttackMultihit(15:9434) -> I do not remember selling my character.
+Deal 70% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESRandomSpawn(92:9436) -> I won't let anyone get in my way.
+Spawn 5 random Jammer orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#20: ESAttackUPRemainingEnemies(17:9435) -> Muscle Manipulation
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 160% for the next 99 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 25
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#24: ESInactivity66(66:9430) -> It's been ages since I was contracted for such a fight.
+Do nothing
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn

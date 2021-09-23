@@ -1,0 +1,77 @@
+#101839 - Alt. Lightning Sky Stubborn Dragon King, Gainaut
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101839
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8790:72) Gainaut Fire Light Halved
+ | Reduce damage from Fire and Light attrs by 50%
+ type: PREEMPT
+ | (8746:83) Observe this glorious spectacle!! + Crystal Aura
+ | Locked random skyfall +30% for 10 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | condition: when 2440, 2441 on team
+     | (3809:15) You foolish Devilbound creature
+     | Deal 100% damage
+     | condition: when 1946, 1947 on team
+     | (3807:15) If you want power, sacrifice him to me!
+     | Deal 100% damage
+   | group:
+     | (3792:94) Brilliant Flare
+     | Lock all Jammer orbs, Deal 220% damage
+     | condition: 16% chance
+     | (3795:77) Reflection Ray
+     | Change the 1st column to Jammer orbs, Deal 140% damage
+     | condition: 16% chance
+     | (3796:77) Reflection Ray
+     | Change the 2nd column to Jammer orbs, Deal 140% damage
+     | condition: 17% chance
+     | (3797:77) Reflection Ray
+     | Change the 3rd column to Jammer orbs, Deal 140% damage
+     | condition: 17% chance
+     | (3798:77) Reflection Ray
+     | Change the 4th column to Jammer orbs, Deal 140% damage
+     | condition: 17% chance
+     | (3799:77) Reflection Ray
+     | Change the 5th column to Jammer orbs, Deal 140% damage
+     | condition: 17% chance
+     | (3800:77) Reflection Ray
+     | Change the 6th column to Jammer orbs, Deal 140% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 69
+   | condition: when 2440, 2441 on team
+   | (3809:15) You foolish Devilbound creature
+   | Deal 100% damage
+   | condition: when 1946, 1947 on team
+   | (3807:15) If you want power, sacrifice him to me!
+   | Deal 100% damage
+   | (3801:2) Evaporate
+   | Bind Water cards for 5 turns
+   | (3802:6) Erase Light
+   | Voids player buff effects
+   | (3793:68) Poison Mist
+   | Mortal Poison skyfall +20% for 2 turns
+ | group:
+ | condition: hp <= 49
+   | (3792:94) Brilliant Flare
+   | Lock all Jammer orbs, Deal 220% damage
+   | condition: 33% chance
+   | (3803:77) Reflection Ray
+   | Change the 1st and 4th columns to Jammer orbs, Deal 160% damage
+   | condition: 33% chance
+   | (3804:77) Reflection Ray
+   | Change the 2nd and 5th columns to Jammer orbs, Deal 160% damage
+   | condition: 34% chance
+   | (3805:77) Reflection Ray
+   | Change the 4th and 6th columns to Jammer orbs, Deal 160% damage
+ | group:
+ | condition: hp <= 19
+   | (3791:15) Crossing Ray
+   | Deal 600% damage (6 hits, 100% each)

@@ -1,0 +1,60 @@
+#6822 - Holy Night Hell Demon, Scarlet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:21369) -> You came at the worst time
+	Specific orbs change every 1.0s for 5 turns
+	[1] ESBoardChangeAttackBits(85:21370) -> Please try to be quiet
+	Change all orbs to Fire and Wood, Deal 80% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:21371) -> Colorful Decorations
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Fire and Wood orbs, Deal 100% damage
+
+#6: ESOrbLock(94:21372) -> Light Up the Locks
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 110% damage
+
+#7: ESAttackMultihit(15:21373) -> Present Strike
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESCloud(104:21375) -> Not too shabby...
+	A row of clouds appears for 10 turns at 1st row, 1st column
+	[1] ESSkillDelay(89:21376) -> Could you be just a bit quieter?
+	Delay active skills by 3~6 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESRandomSpawn(92:21377) -> Christmas Flare
+Spawn 10 random Fire and Wood orbs, Deal 300% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:21367) -> Resolve
+Survive attacks with 1 HP when HP > 50%

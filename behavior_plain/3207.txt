@@ -1,0 +1,91 @@
+#3207 - Fire Guardian Dragon, Touen
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESAbsorbCombo(67:5699) -> Bonfire of Enlightenment
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESColumnSpawnMulti(77:5700) -> Triple Fireball
+	Change the 1st column to Heal orbs, the 2nd column to Dark orbs, and the 3rd column to Fire orbs, Deal 140% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 24
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 21
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 60, target rnd 15
+
+#13: ESBlindStickyRandom(97:5702) -> Coals of Enlightenment
+Blind random 8 orbs for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESDamageShield(74:5701) -> Protective Flames of Retribution
+Reduce damage from all sources by 50% for 10 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESOrbLock(94:5707) -> Sacred Exorcist Flame
+Lock all Jammer and Poison orbs, Deal 150% damage
+
+#18: ESBoardChangeAttackBits(85:5708) -> Fireball of Mass Destruction
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all orbs to Fire, Dark, Heal, and Poison, Deal 120% damage
+
+#19: ESRandomSpawn(92:5706) -> Triple Abaddon Wave
+Spawn 3 random Jammer orbs, Deal 100% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESAbsorbCombo(67:5699) -> Bonfire of Enlightenment
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESDebuffMovetime(39:5704) -> Blazing Brand of Retribution
+	Movetime 25% for 1 turn
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b100
+
+#25: ESBoardChangeAttackBits(85:5705) -> Fireball Destruction
+Change all orbs to Fire and Jammer, Deal 600% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,28 @@
+#3871 - Pixel Witch of the Night, Lilith
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3871
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16343:97) Dark Night of the Witches
+ | Blind random 10 orbs for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (16346:92) Poison Bouquet
+   | Spawn 8 random Poison orbs, Deal 90% damage
+   | condition: 50% chance
+   | (16347:62) Dark Scythe
+   | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (16348:15) Lovely Sacrifice
+   | Deal 300% damage (2 hits, 150% each)
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (16344:83) Healing Prayer + Poison Shower
+ | Enemy ally recover 50% HP + Poison skyfall +15% for 5 turns

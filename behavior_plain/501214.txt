@@ -1,0 +1,26 @@
+#501214 - Underworld Guard Dog, Cerberus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:15439) -> Deadly Howl
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+RCV 50% for 4 turns
+
+#3: ESPoisonChangeRandomCount(60:15441) -> Rotten Breath
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change 5 random orbs (excluding hearts) to Poison orbs
+
+#4: ESAttackUPRemainingEnemies(17:15442) -> Rage
+Condition: 50% chance when < 50% HP, when <= 1 enemies remain (ai:50 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#5: ESAttackMultihit(15:15440) -> Bite
+Deal 105% damage (3 hits, 35% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,32 @@
+#2185 - Blazing CyberDragon, Thuban
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 2185
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21682:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (21683:83) Ruby Coating + Flare Chain + Blessing of Extinguished Flames
+ | Change all orbs to Fire + Lock all orbs + Water, Wood, Light, and Dark skyfall +100% for 5 turns, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (21686:83) Revolving Flames + Flare Impact
+     | Random 1 orbs change every 1.0s for 4 turns + Player -99% HP
+   | group:
+   | condition: turns 2-4
+     | (21689:15) Flame Charge
+     | Deal 100% damage (4 hits, 25% each)
+   | group:
+     | (21690:15) Blazing Force
+     | Deal 500% damage (5 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (21691:83) Ruby Coating + Flare Chain + Flame Repair
+   | Change all orbs to Fire + Lock all orbs + Enemy recover 75% HP, Deal 150% damage

@@ -1,0 +1,47 @@
+#5246 - Iron Maiden, Jeanne
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardChange(84:17664) -> RRMMMB
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Light, and Heal
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESBindSkill(14:13290) -> Instruments of Torture: Gibbet
+Condition: 50% chance (ai:0 rnd:50)
+Bind active skills for 1 turn, Deal 100% damage
+
+#5: ESBindAttack(63:13291) -> To banish evil from this world!
+Condition: 50% chance (ai:0 rnd:50)
+Bind 2 random subs for 1~2 turns, Deal 90% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESGravity(50:13292) -> It is proof of my resolve.
+Player -75% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 16, target rnd 4
+
+#12: ESAttackMultihit(15:13293) -> Verdict: Death
+Deal 200% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

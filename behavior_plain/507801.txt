@@ -1,0 +1,69 @@
+#507801 - ダース・ベイダー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbThreshold(87:27898) -> 恐怖をコントロールできているな
+	Absorb damage when damage >= 20,000,000 for 5 turns
+	[1] ESSkyfallLocked(96:27900) -> お前を殺したくない
+	Locked Dark skyfall +100% for 5 turns, Deal 65% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESAttributeBlock(107:27902) -> 逆らっても無駄だ
+	Unable to match Heal orbs for 1 turn
+	[1] ESRowSpawnMulti(79:27903) -> フォース・プッシュ
+	Change the 4th and 5th rows to Fire and Dark orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: SkillSet:
+	[0] ESOrbLock(94:27905) -> わしの元へ来るのだ
+	Lock 15 random orbs
+	[1] ESSpinnersRandom(109:27906) -> フォース・チョーク
+	Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackUPRemainingEnemies(17:27907) -> 修行を完成させてやる
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:27896) -> ＿ベイダー根性
+Survive attacks with 1 HP when HP > 50%
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

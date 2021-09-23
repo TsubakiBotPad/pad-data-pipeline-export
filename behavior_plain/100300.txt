@@ -1,0 +1,37 @@
+#100300 - Alt. Pierdra
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAttributeBlock(107:20380) -> Jester's Game
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Dark orbs for 1 turn
+
+#3: ESRowSpawnMulti(78:20607) -> Jester's Game
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 1st and 5th rows to Dark orbs
+
+#4: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 7
+
+#5: ESAttackMultihit(15:20608) -> Rumbling Attack
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESAttackUPCooldown(19:20609) -> Jester's Release
+Increase damage to 300% for the next 999 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

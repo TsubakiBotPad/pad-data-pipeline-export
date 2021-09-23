@@ -1,0 +1,71 @@
+#2059 - Dancing Mad, Kefka
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 2059
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2201:72) ケフカ・パッシブ
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (2135:66) I'll destroy them all!
+ | Do nothing
+
+level: 5
+ type: PASSIVE
+ | (2201:72) ケフカ・パッシブ
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (2197:20) I'll destroy them all!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (2146:50) Heartless Angel
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | condition: 40% chance
+     | (2148:15) Havoc Wing
+     | Deal 140% damage (2 hits, 70% each)
+     | condition: 40% chance
+     | (2200:14) Trine
+     | Bind active skills for 2 turns, Deal 110% damage
+     | condition: 20% chance
+     | (1:82) Disable Skill
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (2150:66) Beyond the chaos, the end draws near.
+     | Do nothing
+   | group:
+   | condition: always turn 2
+     | (2151:15) Forsaken
+     | Deal 240% damage (4 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (2146:50) Heartless Angel
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | (2199:6) Vengeance
+     | Voids player buff effects
+     | condition: 40% chance
+     | (2148:15) Havoc Wing
+     | Deal 140% damage (2 hits, 70% each)
+     | condition: 40% chance
+     | (2147:15) Hyperdrive
+     | Deal 150% damage
+     | condition: 20% chance
+     | (2200:14) Trine
+     | Bind active skills for 2 turns, Deal 110% damage
+ | group:
+ | condition: hp <= 14
+   | (2198:15) Ultima
+   | Deal 900% damage

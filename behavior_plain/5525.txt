@@ -1,0 +1,62 @@
+#5525 - Velkhana
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffATK(130:18790) -> Roar
+	ATK -50% for 5 turns
+	[1] ESVoidShield(71:18791) -> Buffering Wind
+	Void damage >= 4,000,000 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBindRandomSub(65:18792) -> Wheeling Bite
+Condition: 33% chance (ai:0 rnd:33)
+Bind 2 random subs for 10 turns, Deal 80% damage
+
+#6: ESRowSpawnMulti(79:18794) -> Cryobreath
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st row to Water orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:18793) -> Repeating Tail Thrust
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (2 hits, 50% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:18798) -> Ice Wall
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESCloud(104:18796) -> Glacial Haze
+	A 7×2 rectangle of clouds appears for 4 turns at a random location
+
+#10: ESOrbChangeAttack(48:18797) -> Giant Ice Block
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Water orbs, Deal 120% damage
+
+#11: ESColumnSpawnMulti(77:18799) -> Great Ice Pillar Attack
+Change the 1st and 6th columns to Water orbs, Deal 115% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBoardChangeAttackBits(85:18800) -> Absolute Zero
+Change all orbs to Water, Deal 5,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:18801) -> Resolve
+Survive attacks with 1 HP when HP > 50%

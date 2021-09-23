@@ -1,0 +1,92 @@
+#4421 - New Beast-Taming Star, Panera
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4421
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10166:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (10171:83) Ladies & Gentlemen! + Have fun today! + First of all, this! + Show me your best combos!
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 5 turns + Reduce damage from all sources by 99% for 5 turns + Spawn 9 random Heal, Jammer, Poison, and Mortal Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | condition: when 10 combos last turn
+     | (10175:83) Well done! + OK! My turn now + It's SHOWTIME!!!
+     | Player recover 100% HP + Blind random 15 orbs for 4 turns + Change player HP to 50% for 5 turns
+     | (10177:83) No, no, you can do better! + OK! My turn now + It's SHOWTIME!!!
+     | Player -99% HP + Blind random 15 orbs for 4 turns + Change player HP to 50% for 5 turns
+   | group:
+   | condition: turns 2-4
+     | condition: 33% chance
+     | (10178:75) Super Illusion
+     | Leader changes to random sub for 1 turn, Deal 40% damage
+     | condition: 33% chance
+     | (10179:100) Acrobat Parade
+     | Seal the 5th row for 1 turn, Deal 40% damage
+     | condition: 34% chance
+     | (10180:104) Mysterious Fog
+     | A row of clouds appears for 1 turn at a random location, Deal 40% damage
+   | group:
+   | condition: turn 5
+     | (10183:83) Amuse me more! + Show me your best combos!
+     | Reduce damage from all sources by 50% for 15 turns + Spawn 9 random Heal, Jammer, Poison, and Mortal Poison orbs
+   | group:
+   | condition: turn 6
+     | condition: when 10 combos last turn
+     | (10187:83) Well done! + Next, this! + It's SHOWTIME!!!
+     | Player recover 100% HP + Locked Heal skyfall +100% for 3 turns + Change player HP to 100,000 for 5 turns
+     | (10189:83) No, no, you can do better! + Next, this! + It's SHOWTIME!!!
+     | RCV 50% for 4 turns + Locked Heal skyfall +100% for 3 turns + Change player HP to 100,000 for 5 turns
+   | group:
+   | condition: turns 7-9
+     | condition: 33% chance
+     | (10190:15) Juggling Spectacle
+     | Deal 90% damage (3 hits, 30% each)
+     | condition: 33% chance
+     | (10191:92) Colorful Loop
+     | Spawn 6 random Fire, Water, Wood, Light, Dark, Jammer, and Poison orbs, Deal 81% damage
+     | condition: 34% chance
+     | (10192:102) Dangerous Bomb
+     | Spawn 6 random Bomb orbs, Deal 81% damage
+   | group:
+   | condition: turn 10
+     | (10182:92) Show me your best combos!
+     | Spawn 9 random Heal, Jammer, Poison, and Mortal Poison orbs
+   | group:
+   | condition: turn 11
+     | condition: when 10 combos last turn
+     | (10195:83) Well done! + Well, well, what's next? + It's SHOWTIME!!!
+     | Movetime 200% for 1 turn + Random 3 orbs change every 1.0s for 4 turns + Change player HP to 11,111 for 5 turns
+     | (10197:83) No, no, you can do better! + Well, well, what's next? + It's SHOWTIME!!!
+     | Movetime -1s for 4 turns + Random 3 orbs change every 1.0s for 4 turns + Change player HP to 11,111 for 5 turns
+   | group:
+   | condition: turns 12-14
+     | (10198:94) Amazing Ring
+     | Lock 4 random orbs, Deal 20% damage
+   | group:
+   | condition: turn 15
+     | (10201:83) It's almost over ! + It's SHOWTIME!!!
+     | RCV 50% for 1 turn + Change player HP to 500,000 for 2 turns
+   | group:
+   | condition: turn 16
+     | (10202:15) Grand Finale
+     | Deal 1,000% damage
+   | group:
+     | (10205:83) Eh? The show is over! + Thank you for coming!
+     | Bind awoken skills for 1 turn + Deal 2,500% damage (5 hits, 500% each), Deal 2,500% damage (5 hits, 500% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (10208:83) It's just the beginning! + It's SHOWTIME!!!
+     | Enemy recover 50% HP + Change player HP to 10,000 for 4 turns
+   | group:
+     | (10138:83) Ah! + Failed Exploding Illusion
+     | Bind awoken skills for 1 turn + Deal 2,500% damage (5 hits, 500% each), Deal 2,500% damage (5 hits, 500% each)

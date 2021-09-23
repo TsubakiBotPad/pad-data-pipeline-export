@@ -1,0 +1,41 @@
+#101246 - Alt. Gleaming-Eyed Dragon Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101246
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3069:72) Xuanzang Passive
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (3057:55) You made it!
+ | Player recover 100% HP
+ group:
+ | group:
+   | condition: 30% chance
+   | (3059:63) Dragon Monk Binding Law of Tathagata
+   | Bind 1 random card for 4 turns, Deal 100% damage
+   | (3060:15) Rakshasa Power
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 69
+   | (3058:89) Dragon Monk Telekinesis
+   | Delay active skills by 0~4 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (3061:71) Dragon God's Mysterious Power
+     | Void damage >= 100,000 for 2 turns
+   | group:
+   | condition: turn 2
+     | (3068:83) Scriptures of the Dragon God Caste + Puzzle is rearranged + Alright, let's see you get rid of the evil
+     | Change the 1st and 5th rows to Light and Jammer orbs + Change the 1st, 3rd, and 5th columns to Light, Heal, and Jammer orbs + Movetime -3s for 1 turn, Deal 10% damage
+   | group:
+     | (3066:48) Chaos
+     | Change all Jammer orbs to Light orbs, Deal 1,000% damage
+     | (3062:15) Vicious Khakkhara Thrust
+     | Deal 200% damage

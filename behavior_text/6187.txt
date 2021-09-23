@@ -1,0 +1,28 @@
+#6187 - Lady Sati
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6187
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17582:127) The time has come for the final battle.
+ | No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (17584:108) Excellent.
+   | Change all Fire and Wood orbs to Light orbs, Deal 80% damage
+   | (17583:15) Don't speak.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17585:39) We haven't much time.
+     | Movetime -3s for 5 turns
+   | group:
+     | (17586:15) I'm sorry.
+     | Deal 160% damage (4 hits, 40% each)

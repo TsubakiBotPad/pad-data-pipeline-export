@@ -1,0 +1,107 @@
+#204646 - Heavenly King Companion Dragon, Doltos
+monster size: 4
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 204646
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10410:97) Swallowing Darkness
+ | Blind random 8 orbs for 2 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (10409:107) Yellow Exception
+   | Unable to match Light orbs for 3 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (10413:92) Accepting Spirit
+     | Spawn 4 random Fire and Dark orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10414:48) Darkness Pillar
+     | Change a random attribute to Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10415:15) Darkness Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10412:85) Gloomy Enclosure
+     | Change all orbs to Fire, Water, Dark, and Heal, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (10416:92) Eroding Mist
+     | Spawn 8 random Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 33% chance
+     | (10413:92) Accepting Spirit
+     | Spawn 4 random Fire and Dark orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10414:48) Darkness Pillar
+     | Change a random attribute to Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10415:15) Darkness Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10412:85) Gloomy Enclosure
+     | Change all orbs to Fire, Water, Dark, and Heal, Deal 120% damage
+ | group:
+ | condition: hp <= 14
+   | (10420:15) Liberation from Life
+   | Deal 180% damage (4 hits, 45% each)
+ type: REMAINING
+ condition: when 2 enemies remain
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (10413:92) Accepting Spirit
+     | Spawn 4 random Fire and Dark orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10414:48) Darkness Pillar
+     | Change a random attribute to Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10415:15) Darkness Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10411:53) Welcoming Mist
+     | Absorb Fire and Dark damage for 2 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (10416:92) Eroding Mist
+     | Spawn 8 random Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 33% chance
+     | (10413:92) Accepting Spirit
+     | Spawn 4 random Fire and Dark orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10414:48) Darkness Pillar
+     | Change a random attribute to Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10415:15) Darkness Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10411:53) Welcoming Mist
+     | Absorb Fire and Dark damage for 2 turns
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (10409:107) Yellow Exception
+   | Unable to match Light orbs for 3 turns
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 100
+   | (10419:83) Eroding Sleep + Counterattack from the Abyss
+   | Bind awoken skills for 1 turn + Increase damage to 200% for the next 99 turns

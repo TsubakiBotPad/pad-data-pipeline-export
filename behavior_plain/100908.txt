@@ -1,0 +1,36 @@
+#100908 - Alt. Earth Baron
+monster size: 3
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBindAwoken(88:10504) -> Over Slap
+	Bind awoken skills for 3 turns
+	[1] ESStatusShield(20:10505) -> Grand Shield
+	Voids status ailments for 999 turns
+
+#3: ESBindRandomSub(65:10507) -> There's no escape
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 1 random sub for 5 turns
+
+#4: ESBindSkill(14:10509) -> Earth Cage
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 5 turns
+
+#5: ESAttackMultihit(15:10510) -> Gigas Break
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 360% damage (3 hits, 120% each)
+
+#6: ESAttackMultihit(15:10508) -> Wind Slash
+Deal 300% damage (2 hits, 150% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESTypeResist(118:10511) -> Physical Attacker Halved
+Reduce damage from Physical and Attacker types by 50%

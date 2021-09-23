@@ -1,0 +1,47 @@
+#1997 - Shinra Sacred Demon God Ark Card
+monster size: 1
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkillDelay(89:2034) -> I found the new kid!♪
+Delay active skills by 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 11
+
+#9: ESOrbChangeAttack(48:2035) -> OMG!!
+Change all Water orbs to Fire orbs, Deal 180% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 13
+
+#12: ESInactivity66(66:2039) -> Get 'em, boss!!
+Do nothing
+
+#13: ESStatusShield(20:2011) -> Raging Warrior
+Voids status ailments for 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

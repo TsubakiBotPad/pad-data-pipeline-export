@@ -1,0 +1,60 @@
+#5238 - Spirit of the Sword, Yoh Asakura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersFixed(110:13304) -> Let's do it, Amidamaru.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESAttackMultihit(15:13305) -> If you hurt people, they'll hurt you back.
+Condition: 50% chance (ai:0 rnd:50)
+Deal 110% damage (2 hits, 55% each)
+
+#6: ESRandomSpawn(92:13306) -> I can't lose anymore.
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Wood and Light orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:13308) -> I'm gonna use force.
+	Increase damage to 150% for the next 5 turns
+	[1] ESAbsorbCombo(67:13309) -> Shamanic Oracle
+	Absorb damage when combos <= 5 for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 5
+
+#13: ESDamageShield(74:13312) -> All right. One more try.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 1 turn
+
+#14: SkillSet:
+	[0] ESBlind5(5:13310) -> Here I go.
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:13311) -> Amida-Style Halo Giant Blade
+	Deal 200% damage (5 hits, 40% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,36 @@
+#106197 - Dante
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 106197
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (17705:105) Hahaha... Guts and honor!
+ | RCV 25% for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | condition: 25% chance
+   | (17749:83) Gunslinger + Ebony Shot
+   | Absorb damage when combos <= 4 for 3 turns + Player -75% HP
+   | condition: 50% chance
+   | (17750:83) Gunslinger + Ivory Shot
+   | Absorb damage when combos <= 4 for 3 turns + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+   | (17744:83) Swordmaster + Aerial Rave
+   | Reduce damage from all sources by 50% for 3 turns + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (17747:110) Round Trip
+   | Specific orbs change every 1.0s for 1 turn, Deal 130% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (17748:15) Dance Macabre
+   | Deal 200% damage (10 hits, 20% each)
+ type: UNKNOWN_USE
+ | (17754:77) Rainstorm
+ | Change the 3rd and 4th columns to Fire orbs, Deal 120% damage
+ | (17755:15) Honeycomb Fire
+ | Deal 200% damage (10 hits, 20% each)

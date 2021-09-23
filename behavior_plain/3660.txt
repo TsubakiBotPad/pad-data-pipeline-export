@@ -1,0 +1,71 @@
+#3660 - Astalos
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindRandomSub(65:7304) -> Roar
+	Bind 3 random subs for 1 turn
+	[1] ESStatusShield(20:7305) -> Astalos Scale
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESOrbLock(94:7307) -> Wingtalon Sweep
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Lock all Light and Dark orbs, Deal 200% damage
+
+#7: ESOrbLock(94:7308) -> Tailspin
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Lock all Wood and Heal orbs, Deal 200% damage
+
+#8: ESOrbLock(94:7309) -> Crest Swing
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Lock all Fire and Water orbs, Deal 200% damage
+
+#9: ESOrbLock(94:7310) -> Lightning Breath
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock 8 random Light, Dark, and Heal orbs, Deal 200% damage
+
+#10: ESAttackMultihit(15:7311) -> Rushing Bite
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 300% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:7312) -> Rage
+	Increase damage to 120% for the next 10 turns
+	[1] ESInactivity66(66:7313) -> Thunder-charged
+	Do nothing
+
+#12: ESOrbLock(94:7318) -> Lightning Breath
+Condition: 25% chance (ai:25 rnd:0)
+Lock 12 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 220% damage
+
+#13: ESOrbLock(94:7317) -> Crest Thrash
+Condition: 33% chance (ai:33 rnd:0)
+Lock all Fire and Water orbs, Deal 220% damage
+
+#14: ESOrbLock(94:7316) -> Charged Tail Strike
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood and Heal orbs, Deal 220% damage
+
+#15: ESOrbLock(94:7315) -> Wingtalon Strike
+Lock all Light and Dark orbs, Deal 220% damage
+
+#16: ESAttackMultihit(15:7319) -> Spinning Dive
+Deal 7,000% damage (7 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

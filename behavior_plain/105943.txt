@@ -1,0 +1,101 @@
+#105943 - Reincarnated Odin Dragon
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:16762) -> Robes of the Gods
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:16763) -> The Cost of an Eye
+	Bind awoken skills for 5 turns
+	[2] ESAttributeBlock(107:16764) -> Thirst for Knowledge
+	Unable to match Heal orbs for 5 turns
+	[3] ESDebuffATK(130:16765) -> Unopposed Conflict
+	ATK -50% for 99 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 20
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 18
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRecoverPlayer(55:16774) -> Oski
+	Player recover 25% HP when below 25% HP
+	[1] ESBlindStickyRandom(97:16770) -> Blindr
+	Blind random 15 orbs for 4 turns, Deal 80% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRecoverPlayer(55:16774) -> Oski
+	Player recover 25% HP when below 25% HP
+	[1] ESCloud(104:16771) -> Fjolnir
+	A row of clouds appears for 3 turns at 3rd row, 1st column, Deal 70% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverPlayer(55:16774) -> Oski
+	Player recover 25% HP when below 25% HP
+	[1] ESOrbSealColumn(99:16772) -> Bileyg
+	Seal the 6th column for 2 turns, Deal 80% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverPlayer(55:16774) -> Oski
+	Player recover 25% HP when below 25% HP
+	[1] ESBombRandomSpawn(102:16773) -> Baleyg
+	Spawn 12 random locked Bomb orbs
+
+#10: ESBindAwoken(88:16775) -> Bring about Ragnarok
+Bind awoken skills for 99 turns
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESBindRandomSub(65:16777) -> Prophecy of Demise
+	Bind 4 random subs for 6 turns
+	[1] ESAttackUPRemainingEnemies(17:16778) -> World's Collapse
+	Increase damage to 200% for the next 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:16778) -> World's Collapse
+	Increase damage to 200% for the next 999 turns
+	[1] ESAttackMultihit(15:16780) -> Sveignir
+	Deal 100% damage (4 hits, 25% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:16780) -> Sveignir
+Deal 100% damage (4 hits, 25% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttackMultihit(15:16781) -> Ygg Sigfodr
+Deal 3,000% damage (10 hits, 300% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESTypeResist(118:16734) -> God & Devil Halved
+Reduce damage from God and Devil types by 50%

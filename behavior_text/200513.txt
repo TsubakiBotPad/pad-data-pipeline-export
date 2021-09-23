@@ -1,0 +1,32 @@
+#200513 - Alt. King Siegfried, Blue Champion
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 200513
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25278:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25271:83) Fight me! + Water Dragon Mantle
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (25275:83) Water Dragon Mantle + Flowing Slash
+   | Absorb damage when combos <= 6 for 999 turns + Absorb Water damage for 10 turns
+ | group:
+   | group:
+   | condition: turns 1-4
+     | (25274:92) Kaiser Sword
+     | Spawn 5 random Water orbs, Deal 100% damage
+   | group:
+     | (25279:92) King Sieg's Blade
+     | Spawn 15 random Water orbs, Deal 1,000% damage
+ | group:
+ | condition: turns 1-4, hp <= 1
+   | (25279:92) King Sieg's Blade
+   | Spawn 15 random Water orbs, Deal 1,000% damage

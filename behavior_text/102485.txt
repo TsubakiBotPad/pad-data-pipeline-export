@@ -1,0 +1,64 @@
+#102485 - 邪悪の化身・白面の者
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102485
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3503:83) I am Hakumen! From that name, + Comes the destruction of all!!
+ | Do nothing + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | condition: when 2464, 2465 on team
+     | (3502:5) Hate...more...
+     | Blind all orbs on the board
+     | condition: 50% chance
+     | (3504:50) Shumuna
+     | Player -99% HP
+     | condition: 50% chance
+     | (3506:79) Towako
+     | Change the 2nd and 3rd rows to Fire orbs, Deal 150% damage
+   | group:
+   | condition: turn 2 while HP > 79
+     | condition: 50% chance
+     | (9387:71) Kuragi
+     | Void damage >= 5,000,000 for 2 turns
+     | condition: 50% chance
+     | (3507:74) Ayakashi
+     | Reduce damage from all sources by 50% for 2 turns
+   | group:
+     | condition: 50% chance
+     | (3510:92) Storm and Lightning Tail
+     | Spawn 4 random Wood and Light orbs, Deal 190% damage
+     | (3511:15) Spear-Shaped Tail
+     | Deal 195% damage (3 hits, 65% each)
+ | group:
+ | condition: hp <= 79
+   | group:
+   | condition: turn 1
+     | condition: when 2464, 2465 on team
+     | (3502:5) Hate...more...
+     | Blind all orbs on the board
+     | (3501:1) Waaaaaah!
+     | Bind 1 random card for 3 turns
+   | group:
+   | condition: turn 2
+     | condition: 50% chance
+     | (3504:50) Shumuna
+     | Player -99% HP
+     | condition: 50% chance
+     | (3506:79) Towako
+     | Change the 2nd and 3rd rows to Fire orbs, Deal 150% damage
+   | group:
+   | condition: turn 3
+     | condition: 50% chance
+     | (9387:71) Kuragi
+     | Void damage >= 5,000,000 for 2 turns
+     | condition: 50% chance
+     | (3507:74) Ayakashi
+     | Reduce damage from all sources by 50% for 2 turns

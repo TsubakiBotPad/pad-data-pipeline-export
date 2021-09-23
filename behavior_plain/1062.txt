@@ -1,0 +1,31 @@
+#1062 - Corpse Wyrm, Dragon Zombie
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkyfall(68:1382) -> Corpse Dragon's Curse
+Poison skyfall +5% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindTyping(3:1384) -> Corpse Dragon's Grudge
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind Dragon cards for 3 turns
+
+#7: ESPoisonChangeRandomAttack(64:1385) -> Hell Poison Breath
+Condition: When < 50% HP (ai:100 rnd:0)
+Change 3 random orbs to Poison orbs, Deal 100% damage
+
+#8: ESOrbChangeAttack(48:1383) -> Acid Breath
+Change a random attribute to Jammer orbs, Deal 100% damage

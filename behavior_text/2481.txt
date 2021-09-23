@@ -1,0 +1,36 @@
+#2481 - 最終形態・天堂地獄
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2481
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3484:20) Eat me! Tendo Jigoku Absorbing Form!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 70% chance
+   | (3485:15) Absorbing Form Bite
+   | Deal 100% damage
+   | condition: 70% chance
+   | (3488:15) Strong Blow
+   | Deal 120% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | condition: when 2468, 2469 on team
+   | (3491:53) Shall I devour your 8 dragons as well?
+   | Absorb Fire damage for 3 turns
+   | (3486:53) Absorption
+   | Absorb Fire damage for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (3487:86) Regeneration
+     | Enemy recover 30% HP
+   | group:
+     | (3489:92) Flame Arrow
+     | Spawn 8 random Fire orbs, Deal 260% damage

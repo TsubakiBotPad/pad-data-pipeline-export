@@ -1,0 +1,28 @@
+#3910 - Flash White Dragon Caller, Sonia Elle
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBoardChangeAttackBits(85:8182) -> Draco Summon - Light, Fire & Life
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Light, and Heal, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBoardChangeAttackBits(85:8182) -> Draco Summon - Light, Fire & Life
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Light, and Heal, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

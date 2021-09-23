@@ -1,0 +1,49 @@
+#3038 - Shishio Makoto
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3038
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5020:83) Neither of us has any reason to hold back. + There must be a winner!!
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (5004:83) Neither of us has any reason to hold back. + There must be a winner!!
+ | Voids status ailments for 999 turns + Change the 1st and 6th columns to Fire orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (5007:92) The First Secret Blow, "Homura Dama"!!
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5010:83) Shaaaah!! + Shaaah!!
+     | Spawn 3 random Fire orbs + Change the 3rd row to Fire orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5009:15) Hyohh!!!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 2
+     | (5013:83) In this world, the strong live... + ...and the weak die.
+     | Bind active skills for 1 turn + Reduce damage from all sources by 30% for 2 turns
+   | group:
+     | (5016:15) One way or another, you will fall!
+     | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 3
+     | (5017:48) The Second Secret, "Guren Kaina"!!
+     | Change a random attribute to Fire orbs, Deal 180% damage
+   | group:
+     | (5008:15) Hyohh!!!
+     | Deal 140~210% damage (2~3 hits, 70% each)

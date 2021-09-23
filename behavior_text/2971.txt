@@ -1,0 +1,53 @@
+#2971 - Indigo Ocean Water Dragon Caller, Sumire
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 2971
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6586:83) Water Dragon's Armor + Vanishing Lifespring-Blue Life
+ | Voids status ailments for 999 turns + Fire, Wood, Light, and Dark skyfall +100% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (6587:48) Current
+     | Change all Heal orbs to Poison orbs, Deal 300% damage
+     | (6588:39) Vortex Cascade
+     | Movetime -2s for 3 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (6589:48) Godspring Current
+     | Change all Heal orbs to Poison orbs, Deal 3,000% damage
+     | (6590:55) Hidden Waters
+     | Player recover 100% HP
+   | group:
+   | condition: turn 3 while HP > 19
+     | (6591:48) Godspring Current
+     | Change all Heal orbs to Poison orbs, Deal 3,000% damage
+     | (6592:15) Scale Blade
+     | Deal 320% damage (2 hits, 160% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (6595:83) Obelisk of Ice + Forget-me-not Magatama
+     | Absorb damage when combos <= 6 for 5 turns + Absorb damage when damage >= 5,000,000 for 5 turns
+   | group:
+     | (6596:15) Indigo Beam Zero-Wave
+     | Deal 1,500% damage (5 hits, 300% each)
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (6598:94) Skyward Aqua Blade
+     | Lock 8 random orbs, Deal 280% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6597:15) Scale Blade
+     | Deal 320% damage (2 hits, 160% each)
+ | group:
+ | condition: hp <= 19
+   | (6599:15) Indigo Beam Zero-Wave
+   | Deal 1,500% damage (5 hits, 300% each)

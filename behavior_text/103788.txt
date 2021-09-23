@@ -1,0 +1,47 @@
+#103788 - Destructive Machine God, Ragnarok Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103788
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15704:118) Physical Halved
+ | Reduce damage from Physical types by 50%
+ | (15705:118) Dragon Halved
+ | Reduce damage from Dragon types by 50%
+ | (15706:118) God Halved
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (15322:127) Over Accelerate
+ | No skyfall for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (15323:103) Catastrophe Sword
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (15710:89) Ignition Burst
+     | Delay active skills by 6 turns
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: turn 1
+     | (15326:17) Ignite Boost
+     | Increase damage to 120% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (15323:103) Catastrophe Sword
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (15710:89) Ignition Burst
+     | Delay active skills by 6 turns
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (15323:103) Catastrophe Sword
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage

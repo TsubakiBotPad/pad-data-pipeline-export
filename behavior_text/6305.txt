@@ -1,0 +1,31 @@
+#6305 - 「半冷半燃」轟焦凍
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6305
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18465:127) I'll become a hero too!!
+ | No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18466:92) Flame Wave
+   | Spawn 6 random Fire orbs, Deal 80% damage
+   | (18467:77) Ice Wall
+   | Change the 1st column to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18469:17) It's not my problem what happens to you!
+     | Increase damage to 150% for the next 4 turns
+   | group:
+     | condition: 50% chance
+     | (18468:79) Earth-Creeping Flame Wave
+     | Change the 5th row to Fire orbs, Deal 80% damage
+     | (18470:77) Heaven-Piercing Ice Wall
+     | Change the 1st column to Water orbs and the 5th column to Water orbs, Deal 80% damage

@@ -1,0 +1,60 @@
+#6684 - Indigo Shadow Shark, Kunashi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:20677) -> Cold Rain under the Sea
+	Player -99% HP
+	[1] ESBlindStickyRandom(97:20768) -> View of the Ocean Floor
+	Blind random 15 orbs for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESSpinnersRandom(109:20678) -> Drifting Medusa
+Condition: 33% chance (ai:0 rnd:33)
+Random 3 orbs change every 2.0s for 1 turn, Deal 100% damage
+
+#6: ESRandomSpawn(92:20679) -> Ocean Spray
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Water orbs, Deal 95% damage
+
+#7: ESAttackMultihit(15:20680) -> Tail Fin Slap
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESGravity(50:20677) -> Cold Rain under the Sea
+	Player -99% HP
+	[1] ESDebuffRCV(105:20770) -> Clear Sky after Rain
+	RCV 50% for 10 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:20683) -> Drink Deeply of Heaven's Rains
+Deal 300% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:20676) -> Resolve
+Survive attacks with 1 HP when HP > 50%

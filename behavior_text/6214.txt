@@ -1,0 +1,40 @@
+#6214 - Lady
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6214
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (17708:39) Looks like we're gonna be busy for a while.
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 34% chance
+     | (17709:15) Rush Hour
+     | Deal 100% damage (4 hits, 25% each)
+     | condition: 33% chance
+     | (17710:67) Ground Zero
+     | Absorb damage when combos <= 4 for 1 turn, Deal 80% damage
+     | condition: 33% chance
+     | (17711:48) Double Barrels
+     | Change a random attribute to Water orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 33% chance
+     | (17712:92) Hysteric
+     | Spawn 6 random Water orbs, Deal 110% damage
+     | condition: 33% chance
+     | (17713:15) High Explosive
+     | Deal 120% damage (4 hits, 30% each)
+     | condition: 34% chance
+     | (17714:101) Multiple
+     | Fix orb movement starting point to random position on the board, Deal 130% damage
+ | group:
+ | condition: hp <= 9
+   | (17715:102) Burst Attack
+   | Spawn 3 random Bomb orbs, Deal 250% damage

@@ -1,0 +1,62 @@
+#104320 - Younger Toguro, 80% Power
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 104320
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9445:66) It's time. You have something to prove to me.
+ | Do nothing
+
+level: 4
+ type: PREEMPT
+ | (9438:20) It's time. You have something to prove to me.
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (9439:15) Come on!
+     | Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (9440:110) Let's kick this up a notch, shall we?
+     | Specific orbs change every 1.0s for 1 turn, Deal 120% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (9441:89) Is that all you got for me?
+     | Delay active skills by 1~2 turns, Deal 90% damage
+   | group:
+     | condition: 33% chance
+     | (9439:15) Come on!
+     | Deal 100% damage
+     | condition: 50% chance
+     | (9440:110) Let's kick this up a notch, shall we?
+     | Specific orbs change every 1.0s for 1 turn, Deal 120% damage
+     | (9441:89) Is that all you got for me?
+     | Delay active skills by 1~2 turns, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (9442:14) My total power would be wasted on you.
+     | Bind active skills for 3 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (9439:15) Come on!
+     | Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (9440:110) Let's kick this up a notch, shall we?
+     | Specific orbs change every 1.0s for 1 turn, Deal 120% damage
+   | group:
+   | condition: turn 4 while HP > 19
+     | (9441:89) Is that all you got for me?
+     | Delay active skills by 1~2 turns, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | (9443:15) I'll finish this as I am, at 80 percent.
+   | Deal 160% damage (4 hits, 40% each)

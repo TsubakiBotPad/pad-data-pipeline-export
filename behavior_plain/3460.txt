@@ -1,0 +1,58 @@
+#3460 - 最強より最高・坊屋春道
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealRow(100:24733) -> オレはカラスで十分だぜ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Seal the 1st row for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBindRandom(1:24736) -> じゃかましい
+Condition: 33% chance (ai:0 rnd:33)
+Bind 2 random cards for 5 turns, Deal 90% damage
+
+#6: ESBlind62(62:24737) -> なめた口きいてんじゃねー
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 100% damage
+
+#7: ESAttackMultihit(15:24734) -> とう！！
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESSpinnersFixed(110:24735) -> わかんねーヤローだな！
+Specific orbs change every 1.0s for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:24740) -> おわりだバカヤロー
+	Bind awoken skills for 1 turn
+	[1] ESGravity(50:24739) -> しめおとしたらぁー
+	Player -99% HP
+
+#14: ESAttackMultihit(15:24741) -> うおらああ
+Deal 260% damage (4 hits, 65% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

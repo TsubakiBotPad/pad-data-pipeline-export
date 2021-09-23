@@ -1,0 +1,33 @@
+#5022 - Servant, True Assassin
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 5022
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12225:50) Unleash me.
+ | Player -99% HP
+ group:
+ | group:
+ | condition: when hp is full
+   | condition: 50% chance
+   | (12227:97) Knives painted black
+   | Blind random 3~6 orbs for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (12228:62) If you don't move, it will swallow you.
+   | Blind all orbs on the board, Deal 95% damage
+ | group:
+ | condition: always turn 1, hp <= 99
+   | (12226:92) You saw my face, did you?
+   | Spawn 6 random Poison orbs
+ | group:
+ | condition: always turn 2, hp <= 50
+   | (12229:67) Protection Against the Wind
+   | Absorb damage when combos <= 4 for 5 turns
+ | group:
+ | condition: hp <= 19
+   | (12230:83) Noble Phantasm... Zabaniya! + You... lose!
+   | Player -50% HP + Deal 100% damage, Deal 100% damage

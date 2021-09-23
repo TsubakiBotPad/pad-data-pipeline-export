@@ -1,0 +1,44 @@
+#207701 - 勇者の家庭教師・アバン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207701
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28037:129) ＿アバン超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (28038:83) ここまでよく頑張りましたね！ + 私を倒せばこの修業はクリアです。 + アー・ユー・レディー!?
+ | Voids status ailments for 999 turns + Change board size to 7x6 for 5 turns + Absorb damage when combos <= 12 for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (28042:92) ちょええええっ!!
+   | Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+ | group:
+ | condition: turn 2
+   | (28043:94) アストロン!!!
+   | Lock all orbs
+ | group:
+ | condition: turn 3
+   | (28042:92) ちょええええっ!!
+   | Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+ | group:
+ | condition: turn 4
+   | (28043:94) アストロン!!!
+   | Lock all orbs
+ | group:
+ | condition: turn 5
+   | (28047:88) 詰めが甘いですねえ
+   | Bind awoken skills for 10 turns
+   | (28048:79) アバンストラッシュ!!!
+   | Change the 1st, 2nd, 4th, and 5th rows to Light orbs, Deal 165% damage
+ | group:
+   | (28048:79) アバンストラッシュ!!!
+   | Change the 1st, 2nd, 4th, and 5th rows to Light orbs, Deal 165% damage
+ type: UNKNOWN_USE
+ | (28044:83) むむむ…!! + いい太刀筋です
+ | Enemy recover 100% HP + Blind all orbs on the board, Deal 100% damage

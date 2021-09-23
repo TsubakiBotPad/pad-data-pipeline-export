@@ -1,0 +1,44 @@
+#2666 - Scarlet Jewel Princess, Silk
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindAwoken(88:13569) -> Feather Ruby
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 2 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 9
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 1, target rnd 7
+
+#6: ESCloud(104:13570) -> Silk Cloak
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A 3×2 rectangle of clouds appears for 2 turns at a random location
+
+#7: ESAttackMultihit(15:13572) -> Rapier Brooch
+Deal 100% damage (2 hits, 50% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESAttackUPRemainingEnemies(17:13571) -> Ruby of Charity
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 99 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

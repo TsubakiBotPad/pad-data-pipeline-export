@@ -1,0 +1,24 @@
+#302988 - Another Justice
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302988
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18074:83) Justice Armor + Justice Bomb
+ | Void damage >= 30,000,000 for 999 turns + Spawn Bomb orbs in the specified positions
+ group:
+ | group:
+   | condition: 50% chance
+   | (18077:15) Justice Boomerang
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 50% chance
+   | (18078:79) Justice Blade
+   | Change the 2nd row to Water and Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18079:17) Justice Power
+   | Increase damage to 200% for the next 999 turns

@@ -1,0 +1,21 @@
+#100691 - Alt. Heavy Infantry Hobgoblin
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100691
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11638:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (11639:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ group:
+ | (1294:15) Big Blade
+ | Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (11640:83) Pouring Fighting Spirit + Counterattack
+ | Enemy recover 100% HP + Reduce damage from all sources by 75% for 99 turns

@@ -1,0 +1,57 @@
+#6198 - S.D.T. Dante
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:17803) -> Air Raid
+	Void damage >= 10,000,000 for 10 turns
+	[1] ESAbsorbCombo(67:17804) -> Advent
+	Absorb damage when combos <= 6 for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESAttackMultihit(15:17805) -> SDT Combo
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#6: ESRowSpawnMulti(79:17806) -> The Ombra
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Fire orbs, Deal 95% damage
+
+#7: ESRandomSpawn(92:17810) -> The Luce
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 8 random Fire orbs, Deal 110% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESGravity(50:17809) -> Demolition
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#10: ESRowSpawnMulti(79:17807) -> Sin Inferno
+Condition: 50% chance (ai:0 rnd:50)
+Change the 5th row to Fire orbs, Deal 120% damage
+
+#11: ESAttackMultihit(15:17808) -> Sin Stinger
+Condition: 50% chance (ai:0 rnd:50)
+Deal 130% damage (10 hits, 13% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBoardChangeAttackBits(85:17811) -> Judgement
+Change all orbs to Fire, Deal 250% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

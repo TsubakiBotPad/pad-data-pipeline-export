@@ -1,0 +1,49 @@
+#402551 - Alt. Awoken Takemikazuchi
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 402551
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2637:73) Takemi Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (13639:83) Bring it! Come on! + I'll beat you to pieces!
+ | Lock all orbs + Absorb damage when combos <= 6 for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (2632:1) War God Grapevine Stretch
+     | Bind 1 random card for 3 turns, Deal 240% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 33% chance
+     | (2630:89) Quintessence of the Low Kick
+     | Delay active skills by 1 turn, Deal 240% damage
+     | condition: 34% chance
+     | (2631:77) Lightning Strike
+     | Change the 3rd and 4th columns to Light orbs, Deal 240% damage
+     | condition: 33% chance
+     | (2633:15) Martial God Hell Thrust
+     | Deal 300% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (2634:92) Onamazu's Poison Mist
+   | Spawn 8 random Poison orbs
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (2635:5) I'm gonna end this! Get ready!
+     | Blind all orbs on the board
+   | group:
+     | (2636:77) Itsu-no-Ohabari's Breaking Thunder
+     | Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs, Deal 1,000% damage
+ | group:
+ | condition: hp <= 1
+   | (13567:83) It hurts!! + I'm not finished!! + Martial God Rear Naked Choke
+   | Increase damage to 200% for the next 999 turns + Enemy recover 100% HP + Unable to match Heal orbs for 1 turn

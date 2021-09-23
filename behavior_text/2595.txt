@@ -1,0 +1,29 @@
+#2595 - Bolmeteus Blue Flame Dragon
+
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2595
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24944:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24936:83) Blue Dragon King's Flame + Speed Attacker
+ | Absorb Fire and Water damage for 10 turns + Delay active skills by 6 turns, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | (24942:77) Double Breaker
+     | Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage
+   | group:
+     | (24943:85) Bolmeteus Double Flare
+     | Change all orbs to Fire and Water, Deal 5,000% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (24939:83) Unable to be blocked + Shield Burn
+   | Bind awoken skills for 5 turns + Player -99% HP

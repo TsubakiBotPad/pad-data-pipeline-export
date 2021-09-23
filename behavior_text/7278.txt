@@ -1,0 +1,27 @@
+#7278 - Reincarnated Uranus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7278
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25821:118) God & Devil Types Halved
+ | Reduce damage from God and Devil types by 50%
+ type: PREEMPT
+ | (25724:83) Heavenly King God's Provocation + Heavenly King God's Precipice + Try to defeat me.
+ | No skyfall for 99 turns + Reduce damage from all sources by 75% for 4 turns + Do nothing
+ group:
+ | group:
+ | condition: turns 1-2
+   | (25728:46) Give it your best shot.
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+ | group:
+ | condition: turn 3
+   | (25729:17) How boring...
+   | Increase damage to 500% for the next 999 turns
+ | group:
+   | (25730:15) Black Hole
+   | Deal 500% damage (5 hits, 100% each)

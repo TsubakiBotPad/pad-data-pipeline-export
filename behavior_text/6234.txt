@@ -1,0 +1,55 @@
+#6234 - Super Reincarnated Vritra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 6234
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25869:118) Devil & Attacker Halved
+ | Reduce damage from Attacker and Devil types by 50%
+ | (25868:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25840:83) True Soul of the Darkdragon + Furious Tempest + Grudge Strike
+ | Voids status ailments for 999 turns + For 10 turns, 15% chance for skyfall orbs to be blinded for turn + Player -120% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (25865:83) Proliferating Darkness + Darkdragon's Barrage
+     | Change the 5th row to Dark orbs + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (25863:83) Lost Vitality + Darkdragon's Barrage
+     | RCV 50% for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (25849:83) Darkdragon's Destructive Spirit + Darkdragon's Fury + Tainting Darkness
+     | Void damage >= 50,000,000 for 999 turns + Increase damage to 150% for the next 999 turns + Spawn 15 random Wood and Dark orbs
+   | group:
+   | condition: turn 2 while HP > 14
+     | (25853:83) Breaking New Earth + Shining Purple Lightning + Darkdragon's Barrage
+     | No skyfall for 10 turns + Lock all orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+     | condition: 33% chance
+     | (25857:83) Darkdragon's Iron Wall + Darkdragon's Barrage
+     | Reduce damage from all sources by 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | condition: 50% chance
+     | (25859:83) Darkdragon's Vitality + Darkdragon's Barrage
+     | Change all Heal orbs to Dark orbs + Deal 60% damage (3 hits, 20% each), Deal 20% damage
+     | (25861:83) Collapsing World + Darkdragon's Barrage
+     | Specific orbs change every 1.0s for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (25844:83) Darkdragon's Divine Power + Rumbling Thunderclouds + Darkdragon's Roar
+     | Bind awoken skills for 1 turn + A row of clouds appears for 1 turn at 1st row, 1st column + Delay active skills by 5 turns
+   | group:
+     | (25848:50) Abyssal Strike
+     | Player -1,900% HP

@@ -1,0 +1,26 @@
+#503721 - Fire Orb Dragon, Kajin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:20449) -> Fight me!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 2 turns
+
+#3: ESAttackUPRemainingEnemies(17:20450) -> Resentful Stare
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#4: ESOrbChangeAttack(48:20452) -> Inferno Claw
+Condition: 50% chance (ai:50 rnd:0)
+Change all Heal orbs to Fire orbs, Deal 100% damage
+
+#5: ESRowSpawnMulti(79:20451) -> Raging Flash Wildfire
+Change the 3rd row to Jammer orbs, Deal 90% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

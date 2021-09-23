@@ -1,0 +1,35 @@
+#3829 - Crazy Archangel of Foresight, Camael
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 3829
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7736:83) Red Leopard Battle Armor + Colored Wings of Delirium
+ | Voids status ailments for 999 turns + Bind awoken skills for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 50% chance
+     | (7737:102) Baleful Crimson Sword
+     | Spawn 4 random locked Bomb orbs, Deal 300% damage
+     | (7738:109) Shyucess Verdant Sword
+     | Random 1 orbs change every 0.5s for 1 turn, Deal 300% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | (7741:83) Deadly Scorpion Poison + Order of Destruction
+     | Change the 1st and 5th rows to Heal and Poison orbs and the 3rd row to Mortal Poison orbs + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (7737:102) Baleful Crimson Sword
+     | Spawn 4 random locked Bomb orbs, Deal 300% damage
+     | (7738:109) Shyucess Verdant Sword
+     | Random 1 orbs change every 0.5s for 1 turn, Deal 300% damage
+ | group:
+ | condition: hp <= 9
+   | (7744:83) Strange Heavens + Enturione
+   | Change own attribute to random one of Fire or Wood + Deal 10,000% damage (10 hits, 1,000% each), Deal 10,000% damage (10 hits, 1,000% each)

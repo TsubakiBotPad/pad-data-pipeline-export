@@ -1,0 +1,29 @@
+#5189 - Seregios
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5189
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13031:108) Scaleblade Swing
+ | Change all Dark orbs to Jammer orbs, Deal 80% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | condition: 50% chance
+   | (13032:15) Tackle
+   | Deal 100% damage
+   | condition: 50% chance
+   | (13033:48) Talon Scratch
+   | Change a random attribute to Light orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | condition: 50% chance
+   | (13034:83) Jumping Strike Attack + Scaleblade Swing
+   | Blind all orbs on the board + Change all Dark orbs to Jammer orbs, Deal 45% damage
+   | condition: 50% chance
+   | (13035:83) Spinning Tail Attack + Scaleblade Swing
+   | Deal 50% damage + Change all Dark orbs to Jammer orbs, Deal 50% damage

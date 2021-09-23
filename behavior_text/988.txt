@@ -1,0 +1,30 @@
+#988 - Dancing Light, Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 988
+approved: False
+
+level: 1
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1962:48) Sacred Mirror of Yata
+     | Change all Dark orbs to Light orbs, Deal 50% damage
+     | (1961:79) Sacred Fertility Dance
+     | Change the 5th row to Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1961:79) Sacred Fertility Dance
+     | Change the 5th row to Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (1963:86) Shower of Healing
+     | Enemy recover 100% HP
+   | group:
+     | (1964:62) Cave of the Sun Goddess
+     | Blind all orbs on the board, Deal 350% damage

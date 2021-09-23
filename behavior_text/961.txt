@@ -1,0 +1,38 @@
+#961 - AB Dashing Wingman
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 961
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (732:8) Charge!!
+ | Increase damage to 200% for the next attack
+ group:
+ | group:
+ | condition: hp <= 74
+   | condition: 50% chance
+   | (731:15) Slingshot
+   | Deal 125% damage
+ | group:
+ | condition: turn 1 while HP > 39, hp <= 49
+   | (734:2) Just Heart
+   | Bind Dark cards for 3~5 turns
+   | condition: 50% chance
+   | (731:15) Slingshot
+   | Deal 125% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (734:2) Just Heart
+     | Bind Dark cards for 3~5 turns
+   | group:
+     | condition: 70% chance
+     | (733:15) Heroic Combo
+     | Deal 160% damage (4 hits, 40% each)
+     | condition: 50% chance
+     | (731:15) Slingshot
+     | Deal 125% damage

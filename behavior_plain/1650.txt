@@ -1,0 +1,59 @@
+#1650 - Armored Blue Flame Knight, Nim
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:8421) -> I'm your opponent!
+	Bind awoken skills for 3 turns
+	[1] ESSpinnersRandom(109:8422) -> Pinpoint
+	Random 1 orbs change every 1.0s for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 8, target rnd 12
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBombRandomSpawn(102:8424) -> Fire Shot
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Bomb orbs, Deal 360% damage
+
+#9: ESOrbLock(94:8425) -> Freeze Shot
+Condition: 33% chance (ai:0 rnd:33)
+Lock 9 random orbs, Deal 360% damage
+
+#10: ESAttackMultihit(15:8426) -> Quadruple Shot
+Condition: 34% chance (ai:0 rnd:34)
+Deal 400% damage (4 hits, 100% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESSkillDelay(89:8427) -> Weak Point
+Delay active skills by 5 turns, Deal 320% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:8428) -> Halve Fire & Water
+Reduce damage from Fire and Water attrs by 50%

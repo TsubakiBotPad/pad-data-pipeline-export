@@ -1,0 +1,28 @@
+#2827 - Armored Batman (Film)
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2827
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4119:84) Tell me, do you bleed?
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 40% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (4120:48) Kryptonite Weaponry
+   | Change all Light orbs to Dark orbs, Deal 100% damage
+   | condition: 60% chance
+   | (4122:94) Kryptonite Spear
+   | Lock all Dark orbs, Deal 110% damage
+ | group:
+ | condition: always turn 1, hp <= 29
+   | (4121:63) Kryptonite Gas Grenade
+   | Bind 1 random sub for 3 turns, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 14
+   | (4123:77) Well, here I am!
+   | Change the 3rd and 4th columns to Jammer orbs, Deal 250% damage

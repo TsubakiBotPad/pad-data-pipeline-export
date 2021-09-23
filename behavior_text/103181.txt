@@ -1,0 +1,69 @@
+#103181 - Purgatory Chaos Blade, Meitetsu Nikaku
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 103181
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12936:83) Path to Hell + War Blade of Imprisonment
+ | Absorb damage when damage >= 25,000,000 for 99 turns + Change all orbs to Dark, Heal, and Poison, Deal 130% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | (12943:83) Power Released + Fading Path of Retreat
+     | Increase damage to 150% for the next 999 turns + Specific orbs change every 2.0s for 10 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (12942:98) Hell Strike
+     | Blind orbs in specific positions for 3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 33% chance
+     | (12939:89) Savage Assault
+     | Delay active skills by 0~2 turns, Deal 95% damage
+     | condition: 33% chance
+     | (12940:94) Hold Tackle
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 34% chance
+     | (12941:15) Wild Flurry
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 89
+   | condition: 33% chance
+   | (12939:89) Savage Assault
+   | Delay active skills by 0~2 turns, Deal 95% damage
+   | condition: 33% chance
+   | (12940:94) Hold Tackle
+   | Lock 10 random orbs, Deal 100% damage
+   | condition: 34% chance
+   | (12941:15) Wild Flurry
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (12943:83) Power Released + Fading Path of Retreat
+     | Increase damage to 150% for the next 999 turns + Specific orbs change every 2.0s for 10 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (12942:98) Hell Strike
+     | Blind orbs in specific positions for 3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 33% chance
+     | (12939:89) Savage Assault
+     | Delay active skills by 0~2 turns, Deal 95% damage
+     | condition: 33% chance
+     | (12940:94) Hold Tackle
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 34% chance
+     | (12941:15) Wild Flurry
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | (12946:15) Purgatory Double-Edge
+   | Deal 360% damage (6 hits, 60% each)

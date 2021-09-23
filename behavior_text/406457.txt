@@ -1,0 +1,59 @@
+#406457 - Purple Augite, Magatama of Nil
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 406457
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22425:119) Augites' Resonance
+ | Immune to damage from all sources for 999 turns
+ group:
+ | group:
+ | condition: turns 1-9
+   | (22426:66) The Augites shine
+   | Do nothing
+ | group:
+ | condition: turn 10
+   | (22427:46) The Augites begin to shine
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 10,000% damage
+ | group:
+   | (22426:66) The Augites shine
+   | Do nothing
+ type: REMAINING
+ condition: when 3 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (22468:83) The Augite shines mysteriously + The Augite shines mysteriously
+   | Enemy ally recover 100% HP + Enemy ally recover 100% HP
+ | group:
+ | condition: turns 3-9
+   | condition: 50% chance
+   | (22466:94) The Augite shines brightly
+   | Lock 15 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (22467:15) The Augite shines brightly
+   | Deal 120% damage
+ | group:
+ | condition: turn 10
+   | (22467:15) The Augite shines brightly
+   | Deal 120% damage
+ | group:
+   | condition: 50% chance
+   | (22466:94) The Augite shines brightly
+   | Lock 15 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (22467:15) The Augite shines brightly
+   | Deal 120% damage
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (22428:52) The Augite shines mysteriously
+ | Enemy ally recover 100% HP
+ | (22464:121) Augites' Resonance disappeared
+ | Remove damage immunity effect, Deal 400% damage
+ | (22465:15) The Augite shines brightly
+ | Deal 200% damage
+ | (22429:121) Augites' Resonance disappeared
+ | Remove damage immunity effect

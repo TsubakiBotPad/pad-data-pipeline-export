@@ -1,0 +1,36 @@
+#200758 - Alt. Drilling Shark Dragon, Megalodran
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:25527) -> Aqua Shield
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESOrbLock(94:25528) -> Shark Fangs
+	Lock all orbs
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#5: ESOrbLock(94:25195) -> Shark Fangs
+Lock 15 random orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:25196) -> Aqua Horn
+Deal 120% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:25197) -> Shark Horn Jet
+Deal 750% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

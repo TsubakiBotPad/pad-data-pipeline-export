@@ -1,0 +1,51 @@
+#403208 - Alt. Water Guardian Dragon, Naro
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 403208
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (13648:83) Nectar of the Dragon + Soaring Lotus Strike
+ | Reduce damage from all sources by 95% for 2 turns + Change all orbs to Fire, Water, Wood, and Jammer, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | (6080:17) Viper Tree Ascension
+     | Increase damage to 200% for the next 8 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (6084:64) Harmful Poison
+     | Change 6 random orbs to Poison orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (6085:79) Crystal Stream
+     | Change the 1st and 5th rows to Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (6086:50) Harmful Ocean
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (6087:15) Dragon Stream
+     | Deal 200% damage (4 hits, 50% each)
+ | group:
+ | condition: always turn 1, hp <= 89
+   | (6079:100) Lingering Snaketracks
+   | Seal the 5th row for 4 turns
+ | group:
+ | condition: turn 2 while HP > 19, hp <= 49
+   | (6082:67) Vitality Spiral
+   | Absorb damage when combos <= 6 for 6 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (6081:83) Nectar of the Dragon + Soaring Lotus Strike
+     | Reduce damage from all sources by 75% for 2 turns + Change all orbs to Fire, Water, Wood, and Heal, Deal 150% damage
+   | group:
+     | (6083:15) Enlightened Dragon Stream
+     | Deal 800% damage (8 hits, 100% each)

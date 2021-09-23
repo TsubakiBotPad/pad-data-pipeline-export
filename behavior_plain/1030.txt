@@ -1,0 +1,54 @@
+#1030 - メルエム
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRecoverPlayer(55:826) -> しっかり体調を戻せ
+Player recover 100% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 14
+
+#7: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 75, target rnd 12
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESStorePower(8:827) -> おぬし　なかなか強いな
+Condition: When < 75% HP (ai:100 rnd:0)
+Increase damage to 200% for the next attack
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESOrbChangeAttack(48:828) -> まぁよいわ
+Condition: 60% chance (ai:60 rnd:0)
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESInactivity16(16:829) -> 余の力こそが
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#15: ESAttackMultihit(15:830) -> この世の頂点に在る！
+Condition: When < 25% HP (ai:100 rnd:0)
+Deal 400% damage (4 hits, 100% each)

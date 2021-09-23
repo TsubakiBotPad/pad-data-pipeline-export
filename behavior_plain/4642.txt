@@ -1,0 +1,105 @@
+#4642 - Earth Ruler Companion Dragon, Nehd
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindRandomSub(65:10361) -> Defuse Restrain
+Bind 4 random subs for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttributeBlock(107:10359) -> Blue Exception
+Unable to match Water orbs for 3 turns, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 25
+
+#13: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 21
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 27
+
+#16: ESOrbChangeAttack(48:10363) -> Wind Pillar
+Condition: 25% chance (ai:0 rnd:25)
+Change a random attribute to Wood orbs, Deal 110% damage
+
+#17: ESColumnSpawnMulti(77:10364) -> Double Vertical Slash
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st and 6th columns to Wood and Light orbs, Deal 105% damage
+
+#18: ESRowSpawnMulti(79:10365) -> Double Vertical Slash
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st and 5th rows to Wood and Light orbs, Deal 105% damage
+
+#19: ESAttackMultihit(15:10366) -> Forceful Rush
+Condition: 25% chance (ai:0 rnd:25)
+Deal 120% damage (4 hits, 30% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: SkillSet:
+	[0] ESBindRandom(1:10367) -> All Restrain
+	Bind 6 random cards for 1 turn
+	[1] ESAttackUPRemainingEnemies(17:10368) -> Serene Zephyr
+	Increase damage to 200% for the next 99 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttackMultihit(15:10370) -> Double Slash
+Deal 180% damage (2 hits, 90% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#28: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 30
+
+#29: ESBoardChangeAttackBits(85:10362) -> Wind Enclosure
+Change all orbs to Wood, Light, Dark, and Heal, Deal 120% damage
+
+#30: ESRandomSpawn(92:10360) -> Double Burying
+Spawn 6 random Wood orbs, Deal 110% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn

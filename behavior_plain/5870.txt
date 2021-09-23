@@ -1,0 +1,45 @@
+#5870 - Pixel Incarnation of Genbu, Meimei
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:17880) -> Dance of the Genbu
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 10 random Heal orbs, Deal 90% damage
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 8
+
+#4: ESRandomSpawn(92:17881) -> Northern Seven-Star Strike
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Wood, Light, and Dark orbs, Deal 100% damage
+
+#5: ESSkillDelay(89:17882) -> Earthblade Slash
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~2 turns, Deal 90% damage
+
+#6: ESAttackMultihit(15:17883) -> Snake Strikes
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:17870) -> Pixel Enhancement
+	Increase damage to 200% for the next 999 turns
+	[1] ESBindAwoken(88:17871) -> Pixel Aura
+	Bind awoken skills for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

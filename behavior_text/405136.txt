@@ -1,0 +1,31 @@
+#405136 - Mega Awoken White Phantom Demon, Ilm
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 405136
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22338:73) Resolve
+ | Survive attacks with 1 HP when HP > 13%
+ type: PREEMPT
+ | (22339:83) Bounds of Carnage + Grimoire Aggregation + Grimoire Planet
+ | Voids status ailments for 999 turns + Change all orbs to Light + Specific orbs change every 1.0s for 15 turns, Deal 120% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | condition: 50% chance
+   | (22342:83) Grimoire Chant + Grimoire Enhancement
+   | Change a random attribute to Jammer orbs + Lock all Jammer orbs, Deal 50% damage
+   | condition: 50% chance
+   | (22345:83) Grimoire Chant + Grimoire Enhancement
+   | Change a random attribute to Poison orbs + Lock all Poison orbs, Deal 50% damage
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 12
+   | (22348:15) Grimoire Lost Sphere
+   | Deal 600% damage (6 hits, 100% each)
+ type: UNKNOWN_USE
+ | (22200:83) Transformation of Carnage + Bloody Carnage
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)

@@ -1,0 +1,49 @@
+#2420 - Dark Plant Mechanical Star God, Spica
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2420
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9739:118) God Machine Half Reduced
+ | Reduce damage from God and Machine types by 50%
+
+level: 4
+ type: PASSIVE
+ | (9739:118) God Machine Half Reduced
+ | Reduce damage from God and Machine types by 50%
+ type: PREEMPT
+ | (9742:83) Hehehe + Do your absolute best!
+ | Voids status ailments for 999 turns + Movetime 25% for 1 turn
+ group:
+ | group:
+ | condition: always turn 1
+   | condition: when 5 combos last turn
+   | (9745:83) Great! + How about this one?
+   | Absorb damage when combos <= 7 for 10 turns + Spawn 6 random Wood, Jammer, and Poison orbs
+   | (9748:83) This is not good at all! + Try your best for the next one too!
+   | Bind awoken skills for 1 turn + Blind all orbs on the board
+ | group:
+ | condition: always turn 2
+   | condition: when 5 combos last turn
+   | (9750:83) Great! + Well, have a consolation prize!
+   | Absorb damage when combos <= 7 for 10 turns + Bind active skills for 5 turns
+   | (9754:15) This is no good ♪
+   | Deal 1,000% damage
+ | group:
+   | (9754:15) This is no good ♪
+   | Deal 1,000% damage
+ | group:
+ | condition: hp <= 99
+   | condition: 33% chance
+   | (9751:48) Star Consumption
+   | Change a random attribute to Wood orbs, Deal 110% damage
+   | condition: 33% chance
+   | (9752:89) Masking
+   | Delay active skills by 2 turns, Deal 105% damage
+   | condition: 34% chance
+   | (9753:15) Leaf Pearl Multi-Attack
+   | Deal 120% damage (3 hits, 40% each)

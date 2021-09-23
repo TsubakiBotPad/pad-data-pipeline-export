@@ -1,0 +1,25 @@
+#6999 - Valentine Pisces Goddess, Alrescha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6999
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20576:83) So I might have made a few too many... + Here, you can have them!
+ | Voids status ailments for 999 turns + Change all orbs to Fire and Water
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | condition: 50% chance
+   | (20580:107) Nah, maybe not!
+   | Unable to match Water orbs for 1 turn, Deal 90% damage
+   | condition: 50% chance
+   | (20581:107) Nah, maybe not!
+   | Unable to match Fire orbs for 1 turn, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (20579:92) Shark Star
+   | Spawn 4 random Fire and Water orbs, Deal 100% damage

@@ -1,0 +1,37 @@
+#103232 - Alt. Old Castle Lantern, Flemin
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:11369) -> Spooky Light
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 100 for 3 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESRandomSpawn(92:11370) -> Eerie Flare
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Mortal Poison orbs, Deal 75% damage
+
+#7: ESBombRandomSpawn(102:11371) -> Cat Bomb
+Spawn 1 random Bomb orb, Deal 75% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBombRandomSpawn(102:11372) -> Candle Bomb
+Spawn 5 random Bomb orbs, Deal 160% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

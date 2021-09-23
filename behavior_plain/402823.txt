@@ -1,0 +1,26 @@
+#402823 - Aloof Delinquent, Dark Dragon Swordsman
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:23465) -> I'm gonna tie you up!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs
+
+#3: ESBlind5(5:23466) -> You ready for this? HUH?!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board
+
+#4: ESAttackUPRemainingEnemies(17:23468) -> This ain't gonna be the end for me!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#5: ESAttackMultihit(15:23467) -> Let's do this!
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

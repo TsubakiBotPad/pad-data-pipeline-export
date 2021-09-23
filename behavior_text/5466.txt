@@ -1,0 +1,31 @@
+#5466 - 花山薫
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5466
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14080:105) 拝ませてやるぜ…
+ | RCV 50% for 5 turns
+ group:
+ | group:
+   | condition: 10% chance
+   | (14088:50) 握撃
+   | Player -50% HP
+   | condition: 40% chance
+   | (14089:94) まだやるかい
+   | Lock 5 random orbs, Deal 80% damage
+   | condition: 50% chance
+   | (14086:15) 胴廻し回転蹴り
+   | Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 50
+   | (14083:83) こちとら喧嘩師 + いつだってたぎってる
+   | Player -50% HP + Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: hp <= 1
+   | (14086:15) 胴廻し回転蹴り
+   | Deal 100% damage

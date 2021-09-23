@@ -1,0 +1,35 @@
+#1899 - Shadow Dragon Knight
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1899
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13381:98) Glare of the Shadow Dragon
+ | Blind orbs in specific positions for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (13382:77) Godspeed Sword Slice
+   | Change the 5th column to Dark orbs, Deal 95% damage
+   | condition: 50% chance
+   | (13383:102) False Shadow
+   | Spawn 5 random Bomb orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 50
+   | condition: 50% chance
+   | (13384:62) Remnant Sword
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 50% chance
+   | (13382:77) Godspeed Sword Slice
+   | Change the 5th column to Dark orbs, Deal 95% damage
+   | condition: 50% chance
+   | (13383:102) False Shadow
+   | Spawn 5 random Bomb orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | (13385:15) Shadow Dragon Slash
+   | Deal 300% damage (6 hits, 50% each)

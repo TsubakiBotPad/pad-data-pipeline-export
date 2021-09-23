@@ -1,0 +1,203 @@
+#2602 - 最高の男・坊屋春道
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 2602
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7292:73) 根性90
+ | Survive attacks with 1 HP when HP > 90%
+ | (8446:72) 木半減
+ | Reduce damage from Wood attrs by 50%
+ group:
+ | group:
+ | condition: always turn 4
+   | (7253:83) 鏖魔の覇気 + 咆哮
+   | Voids status ailments for 999 turns + Bind 1 random card for 2 turns
+ | group:
+   | condition: 33% chance
+   | (7254:15) 体当たり
+   | Deal 1,100% damage
+   | condition: 33% chance
+   | (7255:15) 尻尾振り攻撃
+   | Deal 1,000% damage (2 hits, 500% each)
+   | condition: 34% chance
+   | (7256:92) 突進
+   | Spawn 3 random Jammer orbs, Deal 1,000% damage
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: turn 5
+     | (7260:83) 咆哮 + 暴走状態へ移行 + 地中潜り
+     | Bind active skills for 3 turns + Do nothing + Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: always turn 6
+     | (7261:15) 地中からの強急襲
+     | Deal 1,500% damage
+   | group:
+     | condition: 33% chance
+     | (7269:83) 怒り + 地表角抉り攻撃
+     | Increase damage to 120% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+     | condition: 50% chance
+     | (7270:83) 怒り + 飛びかかり潜り
+     | Increase damage to 120% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+     | (7271:83) 怒り + 連続角振り回し
+     | Increase damage to 120% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 69
+   | condition: 33% chance
+   | (7272:83) 怒り + 地表角抉り攻撃
+   | Increase damage to 130% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+   | condition: 50% chance
+   | (7273:83) 怒り + 飛びかかり潜り
+   | Increase damage to 130% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+   | (7274:83) 怒り + 連続角振り回し
+   | Increase damage to 130% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 59
+   | condition: 33% chance
+   | (7275:83) 怒り + 地表角抉り攻撃
+   | Increase damage to 140% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+   | condition: 50% chance
+   | (7276:83) 怒り + 飛びかかり潜り
+   | Increase damage to 140% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+   | (7277:83) 怒り + 連続角振り回し
+   | Increase damage to 140% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 39
+   | condition: 33% chance
+   | (7278:83) 怒り + 地表角抉り攻撃
+   | Increase damage to 150% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+   | condition: 50% chance
+   | (7279:83) 怒り + 飛びかかり潜り
+   | Increase damage to 150% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+   | (7280:83) 怒り + 連続角振り回し
+   | Increase damage to 150% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: always turn 7
+     | (7284:83) 咆哮 + 狂暴走状態へ移行 + 地中潜り
+     | Bind awoken skills for 3 turns + Do nothing + Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: always turn 8
+     | (7288:83) 地中からの強急襲 + 狂暴走急降下攻撃 + 狂暴走水蒸気爆発
+     | Deal 1,500% damage + Player -99% HP + Change all orbs to Water, Deal 1,500% damage
+   | group:
+     | (7291:83) 狂暴走3連突進 + 狂暴走水蒸気爆発
+     | Deal 3,000% damage (3 hits, 1,000% each) + Change all orbs to Water, Deal 3,000% damage (3 hits, 1,000% each)
+ | group:
+ | condition: turn 5, hp <= 1
+   | (7327:83) 咆哮 + 暴走状態へ移行 + 地中潜り
+   | Bind active skills for 3 turns + Enemy recover 60% HP + Reduce damage from all sources by 75% for 1 turn
+
+level: 4
+ type: PASSIVE
+ | (7292:73) 根性90
+ | Survive attacks with 1 HP when HP > 90%
+ | (8446:72) 木半減
+ | Reduce damage from Wood attrs by 50%
+ group:
+ | group:
+ | condition: always turns 1-3
+   | condition: 17% chance
+   | (7749:98) ドットパンチ
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (7750:98) ドットパンチ
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (7751:98) ドットパンチ
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (7752:98) ドットパンチ
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 16% chance
+   | (7753:98) ドットパンチ
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 16% chance
+   | (7754:98) ドットパンチ
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+ | group:
+ | condition: always turn 4
+   | (7253:83) 鏖魔の覇気 + 咆哮
+   | Voids status ailments for 999 turns + Bind 1 random card for 2 turns
+ | group:
+   | condition: 33% chance
+   | (7254:15) 体当たり
+   | Deal 1,100% damage
+   | condition: 33% chance
+   | (7255:15) 尻尾振り攻撃
+   | Deal 1,000% damage (2 hits, 500% each)
+   | condition: 34% chance
+   | (7256:92) 突進
+   | Spawn 3 random Jammer orbs, Deal 1,000% damage
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: turn 5
+     | (7260:83) 咆哮 + 暴走状態へ移行 + 地中潜り
+     | Bind active skills for 3 turns + Do nothing + Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: always turn 6
+     | (7261:15) 地中からの強急襲
+     | Deal 1,500% damage
+   | group:
+     | condition: 33% chance
+     | (7269:83) 怒り + 地表角抉り攻撃
+     | Increase damage to 120% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+     | condition: 50% chance
+     | (7270:83) 怒り + 飛びかかり潜り
+     | Increase damage to 120% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+     | (7271:83) 怒り + 連続角振り回し
+     | Increase damage to 120% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 69
+   | condition: 33% chance
+   | (7272:83) 怒り + 地表角抉り攻撃
+   | Increase damage to 130% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+   | condition: 50% chance
+   | (7273:83) 怒り + 飛びかかり潜り
+   | Increase damage to 130% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+   | (7274:83) 怒り + 連続角振り回し
+   | Increase damage to 130% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 59
+   | condition: 33% chance
+   | (7275:83) 怒り + 地表角抉り攻撃
+   | Increase damage to 140% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+   | condition: 50% chance
+   | (7276:83) 怒り + 飛びかかり潜り
+   | Increase damage to 140% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+   | (7277:83) 怒り + 連続角振り回し
+   | Increase damage to 140% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 39
+   | condition: 33% chance
+   | (7278:83) 怒り + 地表角抉り攻撃
+   | Increase damage to 150% for the next 1 turn + Change a random attribute to Jammer orbs, Deal 1,200% damage
+   | condition: 50% chance
+   | (7279:83) 怒り + 飛びかかり潜り
+   | Increase damage to 150% for the next 1 turn + Blind all orbs on the board, Deal 1,200% damage
+   | (7280:83) 怒り + 連続角振り回し
+   | Increase damage to 150% for the next 1 turn + Deal 1,000~1,500% damage (2~3 hits, 500% each), Deal 1,000~1,500% damage (2~3 hits, 500% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: always turn 7
+     | (7284:83) 咆哮 + 狂暴走状態へ移行 + 地中潜り
+     | Bind awoken skills for 3 turns + Do nothing + Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: always turn 8
+     | (7288:83) 地中からの強急襲 + 狂暴走急降下攻撃 + 狂暴走水蒸気爆発
+     | Deal 1,500% damage + Player -99% HP + Change all orbs to Water, Deal 1,500% damage
+   | group:
+     | (7291:83) 狂暴走3連突進 + 狂暴走水蒸気爆発
+     | Deal 3,000% damage (3 hits, 1,000% each) + Change all orbs to Water, Deal 3,000% damage (3 hits, 1,000% each)
+ | group:
+ | condition: turn 5, hp <= 1
+   | (7327:83) 咆哮 + 暴走状態へ移行 + 地中潜り
+   | Bind active skills for 3 turns + Enemy recover 60% HP + Reduce damage from all sources by 75% for 1 turn

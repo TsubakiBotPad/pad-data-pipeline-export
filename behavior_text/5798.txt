@@ -1,0 +1,36 @@
+#5798 - Dark Magician
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5798
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15833:72) Light damage halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (15787:67) Summon Dark Magician
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (15788:104) Trap Card "Black Illusion"
+     | A 3×1 rectangle of clouds appears for 4 turns at a random location
+   | group:
+     | condition: 50% chance
+     | (15790:15) Spell Card "Thousand Knives"
+     | Deal 90% damage (10 hits, 9% each)
+     | (15791:15) Spell Card "Diffusion Wave-Motion"
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (15789:17) Spell Card "Book of Secret Arts"
+     | Increase damage to 130% for the next 3 turns
+   | group:
+     | (15792:92) Dark Magic Attack
+     | Spawn 6 random Dark orbs, Deal 140% damage

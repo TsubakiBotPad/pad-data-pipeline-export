@@ -1,0 +1,76 @@
+#406568 - Kyogai
+monster size: 5
+new AI: True
+start/max counter: 255
+counter increment: 0
+monster_id: 406568
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20118:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20134:130) GRRRRRRR!
+ | ATK -50% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (20135:109) It's infuriating.
+     | Random 1 orbs change every 1.0s for 1 turn
+   | group:
+   | condition: turn 2 while HP > 49
+     | (20137:94) Why?
+     | Lock 8 random orbs
+   | group:
+   | condition: turn 3 while HP > 49
+     | (20138:50) Why do they all keep barging
+     | Player -5% HP
+   | group:
+   | condition: turn 4 while HP > 49
+     | (20139:50) It's infuriating.
+     | Player -5% HP
+   | group:
+   | condition: turn 5 while HP > 49
+     | (20140:101) My own prey,
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (20186:83) Insects! + Begone! + Die!
+     | Change the 1st column to Light orbs + Change the 3rd column to Dark orbs + Change the 5th column to Light orbs, Deal 100% damage
+     | (20144:15) Damn insects...
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20040:105) Damn insects!
+     | RCV 50% for 1 turn
+   | group:
+   | condition: turn 2
+     | (20043:77) Right Shoulder Drumming
+     | Change the 6th column to Light orbs, Deal 85% damage
+   | group:
+   | condition: turn 3
+     | (20044:77) Left Shoulder Drumming
+     | Change the 1st column to Dark orbs, Deal 90% damage
+   | group:
+   | condition: turn 4
+     | (20045:79) Right Leg Drumming
+     | Change the 1st row to Light orbs, Deal 95% damage
+   | group:
+   | condition: turn 5
+     | (20046:79) Left Leg Drumming
+     | Change the 5th row to Dark orbs, Deal 100% damage
+   | group:
+   | condition: turn 6
+     | (20047:15) Stomach Drumming
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 7
+     | (20187:17) Begone, insects!
+     | Increase damage to 110% for the next 999 turns
+   | group:
+     | (20049:85) Rapid Drumming
+     | Change all orbs to Light, Dark, and Jammer, Deal 80% damage

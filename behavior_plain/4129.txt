@@ -1,0 +1,34 @@
+#4129 - Blessed Dancing Goddess, Ame no Uzume
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:16136) -> Are you having a great New Year?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+RCV 50% for 5 turns
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 5
+
+#4: ESAbsorbAttribute(53:16140) -> We still have plenty of time
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Dark damage for 5 turns
+
+#5: ESAttackMultihit(15:16137) -> New Year's Dance
+Condition: 33% chance (ai:0 rnd:33)
+Deal 110% damage
+
+#6: ESRowSpawnMulti(79:16138) -> Weather Predicting Zori Flick
+Condition: 33% chance (ai:0 rnd:33)
+Change the 4th row to Fire and Light orbs, Deal 95% damage
+
+#7: ESSkillDelay(89:16139) -> Hairpin thrown in anger
+Condition: 34% chance (ai:0 rnd:34)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

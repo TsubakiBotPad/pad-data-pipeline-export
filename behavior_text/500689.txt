@@ -1,0 +1,24 @@
+#500689 - Rowdy Red Samurai Goblin
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 500689
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21084:19) Hiyaaaa!
+ | Increase damage to 200% for the next 2 turns
+ group:
+ | (21085:15) Wild Slashes
+ | Deal 100% damage (4 hits, 25% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (21099:74) Defensive Stance
+   | Reduce damage from all sources by 75% for 2 turns
+ | group:
+   | (20585:15) Super Wild Slashes
+   | Deal 200% damage (4 hits, 50% each)

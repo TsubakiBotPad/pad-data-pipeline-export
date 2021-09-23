@@ -1,0 +1,68 @@
+#2558 - Alcyone
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlind5(5:18611) -> Deep in the night's sky...
+	Blind all orbs on the board
+	[1] ESRandomSpawn(92:18612) -> the stars shine brightly...
+	Spawn 6 random Light orbs
+	[2] ESOrbLock(94:18613) -> It's so bright! Turn them off...
+	Lock all Light orbs
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 13
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#5: ESOrbChangeAttackBits(108:18621) -> Ugh! It's too bright!!
+Change all Light orbs to Heal orbs, Deal 10,000% damage
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	[0] ESRandomSpawn(92:18615) -> Mmmm...
+	Spawn 10 random Water, Light, and Dark orbs
+	[1] ESOrbLock(94:18622) -> It's bright...mmmnmm...
+	Lock all Light orbs
+	[2] ESBlind5(5:18616) -> Zzzz...
+	Blind all orbs on the board
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESOrbChangeAttackBits(108:18621) -> Ugh! It's too bright!!
+Change all Light orbs to Heal orbs, Deal 10,000% damage
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESRandomSpawn(92:18618) -> Mm...
+	Spawn 15 random Light and Jammer orbs
+	[1] ESDebuffMovetime(39:18619) -> Just a bit longer...
+	Movetime -1s for 1 turn
+	[2] ESOrbLock(94:18622) -> It's bright...mmmnmm...
+	Lock all Light orbs
+	[3] ESBlind5(5:18616) -> Zzzz...
+	Blind all orbs on the board
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESOrbChangeAttackBits(108:18621) -> Ugh! It's too bright!!
+Change all Light orbs to Heal orbs, Deal 10,000% damage
+
+#14: ESEndBattle(40:18620) -> Ahhh, I slept well...
+Reduce self HP to 0
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

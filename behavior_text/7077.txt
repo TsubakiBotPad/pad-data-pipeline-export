@@ -1,0 +1,34 @@
+#7077 - Shirou Emiya & Servant, Rider
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7077
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21567:83) The Curse of Mystic Eyes + Petrification
+ | ATK -50% for 3 turns + Bind 2 random cards for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (21570:109) Projection start.
+     | Random 2 orbs change every 1.5s for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (21571:94) Search, select.
+     | Lock all Fire and Dark orbs
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (21572:101) Analyze.
+     | Fix orb movement starting point to random position on the board, Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (21573:74) Rho Aias: 7 Rings of Heaven
+   | Reduce damage from all sources by 50% for 4 turns
+ | group:
+ | condition: turn 1, hp <= 19
+   | (21574:17) Bellerophon
+   | Increase damage to 250% for the next 999 turns

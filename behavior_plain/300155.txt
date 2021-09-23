@@ -1,0 +1,36 @@
+#300155 - Rubylit
+monster size: 0
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttributeBlock(107:19280) -> Hide Orbs
+Unable to match Fire orbs for 3 turns
+
+#5: ESRandomSpawn(92:19281) -> Orbliterating Fire
+Spawn 6 random Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackUPRemainingEnemies(17:19409) -> Wave of Carnage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 700% for the next 999 turns
+
+#8: ESRandomSpawn(92:19281) -> Orbliterating Fire
+Spawn 6 random Fire orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSuperResolve(129:19279) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

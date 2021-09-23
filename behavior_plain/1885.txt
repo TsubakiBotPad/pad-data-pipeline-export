@@ -1,0 +1,112 @@
+#1885 - Massive Blade Brave, Zweihander
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESStatusShield(20:13775) -> Air Supremacy Sword
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:13776) -> Life Eradication Sword
+	Absorb Fire damage for 2 turns
+	[2] ESAttributeBlock(107:13777) -> One Hit One Shout
+	Unable to match Water orbs for 2 turns, Deal 100% damage
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESStatusShield(20:13775) -> Air Supremacy Sword
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:13778) -> Life Eradication Sword
+	Absorb Water damage for 2 turns
+	[2] ESAttributeBlock(107:13779) -> One Hit One Shout
+	Unable to match Wood orbs for 2 turns, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESStatusShield(20:13775) -> Air Supremacy Sword
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:13780) -> Life Eradication Sword
+	Absorb Wood damage for 2 turns
+	[2] ESAttributeBlock(107:13781) -> One Hit One Shout
+	Unable to match Fire orbs for 2 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 20
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 26
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 4
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 18
+
+#15: ESBlind62(62:13789) -> Light Steal
+Condition: 50% chance (ai:0 rnd:50)
+Blind all orbs on the board, Deal 95% damage
+
+#16: ESBindAttack(63:13790) -> Heavy Down
+Condition: 50% chance (ai:0 rnd:50)
+Bind 1 random card for 5 turns, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAbsorbCombo(67:13782) -> Stance of the Heavenly Eye
+Absorb damage when combos <= 9 for 1 turn
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESBindAwoken(88:13784) -> Life Absorbing Sword
+	Bind awoken skills for 1 turn
+	[1] ESAttributeBlock(107:13785) -> One Hit One Shout
+	Unable to match Heal orbs for 1 turn, Deal 130% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#24: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:13787) -> Two Arms of Seething Blood
+	Increase damage to 150% for the next 99 turns
+	[1] ESGravity(50:13788) -> Raging Stream of Slash Attacks
+	Player -99% HP
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESGravity(50:13791) -> Blade Fang
+Player -400% HP
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn

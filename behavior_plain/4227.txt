@@ -1,0 +1,147 @@
+#4227 - Hexazeon
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInvulnerableOnHexazeon(123:9138) -> Protected from damage by the Augites
+Immune to damage from all sources for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 19
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 14
+
+#8: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 3, target rnd 12
+
+#9: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 4, target rnd 10
+
+#10: ESOrbLock(94:9139) -> Stellar Dragon's Glare
+Lock all orbs, Deal 100% damage
+
+#11: ESInactivity66(66:9182) -> Wait and See
+Do nothing
+
+#12: ESCloud(104:9140) -> Dragon Cloud
+A 6×2 rectangle of clouds appears for 3 turns at a random location, Deal 100% damage
+
+#13: ESInactivity66(66:9182) -> Wait and See
+Do nothing
+
+#14: ESOrbSealColumn(99:9141) -> Sealing Pulse
+Condition: 25% chance (ai:0 rnd:25)
+Seal the 1st column for 3 turns, Deal 100% damage
+
+#15: ESOrbSealColumn(99:9142) -> Sealing Pulse
+Condition: 25% chance (ai:0 rnd:25)
+Seal the 6th column for 3 turns, Deal 100% damage
+
+#16: ESOrbSealRow(100:9143) -> Sealing Pulse
+Condition: 25% chance (ai:0 rnd:25)
+Seal the 1st row for 3 turns, Deal 100% damage
+
+#17: ESOrbSealRow(100:9144) -> Sealing Pulse
+Condition: 25% chance (ai:0 rnd:25)
+Seal the 5th row for 3 turns, Deal 100% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESInvulnerableOff(121:9146) -> All Augites have been shattered
+	Remove damage immunity effect
+	[1] ESStatusShield(20:9147) -> Chest Core's Shine
+	Voids status ailments for 66 turns
+	[2] ESVoidShield(71:9148) -> Fortified Scales
+	Void damage >= 66,666,666 for 999 turns
+
+#20: SkillSet:
+	Condition: When < 90% HP , one-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESAbsorbCombo(67:9153) -> Secular Sword
+	Absorb damage when combos <= 6 for 66 turns
+	[1] ESSpinnersFixed(110:9154) -> Empty Teachings
+	Specific orbs change every 1.0s for 6 turns
+
+#21: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkillDelay(89:9150) -> Time Binding
+	Delay active skills by 1 turn
+	[1] ESGravity(50:9151) -> Wave
+	Player -99% HP
+	[2] ESGravity(50:9151) -> Wave
+	Player -99% HP
+
+#22: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 28
+
+#23: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:9156) -> Deprivation
+	Movetime -3s for 6 turns
+	[1] ESSkyfall(68:9157) -> Holy Charity
+	Heal skyfall +15% for 6 turns
+
+#24: SkillSet:
+	Condition: 30% chance when < 50% HP (ai:30 rnd:0)
+	[0] ESOrbChangeAttack(48:9160) -> Rotting Pain
+	Change a random attribute to Jammer orbs, Deal 250% damage
+	[1] ESGravity(50:9161) -> Wave
+	Player -99% HP
+
+#25: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESAttackMultihit(15:9159) -> Four Resonating Guns
+	Deal 340% damage (4 hits, 85% each)
+	[1] ESGravity(50:9161) -> Wave
+	Player -99% HP
+
+#26: ESOrbChangeAttack(48:9160) -> Rotting Pain
+Condition: 25% chance (ai:25 rnd:0)
+Change a random attribute to Jammer orbs, Deal 250% damage
+
+#27: ESAttackMultihit(15:9159) -> Four Resonating Guns
+Deal 340% damage (4 hits, 85% each)
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 32
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#30: SkillSet:
+	[0] ESOrbLock(94:9164) -> Stellar Dragon's Glare
+	Lock all orbs
+	[1] ESBindAwoken(88:9217) -> Barbed Chain Cage
+	Bind awoken skills for 3 turns
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: SkillSet:
+	[0] ESChangeAttribute(46:9165) -> Metamorphosis
+	Change own attribute to random one of Water or Light
+	[1] ESAttackMultihit(15:9166) -> Six Limitless Flashes
+	Deal 3,600% damage (6 hits, 600% each)
+
+#33: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#34: ESTurnChangeRemainingEnemies(122:9145) -> An adventurer! Splendid!
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1

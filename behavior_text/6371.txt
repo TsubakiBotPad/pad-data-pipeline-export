@@ -1,0 +1,43 @@
+#6371 - Yu Narukami & Izanagi-no-Okami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6371
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18758:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18730:83) Persona! + Angelic Grace
+ | Player -75% HP + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (18735:85) Elec Amp
+     | Change all orbs to Light, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (18733:1) Ziodyne
+     | Bind 2 random cards for 10 turns, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (18732:15) Megidolaon
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18736:17) Mind Charge
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18737:15) Myriad Truths
+     | Deal 60% damage (3 hits, 20% each)
+ | group:
+ | condition: hp <= 1
+   | (18759:15) Myriad Truths
+   | Deal 195% damage (3 hits, 65% each)

@@ -1,0 +1,27 @@
+#6090 - Jargo
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6090
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17349:128) Instantaneous Corrosion
+ | For 99 turns, 15% chance for skyfall orbs to be blinded for 2 turns
+ group:
+ | group:
+   | (17350:75) Harmful Prank
+   | Leader changes to random sub for 1 turn, Deal 100% damage
+   | (17351:88) Dissolving Mucus
+   | Bind awoken skills for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (17353:39) Encroaching Madness
+     | Movetime 25% for 3 turns
+   | group:
+     | (17352:15) Devour
+     | Deal 1,000% damage (5 hits, 200% each)

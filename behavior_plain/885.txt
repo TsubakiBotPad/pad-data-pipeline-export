@@ -1,0 +1,31 @@
+#885 - Nine-Tailed Izuna
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAttackMultihit(15:656) -> Stray Demon Katana Slash
+Deal 80% damage
+
+#7: ESAttackMultihit(15:657) -> Burning Heavens Strike
+Condition: 50% chance when < 50% HP (ai:50 rnd:0)
+Deal 160% damage (4 hits, 40% each)
+
+#8: ESOrbChangeAttack(48:655) -> Nine-Tails Five Spirit Formation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to a random attribute, Deal 80% damage

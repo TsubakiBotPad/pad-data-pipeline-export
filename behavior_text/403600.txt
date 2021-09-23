@@ -1,0 +1,98 @@
+#403600 - Heaven Scribe, Enoch
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 403600
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6557:72) Light Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ | (6555:73) Resolve
+ | Survive attacks with 1 HP when HP > 76%
+ type: PREEMPT
+ | (6538:83) Saint's Robe + Staff of Destiny
+ | Voids status ailments for 999 turns + Unable to match Heal orbs for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (6539:50) Corsier
+     | Player -50% HP
+   | group:
+   | condition: turn 2 while HP > 34
+     | (6540:15) Arentillia
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: turn 3 while HP > 34
+     | (6543:83) Goudenbel + Cure
+     | Blind all orbs on the board + Player recover 100% HP, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (6569:83) Another Fate + Arentillia
+     | Change own attribute to random one of Dark or Light + Deal 140% damage (2 hits, 70% each), Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 20% chance
+     | (6548:107) Staff of Destiny
+     | Unable to match Fire orbs for 2 turns
+     | condition: 20% chance
+     | (6549:107) Staff of Destiny
+     | Unable to match Water orbs for 2 turns
+     | condition: 20% chance
+     | (6550:107) Staff of Destiny
+     | Unable to match Wood orbs for 2 turns
+     | condition: 20% chance
+     | (6551:107) Staff of Destiny
+     | Unable to match Light orbs for 2 turns
+     | condition: 20% chance
+     | (6552:107) Staff of Destiny
+     | Unable to match Dark orbs for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6556:89) Misheliente
+     | Delay active skills by 1 turn, Deal 250% damage
+ | group:
+ | condition: turn 1 while HP > 34, hp <= 79
+   | (6544:74) Sanctuary
+   | Reduce damage from all sources by 50% for 10 turns
+ | group:
+ | condition: turn 4 while HP > 34, hp <= 49
+   | (6570:83) Apotheosis Omen + Arentillia
+   | Change own attribute to Light + Deal 140% damage (2 hits, 70% each), Deal 140% damage (2 hits, 70% each)
+ | group:
+ | condition: hp <= 34
+   | group:
+   | condition: turn 1
+     | (6553:67) Sage Wisdom
+     | Absorb damage when combos <= 6 for 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (6544:74) Sanctuary
+     | Reduce damage from all sources by 50% for 10 turns
+   | group:
+   | condition: turn 3 while HP > 19
+     | (6540:15) Arentillia
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (6543:83) Goudenbel + Cure
+     | Blind all orbs on the board + Player recover 100% HP, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (6570:83) Apotheosis Omen + Arentillia
+     | Change own attribute to Light + Deal 140% damage (2 hits, 70% each), Deal 140% damage (2 hits, 70% each)
+ | group:
+ | condition: hp <= 19
+   | (6554:15) Rizentbard
+   | Deal 1,200% damage (4 hits, 300% each)
+ | group:
+ | condition: hp <= 1
+   | (6532:83) Divine Cure + Sage Wisdom
+   | Enemy recover 15% HP + Absorb damage when combos <= 6 for 999 turns
+ type: UNKNOWN_USE
+ | condition: at most 7 times
+ | (6545:74) Sanctuary
+ | Reduce damage from all sources by 50% for 10 turns

@@ -1,0 +1,35 @@
+#2334 - Water Armor Dragon, Gienah
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2334
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3286:53) Hydro Core
+ | Absorb Water damage for 5 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (3287:92) Super Water Surge
+   | Spawn 4 random Water orbs, Deal 120% damage
+   | condition: 40% chance
+   | (3288:77) Aqua Gun
+   | Change the 3rd column to Water orbs, Deal 120% damage
+   | condition: 20% chance
+   | (3289:48) Blue Charger
+   | Change all Water orbs to Jammer orbs, Deal 80% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (3235:52) Follow Repair
+ | Enemy ally recover 45% HP

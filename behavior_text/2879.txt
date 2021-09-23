@@ -1,0 +1,63 @@
+#2879 - Destroying Thunder Dragon, Dorva
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2879
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4702:72) Light Halve
+ | Reduce damage from Light attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (4702:72) Light Halve
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (4687:83) What is your wish? + Dividing Damage
+ | Voids status ailments for 5 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 1948, 1949, 2745 on team
+     | (4692:83) I recognize the strength of your wish + Sunset Zone
+     | Blind all orbs on the board + Change all orbs to Fire, Water, Dark, and Heal, Deal 150% damage
+     | (4693:83) Vesperal Gloom + Sunset Zone
+     | Blind all orbs on the board + Change all orbs to Fire, Water, Dark, and Heal, Deal 150% damage
+   | group:
+     | condition: 30% chance
+     | (4691:79) Dusk Guidance
+     | Change the 3rd row to Heal orbs, Deal 175% damage
+     | condition: 50% chance
+     | (4694:77) Purple Lightning
+     | Change the 3rd column to Dark orbs and the 5th column to Water orbs, Deal 80% damage
+     | (4695:15) Dual Shade
+     | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: turn 2 while HP > 49, hp <= 74
+   | (4693:83) Vesperal Gloom + Sunset Zone
+   | Blind all orbs on the board + Change all orbs to Fire, Water, Dark, and Heal, Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4700:83) Destroying Thunder Dragon's Trial + Dark Slash
+     | Absorb Dark damage for 1 turn + Change the 2nd and 5th columns to Dark orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (4696:83) Vesperal Gloom + Purple Lightning
+     | Blind all orbs on the board + Change the 3rd column to Dark orbs and the 5th column to Water orbs, Deal 80% damage
+     | (4697:83) Vesperal Gloom + Dusk Guidance
+     | Blind all orbs on the board + Change the 3rd row to Heal orbs, Deal 175% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (4382:83) Overcoming Will + Dragonbound's Wrath
+     | Enemy recover 29% HP + Increase damage to 200% for the next 999 turns
+   | group:
+     | (4701:83) Dual Shade + Sunset Zone
+     | Deal 120% damage (2 hits, 60% each) + Change all orbs to Fire, Water, Dark, and Heal, Deal 120% damage (2 hits, 60% each)

@@ -1,0 +1,55 @@
+#4961 - コマじろう
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlind5(5:11957) -> もんげーーっ！
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESDebuffRCV(105:11958) -> オラ　負けないズラよ！
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 80% damage
+
+#6: ESAttackMultihit(15:11959) -> ズラッ！
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#7: ESOrbChangeAttack(48:11960) -> いかずちの術ズラ！
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Light orbs, Deal 95% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESSkyfallLocked(96:11961) -> 手かげん　してほしいズラ～
+Locked random skyfall +100% for 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESDebuffMovetime(39:11962) -> 兄ちゃん…　オラがんばるズラ！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime -2s for 5 turns
+
+#14: ESAttackMultihit(15:11963) -> 風来サンダー
+Deal 105% damage (3 hits, 35% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,79 @@
+#302989 - Alt. Iron Machine Emperor, Another Justice
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:13671) -> Mode-Sea Armor
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:13672) -> Justice Wave
+	Delay active skills by 3~5 turns
+	[2] ESVoidShield(71:13673) -> Justice Armor
+	Void damage >= 8,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPCooldown(19:4898) -> Justice Booster
+Increase damage to 200% for the next 999 turns
+
+#7: ESAttackMultihit(15:4901) -> Justice Absolute Storm
+Condition: When < 15% HP (ai:100 rnd:0)
+Deal 1,600% damage (8 hits, 200% each)
+
+#8: ESDamageShield(74:4899) -> Justice Shield
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 3 turns
+
+#9: ESSkyfall(68:4902) -> Justice Tempest
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Water, Jammer, and Poison skyfall +15% for 5 turns, Deal 120% damage
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESDispel(6:4900) -> Justice Eye
+Voids player buff effects
+
+#13: ESRowSpawnMulti(79:4895) -> Justice Abyss Blade
+Change the 2nd row to Water and Poison orbs, Deal 100% damage
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: ESDispel(6:4900) -> Justice Eye
+Voids player buff effects
+
+#17: ESGravity(50:4896) -> Justice Punch
+Player -99% HP
+
+#18: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#19: ESDispel(6:4900) -> Justice Eye
+Voids player buff effects
+
+#20: ESAttackMultihit(15:4897) -> Justice Dark Boomerang
+Deal 140% damage (4 hits, 35% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESResolve(73:4903) -> Resolve Robot
+Survive attacks with 1 HP when HP > 50%

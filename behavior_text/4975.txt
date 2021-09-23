@@ -1,0 +1,55 @@
+#4975 - ブシニャン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4975
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12045:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12017:83) それがしは　ブシニャン！ + いざ　参るっ！
+ | Bind 1 random sub for 3 turns + Player -75% HP
+ group:
+ | group:
+   | condition: 33% chance
+   | (12020:92) お主に　斬れるでござるか？
+   | Spawn 5 random Jammer orbs, Deal 90% damage
+   | condition: 33% chance
+   | (12021:15) 閃光斬りっ！
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 34% chance
+   | (12022:48) 旋風斬りっ！！
+   | Change a random attribute to Wood orbs, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (12024:83) こうなったら　奥の手でござる！ + ぬははは！　勝利はもらった！
+   | Increase damage to 150% for the next 5 turns + Absorb damage when combos <= 5 for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (12027:83) ぶ　武士の情け… + しばし待たれよっ！
+     | Bind 4 random subs for 1 turn + Do nothing
+   | group:
+     | (12030:15) かつおブシ斬り
+     | Deal 210% damage (6 hits, 35% each)
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 100
+   | (12023:17) 精神統一でござる…
+   | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (12024:83) こうなったら　奥の手でござる！ + ぬははは！　勝利はもらった！
+     | Increase damage to 150% for the next 5 turns + Absorb damage when combos <= 5 for 5 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (12023:17) 精神統一でござる…
+     | Increase damage to 200% for the next 1 turn

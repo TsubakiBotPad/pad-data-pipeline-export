@@ -1,0 +1,43 @@
+#3329 - Serpent Steel Star Healer, Ras
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3329
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6090:83) Antibodies + Hypnotism
+ | Voids status ailments for 999 turns + Leader changes to random sub for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (6098:83) Multiple Walls + Elemental Purée
+     | Absorb damage when combos <= 6 for 1 turn + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 135% damage
+     | (6103:83) Reflescale + Elemental Purée
+     | Reduce damage from all sources by 75% for 1 turn + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 135% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6104:75) Hypno Pursuit
+     | Leader changes to random sub for 1 turn, Deal 90% damage
+     | (6092:88) Helpless Suggestion
+     | Bind awoken skills for 1 turn, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 24, hp <= 49
+   | (6107:83) Mournful Meteor + Forbidden Area
+   | Poison skyfall +30% for 1 turn + Seal the 1st and 5th rows for 1 turn
+ | group:
+ | condition: always turn 1, hp <= 24
+   | (6111:83) Glitter Force + Remedy
+   | Increase damage to 200% for the next 999 turns + Enemy recover 20% HP
+ | group:
+ | condition: hp <= 19
+   | (6112:15) Stardust Comet
+   | Deal 900% damage (9 hits, 100% each)
+ type: UNKNOWN_USE
+ | condition: at most 3 times
+ | (6110:83) Glitter Force + Remedy
+ | Increase damage to 200% for the next 999 turns + Enemy recover 20% HP

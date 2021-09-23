@@ -1,0 +1,43 @@
+#502762 - Purple Plum Virtue, Xin Hua
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:20453) -> Spirit Plum's Protection
+	Reduce damage from all sources by 90% for 3 turns
+	[1] ESGravity(50:20454) -> I shall crush you between my fingers!
+	Player -50% HP
+
+#3: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:20458) -> This is only the beginning...
+	Reduce damage from all sources by 50% for 4 turns
+	[1] ESOrbSealRow(100:20459) -> Poem to Seal the Heavens
+	Seal the 1st row for 2 turns
+
+#4: ESBlindStickyRandom(97:20462) -> Dark God's Chant
+Condition: 35% chance when < 50% HP (ai:35 rnd:0)
+Blind random 3 orbs for 1 turn, Deal 140% damage
+
+#5: ESAttackMultihit(15:20461) -> Amethyst Bone Spike
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 120% damage (3 hits, 40% each)
+
+#6: ESRandomSpawn(92:20457) -> Purple Season
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Dark and Heal orbs, Deal 120% damage
+
+#7: ESAttackMultihit(15:20456) -> Deadly Purple Stab
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSuperResolve(129:20463) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

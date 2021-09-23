@@ -1,0 +1,35 @@
+#201748 - Awoken Hades
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 201748
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23800:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23801:83) Death Sentence + Death Countdown: 3
+ | Voids status ailments for 999 turns + Blind orbs in specific positions for 1 turn
+ group:
+ | group:
+ | condition: always turn 2
+   | (23809:98) Death Countdown: 1
+   | Blind orbs in specific positions for 1 turn
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (23806:98) Death Countdown: 2
+     | Blind orbs in specific positions for 1 turn
+   | group:
+     | (23810:83) Death Countdown: 0 + Death Scythe
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 4,000% damage (4 hits, 1,000% each), Deal 4,000% damage (4 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (23804:83) Divine Barrier of Hell + Death Countdown: 2
+   | Reduce damage from all sources by 90% for 999 turns + Blind orbs in specific positions for 1 turn
+ type: UNKNOWN_USE
+ | (23807:83) Divine Barrier of Hell + Death Countdown: 1
+ | Reduce damage from all sources by 90% for 999 turns + Blind orbs in specific positions for 1 turn

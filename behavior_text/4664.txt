@@ -1,0 +1,48 @@
+#4664 - 静かなる白虎・ハク
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4664
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10615:83) Byakko lives in isolation. + Something that won't swarm.
+ | Voids status ailments for 5 turns + Bind 1 random card for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (10618:83) I always seized any opportunities. + I'm a predator stalking its prey.
+     | Fix orb movement starting point to random position on the board + Lock 10 random orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (10621:83) Cute is an insult...for Byakko... + ...
+     | Change all orbs to Fire, Water, and Dark + Change the 3rd row to Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (10622:17) Are you...ready?
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (10587:89) Wild Ball
+     | Delay active skills by 0~2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (10623:86) Swelling Energy
+     | Enemy recover 50% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (10621:83) Cute is an insult...for Byakko... + ...
+     | Change all orbs to Fire, Water, and Dark + Change the 3rd row to Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (10622:17) Are you...ready?
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (10587:89) Wild Ball
+     | Delay active skills by 0~2 turns, Deal 100% damage

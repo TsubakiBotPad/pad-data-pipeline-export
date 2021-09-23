@@ -1,0 +1,48 @@
+#4923 - Masked Rider Amazon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4923
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11687:15) Fin Cutter
+ | Deal 80% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (11688:109) Spin Kick
+   | Random 1 orbs change every 2.0s for 1 turn, Deal 90% damage
+   | condition: 33% chance
+   | (11689:86) Jaguar Shock
+   | Enemy recover 5% HP, Deal 85% damage
+   | condition: 34% chance
+   | (11690:15) Monkey Attack
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (11691:17) Animal Instincts
+     | Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11692:83) Condor Jump + Amazon Kick
+     | Player -25% HP + Deal 100% damage, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 33% chance
+     | (11688:109) Spin Kick
+     | Random 1 orbs change every 2.0s for 1 turn, Deal 90% damage
+     | condition: 33% chance
+     | (11689:86) Jaguar Shock
+     | Enemy recover 5% HP, Deal 85% damage
+     | condition: 34% chance
+     | (11690:15) Monkey Attack
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 19
+   | (11695:15) Wild Slash
+   | Deal 150% damage

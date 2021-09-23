@@ -1,0 +1,40 @@
+#406554 - Akaza
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 406554
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20101:83) I hate weak humans. + When I see weakness, my skin crawls. + Why don't you become a demon?
+ | Reduce damage from all sources by 99% for 6 turns + ATK -50% for 6 turns + Fix orb movement starting point to random position on the board
+ group:
+ | group:
+ | condition: turn 1
+   | (20189:83) It's because you're human. + Because you age. + Because eventually you'll die.
+   | Locked random skyfall +30% for 2 turns + Do nothing + Player -10% HP
+ | group:
+ | condition: turn 2
+   | (20097:83) Become a demon. + If you do...you can train for hundreds of years. + You can train and keep getting stronger.
+   | Fix orb movement starting point to random position on the board + Do nothing + Lock 10 random orbs
+ | group:
+ | condition: turn 3
+   | (20170:50) You worked so hard to build such magnificent talent...
+   | Player -10% HP
+ | group:
+ | condition: turn 4
+   | (20182:105) It's hard for me to accept.
+   | RCV 50% for 2 turns
+ | group:
+ | condition: turn 5
+   | (20183:127) I can't stand it.
+   | No skyfall for 1 turn
+ | group:
+ | condition: turn 6
+   | (20171:50) Die for me.
+   | Player -10% HP
+ | group:
+   | (20172:15) Destructive Death: Air Type
+   | Deal 2,250% damage (3 hits, 750% each)

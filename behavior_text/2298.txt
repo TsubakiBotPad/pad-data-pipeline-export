@@ -1,0 +1,33 @@
+#2298 - Green Puppet Master of Creation, Courage Machina
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2298
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3839:83) Sangen Mechanism + Heal-to-Green Twist Puppetry
+ | Absorb Light and Dark damage for 5 turns + Change all Heal orbs to Wood orbs, Deal 90% damage
+ group:
+ | group:
+   | condition: 40% chance
+   | (3840:83) Elemental Flip + Red-to-Blue Twist Puppetry
+   | Change own attribute to random one of Water or Wood + Change all Fire orbs to Water orbs, Deal 110% damage
+   | condition: 25% chance
+   | (3841:83) Elemental Flip + Heal-to-Green Twist Puppetry
+   | Change own attribute to random one of Water or Wood + Change all Heal orbs to Wood orbs, Deal 90% damage
+   | condition: 35% chance
+   | (3842:83) Elemental Flip + Blue Line Stitch Puppetry
+   | Change own attribute to random one of Water or Wood + Change the 3rd row to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3844:83) Impassive + Marionette Operation
+     | Voids status ailments for 1 turn + Movetime -3s for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (3845:79) Green-Blue Stitch Puppetry
+     | Change the 1st, 3rd, and 5th rows to Wood orbs and the 2nd and 4th rows to Water orbs, Deal 220% damage

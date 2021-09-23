@@ -1,0 +1,40 @@
+#102184 - Alt. Gluttonous Mystic, Zhu Bajie
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102184
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2533:50) Charge!!
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 20% chance
+   | (2538:77) Smack
+   | Change the 1st, 3rd, and 5th columns to Fire orbs, Deal 120% damage
+   | condition: 20% chance
+   | (1:82) Disable Skill
+   | Deal 100% damage
+   | condition: 20% chance
+   | (2542:83) Dim Sum Snack + Burning Hoof
+   | Enemy recover 10% HP + Change the 5th row to Fire orbs, Deal 50% damage
+   | condition: 20% chance
+   | (2537:2) Water Battle Strategy
+   | Bind Water cards for 2 turns, Deal 75% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (2543:74) Marshal Canopy's Secret Plan
+     | Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: always turn 2
+     | (2540:50) Wild Boar Charge
+     | Player -100% HP
+ | group:
+ | condition: hp <= 29
+   | (2541:77) Bursting Milky Way!
+   | Change the 1st, 3rd, and 5th columns to Fire orbs and the 2nd, 4th, and 6th columns to Light orbs, Deal 200% damage

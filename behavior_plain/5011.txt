@@ -1,0 +1,35 @@
+#5011 - Illyasviel von Einzbern
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffMovetime(39:19500) -> Are you done with your chitchat?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -2s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:19503) -> I know everything, you see.
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Light orbs, Deal 90% damage
+
+#5: ESAttackMultihit(15:19501) -> Okay, I'm gonna kill you now.
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBlind5(5:19502) -> This is so boring.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board
+
+#8: ESAttackMultihit(15:19504) -> I'm disgusted.
+Deal 120% damage (2 hits, 60% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

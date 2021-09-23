@@ -1,0 +1,96 @@
+#103721 - Alt. Fire Orb Dragon, Kajin
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 103721
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8207:72) Wood Halved for Fire Jewel
+ | Reduce damage from Wood attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (8207:72) Wood Halved for Fire Jewel
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (7363:83) One-Eyed Hellfire + Seething Fire
+ | Change the 4th, 5th, and 6th columns to Fire and Jammer orbs + Absorb damage when combos <= 6 for 1 turn, Deal 140% damage
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1
+     | (7366:83) Insulating Firescales + Brave Warrior's Divine Protection
+     | Reduce damage from all sources by 75% for 4 turns + Voids status ailments for 10 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (7371:79) Raging Flash Wildfire
+     | Change the 3rd row to Jammer orbs, Deal 130% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (7372:48) Inferno Claw
+     | Change all Heal orbs to Fire orbs, Deal 130% damage
+     | (7373:50) Incinerator Charge
+     | Player -90% HP
+   | group:
+   | condition: turn 4 while HP > 19
+     | (7371:79) Raging Flash Wildfire
+     | Change the 3rd row to Jammer orbs, Deal 130% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (7369:17) Resentful Stare
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 8
+     | (7372:48) Inferno Claw
+     | Change all Heal orbs to Fire orbs, Deal 130% damage
+     | (7373:50) Incinerator Charge
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 8
+     | (7371:79) Raging Flash Wildfire
+     | Change the 3rd row to Jammer orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 8
+     | (7372:48) Inferno Claw
+     | Change all Heal orbs to Fire orbs, Deal 130% damage
+     | (7373:50) Incinerator Charge
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 8
+     | (7370:74) Insulating Firescales
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 5 of 8
+     | (7371:79) Raging Flash Wildfire
+     | Change the 3rd row to Jammer orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 8
+     | (7372:48) Inferno Claw
+     | Change all Heal orbs to Fire orbs, Deal 130% damage
+     | (7373:50) Incinerator Charge
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 7 of 8
+     | (7371:79) Raging Flash Wildfire
+     | Change the 3rd row to Jammer orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 8 of 8
+     | (7370:74) Insulating Firescales
+     | Reduce damage from all sources by 75% for 4 turns
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 99
+   | (7368:83) Insulating Firescales + Exalted Flame
+   | Reduce damage from all sources by 75% for 4 turns + Movetime 150% for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (7374:94) Glare of the Fire Dragon
+     | Lock all orbs
+   | group:
+     | (7375:85) Final Burning Devotion
+     | Change all orbs to Fire and Jammer, Deal 3,000% damage

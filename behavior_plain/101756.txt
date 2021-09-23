@@ -1,0 +1,69 @@
+#101756 - Alt. Gleaming Light Sorceress, Ars Nova
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:14430) -> Sorcerous Barrier
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:14431) -> You're hoping to battle aren't you?
+	Reduce damage from all sources by 75% for 10 turns
+	[2] ESMaxHPChange(111:14432) -> My will is unwavering
+	Change player HP to 100,000 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 13
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#7: SkillSet:
+	[0] ESOrbChangeAttack(48:14434) -> Magical Power Transformation
+	Change a random attribute to Light orbs, Deal 50% damage
+	[1] ESOrbLock(94:14435) -> Heaven's Prayer
+	Lock 15 random orbs, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESDispel(6:14438) -> Solomon's Necromancy
+	Voids player buff effects
+	[1] ESAttackUPRemainingEnemies(17:14437) -> The Devil's Guidance
+	Increase damage to 200% for the next 999 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindRandom(1:14440) -> Offerings to the Altar
+	Bind 6 random cards for 1 turn
+	[1] ESAttackMultihit(15:14441) -> Liberated for Divine Judgement
+	Deal 1,400% damage (7 hits, 200% each)
+
+#14: ESAttackMultihit(15:14441) -> Liberated for Divine Judgement
+Deal 1,400% damage (7 hits, 200% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:17236) -> Ars Resolve
+Survive attacks with 1 HP when HP > 50%

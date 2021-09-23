@@ -1,0 +1,244 @@
+#102717 - Alt. White Rainbow Ark, Noah Dragon
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESStatusShield(20:4152) -> Ark Scales
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8756) -> Ark's Protecting Hull
+	Void damage >= 15,000,000 for 99 turns
+	[2] ESAbsorbAttribute(53:4153) -> Blue Sky Rainbow
+	Absorb Fire and Light damage for 1 turn
+
+#5: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESStatusShield(20:4152) -> Ark Scales
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8756) -> Ark's Protecting Hull
+	Void damage >= 15,000,000 for 99 turns
+	[2] ESAbsorbAttribute(53:4154) -> Blue Sky Rainbow
+	Absorb Fire and Dark damage for 1 turn
+
+#6: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESStatusShield(20:4152) -> Ark Scales
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8756) -> Ark's Protecting Hull
+	Void damage >= 15,000,000 for 99 turns
+	[2] ESAbsorbAttribute(53:4155) -> Blue Sky Rainbow
+	Absorb Water and Light damage for 1 turn
+
+#7: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESStatusShield(20:4152) -> Ark Scales
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8756) -> Ark's Protecting Hull
+	Void damage >= 15,000,000 for 99 turns
+	[2] ESAbsorbAttribute(53:4156) -> Blue Sky Rainbow
+	Absorb Water and Dark damage for 1 turn
+
+#8: SkillSet:
+	Condition: 16% chance (ai:0 rnd:16)
+	[0] ESStatusShield(20:4152) -> Ark Scales
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8756) -> Ark's Protecting Hull
+	Void damage >= 15,000,000 for 99 turns
+	[2] ESAbsorbAttribute(53:4157) -> Blue Sky Rainbow
+	Absorb Wood and Light damage for 1 turn
+
+#9: SkillSet:
+	Condition: 16% chance (ai:0 rnd:16)
+	[0] ESStatusShield(20:4152) -> Ark Scales
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8756) -> Ark's Protecting Hull
+	Void damage >= 15,000,000 for 99 turns
+	[2] ESAbsorbAttribute(53:4158) -> Blue Sky Rainbow
+	Absorb Wood and Dark damage for 1 turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESDamageShield(74:4185) -> Retreat Ark
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESDispel(6:4190) -> Fog Bow - Purge
+	Voids player buff effects
+	[2] ESAttackMultihit(15:4195) -> Final Judgement
+	Deal 3,000% damage (3 hits, 1,000% each)
+
+#12: SkillSet:
+	Condition: When < 90% HP , one-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESDamageShield(74:4185) -> Retreat Ark
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESBindSkill(14:4186) -> Fog Bow - Seal
+	Bind active skills for 10 turns
+	[2] ESBoardChangeAttackBits(85:4191) -> First Judgement
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 450% damage
+
+#13: SkillSet:
+	Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:4185) -> Retreat Ark
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESBlind5(5:4187) -> Fog Bow - Haze
+	Blind all orbs on the board
+	[2] ESBoardChangeAttackBits(85:4192) -> Second Judgement
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 600% damage
+
+#14: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:4185) -> Retreat Ark
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESSkillDelay(89:4188) -> Fog Bow - Gaze
+	Delay active skills by 5 turns
+	[2] ESAttackMultihit(15:4193) -> Third Judgement
+	Deal 1,200% damage (3 hits, 400% each)
+
+#15: SkillSet:
+	Condition: When < 30% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:4185) -> Retreat Ark
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESBindAwoken(88:4189) -> Fog Bow - Graze
+	Bind awoken skills for 2 turns
+	[2] ESBoardChangeAttackBits(85:4194) -> Fourth Judgement
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 2,000% damage
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 30
+
+#17: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4153) -> Blue Sky Rainbow
+	Absorb Fire and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:4165) -> Prismatic Thunder
+	Change a random attribute to Fire orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#18: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4153) -> Blue Sky Rainbow
+	Absorb Fire and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:4168) -> Prismatic Thunder
+	Change a random attribute to Light orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#19: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4154) -> Blue Sky Rainbow
+	Absorb Fire and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:4165) -> Prismatic Thunder
+	Change a random attribute to Fire orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#20: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4154) -> Blue Sky Rainbow
+	Absorb Fire and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:4169) -> Prismatic Thunder
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#21: SkillSet:
+	Condition: 9% chance (ai:0 rnd:9)
+	[0] ESAbsorbAttribute(53:4155) -> Blue Sky Rainbow
+	Absorb Water and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:4166) -> Prismatic Thunder
+	Change a random attribute to Water orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#22: SkillSet:
+	Condition: 9% chance (ai:0 rnd:9)
+	[0] ESAbsorbAttribute(53:4155) -> Blue Sky Rainbow
+	Absorb Water and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:4168) -> Prismatic Thunder
+	Change a random attribute to Light orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#23: SkillSet:
+	Condition: 9% chance (ai:0 rnd:9)
+	[0] ESAbsorbAttribute(53:4156) -> Blue Sky Rainbow
+	Absorb Water and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:4166) -> Prismatic Thunder
+	Change a random attribute to Water orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#24: SkillSet:
+	Condition: 9% chance (ai:0 rnd:9)
+	[0] ESAbsorbAttribute(53:4156) -> Blue Sky Rainbow
+	Absorb Water and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:4169) -> Prismatic Thunder
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#25: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4157) -> Blue Sky Rainbow
+	Absorb Wood and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:4167) -> Prismatic Thunder
+	Change a random attribute to Wood orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#26: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4157) -> Blue Sky Rainbow
+	Absorb Wood and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:4168) -> Prismatic Thunder
+	Change a random attribute to Light orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#27: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4158) -> Blue Sky Rainbow
+	Absorb Wood and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:4167) -> Prismatic Thunder
+	Change a random attribute to Wood orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#28: SkillSet:
+	Condition: 8% chance (ai:0 rnd:8)
+	[0] ESAbsorbAttribute(53:4158) -> Blue Sky Rainbow
+	Absorb Wood and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:4169) -> Prismatic Thunder
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[2] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: SkillSet:
+	[0] ESOrbChangeAttack(48:4183) -> Rainbow Blank
+	Change a random attribute to Jammer orbs, Deal 150% damage
+	[1] ESBindAttack(63:4170) -> Strand Sacrifice
+	Bind 1 random sub for 1 turn, Deal 50% damage
+	[2] ESGravity(50:1218) -> Ark Impact
+	Player -99% HP
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESAttributeResist(72:8803) -> NoahDra Water Halved
+Reduce damage from Water attrs by 50%

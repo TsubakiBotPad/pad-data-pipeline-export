@@ -1,0 +1,36 @@
+#2670 - Jade Jewel Princess, Cameo
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2670
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12743:74) Shell Shield
+ | Reduce damage from all sources by 75% for 6 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (12744:94) Metal Tackle
+   | Lock all orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (12745:17) Lava Breeze
+   | Increase damage to 250% for the next 3 turns
+ | group:
+ | condition: turns 3-5
+   | (12746:15) Intaglio Punch
+   | Deal 100% damage
+ | group:
+ | condition: turn 6
+   | (12759:83) Acrylic Absorption + Stoneware
+   | Absorb damage when combos <= 7 for 99 turns + Increase damage to 150% for the next 99 turns
+ | group:
+   | condition: 50% chance
+   | (12744:94) Metal Tackle
+   | Lock all orbs, Deal 100% damage
+   | condition: 50% chance
+   | (12746:15) Intaglio Punch
+   | Deal 100% damage

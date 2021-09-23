@@ -1,0 +1,34 @@
+#1089 - Endless Blue Dragon Caller, Sonia
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1089
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1691:20) Begone!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 60% chance
+   | (1692:48) Blue Sphere
+   | Change a random attribute to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 74
+   | condition: 60% chance
+   | (1692:48) Blue Sphere
+   | Change a random attribute to Water orbs, Deal 100% damage
+   | condition: 50% chance
+   | (1693:63) Crystallizing Wave
+   | Bind 2 random cards for 1~3 turns, Deal 85% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (1694:66) Draco Summon - Crystal Dragon
+     | Do nothing
+   | group:
+     | (1695:15) Blue-Out Nemesis
+     | Deal 500% damage (5 hits, 100% each)

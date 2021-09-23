@@ -1,0 +1,72 @@
+#4921 - Masked Rider V3
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4921
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11696:65) V3 Electric Heat Chop
+ | Bind 2 random subs for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (11697:15) V3 Chop
+     | Deal 95% damage
+     | condition: 34% chance
+     | (11698:15) V3 Punch
+     | Deal 100% damage
+     | condition: 33% chance
+     | (11699:15) Hurricane Last Dash
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 3 while HP > 14
+     | (11701:83) V3 Kick + V3 Return Kick
+     | Deal 60% damage + Deal 60% damage, Deal 60% damage
+   | group:
+   | condition: turns 4-5 while HP > 14
+     | condition: 33% chance
+     | (11697:15) V3 Chop
+     | Deal 95% damage
+     | condition: 34% chance
+     | (11698:15) V3 Punch
+     | Deal 100% damage
+     | condition: 33% chance
+     | (11699:15) Hurricane Last Dash
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 6 while HP > 14
+     | (11704:83) V3 Tailspin Kick + V3 Tailspin Return Kick
+     | Deal 60% damage + Random 2 orbs change every 1.0s for 1 turn, Deal 60% damage
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (11697:15) V3 Chop
+     | Deal 95% damage
+     | condition: 34% chance
+     | (11698:15) V3 Punch
+     | Deal 100% damage
+     | condition: 33% chance
+     | (11699:15) Hurricane Last Dash
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (11707:15) V3 Revolving Full Tailspin Kick
+     | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (11700:50) Red Bone Ring
+   | Player -99% HP
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (11708:83) Red Bone Power + Red Lamp Power
+     | Increase damage to 200% for the next 1 turn + Reduce damage from all sources by 50% for 1 turn
+   | group:
+     | (11711:15) V3 Revolving Double Kick
+     | Deal 100% damage (2 hits, 50% each)

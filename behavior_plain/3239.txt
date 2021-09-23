@@ -1,0 +1,81 @@
+#3239 - Reincarnated Neptune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:11660) -> You look like you're ready.
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:11661) -> Try to beat me!
+	Void damage >= 10,000,000 for 999 turns
+	[2] ESSkillDelay(89:11662) -> Darkstrom
+	Delay active skills by 3 turns, Deal 125% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 11
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESOrbChangeAttackBits(108:11663) -> Chaostrom
+Change all Poison orbs to Mortal Poison orbs, Deal 150% damage
+
+#8: ESRandomSpawn(92:11664) -> Abysstrom
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 8 random Poison orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:11665) -> Double Scissors
+Condition: 50% chance (ai:0 rnd:50)
+Deal 110% damage (2 hits, 55% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:11670) -> So close...
+	Enemy recover 50% HP
+	[1] ESDamageShield(74:11671) -> Struggle in your final moments.
+	Reduce damage from all sources by 75% for 99 turns
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:11667) -> Struggle in your final moments.
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESDebuffMovetime(39:11668) -> Prepare yourself!
+	Movetime 50% for 10 turns
+
+#13: ESAttackMultihit(15:11672) -> Abyss Maelstrom
+Deal 1,000% damage (5 hits, 200% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 7
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESAbsorbCombo(67:11673) -> You damn brat.
+Absorb damage when combos <= 7 for 99 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESTurnChangePassive(106:11658) -> Enemy's next turn changed
+Enemy turn counter change to 3 when HP <= 50%
+
+#20: ESResolve(73:11657) -> Resolve
+Survive attacks with 1 HP when HP > 50%

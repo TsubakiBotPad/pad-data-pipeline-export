@@ -1,0 +1,177 @@
+#4722 - Durandalf
+monster size: 5
+new AI: True
+start/max counter: 11
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESStatusShield(20:10668) -> Barrier of Purity
+	Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 40
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 40
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 36
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 32
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 7, target rnd 25
+
+#16: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 23
+
+#17: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#18: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESColumnSpawnMulti(77:10669) -> Lightning of Zeus
+	Change the 4th column to Light orbs, Deal 80% damage
+
+#19: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESAttackMultihit(15:10670) -> Arrow of Artemis
+	Deal 120% damage
+
+#20: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#21: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESAttackMultihit(15:10671) -> Hera's Jealousy
+	Deal 60~120% damage (2~4 hits, 30% each)
+
+#22: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESBindAttack(63:10672) -> Gaze of the Gorgon
+	Bind 1 random sub for 2 turns, Deal 100% damage
+
+#23: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESSkillDelay(89:10673) -> Cattle Thief
+	Delay active skills by 2 turns
+
+#25: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#26: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESAttackMultihit(15:10674) -> Talaria, the Winged Sandals
+	Deal 150% damage (2 hits, 75% each)
+
+#27: ESSetCounter(25:15) -> ESSetCounter
+counter = 9
+
+#28: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESAttackUPRemainingEnemies(17:10678) -> Persephone's Return
+	Increase damage to 200% for the next 1 turn
+
+#29: ESSetCounter(25:15) -> ESSetCounter
+counter = 10
+
+#30: SkillSet:
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESAttackMultihit(15:10679) -> Overdrive
+	Deal 150% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#33: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#34: SkillSet:
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESSkyfall(68:10675) -> Hydra Venom
+	Poison skyfall +20% for 3 turns
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#37: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#38: SkillSet:
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESDamageShield(74:10676) -> Aegis
+	Reduce damage from all sources by 50% for 3 turns
+
+#39: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#40: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 9, target rnd 29
+
+#41: ESSetCounter(25:15) -> ESSetCounter
+counter = 9
+
+#42: SkillSet:
+	[0] ESRandomSpawn(92:10667) -> Magia Points have recovered
+	Spawn 3 random Wood orbs
+	[1] ESAttackUPRemainingEnemies(17:10677) -> Magia Activation
+	Increase damage to 200% for the next 1 turn
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn

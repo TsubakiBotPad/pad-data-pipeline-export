@@ -1,0 +1,43 @@
+#5716 - 霧島タカトラ＆Ｎ７００みずほ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:15242) -> おいが行きます！
+	Voids status ailments for 999 turns
+	[1] ESGravity(50:15243) -> 一気にいきますよ！
+	Player -50% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 8
+
+#4: ESAttackMultihit(15:15244) -> おぅりゃあ！
+Condition: 34% chance (ai:0 rnd:34)
+Deal 60% damage (2 hits, 30% each)
+
+#5: ESAttackMultihit(15:15245) -> うぉおおお！
+Condition: 33% chance (ai:0 rnd:33)
+Deal 150% damage (3 hits, 50% each)
+
+#6: ESAttackMultihit(15:15247) -> ドウリンハンマー
+Condition: 33% chance (ai:0 rnd:33)
+Deal 80% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:15246) -> これがおいの力です！
+Condition: One-time use, when <= 3 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 3 turns
+
+#9: ESAttackMultihit(15:15247) -> ドウリンハンマー
+Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

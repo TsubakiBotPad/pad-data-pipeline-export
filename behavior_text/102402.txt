@@ -1,0 +1,75 @@
+#102402 - Alt. Awoken Hel
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102402
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3357:92) Law of Hell
+ | Spawn 4 random Poison orbs, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (3363:20) Demon Half
+     | Voids status ailments for 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (3359:94) Dead Judgment
+     | Lock all Poison and Mortal Poison orbs, Deal 120% damage
+     | condition: 80% chance
+     | (3360:92) Poison Nail
+     | Spawn 2 random Mortal Poison orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 80% chance
+     | (3360:92) Poison Nail
+     | Spawn 2 random Mortal Poison orbs, Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | condition: 33% chance
+   | (3358:74) Naglfar
+   | Reduce damage from all sources by 50% for 1 turn
+   | condition: 33% chance
+   | (3361:68) Army of the Dead
+   | Poison skyfall +10% for 10 turns
+   | condition: 34% chance
+   | (3362:89) Nightmare
+   | Delay active skills by 1~2 turns
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 29
+   | condition: when 1423, 1925, 2179 on team
+   | (3366:3) I won't forgive you!
+   | Bind God cards for 5 turns
+   | (3378:83) Glare of Garm + Decay
+   | Bind God cards for 5 turns + Spawn 4 random Poison orbs
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | condition: when 1423, 1925, 2179 on team
+     | (3366:3) I won't forgive you!
+     | Bind God cards for 5 turns
+     | (3375:48) Eat Heart Strike
+     | Change all Heal orbs to Dark orbs, Deal 300% damage
+     | (3378:83) Glare of Garm + Decay
+     | Bind God cards for 5 turns + Spawn 4 random Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (3375:48) Eat Heart Strike
+     | Change all Heal orbs to Dark orbs, Deal 300% damage
+     | (3359:94) Dead Judgment
+     | Lock all Poison and Mortal Poison orbs, Deal 120% damage
+     | condition: 80% chance
+     | (3360:92) Poison Nail
+     | Spawn 2 random Mortal Poison orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (3375:48) Eat Heart Strike
+     | Change all Heal orbs to Dark orbs, Deal 300% damage
+     | condition: 80% chance
+     | (3360:92) Poison Nail
+     | Spawn 2 random Mortal Poison orbs, Deal 120% damage

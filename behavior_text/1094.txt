@@ -1,0 +1,31 @@
+#1094 - Cyclone Devil Dragon
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1094
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1310:2) Demonic Stare
+ | Bind Light cards for 4 turns
+ | (1325:68) Demonic Howl
+ | Jammer skyfall +10% for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1311:48) Hell Ball
+   | Change all Water orbs to Dark orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1311:48) Hell Ball
+     | Change all Water orbs to Dark orbs, Deal 90% damage
+     | (953:62) Dark Cyclone Blast
+     | Blind all orbs on the board, Deal 125% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (953:62) Dark Cyclone Blast
+     | Blind all orbs on the board, Deal 125% damage

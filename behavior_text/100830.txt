@@ -1,0 +1,33 @@
+#100830 - Alt. Protection Demon of Dark, Jyaki
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100830
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9336:72) Dark Half Reduced
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (9334:100) ...you shall not pass!
+ | Seal the 1st and 5th rows for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | (649:15) Chop Off
+   | Deal 150% damage
+ | group:
+   | (650:15) Iron Fist of Anger
+   | Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (649:15) Chop Off
+   | Deal 150% damage
+ | group:
+ | condition: turn 2
+   | (270:17) Lone Force
+   | Increase damage to 300% for the next 999 turns

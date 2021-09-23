@@ -1,0 +1,44 @@
+#400916 - Alt. Devilit
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 400916
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25438:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25431:107) Hide Orbs
+ | Unable to match Heal orbs for 3 turns
+ group:
+ | group:
+   | (25433:64) Devilit Poison
+   | Change 3 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25435:86) Healit!
+     | Enemy recover 100% HP
+   | group:
+     | (25434:15) Devilit Hell Attack
+     | Deal 200% damage (2 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: turn 1, hp <= 100
+   | (25432:17) Angrilit!
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25435:86) Healit!
+     | Enemy recover 100% HP
+   | group:
+   | condition: turn 2
+     | (25424:17) Angrilit!
+     | Increase damage to 1,000% for the next 999 turns

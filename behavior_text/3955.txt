@@ -1,0 +1,39 @@
+#3955 - Busy Illuminating Dragon Caller, Myne
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3955
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 3942, 3943 on team
+ | (13879:74) Al......?
+ | Reduce damage from all sources by 90% for 1 turn
+ | (13878:74) Ah-waah! A guest?!
+ | Reduce damage from all sources by 90% for 1 turn
+ group:
+ | group:
+ | condition: always turn 1
+   | (13880:107) You cannot pass...!
+   | Unable to match Fire orbs for 3 turns
+ | group:
+   | condition: 33% chance
+   | (13881:92) Ornament Crash
+   | Spawn 5 random Jammer orbs, Deal 95% damage
+   | condition: 33% chance
+   | (13882:104) Dust Rising Up
+   | A 2×2 square of clouds appears for 2 turns at a random location, Deal 100% damage
+   | condition: 34% chance
+   | (13883:110) Washcloth Flop
+   | Specific orbs change every 1.0s for 2 turns, Deal 105% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (13884:89) Bucket Splash
+     | Delay active skills by 2~5 turns
+   | group:
+     | (13885:15) Bookcase Bam
+     | Deal 300% damage

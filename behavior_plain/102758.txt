@@ -1,0 +1,56 @@
+#102758 - Blue Bamboo Virtue, You Yu
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRowSpawnMulti(79:8940) -> Blue Life Dance
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 2nd and 3rd rows to Heal orbs, Deal 100% damage
+
+#3: ESDamageShield(74:8941) -> Enchanting Bamboo Grove
+Condition: When < 80% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 3 turns
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAttackUPRemainingEnemies(17:8943) -> Blue Season
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#7: ESRowSpawnMulti(79:8942) -> Stream Fan
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st and 5th rows to Water orbs, Deal 150% damage
+
+#8: ESAttackMultihit(15:8944) -> Flash of Dual Water Fangs
+Deal 360% damage (2 hits, 180% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESAttackMultihit(15:8945) -> Thick Binding of 1000 Bamboos
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 400% damage (10 hits, 40% each)
+
+#12: ESRowSpawnMulti(79:8942) -> Stream Fan
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st and 5th rows to Water orbs, Deal 150% damage
+
+#13: ESAttackMultihit(15:8944) -> Flash of Dual Water Fangs
+Deal 360% damage (2 hits, 180% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:8946) -> You Yu Resolve
+Survive attacks with 1 HP when HP > 80%

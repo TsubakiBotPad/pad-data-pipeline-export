@@ -1,0 +1,35 @@
+#812 - Empress of Creation, Izanami
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 812
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (749:14) Request for Peace
+ | Bind active skills for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (750:48) Young Holy Dragon's Breath
+   | Change all Wood orbs to Fire orbs, Deal 90% damage
+   | (751:48) Exalted Light
+   | Change all Dark orbs to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (750:48) Young Holy Dragon's Breath
+   | Change all Wood orbs to Fire orbs, Deal 90% damage
+   | (752:48) Mother Ocean
+   | Change all Fire orbs to Water orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (753:13) Fragile Fantasy
+     | Change 3 random orb types to Jammer orbs
+   | group:
+     | (754:15) Creation
+     | Deal 250% damage (5 hits, 50% each)

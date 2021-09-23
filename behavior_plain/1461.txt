@@ -1,0 +1,75 @@
+#1461 - Awoken Noah
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRecoverPlayer(55:1224) -> Are you worth saving?
+Player recover 100% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 22
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESGravity(50:1218) -> Ark Impact
+Player -99% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESBindAttack(63:1219) -> Sacred Sacrifice
+Bind 1 random sub for 2 turns, Deal 50% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESOrbChangeAttack(48:1220) -> Rainbow Contract
+Change a random attribute to a random attribute, Deal 75% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#20: ESOrbChangeAttack(48:1221) -> Twinkle Hope
+Change a random attribute to Heal orbs, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESJammerChangeRandom(13:1222) -> Ark Judgement
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change 2 random orb types to Jammer orbs
+
+#23: ESAttackMultihit(15:1223) -> Punishment Thunder
+Deal 1,000% damage

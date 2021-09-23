@@ -1,0 +1,60 @@
+#6674 - Ghostly Goldfish-Girl, Usui
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBoardChangeAttackBits(85:20661) -> Source of Life
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire and Water, Deal 80% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESSkyfall(68:20662) -> Bubble Dance
+Condition: 33% chance (ai:0 rnd:33)
+Water skyfall +15% for 5 turns, Deal 100% damage
+
+#8: ESRandomSpawn(92:20663) -> Beat of Life
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Fire orbs, Deal 95% damage
+
+#9: ESAttackMultihit(15:20664) -> Pulsing Current
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESBoardChangeAttackBits(85:20661) -> Source of Life
+	Change all orbs to Fire and Water, Deal 80% damage
+	[1] ESOrbSealRow(100:20666) -> Path to Life
+	Seal the 1st row for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:20667) -> Lost Soul
+Deal 300% damage (3 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

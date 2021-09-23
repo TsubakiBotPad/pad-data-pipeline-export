@@ -1,0 +1,35 @@
+#2338 - Dark Armor Dragon, Gacrux
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2338
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3290:74) Heavy Shield
+ | Reduce damage from all sources by 30% for 3 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (3291:62) Fog Bomb
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 40% chance
+   | (3292:92) Poison Alternator
+   | Spawn 4 random Poison orbs
+   | condition: 20% chance
+   | (3293:50) Gravity Blast
+   | Player -75% HP
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (3235:52) Follow Repair
+ | Enemy ally recover 45% HP

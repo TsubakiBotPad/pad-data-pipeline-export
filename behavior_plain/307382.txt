@@ -1,0 +1,159 @@
+#307382 - Ice Knife Bride, Yuri
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24839) -> This is really getting exciting!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:24840) -> Let's eat the cake!
+	Absorb Fire damage for 1 turn
+	[2] ESSpinnersFixed(110:24845) -> To many happy days to come!
+	Specific orbs change every 1.0s for 6 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24839) -> This is really getting exciting!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:24841) -> Let's eat the cake!
+	Absorb Water damage for 1 turn
+	[2] ESSpinnersFixed(110:24845) -> To many happy days to come!
+	Specific orbs change every 1.0s for 6 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24839) -> This is really getting exciting!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:24842) -> Let's eat the cake!
+	Absorb Wood damage for 1 turn
+	[2] ESSpinnersFixed(110:24845) -> To many happy days to come!
+	Specific orbs change every 1.0s for 6 turns
+
+#5: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24839) -> This is really getting exciting!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:24843) -> Let's eat the cake!
+	Absorb Light damage for 1 turn
+	[2] ESSpinnersFixed(110:24845) -> To many happy days to come!
+	Specific orbs change every 1.0s for 6 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24839) -> This is really getting exciting!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:24844) -> Let's eat the cake!
+	Absorb Dark damage for 1 turn
+	[2] ESSpinnersFixed(110:24845) -> To many happy days to come!
+	Specific orbs change every 1.0s for 6 turns
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 25
+
+#11: SkillSet:
+	Condition: 20% chance (ai:20 rnd:0)
+	[0] ESAbsorbAttribute(53:24851) -> I'm so happy♪
+	Absorb Fire damage for 1 turn
+	[1] ESAttackMultihit(15:24871) -> I'll remember this forever!
+	Deal 105% damage (3 hits, 35% each)
+
+#12: SkillSet:
+	Condition: 25% chance (ai:25 rnd:0)
+	[0] ESAbsorbAttribute(53:24852) -> I'm so happy♪
+	Absorb Water damage for 1 turn
+	[1] ESAttackMultihit(15:24871) -> I'll remember this forever!
+	Deal 105% damage (3 hits, 35% each)
+
+#13: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESAbsorbAttribute(53:24853) -> I'm so happy♪
+	Absorb Wood damage for 1 turn
+	[1] ESAttackMultihit(15:24871) -> I'll remember this forever!
+	Deal 105% damage (3 hits, 35% each)
+
+#14: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAbsorbAttribute(53:24854) -> I'm so happy♪
+	Absorb Light damage for 1 turn
+	[1] ESAttackMultihit(15:24871) -> I'll remember this forever!
+	Deal 105% damage (3 hits, 35% each)
+
+#15: SkillSet:
+	[0] ESAbsorbAttribute(53:24855) -> I'm so happy♪
+	Absorb Dark damage for 1 turn
+	[1] ESAttackMultihit(15:24871) -> I'll remember this forever!
+	Deal 105% damage (3 hits, 35% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:24856) -> I'm overflowing with love!
+	Change all orbs to Heal
+	[1] ESVoidShield(71:24857) -> Together forever...
+	Void damage >= 20,000,000 for 999 turns
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 25
+
+#19: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESGravity(50:24859) -> Wah!
+	Player -60% HP
+	[1] ESAttackMultihit(15:24860) -> Yuri fell over
+	Deal 90% damage (3 hits, 30% each)
+
+#20: ESAttackMultihit(15:24862) -> Happy ☆ Attack
+Condition: 50% chance (ai:50 rnd:0)
+Deal 120% damage (3 hits, 40% each)
+
+#21: ESDebuffRCV(105:24863) -> Chilled ☆ Cake!
+RCV 25% for 1 turn, Deal 100% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttackMultihit(15:24864) -> Give me more love...
+Deal 1,000% damage (10 hits, 100% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttackUPRemainingEnemies(17:24875) -> The power of love!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#26: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESGravity(50:24859) -> Wah!
+	Player -60% HP
+	[1] ESAttackMultihit(15:24860) -> Yuri fell over
+	Deal 90% damage (3 hits, 30% each)
+
+#27: ESAttackMultihit(15:24862) -> Happy ☆ Attack
+Condition: 50% chance (ai:50 rnd:0)
+Deal 120% damage (3 hits, 40% each)
+
+#28: ESDebuffRCV(105:24863) -> Chilled ☆ Cake!
+RCV 25% for 1 turn, Deal 100% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESSuperResolve(129:24865) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

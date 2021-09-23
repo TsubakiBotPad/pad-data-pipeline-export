@@ -1,0 +1,46 @@
+#100906 - Alt. Flame Baron
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:17389) -> Barrier Flame
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 7 for 5 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 8
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 12
+
+#6: ESAttackMultihit(15:17392) -> Burning Sword
+Deal 240% damage (2 hits, 120% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPCooldown(19:17391) -> Flame Evocation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 12
+
+#10: ESAttackMultihit(15:17392) -> Burning Sword
+Deal 240% damage (2 hits, 120% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESDebuffRCV(105:17390) -> Spirit Break
+RCV 50% for 1 turn, Deal 300% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

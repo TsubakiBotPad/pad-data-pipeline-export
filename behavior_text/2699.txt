@@ -1,0 +1,48 @@
+#2699 - Squad 6 Lieutenant, Renji Abarai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2699
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2759:67) Come.
+ | Absorb damage when combos <= 4 for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (2767:95) Damn it...
+ | Spawn 3 random Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (2760:15) Roar Zabimaru!!!
+     | Deal 114% damage (3 hits, 38% each)
+   | group:
+   | condition: turn 2 while HP > 49
+     | condition: 50% chance
+     | (2761:62) There's still no way you can defeat me!
+     | Blind all orbs on the board, Deal 90% damage
+     | (2762:14) It's over!
+     | Bind active skills for 1 turn
+   | group:
+     | (2763:15) You scum!!!
+     | Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | condition: when 2702, 2703 on team
+     | (2859:83) I will surpass you, Captain Kuchiki. + Bankai + Hihio Zabimaru
+     | Do nothing + Do nothing + Increase damage to 200% for the next 999 turns
+     | (2863:83) Bankai + Hihio Zabimaru
+     | Do nothing + Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2
+     | (2765:15) I see you!!
+     | Deal 114% damage (3 hits, 38% each)
+   | group:
+     | (2766:15) Joint attack
+     | Deal 90% damage (2 hits, 45% each)

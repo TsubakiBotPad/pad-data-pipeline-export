@@ -1,0 +1,41 @@
+#4132 - New Year's Fortune Fox, Konta
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 8
+
+#6: ESAttackMultihit(15:8771) -> Shrine Visit!
+Deal 60% damage (2 hits, 30% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRandomSpawn(92:8772) -> Monetary Offering!
+Spawn 2 random Light orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESAttackMultihit(15:8773) -> A Bow
+Deal 140% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

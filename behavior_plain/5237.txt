@@ -1,0 +1,45 @@
+#5237 - Yoh Asakura
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlind5(5:17567) -> Here we go!
+	Blind all orbs on the board
+	[1] ESStatusShield(20:17568) -> Integrate!!!
+	Voids status ailments for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 11
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESColumnSpawnMulti(77:17569) -> Amida-ryu Halo Blade!!!!!
+Change the 1st column to Light orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESDebuffMovetime(39:17570) -> That's enough.
+Movetime -2s for 1 turn, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESRowSpawnMulti(79:17571) -> Amida-ryu Shockwave Buddha-giri!!!!!!
+Change the 5th row to Wood orbs, Deal 110% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

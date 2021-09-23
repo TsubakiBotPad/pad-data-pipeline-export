@@ -1,0 +1,49 @@
+#102758 - Blue Bamboo Virtue, You Yu
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 102758
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8946:73) You Yu Resolve
+ | Survive attacks with 1 HP when HP > 80%
+ type: PREEMPT
+ | (8940:79) Blue Life Dance
+ | Change the 2nd and 3rd rows to Heal orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (8942:79) Stream Fan
+   | Change the 1st and 5th rows to Water orbs, Deal 150% damage
+   | (8944:15) Flash of Dual Water Fangs
+   | Deal 360% damage (2 hits, 180% each)
+ | group:
+ | condition: always turn 1, hp <= 79
+   | (8941:74) Enchanting Bamboo Grove
+   | Reduce damage from all sources by 50% for 3 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8943:17) Blue Season
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (8942:79) Stream Fan
+     | Change the 1st and 5th rows to Water orbs, Deal 150% damage
+     | (8944:15) Flash of Dual Water Fangs
+     | Deal 360% damage (2 hits, 180% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8943:17) Blue Season
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8945:15) Thick Binding of 1000 Bamboos
+     | Deal 400% damage (10 hits, 40% each)

@@ -1,0 +1,57 @@
+#105668 - Naga the Serpent
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbCombo(67:15012) -> Hohohoho!
+Absorb damage when combos <= 6 for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#9: ESRandomSpawn(92:15003) -> My turn! Freeze Arrow!
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 6 random Water orbs, Deal 95% damage
+
+#10: ESBindAttack(63:15004) -> Freeze Brid
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random sub for 2~3 turns, Deal 100% damage
+
+#11: ESGravity(50:15005) -> Buday Wind
+Condition: One-time use (ai:0 rnd:34) (cost: 1)
+Player -75% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackUPRemainingEnemies(17:15006) -> Hmph! Nice try!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 9
+
+#15: ESRandomSpawn(92:15007) -> Vice Freeze!
+Spawn 10 random Water orbs, Deal 150% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

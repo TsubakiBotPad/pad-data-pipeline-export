@@ -1,0 +1,41 @@
+#3589 - Sunny Side Mechanical Star God, Alcyone
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 3589
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26172:72) Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ | (26188:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (26189:83) The stars are so beautiful tonight! + Don't forget to make a wish! + Taurus' Starsurge
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 6 turns + Movetime 50% for 6 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (26193:83) Charging Taurus + Meteor Charge - Light
+   | A column of clouds appears for 1 turn at 1st row, 6th column + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 2
+   | (26196:83) Taurus' Solar Mechanical Star + Meteor Charge - Light
+   | ATK -75% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 3
+   | (26198:83) Mechanical Star God's Yawn + Mechanical Star God's Relaxation + Meteor Charge - Light
+   | RCV 25% for 1 turn + Change all Heal orbs to Fire, Water, and Wood orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+ | group:
+ | condition: turn 4
+   | (26201:83) Mechanical Star God's Scheme + Mechanical Star God's Burden
+   | Spawn 5 random Jammer and Mortal Poison orbs + For 2 turns, 15% chance for skyfall orbs to be blinded for turn
+ | group:
+ | condition: turn 5
+   | (26222:66) He gazes at the stars
+   | Do nothing
+ | group:
+   | (26221:15) Meteor Dream - Light
+   | Deal 2,100% damage (7 hits, 300% each)

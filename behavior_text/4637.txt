@@ -1,0 +1,32 @@
+#4637 - Fire Companion Dragon, Harnis
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4637
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10301:50) Flare Drive
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 33% chance
+   | (10302:92) Flare Wing
+   | Spawn 3 random Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (10303:102) Property Bombing
+   | Spawn 5 random Bomb orbs, Deal 60% damage
+   | condition: 34% chance
+   | (10304:15) Strike
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10307:83) Raging + Property Bombing
+     | Increase damage to 200% for the next 99 turns + Spawn 1 random Bomb orb
+   | group:
+     | (10308:15) Flare Rush
+     | Deal 240% damage (3 hits, 80% each)

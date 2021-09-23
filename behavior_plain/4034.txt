@@ -1,0 +1,72 @@
+#4034 - The Dwarf Inside the Flask
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 3, target rnd 15
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:8521) -> I thank you for your help. All of you.
+	Voids status ailments for 999 turns
+	[1] ESBindSkill(14:8522) -> You've fulfilled your purpose.
+	Bind active skills for 3 turns
+
+#5: ESVoidShield(71:8524) -> How sad
+Condition: When < 80% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Void damage >= 500,000 for 3 turns
+
+#6: ESAttackUPRemainingEnemies(17:8531) -> Disappear from my sight.
+Condition: When < 30% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#7: ESBoardChangeAttackBits(85:8532) -> Nuclear Fusion
+Condition: When < 30% HP (ai:100 rnd:0)
+Change all orbs to Fire, Deal 1,000% damage
+
+#8: ESColumnSpawnMulti(77:8525) -> Stationary Transmutation
+Condition: 10% chance (ai:0 rnd:10)
+Change the 4th column to Dark orbs, Deal 100% damage
+
+#9: ESRowSpawnMulti(79:8526) -> Stationary Transmutation
+Condition: 10% chance (ai:0 rnd:10)
+Change the 3rd row to Light orbs, Deal 100% damage
+
+#10: ESRandomSpawn(92:8527) -> Stationary Transmutation
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 7 random Jammer orbs, Deal 100% damage
+
+#11: ESDamageShield(74:8528) -> Stationary Transmutation
+Condition: 20% chance (ai:0 rnd:20)
+Reduce damage from all sources by 75% for 1 turn, Deal 100% damage
+
+#12: ESOrbLock(94:8529) -> Stationary Transmutation
+Condition: 20% chance (ai:0 rnd:20)
+Lock 10 random orbs, Deal 100% damage
+
+#13: ESRandomSpawn(92:8530) -> Stationary Transmutation
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 4 random Poison orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESInactivity66(66:8596) -> I have to thank you for it, my friend.
+Condition: One-time use (ai:100 rnd:0) (cost: 7)
+Do nothing
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:8533) -> AAAAAAAAAAAAAAAAAAA
+	Do nothing

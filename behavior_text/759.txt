@@ -1,0 +1,30 @@
+#759 - Horned Fort Dragon, Fortoytops
+monster size: 2
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 759
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3768:20) Defending
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (3769:15) Super Horn
+   | Deal 120% damage
+   | (3770:92) Grand Rush
+   | Spawn 6 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (3771:74) Absolute Guard
+   | Reduce damage from all sources by 75% for 1 turn
+ | group:
+ | condition: hp <= 29
+   | (3772:14) Death Crash
+   | Bind active skills for 10 turns, Deal 200% damage
+ type: UNKNOWN_USE
+ | (3810:15) Death Crash
+ | Deal 600% damage (6 hits, 100% each)

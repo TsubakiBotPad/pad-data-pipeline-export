@@ -1,0 +1,40 @@
+#1882 - Double-Edged Blade Brave, Claymore
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1882
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10972:87) Respect for the Weak
+ | Absorb damage when damage >= 6,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (10973:83) Immovable Faith + Rigorous Obedience
+     | Voids status ailments for 5 turns + Change own attribute to Fire
+   | group:
+   | condition: turns 2-4 while HP > 19
+     | condition: 50% chance
+     | (10979:79) Flash of Affection
+     | Change the 3rd row to Heal orbs, Deal 120% damage
+     | condition: 25% chance
+     | (10980:79) One Sword, Two Outcomes
+     | Change the 2nd row to Fire orbs and the 4th row to Water orbs, Deal 100% damage
+     | condition: 25% chance
+     | (10981:15) Sublime Sword Technique
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (10788:83) Frivolous Dark Moon + Holy Boisterous Dance of the Sword
+     | Blind random 5~10 orbs for 1 turn + Deal 150% damage (5 hits, 30% each), Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10976:83) Immovable Faith + Duty to one's Lord
+   | Voids status ailments for 5 turns + Delay active skills by 2~3 turns
+ | group:
+ | condition: hp <= 19
+   | (10982:15) Righteous Judgment
+   | Deal 400% damage (4 hits, 100% each)

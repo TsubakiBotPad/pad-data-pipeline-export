@@ -1,0 +1,50 @@
+#105943 - Reincarnated Odin Dragon
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 105943
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16734:118) God & Devil Halved
+ | Reduce damage from God and Devil types by 50%
+ type: PREEMPT
+ | (16761:83) Robes of the Gods + The Cost of an Eye + Thirst for Knowledge + Unopposed Conflict
+ | Voids status ailments for 999 turns + Bind awoken skills for 5 turns + Unable to match Heal orbs for 5 turns + ATK -50% for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (16766:83) Oski + Blindr
+     | Player recover 25% HP when below 25% HP + Blind random 15 orbs for 4 turns, Deal 80% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (16767:83) Oski + Fjolnir
+     | Player recover 25% HP when below 25% HP + A row of clouds appears for 3 turns at 3rd row, 1st column, Deal 70% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (16768:83) Oski + Bileyg
+     | Player recover 25% HP when below 25% HP + Seal the 6th column for 2 turns, Deal 80% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (16769:83) Oski + Baleyg
+     | Player recover 25% HP when below 25% HP + Spawn 12 random locked Bomb orbs
+   | group:
+   | condition: turn 5 while HP > 49
+     | (16775:88) Bring about Ragnarok
+     | Bind awoken skills for 99 turns
+     | (16776:83) Prophecy of Demise + World's Collapse
+     | Bind 4 random subs for 6 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | (16780:15) Sveignir
+     | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (16779:83) World's Collapse + Sveignir
+   | Increase damage to 200% for the next 999 turns + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: hp <= 9
+   | (16781:15) Ygg Sigfodr
+   | Deal 3,000% damage (10 hits, 300% each)

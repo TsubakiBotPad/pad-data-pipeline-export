@@ -1,0 +1,30 @@
+#104809 - Vigorous Vortex Dragon Caller, Vigo
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:10738) -> Seahorse God's Divine Protection
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 2 turns
+
+#3: ESAbsorbAttribute(53:10741) -> Water Coat
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Absorb Fire damage for 3 turns
+
+#4: ESAttackMultihit(15:10742) -> Blades & Bullets
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 150% damage (5 hits, 30% each)
+
+#5: ESRowSpawnMulti(79:10740) -> Blue Flash
+Condition: 50% chance (ai:50 rnd:0)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:10739) -> Quick Shot
+Deal 120% damage (2 hits, 60% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,61 @@
+#103183 - Flame Spore Crusher, Hammer Troll
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:12863) -> Smash to Pieces
+	Player -99% HP
+	[1] ESDebuffMovetime(39:12864) -> Muddled Consciousness
+	Movetime -4s for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBindRandom(1:12865) -> Vigorous Beating
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random card for 3 turns, Deal 110% damage
+
+#6: ESAttackMultihit(15:12866) -> Pulverization
+Condition: 33% chance (ai:0 rnd:33)
+Deal 120% damage
+
+#7: ESSkillDelay(89:12867) -> Troll Dance
+Condition: 34% chance (ai:0 rnd:34)
+Delay active skills by 1~2 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESSkyfall(68:12869) -> Leaves Turning to Ashes
+	Jammer skyfall +20% for 10 turns
+	[1] ESSkyfallLocked(96:12870) -> Wooden Weir
+	Locked random skyfall +15% for 10 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackUPRemainingEnemies(17:12871) -> Ignis Enhancement
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 500% for the next 999 turns
+
+#14: ESAttackMultihit(15:12872) -> Green Flame Crush
+Deal 200% damage (4 hits, 50% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

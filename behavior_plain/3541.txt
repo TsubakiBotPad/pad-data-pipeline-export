@@ -1,0 +1,65 @@
+#3541 - Ocean Horn Wisedragon, Mercuria
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESSkyfallLocked(96:6617) -> Wings of the Ice Wolf
+	Locked random skyfall +20% for 10 turns
+	[1] ESStatusShield(20:6618) -> Divine Name's Protection
+	Voids status ailments for 4 turns
+
+#3: ESBlindStickyFixed(98:6620) -> Black Cut
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Blind orbs in specific positions for 1 turn, Deal 300% damage
+
+#4: ESBlindStickyFixed(98:6621) -> Black Cut
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Blind orbs in specific positions for 1 turn, Deal 300% damage
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAttack(63:6622) -> Freeze Breath
+	Bind 2 random subs for 3 turns, Deal 300% damage
+	[1] ESAttackUPRemainingEnemies(17:6623) -> Ocean Roar
+	Increase damage to 300% for the next 1 turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:6625) -> Frozen Fur
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESAttackMultihit(15:6626) -> Cold Impact
+	Deal 450% damage (3 hits, 150% each)
+
+#7: ESAttackUpStatus(18:6628) -> Pulsating Rage
+Increase damage to 200% for the next 999 turns
+
+#8: SkillSet:
+	Condition: When < 15% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:6632) -> Its body is glowing
+	Change own attribute to random one of Water or Dark
+	[1] ESAttackMultihit(15:6633) -> Absolute Blue
+	Deal 1,800% damage (6 hits, 300% each)
+
+#9: ESBlindStickyFixed(98:6629) -> Black Cut
+Condition: 20% chance (ai:0 rnd:20)
+Blind orbs in specific positions for 1 turn, Deal 300% damage
+
+#10: ESBlindStickyFixed(98:6630) -> Black Cut
+Condition: 20% chance (ai:0 rnd:20)
+Blind orbs in specific positions for 1 turn, Deal 300% damage
+
+#11: ESAttackMultihit(15:6631) -> Cold Fang
+Condition: 60% chance (ai:0 rnd:60)
+Deal 320% damage (2 hits, 160% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttributeResist(72:6741) -> Water halved
+Reduce damage from Water attrs by 50%

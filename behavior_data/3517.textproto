@@ -1,0 +1,67 @@
+  monster_id: 3517
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 15067
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              condition {
+                trigger_combos: 7
+              }
+              enemy_skill_id: 15072
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 15124
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 2
+          }
+          children {
+            behavior {
+              condition {
+                trigger_combos: 8
+              }
+              enemy_skill_id: 15077
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 15124
+            }
+          }
+        }
+      }
+      children {
+        group {
+          children {
+            behavior {
+              enemy_skill_id: 15124
+            }
+          }
+        }
+      }
+    }
+  }

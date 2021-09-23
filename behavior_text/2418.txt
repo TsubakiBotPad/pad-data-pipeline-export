@@ -1,0 +1,60 @@
+#2418 - Milky Way Mechanical Star God, Alrescha
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2418
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9698:118) God Machine Half Reduced
+ | Reduce damage from God and Machine types by 50%
+
+level: 4
+ type: PASSIVE
+ | (9698:118) God Machine Half Reduced
+ | Reduce damage from God and Machine types by 50%
+ type: PREEMPT
+ | (9687:83) I won't lose! + Starpath
+ | Voids status ailments for 999 turns + Absorb Fire damage for 10 turns
+ group:
+ | group:
+ | condition: always turn 10
+   | (9697:83) Miracle☆Shield + Nice!
+   | Reduce damage from all sources by 90% for 99 turns + Lock all orbs, Deal 180% damage
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 33% chance
+     | (9688:108) Aqua☆Conversion
+     | Change all Heal orbs to Water orbs, Deal 125% damage
+     | condition: 33% chance
+     | (9689:100) Area☆Restriction
+     | Seal the 1st row for 1 turn, Deal 120% damage
+     | condition: 34% chance
+     | (9690:15) Astro☆Dance
+     | Deal 135% damage (3 hits, 45% each)
+   | group:
+     | condition: 33% chance
+     | (9688:108) Aqua☆Conversion
+     | Change all Heal orbs to Water orbs, Deal 125% damage
+     | condition: 33% chance
+     | (9689:100) Area☆Restriction
+     | Seal the 1st row for 1 turn, Deal 120% damage
+     | condition: 34% chance
+     | (9690:15) Astro☆Dance
+     | Deal 135% damage (3 hits, 45% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (9693:83) I'm angry! + Fight through the pain, yeah? ♪
+   | Increase damage to 300% for the next 1 turn + Change all Heal orbs to Water orbs
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turns 2-9
+     | (9694:15) Miracle☆Star
+     | Deal 220% damage (4 hits, 55% each)
+   | group:
+     | (9694:15) Miracle☆Star
+     | Deal 220% damage (4 hits, 55% each)

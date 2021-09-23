@@ -1,0 +1,37 @@
+#302544 - Prayer's Sacred Bird, Yatagarasu
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbChangeAttack(48:3691) -> First Sunrise's Crow
+Change a random attribute to Light orbs, Deal 120% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSkillDelay(89:3692) -> Dance of the New Year
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 2 turns
+
+#9: ESAttackMultihit(15:3693) -> Hanetsuki
+Condition: 80% chance (ai:80 rnd:0)
+Deal 100% damage (2 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

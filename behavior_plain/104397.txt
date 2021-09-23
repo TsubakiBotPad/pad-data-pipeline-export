@@ -1,0 +1,86 @@
+#104397 - Monarch of Snow, King Frost
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:9964) -> Matarukaja
+	Increase damage to 150% for the next 3 turns
+	[1] ESStatusShield(20:9965) -> Null Despair
+	Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttackMultihit(15:9968) -> Megaton Raid
+Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#13: ESAttackMultihit(15:9968) -> Megaton Raid
+Condition: 50% chance (ai:50 rnd:0)
+Deal 120% damage
+
+#14: ESOrbLock(94:9967) -> Bufudyne
+Lock 10 random orbs, Deal 110% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESOrbLock(94:9949) -> Mabufudyne
+Lock all orbs, Deal 150% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESOrbLock(94:9949) -> Mabufudyne
+Condition: 40% chance (ai:0 rnd:40)
+Lock all orbs, Deal 150% damage
+
+#21: ESAttackMultihit(15:9968) -> Megaton Raid
+Condition: 30% chance (ai:0 rnd:30)
+Deal 120% damage
+
+#22: ESOrbLock(94:9967) -> Bufudyne
+Condition: 30% chance (ai:0 rnd:30)
+Lock 10 random orbs, Deal 110% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:9970) -> Hee-ho... I surrender!
+	Do nothing

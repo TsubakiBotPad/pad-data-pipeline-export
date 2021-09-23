@@ -1,0 +1,53 @@
+#4775 - Kyube Yagyu
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 6
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESGravity(50:16911) -> You think you can beat my sword?
+Player -50% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESSpinnersRandom(109:16913) -> Playtime is only beginning!
+Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESJammerChangeRandom(13:16912) -> Are you mocking me?
+Change 2 random orb types to Jammer orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESColumnSpawnMulti(76:16914) -> She's important to me. Keep your hands off of her!
+Change the 1st and 6th columns to Dark orbs
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

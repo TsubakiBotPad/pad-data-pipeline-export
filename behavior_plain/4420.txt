@@ -1,0 +1,66 @@
+#4420 - Panera
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:17024) -> Welcome!
+	Do nothing
+	[1] ESInvulnerableOn(119:17025) -> It's a Combo Challenge!
+	Immune to damage from all sources for 999 turns
+	[2] ESNoSkyfall(127:17026) -> It'll be easy if you make lots of combos!
+	No skyfall for 1 turn
+	[3] ESRandomSpawn(92:17027) -> Give it your best shot!
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#4: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 4, target rnd 7
+
+#5: ESAttackMultihit(15:17029) -> Tough break!
+Deal 3,500,000% damage (5 hits, 700,000% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 12
+
+#9: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 11
+
+#10: SkillSet:
+	[0] ESInvulnerableOff(121:17030) -> *Clap, clap, clap*
+	Remove damage immunity effect
+	[1] ESDamageShield(74:17031) -> They were some nice combos!
+	Reduce damage from all sources by 90% for 99 turns
+	[2] ESVoidShield(71:17034) -> Pastel Shield
+	Void damage >= 100,000,000 for 99 turns
+
+#11: SkillSet:
+	[0] ESInvulnerableOff(121:17030) -> *Clap, clap, clap*
+	Remove damage immunity effect
+	[1] ESDamageShield(74:17032) -> They were some really nice combos!
+	Reduce damage from all sources by 90% for 99 turns
+
+#12: SkillSet:
+	[0] ESInvulnerableOff(121:17030) -> *Clap, clap, clap*
+	Remove damage immunity effect
+	[1] ESRandomSpawn(92:17033) -> Thanks for showing me such wonderful combos!
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:17038) -> Starbreeze Hoop
+Deal 200% damage (2 hits, 100% each)

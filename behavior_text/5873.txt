@@ -1,0 +1,80 @@
+#5873 - Pixel Awoken Zeus
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5873
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16360:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ | (16362:106) God Power
+ | Enemy turn counter change to 1 when HP <= 100%
+ type: PREEMPT
+ | (16256:53) King's Armor
+ | Absorb Light and Dark damage for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (16264:20) Divine King's Majesty
+     | Voids status ailments for 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (16258:50) Wrath of God
+     | Player -80% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (16259:77) Lightning of God
+     | Change the 3rd and 4th columns to Light orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (16260:79) Zeus Blade
+     | Change the 3rd row to Light orbs, Deal 55% damage
+ | group:
+ | condition: turn 2, hp <= 74
+   | (16257:67) Almighty God's Spirit
+   | Absorb damage when combos <= 7 for 10 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 3
+     | (16273:84) Almighty God's Baptism
+     | Change all orbs to Light
+   | group:
+     | (16261:15) Super Nova
+     | Deal 2,000% damage (10 hits, 200% each)
+ | group:
+ | condition: hp <= 1
+   | (16364:86) Blessing of the Gods
+   | Enemy recover 75% HP
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (16262:83) Blessing of the Gods + Divine King's Majesty + Almighty God's Spirit
+   | Enemy recover 100% HP + Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 10 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (16265:83) World Domination + Supercell
+     | No skyfall for 3 turns + Lock all orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (16268:83) Lightning of God + Almighty God's Fighting Spirit
+     | Change the 3rd and 4th columns to Light orbs + Increase damage to 300% for the next 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (16271:15) Royal Sword
+     | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 2
+     | (16272:83) Almighty God's Baptism + Supercell
+     | Change all orbs to Light + Lock all orbs, Deal 80% damage
+   | group:
+     | (16274:83) Majesty of the Gods + Super Nova
+     | Voids player buff effects + Deal 2,000% damage (10 hits, 200% each), Deal 2,000% damage (10 hits, 200% each)

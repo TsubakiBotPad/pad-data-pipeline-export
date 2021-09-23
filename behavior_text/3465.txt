@@ -1,0 +1,37 @@
+#3465 - 街で最強の男・花木九里虎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3465
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24755:130) なんやきさん？
+ | ATK -50% for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (24756:83) なんばしよっとか + こんハゲどもがーっ!!
+   | Increase damage to 250% for the next 999 turns + Delay active skills by 5 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (24759:92) がーっ
+     | Spawn 5 random Fire orbs, Deal 130% damage
+     | condition: 50% chance
+     | (24763:48) ふんがぁー
+     | Change a random attribute to Fire orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (24759:92) がーっ
+     | Spawn 5 random Fire orbs, Deal 130% damage
+     | condition: 50% chance
+     | (24763:48) ふんがぁー
+     | Change a random attribute to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (24760:83) しょ～んなか… + やるしかなかね…
+   | Voids status ailments for 999 turns + Absorb Fire damage for 5 turns

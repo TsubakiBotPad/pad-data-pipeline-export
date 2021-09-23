@@ -1,0 +1,111 @@
+#4748 - Gintoki Sakata
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:11058) -> You guys!!
+	Player -1% HP
+	[1] ESStatusShield(20:11059) -> Do you even have a Gintama?
+	Voids status ailments for 1 turn
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:11037) -> You guys!!
+	Player -80% HP
+	[1] ESStatusShield(20:11038) -> Do you even have a Gintama?
+	Voids status ailments for 999 turns
+
+#6: ESRecoverEnemy86(86:11040) -> C'mon, have a parfait and chill. 
+Condition: When < 1% HP (ai:100 rnd:0)
+Enemy recover 50% HP
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:11045) -> Okay, time for me to go all out, too. 
+	Increase damage to 150% for the next 99 turns
+	[1] ESDebuffMovetime(39:11046) -> Your puzzling fun ends here!
+	Movetime -2s for 3 turns
+
+#8: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESOrbChangeAttack(48:11048) -> Even if I'm not in my own manga,
+	Change a random attribute to Water orbs, Deal 10% damage
+	[1] ESBlind62(62:11049) -> until my body collapses,
+	Blind all orbs on the board, Deal 10% damage
+	[2] ESAttackMultihit(15:11050) -> I will live my life standing tall!
+	Deal 250% damage (5 hits, 50% each)
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 19
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 15
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESOrbLock(94:11041) -> PAD isn't worth getting worked up over, okay?
+Condition: 50% chance (ai:0 rnd:50)
+Lock 6 random orbs, Deal 105% damage
+
+#13: ESAttackMultihit(15:11042) -> Don't take us Shonen Jump protagonists lightly!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESDamageShield(74:11043) -> That's not gonna be enough to beat me! 
+Condition: 50% chance (ai:0 rnd:50)
+Reduce damage from all sources by 50% for 1 turn, Deal 105% damage
+
+#17: ESRowSpawnMulti(79:11047) -> Odd Jobs ain't to be underestimated!
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: ESAbsorbAttribute(53:11052) -> You ain't got enough sugar in you!
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire damage for 1 turn, Deal 90% damage
+
+#21: ESAbsorbAttribute(53:11053) -> You ain't got enough sugar in you!
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water damage for 1 turn, Deal 90% damage
+
+#22: ESAbsorbAttribute(53:11054) -> You ain't got enough sugar in you!
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood damage for 1 turn, Deal 90% damage
+
+#23: ESAbsorbAttribute(53:11055) -> You ain't got enough sugar in you!
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light damage for 1 turn, Deal 90% damage
+
+#24: ESAbsorbAttribute(53:11056) -> You ain't got enough sugar in you!
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Dark damage for 1 turn, Deal 90% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESResolve(73:11057) -> Resolve
+Survive attacks with 1 HP when HP > 50%

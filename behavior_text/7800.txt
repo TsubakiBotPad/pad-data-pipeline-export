@@ -1,0 +1,38 @@
+#7800 - アナキン・スカイウォーカー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7800
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27761:129) ＿アナキン超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (27762:71) はい、マスター
+ | Void damage >= 1,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (27763:20) それはジェダイコードに反しています
+     | Voids status ailments for 999 turns, Deal 90% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (27764:128) こんなの不公平です
+     | For 5 turns, 15% chance for skyfall orbs to be blinded for 1 turn, Deal 100% damage
+   | group:
+     | (27765:83) フォース・プッシュ + 切りつける
+     | Spawn 3 random Water, Light, and Dark orbs + Deal 120% damage (4 hits, 30% each), Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (27768:46) 全てオビ＝ワンのせいだ
+     | Change own attribute to Dark, Deal 85% damage
+   | group:
+   | condition: turn 2
+     | (27769:17) 僕から見ればジェダイこそ悪だ
+     | Increase damage to 300% for the next 999 turns

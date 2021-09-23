@@ -1,0 +1,31 @@
+#5920 - ラストブシニャン
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 6
+
+#3: ESRandomSpawn(92:16493) -> Blaze
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Fire orbs, Deal 90% damage
+
+#4: ESAttackMultihit(15:16492) -> Lightning Slash
+Deal 99% damage (3 hits, 33% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPRemainingEnemies(17:16494) -> Let's use all our power!
+Condition: One-time use, when <= 3 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 3 turns
+
+#7: ESColumnSpawnMulti(76:16495) -> Harakiri Sword
+Change the 3rd column to Fire orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

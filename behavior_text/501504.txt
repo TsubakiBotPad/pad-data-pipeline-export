@@ -1,0 +1,35 @@
+#501504 - Water Dragon Swordsman
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 501504
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20475:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20472:79) Flashing Waterblade
+ | Change the 2nd row to Water orbs, Deal 100% damage
+ group:
+ | group:
+   | (20472:79) Flashing Waterblade
+   | Change the 2nd row to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turns 1-3
+     | (20473:89) Freezing Thrust
+     | Delay active skills by 3 turns, Deal 50% damage
+   | group:
+     | condition: 30% chance
+     | (20474:109) Whirling Slash
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 120% damage
+     | (20472:79) Flashing Waterblade
+     | Change the 2nd row to Water orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 2 enemies remain, always turn 1
+ | (20471:17) Let's finish this!
+ | Increase damage to 150% for the next 3 turns

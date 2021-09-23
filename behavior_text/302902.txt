@@ -1,0 +1,48 @@
+#302902 - Awoken Sun Quan
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302902
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19314:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (19315:83) Discerning Majesty + Boldness + Young Tiger's Noble Path
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 90% for 3 turns + Change board size to 7x6 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (19413:15) Pinning Arrows
+     | Deal 330% damage (3 hits, 110% each)
+   | group:
+   | condition: turn 2 while HP > 9
+     | condition: 50% chance
+     | (19319:15) Blue-Eyed Archer
+     | Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (19406:92) Prismatic Rain
+     | Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (19323:15) Blue Streak in the Empty Sky
+     | Deal 1,200% damage (6 hits, 200% each)
+   | group:
+     | condition: 50% chance
+     | (19319:15) Blue-Eyed Archer
+     | Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (19406:92) Prismatic Rain
+     | Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+ | group:
+ | condition: turn 3 while HP > 9, hp <= 49
+   | (19320:83) Garyou Tensei Expertise + Honest Insight
+   | Increase damage to 200% for the next 999 turns + ATK -75% for 10 turns
+ | group:
+ | condition: hp <= 9
+   | (19323:15) Blue Streak in the Empty Sky
+   | Deal 1,200% damage (6 hits, 200% each)

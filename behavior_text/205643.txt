@@ -1,0 +1,41 @@
+#205643 - Goury = Gabriev
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205643
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21818:100) Here I come!
+ | Seal the 5th row for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21822:6) Swinging Sword
+     | Voids player buff effects
+   | group:
+     | condition: 33% chance
+     | (21819:79) One Flash
+     | Change the 4th row to Light orbs, Deal 90% damage
+     | condition: 33% chance
+     | (21820:77) I'll tear you to shreds.
+     | Change the 4th column to Light orbs, Deal 80% damage
+     | condition: 34% chance
+     | (21823:15) Ngh!
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21824:88) You're mine!
+     | Bind awoken skills for 1 turn
+   | group:
+     | condition: 50% chance
+     | (21825:77) Slash!
+     | Change the 3rd and 4th columns to Light orbs, Deal 100% damage
+     | condition: 50% chance
+     | (21821:15) Hahh!
+     | Deal 120% damage

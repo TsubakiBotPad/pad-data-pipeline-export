@@ -1,0 +1,31 @@
+#2649 - Metallic Star Dragon, Capricorn
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2649
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2915:67) Stardust Step
+ | Absorb damage when combos <= 3 for 5 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (2917:79) Green Vestige
+   | Change the 4th row to Wood orbs, Deal 110% damage
+   | condition: 40% chance
+   | (2918:79) Floral Vestige
+   | Change the 3rd row to Fire, Water, Light, and Dark orbs, Deal 100% damage
+   | condition: 30% chance
+   | (2919:79) Trample Vestige
+   | Change the 5th row to Jammer orbs, Deal 90% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2916:65) Vine Cage of Wooden Horns
+   | Bind 4 random subs for 1 turn
+ | group:
+ | condition: hp <= 9
+   | (2920:15) Capricorn's Crest - Ray
+   | Deal 300% damage (5 hits, 60% each)

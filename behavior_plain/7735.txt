@@ -1,0 +1,21 @@
+#7735 - フレイム
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESOrbLock(94:26953) -> ひのいき
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Fire orbs, Deal 95% damage
+
+#4: ESRandomSpawn(92:26952) -> 攻撃
+Spawn 3 random Fire and Jammer orbs, Deal 90% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,71 @@
+#102751 - Alt. Awoken Persephone
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:17135) -> Eleusinian Mysteries
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:17136) -> Catastrophic Flower Picking
+	Absorb damage when damage >= 10,000,000 for 999 turns
+	[2] ESDebuffMovetime(39:17137) -> Descent to the Underworld
+	Movetime 25% for 10 turns, Deal 70% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:15645) -> Rejection of Hades' Realm
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESSkyfall(68:15646) -> Ominous Daffodil of Abduction
+	Poison skyfall +15% for 1 turn, Deal 45% damage
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:15645) -> Rejection of Hades' Realm
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESAttackMultihit(15:15647) -> Invitation to the Underworld
+	Deal 55% damage
+
+#8: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAttackMultihit(15:15645) -> Rejection of Hades' Realm
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESOrbLock(94:15648) -> Protective Cradle
+	Lock 10 random orbs, Deal 50% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 6
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESDebuffMovetime(39:15640) -> Realm of Hades' Law
+	Movetime -4s for 99 turns
+	[1] ESAttributeBlock(107:15641) -> Goddess' Divine Grace
+	Unable to match Poison orbs for 3 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESRandomSpawn(92:15649) -> Bane Harvest
+Spawn 15 random Mortal Poison orbs, Deal 300% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

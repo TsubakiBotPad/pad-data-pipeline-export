@@ -1,0 +1,63 @@
+#2752 - Celestial Guardian Dragon, Avalon Drake
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2752
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17320:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (17321:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (17279:83) Glide + Soar
+ | No skyfall for 2 turns + Absorb damage when combos <= 6 for 999 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (17328:89) Beat of Green Wings
+   | Delay active skills by 3~6 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 99
+   | (17325:77) Gaia Blade
+   | Change the 2nd and 5th columns to Wood orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17326:83) Limit Aubade Gaia + Beat of Green Wings
+     | Change all orbs to Wood + Delay active skills by 3~6 turns, Deal 100% damage
+   | group:
+     | (17329:15) Aubade Slash
+     | Deal 240% damage (4 hits, 60% each)
+
+level: 6
+ type: PASSIVE
+ | (17320:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (17321:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (17322:83) Glide + Soar
+ | No skyfall for 10 turns + Absorb damage when combos <= 7 for 999 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (17328:89) Beat of Green Wings
+   | Delay active skills by 3~6 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 99
+   | (17325:77) Gaia Blade
+   | Change the 2nd and 5th columns to Wood orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17326:83) Limit Aubade Gaia + Beat of Green Wings
+     | Change all orbs to Wood + Delay active skills by 3~6 turns, Deal 100% damage
+   | group:
+     | (17329:15) Aubade Slash
+     | Deal 240% damage (4 hits, 60% each)

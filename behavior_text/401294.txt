@@ -1,0 +1,27 @@
+#401294 - Alt. Ancient Blue Sacred Mask
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 401294
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25324:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25321:67) Ancient Blue Wall
+ | Absorb damage when combos <= 6 for 999 turns
+ group:
+ | group:
+   | (25323:15) Ancient Eye Beam
+   | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (25270:53) Blue Mask Ceremony
+   | Absorb Water damage for 10 turns
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (25322:17) Twin Mask Curse
+ | Increase damage to 1,000% for the next 999 turns

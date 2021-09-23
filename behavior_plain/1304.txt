@@ -1,0 +1,49 @@
+#1304 - Dragon Rider, King Arthur
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbThreshold(87:18556) -> King's Might
+	Absorb damage when damage >= 50,000,000 for 10 turns
+	[1] ESSkyfall(68:18557) -> Heaven's Blessing
+	Jammer and Poison skyfall +15% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESOrbChangeAttackBits(108:18561) -> Light and Dark
+Change all Jammer and Poison orbs to Light and Dark orbs, Deal 120% damage
+
+#7: ESOrbLock(94:18562) -> Chain Dive
+Lock all orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffRCV(105:18559) -> Cut Off the Retreat
+	RCV 25% for 5 turns
+	[1] ESSkillDelay(89:18560) -> King's Praise
+	Delay active skills by 5~10 turns
+
+#10: ESAttackMultihit(15:18563) -> Dual Swords
+Deal 300% damage (2 hits, 150% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:18649) -> Resolve
+Survive attacks with 1 HP when HP > 50%

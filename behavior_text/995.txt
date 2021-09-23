@@ -1,0 +1,40 @@
+#995 - Blazing Deity Falcon, Horus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 995
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12731:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12732:83) Dhu Yahtariq Jadar + Sama' Shams Sakhr + Zalaam Dakhil Sataa Dhu
+ | Voids status ailments for 999 turns + RCV 50% for 4 turns + Blind random 25 orbs for 4 turns, Deal 150% damage
+ group:
+ | group:
+   | (12735:6) Kl Yufqid Falash
+   | Voids player buff effects, Deal 110% damage
+   | condition: 50% chance
+   | (12736:50) Kalb Aintahaz Zufur
+   | Player -99% HP
+   | condition: 50% chance
+   | (12737:94) Zil Yudi' Shams
+   | Lock 10 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (12738:15) Mukathaf Zufur Hajma
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (12739:97) Zalaam Dakhil Sataa Dhu
+   | Blind random 25 orbs for 4 turns, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (12740:85) Ramad Taghyir Shaeila
+   | Change all orbs to Fire and Jammer, Deal 300% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (12741:83) Sata Shola Ganaf + Mukathaf Zufur Hajma
+   | Absorb damage when combos <= 7 for 99 turns + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)

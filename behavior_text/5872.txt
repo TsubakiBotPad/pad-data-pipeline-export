@@ -1,0 +1,31 @@
+#5872 - Pixel Incarnation of Byakko, Haku
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5872
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17888:130) Dance of the Byakko
+ | ATK -50% for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (17889:92) Western Seven-Star Strike
+   | Spawn 5 random Fire, Water, and Dark orbs, Deal 100% damage
+   | condition: 33% chance
+   | (17890:48) Venomous Tiger Claws
+   | Change a random attribute to Poison orbs, Deal 90% damage
+   | condition: 34% chance
+   | (17891:15) Ferocious Tiger Claws
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | (17903:15) Ferocious Tiger Fangs
+   | Deal 200% damage (5 hits, 40% each)
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (17869:83) Pixel Enhancement + Pixel Aura
+ | Increase damage to 200% for the next 999 turns + Bind awoken skills for 3 turns

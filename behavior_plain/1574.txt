@@ -1,0 +1,42 @@
+#1574 - 宇宙の魔獣・ヤコン
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBlind5(5:1474) -> どいつから食ってやろうかな
+Blind all orbs on the board
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAbsorbAttribute(53:1475) -> ア～～ン
+Absorb Light damage for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESOrbChangeAttack(48:1476) -> デヘヘヘヘヘ…!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Dark orbs, Deal 125% damage

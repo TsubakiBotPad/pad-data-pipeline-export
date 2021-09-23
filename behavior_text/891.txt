@@ -1,0 +1,32 @@
+#891 - Hunt God of the Holy Bow, Artemis
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+monster_id: 891
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (1174:68) Hunting Mastery
+ | Jammer skyfall +10% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (1175:63) Head Snipe
+     | Bind player leader for 2 turns, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (1176:15) Barrage Shot
+     | Deal 80~120% damage (4~6 hits, 20% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (1175:63) Head Snipe
+     | Bind player leader for 2 turns, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (1177:15) Arrow of Judgement
+     | Deal 150% damage

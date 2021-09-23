@@ -1,0 +1,48 @@
+#400363 - Alt. Awoken Odin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 400363
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13653:83) Garment of Protection + Gungnir
+ | Reduce damage from all sources by 80% for 3 turns + Bind 1 random card for 10 turns, Deal 120% damage
+ group:
+ | group:
+ | condition: when hp is full
+   | (6124:83) Garment of Protection + Gungnir
+   | Reduce damage from all sources by 80% for 1 turn + Bind 1 random card for 5 turns, Deal 120% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (6127:83) Double Slash + Auto-recover
+     | Deal 160% damage (2 hits, 80% each) + Enemy recover 10% HP, Deal 160% damage (2 hits, 80% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6134:79) Divide Blast
+     | Change the 3rd row to Wood orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | condition: when 2640, 2641, 2899, 2900 on team
+     | (13658:83) I can't afford... to lose + Hnikar
+     | Movetime -4s for 7 turns + Player -100% HP
+     | (13656:83) Skilfing + Hnikar
+     | Movetime -4s for 7 turns + Player -100% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (6133:83) Triple Slash + Auto-recover
+     | Deal 180% damage (3 hits, 60% each) + Enemy recover 10% HP, Deal 180% damage (3 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6135:79) Divide Poison
+     | Change the 3rd row to Wood and Poison orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 14
+   | (6136:15) Vak Sigfodr
+   | Deal 500% damage (5 hits, 100% each)

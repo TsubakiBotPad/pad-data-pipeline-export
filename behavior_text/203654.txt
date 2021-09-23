@@ -1,0 +1,49 @@
+#203654 - Kirin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203654
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18843:110) Lightning Dash
+ | Specific orbs change every 1.0s for 4 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (7245:63) Thunderbolt
+   | Bind player leader for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (7246:63) Thunderbolt
+   | Bind friend leader for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (7247:63) Thunderbolt
+   | Bind 2 random subs for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (18838:15) Back Kick
+   | Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (18837:88) Impale
+     | Bind awoken skills for 1 turn, Deal 100% damage
+   | group:
+     | condition: 25% chance
+     | (7248:63) Thunderbolt
+     | Bind player leader for 2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (7249:63) Thunderbolt
+     | Bind friend leader for 2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (7250:63) Thunderbolt
+     | Bind 2 random subs for 2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (18838:15) Back Kick
+     | Deal 105% damage
+ | group:
+ | condition: hp <= 9
+   | (18817:63) Great Thunderbolt
+   | Bind 6 random cards for 5 turns, Deal 120% damage

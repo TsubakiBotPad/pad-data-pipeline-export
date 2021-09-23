@@ -1,0 +1,77 @@
+#2094 - Phoenix Rider, Valen
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2094
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8026:83) Gleam of the Phoenix + Heavenly Phantom Stance
+ | Player recover 100% HP + Absorb damage when damage >= 2,000,000 for 5 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: execute repeatedly, turn 1-5 of 6
+     | (8032:15) Eternal Flare
+     | Deal 50,000% damage (5 hits, 10,000% each)
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (8029:83) Flames of Reincarnation + Immortal Eruption
+     | Enemy recover 100% HP + Change all orbs to Heal, Deal 20,000% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1 of 12
+     | (8033:74) Immortal Guard
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 12
+     | (8034:50) Caaaaw!!
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 3 of 12
+     | (8035:48) Immortal Flame
+     | Change a random attribute to Heal orbs, Deal 10,000% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 12
+     | (8034:50) Caaaaw!!
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 5 of 12
+     | (8033:74) Immortal Guard
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 6 of 12
+     | (8029:83) Flames of Reincarnation + Immortal Eruption
+     | Enemy recover 100% HP + Change all orbs to Heal, Deal 20,000% damage
+   | group:
+   | condition: execute repeatedly, turn 7 of 12
+     | (8034:50) Caaaaw!!
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 8 of 12
+     | (8035:48) Immortal Flame
+     | Change a random attribute to Heal orbs, Deal 10,000% damage
+   | group:
+   | condition: execute repeatedly, turn 9 of 12
+     | (8033:74) Immortal Guard
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 10 of 12
+     | (8034:50) Caaaaw!!
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 11 of 12
+     | (8035:48) Immortal Flame
+     | Change a random attribute to Heal orbs, Deal 10,000% damage
+   | group:
+   | condition: execute repeatedly, turn 12 of 12
+     | (8029:83) Flames of Reincarnation + Immortal Eruption
+     | Enemy recover 100% HP + Change all orbs to Heal, Deal 20,000% damage
+ | group:
+ | condition: hp <= 49
+   | (8029:83) Flames of Reincarnation + Immortal Eruption
+   | Enemy recover 100% HP + Change all orbs to Heal, Deal 20,000% damage

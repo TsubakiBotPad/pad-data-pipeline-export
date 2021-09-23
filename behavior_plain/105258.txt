@@ -1,0 +1,56 @@
+#105258 - Joco
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESAbsorbCombo(67:13257) -> I guess it's time for me to do my trick.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 10 turns
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 10
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBlind62(62:13216) -> I am the Jaguar!
+Condition: 50% chance (ai:0 rnd:50)
+Blind all orbs on the board, Deal 100% damage
+
+#8: ESAttackMultihit(15:13217) -> SLICE
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 13
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESSkillDelay(89:13218) -> C'mon
+Delay active skills by 3 turns
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	[0] ESInactivity66(66:13219) -> Over Soul
+	Do nothing
+	[1] ESRowSpawnMulti(79:13320) -> Ayers Rock!!!
+	Change the 4th and 5th rows to Light orbs, Deal 250% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

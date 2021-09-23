@@ -1,0 +1,30 @@
+#500202 - Enchantress of the Sea, Siren
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESNoSkyfall(127:27125) -> What type of music do you like?
+No skyfall for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESGravity(50:27126) -> Saddening Song
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -50% HP
+
+#7: ESRandomSpawn(92:27127) -> Healing Song
+Spawn 2 random Heal orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

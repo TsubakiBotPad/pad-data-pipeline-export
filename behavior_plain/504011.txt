@@ -1,0 +1,44 @@
+#504011 - Winter Plum Virtue, Xin Hua
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:22112) -> Die! Along with this world...
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESNoSkyfall(127:22113) -> Devotion to Darkness
+	No skyfall for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESBindAwoken(88:22114) -> Season of Nothingness
+Condition: 50% chance (ai:0 rnd:50)
+Bind awoken skills for 1 turn, Deal 80% damage
+
+#5: ESBlindStickyRandom(97:22115) -> Season of Darkness
+Condition: 50% chance (ai:0 rnd:50)
+Blind random 3 orbs for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22117) -> Noble One's Mastery
+	Increase damage to 150% for the next 999 turns
+	[1] ESBlindStickySkyfall(128:22118) -> Coming of Winter
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,61 @@
+#307527 - 花御
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESVoidShield(71:26758) -> Please die and become sages.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Void damage >= 30,000,000 for 999 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 11
+
+#6: ESRowSpawnMulti(79:26760) -> Roots
+Condition: 25% chance (ai:0 rnd:25)
+Change the 5th row to Wood orbs, Deal 100% damage
+
+#7: ESColumnSpawnMulti(77:26761) -> Wooden Ball
+Condition: 25% chance (ai:0 rnd:25)
+Change the 3rd and 4th columns to Wood orbs, Deal 95% damage
+
+#8: ESOrbLock(94:26762) -> Cursed Bud
+Condition: 25% chance (ai:0 rnd:25)
+Lock all Wood orbs, Deal 110% damage
+
+#9: ESBoardChangeAttackBits(85:26763) -> Flower Field
+Condition: 25% chance (ai:0 rnd:25)
+Change all orbs to Fire, Light, Dark, and Heal, Deal 120% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:26629) -> I'm enjoying...
+	Delay active skills by 3~5 turns
+	[1] ESDebuffATK(130:26630) -> ...a fight!
+	ATK -50% for 5 turns
+
+#12: SkillSet:
+	[0] ESRandomSpawn(92:26632) -> My delight in this battle...
+	Spawn 5 random Wood, Dark, and Jammer orbs
+	[1] ESAttackMultihit(15:26633) -> ...isn't waning!
+	Deal 300% damage (3 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:26732) -> I'm withdrawing.
+	Do nothing

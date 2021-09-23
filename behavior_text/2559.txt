@@ -1,0 +1,28 @@
+#2559 - Waking Up Mechanical Star God, Alcyone
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2559
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18529:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (18512:83) *Yaaawn* + Just 5 more minutes...
+ | Voids status ailments for 999 turns + Movetime 50% for 5 turns
+ group:
+ | group:
+   | (18515:15) Is it bed time?
+   | Deal 200% damage (2 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (18516:83) Mmmm... + Still sleepy...
+     | Reduce damage from all sources by 90% for 1 turn + ATK -90% for 1 turn
+   | group:
+     | (18519:15) Nighty night...
+     | Deal 800% damage (4 hits, 200% each)

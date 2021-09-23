@@ -1,0 +1,35 @@
+#796 - Charming Temptress, Wicked Lady
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 796
+approved: False
+
+level: 1
+ group:
+ condition: hp <= 69
+ | condition: 70% chance
+ | (515:15) Bloody Nail
+ | Deal 130% damage (2 hits, 65% each)
+ type: UNKNOWN_USE
+ | (521:16) Laughing loudly
+ | Do nothing
+
+level: 5
+ type: PREEMPT
+ | (513:5) Dark World
+ | Blind all orbs on the board
+ group:
+ | group:
+ | condition: hp <= 69
+   | condition: 70% chance
+   | (515:15) Bloody Nail
+   | Deal 130% damage (2 hits, 65% each)
+ | group:
+ | condition: turn 1, hp <= 29
+   | (514:1) Charm
+   | Bind 5 random cards for 1~2 turns
+ type: UNKNOWN_USE
+ | (521:16) Laughing loudly
+ | Do nothing

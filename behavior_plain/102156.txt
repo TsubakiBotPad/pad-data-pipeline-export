@@ -1,0 +1,29 @@
+#102156 - Crystal Paladin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESSkillDelay(89:2486) -> Forbidden Program
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 0~2 turns
+
+#4: ESNone(0:0) -> ESNone
+nothing
+
+#5: ESRowSpawnMulti(79:2484) -> Ice Lance - Paladin Spear
+Condition: 30% chance (ai:0 rnd:30)
+Change the 3rd row to Water orbs, Deal 140% damage
+
+#6: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 30% chance (ai:0 rnd:30)
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

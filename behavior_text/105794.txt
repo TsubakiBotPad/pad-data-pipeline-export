@@ -1,0 +1,36 @@
+#105794 - Mai Valentine & Cyber Harpie Lady
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105794
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15853:83) Duel! + Virtual Slash Attack
+ | Voids status ailments for 999 turns + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+ group:
+ | group:
+ | condition: always turn 1
+   | (15846:67) Trap Card "Mirror Wall"
+   | Absorb damage when combos <= 5 for 4 turns
+ | group:
+   | (15744:6) Spell Card "Harpie's Feather Duster"
+   | Voids player buff effects
+   | condition: 50% chance
+   | (15743:1) Equip Card "Shadow of Eyes"
+   | Bind 1 random card for 1 turn, Deal 95% damage
+   | (15742:15) Virtual Slash Attack
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 2
+     | (15745:17) Equip Card "Rose Whip"
+     | Increase damage to 150% for the next 3 turns
+   | group:
+     | (15744:6) Spell Card "Harpie's Feather Duster"
+     | Voids player buff effects
+     | (15746:15) Whiplash Attack
+     | Deal 120% damage (3 hits, 40% each)

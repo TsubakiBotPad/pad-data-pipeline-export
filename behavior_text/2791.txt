@@ -1,0 +1,87 @@
+#2791 - Orphan, Second Form
+monster size: 5
+new AI: True
+start/max counter: 511
+counter increment: 0
+monster_id: 2791
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3966:66) Go back to oblivion!
+ | Do nothing
+ type: UNKNOWN_USE
+ | (3974:83) It's acting differently. + Black Ruin
+ | Jammer skyfall +15% for 3 turns + Deal 100% damage, Deal 100% damage
+ | (3978:15) Black Ruin
+ | Deal 100% damage
+ | (3976:83) Surrender your will. + Rebirth
+ | Reduce damage from all sources by 75% for 2 turns + Change a random attribute to Heal orbs, Deal 200% damage
+
+level: 4
+ type: PREEMPT
+ | (3967:83) Go back to oblivion! + Doom
+ | Reduce damage from all sources by 75% for 3 turns + Voids status ailments for 8 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (3957:15) Sanction
+   | Deal 100~150% damage (2~3 hits, 50% each)
+ | group:
+ | condition: always turn 2
+   | (3958:89) Emitter
+   | Delay active skills by 1 turn, Deal 50% damage
+ | group:
+ | condition: always turn 6
+   | (3981:89) Emitter
+   | Delay active skills by 1 turn, Deal 50% damage
+ | group:
+ | condition: always turn 7
+   | (3970:83) Surrender your will. + Sanction
+   | Reduce damage from all sources by 75% for 2 turns + Deal 100~150% damage (2~3 hits, 50% each), Deal 100~150% damage (2~3 hits, 50% each)
+ | group:
+ | condition: always turn 8
+   | (3963:15) The world shall know redemption.
+   | Deal 500% damage
+ | group:
+   | group:
+   | condition: turn 3 while HP > 59
+     | (3968:83) Destruction is inevitable. + Sanction
+     | Reduce damage from all sources by 75% for 2 turns + Deal 100~150% damage (2~3 hits, 50% each), Deal 100~150% damage (2~3 hits, 50% each)
+   | group:
+   | condition: turn 4 while HP > 59
+     | (3956:6) Temporal Hollow
+     | Voids player buff effects
+     | condition: 50% chance
+     | (3979:89) Emitter
+     | Delay active skills by 1 turn, Deal 50% damage
+     | (3980:15) Sanction
+     | Deal 80~120% damage (2~3 hits, 40% each)
+   | group:
+   | condition: turn 5 while HP > 59
+     | (3969:83) Ignorant slaves of Pulse. + Sanction
+     | Reduce damage from all sources by 75% for 2 turns + Deal 100~150% damage (2~3 hits, 50% each), Deal 100~150% damage (2~3 hits, 50% each)
+   | group:
+     | (3959:15) Kaleidoscopic Ray
+     | Deal 700% damage
+ | group:
+ | condition: hp <= 59
+   | group:
+   | condition: turn 3
+     | (3973:83) It's acting differently. + Black Ruin
+     | Jammer skyfall +15% for 3 turns + Deal 100% damage, Deal 100% damage
+   | group:
+   | condition: turn 4
+     | (3977:15) Black Ruin
+     | Deal 100% damage
+   | group:
+   | condition: turn 5
+     | (3975:83) Ignorant slaves of Pulse. + Rebirth
+     | Reduce damage from all sources by 75% for 2 turns + Change a random attribute to Heal orbs, Deal 200% damage
+ type: UNKNOWN_USE
+ | (3974:83) It's acting differently. + Black Ruin
+ | Jammer skyfall +15% for 3 turns + Deal 100% damage, Deal 100% damage
+ | (3978:15) Black Ruin
+ | Deal 100% damage
+ | (3976:83) Surrender your will. + Rebirth
+ | Reduce damage from all sources by 75% for 2 turns + Change a random attribute to Heal orbs, Deal 200% damage

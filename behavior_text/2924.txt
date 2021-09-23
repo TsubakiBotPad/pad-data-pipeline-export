@@ -1,0 +1,36 @@
+#2924 - Rebellious Demon, Oda Nobunaga
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 2924
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16718:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (16719:83) Demon's Unifying Force + Dragon Scale Armor + The Hour of Destruction
+ | Voids status ailments for 999 turns + Void damage >= 20,000,000 for 999 turns + Movetime 25% for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (16723:94) One Gunpoint Dragon lit up
+     | Lock 10 random orbs
+   | group:
+   | condition: turn 2
+     | (16724:94) Another Gunpoint Dragon lit up
+     | Lock 20 random orbs
+   | group:
+   | condition: turn 3
+     | (16725:83) Every Gunpoint Dragon lit up + Great power is being built up
+     | Lock all orbs + Increase damage to 300% for the next 999 turns
+   | group:
+     | (16728:83) Demon Dragon Release + Dragons' Magic Bullets
+     | Delay active skills by 6 turns + Deal 300% damage (6 hits, 50% each), Deal 300% damage (6 hits, 50% each)
+ | group:
+ | condition: hp <= 1
+   | (16731:83) Unify the World Through Force + Dragon Wings' Protection
+   | Enemy recover 50% HP + Reduce damage from all sources by 50% for 99 turns

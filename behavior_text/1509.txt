@@ -1,0 +1,36 @@
+#1509 - Mephistopheles
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1509
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15033:83) Wake Up! + Into Darkness + Fire Orbs...
+ | Water, Wood, Light, and Dark skyfall +100% for 1 turn + Blind all orbs on the board + Spawn 3 random Fire orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (15046:108) Too bad
+   | Change all Fire orbs to Light orbs, Deal 1,000% damage
+   | (15037:83) Wake Up! + Into Darkness + Water Orbs...
+   | Fire, Wood, Light, and Dark skyfall +100% for 1 turn + Blind all orbs on the board + Spawn 3 random Water orbs
+ | group:
+ | condition: turn 2
+   | (15047:108) Too bad
+   | Change all Water orbs to Light orbs, Deal 1,000% damage
+   | (15040:83) Wake Up! + Into Darkness + Wood Orbs...
+   | Fire, Water, Light, and Dark skyfall +100% for 1 turn + Blind all orbs on the board + Spawn 3 random Wood orbs
+ | group:
+ | condition: turn 3
+   | (15048:108) Too bad
+   | Change all Wood orbs to Light orbs, Deal 1,000% damage
+   | (15043:83) Wake Up! + Into Darkness + Dark Orbs...
+   | Fire, Water, Wood, and Light skyfall +100% for 1 turn + Blind all orbs on the board + Spawn 3 random Dark orbs
+ | group:
+   | (15049:108) Too bad
+   | Change all Dark orbs to Light orbs, Deal 1,000% damage
+   | (15050:40) Good Job...
+   | Reduce self HP to 0

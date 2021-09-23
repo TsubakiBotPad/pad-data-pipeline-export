@@ -1,0 +1,52 @@
+#3868 - Pixel Enchantress of the Sea, Siren
+monster size: 4
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESGravity(50:16324) -> Abyssal Pressure
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Player -99% HP
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 10
+
+#4: ESAttackMultihit(15:16326) -> Song of Destruction
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 50% damage
+
+#5: ESAttackMultihit(15:16327) -> Song of Destruction
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESAttackMultihit(15:16328) -> Song of Destruction
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 180% damage (3 hits, 60% each)
+
+#7: ESAttackMultihit(15:16329) -> Song of Destruction
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 240% damage (4 hits, 60% each)
+
+#8: ESAttackMultihit(15:16330) -> Song of Destruction
+Deal 350% damage (5 hits, 70% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESRecoverEnemyAlly(52:16312) -> Healing Prayer
+	Enemy ally recover 50% HP
+	[1] ESGravity(50:16324) -> Abyssal Pressure
+	Player -99% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

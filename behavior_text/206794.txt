@@ -1,0 +1,68 @@
+#206794 - Yotsugi Ononoki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206794
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21228:67) Yeah!
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+ | condition: always turns 5-6
+   | (21237:83) You took too long. + But won't it kill you this time? + We've succeeded in our reconnaissance mission.
+   | Movetime -3s for 5 turns + Do nothing + Player -99% HP
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 74
+     | condition: 20% chance
+     | (21235:105) Why are you getting so passionate about it now?
+     | RCV 50% for 1 turn, Deal 75% damage
+     | condition: 20% chance
+     | (21240:94) What are you doing?
+     | Lock 6 random orbs, Deal 70% damage
+     | condition: 20% chance
+     | (21230:77) Chop
+     | Change the 1st column to Wood orbs, Deal 80% damage
+     | condition: 20% chance
+     | (21236:92) You're a real taskmaster.
+     | Spawn 4 random Wood and Dark orbs, Deal 90% damage
+     | condition: 20% chance
+     | (21231:15) Yeah, yeah.
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+     | condition: 20% chance
+     | (21235:105) Why are you getting so passionate about it now?
+     | RCV 50% for 1 turn, Deal 75% damage
+     | condition: 20% chance
+     | (21240:94) What are you doing?
+     | Lock 6 random orbs, Deal 70% damage
+     | condition: 20% chance
+     | (21230:77) Chop
+     | Change the 1st column to Wood orbs, Deal 80% damage
+     | condition: 20% chance
+     | (21236:92) You're a real taskmaster.
+     | Spawn 4 random Wood and Dark orbs, Deal 90% damage
+     | condition: 20% chance
+     | (21231:15) Yeah, yeah.
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (21232:83) Analyzing. + Well, I think I have a general idea now.
+   | Random 2 orbs change every 1.0s for 4 turns + Voids status ailments for 999 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21241:17) Now, time to set the plan in motion.
+     | Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: turns 2-4
+     | (21242:15) Unlimited Rule Book
+     | Deal 200% damage
+   | group:
+     | (21242:15) Unlimited Rule Book
+     | Deal 200% damage

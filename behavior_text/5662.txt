@@ -1,0 +1,31 @@
+#5662 - Majic Lin
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 5662
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14963:118) Balance Recovery Halved
+ | Reduce damage from Balanced and Healer types by 50%
+ type: PREEMPT
+ | (14910:68) I'm a sorcerer, too, you know!
+ | Jammer and Poison skyfall +10% for 4 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (14911:110) I disturb thee, Cage of Light!
+   | Specific orbs change every 1.0s for 4 turns
+ | group:
+ | condition: turn 2
+   | (14912:67) I run, Snowtipped Mountain!
+   | Absorb damage when combos <= 6 for 15 turns
+ | group:
+ | condition: turn 3
+   | (14913:50) I'll hit you with everything I've got!
+   | Player -99% HP
+ | group:
+   | (14914:83) I-I release thee... + Sword of Light!
+   | Do nothing + Change a random attribute to Light orbs, Deal 150% damage

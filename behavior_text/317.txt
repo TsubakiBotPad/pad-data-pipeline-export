@@ -1,0 +1,26 @@
+#317 - Water Mech Warrior, Midgard
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 317
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (157:16) Wait and See
+   | Do nothing
+ | group:
+ | condition: turn 2, hp <= 39
+   | (158:17) Overdrive
+   | Increase damage to 150% for the next 15 turns
+
+level: 7
+ type: PREEMPT
+ | (2598:50) High Pressure
+ | Player -99% HP
+ group:
+ | (2600:92) Midgard Frost
+ | Spawn 5 random Water orbs, Deal 100% damage

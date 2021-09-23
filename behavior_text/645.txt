@@ -1,0 +1,44 @@
+#645 - Archdemon Beelzebub
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 645
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (674:47) Move, move, move---!!
+ | Deal 70% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (675:60) Take this!
+   | Change 5 random orbs (excluding hearts) to Poison orbs
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (675:60) Take this!
+     | Change 5 random orbs (excluding hearts) to Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 70% chance
+     | (676:15) Deadly Drive!
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (682:48) Not going easy anymore!
+     | Change all Poison orbs to Dark orbs, Deal 50% damage
+     | (681:50) Not going easy anymore!
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (677:92) Sink into a sea of poison!!
+     | Change all orbs to Poison
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (676:15) Deadly Drive!
+     | Deal 120% damage (3 hits, 40% each)

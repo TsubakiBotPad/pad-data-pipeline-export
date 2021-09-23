@@ -1,0 +1,175 @@
+#2322 - Awoken Viper Orochi
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:6052) -> ESBranchCard
+Branch on player_cards HAS [2323], target rnd 7
+
+#5: ESBranchCard(90:6051) -> ESBranchCard
+Branch on player_cards HAS [2983], target rnd 8
+
+#6: SkillSet:
+	[0] ESDebuffMovetime(39:6019) -> Menacing Bloodshot Eyes
+	Movetime 50% for 10 turns
+	[1] ESDamageShield(74:6020) -> Solid Scales
+	Reduce damage from all sources by 99% for 1 turn
+	[2] ESStatusShield(20:6024) -> Yashiori's Protective Wine
+	Voids status ailments for 999 turns
+
+#7: SkillSet:
+	[0] ESDebuffMovetime(39:6019) -> Menacing Bloodshot Eyes
+	Movetime 50% for 10 turns
+	[1] ESDamageShield(74:6050) -> Saw someone and prepared to fight
+	Reduce damage from all sources by 99% for 1 turn
+	[2] ESStatusShield(20:6024) -> Yashiori's Protective Wine
+	Voids status ailments for 999 turns
+
+#8: SkillSet:
+	[0] ESDebuffMovetime(39:6049) -> Eyes are fixed on the prey
+	Movetime 50% for 10 turns
+	[1] ESDamageShield(74:6020) -> Solid Scales
+	Reduce damage from all sources by 99% for 1 turn
+	[2] ESStatusShield(20:6024) -> Yashiori's Protective Wine
+	Voids status ailments for 999 turns
+
+#9: SkillSet:
+	[0] ESDebuffMovetime(39:6049) -> Eyes are fixed on the prey
+	Movetime 50% for 10 turns
+	[1] ESDamageShield(74:6020) -> Solid Scales
+	Reduce damage from all sources by 99% for 1 turn
+	[2] ESStatusShield(20:6024) -> Yashiori's Protective Wine
+	Voids status ailments for 999 turns
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 95, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESSkillDelay(89:6026) -> Eight-headed Vicious Suppression
+	Delay active skills by 4 turns
+	[1] ESVoidShield(71:6027) -> Flexible Armored Scales
+	Void damage >= 800,000 for 8 turns
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESAttackUPRemainingEnemies(17:6022) -> Countercurrent Scales
+	Increase damage to 800% for the next 999 turns
+	[1] ESOrbLock(94:6023) -> Pentagramic Tremble
+	Lock all Fire, Water, Wood, Light, and Dark orbs
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESSkillDelay(89:6026) -> Eight-headed Vicious Suppression
+	Delay active skills by 4 turns
+	[1] ESAttackMultihit(15:6057) -> Dragon River Octastrike
+	Deal 6,400% damage (8 hits, 800% each)
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 19
+
+#18: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 28
+
+#19: SkillSet:
+	Condition: 13% chance (ai:0 rnd:13)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESPoisonChangeRandomCount(60:6029) -> Floating Radiance
+	Change 3 random orbs (excluding hearts) to Poison orbs
+
+#20: SkillSet:
+	Condition: 13% chance (ai:0 rnd:13)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESOrbChangeAttack(48:6030) -> Evil Swamp
+	Change a random attribute to Jammer orbs, Deal 100% damage
+
+#21: SkillSet:
+	Condition: 13% chance (ai:0 rnd:13)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESBlindStickyFixed(98:6031) -> Dark Ocean
+	Blind orbs in specific positions for 1 turn, Deal 100% damage
+
+#22: SkillSet:
+	Condition: 13% chance (ai:0 rnd:13)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESBindAttack(63:6032) -> Rippling Chains
+	Bind 2 random subs for 1 turn, Deal 100% damage
+
+#23: SkillSet:
+	Condition: 12% chance (ai:0 rnd:12)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESRecoverEnemy86(86:6033) -> Lake of Healing
+	Enemy recover 20% HP
+
+#24: SkillSet:
+	Condition: 12% chance (ai:0 rnd:12)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESOrbLock(94:6034) -> Torrential Bind
+	Lock 8 random orbs, Deal 100% damage
+
+#25: SkillSet:
+	Condition: 12% chance (ai:0 rnd:12)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESGravity(50:6035) -> Heavy Whirlpool
+	Player -99% HP
+
+#26: SkillSet:
+	Condition: 12% chance (ai:0 rnd:12)
+	[0] ESBoardChangeAttackBits(85:6028) -> Octabreath
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+	[1] ESBindAttack(63:6036) -> Crushing Tide
+	Bind 1 random sub for 4 turns, Deal 100% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 31
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#30: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:6022) -> Countercurrent Scales
+	Increase damage to 800% for the next 999 turns
+	[1] ESSkillDelay(89:6026) -> Eight-headed Vicious Suppression
+	Delay active skills by 4 turns
+	[2] ESOrbLock(94:6023) -> Pentagramic Tremble
+	Lock all Fire, Water, Wood, Light, and Dark orbs
+
+#31: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#32: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESSkillDelay(89:6026) -> Eight-headed Vicious Suppression
+	Delay active skills by 4 turns
+	[1] ESOrbLock(94:6023) -> Pentagramic Tremble
+	Lock all Fire, Water, Wood, Light, and Dark orbs

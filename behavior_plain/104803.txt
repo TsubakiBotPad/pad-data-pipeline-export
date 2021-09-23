@@ -1,0 +1,30 @@
+#104803 - Manic-Guard Seething Dragon Caller, Alpha
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealColumn(99:10753) -> Wings of Flame
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Seal the 1st column for 2 turns
+
+#3: ESOrbLock(94:10756) -> Determination
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs
+
+#4: ESBoardChangeAttackBits(85:10757) -> Badorishe de Jelut
+Condition: When < 10% HP (ai:100 rnd:0)
+Change all orbs to Fire, Deal 200% damage
+
+#5: ESAttackUPRemainingEnemies(17:10754) -> Brave Verse of Flame
+Condition: 50% chance, when <= 1 enemies remain (ai:50 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#6: ESAttackMultihit(15:10755) -> Gualiva Doshia
+Deal 90% damage (3 hits, 30% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

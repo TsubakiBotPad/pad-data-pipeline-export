@@ -1,0 +1,28 @@
+#4871 - Agil
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4871
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16433:68) Let's go!
+ | Wood skyfall +15% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (16435:15) Damn it!!
+   | Deal 100% damage
+   | (16436:15) Haaaaaaaa!
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (16434:94) Hold still baby!
+     | Lock 9 random orbs, Deal 90% damage
+   | group:
+     | (16436:15) Haaaaaaaa!
+     | Deal 120% damage (2 hits, 60% each)

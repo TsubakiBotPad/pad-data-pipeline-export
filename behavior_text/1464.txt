@@ -1,0 +1,34 @@
+#1464 - Thoth
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1464
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1262:20) Hieroglyphic Carvings
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (1263:12) Arcane Spell
+     | Change all Fire orbs to Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (1264:64) Judgement of the Dead
+     | Change 6 random orbs to Poison orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (1265:63) Playing with Time & Space
+     | Bind 1 random card for 3 turns, Deal 50% damage
+ | group:
+ | condition: hp <= 19
+   | (1266:15) Genesis Gleam
+   | Deal 400% damage (4 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (1261:52) Ceremony of Rebirth
+ | Enemy ally recover 50% HP

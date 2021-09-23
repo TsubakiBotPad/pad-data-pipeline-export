@@ -1,0 +1,49 @@
+#3209 - Wood Guardian Dragon, Ouju
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3209
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5808:83) Immutable Divine Power + Windy Realm of Salvation
+ | Bind awoken skills for 2 turns + Change the 2nd and 5th columns to Wood orbs, the 1st and 6th columns to Heal and Jammer orbs, and the 3rd and 4th columns to Fire, Water, Light, and Dark orbs, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (5811:65) Wind God's Lasso
+     | Bind 1 random sub for 3~5 turns
+   | group:
+     | condition: 50% chance
+     | (5817:79) Garuda's Slashing Claws
+     | Change the 3rd row to Wood orbs, Deal 100% damage
+     | (5818:77) Garuda's Slashing Claws
+     | Change the 3rd column to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 79
+   | group:
+   | condition: always turn 1
+     | (5812:84) Vajra Wind Blade
+     | Change all orbs to Wood, Heal, Jammer, and Poison
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5819:50) Garuda's Double Palm
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (5817:79) Garuda's Slashing Claws
+     | Change the 3rd row to Wood orbs, Deal 100% damage
+     | (5818:77) Garuda's Slashing Claws
+     | Change the 3rd column to Wood orbs, Deal 100% damage
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (5813:83) Wave of Compassion + Formed the hand sign for "Power"
+   | Bind active skills for 10 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | (5816:79) Sky Splitting Jetstream
+   | Change the 2nd and 4th rows to Wood orbs and the 1st, 3rd, and 5th rows to Fire, Water, Light, Dark, and Heal orbs, Deal 1,000% damage

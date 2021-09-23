@@ -1,0 +1,40 @@
+#784 - Mystic Painting Dragon, Nazca
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 784
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (545:15) Glyph of First Strike, Hummingbird
+ | Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (540:48) Glyph of Plunder, Monkey
+     | Change a random attribute to Jammer orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | (542:1) Glyph of Restraint, Spider
+     | Bind 1 random card for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (539:15) Glyph of Fierce Assault, Condor
+     | Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (541:17) Glyph of Hunting, Hound
+     | Increase damage to 200% for the next 3 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (543:50) Glyph of Weight, Whale
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (544:15) Glyph of Regret, Titan
+     | Deal 200% damage

@@ -1,0 +1,23 @@
+#500264 - Bubble Chimera
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500264
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23335:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23255:127) Gambol
+ | No skyfall for 2 turns
+ group:
+ | group:
+   | (23256:15) Frolic
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | (23336:40) They wander off somewhere...
+   | Reduce self HP to 0

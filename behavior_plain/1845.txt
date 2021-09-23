@@ -1,0 +1,71 @@
+#1845 - Unleashed Knight Dragon King, Nordis
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:2464) -> Here I come, brave rival!
+	Voids status ailments for 999 turns
+	[1] ESBindAttribute(2:2465) -> Dragon Knight
+	Bind Dark cards for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:2466) -> Last Belief
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 1,000% damage (2 hits, 500% each)
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#8: SkillSet:
+	Condition: One-time use (ai:0 rnd:30) (cost: 2)
+	[0] ESAttackUPRemainingEnemies(17:2469) -> His sword is raised
+	Increase damage to 200% for the next 2 turns
+	[1] ESRowSpawnMulti(79:2470) -> Proud Slash
+	Change the 3rd row to Light orbs, Deal 80% damage
+
+#9: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESAttackMultihit(15:2471) -> Ruthless Saw
+	Deal 100% damage (2 hits, 50% each)
+	[1] ESAbsorbAttribute(53:2472) -> Dragontree Shield
+	Absorb Water damage for 1 turn
+
+#10: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESSkillDelay(89:2473) -> Stun Buckler
+	Delay active skills by 0~1 turns
+	[1] ESAttackMultihit(15:2474) -> Slash and Thrust
+	Deal 110% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESDispel(6:2467) -> Brave Resistance
+Condition: When < 50% HP (ai:100 rnd:0)
+Voids player buff effects
+
+#15: ESGravity(50:2468) -> Brave Resistance
+Condition: When < 50% HP (ai:100 rnd:0)
+Player -99% HP
+
+#16: ESAttributeResist(72:2456) -> 龍騎士風ドラゴン・パッシブ
+Reduce damage from Wood and Light attrs by 50%

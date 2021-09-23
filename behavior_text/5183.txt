@@ -1,0 +1,36 @@
+#5183 - Devil Prince, Zebun
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5183
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12975:72) Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (12960:83) Devil Prince's Dignity + Archdemon Relative + Deadly Poison Rain
+ | Voids status ailments for 999 turns + Void damage >= 60,000,000 for 999 turns + Mortal Poison skyfall +60% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (12964:83) Poison World + Shell's Gift
+     | Poison skyfall +15% for 30 turns + Reduce damage from all sources by 75% for 1 turn, Deal 30% damage
+   | group:
+     | condition: 50% chance
+     | (12967:97) Assault from the Darkness
+     | Blind random 3 orbs for 3 turns, Deal 130% damage
+     | condition: 50% chance
+     | (12968:15) Deadly Combo
+     | Deal 135% damage (3 hits, 45% each)
+ | group:
+ | condition: turn 2 while HP > 9, hp <= 49
+   | (12969:83) Devil Prince's Selfishness + Sea of Poison
+   | Bind 6 random cards for 5 turns + Change all orbs to Mortal Poison, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (12972:83) Annihilating Life + Sea of Hell
+   | Movetime 25% for 1 turn + Change all orbs to Mortal Poison, Deal 800% damage

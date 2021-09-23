@@ -1,0 +1,32 @@
+#101626 - Alt. Jester Wizard, Chester
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 101626
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20000:83) Can't you hang out for a while? + Try to break through this wall + I'll give you 4 attempts + Here's a helping hand
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 14 for 999 turns + Random 2 orbs change every 2.0s for 4 turns + Change board size to 7x6 for 99 turns
+ type: DEATH
+ condition: when defeated
+ | (20012:95) That was great!
+ | Movetime 150% for 10 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (20005:66) Let's start the countdown
+   | Do nothing
+ | group:
+ | condition: turn 2
+   | (20006:66) You should probably hurry up
+   | Do nothing
+ | group:
+ | condition: turn 3
+   | (20007:66) It's do or die now
+   | Do nothing
+ | group:
+   | (20008:83) ...Time's up! + I hope we meet again♪
+   | Change own attribute to random one of Fire, Water, Wood, or Dark + Player -5,000% HP

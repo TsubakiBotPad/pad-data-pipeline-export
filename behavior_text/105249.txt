@@ -1,0 +1,31 @@
+#105249 - Hao
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 105249
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (13260:74) All right.
+ | Reduce damage from all sources by 75% for 10 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (13244:63) Fools. I told you to fight me all at once.
+   | Bind 1 random sub for 5 turns, Deal 95% damage
+   | condition: 33% chance
+   | (13245:89) Your sacrifices will all be in vain.
+   | Delay active skills by 0~2 turns, Deal 100% damage
+   | condition: 34% chance
+   | (13246:92) Be careful how you speak.
+   | Spawn 8 random Jammer orbs, Deal 90% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (13261:67) Weaklings.
+   | Absorb damage when combos <= 6 for 10 turns
+ | group:
+ | condition: hp <= 20
+   | (13247:15) I didn't mean to upset you.
+   | Deal 240% damage (8 hits, 30% each)

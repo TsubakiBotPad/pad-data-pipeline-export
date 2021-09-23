@@ -1,0 +1,43 @@
+#1662 - Goddess of the Starry Sky, Nut
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 1662
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10105:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (10105:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (10109:83) Swirling Black Emotions + Threat Removal + Quat Dafiea Easifah
+ | Movetime 50% for 10 turns + Change all Heal orbs to Jammer orbs + Voids status ailments for 999 turns, Deal 120% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (10112:83) Exploding Heresy + Look of False Evil
+   | Spawn locked Bomb orbs in the specified positions + RCV 50% for 10 turns, Deal 100% damage
+ | group:
+   | condition: 33% chance
+   | (10113:102) Khunbala Rogzu
+   | Spawn 5 random locked Bomb orbs, Deal 100% damage
+   | condition: 33% chance
+   | (10114:92) Nuqta Mahjur
+   | Spawn 8 random Jammer orbs, Deal 110% damage
+   | condition: 34% chance
+   | (10115:15) Geela Ahsefah
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 9
+   | (10119:15) Torrent of Magical Powers
+   | Deal 400% damage (4 hits, 100% each)
+ | group:
+ | condition: turn 2, hp <= 1
+   | (10118:83) Breaking Distance + Delusion and Doubt
+   | Bind awoken skills for 2 turns + Bind active skills for 2 turns

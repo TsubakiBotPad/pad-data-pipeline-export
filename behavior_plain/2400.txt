@@ -1,0 +1,93 @@
+#2400 - Awoken Heimdallr
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:3448) -> Gjallarhorn Horn
+Absorb Dark damage for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCard(90:3454) -> ESBranchCard
+Branch on player_cards HAS [376, 377, 656, 1348, 2396], target rnd 13
+
+#7: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 70, target rnd 16
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 19
+
+#10: ESSkillDelay(89:3451) -> Headbutt
+Condition: 30% chance (ai:0 rnd:30)
+Delay active skills by 1 turn, Deal 80% damage
+
+#11: ESAttackMultihit(15:3450) -> Horn Axe
+Condition: 70% chance (ai:0 rnd:70)
+Deal 110% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESBindAttribute(2:3455) -> I'll stop you
+Bind Dark cards for 1 turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 8
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESStatusShield(20:3446) -> Guardian God's Five Senses
+Voids status ailments for 999 turns
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 10
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#21: ESBlind62(62:3452) -> Not quite yet!!
+Blind all orbs on the board, Deal 100% damage
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 25
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#24: ESDamageShield(74:3447) -> Shield of First Light
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 2 turns
+
+#25: ESAttackMultihit(15:3449) -> Holy
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 480% damage (4 hits, 120% each)
+
+#26: ESColumnSpawnMulti(77:3453) -> Slam
+Change the 3rd column to Light orbs, Deal 130% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttributeResist(72:3456) -> 闇木半減
+Reduce damage from Wood and Dark attrs by 50%

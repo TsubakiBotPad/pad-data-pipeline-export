@@ -1,0 +1,38 @@
+#1301 - Dino Rider, Wild Drake
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1301
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14738:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (14739:83) Jurassic Flame + Firewall
+ | Player -99% HP + Absorb damage when combos <= 7 for 10 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (14742:15) Wild Crash
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 33% chance
+   | (14743:77) Flare Dive
+   | Change the 3rd and 4th columns to Fire orbs, Deal 105% damage
+   | condition: 33% chance
+   | (14744:89) Sliding Tackle
+   | Delay active skills by 0~2 turns, Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (14745:83) Heartbeat Overheat + Jurassic Flame
+   | RCV 50% for 10 turns + Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | (14746:15) Wild Rush
+   | Deal 320% damage (8 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (14747:85) Flame Panic
+   | Change all orbs to Fire, Deal 150% damage

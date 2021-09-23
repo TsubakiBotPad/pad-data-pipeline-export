@@ -1,0 +1,31 @@
+#3869 - Pixel Mystical Forest Pixie, Alraune
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3869
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16359:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (16331:1) Lullaby
+ | Bind 6 random cards for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (16334:79) Breath of Life
+   | Change the 1st and 5th rows to Wood and Jammer orbs, Deal 95% damage
+   | condition: 50% chance
+   | (16335:48) Holy Watering
+   | Change a random attribute to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (16336:15) Earth's Roar
+   | Deal 300% damage
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (16332:83) Healing Prayer + Harmonious Earth
+ | Enemy ally recover 50% HP + Increase damage to 200% for the next 999 turns

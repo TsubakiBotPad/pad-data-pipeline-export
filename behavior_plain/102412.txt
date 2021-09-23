@@ -1,0 +1,78 @@
+#102412 - Alt. Playful Star Gods, Thoth & Sopdet
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 11
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESAbsorbCombo(67:11374) -> TRICK or Treat
+	Absorb damage when combos <= 5 for 10 turns
+	[1] ESStatusShield(20:11375) -> Mumbling
+	Voids status ailments for 999 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESOrbChangeAttack(48:11377) -> Gimme some sweets!
+	Change a random attribute to Jammer orbs, Deal 110% damage
+	[1] ESRecoverEnemy86(86:11378) -> Zzzz
+	Enemy recover 10% HP
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESOrbChangeAttack(48:11380) -> More!
+	Change a random attribute to Jammer orbs, Deal 115% damage
+	[1] ESRecoverEnemy86(86:11381) -> Zzzz
+	Enemy recover 10% HP
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESGravity(50:11383) -> Wake up already!
+	Player -99% HP
+	[1] ESAttackUPRemainingEnemies(17:11384) -> Whaa! How could I...
+	Increase damage to 150% for the next 99 turns
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESOrbChangeAttack(48:11386) -> Hyah!
+	Change a random attribute to Heal orbs, Deal 90% damage
+	[1] ESRandomSpawn(92:11387) -> Mysterious Light of the Underworld
+	Spawn 5 random Poison orbs
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbChangeAttack(48:11389) -> Take that!
+	Change a random attribute to Jammer orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:11390) -> Path to Hell
+	Spawn 5 random Mortal Poison orbs
+
+#9: SkillSet:
+	[0] ESOrbChangeAttack(48:11392) -> Yaaah!
+	Change a random attribute to Poison orbs, Deal 110% damage
+	[1] ESBombRandomSpawn(102:11393) -> Pumpkin Magic Bomb
+	Spawn 8 random Bomb orbs
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESAbsorbCombo(67:11405) -> TRICK or Treat
+	Absorb damage when combos <= 7 for 10 turns
+	[1] ESStatusShield(20:11375) -> Mumbling
+	Voids status ailments for 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

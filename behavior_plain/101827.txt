@@ -1,0 +1,70 @@
+#101827 - Alt. Red-Winged Star Angel, Rozuel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBombFixedSpawn(103:12120) -> Flare Bomb
+	Spawn Bomb orbs in the specified positions
+	[1] ESBlindStickyFixed(98:12121) -> Flashburn
+	Blind orbs in specific positions for 1 turn, Deal 160% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRowSpawnMulti(79:6567) -> Lotus Sky Blades
+Condition: When < 15% HP (ai:100 rnd:0)
+Change the 1st, 3rd, and 5th rows to Fire orbs and the 2nd and 4th rows to Water orbs, Deal 1,500% damage
+
+#7: ESSkyfall(68:6566) -> Full Punishment
+Condition: When < 30% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Mortal Poison skyfall +20% for 5 turns
+
+#8: ESSkyfall(68:6565) -> Moderate Punishment
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Poison skyfall +20% for 5 turns
+
+#9: ESSkyfall(68:6564) -> Light Punishment
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Jammer skyfall +20% for 5 turns
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 13
+
+#11: SkillSet:
+	[0] ESOrbChangeSingle(4:6561) -> Healing Hymn
+	Change a random attribute to Heal orbs
+	[1] ESRowSpawnMulti(79:6562) -> Scarlet Azure Blade
+	Change the 2nd and 3rd rows to Fire and Water orbs, Deal 170% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	Condition: When < 70% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:6534) -> Angel's Holy Grail
+	Enemy recover 100% HP
+	[1] ESAttackUPRemainingEnemies(17:6568) -> Battle Anthem
+	Increase damage to 150% for the next 999 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttributeResist(72:12123) -> Rozuel Fr Wt Halved
+Reduce damage from Fire and Water attrs by 50%

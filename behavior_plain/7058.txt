@@ -1,0 +1,27 @@
+#7058 - Pixel Ryu
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESInvulnerableOn(119:22960) -> Come at me!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Immune to damage from all sources for 999 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 6
+
+#4: ESInactivity66(66:22961) -> Hah!
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESEndBattle(40:22962) -> You need more training to defeat me!
+Reduce self HP to 0
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

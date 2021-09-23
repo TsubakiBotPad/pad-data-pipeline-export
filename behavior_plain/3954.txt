@@ -1,0 +1,53 @@
+#3954 - Illuminating Dragon Caller, Myne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchCard(90:8308) -> ESBranchCard
+Branch on player_cards HAS [3930, 3931, 3942, 3943], target rnd 6
+
+#5: ESDamageShield(74:8307) -> Oh! A visitor?!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 1 turn
+
+#6: ESDamageShield(74:8309) -> W...Welcome home?...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 1 turn
+
+#7: ESSkillDelay(89:8313) -> Flying Bucket
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 2 turns
+
+#8: ESAttackMultihit(15:8314) -> Toppling Bookshelf
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 220% damage
+
+#9: ESCloud(104:8310) -> Sweeping Duster
+Condition: 34% chance (ai:0 rnd:34)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 120% damage
+
+#10: ESRowSpawnMulti(79:8311) -> Neat and Tidy
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st, 3rd, and 5th rows to Heal orbs, the 2nd row to Fire orbs, and the 4th row to Fire and Jammer orbs, Deal 50% damage
+
+#11: ESRandomSpawn(92:8312) -> Terrible Tumble
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Jammer orbs, Deal 130% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESRandomSpawn(92:8315) -> It's dangerous inside so be careful...!
+	Spawn 1 random Heal orb

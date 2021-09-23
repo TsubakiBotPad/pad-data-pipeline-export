@@ -1,0 +1,65 @@
+#3057 - Spirit Tree Mechanical Star God, Spica
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:23581) -> Dependent Protection
+	Void damage >= 5,000,000 for 5 turns
+	[1] ESSpinnersFixed(110:23582) -> Scattered Plants
+	Specific orbs change every 1.0s for 99 turns
+	[2] ESBoardChangeAttackBits(85:23583) -> Foul Mulch Feeder
+	Change all orbs to Wood, Jammer, and Poison, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#6: ESBoardChangeAttackBits(85:23583) -> Foul Mulch Feeder
+Change all orbs to Wood, Jammer, and Poison, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 6
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESAbsorbCombo(67:23585) -> Dependent Demon's Protection
+	Absorb damage when combos <= 8 for 999 turns
+	[1] ESBoardChangeAttackBits(85:23586) -> Foul Mulch Feeder
+	Change all orbs to Jammer, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:23588) -> Decomposing Plants
+	Bind awoken skills for 5 turns
+	[1] ESBlind5(5:23589) -> Monstrous Darkleaf Mouth
+	Blind all orbs on the board
+	[2] ESBoardChangeAttackBits(85:23590) -> Foul Mulch Feeder
+	Change all orbs to Poison, Deal 100% damage
+
+#13: ESAttackMultihit(15:23591) -> Leaf Tendril Barrage
+Deal 2,000% damage (5 hits, 400% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:23579) -> Resolve
+Survive attacks with 1 HP when HP > 50%

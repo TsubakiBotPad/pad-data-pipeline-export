@@ -1,0 +1,77 @@
+#101000 - Alt. Abyssal Hell Deity Jackal, Anubis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101000
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22836:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (22837:83) Board Games + Dark Wolf Revelations
+ | Change board size to 7x6 for 10 turns + Absorb damage when combos <= 10 for 10 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turns 1-9
+     | (22843:92) Death Curse
+     | Change all orbs to Poison, Deal 100% damage
+   | group:
+   | condition: turn 10 while HP > 49
+     | (22842:17) Dark Wolf Howl
+     | Increase damage to 1,000% for the next 999 turns
+   | group:
+     | (22843:92) Death Curse
+     | Change all orbs to Poison, Deal 100% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | (22844:92) Path to the Underworld
+     | Spawn 2 random Heal, Jammer, and Mortal Poison orbs, Deal 150% damage
+   | group:
+     | (22844:92) Path to the Underworld
+     | Spawn 2 random Heal, Jammer, and Mortal Poison orbs, Deal 150% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (22842:17) Dark Wolf Howl
+   | Increase damage to 1,000% for the next 999 turns
+
+level: 6
+ type: PASSIVE
+ | (22836:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (22838:83) Board Games + Dark Wolf Trial
+ | Change board size to 7x6 for 10 turns + Absorb damage when combos <= 12 for 10 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turns 1-9
+     | (22843:92) Death Curse
+     | Change all orbs to Poison, Deal 100% damage
+   | group:
+   | condition: turn 10 while HP > 49
+     | (22842:17) Dark Wolf Howl
+     | Increase damage to 1,000% for the next 999 turns
+   | group:
+     | (22843:92) Death Curse
+     | Change all orbs to Poison, Deal 100% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | (22844:92) Path to the Underworld
+     | Spawn 2 random Heal, Jammer, and Mortal Poison orbs, Deal 150% damage
+   | group:
+     | (22844:92) Path to the Underworld
+     | Spawn 2 random Heal, Jammer, and Mortal Poison orbs, Deal 150% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (22842:17) Dark Wolf Howl
+   | Increase damage to 1,000% for the next 999 turns

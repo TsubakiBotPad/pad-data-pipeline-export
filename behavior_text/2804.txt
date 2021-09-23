@@ -1,0 +1,49 @@
+#2804 - Shuten-doji
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2804
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15101:83) Entertain me! + Just right for a drink snack + Erase everything but Jammers + Well, let's try your best
+ | Jammer skyfall +100% for 4 turns + Spawn 6 random Fire, Water, Wood, Light, and Jammer orbs + Unable to match Jammer orbs for 4 turns + Movetime 200% for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 74
+     | (15120:108) My drink got stale
+     | Change all Fire, Water, Wood, Light, Dark, and Heal orbs to Jammer orbs, Deal 1,000% damage
+     | (15123:15) Show me what you're made of!
+     | Deal 1,000% damage (5 hits, 200% each)
+   | group:
+   | condition: turn 2 while HP > 49
+     | (15121:108) My drink got stale
+     | Change all Fire, Water, Wood, Light, Dark, and Heal orbs to Jammer orbs, Deal 1,000% damage
+     | (15123:15) Show me what you're made of!
+     | Deal 1,000% damage (5 hits, 200% each)
+   | group:
+     | (15122:108) My drink got stale
+     | Change all Fire, Water, Wood, Light, Dark, and Heal orbs to Jammer orbs, Deal 1,000% damage
+     | (15123:15) Show me what you're made of!
+     | Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (15120:108) My drink got stale
+   | Change all Fire, Water, Wood, Light, Dark, and Heal orbs to Jammer orbs, Deal 1,000% damage
+   | (15106:83) How about the next turn? + Here you go!
+   | Spawn 5 random Fire, Water, Wood, Light, and Dark orbs + Fix orb movement starting point to random position on the board
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (15121:108) My drink got stale
+   | Change all Fire, Water, Wood, Light, Dark, and Heal orbs to Jammer orbs, Deal 1,000% damage
+   | (15110:83) Isn't this a struggle? + I forgot the bonus
+   | Spawn 5 random Fire, Water, Wood, Light, and Dark orbs + Blind all orbs on the board
+ | group:
+ | condition: hp <= 24
+   | (15122:108) My drink got stale
+   | Change all Fire, Water, Wood, Light, Dark, and Heal orbs to Jammer orbs, Deal 1,000% damage
+   | (15115:83) I'm surprised you made it this far + This is the last chance
+   | Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Poison, and Mortal Poison orbs + Absorb damage when combos <= 7 for 999 turns

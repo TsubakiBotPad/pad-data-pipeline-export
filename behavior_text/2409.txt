@@ -1,0 +1,27 @@
+#2409 - Mysterious Guest, Laila
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2409
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20289:83) I'll have some fun tonight! + Why don't you relax a bit
+ | Absorb Light damage for 10 turns + Delay active skills by 3~5 turns
+ group:
+ | group:
+ | condition: turns 1-9
+   | condition: 33% chance
+   | (20292:94) Binding Web
+   | Lock all Dark orbs, Deal 105% damage
+   | condition: 33% chance
+   | (20293:109) Fluctuating Flame Lantern
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 34% chance
+   | (20294:92) Midnight Spell
+   | Spawn 5 random Dark orbs, Deal 95% damage
+ | group:
+   | (20295:15) That was fun!
+   | Deal 500% damage (5 hits, 100% each)

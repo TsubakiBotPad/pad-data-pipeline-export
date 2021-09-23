@@ -1,0 +1,50 @@
+#204846 - Violent Tiger God, Takeda Shingen
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 204846
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23940:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23941:83) Takeda Diamond Protective Crest + Wisdom of the Teikin Ourai Texts + Swift Tiger's Blazing Army
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 5 turns + Fire and Wood skyfall +25% for 5 turns
+ group:
+ | group:
+   | (23953:94) Tiger Dragon Fan
+   | Lock all Fire and Wood orbs, Deal 110% damage
+   | condition: 50% chance
+   | (23954:92) Violent Forest Fan
+   | Spawn 6 random Wood orbs, Deal 100% damage
+   | condition: 50% chance
+   | (23952:85) Flame Formation Fan
+   | Change all orbs to Fire, Heal, and Jammer, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (23945:83) Violent Tiger Fan Dance + Furinkazan Stance
+     | Increase damage to 200% for the next 999 turns + Unable to match Fire and Wood orbs for 5 turns
+   | group:
+   | condition: turn 2
+     | (23948:79) Swift as the Dragon Wind
+     | Change the 1st and 2nd rows to Wood orbs, Deal 80% damage
+   | group:
+   | condition: turn 3
+     | (23949:99) Quiet as the Dragon Forest
+     | Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 4
+     | (23950:85) Fierce as Dragon Fire
+     | Change all orbs to Fire, Deal 150% damage
+   | group:
+   | condition: turn 5
+     | (23951:94) Immovable as the Dragon Mountain
+     | Lock all orbs
+   | group:
+     | (23955:85) Swift Tiger Fierce Dragon Fan
+     | Change all orbs to Fire and Wood, Deal 3,000% damage

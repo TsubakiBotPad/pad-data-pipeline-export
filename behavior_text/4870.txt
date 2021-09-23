@@ -1,0 +1,32 @@
+#4870 - Klein
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4870
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11420:66) Could you give me some tips?
+ | Do nothing
+
+level: 4
+ type: PREEMPT
+ | (11421:84) Could you give me some tips?
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+ group:
+ | group:
+   | condition: 33% chance
+   | (11422:79) Hiyaaa!
+   | Change the 3rd row to Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (11424:92) Huaaa!
+   | Spawn 4 random Jammer orbs, Deal 90% damage
+   | condition: 34% chance
+   | (11425:15) Ahh ghaaa!
+   | Deal 110% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (11423:17) Let's keep going!
+   | Increase damage to 150% for the next 3 turns

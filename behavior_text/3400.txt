@@ -1,0 +1,25 @@
+#3400 - Rei Ayanami (temp. name) & Awoken Mark.09
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3400
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18299:89) What should I do?
+ | Delay active skills by 4~6 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (18300:67) Why?
+   | Absorb damage when combos <= 6 for 3 turns
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (18301:105) Control system infiltration
+   | RCV 25% for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (18302:75) I'll take back control.
+   | Leader changes to random sub for 1 turn, Deal 130% damage

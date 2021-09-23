@@ -1,0 +1,51 @@
+#102528 - Alt. Awoken Machine Zeus
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102528
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3756:72) Halve Dark
+ | Reduce damage from Dark attrs by 50%
+ | (5867:73) Machine Zeus Hera Resolve
+ | Survive attacks with 1 HP when HP > 81%
+ type: PREEMPT
+ | (3733:83) High Technique Field + Machinery Body
+ | Absorb damage when combos <= 7 for 999 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (3724:65) ZEUS Cannon
+     | Bind 1 random sub for 3 turns, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (3723:92) ZEUS Sword
+     | Spawn 5 random Mortal Poison orbs, Deal 190% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 69
+   | (3725:3) Machine King Gaze
+   | Bind God cards for 10 turns
+   | (3755:1) Machine King Gaze
+   | Bind 2 random cards for 10 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (3734:83) Aegis Invincible Field + Sword Bit Deployment
+     | Absorb damage when damage >= 2,000,000 for 5 turns + Do nothing
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (3736:83) Absolute Absorption + Sword Bit Rush
+     | Delay active skills by 3 turns + Deal 180% damage (6 hits, 30% each), Deal 180% damage (6 hits, 30% each)
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (3735:83) Delta Dead Lightning + Sword Bit Rush
+     | Change the 1st and 5th rows to Light, Jammer, and Mortal Poison orbs + Deal 180% damage (6 hits, 30% each), Deal 180% damage
+ | group:
+ | condition: hp <= 19
+   | (3730:15) Hyper Nova
+   | Deal 6,400% damage (8 hits, 800% each)

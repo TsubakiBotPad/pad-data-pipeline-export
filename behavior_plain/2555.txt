@@ -1,0 +1,88 @@
+#2555 - Pincers Mechanical Star God, Acubens
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:10958) -> Let's battle!
+	Voids status ailments for 7 turns
+	[1] ESDamageShield(74:10959) -> I wonder if you can strike me down.
+	Reduce damage from all sources by 75% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 22
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 11
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#7: ESOrbChangeAttackBits(108:10965) -> Taghyir Zahar
+Condition: 33% chance (ai:0 rnd:33)
+Change all Jammer orbs to Heal orbs, Deal 150% damage
+
+#8: ESRandomSpawn(92:10966) -> Sune Kaburya
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 7 random Jammer orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:10967) -> Athnan Maqas
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBindAwoken(88:10960) -> Well, what are you going to do?
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind awoken skills for 1 turn
+
+#12: ESBindAwoken(88:10962) -> What are you doing?!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 3 turns
+
+#13: ESBindSkill(14:10961) -> Gotcha!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 3 turns
+
+#14: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 3, target rnd 5
+
+#15: ESSkillDelay(89:10969) -> You're in trouble now!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 0~10 turns
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 6
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: SkillSet:
+	[0] ESAbsorbCombo(67:10968) -> I'm...not done...yet...
+	Absorb damage when combos <= 7 for 10 turns
+	[1] ESColumnSpawnMulti(77:10964) -> Athnan Musmar
+	Change the 1st column to Water and Jammer orbs and the 6th column to Fire and Jammer orbs, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:10970) -> This is my victory!
+Deal 450% damage (3 hits, 150% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

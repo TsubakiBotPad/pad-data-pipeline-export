@@ -1,0 +1,63 @@
+#1764 - Sunrise Bowl Dragon, Gasho
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 1764
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1775:72) Halve Dark
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (1779:55) Celebratory Feast
+ | Player recover 100% HP
+
+level: 5
+ type: PASSIVE
+ | (1775:72) Halve Dark
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (1779:55) Celebratory Feast
+ | Player recover 100% HP
+ group:
+ | group:
+ | condition: turn 1
+   | (1784:65) Gaze
+   | Bind 1 random sub for 2~3 turns
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | (1780:66) Swelling
+   | Do nothing
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | condition: 80% chance
+   | (1782:15) Mochi Explosion
+   | Deal 5,000% damage (5 hits, 1,000% each)
+   | (1783:48) Scent of Good Fortune
+   | Change a random attribute to Heal orbs, Deal 10% damage
+
+level: 10
+ type: PASSIVE
+ | (1775:72) Halve Dark
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (1779:55) Celebratory Feast
+ | Player recover 100% HP
+ group:
+ | group:
+ | condition: turn 1
+   | (1784:65) Gaze
+   | Bind 1 random sub for 2~3 turns
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | (1781:13) Swelling
+   | Change 2 random orb types to Jammer orbs
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | condition: 80% chance
+   | (1782:15) Mochi Explosion
+   | Deal 5,000% damage (5 hits, 1,000% each)
+   | (1783:48) Scent of Good Fortune
+   | Change a random attribute to Heal orbs, Deal 10% damage

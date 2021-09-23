@@ -1,0 +1,72 @@
+#101843 - Alt. Crystal Wind Dragon Queen, Linthia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101843
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8792:72) Linthia Wood Dark Halved
+ | Reduce damage from Wood and Dark attrs by 50%
+ type: PREEMPT
+ | (8743:83) Gloomy Rose + Hey! It's still playtime!
+ | Poison skyfall +20% for 10 turns + Bind awoken skills for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | condition: when 2508, 2509 on team
+     | (3552:62) Sorry, I'm tired of looking at your face
+     | Blind all orbs on the board, Deal 110% damage
+     | (3544:77) Vanir Rose
+     | Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 140% damage
+   | group:
+   | condition: turn 2 while HP > 89
+     | condition: when 1950, 1951 on team
+     | (3554:68) You seem to be funnier than the world
+     | Fire and Light skyfall +20% for 99 turns
+     | (3545:15) Glass Storm
+     | Deal 150% damage (3 hits, 50% each)
+   | group:
+     | condition: 50% chance
+     | (3545:15) Glass Storm
+     | Deal 150% damage (3 hits, 50% each)
+     | (3544:77) Vanir Rose
+     | Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 140% damage
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: turn 1 while HP > 39
+     | (3549:1) Petal Chain
+     | Bind 3 random cards for 3 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | condition: when 2508, 2509 on team
+     | (3552:62) Sorry, I'm tired of looking at your face
+     | Blind all orbs on the board, Deal 110% damage
+     | (3544:77) Vanir Rose
+     | Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 140% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | condition: when 1950, 1951 on team
+     | (3554:68) You seem to be funnier than the world
+     | Fire and Light skyfall +20% for 99 turns
+     | (3545:15) Glass Storm
+     | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (3547:77) Gale Impact
+   | Change the 3rd and 4th columns to Wood orbs, Deal 150% damage
+   | (3546:62) Floral Mist
+   | Blind all orbs on the board, Deal 140% damage
+ | group:
+ | condition: always turn 1, hp <= 39
+   | (3550:14) No way! I won't let you end this yet!
+   | Bind active skills for 10 turns
+ | group:
+ | condition: hp <= 19
+   | (3548:15) Ventus Anima
+   | Deal 600% damage (2 hits, 300% each)

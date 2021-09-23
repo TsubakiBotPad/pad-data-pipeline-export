@@ -1,0 +1,25 @@
+#203334 - Sunset God of Twilight, Aten
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203334
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25603:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ | (25611:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 1%
+ type: PREEMPT
+ | (25604:83) Night Sky's Shining Light + Signs of Change
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | (25610:15) Signpost Shining in the Night
+   | Deal 1,500% damage (5 hits, 300% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (25607:83) Light of Love and Despair + Heavenly Sun of the Shadow Lands
+   | Movetime 50% for 1 turn + ATK -50% for 1 turn

@@ -1,0 +1,78 @@
+#203339 - Aqua Pillar Goddess of Air Mastery, Mut
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:22165) -> Aqua Pillar Goddess' Barrier
+	Void damage >= 5,000,000 for 3 turns
+	[1] ESOrbLock(94:22166) -> Feather Lock
+	Lock all orbs
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 17
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESOrbLock(94:22169) -> Feather Lock
+Condition: 33% chance (ai:0 rnd:33)
+Lock 10 random orbs, Deal 80% damage
+
+#8: ESFixedStart(101:22168) -> Eagle Eye
+Condition: 33% chance (ai:0 rnd:33)
+Fix orb movement starting point to random position on the board, Deal 90% damage
+
+#9: ESAttackMultihit(15:22167) -> Eagle Feather
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (2 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22171) -> Heavenly Wings' Enlightenment
+	Increase damage to 150% for the next 999 turns
+	[1] ESNoSkyfall(127:22172) -> Vulture Scepter
+	No skyfall for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:22173) -> Vulture Blast
+Deal 400% damage (4 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22171) -> Heavenly Wings' Enlightenment
+	Increase damage to 150% for the next 999 turns
+	[1] ESNoSkyfall(127:22172) -> Vulture Scepter
+	No skyfall for 5 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

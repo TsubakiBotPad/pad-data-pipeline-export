@@ -1,0 +1,49 @@
+#6201 - D.T. Vergil
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6201
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17812:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (17790:109) Spiral Swords
+ | Random 8 orbs change every 1.0s for 1 turn, Deal 120% damage
+ group:
+ | group:
+   | condition: 25% chance
+   | (17791:83) Upper Slash + Helm Breaker
+   | Change the 4th column to Water orbs + Deal 70% damage, Deal 50% damage
+   | condition: 25% chance
+   | (17794:79) Rapid Slash
+   | Change the 3rd row to Water orbs, Deal 95% damage
+   | condition: 25% chance
+   | (17795:109) Summoned Swords
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (17798:15) Judgement Cut
+   | Deal 125% damage (5 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (17800:79) Rapid Slash Ascending Spiral 
+     | Change the 1st, 3rd, and 5th rows to Water and Dark orbs, Deal 140% damage
+   | group:
+     | condition: 25% chance
+     | (17796:110) Blistering Swords
+     | Specific orbs change every 0.5s for 1 turn, Deal 130% damage
+     | condition: 25% chance
+     | (17797:110) Sword Storm
+     | Specific orbs change every 2.0s for 1 turn, Deal 110% damage
+     | condition: 50% chance
+     | (17799:15) Judgement Cut End
+     | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: hp <= 19
+   | (17801:110) Heavy Rain Swords
+   | Specific orbs change every 2.0s for 1 turn, Deal 250% damage

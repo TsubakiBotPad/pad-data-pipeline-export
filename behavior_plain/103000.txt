@@ -1,0 +1,124 @@
+#103000 - Alt. Scarlet Sky Ruler, Yamato Takeru Dragon
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESSkillDelay(89:4850) -> Don't come any closer!!
+	Delay active skills by 0~2 turns
+	[1] ESAttackMultihit(15:4851) -> Dimension - Celestial Thorn of Chaos
+	Deal 160% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBranchCard(90:4868) -> ESBranchCard
+Branch on player_cards HAS [2141, 2142, 2970], target rnd 13
+
+#12: SkillSet:
+	[0] ESStatusShield(20:4865) -> Yamato Dragon's Protection
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:4867) -> Scarlet Sky Barrier
+	Reduce damage from all sources by 50% for 7 turns
+
+#13: SkillSet:
+	[0] ESStatusShield(20:4866) -> I... don't want... to lose...
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:4867) -> Scarlet Sky Barrier
+	Reduce damage from all sources by 50% for 7 turns
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESBranchCard(90:4868) -> ESBranchCard
+Branch on player_cards HAS [2141, 2142, 2970], target rnd 17
+
+#16: SkillSet:
+	[0] ESStatusShield(20:4865) -> Yamato Dragon's Protection
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:4867) -> Scarlet Sky Barrier
+	Reduce damage from all sources by 50% for 7 turns
+	[2] ESAttackMultihit(15:4851) -> Dimension - Celestial Thorn of Chaos
+	Deal 160% damage
+
+#17: SkillSet:
+	[0] ESStatusShield(20:4866) -> I... don't want... to lose...
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:4867) -> Scarlet Sky Barrier
+	Reduce damage from all sources by 50% for 7 turns
+	[2] ESAttackMultihit(15:4851) -> Dimension - Celestial Thorn of Chaos
+	Deal 160% damage
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#19: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 22
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#21: ESAttackMultihit(15:4851) -> Dimension - Celestial Thorn of Chaos
+Deal 160% damage
+
+#22: ESRandomSpawn(92:4857) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#23: ESRandomSpawn(92:4858) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#24: ESRandomSpawn(92:4859) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#25: ESRandomSpawn(92:4860) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#26: ESRandomSpawn(92:4861) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#27: ESRandomSpawn(92:4862) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#29: ESRandomSpawn(92:4863) -> Breath of the Scarlet Sun
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 3 random Fire and Light orbs, Deal 100% damage
+
+#30: ESRandomSpawn(92:4864) -> Scarlet Sun-Destroying Sword
+Spawn 9 random Fire and Light orbs, Deal 300% damage
+
+#31: ESResolve(73:8222) -> Dragon Dimension Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,65 @@
+#403155 - Flash Machine King, Cosmo Crusader
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:5363) -> Welcome to the big leagues
+	Voids status ailments for 10 turns
+	[1] ESOrbChangeAttack(48:5364) -> Wasser Biene
+	Change a random attribute to Water orbs, Deal 50% damage
+
+#5: ESDamageShield(74:5372) -> Prima Schild
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 3)
+Reduce damage from all sources by 50% for 3 turns
+
+#6: ESDebuffMovetime(39:5369) -> Zeit Rauben
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Movetime 50% for 3 turns
+
+#7: ESSkyfall(68:5373) -> Licht Regen
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Light skyfall +15% for 10 turns
+
+#8: ESAttackMultihit(15:5370) -> Eisen Zorn
+Condition: When < 15% HP (ai:100 rnd:0)
+Deal 1,500% damage (5 hits, 300% each)
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESRandomSpawn(92:5366) -> Blitzen Schwert
+Spawn 4 random Heal orbs, Deal 100% damage
+
+#12: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#13: ESRandomSpawn(92:5367) -> Drehung Klinge
+Condition: 50% chance & when Heal orbs are on the board (ai:50 rnd:0)
+Change all Heal orbs to Jammer orbs, Deal 150% damage
+
+#14: ESRandomSpawn(92:5368) -> Windhose
+Condition: When heal orbs are on the board (ai:100 rnd:0)
+Change all Heal orbs to Mortal Poison orbs
+
+#15: ESColumnSpawnMulti(77:5371) -> Blitz Lanze
+Change the 3rd and 4th columns to Light and Heal orbs, Deal 170% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttributeResist(72:5374) -> Robot Dark Halved
+Reduce damage from Dark attrs by 50%

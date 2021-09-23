@@ -1,0 +1,61 @@
+#2010 - Awoken Isis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:23760) -> Holy Ocean's Guidance
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:23761) -> Abyss of the Nile
+	Void damage >= 20,000,000 for 999 turns
+	[2] ESDamageShield(74:23762) -> Quick Guard
+	Reduce damage from all sources by 75% for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:23764) -> Holy Ocean's Awakening
+	Jammer skyfall +20% for 20 turns
+	[1] ESDebuffRCV(105:23765) -> Rapids of the Nile
+	RCV 25% for 5 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:23764) -> Holy Ocean's Awakening
+	Jammer skyfall +20% for 20 turns
+	[1] ESDebuffATK(130:23767) -> Rapids of the Nile
+	ATK -75% for 5 turns
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 12
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESOrbChangeAttackBits(108:23768) -> Burning Life Wave
+Change all Jammer orbs to Poison orbs, Deal 190% damage
+
+#10: SkillSet:
+	[0] ESOrbChangeAttack(48:23770) -> Drifting Impurities
+	Change a random attribute to Jammer orbs, Deal 30% damage
+	[1] ESOrbLock(94:23771) -> Congelation
+	Lock all Jammer orbs, Deal 75% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBoardChangeAttackBits(85:23772) -> Overflowing Abyss
+Change all orbs to Water, Deal 400% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

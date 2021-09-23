@@ -1,0 +1,32 @@
+#3745 - Dragonbound Shanjé
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3745
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7448:72) Dark damage halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (7402:101) You! Get on the ground!
+ | Fix orb movement starting point to random position on the board
+ group:
+ | group:
+ | condition: turn 1
+   | (7403:76) It's go time, Sharrus!
+   | Change the 3rd and 4th columns to Dark and Jammer orbs
+ | group:
+ | condition: turn 2
+   | (7404:50) Now get to work!
+   | Player -90% HP
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (7406:62) Sharrus is whimpering
+   | Blind all orbs on the board, Deal 170% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (7405:86) Twinkle ☆ Shadow
+   | Enemy recover 50% HP

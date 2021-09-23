@@ -1,0 +1,61 @@
+#4733 - Sea Dracosnake of the Dimclaws, Lindworm
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4733
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11067:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (11068:83) Flowing Green Scales + Extermination of Life
+ | Voids status ailments for 999 turns + Unable to match Heal orbs for 1 turn
+ group:
+ | group:
+   | condition: 20% chance
+   | (11071:83) Longing for Life + Demonic Region
+   | Void damage >= 15,000,000 for 1 turn + Seal the 1st row for 1 turn, Deal 100% damage
+   | condition: 20% chance
+   | (11072:83) Starvation + Meteor Shower
+   | Absorb damage when damage >= 20,000,000 for 1 turn + Water and Wood skyfall +20% for 1 turn, Deal 105% damage
+   | condition: 4% chance
+   | (11073:83) Scaly Transformation + Required Force
+   | Absorb Fire damage for 1 turn + Change a random attribute to Fire orbs, Deal 102% damage
+   | condition: 4% chance
+   | (11074:83) Scaly Transformation + Required Force
+   | Absorb Water damage for 1 turn + Change a random attribute to Water orbs, Deal 102% damage
+   | condition: 4% chance
+   | (11075:83) Scaly Transformation + Required Force
+   | Absorb Wood damage for 1 turn + Change a random attribute to Wood orbs, Deal 102% damage
+   | condition: 4% chance
+   | (11076:83) Scaly Transformation + Required Force
+   | Absorb Light damage for 1 turn + Change a random attribute to Light orbs, Deal 102% damage
+   | condition: 4% chance
+   | (11077:83) Scaly Transformation + Required Force
+   | Absorb Dark damage for 1 turn + Change a random attribute to Dark orbs, Deal 102% damage
+   | condition: 20% chance
+   | (11078:83) Withering Hope + Clouds of Yonder
+   | Absorb damage when combos <= 8 for 1 turn + A row of clouds appears for 1 turn at a random location, Deal 100% damage
+   | condition: 20% chance
+   | (11079:83) Encasing Strongscales + Rapids of Life
+   | Reduce damage from all sources by 75% for 1 turn + Change all orbs to Heal, Deal 150% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11292:83) Life Constricting + Glint of Despair
+   | Player -99% HP + Delay active skills by 0~7 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11295:83) Crimson Snake Eyes + Groans of the Dancing Frenzy
+     | Bind awoken skills for 1 turn + Specific orbs change every 1.0s for 1 turn
+   | group:
+     | (11298:83) Morph Scales + Frenzy of Absolute Power
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,200% damage (4 hits, 300% each), Deal 1,200% damage (4 hits, 300% each)
+ | group:
+ | condition: hp <= 1
+   | (11301:83) Blessed Rain + Rondo of Life and Death
+   | Enemy recover 100% HP + Leader changes to random sub for 3 turns

@@ -1,0 +1,82 @@
+  monster_id: 796
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 69
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 70
+          }
+          enemy_skill_id: 515
+        }
+      }
+    }
+    groups {
+      group_type: UNKNOWN_USE
+      children {
+        behavior {
+          condition {
+          }
+          enemy_skill_id: 521
+        }
+      }
+    }
+  }
+  levels {
+    level: 5
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 513
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 69
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 70
+              }
+              enemy_skill_id: 515
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 29
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 514
+            }
+          }
+        }
+      }
+    }
+    groups {
+      group_type: UNKNOWN_USE
+      children {
+        behavior {
+          condition {
+          }
+          enemy_skill_id: 521
+        }
+      }
+    }
+  }

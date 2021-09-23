@@ -1,0 +1,63 @@
+#7003 - Reincarnated Rushana
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 7003
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22715:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22716:83) Radiance of Enlightenment + Halo of Truth + Jail of the Six Realms
+ | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns + Delay active skills by 10 turns
+ group:
+ | group:
+   | condition: 20% chance
+   | (22725:83) Mantra Luckbringer + Southern Vidyaraja Seal
+   | Blind random 15 orbs for 1 turn + Enemy recover 10% HP, Deal 100% damage
+   | condition: 25% chance
+   | (22723:83) Mantra Purification + Central Vidyaraja Seal
+   | Player -75% HP + Absorb damage when combos <= 9 for 1 turn, Deal 50% damage
+   | condition: 25% chance
+   | (22724:83) Mantra Healing + Eastern Vidyaraja Seal
+   | Spawn 5 random Jammer, Poison, and Mortal Poison orbs + Change all Heal orbs to Wood orbs, Deal 95% damage
+   | condition: 25% chance
+   | (22726:83) Mantra Reckoning + Western Vidyaraja Seal
+   | RCV 50% for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+   | condition: 25% chance
+   | (22727:83) Mantra Blessing + Northern Vidyaraja Seal
+   | ATK -50% for 1 turn + Reduce damage from all sources by 75% for 1 turn, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (22720:83) Mantra Purification + Northern Vidyaraja Seal
+     | Player -99% HP + Reduce damage from all sources by 75% for 999 turns, Deal 50% damage
+   | group:
+     | condition: 20% chance
+     | (22738:83) Mantra Purification + Jail of the Six Realms
+     | Player -75% HP + Poison skyfall +20% for 1 turn, Deal 75% damage
+     | condition: 20% chance
+     | (22739:83) Mantra Healing + Jail of the Six Realms
+     | Spawn 5 random Jammer, Poison, and Mortal Poison orbs + Lock all orbs, Deal 150% damage
+     | condition: 20% chance
+     | (22740:83) Mantra Luckbringer + Jail of the Six Realms
+     | Blind random 15 orbs for 1 turn + Lock all orbs, Deal 150% damage
+     | condition: 20% chance
+     | (22741:83) Mantra Reckoning + Jail of the Six Realms
+     | RCV 50% for 1 turn + Delay active skills by 0~2 turns, Deal 145% damage
+     | condition: 20% chance
+     | (22742:83) Mantra Blessing + Jail of the Six Realms
+     | ATK -50% for 1 turn + Delay active skills by 0~2 turns, Deal 145% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (22746:83) Illuminate the Path of Justice + Demon Conqueror Seal
+     | Bind awoken skills for 5 turns + Bind Devil cards for 99 turns
+   | group:
+     | (22749:83) Inactivity of the Five Skhandas + Anuttara Samyak Sambodhi
+     | Voids player buff effects + Player -5,000% HP

@@ -1,0 +1,30 @@
+#406454 - Azure Hellstone Pillar
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406454
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19395:74) Demonic Flame Wall
+ | Reduce damage from all sources by 99% for 99 turns
+ group:
+ | condition: 33% chance
+ | (19399:68) Confining Flame
+ | Jammer skyfall +20% for 1 turn
+ | condition: 33% chance
+ | (19400:68) Poisoning Flame
+ | Poison skyfall +20% for 1 turn
+ | condition: 34% chance
+ | (19401:128) Blinding Flame
+ | For 1 turn, 20% chance for skyfall orbs to be blinded for turn
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | (19403:40) Magical power depleted
+ | Reduce self HP to 0
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (19402:52) Revival Flame
+ | Enemy ally recover 100% HP

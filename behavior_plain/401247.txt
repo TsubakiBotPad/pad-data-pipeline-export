@@ -1,0 +1,49 @@
+#401247 - Shadow Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:20487) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: What a bother...
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESDamageShield(74:20477) -> The likes of you...
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAbsorbCombo(67:20478) -> ...cannot hope to defeat me!
+	Absorb damage when combos <= 5 for 5 turns
+
+#4: ESBoardChangeAttackBits(85:20480) -> Die!
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Change all orbs to Dark, Heal, Jammer, and Poison, Deal 100% damage
+
+#5: ESCloud(104:20481) -> Is that all you've got?
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+A 1×2 rectangle of clouds appears for 2 turns at a random location, Deal 100% damage
+
+#6: ESAttackMultihit(15:20482) -> Pathetic!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 110% damage (2 hits, 55% each)
+
+#7: ESGravity(50:20483) -> I will destroy you!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Player -99% HP
+
+#8: ESAttackUPRemainingEnemies(17:20484) -> How boring... It's time I ended this!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#9: ESJammerChangeRandom(13:20486) -> Dark Arts
+Condition: 50% chance (ai:50 rnd:0)
+Change 1 random orb type to Jammer orbs, Deal 100% damage
+
+#10: ESAttackMultihit(15:20485) -> Begone!
+Deal 110% damage (2 hits, 55% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

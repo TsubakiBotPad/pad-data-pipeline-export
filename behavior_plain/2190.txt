@@ -1,0 +1,64 @@
+#2190 - Flame-Winged CyberBeast, Markab
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:20354) -> Accelerator Boost
+	Absorb damage when combos <= 8 for 5 turns
+	[1] ESDebuffMovetime(39:20355) -> Ruby Converter
+	Movetime 25% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 11
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESCloud(104:20359) -> Blast Signal
+Condition: 33% chance (ai:0 rnd:33)
+A row of clouds appears for 1 turn at a random location, Deal 95% damage
+
+#8: ESOrbSealColumn(99:20360) -> Blast Signal
+Condition: 33% chance (ai:0 rnd:33)
+Seal the 1st column for 1 turn, Deal 95% damage
+
+#9: ESAttackMultihit(15:20361) -> Blast Rush
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:20357) -> Accelerator Boost
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESAttributeBlock(107:20358) -> Flare Converter
+	Unable to match Heal orbs for 1 turn
+
+#12: ESAttackMultihit(15:20362) -> Burst Rush
+Deal 400% damage (4 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:20599) -> Burst Rush
+Deal 4,000% damage (4 hits, 1,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:20352) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,34 @@
+#202443 - Returning-Claw Blue Dragonbound, Ryune
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202443
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25382:83) Blue Dragon's Barrier + Aqua Ring
+ | Void damage >= 5,000,000 for 5 turns + Specific orbs change every 1.0s for 99 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (25386:83) Eternal Dragon Pact - Toa + Dragon's Returning-Claw
+   | Absorb damage when combos <= 7 for 999 turns + A row of clouds appears for 10 turns at 1st row, 1st column
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | (25385:92) Aqua Javelin
+     | Spawn 4 random Water orbs, Deal 100% damage
+   | group:
+     | (25385:92) Aqua Javelin
+     | Spawn 4 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turns 1-4
+     | (25389:15) Abyss Dark Aqua
+     | Deal 1,200% damage (4 hits, 300% each)
+   | group:
+     | (25389:15) Abyss Dark Aqua
+     | Deal 1,200% damage (4 hits, 300% each)

@@ -1,0 +1,35 @@
+#853 - DD・ポイズンエンチャンター
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 853
+approved: False
+
+level: 5
+ group:
+ | group:
+ | condition: hp <= 74
+   | condition: 70% chance
+   | (584:15) Sorcery Bow
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | (585:3) Ninja Trick Shadow Tagging
+   | Bind God cards for 3~4 turns
+   | condition: 70% chance
+   | (584:15) Sorcery Bow
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (585:3) Ninja Trick Shadow Tagging
+     | Bind God cards for 3~4 turns
+   | group:
+     | condition: 70% chance
+     | (586:15) Enchanted Suicide Spear
+     | Deal 160% damage (2 hits, 80% each)
+     | condition: 70% chance
+     | (584:15) Sorcery Bow
+     | Deal 120% damage (4 hits, 30% each)

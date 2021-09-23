@@ -1,0 +1,38 @@
+#788 - Beast of the Labyrinth, Minotaur
+monster size: 3
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 4, target rnd 9
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESAttackMultihit(15:471) -> Quick Stomp
+Deal 20% damage
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 10, target rnd 10
+
+#7: ESBindRandom(1:367) -> Binding Move
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 10 turns
+
+#8: ESAttackMultihit(15:467) -> Full Swing
+Condition: When < 40% HP (ai:100 rnd:0)
+Deal 150% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:467) -> Full Swing
+Condition: When < 40% HP (ai:100 rnd:0)
+Deal 150% damage

@@ -1,0 +1,29 @@
+#5060 - Earth Ruler Sylvan God, Cronus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5060
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26057:83) Ha, take this! + Earth King's Sickle Attack + You can still keep going, can't you?
+ | Player -150% HP + Deal 2,800% damage (8 hits, 350% each) + Void damage >= 5,000,000 for 999 turns, Deal 2,800% damage (8 hits, 350% each)
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (26061:83) Golden Wood Chalice + Intoxication
+   | Delay active skills by 1 turn + RCV 25% for 1 turn, Deal 150% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (26062:50) Earth King's Sickle Swipe
+   | Player -99% HP
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (26063:83) Golden Wood Chalice + Soul Harvest
+   | Delay active skills by 1 turn + Unable to match Heal orbs for 1 turn, Deal 150% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (26067:15) Earth King's Judging Thorns
+   | Deal 750% damage (3 hits, 250% each)

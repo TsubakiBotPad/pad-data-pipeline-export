@@ -1,0 +1,86 @@
+#202809 - Ecstatic Mythical Beast Demon, Aamir
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:12683) -> Hey! Good of you to come!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:12684) -> Make sure you take a rest!
+	Absorb damage when damage >= 8,000,000 for 999 turns
+	[2] ESBindAwoken(88:12685) -> For eternity!
+	Bind awoken skills for 10 turns
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 8
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESAttackUPRemainingEnemies(17:12696) -> What a persistent kid!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#6: ESAttackMultihit(15:12697) -> Sorry, but I've had enough
+Deal 300% damage (6 hits, 50% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 17
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 12
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:12694) -> Hmmm
+	Player -99% HP
+	[1] ESSkyfall(68:12695) -> How cold you are!
+	Poison skyfall +15% for 10 turns
+
+#12: ESBlind62(62:12686) -> Can you quit staring at me like that?
+Condition: 25% chance (ai:0 rnd:25)
+Blind all orbs on the board, Deal 100% damage
+
+#13: ESBindAttack(63:12687) -> Sleep now!
+Condition: 25% chance (ai:0 rnd:25)
+Bind 1 random sub for 2 turns, Deal 95% damage
+
+#14: ESBombRandomSpawn(102:12688) -> Shall I grow beautiful flowers?
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 5 random Bomb orbs, Deal 95% damage
+
+#15: ESAttackMultihit(15:12689) -> What about this?
+Condition: 25% chance (ai:0 rnd:25)
+Deal 110% damage (2 hits, 55% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESOrbLock(94:12691) -> You can stay here forever!
+	Lock all orbs
+	[1] ESBindRandomSub(65:12692) -> Forever!!
+	Bind 4 random subs for 10 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:12681) -> Resolve
+Survive attacks with 1 HP when HP > 90%

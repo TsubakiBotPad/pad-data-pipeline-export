@@ -1,0 +1,51 @@
+#3043 - Juppongatana "Blind Sword", Uonuma Usui
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3043
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4990:94) Welcome.
+ | Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4991:89) There's nothing you can hide from me.
+     | Delay active skills by 1 turn, Deal 100% damage
+   | group:
+     | (4992:92) This is nothing!
+     | Spawn 3 random Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 79
+   | condition: 50% chance, one time only
+   | (4993:15) Heritage Sword "Hyakka Ryoran"
+   | Deal 90~150% damage (3~5 hits, 30% each)
+   | (4992:92) This is nothing!
+   | Spawn 3 random Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (4994:83) Here I come!! + Tinbe
+     | Increase damage to 200% for the next 999 turns + Absorb damage when combos <= 3 for 5 turns
+   | group:
+   | condition: turn 2
+     | condition: when required attributes on board
+     | (4997:92) Rochin
+     | Spawn 1 random Jammer orb, Deal 80% damage
+     | (4998:15) Rochin
+     | Deal 80% damage
+   | group:
+   | condition: turn 3
+     | (4999:62) What now, then?!
+     | Blind all orbs on the board, Deal 60% damage
+   | group:
+     | condition: when required attributes on board
+     | (4997:92) Rochin
+     | Spawn 1 random Jammer orb, Deal 80% damage
+     | (4998:15) Rochin
+     | Deal 80% damage

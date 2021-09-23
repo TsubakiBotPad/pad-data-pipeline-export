@@ -1,0 +1,62 @@
+#2752 - Celestial Guardian Dragon, Avalon Drake
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESNoSkyfall(127:17280) -> Glide
+	No skyfall for 2 turns
+	[1] ESAbsorbCombo(67:17281) -> Soar
+	Absorb damage when combos <= 6 for 999 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESNoSkyfall(127:17323) -> Glide
+	No skyfall for 10 turns
+	[1] ESAbsorbCombo(67:17324) -> Soar
+	Absorb damage when combos <= 7 for 999 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 12
+
+#7: ESColumnSpawnMulti(77:17325) -> Gaia Blade
+Change the 2nd and 5th columns to Wood orbs, Deal 120% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:17327) -> Limit Aubade Gaia
+	Change all orbs to Wood
+	[1] ESSkillDelay(89:17328) -> Beat of Green Wings
+	Delay active skills by 3~6 turns, Deal 100% damage
+
+#10: ESAttackMultihit(15:17329) -> Aubade Slash
+Deal 240% damage (4 hits, 60% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSkillDelay(89:17328) -> Beat of Green Wings
+Delay active skills by 3~6 turns, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:17320) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#15: ESTurnChangePassive(106:17321) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 50%

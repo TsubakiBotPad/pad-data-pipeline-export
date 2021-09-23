@@ -1,0 +1,42 @@
+#1580 - 魔人ブウ・無邪気 VS 純粋悪
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESDeathCry(69:1430) -> ブウ2→ブウ3
+Condition: On death (ai:0 rnd:0)
+Show message: プシュシューーーーッ|ふあああああ…
+ムニュムニュ………
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 99, target rnd 6
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESDebuffMovetime(39:1488) -> ぬっ
+Movetime -1s for 5 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBindAttack(63:1489) -> チョ…チョコに…チョコにしてやるーっ!!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random sub for 1 turn, Deal 60% damage
+
+#11: ESOrbChangeAttack(48:1490) -> ブッ
+Condition: When < 50% HP (ai:100 rnd:0)
+Change a random attribute to Jammer orbs, Deal 90% damage

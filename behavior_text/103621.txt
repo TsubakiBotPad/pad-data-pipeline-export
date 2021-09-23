@@ -1,0 +1,32 @@
+#103621 - 不破圓明流継承者・不破北斗
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103621
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 3617, 3618 on team
+ | (6691:50) What's wrong master, running away?
+ | Player -50% HP
+ | (6684:50) GAAAAAHH!
+ | Player -50% HP
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (6685:62) Fugasumi
+   | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (6687:94) Funokazura Rouga
+   | Lock 6 random orbs, Deal 130% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (6688:15) Kogetsu
+   | Deal 150% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (6689:63) Fuwaenmei-Ryu Hidden Art, Kamui
+   | Bind 1 random card for 1 turn, Deal 200% damage

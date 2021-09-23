@@ -1,0 +1,134 @@
+#103176 - Yamitsukami-no-miko, Kaminue
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:12980) -> Ripening of the Land
+	Absorb Fire, Water, and Wood damage for 5 turns
+	[1] ESDebuffMovetime(39:12981) -> Second Hand's Limited Time
+	Movetime 50% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 30
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 26
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 21
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESSkyfall(68:12985) -> Landing Ground
+	Fire skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12988) -> Freedom Exploitation
+	Lock all Fire orbs, Deal 130% damage
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESSkyfall(68:12986) -> Landing Ground
+	Water skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12989) -> Freedom Exploitation
+	Lock all Water orbs, Deal 130% damage
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESSkyfall(68:12987) -> Landing Ground
+	Wood skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12990) -> Freedom Exploitation
+	Lock all Wood orbs, Deal 130% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#16: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESSkyfall(68:12985) -> Landing Ground
+	Fire skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12988) -> Freedom Exploitation
+	Lock all Fire orbs, Deal 130% damage
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: SkillSet:
+	[0] ESSkyfall(68:12987) -> Landing Ground
+	Wood skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12990) -> Freedom Exploitation
+	Lock all Wood orbs, Deal 130% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#22: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESSkyfall(68:12985) -> Landing Ground
+	Fire skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12988) -> Freedom Exploitation
+	Lock all Fire orbs, Deal 130% damage
+
+#23: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#24: SkillSet:
+	[0] ESSkyfall(68:12986) -> Landing Ground
+	Water skyfall +20% for 1 turn
+	[1] ESOrbLock(94:12989) -> Freedom Exploitation
+	Lock all Water orbs, Deal 130% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#28: SkillSet:
+	[0] ESDamageShield(74:12992) -> Settling Down
+	Reduce damage from all sources by 75% for 20 turns
+	[1] ESSkyfallLocked(96:12993) -> World-Wrecking Rumble
+	Locked Light and Dark skyfall +100% for 20 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESBindAwoken(88:12994) -> Tiger Snake Roar
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#31: ESAttackMultihit(15:12995) -> Claw & Fang Double Strike
+Deal 600% damage (6 hits, 100% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn

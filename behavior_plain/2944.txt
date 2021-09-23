@@ -1,0 +1,46 @@
+#2944 - Balboa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:13574) -> Hermit Shield
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESBlindStickyRandom(97:13575) -> Light is gathering on the staff
+	Blind random 3 orbs for 4 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBlindStickyRandom(97:13575) -> Light is gathering on the staff
+Blind random 3 orbs for 4 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 10
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttackUPRemainingEnemies(17:13577) -> Light is covering the body
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 3 turns
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESAttackMultihit(15:13578) -> Astray Beam
+Deal 10,000% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

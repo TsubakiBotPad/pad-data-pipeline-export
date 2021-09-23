@@ -1,0 +1,224 @@
+#204354 - Spirit Numen of Wood, Byuto
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:9771) -> Great Protection
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:9772) -> Defense of Mother Nature
+	Void damage >= 15,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:9773) -> Grace of Mother Nature
+	Absorb damage when combos <= 6 for 999 turns
+	[3] ESSkyfallLocked(96:9774) -> Spirit Mischief
+	Locked Poison skyfall +100% for 20 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 42
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 38
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 34
+
+#11: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 32
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESSkyfall(68:9789) -> Fallen Fruit
+	Poison skyfall +20% for 3 turns
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#13: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 3, target rnd 21
+
+#14: SkillSet:
+	Condition: 16% chance (ai:0 rnd:16)
+	[0] ESRandomSpawn(92:9779) -> Cataclysm
+	Spawn 6 random Fire, Water, Wood, Heal, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#15: SkillSet:
+	Condition: 16% chance (ai:0 rnd:16)
+	[0] ESRandomSpawn(92:9780) -> Cataclysm
+	Spawn 6 random Water, Wood, Light, Heal, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#16: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESRandomSpawn(92:9781) -> Cataclysm
+	Spawn 6 random Water, Wood, Dark, Heal, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#17: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESRandomSpawn(92:9782) -> Cataclysm
+	Spawn 6 random Fire, Wood, Light, Heal, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#18: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESRandomSpawn(92:9783) -> Cataclysm
+	Spawn 6 random Fire, Wood, Dark, Heal, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#19: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESRandomSpawn(92:9784) -> Cataclysm
+	Spawn 6 random Wood, Light, Dark, Heal, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	Condition: 4% chance (ai:0 rnd:4)
+	[0] ESRandomSpawn(92:9779) -> Cataclysm
+	Spawn 6 random Fire, Water, Wood, Heal, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#22: SkillSet:
+	Condition: 4% chance (ai:0 rnd:4)
+	[0] ESRandomSpawn(92:9780) -> Cataclysm
+	Spawn 6 random Water, Wood, Light, Heal, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#23: SkillSet:
+	Condition: 4% chance (ai:0 rnd:4)
+	[0] ESRandomSpawn(92:9781) -> Cataclysm
+	Spawn 6 random Water, Wood, Dark, Heal, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#24: SkillSet:
+	Condition: 4% chance (ai:0 rnd:4)
+	[0] ESRandomSpawn(92:9782) -> Cataclysm
+	Spawn 6 random Fire, Wood, Light, Heal, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#25: SkillSet:
+	Condition: 4% chance (ai:0 rnd:4)
+	[0] ESRandomSpawn(92:9783) -> Cataclysm
+	Spawn 6 random Fire, Wood, Dark, Heal, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#26: SkillSet:
+	Condition: 4% chance (ai:0 rnd:4)
+	[0] ESRandomSpawn(92:9784) -> Cataclysm
+	Spawn 6 random Wood, Light, Dark, Heal, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#27: SkillSet:
+	Condition: 19% chance (ai:0 rnd:19)
+	[0] ESRandomSpawn(92:9785) -> Cataclysm
+	Spawn 6 random Fire, Water, Wood, Light, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#28: SkillSet:
+	Condition: 19% chance (ai:0 rnd:19)
+	[0] ESRandomSpawn(92:9786) -> Cataclysm
+	Spawn 6 random Fire, Water, Wood, Dark, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#29: SkillSet:
+	Condition: 19% chance (ai:0 rnd:19)
+	[0] ESRandomSpawn(92:9787) -> Cataclysm
+	Spawn 6 random Water, Wood, Light, Dark, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#30: SkillSet:
+	Condition: 19% chance (ai:0 rnd:19)
+	[0] ESRandomSpawn(92:9788) -> Cataclysm
+	Spawn 6 random Fire, Wood, Light, Dark, Poison, and Mortal Poison orbs
+	[1] ESGravity(50:9790) -> Spoiled
+	Player -99% HP
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: SkillSet:
+	[0] ESRandomSpawn(92:9776) -> Sullied Fruit
+	Spawn 3 random Mortal Poison orbs
+	[1] ESOrbLock(94:9777) -> Pure Lands
+	Lock all Poison and Mortal Poison orbs
+
+#33: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#34: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#35: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#36: SkillSet:
+	[0] ESColumnSpawnMulti(76:9808) -> Wrath of the Great Tree
+	Change the 1st, 3rd, and 5th columns to Wood orbs and the 2nd, 4th, and 6th columns to Poison orbs
+	[1] ESDebuffMovetime(39:9809) -> Great Path of Destruction
+	Movetime -3s for 99 turns
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#38: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#39: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#40: SkillSet:
+	[0] ESDamageShield(74:9811) -> Defenders of the Sacred Tree
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESRowSpawnMulti(78:9812) -> Wrath of the Great Tree
+	Change the 1st, 3rd, and 5th rows to Poison orbs and the 2nd and 4th rows to Wood orbs
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: SkillSet:
+	[0] ESBindAwoken(88:9814) -> Forest of the Decaying Sea
+	Bind awoken skills for 1 turn
+	[1] ESBoardChange(84:9815) -> Ruining Grounds
+	Change all orbs to Mortal Poison
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#44: ESAttributeResist(72:9770) -> Wood Att. Halved
+Reduce damage from Wood attrs by 50%

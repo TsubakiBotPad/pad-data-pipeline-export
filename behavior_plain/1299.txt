@@ -1,0 +1,58 @@
+#1299 - Radiant God of Creation, Izanagi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:20227) -> The Will of All Creation
+	Absorb Fire damage for 10 turns
+	[1] ESSkillDelay(89:20228) -> Time Rewind
+	Delay active skills by 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 12
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBindAttack(63:20229) -> Selection of Offerings
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Bind 1 random sub for 1 turn, Deal 105% damage
+
+#9: ESDebuffMovetime(39:20230) -> Deprived of Time
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime -2s for 1 turn, Deal 95% damage
+
+#10: ESRandomSpawn(92:20231) -> Gift from Yomi's Depths
+Spawn 1 random Mortal Poison orb, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:20233) -> Call from Yomi's Depths
+	Increase damage to 150% for the next 999 turns
+	[1] ESDebuffRCV(105:20234) -> Deprived of Comfort
+	RCV 25% for 10 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

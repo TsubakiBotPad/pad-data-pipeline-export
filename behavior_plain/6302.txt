@@ -1,0 +1,55 @@
+#6302 - 「爆破」爆豪勝己
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:18472) -> I wanna crush you at your strongest.
+	Absorb damage when combos <= 6 for 4 turns
+	[1] ESBombRandomSpawn(102:18473) -> AP Shot
+	Spawn 3 random locked Bomb orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESBindRandom(1:18474) -> Don't you dare run away!!
+Condition: 33% chance (ai:0 rnd:33)
+Bind 2 random cards for 5 turns, Deal 80% damage
+
+#5: ESBlind62(62:18475) -> You're trash!!
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 100% damage
+
+#6: ESBombRandomSpawn(102:18476) -> AP Shot: Auto-Cannon
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random locked Bomb orbs, Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAttackUPRemainingEnemies(17:18477) -> Like I'd lose!!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESRowSpawnMulti(79:18478) -> Howitzer Impact
+Change the 1st row to Fire orbs and the 2nd row to Fire orbs, Deal 80% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

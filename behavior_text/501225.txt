@@ -1,0 +1,27 @@
+#501225 - Flamewing Twin Dragon King, Wangren
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 501225
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13937:94) Well, show me your power!
+ | Lock 3 random orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (13938:50) That's it?
+   | Player -30% HP
+ | group:
+   | (13939:77) Miraculous Wing
+   | Change the 1st column to Fire orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | condition: 50% chance
+   | (13940:15) Burst Flare
+   | Deal 120% damage (3 hits, 40% each)
+   | (13939:77) Miraculous Wing
+   | Change the 1st column to Fire orbs, Deal 100% damage

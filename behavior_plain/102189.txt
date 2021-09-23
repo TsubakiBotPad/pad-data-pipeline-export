@@ -1,0 +1,62 @@
+#102189 - Alt. Destroying CyberDragon, Diadem
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESRandomSpawn(92:12153) -> Star Onyx
+	Spawn 15 random Jammer orbs
+	[1] ESOrbLock(94:12154) -> Four Strikes Leading to Destruction
+	Lock all Jammer orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBindRandom(1:3749) -> First Strike - Fear Bringer
+Bind 6 random cards for 4 turns, Deal 100% damage
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#11: ESBindSkill(14:3750) -> Second Strike - Curse Bringer
+Bind active skills for 4 turns, Deal 100% damage
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#14: ESBlind62(62:3751) -> Third Strike - Darkness Bringer
+Blind all orbs on the board, Deal 100% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#17: ESSkillDelay(89:3752) -> Fourth Strike - Despair Bringer
+Delay active skills by 4 turns
+
+#18: ESAttackMultihit(15:3753) -> Hour of Destruction - Ruin Advent
+Deal 1,600% damage (8 hits, 200% each)

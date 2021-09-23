@@ -1,0 +1,48 @@
+#1535 - Awoken Ceres
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindSkill(14:1895) -> Can you escape me?
+Condition: One-time use (ai:100 rnd:0) (cost: 5)
+Bind active skills for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBoardChangeAttackFlat(81:1900) -> Soul Burst
+Condition: One-time use (ai:100 rnd:0) (cost: 5)
+Change all orbs to Wood and Heal, Deal 300% damage
+
+#7: ESRecoverEnemy7(7:1896) -> Soul Cure
+Condition: When < 50% HP (ai:100 rnd:0)
+Enemy recover 100% HP
+
+#8: ESRecoverEnemy7(7:1896) -> Soul Cure
+Condition: When < 50% HP (ai:100 rnd:0)
+Enemy recover 100% HP
+
+#9: ESBindAttack(63:1897) -> Bonds of the Sacred Tree
+Condition: 20% chance (ai:0 rnd:20)
+Bind player leader for 1~2 turns, Deal 75% damage
+
+#10: ESBindAttack(63:1898) -> Cage of Thorns
+Condition: 20% chance (ai:0 rnd:20)
+Bind 3 random subs for 1~2 turns, Deal 50% damage
+
+#11: ESAttackMultihit(15:1899) -> Whiplash
+Condition: 60% chance (ai:0 rnd:60)
+Deal 120~160% damage (3~4 hits, 40% each)
+
+#12: ESAttributeResist(72:1882) -> パッシブ・セレス
+Reduce damage from Light and Dark attrs by 50%

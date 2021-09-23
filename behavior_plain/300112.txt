@@ -1,0 +1,25 @@
+#300112 - Salamander
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:19254) -> Magma Rain
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Jammer skyfall +15% for 10 turns
+
+#3: ESAttackUPRemainingEnemies(17:19409) -> Wave of Carnage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 700% for the next 999 turns
+
+#4: ESAttackMultihit(15:19255) -> Magma Wave
+Deal 100% damage (2 hits, 50% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSuperResolve(129:19253) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

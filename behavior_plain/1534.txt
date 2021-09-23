@@ -1,0 +1,77 @@
+#1534 - Awoken Neptune
+monster size: 5
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:1889) -> Strike me down!
+Voids status ailments for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESRowSpawnMulti(79:1890) -> Heavenstrom
+Change the 1st row to Poison orbs and the 5th row to Heal orbs, Deal 25% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: ESColumnSpawnMulti(77:1891) -> Heavenstrom
+Change the 1st column to Poison orbs and the 6th column to Heal orbs, Deal 50% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#16: ESRowSpawnMulti(79:1892) -> Heavenstrom
+Change the 1st row to Heal orbs and the 5th row to Poison orbs, Deal 75% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#20: ESColumnSpawnMulti(77:1893) -> Heavenstrom
+Change the 1st column to Heal orbs and the 6th column to Poison orbs, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11110
+
+#23: ESRowSpawnMulti(79:1894) -> Abysstrom
+Change the 1st row to Poison orbs and the 5th row to Poison orbs, Deal 200% damage
+
+#24: ESAttributeResist(72:1881) -> パッシブ・ネプチューン
+Reduce damage from Light and Dark attrs by 50%

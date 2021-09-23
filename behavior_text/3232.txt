@@ -1,0 +1,25 @@
+#3232 - Old Castle Lantern, Flemin
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 3232
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5761:71) Spooky Light
+ | Void damage >= 100 for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 4
+   | (5762:92) Cat Fire
+   | Spawn 1 random Fire orb, Deal 70% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (5763:92) Eerie Flare
+   | Spawn 3 random Poison orbs, Deal 250% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (5762:92) Cat Fire
+   | Spawn 1 random Fire orb, Deal 70% damage

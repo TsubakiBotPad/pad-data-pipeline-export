@@ -1,0 +1,53 @@
+#100130 - Alt. Hades
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100130
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9129:72) Hades Resistance
+ | Reduce damage from Light attrs by 50%
+ type: DEATH
+ condition: when defeated
+ | (9137:95) It can't end like this
+ | Poison skyfall +15% for 2 turns
+
+level: 4
+ type: PASSIVE
+ | (9129:72) Hades Resistance
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (9130:98) Death Countdown: 5
+ | Blind orbs in specific positions for 1 turn
+ type: DEATH
+ condition: when defeated
+ | (9137:95) It can't end like this
+ | Poison skyfall +15% for 2 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 6
+   | (9131:98) Death Countdown: 4
+   | Blind orbs in specific positions for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 6
+   | (9132:98) Death Countdown: 3
+   | Blind orbs in specific positions for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 3 of 6
+   | (9133:98) Death Countdown: 2
+   | Blind orbs in specific positions for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 4 of 6
+   | (9134:98) Death Countdown: 1
+   | Blind orbs in specific positions for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 6
+   | (9015:83) Death Countdown: 0 + This is the end
+   | Blind orbs in specific positions for 1 turn + Deal 500% damage, Deal 500% damage
+ | group:
+ | condition: execute repeatedly, turn 6 of 6
+   | (9130:98) Death Countdown: 5
+   | Blind orbs in specific positions for 1 turn

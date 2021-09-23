@@ -1,0 +1,55 @@
+#4321 - Younger Toguro, 100% Power
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4321
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9463:83) There's something missing in your eyes... + ...and that something is fear.
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (9448:83) There's something missing in your eyes... + ...and that something is fear.
+ | Reduce damage from all sources by 75% for 3 turns + Movetime -2s for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (9450:15) Thumb Bullet
+     | Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 19
+     | (9451:15) Now I will do it rapid-fire!
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (9449:6) Oooooooaaah!!!
+     | Voids player buff effects
+     | (9454:83) Remaining at top strength is demanding... + ...and my body gets an impulse to devour.
+     | Spawn 6 random Jammer orbs + Enemy recover 30% HP
+   | group:
+     | condition: 33% chance
+     | (9450:15) Thumb Bullet
+     | Deal 100% damage
+     | condition: 50% chance
+     | (9451:15) Now I will do it rapid-fire!
+     | Deal 120% damage (4 hits, 30% each)
+     | (9455:92) All you weaklings had best remain in your seats.
+     | Spawn 6 random Jammer orbs, Deal 80% damage
+ | group:
+ | condition: turn 4 while HP > 19, hp <= 49
+   | (9456:88) You are powerless.
+   | Bind awoken skills for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (9457:5) This is the fight I hoped for!
+     | Blind all orbs on the board
+   | group:
+     | (9458:15) Full power! 100 percent of 100 percent!
+     | Deal 300% damage (3 hits, 100% each)

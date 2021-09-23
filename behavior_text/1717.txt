@@ -1,0 +1,31 @@
+#1717 - steadfast bearded deity, guan yu
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1717
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1296:14) Guan Yunchang, attacking now!
+ | Bind active skills for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1297:48) Blue Dragon Crescent Moon Blade
+     | Change a random attribute to Water orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1298:15) Blue Dragon Boisterous Dance
+     | Deal 100% damage (5 hits, 20% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1299:66) You fight well...how about this!
+     | Do nothing
+   | group:
+     | (1300:15) Eastern Crescent Moon Formation
+     | Deal 210% damage (3 hits, 70% each)

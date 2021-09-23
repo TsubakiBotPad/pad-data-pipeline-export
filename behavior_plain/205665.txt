@@ -1,0 +1,44 @@
+#205665 - Kurz Weber
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfallLocked(96:21872) -> Yyyyyyyahoo!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Locked random skyfall +30% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESRandomSpawn(92:21873) -> 57mm Rounds
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Wood orbs, Deal 70% damage
+
+#5: ESAttackMultihit(15:21874) -> I'll blast your ass into next week.
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage
+
+#6: ESRandomSpawn(92:21875) -> Massive Rifle
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Light orbs, Deal 80% damage
+
+#7: ESAttackMultihit(15:21876) -> Wild Strikes
+Condition: 25% chance (ai:0 rnd:25)
+Deal 99% damage (3 hits, 33% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESGravity(50:21877) -> Die!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -50% HP
+
+#10: ESRandomSpawn(92:21878) -> Fire!
+Spawn 2 random Wood and Light orbs, Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

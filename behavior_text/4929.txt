@@ -1,0 +1,38 @@
+#4929 - Masked Rider W
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4929
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11749:83) Terminal-Eye + Double Feeler
+ | Voids status ailments for 5 turns + Blind orbs in specific positions for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (11752:92) Cyclone Knuckle
+   | Spawn 5 random Wood orbs, Deal 100% damage
+   | (11753:92) Joker Knuckle
+   | Spawn 5 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: always turn 1
+     | (11754:67) Wind Manipulation
+     | Absorb damage when combos <= 4 for 5 turns
+   | group:
+     | condition: 33% chance
+     | (11755:79) Gale-Wrapped Kick
+     | Change the 3rd row to Wood orbs, Deal 110% damage
+     | condition: 50% chance
+     | (11752:92) Cyclone Knuckle
+     | Spawn 5 random Wood orbs, Deal 100% damage
+     | (11753:92) Joker Knuckle
+     | Spawn 5 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | (11756:83) Maximum Drive + Joker Extreme
+   | A 2×2 square of clouds appears for 1 turn at a random location + Deal 150% damage, Deal 150% damage

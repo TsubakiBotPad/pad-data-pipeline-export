@@ -1,0 +1,29 @@
+#302148 - Dawn Sky Sun Dragon Caller, Kanna
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 302148
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24510:83) Heavenly Mirror Scales + Ultimate Beacon
+ | Absorb damage when damage >= 500,000,000 for 999 turns + Lock all orbs, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 4
+     | condition: 50% chance
+     | (24513:94) Beacon
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (24514:15) Heavenly Fury
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (24400:83) Iridescent Shine + Radiant Flash
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (24515:15) Heavenly Light Talisman
+   | Deal 500% damage (5 hits, 100% each)

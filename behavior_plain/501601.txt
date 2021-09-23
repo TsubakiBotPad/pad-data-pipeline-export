@@ -1,0 +1,49 @@
+#501601 - Vibrant Butterfly Dragon, Swallowtail
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkyfall(68:14533) -> 5 Flower Petals
+Poison skyfall +5% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBoardChangeAttackBits(85:14537) -> Flamboyant Flower Flourish
+Condition: 50% chance when < 10% HP (ai:50 rnd:0)
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison, Deal 150% damage
+
+#8: ESOrbChangeAttackBits(108:14535) -> Antivenom Shot
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Change all Poison orbs to Heal orbs, Deal 120% damage
+
+#9: ESAttackMultihit(15:14534) -> Vivid Thorn
+Deal 90% damage (3 hits, 30% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESRandomSpawn(92:14536) -> Scattering Scales
+Spawn 5 random Heal and Poison orbs
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

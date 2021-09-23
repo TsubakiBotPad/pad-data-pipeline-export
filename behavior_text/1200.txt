@@ -1,0 +1,26 @@
+#1200 - Asuka&Upgraded Eva Unit-02, Code 777
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1200
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18295:109) Change modes! Code Triple Seven.
+ | Random 2 orbs change every 1.5s for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (18297:92) I'm out of time...
+     | Spawn 7 random Fire orbs, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (18298:107) Sorry, Unit 02!
+     | Unable to match Heal orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18296:17) Bestial Fourth Form
+   | Increase damage to 150% for the next 5 turns

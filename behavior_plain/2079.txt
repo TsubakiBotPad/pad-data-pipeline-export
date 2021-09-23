@@ -1,0 +1,84 @@
+#2079 - Divine General of the Sun, Krishna
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESAbsorbThreshold(87:14231) -> Memories of a Forelife
+	Absorb damage when damage >= 8,000,000 for 99 turns
+	[1] ESSkillDelay(89:14232) -> Ready against incoming attack
+	Delay active skills by 3~6 turns
+	[2] ESDebuffMovetime(39:14253) -> Adowan Pakusha
+	Movetime 25% for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:14236) -> Ateevisha Aayus
+	Spawn 8 random Poison orbs
+	[1] ESOrbLock(94:14237) -> Mudalar Pasha
+	Lock all Poison orbs, Deal 90% damage
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBombFixedSpawn(103:14238) -> Dar Raiti
+	Spawn Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:14239) -> Niladaguda Niruruvud
+	Change the 3rd row to Jammer orbs, Deal 95% damage
+
+#6: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESBlindStickyRandom(97:14240) -> Dowanta Anasha
+	Blind random 8 orbs for 1 turn
+	[1] ESBlind62(62:14241) -> Andakaarura
+	Blind all orbs on the board, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESAbsorbCombo(67:14243) -> Awakening Will
+	Absorb damage when combos <= 5 for 999 turns
+	[1] ESSpinnersFixed(110:14244) -> Cherished Aspiration
+	Specific orbs change every 1.0s for 3 turns
+	[2] ESAttributeBlock(107:14245) -> Prepared to Plunder
+	Unable to match Fire and Water orbs for 1 turn, Deal 100% damage
+
+#9: ESAttributeBlock(107:14246) -> Prepared to Plunder
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Unable to match Wood and Light orbs for 1 turn, Deal 100% damage
+
+#10: ESAttributeBlock(107:14247) -> Prepared to Plunder
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Unable to match Dark and Heal orbs for 1 turn, Deal 100% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:14249) -> Purlatishid
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:14250) -> Anubbawa Puluramuchee
+	Increase damage to 200% for the next 999 turns
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 4
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:14252) -> Udaaha Krtatu Kusaya
+	Bind awoken skills for 2 turns
+	[1] ESDebuffMovetime(39:14253) -> Adowan Pakusha
+	Movetime 25% for 1 turn
+
+#14: ESAttackMultihit(15:14254) -> Kurtosuna Pulluronchee
+Deal 450% damage (3 hits, 150% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

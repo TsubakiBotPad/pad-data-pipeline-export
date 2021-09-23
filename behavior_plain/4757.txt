@@ -1,0 +1,43 @@
+#4757 - Shinsuke Takasugi
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchCard(90:11031) -> ESBranchCard
+Branch on player_cards HAS [4748, 4749], target rnd 6
+
+#5: ESBlind5(5:11025) -> I will destroy this rotten world.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Blind all orbs on the board
+
+#6: ESBlind5(5:11026) -> You will lose everything again.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Blind all orbs on the board
+
+#7: ESStatusShield(20:11027) -> Your game of house ends here.
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Voids status ailments for 999 turns, Deal 200% damage
+
+#8: ESOrbLock(94:11028) -> My mind was made up a long time ago.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock all orbs
+
+#9: ESAttackUPRemainingEnemies(17:11029) -> The one to destroy this world will be me.
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 99 turns
+
+#10: ESAttackMultihit(15:11030) -> Have a nice nap in hell. 
+Deal 300% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

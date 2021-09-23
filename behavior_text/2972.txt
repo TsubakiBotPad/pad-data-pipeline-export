@@ -1,0 +1,53 @@
+#2972 - Green Earth Wind Dragon Caller, Kaede
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 2972
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6749:83) Wind Dragon's Protective Armor + Vanishing Lifespring - Green Life
+ | Voids status ailments for 999 turns + Fire, Water, Light, and Dark skyfall +100% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (6750:48) Summit Gale
+     | Change all Heal orbs to Wood orbs, Deal 360% damage
+     | (6751:104) Passing Spirits
+     | A 4×1 rectangle of clouds appears for 3 turns at a random location
+   | group:
+   | condition: turn 2 while HP > 19
+     | (6752:48) Holy Foundling's Endless Evergreen
+     | Change all Heal orbs to Wood orbs, Deal 3,600% damage
+     | (6753:55) Scattering Willow Flowers
+     | Player recover 100% HP
+   | group:
+   | condition: turn 3 while HP > 19
+     | (6754:48) Holy Foundling's Endless Evergreen
+     | Change all Heal orbs to Wood orbs, Deal 3,600% damage
+     | (6755:15) Wind Fang
+     | Deal 400% damage (2 hits, 200% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (6758:83) Holy Summit's Mystic Fog + Seedling Magatama
+     | Absorb damage when combos <= 6 for 5 turns + Leader changes to random sub for 3 turns
+   | group:
+     | (6759:15) Nevergreen Tempest
+     | Deal 1,750% damage (5 hits, 350% each)
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (6761:39) Thousand-Echo Windmill
+     | Movetime 50% for 1 turn, Deal 300% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6760:15) Wind Fang
+     | Deal 400% damage (2 hits, 200% each)
+ | group:
+ | condition: hp <= 19
+   | (6762:15) Nevergreen Tempest
+   | Deal 1,750% damage (5 hits, 350% each)

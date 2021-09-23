@@ -1,0 +1,54 @@
+#5297 - Experimental Poison Demon Scientist, Gaslowe
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 5297
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13806:83) Getting ready for the experiment + Wait a little bit + Chemical Mist
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 99% for 5 turns + Jammer and Poison skyfall +10% for 5 turns
+ group:
+ | group:
+ | condition: always turns 1-4
+   | condition: 20% chance
+   | (13810:107) Medicinal Mixture
+   | Unable to match Fire and Water orbs for 1 turn
+   | condition: 20% chance
+   | (13811:107) Medicinal Mixture
+   | Unable to match Water and Wood orbs for 1 turn
+   | condition: 20% chance
+   | (13812:107) Medicinal Mixture
+   | Unable to match Wood and Light orbs for 1 turn
+   | condition: 20% chance
+   | (13813:107) Medicinal Mixture
+   | Unable to match Light and Dark orbs for 1 turn
+   | condition: 20% chance
+   | (13814:107) Medicinal Mixture
+   | Unable to match Fire and Dark orbs for 1 turn
+ | group:
+ | condition: always turn 5
+   | (13815:83) Hehehe, I'm done + Let's start the experiment + You see those Poison Orbs? + Make them disappear
+   | Bind awoken skills for 1 turn + Bind active skills for 1 turn + Spawn 10 random Fire, Dark, and Mortal Poison orbs + Random 2 orbs change every 0.5s for 1 turn
+ | group:
+   | group:
+   | condition: turn 6 while HP > 9
+     | (13820:108) How disappointing
+     | Change all Mortal Poison orbs to Heal orbs, Deal 5,000% damage
+     | (13821:83) Splendid + Entertain me
+     | Void damage >= 8,000,000 for 999 turns + Poison skyfall +10% for 99 turns
+   | group:
+     | condition: 33% chance
+     | (14182:39) Mad Science
+     | Movetime -4s for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (14183:74) High Pitched Doping
+     | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+     | (14184:15) Crazy Invention
+     | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 9
+   | (14185:83) Last Experiment + Thank you for your cooperation
+   | Change own attribute to random one of Fire, Water, Wood, or Dark + Deal 7,000% damage (10 hits, 700% each), Deal 7,000% damage (10 hits, 700% each)

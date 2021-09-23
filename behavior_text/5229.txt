@@ -1,0 +1,27 @@
+#5229 - 憩いの玩龍喚士・コットン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5229
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13204:84) みんなで楽しく食べよう♪
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+ group:
+ | group:
+   | condition: 33% chance
+   | (13205:92) 一緒に食べるとおいしいね♪
+   | Spawn 1 random Fire, Water, Wood, Light, and Dark orb, Deal 95% damage
+   | condition: 33% chance
+   | (13206:92) これがお気に入り♪
+   | Spawn 5 random Light orbs, Deal 90% damage
+   | condition: 34% chance
+   | (13207:15) ぜーんぶ大好きー♪
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | (13208:15) 食べたらお片付けしようね♪
+   | Deal 200% damage (5 hits, 40% each)

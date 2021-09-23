@@ -1,0 +1,32 @@
+#100403 - Alt. Griffin, the Hunter of Tempests
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:9310) -> Squall
+	Player -50% HP
+	[1] ESAttackMultihit(15:9311) -> Godspeed
+	Deal 50% damage
+
+#3: ESSpinnersRandom(109:9313) -> Tornado
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Random 12 orbs change every 1.5s for 1 turn
+
+#4: ESAttackMultihit(15:9316) -> Kamikaze
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 200% damage (4 hits, 50% each)
+
+#5: ESAttackMultihit(15:9314) -> Scratch
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESTurnChangePassive(106:9315) -> Supersonic
+Enemy turn counter change to 1 when HP <= 50%

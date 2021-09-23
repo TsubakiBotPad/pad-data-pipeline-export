@@ -1,0 +1,43 @@
+#6690 - Melodic Ancient Raccoon, Furaku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6690
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20779:83) Rhythmic Drum + Raccoon's Enchantment
+ | ATK -75% for 10 turns + Specific orbs change every 1.0s for 10 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (20782:97) Mesmerizing Drops
+   | Blind random 5 orbs for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (20783:102) Mesmerizing Drops
+   | Spawn 5 random Bomb orbs, Deal 95% damage
+   | condition: 33% chance
+   | (20784:92) Mesmerizing Drops
+   | Spawn 5 random Mortal Poison orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20785:83) Roar of the World-Rumbling Drum + Rhythmic Dance
+     | Change board size to 7x6 for 3 turns + Absorb damage when combos <= 9 for 3 turns
+   | group:
+   | condition: turns 2-4
+     | condition: 34% chance
+     | (20782:97) Mesmerizing Drops
+     | Blind random 5 orbs for 1 turn, Deal 100% damage
+     | condition: 33% chance
+     | (20783:102) Mesmerizing Drops
+     | Spawn 5 random Bomb orbs, Deal 95% damage
+     | condition: 33% chance
+     | (20784:92) Mesmerizing Drops
+     | Spawn 5 random Mortal Poison orbs, Deal 90% damage
+   | group:
+     | (20788:15) Tak-takka-tak-tak
+     | Deal 300% damage (5 hits, 60% each)

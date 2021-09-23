@@ -1,0 +1,32 @@
+#4102 - Chin Gentsai
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4102
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19683:20) Let's start this slowly.
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (19685:92) Hyoutangeki
+   | Spawn 3 random Wood orbs, Deal 98% damage
+   | condition: 33% chance
+   | (19686:89) Bougetsu Sui
+   | Delay active skills by 0~2 turns, Deal 95% damage
+   | condition: 34% chance
+   | (19684:15) Hoy!
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19687:68) It's burning black!
+     | Fire skyfall +15% for 4 turns
+   | group:
+     | (19688:85) Gouen Shourai
+     | Change all orbs to Fire, Wood, and Heal, Deal 120% damage

@@ -1,0 +1,74 @@
+#403595 - Alt. Awoken Ganesha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 403595
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19324:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (20998:72) Water & Dark Halved
+ | Reduce damage from Water and Dark attrs by 50%
+ type: PREEMPT
+ | condition: 20% chance
+ | (19325:83) Scholarly God's Wisdom + Unburdening Brilliance + Vijñana
+ | Voids status ailments for 999 turns + Void damage >= 80,000,000 for 999 turns + Absorb Fire and Water damage for 5 turns
+ | condition: 25% chance
+ | (19326:83) Scholarly God's Wisdom + Unburdening Brilliance + Vijñana
+ | Voids status ailments for 999 turns + Void damage >= 80,000,000 for 999 turns + Absorb Water and Wood damage for 5 turns
+ | condition: 33% chance
+ | (19327:83) Scholarly God's Wisdom + Unburdening Brilliance + Vijñana
+ | Voids status ailments for 999 turns + Void damage >= 80,000,000 for 999 turns + Absorb Wood and Light damage for 5 turns
+ | condition: 50% chance
+ | (19328:83) Scholarly God's Wisdom + Unburdening Brilliance + Vijñana
+ | Voids status ailments for 999 turns + Void damage >= 80,000,000 for 999 turns + Absorb Light and Dark damage for 5 turns
+ | (19329:83) Scholarly God's Wisdom + Unburdening Brilliance + Vijñana
+ | Voids status ailments for 999 turns + Void damage >= 80,000,000 for 999 turns + Absorb Fire and Dark damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 50% chance
+     | (19337:15) Lokapala
+     | Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (19407:102) Vinayaka
+     | Spawn 7 random Bomb orbs, Deal 95% damage
+   | group:
+   | condition: turn 5 while HP > 49
+     | (19338:83) Shankara + Vighna
+     | Increase damage to 150% for the next 999 turns + Delay active skills by 10 turns
+   | group:
+   | condition: turns 6-14 while HP > 9
+     | condition: 50% chance
+     | (19337:15) Lokapala
+     | Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (19407:102) Vinayaka
+     | Spawn 7 random Bomb orbs, Deal 95% damage
+   | group:
+     | (20951:83) Magic Tower + Bloody Carnage
+     | Bind awoken skills for 1 turn + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: turn 5 while HP > 9, hp <= 49
+   | condition: 20% chance
+   | (19341:83) Shankara + Vijñana
+   | Increase damage to 150% for the next 999 turns + Absorb Fire and Water damage for 5 turns
+   | condition: 25% chance
+   | (19342:83) Shankara + Vijñana
+   | Increase damage to 150% for the next 999 turns + Absorb Water and Wood damage for 5 turns
+   | condition: 33% chance
+   | (19343:83) Shankara + Vijñana
+   | Increase damage to 150% for the next 999 turns + Absorb Wood and Light damage for 5 turns
+   | condition: 50% chance
+   | (19344:83) Shankara + Vijñana
+   | Increase damage to 150% for the next 999 turns + Absorb Light and Dark damage for 5 turns
+   | (19345:83) Shankara + Vijñana
+   | Increase damage to 150% for the next 999 turns + Absorb Fire and Dark damage for 5 turns
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 9
+   | (19346:85) Dhahab Ankusha
+   | Change all orbs to Light, Deal 1,000% damage

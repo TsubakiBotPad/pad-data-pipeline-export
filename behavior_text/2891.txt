@@ -1,0 +1,43 @@
+#2891 - Light Guiding Star Machine, Orpharion
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2891
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5865:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (5866:72) Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (5855:83) My name is Orpharion! + Paradiso Puma
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (5861:89) Disperazione
+     | Delay active skills by 99 turns
+   | group:
+     | condition: 20% chance
+     | (5856:100) Sopra Perdere
+     | Seal the 1st row for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (5857:97) Oscurità Alcuni
+     | Blind random 4~10 orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (5858:94) Chiave a Spina
+     | Lock 11 random orbs, Deal 100% damage
+     | condition: 20% chance
+     | (5859:63) Anestesia Spada
+     | Bind 1 random card for 2 turns, Deal 100% damage
+     | condition: 20% chance
+     | (5860:88) Nessuno Spazio
+     | Bind awoken skills for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (5864:83) Angelo Lacrima + Innumerevoli Ferite
+   | Voids player buff effects + Deal 5,000% damage (10 hits, 500% each), Deal 5,000% damage (10 hits, 500% each)

@@ -1,0 +1,23 @@
+#1987 - Bem Gist
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESRowSpawnMulti(79:1997) -> Spiral Fire
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change the 1st and 5th rows to Fire orbs, Deal 120% damage
+
+#4: ESColumnSpawnMulti(77:1998) -> Spiral Fire
+Condition: When < 50% HP (ai:100 rnd:0)
+Change the 1st and 6th columns to Fire orbs, Deal 120% damage
+
+#5: ESOrbChangeAttack(48:1996) -> Flame Soul
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Fire orbs, Deal 75% damage

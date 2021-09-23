@@ -1,0 +1,52 @@
+#500142 - Flamedragon Muspelheim
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffMovetime(39:14510) -> Heat Wave
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime -2s for 3 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESOrbChangeAttack(48:14511) -> Fire Eating
+Change all Fire orbs to Jammer orbs, Deal 50% damage
+
+#6: ESAttackMultihit(15:14512) -> Colossal Fireball
+Deal 100% damage
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 13
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESOrbChangeAttack(48:14511) -> Fire Eating
+Condition: 30% chance (ai:30 rnd:0)
+Change all Fire orbs to Jammer orbs, Deal 50% damage
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESAttackMultihit(15:14521) -> Colossal Fireball
+Deal 130% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESAttackMultihit(15:14513) -> Colossal Fireball
+Deal 200% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

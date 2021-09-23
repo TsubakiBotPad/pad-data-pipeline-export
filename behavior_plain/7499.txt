@@ -1,0 +1,40 @@
+#7499 - 宿儺の器・虎杖悠仁
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealRow(100:26658) -> I'll exorcise this one.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 5th row for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 9
+
+#4: ESColumnSpawnMulti(77:26659) -> Black Flash
+Condition: 25% chance (ai:0 rnd:25)
+Change the 2nd column to Light and Dark orbs, Deal 100% damage
+
+#5: ESColumnSpawnMulti(77:26660) -> Black Flash
+Condition: 25% chance (ai:0 rnd:25)
+Change the 5th column to Light and Dark orbs, Deal 100% damage
+
+#6: ESRowSpawnMulti(79:26661) -> Black Flash
+Condition: 25% chance (ai:0 rnd:25)
+Change the 2nd row to Light and Dark orbs, Deal 100% damage
+
+#7: ESRowSpawnMulti(79:26662) -> Black Flash
+Condition: 25% chance (ai:0 rnd:25)
+Change the 4th row to Light and Dark orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESRowSpawnMulti(79:26663) -> Black Flash
+Change the 2nd and 4th rows to Light orbs and the 3rd row to Dark orbs, Deal 300% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

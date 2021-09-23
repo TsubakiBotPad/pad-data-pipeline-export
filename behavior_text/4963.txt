@@ -1,0 +1,28 @@
+#4963 - じんめん犬
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4963
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11890:92) チヤホヤしてくれよぉ！
+ | Spawn 3 random Heal orbs
+ group:
+ | group:
+   | condition: 40% chance
+   | (11891:15) ガルルッ！！
+   | Deal 110% damage
+   | condition: 40% chance
+   | (11892:48) アチッ！　アチチチッ！！
+   | Change a random attribute to Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 14
+   | (11894:15) おっさんかみマックス
+   | Deal 180% damage (3 hits, 60% each)
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1 while HP > 14, hp <= 100
+ | (11893:50) チクショー！
+ | Player -50% HP

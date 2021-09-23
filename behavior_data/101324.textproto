@@ -1,0 +1,72 @@
+  monster_id: 101324
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 1244
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+        repeats_every: 6
+        trigger_turn: 6
+      }
+      children {
+        behavior {
+          enemy_skill_id: 1244
+        }
+      }
+    }
+  }
+  levels {
+    level: 5
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 1245
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 1
+            trigger_turn_end: 5
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 40
+              }
+              enemy_skill_id: 1246
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 6
+          }
+          children {
+            behavior {
+              enemy_skill_id: 1247
+            }
+          }
+        }
+      }
+    }
+  }

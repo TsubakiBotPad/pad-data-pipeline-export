@@ -1,0 +1,61 @@
+#1190 - Ancient Draggie Knight, Zeal
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 1190
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8330:83) Ancient Field + Hyper Dragon Shield
+ | RCV 50% for 10 turns + Reduce damage from all sources by 99% for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (8336:6) Wave of Nothingness
+   | Voids player buff effects
+   | (8333:20) Ready...Set...Fight!
+   | Voids status ailments for 999 turns
+ | group:
+ | condition: turn 2
+   | (8337:74) Super Dragon Shield
+   | Reduce damage from all sources by 75% for 5 turns
+ | group:
+ | condition: turn 3
+   | (8334:39) That's all you've got?!
+   | Movetime -3s for 10 turns
+ | group:
+ | condition: turn 4
+   | (8336:6) Wave of Nothingness
+   | Voids player buff effects
+   | (8339:15) Dragon Fang
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turns 5-6
+   | (8339:15) Dragon Fang
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 7
+   | (8336:6) Wave of Nothingness
+   | Voids player buff effects
+   | (8338:74) Dragon Shield
+   | Reduce damage from all sources by 50% for 5 turns
+ | group:
+ | condition: turn 8
+   | (8335:17) This is my true power!
+   | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (8339:15) Dragon Fang
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (8336:6) Wave of Nothingness
+   | Voids player buff effects
+   | (8339:15) Dragon Fang
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (8339:15) Dragon Fang
+   | Deal 100% damage (2 hits, 50% each)

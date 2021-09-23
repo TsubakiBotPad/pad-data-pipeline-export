@@ -1,0 +1,42 @@
+#5525 - Velkhana
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5525
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18801:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18789:83) Roar + Buffering Wind
+ | ATK -50% for 5 turns + Void damage >= 4,000,000 for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (18792:65) Wheeling Bite
+   | Bind 2 random subs for 10 turns, Deal 80% damage
+   | condition: 33% chance
+   | (18794:79) Cryobreath
+   | Change the 1st row to Water orbs, Deal 90% damage
+   | condition: 34% chance
+   | (18793:15) Repeating Tail Thrust
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18795:83) Ice Wall + Glacial Haze
+     | Reduce damage from all sources by 75% for 4 turns + A 7×2 rectangle of clouds appears for 4 turns at a random location
+   | group:
+     | condition: 50% chance
+     | (18797:48) Giant Ice Block
+     | Change a random attribute to Water orbs, Deal 120% damage
+     | (18799:77) Great Ice Pillar Attack
+     | Change the 1st and 6th columns to Water orbs, Deal 115% damage
+ | group:
+ | condition: hp <= 1
+   | (18800:85) Absolute Zero
+   | Change all orbs to Water, Deal 5,000% damage

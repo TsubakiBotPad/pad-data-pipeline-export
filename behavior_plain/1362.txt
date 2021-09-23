@@ -1,0 +1,82 @@
+#1362 - Hidden Sea Dragon Knight, Cleopatra
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:1229) -> Egotistical Healing
+Voids status ailments for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#9: ESOrbChangeAttack(48:1234) -> Whip of Love
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Change a random attribute to Heal orbs, Deal 125% damage
+
+#10: ESOrbChangeAttack(48:1230) -> Water Orb Kick
+Condition: 30% chance (ai:30 rnd:0)
+Change a random attribute to Water orbs, Deal 100% damage
+
+#11: ESAttackMultihit(15:1231) -> Blue Dragon Screw
+Condition: 40% chance (ai:40 rnd:0)
+Deal 150% damage (3 hits, 50% each)
+
+#12: ESBindAttack(63:1232) -> Frozen Cobra Twist
+Condition: 60% chance (ai:60 rnd:0)
+Bind friend leader for 1 turn, Deal 50% damage
+
+#13: ESBlind62(62:1233) -> Poison Mist
+Blind all orbs on the board, Deal 75% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESInactivity66(66:1235) -> Serpent Top
+Do nothing
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#21: ESBindAttack(63:1236) -> Nile-Style Moonsault Press
+Bind 6 random cards for 1~2 turns, Deal 25% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESInactivity66(66:1238) -> Now sleep!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#24: ESAttackMultihit(15:1237) -> Pinfall
+Deal 5,000% damage

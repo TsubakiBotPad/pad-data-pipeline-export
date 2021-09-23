@@ -1,0 +1,86 @@
+#205994 - Red Clablin
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205994
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16983:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (16983:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (17017:67) Flame Wall
+ | Absorb damage when combos <= 3 for 5 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (16978:92) Flaming Club
+   | Spawn 4 random Fire orbs, Deal 95% damage
+   | condition: 30% chance
+   | (16980:79) Burning Blow
+   | Change the 4th row to Fire orbs, Deal 98% damage
+   | (16979:15) Thump
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (16982:15) Morning Star
+   | Deal 135% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+   | (17013:52) Revive
+   | Enemy ally recover 50% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16981:17) Raised Weapon
+     | Increase damage to 300% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16982:15) Morning Star
+     | Deal 135% damage
+
+level: 7
+ type: PASSIVE
+ | (16983:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (16977:67) Flame Wall
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (16978:92) Flaming Club
+   | Spawn 4 random Fire orbs, Deal 95% damage
+   | condition: 30% chance
+   | (16980:79) Burning Blow
+   | Change the 4th row to Fire orbs, Deal 98% damage
+   | (16979:15) Thump
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (16982:15) Morning Star
+   | Deal 135% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+   | (17013:52) Revive
+   | Enemy ally recover 50% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16981:17) Raised Weapon
+     | Increase damage to 300% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16982:15) Morning Star
+     | Deal 135% damage

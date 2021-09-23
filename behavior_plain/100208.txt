@@ -1,0 +1,29 @@
+#100208 - Alt. Earth Light Carbuncle
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealRow(100:14261) -> Earth's Awakening
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Seal the 5th row for 3 turns
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 6
+
+#4: ESAttackUPRemainingEnemies(17:14257) -> Mythical Beast Roar
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#5: ESDamageShield(74:14258) -> A Nobility of Mythical Beasts
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 2 turns
+
+#6: ESAttackMultihit(15:14262) -> Emerald Strike
+Deal 100% damage (2 hits, 50% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

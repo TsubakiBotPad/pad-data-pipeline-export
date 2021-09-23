@@ -1,0 +1,60 @@
+#1511 - Bonfire Fox, Mitsuki
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESSpinnersRandom(109:14318) -> Hehehe!
+	Random 1 orbs change every 2.0s for 5 turns
+	[1] ESGravity(50:14319) -> I'll play with you for a bit
+	Player -99% HP
+	[2] ESMaxHPChange(111:14320) -> How long can you last?
+	Change player HP to 10,000 for 2 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESAttackMultihit(15:14322) -> Can you withstand this?
+	Deal 100% damage
+	[1] ESMaxHPChange(111:14323) -> That was just a taste of what's to come
+	Change player HP to 50,000 for 2 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAttackMultihit(15:14325) -> Can you withstand this?
+	Deal 400% damage (2 hits, 200% each)
+	[1] ESMaxHPChange(111:14326) -> How about this?
+	Change player HP to 100,000 for 2 turns
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESAttackMultihit(15:14328) -> Can you withstand this?
+	Deal 1,000% damage
+	[1] ESMaxHPChange(111:14329) -> You're doing better than I expected
+	Change player HP to 200,000 for 2 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAttackMultihit(15:14331) -> Can you withstand this?
+	Deal 2,000% damage (2 hits, 1,000% each)
+	[1] ESMaxHPChange(111:14332) -> Time to end this!
+	Change player HP to 300,000 for 2 turns
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackMultihit(15:14334) -> Can you withstand this?
+	Deal 3,000% damage (3 hits, 1,000% each)
+	[1] ESRecoverPlayer(55:14335) -> That was amazing!
+	Player recover 100% HP
+	[2] ESEndBattle(40:14336) -> Keep it up!
+	Reduce self HP to 0
+
+#8: ESEndBattle(40:14336) -> Keep it up!
+Reduce self HP to 0
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

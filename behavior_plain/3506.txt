@@ -1,0 +1,49 @@
+#3506 - Reincarnated Pandora
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:15662) -> You can do it, right?
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:15663) -> Even in times like this...
+	Bind awoken skills for 5 turns
+	[2] ESAbsorbCombo(67:15664) -> Now, grasp hold of hope...
+	Absorb damage when combos <= 9 for 1 turn
+	[3] ESRandomSpawn(92:15665) -> Pandora's Box
+	Spawn 6 random Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 8
+
+#6: ESBindAwoken(88:15669) -> No Cheating...
+Bind awoken skills for 10 turns
+
+#7: ESBindRandomSub(65:15670) -> Nightmarish Present
+Bind 4 random subs for 6 turns
+
+#8: SkillSet:
+	[0] ESDebuffMovetime(39:15667) -> Congratulations
+	Movetime 110% for 99 turns
+	[1] ESAbsorbCombo(67:15668) -> Right, I'll give it my all
+	Absorb damage when combos <= 7 for 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:15671) -> Endless Disaster
+Deal 100% damage (4 hits, 25% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

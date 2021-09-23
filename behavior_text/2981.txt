@@ -1,0 +1,37 @@
+#2981 - Awoken Ame no Uzume
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2981
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23592:83) Dance of Heavenly Worship + Omoikane's Oracle + Mirror of Yata
+ | Absorb damage when combos <= 9 for 999 turns + Bind awoken skills for 5 turns + A row of clouds appears for 5 turns at 3rd row, 1st column
+ group:
+ | group:
+ | condition: always turn 5
+   | (23596:83) Heaven's Gate Dance Performance + Warding Shimenawa Rope
+   | Increase damage to 300% for the next 999 turns + Lock all orbs
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (23599:15) Kagura Dancer
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 50% chance
+     | (23603:1) Wild Dance of Divine Possession
+     | Bind 1 random card for 5 turns, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (23599:15) Kagura Dancer
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 50% chance
+     | (23603:1) Wild Dance of Divine Possession
+     | Bind 1 random card for 5 turns, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (23600:83) Drum Dance of Protection + Basho Leaf Wind
+   | Voids status ailments for 999 turns + Delay active skills by 6 turns

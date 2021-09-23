@@ -1,0 +1,27 @@
+#401921 - Alt. Wild Flowerdragon, Howling Brachys
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 401921
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13696:83) Full Blooming + Withered Flowers
+ | Heal skyfall +20% for 10 turns + RCV 25% for 10 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (10522:92) Fluttering Flower Petals
+   | Spawn 4 random Jammer orbs, Deal 90% damage
+   | condition: 33% chance
+   | (10523:108) Decaying Flowers
+   | Change all Heal orbs to Jammer orbs, Deal 80% damage
+   | condition: 34% chance
+   | (10524:15) Gaia Flame
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1, hp <= 20
+   | (10525:17) Ripening of the Land
+   | Increase damage to 200% for the next 999 turns

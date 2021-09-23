@@ -1,0 +1,38 @@
+#200566 - Alt. Goemon, the Thief
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:25547) -> The Great Thief's Secret Technique
+	Void damage >= 15,000,000 for 999 turns
+	[1] ESBoardChange(84:25546) -> Ninja Art Firecrackers
+	Change all orbs to Fire
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 6
+
+#4: ESAttackMultihit(15:25549) -> Coin Throw
+Deal 120% damage (4 hits, 30% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	[0] ESRecoverEnemy86(86:25551) -> Golden Pipe
+	Enemy recover 100% HP
+	[1] ESBoardChange(84:25552) -> Ninja Art Firecrackers
+	Change all orbs to Fire
+	[2] ESOrbLock(94:25548) -> Hyaaaa!
+	Lock all Fire orbs, Deal 500% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESResolve(73:25268) -> Resolve
+Survive attacks with 1 HP when HP > 50%

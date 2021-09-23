@@ -1,0 +1,46 @@
+#5901 - Pixel Ice Samurai Ogre
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAttackMultihit(15:17893) -> Quick Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 80% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#5: ESAttackUPCooldown(19:17894) -> Pixel Cheer
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 500% for the next 999 turns
+
+#6: ESAttackMultihit(15:17895) -> Freeze Strike
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESRecoverEnemy86(86:17905) -> Ogre Dance
+Enemy recover 50% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:17892) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESTurnChangePassive(106:17904) -> Stubborn
+Enemy turn counter change to 1 when HP <= 1%

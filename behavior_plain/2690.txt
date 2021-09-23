@@ -1,0 +1,40 @@
+#2690 - Toshiro Hitsugaya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESGravity(50:17508) -> What are you up to?
+Player -99% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBindRandom(1:17510) -> I'm going to kill you...
+Condition: 50% chance (ai:50 rnd:0)
+Bind 1 random card for 10 turns, Deal 80% damage
+
+#8: ESAttackMultihit(15:17509) -> Blast!!
+Deal 90% damage (2 hits, 45% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackUPRemainingEnemies(17:17512) -> It's over...
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#11: ESRowSpawnMulti(79:17511) -> Reign over the frosted heavens... Hyorinmaru!!!
+Change the 1st row to Water orbs and the 5th row to Water orbs, Deal 85% damage

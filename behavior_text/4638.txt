@@ -1,0 +1,64 @@
+#4638 - Holy Inferno Companion Dragon, Harnis
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4638
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10310:107) Green Exception
+ | Unable to match Wood orbs for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (10311:103) Affliction Bombing
+   | Spawn Bomb orbs in the specified positions
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (10314:48) Soppy Flame
+     | Change a random attribute to Fire orbs, Deal 110% damage
+     | condition: 33% chance
+     | (10315:15) Flame Rush
+     | Deal 120% damage (3 hits, 40% each)
+     | condition: 34% chance
+     | (10316:102) Affliction Bombing
+     | Spawn 3 random Bomb orbs
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10313:85) Flame Enclosure
+     | Change all orbs to Fire, Wood, Light, and Heal, Deal 120% damage
+ | group:
+ | condition: hp <= 14
+   | (10320:15) Blaze Rush
+   | Deal 200% damage (4 hits, 50% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | condition: 33% chance
+   | (10314:48) Soppy Flame
+   | Change a random attribute to Fire orbs, Deal 110% damage
+   | condition: 33% chance
+   | (10315:15) Flame Rush
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 34% chance
+   | (10316:102) Affliction Bombing
+   | Spawn 3 random Bomb orbs
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (10312:102) Affliction Bombing
+   | Spawn 1 random locked Bomb orb
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (10311:103) Affliction Bombing
+   | Spawn Bomb orbs in the specified positions
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 100
+   | (10319:83) Burning Affliction + Blazing Fire
+   | Player -99% HP + Increase damage to 200% for the next 99 turns

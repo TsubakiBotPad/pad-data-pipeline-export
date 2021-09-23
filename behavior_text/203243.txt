@@ -1,0 +1,36 @@
+#203243 - Reincarnated Parvati
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 203243
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2214:73) パール・パッシブ
+ | Survive attacks with 1 HP when HP > 1%
+ type: PREEMPT
+ | (14464:87) It's about to get more dangerous
+ | Absorb damage when damage >= 20,000,000 for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2217:79) Calming Mountain Wind
+     | Change the 1st row to Heal orbs, the 3rd row to Wood orbs, and the 5th row to Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (2218:77) Trishula
+     | Change the 1st column to Fire orbs, the 3rd column to Fire orbs, and the 5th column to Fire orbs, Deal 100% damage
+     | (2216:15) Tiger Rush
+     | Deal 90~120% damage (3~4 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | (2219:79) Himalayan Anger
+   | Change the 1st row to Jammer orbs, Deal 200% damage
+ | group:
+ | condition: hp <= 1
+   | (2220:83) Grief of the Golden God + Foolishness...
+   | Spawn 10 random Jammer orbs + Reduce self HP to 0

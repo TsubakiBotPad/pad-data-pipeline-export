@@ -1,0 +1,183 @@
+#5878 - Children's Day Carp Dragon, Jungetsu
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 21
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESAbsorbAttribute(53:16560) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire damage for 2 turns
+
+#6: ESAbsorbAttribute(53:16561) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water damage for 2 turns
+
+#7: ESAbsorbAttribute(53:16562) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood damage for 2 turns
+
+#8: ESAbsorbAttribute(53:16563) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light damage for 2 turns
+
+#9: ESAbsorbAttribute(53:16564) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Dark damage for 2 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 17
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESOrbChangeAttackBits(108:16565) -> Windsock
+Condition: 30% chance (ai:0 rnd:30)
+Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#14: ESOrbChangeAttackBits(108:16569) -> Warding Away Evil
+Condition: 20% chance (ai:0 rnd:20)
+Change all Heal orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 70% damage
+
+#15: ESAttackMultihit(15:16570) -> Ceremonial Iris Sword
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 13
+
+#19: SkillSet:
+	[0] ESSkyfall(68:16567) -> Blessing of the 5 Annual Ceremonies
+	Fire, Water, Wood, Light, and Dark skyfall +100% for 1 turn
+	[1] ESGravity(50:16608) -> Stone Throwing
+	Player -50% HP
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:16560) -> Children's Day Wishes
+	Absorb Fire damage for 2 turns
+	[1] ESOrbChangeAttackBits(108:16565) -> Windsock
+	Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#22: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:16561) -> Children's Day Wishes
+	Absorb Water damage for 2 turns
+	[1] ESOrbChangeAttackBits(108:16565) -> Windsock
+	Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#23: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:16562) -> Children's Day Wishes
+	Absorb Wood damage for 2 turns
+	[1] ESOrbChangeAttackBits(108:16565) -> Windsock
+	Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#24: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:16563) -> Children's Day Wishes
+	Absorb Light damage for 2 turns
+	[1] ESOrbChangeAttackBits(108:16565) -> Windsock
+	Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:16564) -> Children's Day Wishes
+	Absorb Dark damage for 2 turns
+	[1] ESOrbChangeAttackBits(108:16565) -> Windsock
+	Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#26: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 33
+
+#27: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#28: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 43
+
+#29: ESOrbChangeAttackBits(108:16565) -> Windsock
+Condition: 33% chance (ai:0 rnd:33)
+Change all Fire, Water, Wood, Light, and Dark orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+
+#30: ESOrbChangeAttackBits(108:16569) -> Warding Away Evil
+Condition: 33% chance (ai:0 rnd:33)
+Change all Heal orbs to Fire, Water, Wood, Light, and Dark orbs, Deal 70% damage
+
+#31: ESAttackMultihit(15:16570) -> Ceremonial Iris Sword
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#34: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 37
+
+#35: SkillSet:
+	[0] ESSkyfall(68:16567) -> Blessing of the 5 Annual Ceremonies
+	Fire, Water, Wood, Light, and Dark skyfall +100% for 1 turn
+	[1] ESGravity(50:16568) -> Stone Throwing
+	Player -99% HP
+
+#36: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#37: ESAbsorbAttribute(53:16560) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire damage for 2 turns
+
+#38: ESAbsorbAttribute(53:16561) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water damage for 2 turns
+
+#39: ESAbsorbAttribute(53:16562) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood damage for 2 turns
+
+#40: ESAbsorbAttribute(53:16563) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light damage for 2 turns
+
+#41: ESAbsorbAttribute(53:16564) -> Children's Day Wishes
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Dark damage for 2 turns
+
+#42: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#43: ESBindAwoken(88:16571) -> Protective Iris
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 5 turns
+
+#44: ESBoardChangeAttackBits(85:16572) -> 5 Color Windsock
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 300% damage
+
+#45: ESEndPath(36:26) -> ESEndPath
+end_turn

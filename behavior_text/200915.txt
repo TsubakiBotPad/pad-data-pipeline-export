@@ -1,0 +1,28 @@
+#200915 - Angelit
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 200915
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (735:55) Angelic Mercy
+ | Player recover 100% HP
+ group:
+ | group:
+   | (720:48) Heart Attack
+   | Change a random attribute to Heal orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (719:54) Angelit Halo
+   | Bind both leaders for 4 turns
+ | group:
+ | condition: hp <= 19
+   | (722:15) Hell & Heaven
+   | Deal 200% damage (4 hits, 50% each)
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (721:17) Angrilit
+ | Increase damage to 300% for the next 999 turns

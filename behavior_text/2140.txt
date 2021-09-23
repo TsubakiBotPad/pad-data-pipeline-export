@@ -1,0 +1,27 @@
+#2140 - Private Military Arkham Knight
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2140
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2579:89) Abandon All Hope
+ | Delay active skills by 0~1 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (2580:4) Private Army
+   | Change all Heal orbs to Jammer orbs, Deal 30% damage
+   | condition: 30% chance
+   | (2581:79) Drone Forces
+   | Change the 1st row to Jammer orbs, Deal 80% damage
+   | condition: 30% chance
+   | (1:82) Disable Skill
+   | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (2584:83) I know how you think! + I know how to beat you!
+   | Movetime -1s for 3 turns + Increase damage to 200% for the next 999 turns

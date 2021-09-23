@@ -1,0 +1,62 @@
+#406748 - Super Mystic Stone Knight
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardSizeChange(126:22222) -> Mystic Knight's Domain
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change board size to 7x6 for 2 turns
+
+#3: ESOrbSealColumn(99:22223) -> Mystic Knight's Blockade
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 1st column for 3 turns
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 13
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#7: ESRandomSpawn(92:22228) -> Mystic Stone Sword
+Spawn 1 random Wood orb, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESAttackUPRemainingEnemies(17:22441) -> Wave of Carnage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 900% for the next 999 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 15
+
+#14: ESChangeAttribute(46:20950) -> Indiscriminate Carnage
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+
+#15: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> Transformation of Carnage
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> Bloody Carnage
+	Deal 3,500% damage (7 hits, 500% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:22492) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,56 @@
+  monster_id: 316
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 157
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 39
+            trigger_turn: 2
+          }
+          children {
+            behavior {
+              enemy_skill_id: 158
+            }
+          }
+        }
+      }
+    }
+  }
+  levels {
+    level: 7
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 2598
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        behavior {
+          enemy_skill_id: 2599
+        }
+      }
+    }
+  }

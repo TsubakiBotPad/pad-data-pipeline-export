@@ -1,0 +1,336 @@
+#7528 - 呪骸・ツカモト
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#3: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 51
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 40
+
+#5: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 29
+
+#6: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 2, target rnd 18
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+	[1] ESRandomSpawn(92:26505) -> Film Appreciation
+	Spawn 3 random Light orbs
+
+#8: ESBranchAttrOnBoard(133:26500) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 12
+
+#9: ESRandomSpawn(92:26506) -> Film Appreciation
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 5 random Light orbs
+
+#10: ESRandomSpawn(92:26507) -> Film Appreciation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 8 random Light orbs
+
+#11: ESEndBattle(40:26503) -> He's sleeping soundly
+Reduce self HP to 0
+
+#12: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 17
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 16
+
+#15: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26505) -> Film Appreciation
+	Spawn 3 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#16: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26506) -> Film Appreciation
+	Spawn 5 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#17: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26507) -> Film Appreciation
+	Spawn 8 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#18: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+	[1] ESRandomSpawn(92:26512) -> Film Appreciation
+	Spawn 4 random Light orbs
+
+#19: ESBranchAttrOnBoard(133:26500) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 23
+
+#20: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:26514) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[1] ESBlind5(5:26515) -> C-Grade Horror Films
+	Blind all orbs on the board
+
+#21: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:26517) -> Film Appreciation
+	Spawn 7 random Light orbs
+	[1] ESCloud(104:26518) -> Masterpieces
+	A 3×1 rectangle of clouds appears for 1 turn at a random location
+
+#22: ESEndBattle(40:26503) -> He's sleeping soundly
+Reduce self HP to 0
+
+#23: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#24: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 28
+
+#25: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 27
+
+#26: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26512) -> Film Appreciation
+	Spawn 4 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#27: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26514) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[2] ESBlind5(5:26515) -> C-Grade Horror Films
+	Blind all orbs on the board
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#28: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26517) -> Film Appreciation
+	Spawn 7 random Light orbs
+	[2] ESCloud(104:26518) -> Masterpieces
+	A 3×1 rectangle of clouds appears for 1 turn at a random location
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#29: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+	[1] ESRandomSpawn(92:26523) -> Film Appreciation
+	Spawn 5 random Light orbs
+
+#30: ESBranchAttrOnBoard(133:26500) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 34
+
+#31: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:26525) -> Film Appreciation
+	Spawn 8 random Light orbs
+	[1] ESBlindStickyRandom(97:26526) -> C-Grade Horror Films
+	Blind random 5 orbs for 1 turn
+
+#32: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRowSpawnMulti(78:26528) -> Film Appreciation
+	Change the 1st and 5th rows to Wood and Light orbs and the 3rd row to Light orbs
+	[1] ESFixedStart(101:26529) -> Action Films
+	Fix orb movement starting point to random position on the board
+
+#33: ESEndBattle(40:26503) -> He's sleeping soundly
+Reduce self HP to 0
+
+#34: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#35: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 39
+
+#36: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 38
+
+#37: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26523) -> Film Appreciation
+	Spawn 5 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#38: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26525) -> Film Appreciation
+	Spawn 8 random Light orbs
+	[2] ESBlindStickyRandom(97:26526) -> C-Grade Horror Films
+	Blind random 5 orbs for 1 turn
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#39: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRowSpawnMulti(78:26528) -> Film Appreciation
+	Change the 1st and 5th rows to Wood and Light orbs and the 3rd row to Light orbs
+	[2] ESFixedStart(101:26529) -> Action Films
+	Fix orb movement starting point to random position on the board
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#40: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+	[1] ESRandomSpawn(92:26534) -> Film Appreciation
+	Spawn 6 random Light orbs
+
+#41: ESBranchAttrOnBoard(133:26500) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 45
+
+#42: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESColumnSpawnMulti(76:26536) -> Film Appreciation
+	Change the 1st and 6th columns to Light orbs and the 3rd and 4th columns to Wood and Light orbs
+	[1] ESOrbSealRow(100:26537) -> Masterpieces
+	Seal the 5th row for 1 turn
+
+#43: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:26539) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[1] ESCloud(104:26540) -> Masterpieces
+	A 2×3 rectangle of clouds appears for 1 turn at 2nd row, 3rd column
+
+#44: ESEndBattle(40:26503) -> He's sleeping soundly
+Reduce self HP to 0
+
+#45: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#46: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 50
+
+#47: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 49
+
+#48: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26534) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#49: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESColumnSpawnMulti(76:26536) -> Film Appreciation
+	Change the 1st and 6th columns to Light orbs and the 3rd and 4th columns to Wood and Light orbs
+	[2] ESOrbSealRow(100:26537) -> Masterpieces
+	Seal the 5th row for 1 turn
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#50: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26539) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[2] ESCloud(104:26540) -> Masterpieces
+	A 2×3 rectangle of clouds appears for 1 turn at 2nd row, 3rd column
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#51: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+	[1] ESRandomSpawn(92:26545) -> Film Appreciation
+	Spawn 7 random Light orbs
+
+#52: ESBranchAttrOnBoard(133:26500) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 56
+
+#53: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:26547) -> Film Appreciation
+	Spawn 8 random Light orbs
+	[1] ESSpinnersFixed(110:26548) -> Action Films
+	Specific orbs change every 1.0s for 1 turn
+
+#54: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:26550) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[1] ESBlindStickyFixed(98:26551) -> C-Grade Horror Films
+	Blind orbs in specific positions for 1 turn
+
+#55: ESEndBattle(40:26503) -> He's sleeping soundly
+Reduce self HP to 0
+
+#56: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#57: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 61
+
+#58: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 60
+
+#59: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26545) -> Film Appreciation
+	Spawn 7 random Light orbs
+	[2] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#60: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26547) -> Film Appreciation
+	Spawn 8 random Light orbs
+	[2] ESSpinnersFixed(110:26548) -> Action Films
+	Specific orbs change every 1.0s for 1 turn
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#61: SkillSet:
+	[0] ESOrbChangeAttackBits(108:26501) -> He woke up!
+	Change all Light orbs to Wood orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:26550) -> Film Appreciation
+	Spawn 6 random Light orbs
+	[2] ESBlindStickyFixed(98:26551) -> C-Grade Horror Films
+	Blind orbs in specific positions for 1 turn
+	[3] ESInactivity66(66:26502) -> He's sleeping soundly
+	Do nothing
+
+#62: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,83 @@
+#2699 - Squad 6 Lieutenant, Renji Abarai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:2759) -> Come.
+Absorb damage when combos <= 4 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESAttackMultihit(15:2760) -> Roar Zabimaru!!!
+Deal 114% damage (3 hits, 38% each)
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: ESBlind62(62:2761) -> There's still no way you can defeat me!
+Condition: 50% chance (ai:50 rnd:0)
+Blind all orbs on the board, Deal 90% damage
+
+#13: ESBindSkill(14:2762) -> It's over!
+Bind active skills for 1 turn
+
+#14: ESAttackMultihit(15:2763) -> You scum!!!
+Deal 120% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESBranchCard(90:2768) -> ESBranchCard
+Branch on player_cards HAS [2702, 2703], target rnd 19
+
+#18: SkillSet:
+	[0] ESInactivity66(66:2862) -> Bankai
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:2764) -> Hihio Zabimaru
+	Increase damage to 200% for the next 999 turns
+
+#19: SkillSet:
+	[0] ESInactivity66(66:2769) -> I will surpass you, Captain Kuchiki.
+	Do nothing
+	[1] ESInactivity66(66:2862) -> Bankai
+	Do nothing
+	[2] ESAttackUPRemainingEnemies(17:2764) -> Hihio Zabimaru
+	Increase damage to 200% for the next 999 turns
+
+#20: ESAttackMultihit(15:2765) -> I see you!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 114% damage (3 hits, 38% each)
+
+#21: ESAttackMultihit(15:2766) -> Joint attack
+Deal 90% damage (2 hits, 45% each)
+
+#22: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESRandomSpawn(92:2822) -> Damn it...
+	Spawn 3 random Jammer orbs

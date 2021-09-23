@@ -1,0 +1,63 @@
+#207804 - ルーク・スカイウォーカー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:27890) -> 僕なら父さんを救い出せる
+Reduce damage from all sources by 75% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESSkillDelay(89:27891) -> あなたとは戦いません
+Delay active skills by 2 turns, Deal 95% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESAbsorbAttribute(53:27892) -> 僕は寝返らない
+Absorb Dark damage for 1 turn, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESCloud(104:27894) -> あなたの心の葛藤を感じる
+	A row of clouds appears for 3 turns at 1st row, 1st column
+	[1] ESAttackUPRemainingEnemies(17:27895) -> 父さんを救うんだ
+	Increase damage to 200% for the next 999 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:27888) -> ＿ルーク超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

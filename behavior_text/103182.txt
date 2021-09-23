@@ -1,0 +1,44 @@
+#103182 - Frozen Inferno Blade, Samurai Troll
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103182
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12996:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12997:83) Warrior's Dignity + Power Control
+ | Bind 4 random subs for 10 turns + Bind active skills for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (13000:83) Shuffling + Hidden Ball
+     | Absorb damage when combos <= 6 for 999 turns + Spawn 1 random Bomb orb
+   | group:
+     | condition: 33% chance
+     | (13003:77) Red Flash
+     | Change the 1st column to Fire orbs, Deal 100% damage
+     | condition: 33% chance
+     | (13004:77) Blue Flash
+     | Change the 6th column to Water orbs, Deal 100% damage
+     | condition: 34% chance
+     | (13005:15) Swiftness Sword Technique
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 49
+   | (13006:83) Swordsman's Resolution + Hidden Ball
+   | Voids status ailments for 999 turns + Spawn 1 random Bomb orb
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (13009:83) Restricted Life + Imminent Choice
+     | Change player HP to 1,000 for 1 turn + Movetime -3s for 5 turns
+   | group:
+     | (13008:15) Double Blade Flash
+     | Deal 500% damage (2 hits, 250% each)

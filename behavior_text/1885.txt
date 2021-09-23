@@ -1,0 +1,82 @@
+#1885 - Massive Blade Brave, Zweihander
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 1885
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: 33% chance
+ | (13772:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+ | Voids status ailments for 999 turns + Absorb Fire damage for 2 turns + Unable to match Water orbs for 2 turns, Deal 100% damage
+ | condition: 33% chance
+ | (13773:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+ | Voids status ailments for 999 turns + Absorb Water damage for 2 turns + Unable to match Wood orbs for 2 turns, Deal 100% damage
+ | condition: 34% chance
+ | (13774:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+ | Voids status ailments for 999 turns + Absorb Wood damage for 2 turns + Unable to match Fire orbs for 2 turns, Deal 100% damage
+ group:
+ | group:
+ | condition: when hp is full
+   | (13783:83) Life Absorbing Sword + One Hit One Shout
+   | Bind awoken skills for 1 turn + Unable to match Heal orbs for 1 turn, Deal 130% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (13789:62) Light Steal
+     | Blind all orbs on the board, Deal 95% damage
+     | condition: 50% chance
+     | (13790:63) Heavy Down
+     | Bind 1 random card for 5 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (13782:67) Stance of the Heavenly Eye
+     | Absorb damage when combos <= 9 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 33% chance
+     | (13772:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+     | Voids status ailments for 999 turns + Absorb Fire damage for 2 turns + Unable to match Water orbs for 2 turns, Deal 100% damage
+     | condition: 33% chance
+     | (13773:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+     | Voids status ailments for 999 turns + Absorb Water damage for 2 turns + Unable to match Wood orbs for 2 turns, Deal 100% damage
+     | condition: 34% chance
+     | (13774:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+     | Voids status ailments for 999 turns + Absorb Wood damage for 2 turns + Unable to match Fire orbs for 2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (13786:83) Two Arms of Seething Blood + Raging Stream of Slash Attacks
+     | Increase damage to 150% for the next 99 turns + Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (13782:67) Stance of the Heavenly Eye
+     | Absorb damage when combos <= 9 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 33% chance
+     | (13772:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+     | Voids status ailments for 999 turns + Absorb Fire damage for 2 turns + Unable to match Water orbs for 2 turns, Deal 100% damage
+     | condition: 33% chance
+     | (13773:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+     | Voids status ailments for 999 turns + Absorb Water damage for 2 turns + Unable to match Wood orbs for 2 turns, Deal 100% damage
+     | condition: 34% chance
+     | (13774:83) Air Supremacy Sword + Life Eradication Sword + One Hit One Shout
+     | Voids status ailments for 999 turns + Absorb Wood damage for 2 turns + Unable to match Fire orbs for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (13789:62) Light Steal
+     | Blind all orbs on the board, Deal 95% damage
+     | condition: 50% chance
+     | (13790:63) Heavy Down
+     | Bind 1 random card for 5 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (13791:50) Blade Fang
+   | Player -400% HP

@@ -1,0 +1,32 @@
+#104091 - Iori Yagami
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104091
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19631:105) I will end your pain.
+ | RCV 50% for 4 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (19632:92) 100 Shiki: Oniyaki
+   | Spawn 3 random Dark orbs, Deal 98% damage
+   | condition: 33% chance
+   | (19635:48) 212 Shiki: Kototsuki In
+   | Change a random attribute to Dark orbs, Deal 95% damage
+   | condition: 34% chance
+   | (19634:15) Die!
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19633:1) ...Putz!
+     | Bind 3 random cards for 3 turns
+   | group:
+     | (19636:92) Remember me each time you look at the moon...
+     | Spawn 3 random Light and Dark orbs, Deal 120% damage

@@ -1,0 +1,75 @@
+#4133 - Barioth
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4133
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8900:110) Ice Breath
+ | Specific orbs change every 1.0s for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 15% chance
+     | (8901:89) Short Tackle
+     | Delay active skills by 0~1 turns, Deal 100% damage
+     | condition: 15% chance
+     | (8902:50) Charge
+     | Player -70% HP
+     | condition: 35% chance
+     | (8903:79) Tail Attack
+     | Change the 5th row to Water orbs, Deal 95% damage
+     | condition: 35% chance
+     | (8904:67) Take Off
+     | Absorb damage when combos <= 5 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (8907:94) Diagonal Strike Attack
+     | Lock 5 random orbs, Deal 120% damage
+     | (8909:79) Tail Attack
+     | Change the 5th row to Water orbs, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (8908:74) Sneak Behind
+     | Reduce damage from all sources by 50% for 1 turn
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (8912:83) Roar + Anger
+     | Bind 1 random sub for 1 turn + Increase damage to 140% for the next 10 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (8907:94) Diagonal Strike Attack
+     | Lock 5 random orbs, Deal 120% damage
+     | (8909:79) Tail Attack
+     | Change the 5th row to Water orbs, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (8908:74) Sneak Behind
+     | Reduce damage from all sources by 50% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 15% chance
+     | (8901:89) Short Tackle
+     | Delay active skills by 0~1 turns, Deal 100% damage
+     | condition: 15% chance
+     | (8902:50) Charge
+     | Player -70% HP
+     | condition: 35% chance
+     | (8903:79) Tail Attack
+     | Change the 5th row to Water orbs, Deal 95% damage
+     | condition: 35% chance
+     | (8904:67) Take Off
+     | Absorb damage when combos <= 5 for 1 turn
+ type: UNKNOWN_USE
+ | (8906:110) Gliding Ice Breath
+ | Specific orbs change every 1.0s for 2 turns, Deal 180% damage
+ | (8905:15) Gliding Strike Attack
+ | Deal 160% damage

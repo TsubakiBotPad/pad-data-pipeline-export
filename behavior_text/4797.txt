@@ -1,0 +1,55 @@
+#4797 - Creeping Mist Devil Dragonbound, Suou
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4797
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4802, 4803, 4804, 4805 on team
+ | (11201:83) Oh, thanks for going through the trouble + YOU came too?
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 15,000,000 for 99 turns
+ | (11200:83) Oh, thanks for going through the trouble + But it's not over yet, right?
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 15,000,000 for 99 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (11216:83) This is boring... + Show me something special
+   | Delay active skills by 3 turns + Leader changes to random sub for 1 turn
+ | group:
+ | condition: hp <= 99
+   | condition: 25% chance
+   | (11206:83) Turn and turn! + But, here comes darkness!
+   | Specific orbs change every 2.0s for 1 turn + Blind random 6 orbs for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (11207:83) Turn and turn! + But, here comes fluffiness!
+   | Specific orbs change every 2.0s for 1 turn + A 3×2 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage
+   | condition: 25% chance
+   | (11208:83) Round and around! + It's piping hot!
+   | Specific orbs change every 1.0s for 1 turn + Change the 3rd row to Fire orbs, Deal 105% damage
+   | condition: 25% chance
+   | (11209:83) Round and around! + Let's enjoy it some more!
+   | Specific orbs change every 1.0s for 1 turn + Deal 111% damage (3 hits, 37% each), Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (11219:83) Shall we liven things up? + Now this is worth seeing!
+   | Unable to match Water orbs for 1 turn + Player -99% HP
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11222:83) Shall we liven things up? + Now this is worth seeing!
+   | Unable to match Heal orbs for 1 turn + Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11224:83) Oh scary, scary! + Well, you can take a breather
+     | Reduce damage from all sources by 50% for 99 turns + Enemy recover 50% HP
+   | group:
+   | condition: turn 2
+     | (11227:83) Shall we end this soon? + Keep the fun going!
+     | Bind awoken skills for 1 turn + Movetime 50% for 1 turn
+   | group:
+     | (11230:15) That was a blast!
+     | Deal 500% damage (5 hits, 100% each)

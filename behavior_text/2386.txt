@@ -1,0 +1,30 @@
+#2386 - Soul-Judging God of Dark Riches, Osiris
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2386
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23746:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23747:83) Monarchy of Dark Riches + Crown of Death + Medjellusion
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 999 turns + Leader changes to random sub for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (23751:83) Medjebeam + Hudr Leaf
+   | Change a random attribute to Wood orbs + Change the 2nd and 4th rows to Wood and Jammer orbs, Deal 45% damage
+   | condition: 33% chance
+   | (23754:83) Medjebeam + Hudr Leaf
+   | Player -50% HP + Change the 2nd and 4th rows to Wood and Jammer orbs, Deal 50% damage
+   | condition: 34% chance
+   | (23756:83) Medjebeam + Hudr Leaf
+   | Blind all orbs on the board + Change the 2nd and 4th rows to Wood and Jammer orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 9
+   | (23758:15) Med Jed End
+   | Deal 400% damage (4 hits, 100% each)

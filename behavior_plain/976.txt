@@ -1,0 +1,31 @@
+#976 - Green Pirate Dragon, Captain Kidd
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 30, target rnd 6
+
+#5: ESAttackMultihit(15:781) -> Adventure Galley
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 180% damage (3 hits, 60% each)
+
+#6: ESStatusShield(20:778) -> Pirate Fog
+Voids status ailments for 10 turns
+
+#7: ESGravity(50:779) -> Iron Bucket
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#8: ESOrbChangeAttack(48:780) -> Bad Slash
+Change a random attribute to Jammer orbs, Deal 75% damage

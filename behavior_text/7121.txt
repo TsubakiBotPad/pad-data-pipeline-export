@@ -1,0 +1,81 @@
+#7121 - Demon Summoner, Irene
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7121
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23100:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23101:83) Demonic Barrier + Spinning Smoke Panel + Chains of Submission
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 10 turns + Delay active skills by 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (23216:110) Spinning Smoke Panel
+     | Specific orbs change every 1.0s for 9 turns, Deal 100% damage
+   | group:
+   | condition: turns 2-9 while HP > 9
+     | condition: 5% chance
+     | (23105:107) Wonder Potion
+     | Unable to match Fire orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23106:107) Wonder Potion
+     | Unable to match Water orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23107:107) Wonder Potion
+     | Unable to match Wood orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23108:107) Wonder Potion
+     | Unable to match Light orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23109:107) Wonder Potion
+     | Unable to match Dark orbs for 1 turn, Deal 95% damage
+     | condition: 25% chance
+     | (23110:130) Wonder Potion
+     | ATK -50% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (23111:105) Wonder Potion
+     | RCV 50% for 1 turn, Deal 100% damage
+     | (23112:15) Little Devil Fang
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 10 while HP > 9
+     | (23113:83) Seal Release + Wonder Potion
+     | Increase damage to 200% for the next 999 turns + Movetime 50% for 99 turns
+   | group:
+     | condition: 5% chance
+     | (23105:107) Wonder Potion
+     | Unable to match Fire orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23106:107) Wonder Potion
+     | Unable to match Water orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23107:107) Wonder Potion
+     | Unable to match Wood orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23108:107) Wonder Potion
+     | Unable to match Light orbs for 1 turn, Deal 95% damage
+     | condition: 5% chance
+     | (23109:107) Wonder Potion
+     | Unable to match Dark orbs for 1 turn, Deal 95% damage
+     | condition: 25% chance
+     | (23110:130) Wonder Potion
+     | ATK -50% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (23111:105) Wonder Potion
+     | RCV 50% for 1 turn, Deal 100% damage
+     | (23112:15) Little Devil Fang
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | (23114:15) Dark Shadow Fang
+   | Deal 1,500% damage (5 hits, 300% each)
+ type: UNKNOWN_USE
+ | (23217:15) Little Devil Fang
+ | Deal 150% damage (3 hits, 50% each)

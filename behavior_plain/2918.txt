@@ -1,0 +1,116 @@
+#2918 - Brute Force of the Redbeard, Barbarossa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:15126) -> Hey! I'm back!
+	No skyfall for 5 turns
+	[1] ESBoardChange(84:15131) -> Let me have some more fun
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[2] ESCloud(104:15127) -> Well, this is a start!
+	A 2×5 rectangle of clouds appears for 1 turn at 1st row, 3rd column
+	[3] ESAbsorbCombo(67:15128) -> Okay, try to beat me!
+	Absorb damage when combos <= 5 for 1 turn
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 7
+
+#6: ESGravity(50:15148) -> What are you doing!
+Player -1,000% HP
+
+#7: SkillSet:
+	[0] ESRandomSpawn(92:15130) -> How about this?
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESSpinnersFixed(110:15132) -> We're only getting started
+	Specific orbs change every 1.0s for 1 turn
+	[2] ESAbsorbCombo(67:15133) -> I wonder, can you do it?
+	Absorb damage when combos <= 6 for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 62, target rnd 13
+
+#12: ESGravity(50:15148) -> What are you doing!
+Player -1,000% HP
+
+#13: SkillSet:
+	[0] ESColumnSpawnMulti(76:15135) -> Huh, pretty good
+	Change the 1st, 3rd, and 5th columns to Water orbs and the 2nd column to Fire orbs
+	[1] ESBombFixedSpawn(103:15136) -> Don't back down now
+	Spawn Bomb orbs in the specified positions
+	[2] ESOrbSealRow(100:15137) -> Here, speed is important
+	Seal the 5th row for 1 turn
+	[3] ESAbsorbCombo(67:15138) -> Try to wrap this up smoothly
+	Absorb damage when combos <= 7 for 1 turn
+	[4] ESCloud(104:15151) -> Here's a present
+	A row of clouds appears for 1 turn at 3rd row, 1st column
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 21
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#17: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 19
+
+#18: ESGravity(50:15148) -> What are you doing!
+Player -1,000% HP
+
+#19: SkillSet:
+	[0] ESBoardChange(84:15140) -> You can do it if you try!
+	Change all orbs to Light
+	[1] ESRandomSpawn(92:15141) -> I'll be impressed if you can do it
+	Spawn 9 random Heal, Jammer, and Poison orbs
+	[2] ESBlindStickyRandom(97:15142) -> Yoooo!
+	Blind all orbs for 1 turn
+	[3] ESAbsorbCombo(67:15143) -> You'd better look out!
+	Absorb damage when combos <= 8 for 1 turn
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#22: ESGravity(50:15148) -> What are you doing!
+Player -1,000% HP
+
+#23: SkillSet:
+	[0] ESBombFixedSpawn(103:15145) -> I didn't think you'd make it this far
+	Spawn Bomb orbs in the specified positions
+	[1] ESRandomSpawn(92:15146) -> This is my last shot!
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
+	[2] ESAbsorbCombo(67:15147) -> Don't mess this up!!
+	Absorb damage when combos <= 9 for 1 turn
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:15149) -> Huh, better than I thought
+	Do nothing

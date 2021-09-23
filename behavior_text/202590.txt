@@ -1,0 +1,32 @@
+#202590 - Alt. Phantom Keeper
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202590
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25642:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25634:83) Shadow Energy + Killing Machine
+ | Absorb Dark damage for 6 turns + Void damage >= 5,000,000 for 6 turns
+ group:
+ | group:
+ | condition: always turn 6
+   | (25637:83) Warning + Berserk Alert
+   | Delay active skills by 5 turns + Increase damage to 500% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-5
+     | (25640:92) Dark Sphere
+     | Spawn 3 random Dark orbs, Deal 100% damage
+   | group:
+     | (25641:79) Twin Shadow Burst
+     | Change the 1st and 5th rows to Dark orbs, Deal 300% damage
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (25641:79) Twin Shadow Burst
+   | Change the 1st and 5th rows to Dark orbs, Deal 300% damage

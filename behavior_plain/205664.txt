@@ -1,0 +1,51 @@
+#205664 - Melissa Mao
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindSkill(14:21879) -> Looks like our turn's up!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESFixedStart(101:21881) -> Activate EHF radar!
+Fix orb movement starting point to random position on the board
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESColumnSpawnMulti(77:21880) -> Cut the ECS!
+Change the 6th column to Fire orbs, Deal 110% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESDebuffRCV(105:21882) -> Why, you...
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 3 turns
+
+#12: ESRandomSpawn(92:21883) -> Ultrafast Missile
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Dark orbs, Deal 100% damage
+
+#13: ESAttackMultihit(15:21884) -> Fire!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

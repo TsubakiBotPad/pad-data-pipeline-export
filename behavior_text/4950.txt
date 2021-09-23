@@ -1,0 +1,35 @@
+#4950 - ジバニャンＳ
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4950
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11983:68) ダルいんですけど～
+ | Jammer skyfall +15% for 10 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (11984:83) シビれるニャーン！ + ニャンとぉー！
+   | Lock all orbs + Bind 1 random sub for 10 turns
+ | group:
+   | condition: 33% chance
+   | (11987:15) ニャッ！
+   | Deal 100% damage
+   | condition: 33% chance
+   | (11988:48) アッチアチだニャーン！
+   | Change a random attribute to Fire orbs, Deal 95% damage
+   | condition: 34% chance
+   | (11989:15) ニャニャニャニャニャー！
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 49
+   | (11990:83) ニャハハ！　Ｓランクだニャン！ + オレっち　最強ニャーン！！
+   | Increase damage to 150% for the next 5 turns + Reduce damage from all sources by 50% for 5 turns
+ | group:
+ | condition: hp <= 14
+   | (11993:15) ひゃくれつ肉球
+   | Deal 200% damage (10 hits, 20% each)

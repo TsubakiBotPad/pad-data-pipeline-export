@@ -1,0 +1,31 @@
+#2326 - Shinji&Eva Unit-01, First Awoken Form
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:18283) -> Unit-01 Initial Arousal Phase
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 6 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 7
+
+#4: ESColumnSpawnMulti(76:18284) -> I don't care what happens to me.
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st and 6th columns to Water orbs
+
+#5: ESSpinnersRandom(109:18285) -> I don't care what happens to the world.
+Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBoardChangeAttackBits(85:18286) -> I'm saving Ayanami, no matter what!
+Change all orbs to Water, Dark, and Heal, Deal 110% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

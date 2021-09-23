@@ -1,0 +1,52 @@
+#978 - Black Pirate Dragon, Blackbeard
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:499) -> ESPreemptive
+Enable preempt if level 8
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESStatusShield(20:845) -> Curse of the Evil Eye
+Voids status ailments for 5 turns
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESBlind5(5:846) -> So it's you...
+Blind all orbs on the board
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBlind5(5:847) -> Fools who oppose the queen!
+Blind all orbs on the board
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESBlind5(5:848) -> Drift in the sea of death!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board
+
+#14: ESAttackMultihit(15:852) -> This darkness can't be lifted!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 5% damage
+
+#15: ESAttackMultihit(15:849) -> Queen Anne's Revenge
+Deal 1,200% damage (3 hits, 400% each)

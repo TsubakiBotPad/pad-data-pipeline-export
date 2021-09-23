@@ -1,0 +1,24 @@
+#202199 - Dark Gear
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202199
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26068:71) Whirring Gears
+ | Void damage >= 10 for 999 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (26069:112) Execute Operation
+   | Forces attacks to hit this enemy for 99 turns
+ | group:
+   | (26070:92) Dark energy required.
+   | Spawn 5 random Dark orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (26078:40) Charging target lost.
+ | Reduce self HP to 0

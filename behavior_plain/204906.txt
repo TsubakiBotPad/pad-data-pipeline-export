@@ -1,0 +1,167 @@
+#204906 - Stone Dracosnake of the Purewings, Quetzalcoatl
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:11579) -> It starts creating a gust
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:11580) -> It spun a whirlwind around itself
+	Void damage >= 15,000,000 for 3 turns
+	[2] ESAbsorbCombo(67:11581) -> The wind obstructs attacks
+	Absorb damage when combos <= 7 for 3 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 33
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 26
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 15
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 20
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 21
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 16
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#15: SkillSet:
+	[0] ESVoidShield(71:11580) -> It spun a whirlwind around itself
+	Void damage >= 15,000,000 for 3 turns
+	[1] ESAbsorbCombo(67:11581) -> The wind obstructs attacks
+	Absorb damage when combos <= 7 for 3 turns
+
+#16: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:11584) -> Blazing Cyclone
+	Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:11585) -> Aero Feather
+	Lock 15 random orbs, Deal 100% damage
+
+#17: SkillSet:
+	Condition: One-time use (ai:0 rnd:33) (cost: 1)
+	[0] ESBindAwoken(88:11587) -> Stormy Hurricane
+	Bind awoken skills for 1 turn
+	[1] ESGravity(50:11588) -> Storm Blast
+	Player -99% HP
+
+#18: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESBindRandom(1:11590) -> Whirling Tornado
+	Bind 3 random cards for 1 turn
+	[1] ESAttackMultihit(15:11591) -> Burst Wing
+	Deal 111% damage (3 hits, 37% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESLeaderSwap(75:11593) -> Wind Mischief
+	Leader changes to random sub for 3 turns
+	[1] ESDamageShield(74:11576) -> Wind Follower
+	Reduce damage from all sources by 50% for 3 turns
+	[2] ESInactivity66(66:11594) -> The wind died down
+	Do nothing
+
+#21: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 14
+
+#22: ESOrbChangeAttack(48:11595) -> Breeze Mist
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#23: ESRandomSpawn(92:11596) -> Fire Storm
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Fire and Wood orbs, Deal 105% damage
+
+#24: ESAttackMultihit(15:11597) -> Climatic Gale
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#28: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 30
+
+#29: SkillSet:
+	[0] ESDispel(6:11575) -> Wind Eraser
+	Voids player buff effects
+	[1] ESSkillDelay(89:11599) -> Deaerate
+	Delay active skills by 5 turns
+	[2] ESSpinnersFixed(110:11600) -> Dust Storm
+	Specific orbs change every 1.0s for 5 turns
+
+#30: ESSetCounter(25:15) -> ESSetCounter
+counter = 3
+
+#31: SkillSet:
+	[0] ESDispel(6:11575) -> Wind Eraser
+	Voids player buff effects
+	[1] ESSkillDelay(89:11599) -> Deaerate
+	Delay active skills by 5 turns
+	[2] ESSpinnersFixed(110:11600) -> Dust Storm
+	Specific orbs change every 1.0s for 5 turns
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 37
+
+#34: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#35: SkillSet:
+	[0] ESDebuffMovetime(39:11602) -> Against the Wind
+	Movetime 50% for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:11603) -> Burst of Rage
+	Increase damage to 200% for the next 999 turns
+
+#36: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#37: SkillSet:
+	[0] ESChangeAttribute(46:11605) -> Molting
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:11606) -> Aero Burst End
+	Deal 500% damage (5 hits, 100% each)
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#39: ESAttributeResist(72:11577) -> Fire Water Halves
+Reduce damage from Fire and Water attrs by 50%

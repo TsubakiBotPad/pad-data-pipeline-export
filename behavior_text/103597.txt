@@ -1,0 +1,57 @@
+#103597 - Alt. Dark Winged Machine, Demonius
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 103597
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6677:72) Robo Light halved
+ | Reduce damage from Light attrs by 50%
+ | (6680:73) Robo Resovle
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (15308:83) Hell Armor + Demon Flare + Chaos Field + Darkness Wave
+ | Voids status ailments for 999 turns + Spawn locked Bomb orbs in the specified positions + Locked random skyfall +100% for 1 turn + Player -100% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (6664:101) Energy Ray
+     | Fix orb movement starting point to random position on the board, Deal 200% damage
+   | group:
+     | condition: 15% chance
+     | (6666:39) Black Metal Glare
+     | Movetime -2s for 2 turns, Deal 130% damage
+     | condition: 15% chance
+     | (6667:89) Suppression Pulse
+     | Delay active skills by 2 turns, Deal 130% damage
+     | condition: 70% chance
+     | (6665:102) Evil Bomb
+     | Spawn 3 random Bomb orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (6670:83) Trauma Dimension + Jamming
+     | Absorb damage when combos <= 5 for 999 turns + Jammer skyfall +20% for 10 turns
+   | group:
+     | condition: 20% chance
+     | (6681:83) Suppression Pulse + Dead Wing
+     | Delay active skills by 2 turns + Deal 210% damage (3 hits, 70% each), Deal 210% damage (3 hits, 70% each)
+     | condition: 20% chance
+     | (6682:83) Black Metal Glare + Paralysis Dart
+     | Movetime -2s for 2 turns + Bind 1 random card for 3 turns, Deal 180% damage
+     | condition: 60% chance
+     | (6683:102) Evil Bomb
+     | Spawn 3 random Bomb orbs, Deal 160% damage
+ | group:
+ | condition: hp <= 19
+   | (6676:15) Limit Break
+   | Deal 6,000% damage (3 hits, 2,000% each)
+ | group:
+ | condition: hp <= 1
+   | (6679:83) Cell Proliferate + Helter-Skelter
+   | Enemy recover 51% HP + Increase damage to 200% for the next 999 turns

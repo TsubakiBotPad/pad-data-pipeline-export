@@ -1,0 +1,41 @@
+#3388 - Reincarnated Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3388
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23616:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23604:83) Divine Feathered Shawl + Hidden Heavens + Looming Darkness
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 14 for 11 turns + Specific orbs change every 1.0s for 10 turns
+ group:
+ | group:
+ | condition: always turn 10
+   | (23614:17) Divine Dispelling Protection
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | (23609:108) Shining Light
+     | Change all Jammer and Poison orbs to Light orbs, Deal 120% damage
+     | condition: 33% chance
+     | (23610:68) Rainfall
+     | Poison skyfall +20% for 1 turn, Deal 90% damage
+     | condition: 33% chance
+     | (23617:68) Rainfall
+     | Jammer skyfall +25% for 1 turn, Deal 95% damage
+     | condition: 34% chance
+     | (23608:96) Rainfall
+     | Locked random skyfall +25% for 1 turn, Deal 100% damage
+   | group:
+     | (23615:85) Heavenly Vanquishing Light
+     | Change all orbs to Light, Deal 1,000% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (23611:83) Divine Dispelling Gown + Hidden Healing
+   | Reduce damage from all sources by 75% for 5 turns + Unable to match Heal orbs for 5 turns

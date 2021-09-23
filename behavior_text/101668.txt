@@ -1,0 +1,58 @@
+#101668 - Alt. Goddess of the Dead, Nephthys
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101668
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9831:73) Nephthys Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (9831:73) Nephthys Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (17169:83) Ok, let's get started! + Hey, it's daaark! + You're no good!
+ | Spawn 15 random Bomb orbs + Blind orbs in specific positions for 3 turns + Bind God cards for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (9835:108) It became a splendid color!
+     | Change all Fire orbs to Dark and Poison orbs, Deal 105% damage
+     | condition: 33% chance
+     | (9836:102) I need motivation!
+     | Spawn 8 random Bomb orbs, Deal 60% damage
+     | condition: 40% chance
+     | (9837:15) Something like this?
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (9840:83) Hey, it's daaark! + Take this as a token of my affection!
+     | Blind orbs in specific positions for 3 turns + Spawn 6 random Poison orbs
+     | (9841:83) Hey, it's daaark! + Take this as a token of my affection!
+     | Blind orbs in specific positions for 3 turns + Spawn 6 random Poison orbs
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (9844:83) I'll give it to you like thiiis! + Have this too♪
+   | Change all orbs to Fire, Dark, and Poison + Spawn Bomb orbs in the specified positions
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (9845:53) No surrender!
+     | Absorb Fire and Dark damage for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (9846:50) OK, this is the end!
+     | Player -300% HP
+ | group:
+ | condition: hp <= 1
+   | (9849:83) It huuurts! + I won't forgive you!
+   | Enemy recover 50% HP + Deal 400% damage (4 hits, 100% each), Deal 400% damage (4 hits, 100% each)

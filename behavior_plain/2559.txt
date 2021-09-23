@@ -1,0 +1,40 @@
+#2559 - Waking Up Mechanical Star God, Alcyone
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:18513) -> *Yaaawn*
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:18514) -> Just 5 more minutes...
+	Movetime 50% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 6
+
+#4: ESAttackMultihit(15:18515) -> Is it bed time?
+Deal 200% damage (2 hits, 100% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:18517) -> Mmmm...
+	Reduce damage from all sources by 90% for 1 turn
+	[1] ESDebuffATK(130:18518) -> Still sleepy...
+	ATK -90% for 1 turn
+
+#7: ESAttackMultihit(15:18519) -> Nighty night...
+Deal 800% damage (4 hits, 200% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSuperResolve(129:18529) -> Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified

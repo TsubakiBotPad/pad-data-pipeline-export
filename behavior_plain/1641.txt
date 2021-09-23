@@ -1,0 +1,34 @@
+#1641 - ABE Capt'n Bomb
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESJammerChangeRandom(13:1579) -> Arrr!
+Change 2 random orb types to Jammer orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:1577) -> Explode
+Condition: When < 25% HP (ai:100 rnd:0)
+Deal 200% damage
+
+#9: ESGravity(50:1578) -> Pummel
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP

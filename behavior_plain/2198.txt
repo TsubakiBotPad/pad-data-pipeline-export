@@ -1,0 +1,27 @@
+#2198 - Thunder Gear
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 2, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 7
+
+#4: ESAttackUPCooldown(19:3002) -> Activated
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#5: ESBindAttack(63:3006) -> Shock Pulse
+Bind 1 random card for 2 turns, Deal 200% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSkillDelay(89:3001) -> Sleep Mode
+Delay active skills by 1 turn

@@ -1,0 +1,64 @@
+#2637 - Scorching Horned Heavenly Fire God, Agni
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 2637
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4536:72) Water & Dark Halven
+ | Reduce damage from Water and Dark attrs by 50%
+ type: PREEMPT
+ | (4511:83) Roaring Flame's Fighting Spirit + Mahattvatabaha
+ | Absorb damage when combos <= 5 for 5 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4512:89) Thrust Away
+     | Delay active skills by 1~3 turns, Deal 120% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (4513:77) Flame Erupting Horns
+     | Change the 1st column to Fire orbs, Deal 130% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (4514:94) Sun's Sacred Flame
+     | Lock 15 random orbs, Deal 140% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (4515:77) Flame Roaring Horns
+     | Change the 6th column to Fire orbs, Deal 150% damage
+   | group:
+   | condition: turn 5 while HP > 49
+     | (4516:87) Cruel Fire Ring
+     | Absorb damage when damage >= 300,000 for 10 turns
+   | group:
+     | (4517:77) Twin Flame Horns
+     | Change the 1st and 6th columns to Fire orbs, Deal 160% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (4523:74) Fierce Charge Stance
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: turn 2
+     | (4519:66) 3
+     | Do nothing
+   | group:
+   | condition: turn 3
+     | (4520:66) 2
+     | Do nothing
+   | group:
+   | condition: turn 4
+     | (4521:39) 1
+     | Movetime -2s for 1 turn
+   | group:
+     | (4522:15) Paryavasaanam
+     | Deal 1,200% damage (6 hits, 200% each)
+ type: UNKNOWN_USE
+ | (4518:74) Fierce Charge Stance
+ | Reduce damage from all sources by 50% for 4 turns

@@ -1,0 +1,57 @@
+#3011 - Achtros
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3011
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5144:73) Eight Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (5063:53) Deep Aqua
+ | Absorb Wood damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (5065:68) Poison Swirl
+     | Mortal Poison skyfall +20% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (5066:94) Sharp Teeth
+     | Lock 8 random orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (5067:74) Shell Scale
+     | Reduce damage from all sources by 75% for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (5065:68) Poison Swirl
+     | Mortal Poison skyfall +20% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (5066:94) Sharp Teeth
+     | Lock 8 random orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (5064:53) Deep Aqua
+     | Absorb Wood damage for 3 turns
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 69
+   | (5068:39) Extreme Cold
+   | Movetime -1s for 3 turns
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 49
+   | (5069:67) Bubble Wall
+   | Absorb damage when combos <= 5 for 3 turns
+ | group:
+ | condition: hp <= 14
+   | (5070:85) Blue Calamity
+   | Change all orbs to Poison, Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (5079:52) Resuscitation
+ | Enemy ally recover 100% HP

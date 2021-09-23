@@ -1,0 +1,41 @@
+#502015 - Discipline Committee Chair, Athena
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:23453) -> I'll punish anyone who doesn't follow the rules!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESOrbChangeAttack(48:23454) -> Shining Spear
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:23455) -> Storm Punisher
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (6 hits, 20% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESDamageShield(74:23457) -> I will protect this school!
+	Reduce damage from all sources by 50% for 2 turns
+	[1] ESGravity(50:23458) -> Siculus Strike
+	Player -100% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

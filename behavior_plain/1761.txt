@@ -1,0 +1,60 @@
+#1761 - Burning Bowl Dragon, Gyundo
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:1802) -> Beef Scale
+Voids status ailments for 4 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttackUPRemainingEnemies(17:1803) -> Lunchtime Discount
+Condition: when <= 3 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESOrbChangeAttack(48:1807) -> Forbidden Mega Helping Press
+Condition: When < 30% HP (ai:100 rnd:0)
+Change a random attribute to Fire orbs, Deal 500% damage
+
+#13: ESGravity(50:1806) -> Big Helping Punch
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#14: ESRowSpawnMulti(79:1805) -> Extra Onion Shot
+Condition: 40% chance (ai:40 rnd:0)
+Change the 2nd row to Wood orbs and the 4th row to Wood orbs, Deal 75% damage
+
+#15: ESRowSpawnMulti(79:1804) -> Extra Juice
+Change the 1st row to Water orbs and the 2nd row to Heal orbs, Deal 125% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttributeResist(72:1772) -> Halve Water
+Reduce damage from Water attrs by 50%

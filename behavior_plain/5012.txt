@@ -1,0 +1,34 @@
+#5012 - Shinji Matou
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:19505) -> You're not getting it at all, as always!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Jammer skyfall +15% for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESOrbChangeAttack(48:19506) -> That look on your face is so good.
+Change all Jammer orbs to Water orbs, Deal 95% damage
+
+#5: ESJammerChangeRandom(13:19507) -> I am the mage of the Matou Family!
+Condition: 50% chance (ai:50 rnd:0)
+Change 1 random orb type to Jammer orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:19508) -> Dammit!
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBoardChangeAttackBits(85:19509) -> Go out!
+Change all orbs to Water, Heal, and Jammer, Deal 120% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

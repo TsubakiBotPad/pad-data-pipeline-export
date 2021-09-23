@@ -1,0 +1,59 @@
+#3285 - Psychopomp Princess of Oblivion, Grida
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 3285
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (5969:95) I-I lost...*sniff*
+ | Spawn 3 random Poison orbs
+
+level: 4
+ type: PREEMPT
+ | condition: when 2744 on team
+ | (5973:83) Uwahahaha! Respect my authority! + Sure, I'll let you go...if you win!
+ | Player -99% HP + Voids status ailments for 5 turns
+ | (5957:83) Uwahahaha! Respect my authority! + I'm the baddest of the bad!
+ | Player -99% HP + Voids status ailments for 5 turns
+ type: DEATH
+ condition: when defeated
+ | (5969:95) I-I lost...*sniff*
+ | Spawn 3 random Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 1849 on team
+     | (5959:66) Oh, hello Father♪
+     | Do nothing
+   | group:
+     | condition: 60% chance
+     | (5960:79) Scythe of Divine Judgment
+     | Change the 1st row to Jammer orbs, Deal 120% damage
+     | (5961:61) Dead Gift
+     | Change 2 random orbs to Mortal Poison orbs
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (5964:83) You've got some nerve! I will end you! + Death Sentence
+     | Do nothing + Player -99% HP
+   | group:
+   | condition: turn 2
+     | (5965:61) 3
+     | Change 3 random orbs to Mortal Poison orbs
+   | group:
+   | condition: turn 3
+     | (5966:61) 2
+     | Change 3 random orbs to Mortal Poison orbs
+   | group:
+   | condition: turn 4
+     | (5967:61) 1
+     | Change 3 random orbs to Mortal Poison orbs
+   | group:
+     | (5968:15) Catastrophe
+     | Deal 2,000% damage (2 hits, 1,000% each)

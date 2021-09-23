@@ -1,0 +1,31 @@
+#319 - Machine Golem Mk.III
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 319
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: hp <= 49
+   | condition: 30% chance
+   | (151:17) Attack Stance
+   | Increase damage to 125% for the next 5 turns
+ | group:
+ | condition: hp <= 39
+   | condition: 30% chance
+   | (151:17) Attack Stance
+   | Increase damage to 125% for the next 5 turns
+   | condition: 40% chance
+   | (140:15) Flash Volt
+   | Deal 90~180% damage (2~4 hits, 45% each)
+
+level: 7
+ type: PREEMPT
+ | (2602:89) Delay Eye
+ | Delay active skills by 2 turns
+ group:
+ | (2603:15) Light Machine Gun
+ | Deal 120% damage (3 hits, 40% each)

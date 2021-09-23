@@ -1,0 +1,46 @@
+#106321 - トガヒミコ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:18430) -> Let's be logical.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 4~6 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBindAwoken(88:18432) -> You're lacking logic.
+Bind awoken skills for 1 turn, Deal 110% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESDispel(6:18433) -> Quirk: Erasure
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids player buff effects
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBindRandom(1:18431) -> Binding Cloth
+Bind 2 random cards for 10 turns, Deal 100% damage
+
+#12: ESRandomSpawn(92:18434) -> This is as far as you go.
+Spawn 10 random Dark orbs, Deal 120% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

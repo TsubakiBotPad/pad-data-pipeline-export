@@ -1,0 +1,60 @@
+#302957 - Dawn Bride, Izanami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCard(90:24813) -> ESBranchCard
+Branch on player_cards HAS [6251], target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:24800) -> It's time we exchanged our vows.
+	No skyfall for 6 turns
+	[1] ESBindSkill(14:24801) -> Just look at me.
+	Bind active skills for 6 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:24803) -> This is a new beginning for us.
+	Spawn 6 random Fire, Water, Wood, and Light orbs
+	[1] ESInactivity66(66:24876) -> Just look at me.
+	Do nothing
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBindRandomSub(65:24804) -> Yomi's Commandment
+	Bind 2 random subs for 3 turns
+	[1] ESAttackMultihit(15:24805) -> The Holy Undertaking of Genesis
+	Deal 105% damage (3 hits, 35% each)
+
+#7: SkillSet:
+	[0] ESCloud(104:24807) -> Fog of Yomi
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESAttackMultihit(15:24805) -> The Holy Undertaking of Genesis
+	Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESDamageShield(74:24809) -> The Feathered Garment of Yomi
+	Reduce damage from all sources by 60% for 1 turn
+	[1] ESAttackMultihit(15:24805) -> The Holy Undertaking of Genesis
+	Deal 105% damage (3 hits, 35% each)
+
+#10: SkillSet:
+	[0] ESFixedStart(101:24811) -> Guidance of Yomi
+	Fix orb movement starting point to random position on the board
+	[1] ESAttackMultihit(15:24805) -> The Holy Undertaking of Genesis
+	Deal 105% damage (3 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

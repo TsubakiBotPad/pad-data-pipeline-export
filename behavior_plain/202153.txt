@@ -1,0 +1,22 @@
+#202153 - Cocco Lupia
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackUPRemainingEnemies(17:2479) -> Let's fight!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#4: ESBindTyping(3:2478) -> Dragon Summoning Dance
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind Dragon cards for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

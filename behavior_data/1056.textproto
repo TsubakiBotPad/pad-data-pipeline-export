@@ -1,0 +1,37 @@
+  monster_id: 1056
+  levels {
+    level: 5
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 3
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 821
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 3
+            trigger_turn: 2
+            trigger_turn_end: 3
+          }
+          children {
+            behavior {
+              enemy_skill_id: 822
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,48 @@
+#1956 - Awoken Parvati
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbThreshold(87:2215) -> It's about to get more dangerous
+Absorb damage when damage >= 300,000 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRandomSpawn(92:2221) -> Grief of the Golden God
+	Spawn 10 random Jammer orbs
+	[1] ESEndBattle(40:2222) -> Foolishness...
+	Reduce self HP to 0
+
+#7: ESRowSpawnMulti(79:2219) -> Himalayan Anger
+Condition: When < 30% HP (ai:100 rnd:0)
+Change the 1st row to Jammer orbs, Deal 200% damage
+
+#8: ESRowSpawnMulti(79:2217) -> Calming Mountain Wind
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 1st row to Heal orbs, the 3rd row to Wood orbs, and the 5th row to Heal orbs, Deal 100% damage
+
+#9: ESColumnSpawnMulti(77:2218) -> Trishula
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st column to Fire orbs, the 3rd column to Fire orbs, and the 5th column to Fire orbs, Deal 100% damage
+
+#10: ESAttackMultihit(15:2216) -> Tiger Rush
+Deal 90~120% damage (3~4 hits, 30% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:2214) -> パール・パッシブ
+Survive attacks with 1 HP when HP > 1%

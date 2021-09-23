@@ -1,0 +1,21 @@
+#500975 - Blue Pirate Dragon, Awilda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 500975
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27061:105) Tell us where the treasure is!
+ | RCV 50% for 2 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (27062:50) I'll stomp you under my heel!
+   | Player -75% HP
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (27063:15) You're persistent, aren't you!!
+   | Deal 100% damage (2 hits, 50% each)

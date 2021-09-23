@@ -1,0 +1,26 @@
+#100191 - Alt. Pyro Devil
+monster size: 1
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBombRandomSpawn(102:9350) -> Tiny Pyro
+Spawn 1 random Bomb orb, Deal 10% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPCooldown(19:131) -> Anger
+Increase damage to 130% for the next 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

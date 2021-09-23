@@ -1,0 +1,35 @@
+#2335 - Thunder Armor Dragon, Albireo
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2335
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3349:63) Paralyze Breath
+ | Bind player leader for 2 turns, Deal 60% damage
+ group:
+ | group:
+   | condition: 40% chance
+   | (3350:94) Peaky Lightning
+   | Lock all Light orbs, Deal 120% damage
+   | condition: 40% chance
+   | (3351:92) Gold Pulse
+   | Spawn 5 random Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (3352:48) Thunder Poison
+   | Change all Light orbs to Poison orbs, Deal 80% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (3235:52) Follow Repair
+ | Enemy ally recover 45% HP

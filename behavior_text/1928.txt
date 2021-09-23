@@ -1,0 +1,75 @@
+#1928 - Awoken Venus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1928
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2158:72) パッシブ・ビーナス
+ | Reduce damage from Water and Light attrs by 50%
+ type: PREEMPT
+ | (2159:39) Be gentle with me♪
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (2162:63) Beautiful World
+     | Bind 2 random cards for 1~2 turns, Deal 75% damage
+   | group:
+   | condition: turn 2 while HP > 29
+     | (2160:92) Cupid Attack
+     | Spawn 3 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 29
+     | (2162:63) Beautiful World
+     | Bind 2 random cards for 1~2 turns, Deal 75% damage
+   | group:
+   | condition: turn 4 while HP > 29
+     | (2160:92) Cupid Attack
+     | Spawn 3 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 29
+     | (2162:63) Beautiful World
+     | Bind 2 random cards for 1~2 turns, Deal 75% damage
+   | group:
+   | condition: turn 6 while HP > 29
+     | (2160:92) Cupid Attack
+     | Spawn 3 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (2161:39) This is just the beginning♪
+     | Movetime -3s for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (2162:63) Beautiful World
+     | Bind 2 random cards for 1~2 turns, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (2160:92) Cupid Attack
+     | Spawn 3 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (2162:63) Beautiful World
+     | Bind 2 random cards for 1~2 turns, Deal 75% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (2163:65) High Temptation
+     | Bind 4 random subs for 2~3 turns
+   | group:
+   | condition: turns 2-3
+     | (2164:63) Brilliant World
+     | Bind 5 random cards for 1~2 turns, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 4
+     | (2164:63) Brilliant World
+     | Bind 5 random cards for 1~2 turns, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (2161:39) This is just the beginning♪
+     | Movetime -3s for 3 turns

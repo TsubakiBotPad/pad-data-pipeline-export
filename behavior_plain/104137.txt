@@ -1,0 +1,85 @@
+#104137 - Legiana
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbLock(94:18779) -> Gnashing Stomp
+Lock 15 random orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESDebuffMovetime(39:18781) -> Chilling Discharge
+Movetime 50% for 10 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 24
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#14: ESCloud(104:18782) -> Mid-Air Frost Scythe
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A 7×1 rectangle of clouds appears for 2 turns at a random location, Deal 90% damage
+
+#15: ESAttackMultihit(15:8822) -> Mid-Air Claw Attack
+Deal 130% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: SkillSet:
+	[0] ESAbsorbAttribute(53:18777) -> Roar
+	Absorb Water damage for 10 turns
+	[1] ESColumnSpawnMulti(77:18778) -> Frost Pillar
+	Change the 3rd column to Water orbs, Deal 100% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESGravity(50:18831) -> Dash Attack
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -70% HP
+
+#22: ESAttackMultihit(15:18783) -> Mid-Air Strike Attack
+Deal 100% damage (2 hits, 50% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESCloud(104:18832) -> Mid-Air Spinning Tail Attack
+A 1×7 rectangle of clouds appears for 1 turn at a random location, Deal 110% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn

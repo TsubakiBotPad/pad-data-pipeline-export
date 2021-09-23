@@ -1,0 +1,37 @@
+#1663 - Osiris
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkyfall(68:1792) -> Monarchy of Dark Riches
+Wood and Dark skyfall +25% for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:1795) -> Invisible Protection
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 200% damage (2 hits, 100% each)
+
+#7: ESRowSpawnMulti(79:1794) -> Switch of Judgement
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 3rd row to Jammer orbs, Deal 50% damage
+
+#8: ESColumnSpawnMulti(77:1793) -> Firm Staff of Blessing
+Change the 2nd column to Heal orbs and the 5th column to Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttributeResist(72:1740) -> Light & Dark Resistance
+Reduce damage from Light and Dark attrs by 50%

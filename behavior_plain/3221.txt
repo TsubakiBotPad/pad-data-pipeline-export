@@ -1,0 +1,128 @@
+#3221 - Draconic Songstress of Blue Echoes, Mion
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:5642) -> Transparent Melody
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:5643) -> Overture for the Impenetrable
+	Reduce damage from all sources by 99% for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 10
+
+#9: SkillSet:
+	[0] ESAbsorbCombo(67:5645) -> Play me your puzzle's song ♪
+	Absorb damage when combos <= 4 for 1 turn
+	[1] ESDebuffMovetime(39:5646) -> Hesitant Opening Notes
+	Movetime 25% for 1 turn
+
+#10: SkillSet:
+	[0] ESAbsorbCombo(67:5670) -> Play me your puzzle's song ♪
+	Absorb damage when combos <= 5 for 1 turn
+	[1] ESDebuffMovetime(39:5646) -> Hesitant Opening Notes
+	Movetime 25% for 1 turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: SkillSet:
+	Condition: When < 99% HP (ai:100 rnd:0)
+	[0] ESBindAttack(63:5649) -> I simply can't lose ♪
+	Bind 1 random card for 4 turns, Deal 140% damage
+	[1] ESDamageShield(74:5659) -> Steel Arabesque
+	Reduce damage from all sources by 50% for 5 turns
+
+#14: SkillSet:
+	[0] ESGravity(50:5648) -> You should sound better than this!
+	Player -99% HP
+	[1] ESVoidShield(71:5658) -> Blessed Fantasia
+	Void damage >= 500,000 for 5 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 28
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 30
+
+#18: ESAttackUPRemainingEnemies(17:5672) -> Warrior's March
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 24
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#21: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBlindStickyFixed(98:5650) -> Surely you can hear the Orbs' song ♪
+	Blind orbs in specific positions for 1 turn
+	[1] ESBoardChangeAttackBits(85:5652) -> Rainbow Septet
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 120% damage
+
+#22: SkillSet:
+	[0] ESBlindStickyFixed(98:5651) -> Feel the music in your heart ♪
+	Blind orbs in specific positions for 1 turn
+	[1] ESBoardChangeAttackBits(85:5652) -> Rainbow Septet
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 120% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1000
+
+#25: ESOrbLock(94:5655) -> Obbligato of Ice Blades
+Condition: 50% chance (ai:50 rnd:0)
+Lock 10 random orbs, Deal 130% damage
+
+#26: ESAttackMultihit(15:5662) -> Ice Blossom Quartet
+Deal 160% damage (4 hits, 40% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#29: ESAbsorbCombo(67:5656) -> Barcarole for the River of Woe
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 6 for 2 turns
+
+#30: ESCloud(104:5673) -> This is your last performance!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A row of clouds appears for 1 turn at a random location
+
+#31: ESAttackMultihit(15:5657) -> Requiem of a Thousand Creeds
+Deal 5,000% damage (10 hits, 500% each)
+
+#32: ESAttributeResist(72:5669) -> Half Water Wood
+Reduce damage from Water and Wood attrs by 50%

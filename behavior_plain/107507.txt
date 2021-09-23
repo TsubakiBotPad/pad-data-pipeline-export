@@ -1,0 +1,64 @@
+#107507 - 東堂葵
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDamageShield(74:26734) -> What kind of woman is your type?
+Reduce damage from all sources by 75% for 4 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#9: ESAttackMultihit(15:26613) -> You're boring.
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#10: ESGravity(50:26614) -> Flimsy and shallow...
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Player -75% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESSkillDelay(89:26618) -> I barely feel any intention to fight.
+Delay active skills by 2~3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESAttackMultihit(15:26616) -> I'm not finished yet!
+	Deal 125% damage (5 hits, 25% each)
+	[1] ESGravity(50:26617) -> You're always so boring!
+	Player -75% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESTurnChangePassive(106:26611) -> I hate boring men.
+Enemy turn counter change to 1 when HP <= 50%

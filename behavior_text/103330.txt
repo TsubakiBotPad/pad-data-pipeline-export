@@ -1,0 +1,24 @@
+#103330 - Time-Shift Black Dragon Caller, Sonia
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103330
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10734:110) Dragon Pulse of Darkness
+ | Specific orbs change every 1.0s for 1 turn
+ group:
+ | group:
+   | (10736:15) Black Dragon's Dance
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10735:17) Black Dragon's Roar
+   | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: hp <= 9
+   | (10737:85) Draco Summon - Dark, Fire & Life
+   | Change all orbs to Fire, Dark, and Heal, Deal 400% damage

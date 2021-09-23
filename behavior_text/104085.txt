@@ -1,0 +1,32 @@
+#104085 - Leona Heidern
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104085
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19619:94) Fulfilling mission
+ | Lock 12 random orbs
+ group:
+ | group:
+   | condition: 20% chance
+   | (19623:102) Earring Bomb
+   | Spawn 3 random Bomb orbs, Deal 95% damage
+   | condition: 40% chance
+   | (19620:105) You're lucky to be alive.
+   | RCV 50% for 1 turn, Deal 98% damage
+   | condition: 40% chance
+   | (19621:15) Moon Slasher
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19622:1) Why did you do it?  You never had a chance.
+     | Bind 2 random cards for 5 turns
+   | group:
+     | (19624:79) Grand Saber
+     | Change the 4th row to Dark orbs, Deal 120% damage

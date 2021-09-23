@@ -1,0 +1,40 @@
+#205993 - Yellow Jellime
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205993
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17014:118) Balanced & God Halved
+ | Reduce damage from Balanced and God types by 50%
+
+level: 4
+ type: PASSIVE
+ | (17014:118) Balanced & God Halved
+ | Reduce damage from Balanced and God types by 50%
+ type: PREEMPT
+ | condition: 25% chance
+ | (17018:46) Mutation
+ | Change own attribute to random one of Fire, Wood, or Dark
+ group:
+ | group:
+   | condition: 10% chance
+   | (16967:7) Absorb
+   | Enemy recover 10% HP, Deal 100% damage
+   | condition: 40% chance
+   | (16968:94) Flash Needle
+   | Lock 2 random orbs, Deal 100% damage
+   | (16965:92) Jellime Attack
+   | Spawn 1 random Light orb, Deal 98% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (16966:92) Melt
+     | Spawn 2 random Light orbs
+   | group:
+     | (16969:15) Jellime Crush
+     | Deal 120% damage

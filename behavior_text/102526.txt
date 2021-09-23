@@ -1,0 +1,80 @@
+#102526 - Alt. Awoken Machine Hera
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102526
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3564:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ | (5867:73) Machine Zeus Hera Resolve
+ | Survive attacks with 1 HP when HP > 81%
+ type: PREEMPT
+ | condition: 20% chance
+ | (3601:83) Singularity + Machinery Body
+ | Absorb Light and Dark damage for 2 turns + Voids status ailments for 999 turns
+ | condition: 20% chance
+ | (3601:83) Singularity + Machinery Body
+ | Absorb Light and Dark damage for 2 turns + Voids status ailments for 999 turns
+ | condition: 20% chance
+ | (3601:83) Singularity + Machinery Body
+ | Absorb Light and Dark damage for 2 turns + Voids status ailments for 999 turns
+ | condition: 20% chance
+ | (3601:83) Singularity + Machinery Body
+ | Absorb Light and Dark damage for 2 turns + Voids status ailments for 999 turns
+ | condition: 20% chance
+ | (3601:83) Singularity + Machinery Body
+ | Absorb Light and Dark damage for 2 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 33% chance
+     | (3566:89) Black Weapon
+     | Delay active skills by 3 turns, Deal 130% damage
+     | condition: 50% chance
+     | (3569:94) Black Weapon
+     | Lock 8 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs, Deal 130% damage
+     | (3567:92) Black Weapon
+     | Spawn 3 random Mortal Poison orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 20% chance
+     | (3603:83) Elemental Absorber + Flare Combat
+     | Absorb Fire damage for 2 turns + Change a random attribute to Fire orbs, Deal 130% damage
+     | condition: 20% chance
+     | (3604:83) Elemental Absorber + Aqua Combat
+     | Absorb Water damage for 2 turns + Change a random attribute to Water orbs, Deal 130% damage
+     | condition: 20% chance
+     | (3605:83) Elemental Absorber + Earth Combat
+     | Absorb Wood damage for 2 turns + Change a random attribute to Wood orbs, Deal 130% damage
+     | condition: 20% chance
+     | (3606:83) Elemental Absorber + Light Combat
+     | Absorb Light damage for 2 turns + Change a random attribute to Light orbs, Deal 130% damage
+     | condition: 20% chance
+     | (3607:83) Elemental Absorber + Dark Combat
+     | Absorb Dark damage for 2 turns + Change a random attribute to Dark orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (3579:83) Limit Signal + Rust Generate
+     | Bind awoken skills for 2 turns + Spawn 12 random Jammer orbs
+     | (3578:83) Numb Signal + Power Steel
+     | Bind 4 random cards for 3 turns + Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (3571:15) Myriad Swords Wings
+     | Deal 150~240% damage (5~8 hits, 30% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 29
+   | (3570:86) Half Repair
+   | Enemy recover 50% HP
+ | group:
+ | condition: hp <= 19
+   | (3572:50) Dark Railgun
+   | Player -1,000% HP

@@ -1,0 +1,47 @@
+#656 - Loki, the Finisher
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 656
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3321:75) Sly Trick
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | condition: when 374, 375, 655, 1347 on team
+     | (3329:55) My friend! How've you been?
+     | Player recover 100% HP
+     | condition: 60% chance
+     | (3322:15) Fear Gift
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 60% chance
+     | (3322:15) Fear Gift
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (3325:83) Surprise Attack + Transformation
+     | Blind all orbs on the board + Change own attribute to random one of Fire, Water, or Wood, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 60% chance
+     | (3322:15) Fear Gift
+     | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: always turn 1, hp <= 79
+   | condition: when 374, 375, 655, 1347 on team
+   | (3329:55) My friend! How've you been?
+   | Player recover 100% HP
+   | (3327:39) Steel Puzzle
+   | Movetime -2s for 3 turns
+ | group:
+ | condition: hp <= 19
+   | (3326:92) Black Pain
+   | Spawn 6 random Mortal Poison orbs, Deal 200% damage

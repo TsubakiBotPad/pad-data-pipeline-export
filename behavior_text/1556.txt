@@ -1,0 +1,44 @@
+#1556 - Demon Slayer, Susano no Mikoto
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 1556
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14391:106) Hmm, interesting...
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (14392:83) Can you break my guard? + Hmm, you don't give up do you?
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 95% for 3 turns
+ group:
+ | group:
+   | (14395:83) Can you handle it? + Get ready to be torn to shreds
+   | Player -75% HP + Deal 300% damage (3 hits, 100% each), Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: always turn 1
+     | (14398:83) Hmm, not bad! + Ready yourself for the onslaught
+     | Enemy recover 100% HP + Void damage >= 5,000,000 for 999 turns
+   | group:
+     | condition: 33% chance
+     | (14401:48) Silencing Slice
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 33% chance
+     | (14402:15) Destructive Lingering Light
+     | Deal 112% damage (8 hits, 14% each)
+     | condition: 34% chance
+     | (14403:92) Furiously Falling Foliage
+     | Spawn 8 random Wood orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (14404:88) Won't you quench my thirst?
+     | Bind awoken skills for 1 turn
+   | group:
+     | (14405:15) I lost my buzz...
+     | Deal 500% damage (10 hits, 50% each)

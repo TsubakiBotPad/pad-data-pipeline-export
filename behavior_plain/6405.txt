@@ -1,0 +1,28 @@
+#6405 - Deadly Sin Dragon of Envy, Jevi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESGravity(50:18864) -> Resentful Roar
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -75% HP
+
+#3: ESRowSpawnMulti(79:18865) -> Spiteful Screech
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#4: ESAttackMultihit(15:18866) -> Jealous Rage
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:18923) -> I'll never forgive you...
+	Do nothing

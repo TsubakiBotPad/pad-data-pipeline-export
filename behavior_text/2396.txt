@@ -1,0 +1,99 @@
+#2396 - Awoken Loki
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 2396
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7133:83) Let's take it easy for now, eh? + Sly Prank
+ | Void damage >= 10,000,000 for 999 turns + Leader changes to random sub for 3 turns
+ group:
+ | type: MONSTER_STATUS
+   | (7167:18) Trickster's Trap
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 74
+     | (7136:83) Shadow of Jörmungandr! Unleash chaos! + Deathline Rune
+     | Jammer and Poison skyfall +8% for 5 turns + Player -98% HP
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 5
+     | condition: 20% chance
+     | (7162:83) Blessings of the Trickster God + Fake Spear Gungnir
+     | Spawn 3 random Jammer and Poison orbs + Bind 1 random card for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (7163:83) Blessings of the Trickster God + Fake Ring Draupnir
+     | Spawn 3 random Jammer and Poison orbs + Bind awoken skills for 1 turn, Deal 100% damage
+     | condition: 34% chance
+     | (7165:83) Blessings of the Trickster God + Fake Hammer Mjölnir
+     | Spawn 3 random Jammer and Poison orbs + Lock 5 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (7166:83) Blessings of the Trickster God + Fake Blade Lævateinn
+     | Spawn 3 random Jammer and Poison orbs + Change the 5th row to Fire orbs, Deal 100% damage
+     | (7164:83) Blessings of the Trickster God + Fake Ship Skidbladnir
+     | Spawn 3 random Jammer and Poison orbs + Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (7139:84) World Serpent's Coil
+     | Change all orbs to Jammer and Mortal Poison
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 1 while HP > 49
+     | (7140:83) Shadow of Hel! Extinguish all life! + Deathland Rune
+     | RCV 50% for 99 turns + Player -99% HP
+   | group:
+     | (7143:94) Dead Judgment
+     | Lock all Poison and Mortal Poison orbs, Deal 150% damage
+     | condition: 20% chance
+     | (7162:83) Blessings of the Trickster God + Fake Spear Gungnir
+     | Spawn 3 random Jammer and Poison orbs + Bind 1 random card for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (7163:83) Blessings of the Trickster God + Fake Ring Draupnir
+     | Spawn 3 random Jammer and Poison orbs + Bind awoken skills for 1 turn, Deal 100% damage
+     | condition: 34% chance
+     | (7165:83) Blessings of the Trickster God + Fake Hammer Mjölnir
+     | Spawn 3 random Jammer and Poison orbs + Lock 5 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (7166:83) Blessings of the Trickster God + Fake Blade Lævateinn
+     | Spawn 3 random Jammer and Poison orbs + Change the 5th row to Fire orbs, Deal 100% damage
+     | (7164:83) Blessings of the Trickster God + Fake Ship Skidbladnir
+     | Spawn 3 random Jammer and Poison orbs + Player -99% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (7144:83) Shadow of Fenrir! Seal the heavens! + Death Rune
+     | A 4×2 rectangle of clouds appears for 10 turns at 1st row, 2nd column + Player -100% HP
+   | group:
+     | condition: when required attributes on board
+     | (7147:92) Chain Crunch
+     | Spawn 1 random Dark orb, Deal 150% damage
+     | condition: 20% chance
+     | (7162:83) Blessings of the Trickster God + Fake Spear Gungnir
+     | Spawn 3 random Jammer and Poison orbs + Bind 1 random card for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (7163:83) Blessings of the Trickster God + Fake Ring Draupnir
+     | Spawn 3 random Jammer and Poison orbs + Bind awoken skills for 1 turn, Deal 100% damage
+     | condition: 34% chance
+     | (7165:83) Blessings of the Trickster God + Fake Hammer Mjölnir
+     | Spawn 3 random Jammer and Poison orbs + Lock 5 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (7166:83) Blessings of the Trickster God + Fake Blade Lævateinn
+     | Spawn 3 random Jammer and Poison orbs + Change the 5th row to Fire orbs, Deal 100% damage
+     | (7164:83) Blessings of the Trickster God + Fake Ship Skidbladnir
+     | Spawn 3 random Jammer and Poison orbs + Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (7148:83) Hold on! It's not your turn yet! + Oh, fine... I'll let you have your fun + Can you erase all the Jammers?
+     | Change all orbs to Light, Heal, and Jammer + Movetime 25% for 1 turn + Delay active skills by 30 turns
+   | group:
+     | (7152:48) Nope, guess not!
+     | Change all Jammer orbs to Dark orbs, Deal 1,000% damage
+     | (7153:83) Guess now's as good a time as any + Well then, if you'll excuse me...
+     | Do nothing + Reduce self HP to 0

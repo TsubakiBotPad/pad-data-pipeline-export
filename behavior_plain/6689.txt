@@ -1,0 +1,37 @@
+#6689 - Ancient Raccoon Spectre, Furaku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBoardChange(84:20698) -> Match 5 colors for me
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Water, Wood, Light, and Dark
+
+#5: ESBranchEraseAttr(117:20794) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 7
+
+#6: SkillSet:
+	[0] ESBindAwoken(88:20793) -> Drums of Ridicule
+	Bind awoken skills for 1 turn
+	[1] ESEndBattle(40:20699) -> He shuffled away
+	Reduce self HP to 0
+
+#7: SkillSet:
+	Condition: Fire, Water, Wood, Light, and Dark are erased (ai:100 rnd:0)
+	[0] ESSpinnersFixed(110:20792) -> Drums of Blessing
+	Specific orbs change every 1.0s for 99 turns
+	[1] ESEndBattle(40:20699) -> He shuffled away
+	Reduce self HP to 0
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

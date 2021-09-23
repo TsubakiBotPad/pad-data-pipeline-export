@@ -1,0 +1,248 @@
+#6348 - Brave Flame Hawk Knight, Gawain
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 5, target rnd 24
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:18532) -> Indomitable Fighting Spirit
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:18533) -> Oath of Loyalty
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:18597) -> Battle Song of the Round Table
+	Absorb damage when combos <= 13 for 1 turn
+	[3] ESBoardSizeChange(126:18665) -> Dominion of Destruction
+	Change board size to 6x5 for 15 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 21
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18543) -> Crimson Crisis
+	Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18544) -> Crimson Crisis
+	Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18545) -> Crimson Crisis
+	Absorb damage when combos <= 10 for 1 turn, Deal 100% damage
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18546) -> Crimson Crisis
+	Absorb damage when combos <= 11 for 1 turn, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESDamageShield(74:18535) -> A new day dawns
+	Reduce damage from all sources by 75% for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:18536) -> Protection of the Sun
+	Increase damage to 300% for the next 999 turns
+	[2] ESDebuffMovetime(39:18537) -> Oath of the Round Table
+	Movetime -3s for 99 turns
+	[3] ESAbsorbCombo(67:18597) -> Battle Song of the Round Table
+	Absorb damage when combos <= 13 for 1 turn
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18543) -> Crimson Crisis
+	Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+
+#17: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18544) -> Crimson Crisis
+	Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#18: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18545) -> Crimson Crisis
+	Absorb damage when combos <= 10 for 1 turn, Deal 100% damage
+
+#19: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18546) -> Crimson Crisis
+	Absorb damage when combos <= 11 for 1 turn, Deal 100% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:18550) -> Persisting Loyalty
+	Bind awoken skills for 5 turns
+	[1] ESSkillDelay(89:18551) -> Subjugation by the Sword
+	Delay active skills by 5 turns
+
+#22: SkillSet:
+	[0] ESChangeAttribute(46:18553) -> Sudden Turn
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:18554) -> End of the Rebellion
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:18532) -> Indomitable Fighting Spirit
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:18533) -> Oath of Loyalty
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:18651) -> Battle Song of the Round Table
+	Absorb damage when combos <= 11 for 1 turn
+	[3] ESBoardSizeChange(126:18665) -> Dominion of Destruction
+	Change board size to 6x5 for 15 turns
+
+#25: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 42
+
+#26: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 33
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 37
+
+#28: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18656) -> Crimson Crisis
+	Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+
+#29: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18657) -> Crimson Crisis
+	Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+
+#30: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18658) -> Crimson Crisis
+	Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+
+#31: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:18542) -> Inferno Blade
+	Player -70% HP
+	[1] ESAbsorbCombo(67:18659) -> Crimson Crisis
+	Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 37
+
+#34: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#35: SkillSet:
+	[0] ESDamageShield(74:18535) -> A new day dawns
+	Reduce damage from all sources by 75% for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:18536) -> Protection of the Sun
+	Increase damage to 300% for the next 999 turns
+	[2] ESDebuffMovetime(39:18537) -> Oath of the Round Table
+	Movetime -3s for 99 turns
+	[3] ESAbsorbCombo(67:18651) -> Battle Song of the Round Table
+	Absorb damage when combos <= 11 for 1 turn
+
+#36: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#37: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18656) -> Crimson Crisis
+	Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+
+#38: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18657) -> Crimson Crisis
+	Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+
+#39: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18658) -> Crimson Crisis
+	Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+
+#40: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESFixedStart(101:18596) -> Manipulating Blow
+	Fix orb movement starting point to random position on the board
+	[1] ESAbsorbCombo(67:18659) -> Crimson Crisis
+	Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:18550) -> Persisting Loyalty
+	Bind awoken skills for 5 turns
+	[1] ESSkillDelay(89:18551) -> Subjugation by the Sword
+	Delay active skills by 5 turns
+
+#43: SkillSet:
+	[0] ESChangeAttribute(46:18553) -> Sudden Turn
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:18554) -> End of the Rebellion
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#44: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#45: ESSuperResolve(129:18530) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

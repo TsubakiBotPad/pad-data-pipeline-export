@@ -1,0 +1,32 @@
+#340 - Wooden Dark Tiamat
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 340
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (664:60) Poison Breath
+ | Change 6 random orbs (excluding hearts) to Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (252:15) Hell Breath
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (664:60) Poison Breath
+     | Change 6 random orbs (excluding hearts) to Poison orbs
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (231:15) God Gaia Breath
+     | Deal 150% damage (2 hits, 75% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (664:60) Poison Breath
+     | Change 6 random orbs (excluding hearts) to Poison orbs

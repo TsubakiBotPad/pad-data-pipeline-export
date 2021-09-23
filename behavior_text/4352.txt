@@ -1,0 +1,61 @@
+#4352 - Spirit Numen of Fire, Borma
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4352
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9650:72) Fire Att. Half Reduced
+ | Reduce damage from Fire attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (9650:72) Fire Att. Half Reduced
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (9654:83) Flaming Feather Robes + Horns of Immense Heat + Guidance Fire of Ruin
+ | Voids status ailments for 999 turns + Void damage >= 15,000,000 for 999 turns + Spawn locked Bomb orbs in the specified positions
+ group:
+ | group:
+   | condition: 33% chance
+   | (9659:83) All Encompassing Conflagration + Rigid Flametail Attack
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison + Deal 60% damage (3 hits, 20% each), Deal 30% damage
+   | condition: 50% chance
+   | (9660:83) Sacred Flame Jet + Rigid Flametail Attack
+   | Change a random attribute to Jammer orbs + Deal 60% damage (3 hits, 20% each), Deal 35% damage
+   | (9661:83) Great Mauve Flame + Rigid Flametail Attack
+   | Player -30% HP + Deal 60% damage (3 hits, 20% each), Deal 60% damage (3 hits, 20% each)
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (9664:83) The Gates of Hell + Beacon Fire from the Underworld
+   | Unable to match Fire orbs for 3 turns + Fire skyfall +15% for 3 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (9668:83) Purgatory Flames of Damnation + Heat Haze + Flame Dance Incarnation
+     | Change all orbs to Fire and Jammer + A row of clouds appears for 3 turns at 3rd row, 1st column + Absorb damage when combos <= 7 for 99 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (9682:83) Alabaster Flame + Judgment Carving
+     | Spawn 3 random Light, Heal, Jammer, Poison, and Mortal Poison orbs + Player -75% HP
+     | (9683:83) Obsidian Flame + Judgment Carving
+     | Spawn 6 random Dark and Poison orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 33% chance
+     | (9679:83) Scarlet Flame + Judgment Carving
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer + Bind awoken skills for 1 turn, Deal 115% damage
+     | condition: 50% chance
+     | (9680:83) Cerulean Flame + Judgment Carving
+     | Change the 2nd and 5th columns to Water and Jammer orbs + Delay active skills by 1~2 turns, Deal 115% damage
+     | (9681:83) Virescent Flame + Judgment Carving
+     | Change the 2nd and 4th rows to Wood, Heal, and Poison orbs + Leader changes to random sub for 1 turn, Deal 115% damage
+ | group:
+ | condition: hp <= 9
+   | (9684:15) Conflagration of Hell
+   | Deal 2,500% damage (5 hits, 500% each)

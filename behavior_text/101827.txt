@@ -1,0 +1,41 @@
+#101827 - Alt. Red-Winged Star Angel, Rozuel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101827
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12123:72) Rozuel Fr Wt Halved
+ | Reduce damage from Fire and Water attrs by 50%
+ type: PREEMPT
+ | (12122:83) Flare Bomb + Flashburn
+ | Spawn Bomb orbs in the specified positions + Blind orbs in specific positions for 1 turn, Deal 160% damage
+ group:
+ | group:
+   | (6563:83) Healing Hymn + Scarlet Azure Blade
+   | Change a random attribute to Heal orbs + Change the 2nd and 3rd rows to Fire and Water orbs, Deal 170% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1 while HP > 49
+     | (6564:68) Light Punishment
+     | Jammer skyfall +20% for 5 turns
+   | group:
+   | condition: turn 2 while HP > 14
+     | (6535:83) Angel's Holy Grail + Battle Anthem
+     | Enemy recover 100% HP + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | (6565:68) Moderate Punishment
+   | Poison skyfall +20% for 5 turns
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 29
+   | (6566:68) Full Punishment
+   | Mortal Poison skyfall +20% for 5 turns
+ | group:
+ | condition: hp <= 14
+   | (6567:79) Lotus Sky Blades
+   | Change the 1st, 3rd, and 5th rows to Fire orbs and the 2nd and 4th rows to Water orbs, Deal 1,500% damage

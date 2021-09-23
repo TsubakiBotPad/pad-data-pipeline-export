@@ -1,0 +1,26 @@
+#4219 - Witch of Sweets, Werewolfie
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESColumnSpawnMulti(77:8967) -> I'll only give you half!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 6th column to Heal orbs, Deal 120% damage
+
+#4: ESBindAttack(63:8969) -> Play-Bite
+Condition: 20% chance (ai:20 rnd:0)
+Bind 1 random sub for 1 turn, Deal 100% damage
+
+#5: ESAttackMultihit(15:8968) -> Sweet Slash
+Condition: 60% chance (ai:60 rnd:0)
+Deal 120% damage (3 hits, 40% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

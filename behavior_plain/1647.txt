@@ -1,0 +1,107 @@
+#1647 - Dark Knight, Gravis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESVoidShield(71:14302) -> Dark Shield
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESOrbSealColumn(99:14303) -> Dark Spell
+	Seal the 1st and 6th columns for 3 turns
+
+#5: ESSetCounter(25:15) -> ESSetCounter
+counter = 10
+
+#6: SkillSet:
+	[0] ESVoidShield(71:14302) -> Dark Shield
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESCloud(104:14305) -> Dark Spell
+	A 2×5 rectangle of clouds appears for 3 turns at 1st row, 3rd column
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 15
+
+#10: ESRandomSpawn(92:14306) -> Great Shield of Destruction
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Spawn 5 random Mortal Poison orbs, Deal 100% damage
+
+#11: ESOrbChangeAttackBits(108:14307) -> Great Shield of Devastation
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Change all Poison orbs to Dark orbs, Deal 150% damage
+
+#12: ESOrbChangeAttack(48:14308) -> Obliterating Impact
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Poison orbs, Deal 95% damage
+
+#13: ESAttackMultihit(15:14309) -> Bloody Execution
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBombRandomSpawn(102:14310) -> Explosive Hit
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Spawn 5 random Bomb orbs, Deal 100% damage
+
+#16: ESOrbChangeAttackBits(108:14311) -> Disastrous Swing
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Change all Jammer orbs to Dark orbs, Deal 150% damage
+
+#17: ESOrbChangeAttack(48:14312) -> Doomsday Blow
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Jammer orbs, Deal 95% damage
+
+#18: ESAttackMultihit(15:14309) -> Bloody Execution
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#22: SkillSet:
+	[0] ESBlindStickyRandom(97:14314) -> Plunged into Darkness
+	Blind random 15~20 orbs for 5 turns
+	[1] ESDebuffMovetime(39:14315) -> Time Rift
+	Movetime 50% for 5 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 27
+
+#25: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#26: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 14, target rnd 9
+
+#27: ESAttackMultihit(15:14316) -> Darkness Execution
+Deal 300% damage (6 hits, 50% each)
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

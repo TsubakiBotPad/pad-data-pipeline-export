@@ -1,0 +1,42 @@
+#4383 - Aigis
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBlindStickyRandom(97:18715) -> Now is the time to summon.
+	Blind random 4~6 orbs for 4 turns
+	[1] ESDispel(6:18719) -> Dekunda
+	Voids player buff effects
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESCloud(104:18716) -> Sukukaja
+Condition: 50% chance (ai:50 rnd:0)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 80% damage
+
+#5: ESAttackMultihit(15:18717) -> Kill Rush
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESRecoverEnemy86(86:18718) -> Diarahan
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Enemy recover 50% HP
+
+#8: ESDamageShield(74:18720) -> Orgia Mode, activate! 
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 5 turns
+
+#9: ESRowSpawnMulti(79:18721) -> Heat Wave
+Change the 1st row to Fire orbs and the 5th row to Fire orbs, Deal 120% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

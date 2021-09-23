@@ -1,0 +1,80 @@
+#1081 - Lemon Dragon
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:697) -> ESPreemptive
+Enable preempt if level 3
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:4258) -> Lemon... Sour... I want some...
+Spawn 3 random Light orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESRandomSpawn(92:4253) -> It's tart, so just one...
+Condition: When light orbs are on the board (ai:100 rnd:0)
+Spawn 1 random Heal orb, Deal 100% damage
+
+#11: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#12: ESAttackMultihit(15:4257) -> There is no lemon!
+Deal 150% damage (3 hits, 50% each)
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESRandomSpawn(92:4254) -> It's tart, but I'll take another one...
+Condition: When light orbs are on the board (ai:100 rnd:0)
+Spawn 1 random Heal orb, Deal 100% damage
+
+#16: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b100
+
+#17: ESAttackMultihit(15:4257) -> There is no lemon!
+Deal 150% damage (3 hits, 50% each)
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: ESRandomSpawn(92:4255) -> It's tart... But I can't stop
+Condition: When light orbs are on the board (ai:100 rnd:0)
+Spawn 1 random Heal orb, Deal 100% damage
+
+#21: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1000
+
+#22: ESAttackMultihit(15:4257) -> There is no lemon!
+Deal 150% damage (3 hits, 50% each)
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#24: ESAttackMultihit(15:4256) -> It's tart!!
+Deal 250% damage (5 hits, 50% each)

@@ -1,0 +1,54 @@
+#5872 - Pixel Incarnation of Byakko, Haku
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffATK(130:17888) -> Dance of the Byakko
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+ATK -50% for 5 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#5: ESRandomSpawn(92:17889) -> Western Seven-Star Strike
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Fire, Water, and Dark orbs, Deal 100% damage
+
+#6: ESOrbChangeAttack(48:17890) -> Venomous Tiger Claws
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Poison orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:17891) -> Ferocious Tiger Claws
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:17870) -> Pixel Enhancement
+	Increase damage to 200% for the next 999 turns
+	[1] ESBindAwoken(88:17871) -> Pixel Aura
+	Bind awoken skills for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:17903) -> Ferocious Tiger Fangs
+Deal 200% damage (5 hits, 40% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

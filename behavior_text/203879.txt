@@ -1,0 +1,27 @@
+#203879 - Joyful Eye's Evil Duchess, Gremory
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203879
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23006:73) Resolve
+ | Survive attacks with 1 HP when HP > 15%
+ type: PREEMPT
+ | (23007:83) Evil Duchess' Barrier + Demonic Game + Deadly Words
+ | Voids status ailments for 999 turns + Change player HP to 50,000 for 1 turn + Player -150% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (23011:83) Demonic Game + Alluring Treasure Hunt
+   | Change player HP to 100,000 for 1 turn + ATK -50% for 4 turns, Deal 50% damage
+   | condition: 50% chance
+   | (23014:83) Demonic Game + Alluring Treasure Hunt
+   | Change player HP to 50,000 for 1 turn + RCV 50% for 4 turns, Deal 50% damage
+ | group:
+ | condition: hp <= 14
+   | (23016:15) Dire Catastrophe
+   | Deal 5,000% damage (5 hits, 1,000% each)

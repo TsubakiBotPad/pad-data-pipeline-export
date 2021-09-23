@@ -1,0 +1,46 @@
+#105108 - Balrog
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105108
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12413:50) Don't escape!
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 33% chance
+   | (12466:83) KKB + Buffalo Swing
+   | Random 3 orbs change every 1.0s for 1 turn + Delay active skills by 0~2 turns, Deal 95% damage
+   | condition: 33% chance
+   | (12467:83) KKB + Buffalo Pressure
+   | Random 3 orbs change every 1.0s for 1 turn + Deal 100% damage, Deal 100% damage
+   | condition: 34% chance
+   | (12419:15) Under Impact
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (12668:83) Crazy Rush + Don't stop me!
+     | Reduce damage from all sources by 50% for 10 turns + Do nothing
+   | group:
+     | condition: 25% chance
+     | (12426:83) Dash Straight + Charging Buffalo
+     | Deal 55% damage + Deal 60% damage (4 hits, 15% each), Deal 55% damage
+     | condition: 25% chance
+     | (12427:83) Dash Grand Blow + Charging Buffalo
+     | Change the 5th row to Dark orbs + Deal 60% damage (4 hits, 15% each), Deal 45% damage
+     | condition: 25% chance
+     | (12428:83) Screw Smash + Charging Buffalo
+     | Change the 4th column to Dark orbs + Deal 60% damage (4 hits, 15% each), Deal 50% damage
+     | condition: 25% chance
+     | (12429:83) Turn Punch + Charging Buffalo
+     | Player -50% HP + Deal 60% damage (4 hits, 15% each), Deal 60% damage (4 hits, 15% each)
+ | group:
+ | condition: hp <= 14
+   | (12430:15) Gigaton Blow
+   | Deal 230% damage

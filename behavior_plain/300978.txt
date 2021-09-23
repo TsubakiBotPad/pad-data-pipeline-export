@@ -1,0 +1,33 @@
+#300978 - Alt. Black Pirate Dragon, Blackbeard
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESVoidShield(71:25649) -> Ebony Sea Dragon's Guarding Eye
+	Void damage >= 6,000,000 for 4 turns
+	[1] ESBlindStickyRandom(97:25650) -> Evil Eye's Ultimatum
+	Blind all orbs for 4 turns
+
+#3: ESBombRandomSpawn(102:25651) -> Ebony Sea Dragon Broadside
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 5 random Bomb orbs
+
+#4: ESBombRandomSpawn(102:25652) -> Ebony Sea Dragon Broadside
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 10 random Bomb orbs
+
+#5: ESBombRandomSpawn(102:25653) -> Ebony Sea Dragon Broadside
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 15 random Bomb orbs
+
+#6: ESAttackMultihit(15:25654) -> Queen Anne's Revenge
+Deal 1,200% damage (3 hits, 400% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

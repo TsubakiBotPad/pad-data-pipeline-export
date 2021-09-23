@@ -1,0 +1,31 @@
+#100596 - Alt. Hera-Is
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 100596
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9376:83) Ice Coffin + Ice Kiss
+ | Bind 5 random cards for 1~2 turns + Bind active skills for 3 turns
+ group:
+ | group:
+   | (9377:92) Cooling Poison
+   | Spawn 1 random Poison orb, Deal 80% damage
+ | group:
+ | condition: hp <= 74
+   | condition: 80% chance
+   | (9378:15) Freeze Blast
+   | Deal 120% damage (2 hits, 60% each)
+   | (9377:92) Cooling Poison
+   | Spawn 1 random Poison orb, Deal 80% damage
+ | group:
+ | condition: always turn 1, hp <= 54
+   | (9381:83) Divine Mischief + Freeze
+   | Change 2 random orb types to Jammer orbs + Lock all Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 29
+   | (9384:83) Crystal Coffin + Serene Wrath
+   | Bind 3 random cards for 2~3 turns + Increase damage to 200% for the next 999 turns

@@ -1,0 +1,46 @@
+#3145 - 技巧・キン肉マンゼブラ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3145
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 3124, 3125, 3132, 3133, 3850 on team
+ | (5439:74) Hehehe...
+ | Reduce damage from all sources by 50% for 3 turns
+ | (5438:74) Shadow Cloak
+ | Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5440:48) Savanna Punch
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (5441:94) Thoroughbred Hook
+     | Lock 10 random orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5442:50) Thoroughbred Upper
+     | Player -99% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (5443:63) Flying Headbutt
+     | Bind player leader for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 2
+     | (5444:98) Flying Headbutt
+     | Blind orbs in specific positions for 1 turn
+   | group:
+   | condition: turn 3
+     | (5445:63) Brutal Art: Canvas Presser
+     | Bind both leaders for 1 turn, Deal 100% damage
+   | group:
+     | (5446:79) Muscle Inferno
+     | Change the 3rd row to Fire orbs, Deal 250% damage

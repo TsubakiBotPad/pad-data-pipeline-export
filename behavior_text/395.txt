@@ -1,0 +1,32 @@
+#395 - Love Deity, Chaos Venus
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 395
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (76:53) Chaotic Defense
+ | Absorb Dark damage for 10 turns
+ group:
+ | group:
+   | (78:15) Love Hurricane
+   | Deal 80% damage (4 hits, 20% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (77:65) Temptation
+     | Bind 3 random subs for 2~3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (79:4) Candy &
+     | Change a random attribute to Heal orbs
+     | (80:15) Death
+     | Deal 200% damage (5 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (80:15) Death
+     | Deal 200% damage (5 hits, 40% each)

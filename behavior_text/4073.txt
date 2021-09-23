@@ -1,0 +1,41 @@
+#4073 - Serene Princess of Hell, Sitri
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4073
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18956:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (18957:83) Magic Circle's Flowing Wall + Evil Water's Charm
+ | Void damage >= 10,000,000 for 999 turns + ATK -90% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 74
+     | (18961:15) Water Ring Jail
+     | Deal 100% damage (4 hits, 25% each)
+   | group:
+     | (18960:15) Fearful Splash
+     | Deal 1,200% damage (4 hits, 300% each)
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 1 while HP > 9
+     | (18962:17) Grief-Filled Rage
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (18961:15) Water Ring Jail
+     | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: hp <= 9
+   | (18960:15) Fearful Splash
+   | Deal 1,200% damage (4 hits, 300% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18963:83) Princess of Hell's Temptation + Death's Door's Desire
+   | Absorb damage when combos <= 8 for 1 turn + Movetime 25% for 1 turn

@@ -1,0 +1,71 @@
+#103576 - Alt. Seventh Dragon Caller, Shapeshifter Wallace
+monster size: 5
+new AI: True
+start/max counter: 1023
+counter increment: 0
+monster_id: 103576
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6922:72) Wood damage halved
+ | Reduce damage from Wood attrs by 50%
+ | (12175:73) Dragonbound Soul Spirit
+ | Survive attacks with 1 HP when HP > 99%
+ type: PREEMPT
+ | (6889:83) Concealed Mountain Path + Guardian Dragon Formation + Mucus Skin
+ | Void damage >= 10,000,000 for 999 turns + Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (6892:83) Rainbow Cloak + Hell Poison Claw
+     | Change own attribute to Fire + Change 7 random orbs to Poison orbs, Deal 310% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (6895:83) Rainbow Cloak + Hell Venom Claw
+     | Change own attribute to Water + Change 5 random orbs to Poison orbs, Deal 320% damage
+   | group:
+   | condition: turn 3 while HP > 14
+     | (6898:83) Rainbow Cloak + Paralysis Vine
+     | Change own attribute to Wood + Bind 1 random sub for 7 turns, Deal 330% damage
+   | group:
+   | condition: turn 4 while HP > 14
+     | (6901:83) Rainbow Cloak + Poison Rave
+     | Change own attribute to Light + Change 10 random orbs to Poison orbs, Deal 350% damage
+   | group:
+   | condition: turn 5 while HP > 14
+     | (6904:83) Rainbow Cloak + Hell Poison Rave
+     | Change own attribute to Dark + Change 7 random orbs to Poison orbs, Deal 370% damage
+   | group:
+   | condition: turn 6 while HP > 14
+     | (6905:48) Hell Bloom
+     | Change all Poison orbs to Jammer orbs, Deal 6,000% damage
+     | (6906:94) Thousand-Blade Strike
+     | Lock all orbs, Deal 300% damage
+   | group:
+   | condition: turn 7 while HP > 14
+     | (6910:83) The Allure of Swift Death + The Art of Contamination + Storm Rave
+     | Mortal Poison skyfall +20% for 7 turns + Unable to match Poison and Mortal Poison orbs for 2 turns + Deal 420% damage (7 hits, 60% each), Deal 420% damage (7 hits, 60% each)
+   | group:
+   | condition: turn 8 while HP > 14
+     | (6913:83) Rainbow Cloak + Paralysis Vine
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Bind 1 random sub for 7 turns, Deal 330% damage
+   | group:
+   | condition: turn 9 while HP > 14
+     | (6916:83) Thorned Husk Fang + Cyclone Rave
+     | Locked Poison and Mortal Poison skyfall +100% for 5 turns + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)
+   | group:
+     | condition: 45% chance
+     | (6917:83) Rainbow Cloak + Seven Gardens
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison, Deal 400% damage
+     | condition: 40% chance
+     | (6918:83) Rainbow Cloak + Cyclone Rave
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)
+     | condition: 15% chance
+     | (6919:83) Rainbow Cloak + Dead Poison Rave
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Change 14 random orbs to Poison orbs, Deal 400% damage
+ | group:
+ | condition: hp <= 14
+   | (6921:83) Rainbow Cloak + Everstorm Rainbow Blade
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 12,000% damage (10 hits, 1,200% each), Deal 12,000% damage (10 hits, 1,200% each)

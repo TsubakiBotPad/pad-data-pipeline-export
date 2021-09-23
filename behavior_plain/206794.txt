@@ -1,0 +1,89 @@
+#206794 - Yotsugi Ononoki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:21228) -> Yeah!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 5 for 5 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 17
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 21
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 13
+
+#7: ESDebuffRCV(105:21235) -> Why are you getting so passionate about it now?
+Condition: 20% chance (ai:0 rnd:20)
+RCV 50% for 1 turn, Deal 75% damage
+
+#8: ESOrbLock(94:21240) -> What are you doing?
+Condition: 20% chance (ai:0 rnd:20)
+Lock 6 random orbs, Deal 70% damage
+
+#9: ESColumnSpawnMulti(77:21230) -> Chop
+Condition: 20% chance (ai:0 rnd:20)
+Change the 1st column to Wood orbs, Deal 80% damage
+
+#10: ESRandomSpawn(92:21236) -> You're a real taskmaster.
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 4 random Wood and Dark orbs, Deal 90% damage
+
+#11: ESAttackMultihit(15:21231) -> Yeah, yeah.
+Condition: 20% chance (ai:0 rnd:20)
+Deal 100% damage (2 hits, 50% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: SkillSet:
+	[0] ESSpinnersRandom(109:21233) -> Analyzing.
+	Random 2 orbs change every 1.0s for 4 turns
+	[1] ESStatusShield(20:21234) -> Well, I think I have a general idea now.
+	Voids status ailments for 999 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 5
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: SkillSet:
+	[0] ESDebuffMovetime(39:21229) -> You took too long.
+	Movetime -3s for 5 turns
+	[1] ESInactivity66(66:21238) -> But won't it kill you this time?
+	Do nothing
+	[2] ESGravity(50:21239) -> We've succeeded in our reconnaissance mission.
+	Player -99% HP
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESAttackUPRemainingEnemies(17:21241) -> Now, time to set the plan in motion.
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#22: ESAttackMultihit(15:21242) -> Unlimited Rule Book
+Deal 200% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

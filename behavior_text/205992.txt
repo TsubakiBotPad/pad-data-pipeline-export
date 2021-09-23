@@ -1,0 +1,36 @@
+#205992 - Blue Jellime
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205992
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17015:118) Healer & Attacker Halved
+ | Reduce damage from Healer and Attacker types by 50%
+
+level: 4
+ type: PASSIVE
+ | (17015:118) Healer & Attacker Halved
+ | Reduce damage from Healer and Attacker types by 50%
+ group:
+ | group:
+   | condition: 10% chance
+   | (16962:7) Absorb
+   | Enemy recover 10% HP, Deal 100% damage
+   | condition: 40% chance
+   | (16963:1) Water Fang
+   | Bind 1 random card for 1 turn, Deal 95% damage
+   | (16960:92) Jellime Attack
+   | Spawn 1 random Water orb, Deal 98% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (16961:92) Melt
+     | Spawn 2 random Water orbs
+   | group:
+     | (16964:15) Jellime Shoot
+     | Deal 120% damage (3 hits, 40% each)

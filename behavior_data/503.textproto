@@ -1,0 +1,60 @@
+  monster_id: 503
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+            repeats_every: 10
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 194
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 39
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 10
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 194
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 10
+                trigger_turn: 2
+                trigger_turn_end: 10
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 195
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

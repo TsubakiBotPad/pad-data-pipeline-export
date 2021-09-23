@@ -1,0 +1,63 @@
+#2993 - Desiring Princess of Hell, Sitri
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESBindAwoken(88:14792) -> He, he♪
+	Bind awoken skills for 1 turn
+	[1] ESLeaderAlter(125:14793) -> I'll make you cute!
+	Change leader to [44] for 99 turns
+	[2] ESSkillDelay(89:14794) -> Hang in and survive!
+	Delay active skills by 99 turns
+	[3] ESRandomSpawn(92:14795) -> Here you go♪
+	Spawn 15 random Heal and Mortal Poison orbs
+	[4] ESRandomSpawn(92:14813) -> This is a present♪
+	Spawn 3 random Fire orbs
+
+#3: ESOrbChangeAttackBits(108:14811) -> No good!
+Change all Jammer, Poison, and Mortal Poison orbs to Water orbs, Deal 100% damage
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESBindTarget(54:14797) -> Be quiet for a while
+	Bind friend leader for 99 turns
+	[1] ESBoardChange(84:14798) -> Yes, like that!
+	Change all orbs to Mortal Poison
+	[2] ESRandomSpawn(92:14799) -> Good luck
+	Spawn 10 random Heal orbs
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBindAwoken(88:14790) -> He, he♪
+	Bind awoken skills for 2 turns
+	[1] ESMaxHPChange(111:14801) -> How about this?
+	Change player HP to 100,000 for 1 turn
+	[2] ESRandomSpawn(92:14802) -> Tougher than expected?
+	Spawn 10 random Heal, Jammer, and Poison orbs
+	[3] ESDebuffRCV(105:14803) -> This'll make you better
+	RCV 500% for 1 turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardChange(84:14805) -> Like that....
+	Change all orbs to Heal
+	[1] ESBombFixedSpawn(103:14806) -> That's risky!
+	Spawn Bomb orbs in the specified positions
+	[2] ESDebuffMovetime(39:14807) -> Come on, hurry up♪
+	Movetime -4s for 1 turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:14809) -> You made it this far, huh!
+	Change all orbs to Poison
+	[1] ESOrbLock(94:14810) -> This is the last chance!
+	Lock all Poison orbs
+
+#8: ESEndBattle(40:14812) -> You're amazing
+Reduce self HP to 0

@@ -1,0 +1,29 @@
+#1663 - Osiris
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1663
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1740:72) Light & Dark Resistance
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (1792:68) Monarchy of Dark Riches
+ | Wood and Dark skyfall +25% for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1794:79) Switch of Judgement
+     | Change the 3rd row to Jammer orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1793:77) Firm Staff of Blessing
+     | Change the 2nd column to Heal orbs and the 5th column to Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | (1795:15) Invisible Protection
+   | Deal 200% damage (2 hits, 100% each)

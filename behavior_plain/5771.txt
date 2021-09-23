@@ -1,0 +1,57 @@
+#5771 - Holy Festival's Hell Phantom Heiress, Romia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:21389) -> Let's have some fun♪
+	Locked Fire and Wood skyfall +100% for 99 turns
+	[1] ESBindAwoken(88:21390) -> Here you go!
+	Bind awoken skills for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESBlindStickyRandom(97:21391) -> Warm Hood
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 7 orbs for 1 turn, Deal 95% damage
+
+#5: ESBindAttack(63:21392) -> Dozing Plushie
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random card for 3 turns, Deal 100% damage
+
+#6: ESAttackMultihit(15:21393) -> Paw Pad Punch!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESVoidShield(71:21395) -> Are you having fun?
+	Void damage >= 5,000,000 for 999 turns
+	[1] ESDebuffRCV(105:21396) -> Have another one
+	RCV 50% for 10 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 11, target rnd 4
+
+#13: ESAttackMultihit(15:21397) -> Paw Pad Pal Punch!
+Deal 300% damage (2 hits, 150% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

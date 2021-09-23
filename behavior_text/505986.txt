@@ -1,0 +1,38 @@
+#505986 - Elven Archer, P'numas
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 505986
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23246:67) Leave here at once!
+ | Absorb damage when combos <= 3 for 3 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 20% chance
+   | (23247:74) Liberation Shield
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | condition: 40% chance
+   | (23248:89) Embracing Arrow
+   | Delay active skills by 10 turns, Deal 50% damage
+   | condition: 40% chance
+   | (23249:15) Barrage Shot
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 3
+   | (23250:83) Breath of the Great Tree + Embracing Arrow
+   | Increase damage to 150% for the next 999 turns + Delay active skills by 10 turns, Deal 50% damage
+ | group:
+   | condition: 20% chance
+   | (23247:74) Liberation Shield
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | condition: 40% chance
+   | (23248:89) Embracing Arrow
+   | Delay active skills by 10 turns, Deal 50% damage
+   | condition: 40% chance
+   | (23249:15) Barrage Shot
+   | Deal 105% damage (3 hits, 35% each)

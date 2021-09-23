@@ -1,0 +1,49 @@
+#2574 - Osechi Party Fox, Mitsuki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:16122) -> How about a taste of my cooking?
+	Spawn 6 random Heal orbs
+	[1] ESGravity(50:16123) -> Looks good doesn't it
+	Player -99% HP
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 5
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:16134) -> Take your time, there's plenty
+	Increase damage to 150% for the next 999 turns
+	[1] ESGravity(50:16135) -> You can keep eating can't you?
+	Player -99% HP
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:16125) -> It's a kelp roll with fish inside
+	Spawn 3 random Dark orbs
+	[1] ESAttackMultihit(15:16126) -> The broth is amazing
+	Deal 110% damage
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:16128) -> Next is an omelet with fish paste inside
+	Spawn 3 random Light orbs
+	[1] ESAttackMultihit(15:16129) -> It's sweet and delicious
+	Deal 100% damage (2 hits, 50% each)
+
+#7: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESRandomSpawn(92:16131) -> Now we have steamed fish paste
+	Spawn 3 random Fire orbs
+	[1] ESAttackMultihit(15:16132) -> This is always good
+	Deal 90% damage (3 hits, 30% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,66 @@
+#6796 - Apparition Killer, Kiss-Shot
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6796
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21132:83) Return to my side. + Live with me.
+ | ATK -50% for 4 turns + Absorb Dark damage for 4 turns
+ group:
+ | group:
+ | condition: always turn 4
+   | (21145:83) How wonderful! + More, more, more!
+   | Reduce damage from all sources by 50% for 3 turns + ATK -50% for 3 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21135:83) Don't feel too despondent. + I shall give you a handicap.
+     | Voids status ailments for 999 turns + Movetime 150% for 3 turns
+   | group:
+   | condition: turns 2-3 while HP > 19
+     | condition: 25% chance
+     | (21141:77) Kiss-Shot's Chop
+     | Change the 1st column to Dark orbs, Deal 80% damage
+     | condition: 25% chance
+     | (21142:92) Hyaa-hah!
+     | Spawn 3 random Fire and Dark orbs, Deal 90% damage
+     | condition: 25% chance
+     | (21143:15) Hah! Haa! Ahaha!
+     | Deal 96% damage (3 hits, 32% each)
+     | condition: 25% chance
+     | (21144:15) Hahaha! Aahahaha!
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+     | condition: 25% chance
+     | (21141:77) Kiss-Shot's Chop
+     | Change the 1st column to Dark orbs, Deal 80% damage
+     | condition: 25% chance
+     | (21142:92) Hyaa-hah!
+     | Spawn 3 random Fire and Dark orbs, Deal 90% damage
+     | condition: 25% chance
+     | (21143:15) Hah! Haa! Ahaha!
+     | Deal 96% damage (3 hits, 32% each)
+     | condition: 25% chance
+     | (21144:15) Hahaha! Aahahaha!
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (21138:83) I do not wish to hold back. + What nerve!
+   | Increase damage to 150% for the next 999 turns + Delay active skills by 0~2 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21148:88) How sad it makes me to know that I'll never hear ye speak!
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: turns 2-3
+     | (21149:15) Prepare to die!
+     | Deal 200% damage (2 hits, 100% each)
+   | group:
+     | (21149:15) Prepare to die!
+     | Deal 200% damage (2 hits, 100% each)

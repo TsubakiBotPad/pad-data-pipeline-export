@@ -1,0 +1,42 @@
+#1514 - Nomadic Dancer, Fuu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1514
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10209:118) Heal Attack Types Halved
+ | Reduce damage from Healer and Attacker types by 50%
+ type: PREEMPT
+ | (10213:83) I'm here! + Are you ready? + Run, run, run!
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 4 for 999 turns + A 6×3 rectangle of clouds appears for 1 turn at 2nd row, 1st column, Deal 120% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | condition: when 5 combos last turn
+   | (10214:110) Hum! What about this?
+   | Specific orbs change every 1.0s for 1 turn
+   | (10215:39) Hehe! You give up?
+   | Movetime 25% for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (10216:104) Run more!
+   | A 4×5 rectangle of clouds appears for 1 turn at 1st row, 2nd column, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | condition: when 5 combos last turn
+   | (10214:110) Hum! What about this?
+   | Specific orbs change every 1.0s for 1 turn
+   | (10215:39) Hehe! You give up?
+   | Movetime 25% for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (10217:15) Let's attack together!
+   | Deal 200% damage (5 hits, 40% each)
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (10212:104) Run, run, run!
+   | A 6×3 rectangle of clouds appears for 1 turn at 2nd row, 1st column, Deal 120% damage

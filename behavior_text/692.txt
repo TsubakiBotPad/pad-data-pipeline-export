@@ -1,0 +1,30 @@
+#692 - Earth-Rending Emperor, Siegfried
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 692
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (459:55) En Garde!
+ | Player recover 100% HP
+ group:
+ | group:
+ | condition: when hp is full
+   | (501:16) He strikes an imposing stance
+   | Do nothing
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: always turn 1
+     | (498:19) King Bubblie ENHANCE!
+     | Increase damage to 300% for the next 999 turns
+   | group:
+     | (451:48) Splash Blade
+     | Change a random attribute to Water orbs, Deal 70% damage
+ | group:
+ | condition: hp <= 49
+   | (452:15) Dragon-Slaying Crimson Blade
+   | Deal 88% damage

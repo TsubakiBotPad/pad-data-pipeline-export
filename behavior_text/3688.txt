@@ -1,0 +1,60 @@
+#3688 - Potshot Steel Star Goddess, Scheat
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3688
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10898:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (10905:83) Protection of the Stars + Preserving Bottle + Waking Sun - Aqua
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 30 turns + Fire and Water skyfall +20% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (10906:94) Calil Celcela
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10907:89) Aidid Auda
+     | Delay active skills by 0~2 turns, Deal 100% damage
+     | condition: 34% chance
+     | (10908:92) Sana Azlak
+     | Spawn 6 random Water orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (10901:17) Limit of the Sky
+     | Increase damage to 150% for the next 99 turns
+   | group:
+     | condition: 33% chance
+     | (10906:94) Calil Celcela
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10907:89) Aidid Auda
+     | Delay active skills by 0~2 turns, Deal 100% damage
+     | condition: 34% chance
+     | (10908:92) Sana Azlak
+     | Spawn 6 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (10911:83) Dawaaran + Shifa'a
+     | Specific orbs change every 1.0s for 3 turns + RCV 50% for 3 turns
+   | group:
+     | (10914:83) Mhidofa Uvundukia + Gunpowder Smoke
+     | Deal 108% damage (6 hits, 18% each) + A column of clouds appears for 1 turn at a random location, Deal 108% damage (6 hits, 18% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (10902:83) Protection of the Planets + Limit of the Sky
+     | Reduce damage from all sources by 75% for 1 turn + Increase damage to 150% for the next 99 turns
+   | group:
+     | (10915:15) Intee Kamkadam
+     | Deal 2,000% damage (4 hits, 500% each)

@@ -1,0 +1,81 @@
+#2519 - Holy Night Witch, Lilith
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2519
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25772:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25836:83) Witch's Soul + Warped Space + I'll show you a wonderful dream. + Take this.
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Bind 4 random subs for 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (25766:83) Witch's Revelry + Lunatic Requiem
+     | Change all orbs to Dark + Player -99% HP
+   | group:
+   | condition: turns 2-4 while HP > 49
+     | (25769:83) Witch's Vitality + Witch's Gaze
+     | Spawn 8 random Mortal Poison orbs + RCV 25% for 1 turn
+   | group:
+   | condition: turn 5 while HP > 49
+     | (25834:83) Warped Space + Witch's Reverie
+     | Bind awoken skills for 1 turn + A row of clouds appears for 5 turns at 5th row, 1st column
+   | group:
+     | (25769:83) Witch's Vitality + Witch's Gaze
+     | Spawn 8 random Mortal Poison orbs + RCV 25% for 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (25753:83) Little Beans' Curiosity + Can you make some combos? + Show me what you can do.
+     | Change all orbs to Fire, Water, and Wood + Unable to match Fire, Water, and Wood orbs for 1 turn + Reduce damage from all sources by 99% for 1 turn
+   | group:
+     | condition: when 3 combos last turn
+     | (25758:83) Well done. + This is for you. + Farewell.
+     | Player recover 100% HP + Haste all cards' skills by 5 turns + Reduce self HP to 0
+     | (25835:83) It seems I overestimated you. + Take this and go. + Farewell.
+     | Bind awoken skills for 1 turn + Seal the 1st column for 5 turns + Reduce self HP to 0
+
+level: 10
+ type: PASSIVE
+ | (25772:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25748:83) Witch's Soul + Warped Space + I'll show you a wonderful dream. + Take this.
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Bind 4 random subs for 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (25766:83) Witch's Revelry + Lunatic Requiem
+     | Change all orbs to Dark + Player -99% HP
+   | group:
+   | condition: turns 2-4 while HP > 49
+     | (25769:83) Witch's Vitality + Witch's Gaze
+     | Spawn 8 random Mortal Poison orbs + RCV 25% for 1 turn
+   | group:
+   | condition: turn 5 while HP > 49
+     | (25812:83) Warped Space + Witch's Reverie
+     | Bind awoken skills for 1 turn + A row of clouds appears for 15 turns at 5th row, 1st column
+   | group:
+     | (25769:83) Witch's Vitality + Witch's Gaze
+     | Spawn 8 random Mortal Poison orbs + RCV 25% for 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (25753:83) Little Beans' Curiosity + Can you make some combos? + Show me what you can do.
+     | Change all orbs to Fire, Water, and Wood + Unable to match Fire, Water, and Wood orbs for 1 turn + Reduce damage from all sources by 99% for 1 turn
+   | group:
+     | condition: when 3 combos last turn
+     | (25758:83) Well done. + This is for you. + Farewell.
+     | Player recover 100% HP + Haste all cards' skills by 5 turns + Reduce self HP to 0
+     | (25762:83) It seems I overestimated you. + Take this and go. + Farewell.
+     | Bind awoken skills for 1 turn + Seal the 1st column for 15 turns + Reduce self HP to 0

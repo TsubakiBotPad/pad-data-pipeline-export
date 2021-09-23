@@ -1,0 +1,42 @@
+#606877 - Golden Destructor, Brahma Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 606877
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21588:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (21589:83) Destructive Intent + Path of Destruction
+ | For 4 turns, 15% chance for skyfall orbs to be blinded for turn + Void damage >= 100,000,000 for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-3 while HP > 49
+     | condition: 50% chance
+     | (21595:103) Left hand illuminates in radiant red
+     | Spawn Bomb orbs in the specified positions
+     | condition: 50% chance
+     | (21596:110) Right hand illuminates in brilliant blue
+     | Specific orbs change every 1.0s for 1 turn
+   | group:
+     | (21597:83) Impending Annihilation + Ultimate Punch
+     | Bind awoken skills for 1 turn + Deal 2,000% damage (10 hits, 200% each), Deal 2,000% damage (10 hits, 200% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21592:83) Lost Mind's Eye + World-Wrecking Rumble
+     | Reduce damage from all sources by 75% for 4 turns + No skyfall for 4 turns
+   | group:
+   | condition: turn 4
+     | condition: 50% chance
+     | (21595:103) Left hand illuminates in radiant red
+     | Spawn Bomb orbs in the specified positions
+     | condition: 50% chance
+     | (21596:110) Right hand illuminates in brilliant blue
+     | Specific orbs change every 1.0s for 1 turn

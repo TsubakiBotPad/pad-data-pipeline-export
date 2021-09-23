@@ -1,0 +1,72 @@
+#103966 - Alt. Rushana
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 103966
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22700:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (22701:83) Well done on making it all this way. + Do your best to overcome the trials. + Divine Wish Fulfillment
+ | Voids status ailments for 999 turns + Movetime 25% for 5 turns + Leader changes to random sub for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 9
+     | condition: 25% chance
+     | (22708:67) Central Vidyaraja Seal
+     | Absorb damage when combos <= 9 for 1 turn, Deal 95% damage
+     | condition: 25% chance
+     | (22709:108) Eastern Vidyaraja Seal
+     | Change all Heal orbs to Wood orbs, Deal 90% damage
+     | condition: 25% chance
+     | (22711:110) Western Vidyaraja Seal
+     | Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+     | condition: 25% chance
+     | (22712:74) Northern Vidyaraja Seal
+     | Reduce damage from all sources by 75% for 1 turn, Deal 105% damage
+   | group:
+   | condition: turns 3-4 while HP > 9
+     | condition: 20% chance
+     | (22710:86) Southern Vidyaraja Seal
+     | Enemy recover 10% HP
+     | condition: 25% chance
+     | (22708:67) Central Vidyaraja Seal
+     | Absorb damage when combos <= 9 for 1 turn, Deal 95% damage
+     | condition: 25% chance
+     | (22709:108) Eastern Vidyaraja Seal
+     | Change all Heal orbs to Wood orbs, Deal 90% damage
+     | condition: 25% chance
+     | (22711:110) Western Vidyaraja Seal
+     | Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+     | condition: 25% chance
+     | (22712:74) Northern Vidyaraja Seal
+     | Reduce damage from all sources by 75% for 1 turn, Deal 105% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | (22705:83) Enlightenment + Avatar of Vidyaraja
+     | Increase damage to 150% for the next 999 turns + Change player HP to 50% for 5 turns
+   | group:
+     | condition: 20% chance
+     | (22710:86) Southern Vidyaraja Seal
+     | Enemy recover 10% HP
+     | condition: 25% chance
+     | (22708:67) Central Vidyaraja Seal
+     | Absorb damage when combos <= 9 for 1 turn, Deal 95% damage
+     | condition: 25% chance
+     | (22709:108) Eastern Vidyaraja Seal
+     | Change all Heal orbs to Wood orbs, Deal 90% damage
+     | condition: 25% chance
+     | (22711:110) Western Vidyaraja Seal
+     | Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+     | condition: 25% chance
+     | (22712:74) Northern Vidyaraja Seal
+     | Reduce damage from all sources by 75% for 1 turn, Deal 105% damage
+ | group:
+ | condition: hp <= 9
+   | (22713:15) Sandaraku Palm Fate Line
+   | Deal 900% damage (3 hits, 300% each)

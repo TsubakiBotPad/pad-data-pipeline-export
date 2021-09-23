@@ -1,0 +1,54 @@
+#6720 - Enceras
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:20601) -> Flame of Determination
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids status ailments for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 7
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#5: ESChangeAttribute(46:20602) -> Shifting Flare
+Change own attribute to random one of Water, Wood, Light, Dark, or Heal, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 11
+
+#10: ESBindAwoken(88:20605) -> Purifying Flame
+Bind awoken skills for 3 turns, Deal 150% damage
+
+#11: SkillSet:
+	[0] ESAttackUPCooldown(19:20604) -> Undying Blaze
+	Increase damage to 200% for the next 999 turns
+	[1] ESBindAwoken(88:20605) -> Purifying Flame
+	Bind awoken skills for 3 turns, Deal 150% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:20606) -> Tri-Flare Burst
+Deal 150% damage (3 hits, 50% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:20600) -> Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified

@@ -1,0 +1,40 @@
+#100321 - Alt. Keeper of Rainbow
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESChangeAttribute(46:7662) -> Rainbow Armor
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESDamageShield(74:7663) -> Miracle Shield
+	Reduce damage from all sources by 50% for 5 turns
+
+#3: ESChangeAttribute(46:7665) -> Rainbow Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+
+#4: ESChangeAttribute(46:7666) -> Rainbow Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+
+#5: ESChangeAttribute(46:7667) -> Rainbow Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+
+#6: ESChangeAttribute(46:7668) -> Rainbow Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+
+#7: SkillSet:
+	[0] ESBindAwoken(88:7174) -> Shield Smash
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:7175) -> Ultimate Lance
+	Deal 6,000% damage (10 hits, 600% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

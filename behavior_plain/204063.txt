@@ -1,0 +1,50 @@
+#204063 - Holy Night Guest, Gremory
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:15925) -> Oh don't mind me!
+	Absorb damage when combos <= 6 for 10 turns
+	[1] ESOrbSealColumn(99:15926) -> What do you want?
+	Seal the 6th column for 4 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESDebuffMovetime(39:15927) -> Black Christmas
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 25% for 3 turns
+
+#5: ESPoisonChangeRandom(57:15928) -> Dark Snow
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Poison orbs, Deal 89% damage
+
+#6: ESAttackMultihit(15:15929) -> Devil's Mischief
+Deal 93% damage (3 hits, 31% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESNoSkyfall(127:15930) -> Here's a present for you!
+No skyfall for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRandomSpawn(92:15931) -> Sweet Word
+Spawn 3 random Fire and Heal orbs, Deal 156% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

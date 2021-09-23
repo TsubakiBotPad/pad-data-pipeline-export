@@ -1,0 +1,134 @@
+#303595 - Awoken Ganesha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19330) -> Scholarly God's Wisdom
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19331) -> Unburdening Brilliance
+	Void damage >= 80,000,000 for 999 turns
+	[2] ESAbsorbAttribute(53:19332) -> Vijñana
+	Absorb Fire and Water damage for 5 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19330) -> Scholarly God's Wisdom
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19331) -> Unburdening Brilliance
+	Void damage >= 80,000,000 for 999 turns
+	[2] ESAbsorbAttribute(53:19333) -> Vijñana
+	Absorb Water and Wood damage for 5 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19330) -> Scholarly God's Wisdom
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19331) -> Unburdening Brilliance
+	Void damage >= 80,000,000 for 999 turns
+	[2] ESAbsorbAttribute(53:19334) -> Vijñana
+	Absorb Wood and Light damage for 5 turns
+
+#5: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19330) -> Scholarly God's Wisdom
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19331) -> Unburdening Brilliance
+	Void damage >= 80,000,000 for 999 turns
+	[2] ESAbsorbAttribute(53:19335) -> Vijñana
+	Absorb Light and Dark damage for 5 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19330) -> Scholarly God's Wisdom
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19331) -> Unburdening Brilliance
+	Void damage >= 80,000,000 for 999 turns
+	[2] ESAbsorbAttribute(53:19336) -> Vijñana
+	Absorb Fire and Dark damage for 5 turns
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 23
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 13
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAttackMultihit(15:19337) -> Lokapala
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage (4 hits, 25% each)
+
+#11: ESBombRandomSpawn(102:19407) -> Vinayaka
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 7 random Bomb orbs, Deal 95% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#16: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:19339) -> Shankara
+	Increase damage to 150% for the next 999 turns
+	[1] ESSkillDelay(89:19340) -> Vighna
+	Delay active skills by 10 turns
+
+#17: SkillSet:
+	Condition: 20% chance (ai:20 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:19339) -> Shankara
+	Increase damage to 150% for the next 999 turns
+	[1] ESAbsorbAttribute(53:19332) -> Vijñana
+	Absorb Fire and Water damage for 5 turns
+
+#18: SkillSet:
+	Condition: 25% chance (ai:25 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:19339) -> Shankara
+	Increase damage to 150% for the next 999 turns
+	[1] ESAbsorbAttribute(53:19333) -> Vijñana
+	Absorb Water and Wood damage for 5 turns
+
+#19: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:19339) -> Shankara
+	Increase damage to 150% for the next 999 turns
+	[1] ESAbsorbAttribute(53:19334) -> Vijñana
+	Absorb Wood and Light damage for 5 turns
+
+#20: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:19339) -> Shankara
+	Increase damage to 150% for the next 999 turns
+	[1] ESAbsorbAttribute(53:19335) -> Vijñana
+	Absorb Light and Dark damage for 5 turns
+
+#21: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:19339) -> Shankara
+	Increase damage to 150% for the next 999 turns
+	[1] ESAbsorbAttribute(53:19336) -> Vijñana
+	Absorb Fire and Dark damage for 5 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBoardChangeAttackBits(85:19346) -> Dhahab Ankusha
+Change all orbs to Light, Deal 1,000% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESResolve(73:19324) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,44 @@
+#5787 - Yami Marik & The Winged Dragon of Ra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5787
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15805:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (15805:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (15762:67) Let the Shadow Game begin.
+ | Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (15763:109) Decoding the hieroglyphics
+     | Random 1 orbs change every 1.0s for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (15764:15) Attack from the shadows
+     | Deal 102% damage (6 hits, 17% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15765:17) Prepare yourself
+     | Increase damage to 120% for the next 10 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (15763:109) Decoding the hieroglyphics
+     | Random 1 orbs change every 1.0s for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (15766:15) Blaze Cannon
+     | Deal 130% damage

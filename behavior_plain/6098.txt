@@ -1,0 +1,43 @@
+#6098 - Visored, Shinji Hirako
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESLeaderSwap(75:17462) -> Collapse, Sakanade
+Leader changes to random sub for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 11
+
+#7: ESSpinnersFixed(110:17463) -> Welcome to the upside down world.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 1 turn
+
+#8: ESColumnSpawnMulti(77:17465) -> You fiend!!
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd column to Light orbs, Deal 80% damage
+
+#9: ESColumnSpawnMulti(77:17464) -> The direction of your  wounds are reversed.
+Change the 5th column to Light orbs, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:17466) -> Let's end this.
+Deal 105% damage (3 hits, 35% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

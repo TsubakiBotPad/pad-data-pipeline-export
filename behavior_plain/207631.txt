@@ -1,0 +1,87 @@
+#207631 - 無天の幻龍王・ゼローグ∞ -CORE-
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:25147) -> Phantom Dragon King's Protection
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:25148) -> Boundless Roar
+	Bind awoken skills for 1 turn
+	[2] ESCloud(104:25149) -> Thunderclouds
+	A 2×3 rectangle of clouds appears for 10 turns at a random location
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 18
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 11
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESOrbLock(94:25136) -> Rising Chains
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 90% damage
+
+#8: ESBindRandomSub(65:25137) -> Paralyzing Thunder
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random sub for 10 turns, Deal 100% damage
+
+#9: ESAttackMultihit(15:25138) -> Rising Cannon
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSkillDelay(89:25125) -> Rising Thunder
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 99 turns
+
+#12: SkillSet:
+	[0] ESChangeAttribute(46:25132) -> Dragon King's Phantom Scales
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:25133) -> Infinite Burst
+	Deal 3,000% damage (10 hits, 300% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESVoidShield(71:25151) -> Dragon King's Barrier
+	Void damage >= 1,000,000,000 for 999 turns
+	[1] ESNoSkyfall(127:25152) -> Infinite Fall
+	No skyfall for 10 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 11, target rnd 5
+
+#19: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:25141) -> Thunder Charge
+	Increase damage to 200% for the next 999 turns
+	[1] ESDispel(6:25142) -> Zero Blast
+	Voids player buff effects
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSuperResolve(129:25126) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

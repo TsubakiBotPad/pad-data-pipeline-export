@@ -1,0 +1,22 @@
+#400172 - Alt. Divine Indigo Mask
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESCloud(104:25307) -> Indigo Mask's Gaze
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A row of clouds appears for 5 turns at 5th row, 1st column
+
+#3: ESAttackUPRemainingEnemies(17:25305) -> Energy Charge
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#4: ESAttackMultihit(15:25312) -> Eye Beam
+Deal 100% damage (2 hits, 50% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

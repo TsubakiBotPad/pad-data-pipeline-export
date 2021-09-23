@@ -1,0 +1,109 @@
+#103726 - Alt. Huoshi
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103726
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7376:20) Hushenfu
+ | Voids status ailments for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (7347:103) Baozha
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (7352:15) Gongji
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (7360:66) It's jumping around
+     | Do nothing
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (7377:94) Huoshufu
+     | Lock all Fire orbs, Deal 50% damage
+     | (7347:103) Baozha
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (7352:15) Gongji
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (7360:66) It's jumping around
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (7347:103) Baozha
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 100
+   | (7353:17) Fennu
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turn 1, hp <= 49
+   | (7377:94) Huoshufu
+   | Lock all Fire orbs, Deal 50% damage
+   | (7353:17) Fennu
+   | Increase damage to 150% for the next 999 turns
+
+level: 5
+ type: PREEMPT
+ | (8200:53) Huohushenfu
+ | Absorb Fire damage for 2~6 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (7347:103) Baozha
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (7352:15) Gongji
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (7360:66) It's jumping around
+     | Do nothing
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (7377:94) Huoshufu
+     | Lock all Fire orbs, Deal 50% damage
+     | (7347:103) Baozha
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (7352:15) Gongji
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (7360:66) It's jumping around
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (7347:103) Baozha
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 100
+   | (7353:17) Fennu
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turn 1, hp <= 49
+   | (7377:94) Huoshufu
+   | Lock all Fire orbs, Deal 50% damage
+   | (7353:17) Fennu
+   | Increase damage to 150% for the next 999 turns

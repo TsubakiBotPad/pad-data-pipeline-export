@@ -1,0 +1,25 @@
+#100090 - Alt. Mermaid
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 100090
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17393:39) Velvet Voice
+ | Movetime 50% for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (17394:109) Velvet Voice
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (17395:15) Silent Voice
+   | Deal 100% damage (2 hits, 50% each)
+ type: REMAINING
+ condition: when 2 enemies remain, turn 1, hp <= 100
+ | (17396:19) Inspiring Melody
+ | Increase damage to 300% for the next 999 turns

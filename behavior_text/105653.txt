@@ -1,0 +1,37 @@
+#105653 - Sosuke Sagara
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105653
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15008:104) Battle, commence.
+ | A 3×3 square of clouds appears for 5 turns at a random location
+ group:
+ | group:
+   | condition: 33% chance
+   | (14967:92) It's not over yet.
+   | Spawn 5 random Dark orbs, Deal 95% damage
+   | condition: 33% chance
+   | (14968:15) Dammit!
+   | Deal 100% damage
+   | condition: 34% chance
+   | (14971:15) Die!
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 75
+   | (14969:109) The next one goes at you.
+   | Random 2 orbs change every 1.0s for 5 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (14970:17) I'll just have to try.
+     | Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: turn 2
+     | (14969:109) The next one goes at you.
+     | Random 2 orbs change every 1.0s for 5 turns

@@ -1,0 +1,51 @@
+#975 - Blue Pirate Dragon, Awilda
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 975
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (740:48) I'll Stomp You Under My Heel!
+ | Change a random attribute to Heal orbs, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (741:56) Honey Poison
+     | Change all Heal orbs to Poison orbs
+     | (738:48) Blue Slash
+     | Change a random attribute to Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (740:48) I'll Stomp You Under My Heel!
+     | Change a random attribute to Heal orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 59
+   | group:
+   | condition: always turn 1
+     | (739:54) Tempting Embrace
+     | Bind player leader for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (740:48) I'll Stomp You Under My Heel!
+     | Change a random attribute to Heal orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (741:56) Honey Poison
+     | Change all Heal orbs to Poison orbs
+     | (738:48) Blue Slash
+     | Change a random attribute to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (742:15) Princess's Order
+     | Deal 5% damage
+   | group:
+     | (743:15) Sea Dragon's Massive Strike
+     | Deal 1,500% damage (5 hits, 300% each)

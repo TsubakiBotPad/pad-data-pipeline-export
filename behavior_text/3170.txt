@@ -1,0 +1,24 @@
+#3170 - Windy #1 HamukatsuMan Buster
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3170
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5617:50) Speed Attacker
+ | Player -50% HP
+ group:
+ | group:
+ | condition: always turn 1
+   | (5618:20) We, Team Hamukatsu, will protect the world!
+   | Voids status ailments for 3 turns
+ | group:
+   | (5620:15) Attack!
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 2, hp <= 48
+   | (5619:65) Come on, let's fight!
+   | Bind 1 random sub for 2~3 turns

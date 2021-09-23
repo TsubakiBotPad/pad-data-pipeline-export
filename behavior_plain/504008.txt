@@ -1,0 +1,56 @@
+#504008 - Spring Orchid Virtue, Xiang Mei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:22086) -> You will die here.
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAttributeBlock(107:22087) -> Season of Loss
+	Unable to match Heal orbs for 1 turn, Deal 50% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#4: ESAttributeBlock(107:22088) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 1 turn, Deal 100% damage
+
+#5: ESAttributeBlock(107:22089) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 1 turn, Deal 100% damage
+
+#6: ESAttributeBlock(107:22090) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 1 turn, Deal 100% damage
+
+#7: ESAttributeBlock(107:22091) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 1 turn, Deal 100% damage
+
+#8: ESAttributeBlock(107:22092) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22094) -> Noble One's Mastery
+	Increase damage to 150% for the next 999 turns
+	[1] ESDebuffATK(130:22095) -> Coming of Spring
+	ATK -50% for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,45 @@
+#6781 - Deity of Snakes, Nadeko Sengoku
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:21256) -> Here's Nadeko!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Poison skyfall +10% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESPoisonChangeRandom(57:21258) -> Snakes, snakes, snakes, snakes.
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change a random attribute to Poison orbs
+
+#5: ESPoisonChangeRandomAttack(64:21257) -> Really now, you liar...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change 3 random orbs to Poison orbs, Deal 80% damage
+
+#6: ESPoisonChangeRandomAttack(64:21259) -> Really, so full of lies.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change 4 random orbs to Poison orbs, Deal 90% damage
+
+#7: ESPoisonChangeRandomAttack(64:21260) -> You really are a liar!
+Change 5 random orbs to Poison orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 4
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESAttributeBlock(107:21261) -> Oh! This calls for a penalty.
+Unable to match Poison orbs for 4 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

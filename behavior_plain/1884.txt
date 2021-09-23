@@ -1,0 +1,69 @@
+#1884 - Curved Blade Brave, Kopis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESVoidShield(71:5891) -> Brilliant Fighting Spirit
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 600,000 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESBombFixedSpawn(103:5903) -> Nar Hujum
+Condition: When < 10% HP (ai:100 rnd:0)
+Spawn Bomb orbs in the specified positions, Deal 220% damage
+
+#8: ESVoidShield(71:5891) -> Brilliant Fighting Spirit
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 600,000 for 99 turns
+
+#9: ESBombFixedSpawn(103:5901) -> Blazing Curved Blades
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#10: ESAttackMultihit(15:5902) -> Multiple Curved Blades
+Deal 120% damage (3 hits, 40% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESAbsorbAttribute(53:5893) -> Shield of Taghyir
+Condition: 34% chance (ai:0 rnd:34)
+Absorb Water damage for 5 turns
+
+#15: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:5895) -> Style Change
+	Change own attribute to Water
+	[1] ESAbsorbAttribute(53:5896) -> Shield of Taghyir
+	Absorb Wood damage for 5 turns
+
+#16: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:5898) -> Style Change
+	Change own attribute to Wood
+	[1] ESAbsorbAttribute(53:5899) -> Shield of Taghyir
+	Absorb Fire damage for 5 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

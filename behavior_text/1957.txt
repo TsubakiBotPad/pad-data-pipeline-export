@@ -1,0 +1,47 @@
+#1957 - Fire Cat Dragon, Tabby Nyadra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1957
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1829:73) パッシブ
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 5
+ type: PASSIVE
+ | (1829:73) パッシブ
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (2053:14) Cat Wave
+ | Bind active skills for 2 turns
+ group:
+ | group:
+   | (2054:48) Surreptitious Snack
+   | Change all Fire orbs to Jammer orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2055:77) Flame Meow Slash
+     | Change the 4th and 6th columns to Fire orbs, Deal 300% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (2054:48) Surreptitious Snack
+     | Change all Fire orbs to Jammer orbs, Deal 150% damage
+ | group:
+ | condition: turn 1, hp <= 29
+   | (2056:85) Lick Lick Meow!
+   | Change all orbs to Fire, Deal 200% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (2092:63) 9 Lives!
+     | Bind 6 random cards for 1 turn, Deal 200% damage
+   | group:
+     | (2052:15) Irritated Swat
+     | Deal 1,000% damage

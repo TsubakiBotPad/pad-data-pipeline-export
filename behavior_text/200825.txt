@@ -1,0 +1,49 @@
+#200825 - Alt. Godly Knight of the Sky, Verche
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 0
+monster_id: 200825
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24775:129) ＿Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (24776:118) ＿God halved
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (24792:83) Sky Knight's Armor + Arc Horizon
+ | Voids status ailments for 999 turns + Fire, Water, Wood, and Light skyfall +100% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (24777:83) Piercing Ray + Thunderbond
+     | Change a random attribute to Light orbs + Locked Light skyfall +100% for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (24780:83) Piercing Ray + Soulclutch
+     | Change a random attribute to Light orbs + Lock all Light orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (24782:83) Piercing Ray + Hopeless
+     | Change a random attribute to Light orbs + Unable to match Light orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (24784:71) Virtuous Wing
+     | Void damage >= 10,000,000 for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (24785:83) Merciful Ray + Benevolent Compensation
+     | Change a random attribute to Heal orbs + RCV 25% for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (24788:83) Merciful Ray + Treachery's Repentance
+     | Change a random attribute to Heal orbs + Lock all Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (24790:83) Merciful Ray + Divine Revelation
+     | Change a random attribute to Heal orbs + Unable to match Heal orbs for 1 turn, Deal 100% damage

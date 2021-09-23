@@ -1,0 +1,32 @@
+#3741 - Dragonbound Flanjé
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3741
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7446:72) Wood damage halved
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (7382:67) Oi! Who are you?
+ | Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (7383:76) Let's do this, Flairy!
+   | Change the 3rd and 4th columns to Fire and Jammer orbs
+ | group:
+ | condition: turn 2
+   | (7384:50) Go get 'em, Flairy!
+   | Player -90% HP
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (7386:15) Flairy is gnawing away at something
+   | Deal 200% damage (2 hits, 100% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (7385:86) Twinkle ☆ Flare
+   | Enemy recover 50% HP

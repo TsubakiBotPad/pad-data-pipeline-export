@@ -1,0 +1,43 @@
+#202546 - Un-Gyo
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202546
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3698:78) Un!
+ | Change the 1st, 2nd, 3rd, 4th, and 5th rows to Fire, Water, Wood, Light, Dark, and Heal orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (3699:48) Lightning
+   | Change a random attribute to Light orbs, Deal 70% damage
+ | group:
+ | condition: turn 2
+   | (3700:14) With Rage
+   | Bind active skills for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (3701:94) Strange
+   | Lock 3 random Fire, Water, Wood, Light, and Dark orbs, Deal 40% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (3699:48) Lightning
+   | Change a random attribute to Light orbs, Deal 70% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (3702:17) Curse you!
+   | Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | (3699:48) Lightning
+   | Change a random attribute to Light orbs, Deal 70% damage
+ | group:
+ | condition: turn 3
+   | (3700:14) With Rage
+   | Bind active skills for 1 turn

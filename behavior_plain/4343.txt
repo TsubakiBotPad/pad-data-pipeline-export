@@ -1,0 +1,82 @@
+#4343 - Band's Kirin Princess, Sakuya
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffRCV(105:23041) -> Is everyone ready?
+	RCV 50% for 3 turns
+	[1] ESOrbSealColumn(99:23042) -> You better keep up with me!
+	Seal the 1st column for 3 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 18
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESDebuffATK(130:23045) -> Enjoy yourself!
+Condition: 33% chance (ai:0 rnd:33)
+ATK -50% for 1 turn, Deal 80% damage
+
+#8: ESBlind62(62:23044) -> Let's bring the house down!♪
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 90% damage
+
+#9: ESAttackMultihit(15:23043) -> Let's rock!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (2 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESStatusShield(20:23047) -> Now we're rocking!
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:23048) -> Let's keep this beat going!
+	Increase damage to 200% for the next 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBindAwoken(88:23052) -> Thanks for everything!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#16: ESAttackMultihit(15:23053) -> Bye!♪
+Deal 230% damage (2 hits, 115% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 5
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: SkillSet:
+	[0] ESCloud(104:23050) -> Everyone's enthusiasm is great!
+	A column of clouds appears for 5 turns at 1st row, 32nd column
+	[1] ESAbsorbCombo(67:23051) -> I'm not done yet!
+	Absorb damage when combos <= 6 for 5 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

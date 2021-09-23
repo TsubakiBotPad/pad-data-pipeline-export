@@ -1,0 +1,29 @@
+#102284 - Shaved Ice Specialist, Frost Demon
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 102284
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3132:68) I hate the heat...
+ | Water skyfall +25% for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (3133:19) Well this is a surprise!
+   | Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | condition: when 475, 477, 478, 479 on team
+   | (3136:55) You're here? Why not have a break?
+   | Player recover 100% HP
+   | condition: 50% chance
+   | (3134:15) Summer Slash
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+   | condition: 50% chance
+   | (3134:15) Summer Slash
+   | Deal 120% damage (2 hits, 60% each)

@@ -1,0 +1,144 @@
+#2791 - Orphan, Second Form
+monster size: 5
+new AI: True
+start/max counter: 511
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 6
+
+#3: ESInactivity66(66:3966) -> Go back to oblivion!
+Condition: One-time use (ai:100 rnd:0) (cost: 511)
+Do nothing
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 256)
+	[0] ESDamageShield(74:3953) -> Go back to oblivion!
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESStatusShield(20:3955) -> Doom
+	Voids status ailments for 8 turns
+
+#7: ESAttackMultihit(15:3957) -> Sanction
+Condition: One-time use (ai:100 rnd:0) (cost: 128)
+Deal 100~150% damage (2~3 hits, 50% each)
+
+#8: ESSkillDelay(89:3958) -> Emitter
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Delay active skills by 1 turn, Deal 50% damage
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 60, target rnd 22
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESDamageShield(74:3954) -> Destruction is inevitable.
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESAttackMultihit(15:3957) -> Sanction
+	Deal 100~150% damage (2~3 hits, 50% each)
+
+#12: ESDispel(6:3956) -> Temporal Hollow
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Voids player buff effects
+
+#13: ESSkillDelay(89:3979) -> Emitter
+Condition: One-time use (ai:50 rnd:0) (cost: 16)
+Delay active skills by 1 turn, Deal 50% damage
+
+#14: ESAttackMultihit(15:3980) -> Sanction
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Deal 80~120% damage (2~3 hits, 40% each)
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 27
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESDamageShield(74:3971) -> Ignorant slaves of Pulse.
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESAttackMultihit(15:3957) -> Sanction
+	Deal 100~150% damage (2~3 hits, 50% each)
+
+#18: ESSkillDelay(89:3981) -> Emitter
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Delay active skills by 1 turn, Deal 50% damage
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:3972) -> Surrender your will.
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESAttackMultihit(15:3957) -> Sanction
+	Deal 100~150% damage (2~3 hits, 50% each)
+
+#20: ESAttackMultihit(15:3963) -> The world shall know redemption.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 500% damage
+
+#21: ESAttackMultihit(15:3959) -> Kaleidoscopic Ray
+Deal 700% damage
+
+#22: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESSkyfall(68:3964) -> It's acting differently.
+	Jammer skyfall +15% for 3 turns
+	[1] ESAttackMultihit(15:3961) -> Black Ruin
+	Deal 100% damage
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#24: ESAttackMultihit(15:3977) -> Black Ruin
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Deal 100% damage
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESDamageShield(74:3971) -> Ignorant slaves of Pulse.
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESOrbChangeAttack(48:3960) -> Rebirth
+	Change a random attribute to Heal orbs, Deal 200% damage
+
+#26: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 60, target rnd 18
+
+#27: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSkyfall(68:3964) -> It's acting differently.
+	Jammer skyfall +15% for 3 turns
+	[1] ESAttackMultihit(15:3961) -> Black Ruin
+	Deal 100% damage
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#29: ESAttackMultihit(15:3978) -> Black Ruin
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 100% damage
+
+#30: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:3972) -> Surrender your will.
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESOrbChangeAttack(48:3960) -> Rebirth
+	Change a random attribute to Heal orbs, Deal 200% damage
+
+#31: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 20
+
+#32: ESDeathCry(69:2964) -> オーファン死に演出
+Condition: On death (ai:100 rnd:0)
+Show death effect

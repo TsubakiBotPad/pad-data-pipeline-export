@@ -1,0 +1,39 @@
+#103753 - Alt. Awoken Astraea
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:17151) -> Advocate Justice
+	Voids status ailments for 5 turns
+	[1] ESDebuffRCV(105:17152) -> Perception of Humanity
+	RCV 25% for 5 turns
+	[2] ESVoidShield(71:17153) -> Watchful Resolve
+	Void damage >= 20,000,000 for 5 turns
+
+#3: ESGravity(50:15630) -> Peeling Gold
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Player -99% HP
+
+#4: ESSpinnersFixed(110:15631) -> The Flow of Changing Times
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Specific orbs change every 1.0s for 3 turns
+
+#5: ESBombRandomSpawn(102:15632) -> The Scales of Good & Evil
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 10 random Bomb orbs, Deal 100% damage
+
+#6: ESBindAwoken(88:15633) -> Despair Humanity's Depravity
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#7: ESAttackMultihit(15:15634) -> Forsake the Deceitful World
+Deal 750% damage (5 hits, 150% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

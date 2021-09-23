@@ -1,0 +1,34 @@
+#951 - AB Bluebird Blues
+monster size: 4
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESJammerChangeRandom(13:736) -> Triplet Trouble
+Change 3 random orb types to Jammer orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:726) -> Scatter Attack
+Condition: 70% chance when < 30% HP (ai:70 rnd:0)
+Deal 150% damage (3 hits, 50% each)
+
+#9: ESAttackMultihit(15:731) -> Slingshot
+Condition: 50% chance when < 75% HP (ai:50 rnd:0)
+Deal 125% damage

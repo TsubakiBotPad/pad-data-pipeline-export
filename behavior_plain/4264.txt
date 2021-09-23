@@ -1,0 +1,35 @@
+#4264 - Reincarnated Raphael
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:18528) -> Radiant Archangel's Protective Wings
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:18523) -> Divine Lifeforce Barrier
+	Absorb damage when combos <= 6 for 999 turns
+	[2] ESGravity(50:18522) -> Burst!
+	Player -140% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 5
+
+#4: SkillSet:
+	[0] ESDispel(6:18525) -> Return to nothingness!
+	Voids player buff effects
+	[1] ESAttackMultihit(15:18526) -> Thunder of Divine Retribution
+	Deal 120% damage (4 hits, 30% each)
+
+#5: ESAttackMultihit(15:18527) -> Annihilating Lightning of Heaven
+Deal 1,500% damage (5 hits, 300% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSuperResolve(129:18520) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,51 @@
+#5798 - Dark Magician
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:15787) -> Summon Dark Magician
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 5 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 8
+
+#4: ESCloud(104:15788) -> Trap Card "Black Illusion"
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A 3×1 rectangle of clouds appears for 4 turns at a random location
+
+#5: ESAttackMultihit(15:15790) -> Spell Card "Thousand Knives"
+Condition: 50% chance (ai:50 rnd:0)
+Deal 90% damage (10 hits, 9% each)
+
+#6: ESAttackMultihit(15:15791) -> Spell Card "Diffusion Wave-Motion"
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESAttackUPRemainingEnemies(17:15789) -> Spell Card "Book of Secret Arts"
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 130% for the next 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRandomSpawn(92:15792) -> Dark Magic Attack
+Spawn 6 random Dark orbs, Deal 140% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttributeResist(72:15833) -> Light damage halved
+Reduce damage from Light attrs by 50%

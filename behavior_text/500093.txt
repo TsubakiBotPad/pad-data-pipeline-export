@@ -1,0 +1,23 @@
+#500093 - Mandrake
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500093
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23335:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23258:92) Healing Prayer
+ | Spawn 5 random Heal orbs
+ group:
+ | group:
+   | (23259:92) Playful Poke
+   | Spawn 3 random Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (23336:40) They wander off somewhere...
+   | Reduce self HP to 0

@@ -1,0 +1,56 @@
+#105700 - 大門山ツラヌキ＆Ｅ７かがやき
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 105700
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15283:83) チェンジ、シンカリオン！ + まったくもって問題なしだ！
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 4
+     | condition: 50% chance
+     | (15273:39) 俺の好きな四字熟語は即断即決だぜ！
+     | Movetime 50% for 1 turn, Deal 100% damage
+     | (15170:15) シャリンドリル
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (15171:50) 貫けぇ！
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | condition: 50% chance
+     | (15273:39) 俺の好きな四字熟語は即断即決だぜ！
+     | Movetime 50% for 1 turn, Deal 100% damage
+     | (15170:15) シャリンドリル
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (15169:74) 俺に任せろおぉ！
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 50% chance
+     | (15273:39) 俺の好きな四字熟語は即断即決だぜ！
+     | Movetime 50% for 1 turn, Deal 100% damage
+     | (15170:15) シャリンドリル
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (15171:50) 貫けぇ！
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 3-4 of 4
+     | condition: 50% chance
+     | (15273:39) 俺の好きな四字熟語は即断即決だぜ！
+     | Movetime 50% for 1 turn, Deal 100% damage
+     | (15170:15) シャリンドリル
+     | Deal 120% damage (3 hits, 40% each)

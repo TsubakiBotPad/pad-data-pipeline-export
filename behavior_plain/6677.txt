@@ -1,0 +1,60 @@
+#6677 - Demonic Spider-Lady, Shiranaki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBindAwoken(88:20668) -> Enticing Trap
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBindAttack(63:20669) -> Constricting Curse
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random card for 2 turns, Deal 95% damage
+
+#8: ESOrbLock(94:20670) -> Binding Threads
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:20671) -> Stabbing Legs
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:20673) -> Frenzied Howl
+	Increase damage to 200% for the next 999 turns
+	[1] ESSkyfall(68:20674) -> Deadly Web
+	Poison skyfall +15% for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:20675) -> Slaughterous Kicks
+Deal 300% damage (6 hits, 50% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

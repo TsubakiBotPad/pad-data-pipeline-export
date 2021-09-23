@@ -1,0 +1,30 @@
+#300774 - Omega Wood Skydragon, Horai
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESAttackPreemptive(47:478) -> Skydragon Flight
+Deal 40% damage
+
+#2: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 8
+
+#3: ESAttackUPRemainingEnemies(17:482) -> Imperial Wrath
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#4: ESAttackMultihit(15:473) -> Breath of the Red Sky
+Deal 90~120% damage (3~4 hits, 30% each)
+
+#5: ESNone(0:0) -> ESNone
+nothing
+
+#6: ESNone(0:0) -> ESNone
+nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:475) -> Breath of the Wood Sky
+Deal 120% damage (2 hits, 60% each)

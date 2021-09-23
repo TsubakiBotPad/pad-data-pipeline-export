@@ -1,0 +1,132 @@
+#505974 - Black-Robed Wizard, Hermei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:23318) -> Make sure you keep mixing...
+	Do nothing
+	[1] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[2] ESSpinnersFixed(110:23320) -> Mix it together...
+	Specific orbs change every 1.0s for 5 turns
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESOrbChangeAttackBits(108:23337) -> Let me show you how it's done.
+Change all Jammer orbs to Heal orbs, Deal 30% damage
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	[0] ESInactivity66(66:23322) -> Hoho, well done.
+	Do nothing
+	[1] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[2] ESRandomSpawn(92:23323) -> It seems that was just a tad too much.
+	Spawn 5 random Jammer orbs
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESOrbChangeAttackBits(108:23337) -> Let me show you how it's done.
+Change all Jammer orbs to Heal orbs, Deal 30% damage
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 13
+
+#12: SkillSet:
+	[0] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[1] ESCloud(104:23327) -> Hoho, the chemicals are reacting.
+	A 2×1 rectangle of clouds appears for 1 turn at 3rd row, 3rd column
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 2
+
+#14: SkillSet:
+	[0] ESInactivity66(66:23325) -> Wonderful work!
+	Do nothing
+	[1] ESInactivity66(66:23326) -> Youths really do learn so quickly.
+	Do nothing
+	[2] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[3] ESCloud(104:23327) -> Hoho, the chemicals are reacting.
+	A 2×1 rectangle of clouds appears for 1 turn at 3rd row, 3rd column
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#17: ESOrbChangeAttackBits(108:23337) -> Let me show you how it's done.
+Change all Jammer orbs to Heal orbs, Deal 30% damage
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 20
+
+#19: SkillSet:
+	[0] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[1] ESCloud(104:23330) -> Hmm, look at all of this smoke.
+	A 4×1 rectangle of clouds appears for 1 turn at 3rd row, 2nd column
+
+#20: ESSetCounter(25:15) -> ESSetCounter
+counter = 3
+
+#21: SkillSet:
+	[0] ESInactivity66(66:23329) -> Just a little bit more to go.
+	Do nothing
+	[1] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[2] ESCloud(104:23330) -> Hmm, look at all of this smoke.
+	A 4×1 rectangle of clouds appears for 1 turn at 3rd row, 2nd column
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 28
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#24: ESOrbChangeAttackBits(108:23337) -> Let me show you how it's done.
+Change all Jammer orbs to Heal orbs, Deal 30% damage
+
+#25: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 27
+
+#26: SkillSet:
+	[0] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[1] ESCloud(104:23333) -> Oh, I can't see anything...
+	A row of clouds appears for 1 turn at 3rd row, 1st column
+
+#27: SkillSet:
+	[0] ESInactivity66(66:23332) -> Just one last thing.
+	Do nothing
+	[1] ESRandomSpawn(92:23319) -> Now, add these herbs...
+	Spawn 8 random Jammer orbs
+	[2] ESCloud(104:23333) -> Oh, I can't see anything...
+	A row of clouds appears for 1 turn at 3rd row, 1st column
+
+#28: ESOrbChangeAttackBits(108:23337) -> Let me show you how it's done.
+Change all Jammer orbs to Heal orbs, Deal 30% damage
+
+#29: ESEndBattle(40:23334) -> Hmm, that is enough.
+Reduce self HP to 0
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn

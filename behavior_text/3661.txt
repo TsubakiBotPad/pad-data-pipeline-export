@@ -1,0 +1,57 @@
+#3661 - Mizutsune
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3661
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7184:83) Bubble Breath Stance + Interrupt it with an attack!
+ | Absorb damage when combos <= 5 for 1 turn + Do nothing
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1
+     | condition: when 3706 on team
+     | (7191:83) Bubble Breath + Second Bubble Breath Stance + Interrupt it with an attack!
+     | Movetime 150% for 1 turn + Absorb damage when combos <= 6 for 1 turn + Do nothing, Deal 20% damage
+     | (7190:83) Bubble Breath + Second Bubble Breath Stance + Interrupt it with an attack!
+     | A 1×1 square of clouds appears for 1 turn at a random location + Absorb damage when combos <= 6 for 1 turn + Do nothing
+   | group:
+   | condition: turn 2
+     | condition: when 3706 on team
+     | (7193:15) Bubble Breath
+     | Deal 20% damage
+     | (7192:104) Bubble Breath
+     | A 4×4 square of clouds appears for 3 turns at a random location, Deal 20% damage
+   | group:
+   | condition: turn 3
+     | (7196:83) Roar + Rage
+     | Bind 1 random sub for 1 turn + Increase damage to 120% for the next 10 turns
+   | group:
+     | condition: 20% chance
+     | (7197:50) Dash Attack
+     | Player -70% HP
+     | condition: 20% chance
+     | (7198:15) Combo Bite
+     | Deal 100% damage (2 hits, 50% each)
+     | condition: 20% chance
+     | (7199:92) Body Press
+     | Spawn 5 random Water orbs, Deal 90% damage
+     | condition: 20% chance
+     | (7200:89) Tail Somersault
+     | Delay active skills by 1 turn, Deal 110% damage
+     | condition: 20% chance
+     | (7201:39) Spin Attack
+     | Movetime -1s for 1 turn, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 99
+   | (7196:83) Roar + Rage
+   | Bind 1 random sub for 1 turn + Increase damage to 120% for the next 10 turns
+ | group:
+ | condition: hp <= 19
+   | (7202:77) Water Jet
+   | Change the 3rd column to Water orbs, Deal 200% damage

@@ -1,0 +1,38 @@
+#103179 - Crimson Inferno Blade, Entetsu Sokaku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 103179
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12891:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12892:83) Blazing Flame Forest + Smoldering Ruins
+ | Delay active skills by 10 turns + Blind orbs in specific positions for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (12895:48) Life Flame Torch
+   | Change all Heal orbs to Fire orbs, Deal 95% damage
+   | condition: 50% chance
+   | (12896:92) Burning Horn
+   | Spawn 5 random Fire orbs, Deal 90% damage
+   | condition: 50% chance
+   | (12897:15) Wild Flurry
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (12898:83) Praise + Falsehood
+   | Player recover 100% HP + RCV 25% for 4 turns
+ | group:
+ | condition: hp <= 9
+   | (12901:15) Crimson Double-Edge
+   | Deal 600% damage (6 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (12902:83) Burn Up Life + Limited Survival
+   | Enemy recover 50% HP + Movetime 50% for 10 turns

@@ -1,0 +1,53 @@
+#811 - Empress God, Izanami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 811
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16225:83) I have a trial for you + Get rid of every Fire Orb + I won't forgive you if any are left behind + This is just a matter of course + Focus on what lies ahead
+ | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Unable to match Water, Wood, Light, and Dark orbs for 1 turn + Movetime 20% for 6 turns + Jammer skyfall +100% for 6 turns + No skyfall for 6 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (16231:108) I won't allow any left behind
+   | Change all Fire orbs to Jammer orbs, Deal 10,000% damage
+   | (16232:83) Let's return this to as it was + Get rid of every Water Orb
+   | Change all Jammer orbs to Fire orbs + Unable to match Fire, Wood, Light, and Dark orbs for 1 turn
+ | group:
+ | condition: turn 2
+   | (16235:108) I won't allow any left behind
+   | Change all Water orbs to Jammer orbs, Deal 10,000% damage
+   | (16236:83) Let's return this to as it was + Get rid of every Wood Orb
+   | Change all Jammer orbs to Water orbs + Unable to match Fire, Water, Light, and Dark orbs for 1 turn
+ | group:
+ | condition: turn 3
+   | (16239:108) I won't allow any left behind
+   | Change all Wood orbs to Jammer orbs, Deal 10,000% damage
+   | (16240:83) Let's return this to as it was + Get rid of every Light Orb
+   | Change all Jammer orbs to Wood orbs + Unable to match Fire, Water, Wood, and Dark orbs for 1 turn
+ | group:
+ | condition: turn 4
+   | (16243:108) I won't allow any left behind
+   | Change all Light orbs to Jammer orbs, Deal 10,000% damage
+   | (16244:83) Let's return this to as it was + Get rid of every Dark Orb
+   | Change all Jammer orbs to Light orbs + Unable to match Fire, Water, Wood, and Light orbs for 1 turn
+ | group:
+ | condition: turn 5
+   | (16247:108) I won't allow any left behind
+   | Change all Dark orbs to Jammer orbs, Deal 10,000% damage
+   | (16248:83) Let's return this to as it was + Lastly, please show me a combo of 10
+   | Change all Jammer orbs to Dark orbs + Absorb damage when combos <= 9 for 1 turn
+ | group:
+ | condition: turn 6
+   | condition: when 10 combos last turn
+   | (16251:40) I thought that you'd be able to do it
+   | Reduce self HP to 0
+   | (16252:83) It seems that I misjudged you + Please try harder next time
+   | Bind awoken skills for 1 turn + Deal 10,000% damage (10 hits, 1,000% each), Deal 10,000% damage (10 hits, 1,000% each)
+ | group:
+   | (16255:40) I look forward to our next meeting
+   | Reduce self HP to 0

@@ -1,0 +1,38 @@
+#4607 - Serra Angel
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 4607
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10252:20) Forfend
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (10255:86) Swift Justice
+   | Enemy recover 10% HP, Deal 90% damage
+   | condition: 50% chance
+   | (10253:74) Hero's Resolve
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | (10254:1) Angelic Shield
+   | Bind 1 random card for 1~2 turns, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (10257:83) Convalescence + Hero's Resolve
+   | Enemy recover 10% HP + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | (10258:83) Convalescence + Angelic Shield
+   | Enemy recover 10% HP + Bind 1 random card for 1~2 turns, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10259:14) Silence
+     | Bind active skills for 1 turn
+   | group:
+     | (10260:15) Wave of Reckoning
+     | Deal 250% damage

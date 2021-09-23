@@ -1,0 +1,44 @@
+#4867 - Yuuki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4867
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4858, 4859 on team
+ | (11438:66) Hey, what's up? You next?
+ | Do nothing
+ | (11436:66) Come on... Draw your sword.
+ | Do nothing
+
+level: 4
+ type: PREEMPT
+ | condition: when 4858, 4859 on team
+ | (11439:101) Hey, what's up? You next?
+ | Fix orb movement starting point to random position on the board
+ | (11437:101) Come on... Draw your sword.
+ | Fix orb movement starting point to random position on the board
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | (11441:48) Awesome!
+   | Change a random attribute to Fire orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (11442:50) Huaah!
+   | Player -75% HP
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | (11443:15) That was an awesome fight!
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (11444:88) These folks know exactly what I'm talking about.
+   | Bind awoken skills for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (11445:15) Sometimes you got to fight to get your point across.
+   | Deal 160% damage (4 hits, 40% each)

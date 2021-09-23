@@ -1,0 +1,35 @@
+#206755 - Super Sapphire Carbuncle
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206755
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22493:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (22232:104) Cloudy Sapphire
+ | A 2×1 rectangle of clouds appears for 3 turns at a random location
+ group:
+ condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+ | (22234:15) Carbuncle Rush
+ | Deal 100% damage (2 hits, 50% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (22441:17) Wave of Carnage
+   | Increase damage to 900% for the next 999 turns
+ | group:
+ | condition: turns 2-14
+   | (22234:15) Carbuncle Rush
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+   | (22200:83) Transformation of Carnage + Bloody Carnage
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ type: UNKNOWN_USE
+ | (20950:46) Indiscriminate Carnage
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage

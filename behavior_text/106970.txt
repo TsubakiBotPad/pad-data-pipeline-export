@@ -1,0 +1,47 @@
+#106970 - ヴェノム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106970
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (22642:83) WE ARE VENOM! + So many snacks, so little time!
+ | Jammer and Poison skyfall +15% for 5 turns + Change 2 random orb types to Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (22516:50) We'll squeeze you until you burst!
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (22517:15) You'll die in an instant!
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22515:74) Now ain't the time to be picky!
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+     | condition: 25% chance
+     | (22518:75) You're ours to do with as we please!
+     | Leader changes to random sub for 1 turn, Deal 80% damage
+     | condition: 25% chance
+     | (22520:105) Writhe in pain!
+     | RCV 50% for 1 turn, Deal 70% damage
+     | condition: 25% chance
+     | (22521:92) Burn!
+     | Spawn 5 random Fire orbs, Deal 90% damage
+     | condition: 25% chance
+     | (22519:15) Let's cook this sucker!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (22523:108) I will devour you!
+   | Change all Jammer and Poison orbs to Dark orbs, Deal 120% damage
+   | (22522:57) We're gonna eat your brains!
+   | Change a random attribute to Poison orbs, Deal 100% damage

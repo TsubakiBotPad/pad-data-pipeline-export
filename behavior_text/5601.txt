@@ -1,0 +1,45 @@
+#5601 - Yoshitora Tokugawa
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+monster_id: 5601
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23875:67) Let's make this fight a good one!
+ | Absorb damage when combos <= 4 for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (23876:92) Pink Blossoms
+     | Spawn 3 random Dark orbs, Deal 70% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (23877:77) White Lilies
+     | Change the 1st column to Wood orbs, Deal 80% damage
+   | group:
+   | condition: turn 3 while HP > 14
+     | (23878:77) Tree Peonies
+     | Change the 6th column to Heal orbs, Deal 85% damage
+   | group:
+   | condition: turn 4 while HP > 14
+     | (23879:77) Camellias
+     | Change the 3rd and 4th columns to Fire orbs, Deal 90% damage
+   | group:
+   | condition: turn 5 while HP > 14
+     | (23880:15) Morning Glory
+     | Deal 95% damage (5 hits, 19% each)
+   | group:
+   | condition: turn 6 while HP > 14
+     | (23881:92) Moonflower
+     | Spawn 5 random Wood and Light orbs, Deal 100% damage
+   | group:
+     | (23882:85) Fluttering Butterfly Blossom
+     | Change all orbs to Fire, Light, and Heal, Deal 150% damage
+ | group:
+ | condition: hp <= 14
+   | (23884:85) Profusion of Flowers
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 250% damage

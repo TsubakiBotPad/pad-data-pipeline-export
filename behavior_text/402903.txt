@@ -1,0 +1,29 @@
+#402903 - Alt. Awoken Liu Bei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 402903
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19347:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (20999:72) Fire & Wood Halved
+ | Reduce damage from Fire and Wood attrs by 50%
+ type: PREEMPT
+ | (19348:83) Brave Resolve + Leading a Comeback + Ascension's Noble Path
+ | Voids status ailments for 999 turns + Change all Heal orbs to Wood orbs + RCV 25% for 10 turns, Deal 80% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | (19352:83) Path to Destruction + Ascension's Noble Path
+   | Deal 100% damage (2 hits, 50% each) + RCV 10% for 1 turn, Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 9
+   | (19355:15) Omen of Conquest
+   | Deal 1,600% damage (4 hits, 400% each)
+ type: UNKNOWN_USE
+ | (20951:83) Magic Tower + Bloody Carnage
+ | Bind awoken skills for 1 turn + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)

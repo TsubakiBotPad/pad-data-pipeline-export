@@ -1,0 +1,97 @@
+#307175 - Fairy King's Maid, Pattie
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:24640) -> Diligent Service
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:24641) -> Woodland Tea Party
+	Void damage >= 1,500,000,000 for 999 turns
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbChangeAttack(48:24577) -> She spills the tea
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Wood orbs, Deal 95% damage
+
+#7: ESOrbLock(94:24578) -> She drops the tableware
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:24579) -> She trips and falls down
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESOrbChangeAttack(48:24577) -> She spills the tea
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Wood orbs, Deal 95% damage
+
+#13: ESOrbLock(94:24578) -> She drops the tableware
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 100% damage
+
+#14: ESAttackMultihit(15:24579) -> She trips and falls down
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESSpinnersFixed(110:24576) -> Maid's Devotion
+Specific orbs change every 1.0s for 4 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#21: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#23: SkillSet:
+	[0] ESBindAwoken(88:24582) -> Absolute Loyalty
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:24583) -> Execution of Duty
+	Deal 1,000% damage (10 hits, 100% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESResolve(73:24574) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#26: ESDeathCry(69:24581) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Uwaaah! I can't do this!|Master Albrecht, please help me!

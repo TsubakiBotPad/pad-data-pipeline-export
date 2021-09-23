@@ -1,0 +1,54 @@
+#100226 - Alt. Great Valkyrie
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:9356) -> White Valkyrie Shield
+	Voids status ailments for 10 turns
+	[1] ESLeaderSwap(75:9357) -> Valkyrie Dance
+	Leader changes to random sub for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#7: ESRecoverEnemy86(86:9363) -> Resurrection
+Condition: When < 50% HP (ai:100 rnd:0)
+Enemy recover 100% HP
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindRandom(1:9359) -> Gleipnir
+	Bind 2 random cards for 5 turns
+	[1] ESAbsorbCombo(67:9360) -> Fylgja's Protection
+	Absorb damage when combos <= 6 for 10 turns
+
+#10: ESAttackMultihit(15:9364) -> Valkyrie Blade
+Condition: 90% chance when < 30% HP (ai:90 rnd:0)
+Deal 360~450% damage (4~5 hits, 90% each)
+
+#11: ESAttackMultihit(15:9362) -> Double Slash
+Condition: 50% chance (ai:50 rnd:0)
+Deal 200% damage (2 hits, 100% each)
+
+#12: ESFixedStart(101:9365) -> Sword of Fate
+Fix orb movement starting point to random position on the board, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

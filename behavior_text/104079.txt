@@ -1,0 +1,32 @@
+#104079 - Terry Bogard
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104079
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19607:78) Hey, c'mon c'mon!
+ | Change the 5th row to Fire orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (19608:79) Power Wave
+   | Change the 1st row to Fire orbs, Deal 95% damage
+   | condition: 33% chance
+   | (19610:15) Power Dunk
+   | Deal 98% damage (2 hits, 49% each)
+   | condition: 34% chance
+   | (19611:15) Power Charge
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19609:20) Hey, lighten up, dude!
+     | Voids status ailments for 5 turns
+   | group:
+     | (19612:94) Even though it took only a few seconds, good fight!
+     | Lock 6 random orbs, Deal 120% damage

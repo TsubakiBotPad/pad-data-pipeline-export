@@ -1,0 +1,51 @@
+#759 - Horned Fort Dragon, Fortoytops
+monster size: 2
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:3768) -> Defending
+Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 13
+
+#8: ESAttackMultihit(15:3769) -> Super Horn
+Condition: 50% chance (ai:50 rnd:0)
+Deal 120% damage
+
+#9: ESRandomSpawn(92:3770) -> Grand Rush
+Spawn 6 random Jammer orbs, Deal 100% damage
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#11: ESFlagOperation(44:29) -> ESFlagOperation
+flag OR 0b11
+
+#12: ESDamageShield(74:3771) -> Absolute Guard
+Reduce damage from all sources by 75% for 1 turn
+
+#13: ESBindSkill(14:3772) -> Death Crash
+Bind active skills for 10 turns, Deal 200% damage
+
+#14: ESAttackMultihit(15:3810) -> Death Crash
+Deal 600% damage (6 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

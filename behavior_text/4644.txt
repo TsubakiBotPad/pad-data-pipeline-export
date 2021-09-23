@@ -1,0 +1,107 @@
+#4644 - Gleaming Star Companion Dragon, Goteene
+monster size: 4
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 4644
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10385:75) Holy Judgment
+ | Leader changes to random sub for 2 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (10384:107) Purple Exception
+   | Unable to match Dark orbs for 3 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (10388:48) Flash Pillar
+     | Change a random attribute to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10389:92) Subjective Heart
+     | Spawn 1 random Heal orb, Deal 110% damage
+     | condition: 34% chance
+     | (10390:15) Judging Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10387:85) Lightning Enclosure
+     | Change all orbs to Fire, Water, Light, and Heal, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (10391:48) Trial Sin
+     | Change a random attribute to Jammer orbs, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 33% chance
+     | (10388:48) Flash Pillar
+     | Change a random attribute to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10389:92) Subjective Heart
+     | Spawn 1 random Heal orb, Deal 110% damage
+     | condition: 34% chance
+     | (10390:15) Judging Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10387:85) Lightning Enclosure
+     | Change all orbs to Fire, Water, Light, and Heal, Deal 120% damage
+ | group:
+ | condition: hp <= 14
+   | (10395:15) Final Judgment
+   | Deal 180% damage (3 hits, 60% each)
+ type: REMAINING
+ condition: when 2 enemies remain
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (10388:48) Flash Pillar
+     | Change a random attribute to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10389:92) Subjective Heart
+     | Spawn 1 random Heal orb, Deal 110% damage
+     | condition: 34% chance
+     | (10390:15) Judging Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10386:100) Liberty Shackles
+     | Seal the 5th row for 2 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (10391:48) Trial Sin
+     | Change a random attribute to Jammer orbs, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 33% chance
+     | (10388:48) Flash Pillar
+     | Change a random attribute to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10389:92) Subjective Heart
+     | Spawn 1 random Heal orb, Deal 110% damage
+     | condition: 34% chance
+     | (10390:15) Judging Rush
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10386:100) Liberty Shackles
+     | Seal the 5th row for 2 turns
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (10384:107) Purple Exception
+   | Unable to match Dark orbs for 3 turns
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 100
+   | (10394:83) Trial of Judgment + Conviction
+   | Bind active skills for 1 turn + Increase damage to 200% for the next 99 turns

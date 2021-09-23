@@ -1,0 +1,36 @@
+#4979 - オロチ【妖怪ウォッチ】
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4979
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11994:83) お前の実力　いかほどのものか… + このオロチが　試させてもらう！
+ | Movetime 150% for 5 turns + Absorb damage when combos <= 7 for 5 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (11997:15) ゆけ！　双龍の牙！
+   | Deal 100% damage
+   | condition: 33% chance
+   | (11998:48) くらえ！　雷神の術！
+   | Change a random attribute to Light orbs, Deal 95% damage
+   | condition: 33% chance
+   | (11999:79) 我が龍よ！　くらいつくせ！
+   | Change the 3rd row to Dark orbs, Deal 90% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (12000:62) 闇に消えろ！
+   | Blind all orbs on the board, Deal 300% damage
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 2
+     | (12001:83) このチカラ　まさに強敵…！ + 『とも』と呼ぶにふさわしい！
+     | Movetime 50% for 5 turns + Increase damage to 150% for the next 5 turns
+   | group:
+     | (12004:15) やまたのおろち
+     | Deal 200% damage (4 hits, 50% each)

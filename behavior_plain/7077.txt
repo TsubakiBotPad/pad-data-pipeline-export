@@ -1,0 +1,103 @@
+#7077 - Shirou Emiya & Servant, Rider
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffATK(130:21568) -> The Curse of Mystic Eyes
+	ATK -50% for 3 turns
+	[1] ESBindRandom(1:21569) -> Petrification
+	Bind 2 random cards for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESSpinnersRandom(109:21570) -> Projection start.
+Random 2 orbs change every 1.5s for 2 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESOrbLock(94:21571) -> Search, select.
+Lock all Fire and Dark orbs
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESFixedStart(101:21572) -> Analyze.
+Fix orb movement starting point to random position on the board, Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: ESDamageShield(74:21573) -> Rho Aias: 7 Rings of Heaven
+Reduce damage from all sources by 50% for 4 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttackUPRemainingEnemies(17:21574) -> Bellerophon
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 250% for the next 999 turns
+
+#21: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 25
+
+#22: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#23: ESSpinnersRandom(109:21570) -> Projection start.
+Random 2 orbs change every 1.5s for 2 turns, Deal 100% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 29
+
+#26: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#27: ESOrbLock(94:21571) -> Search, select.
+Lock all Fire and Dark orbs
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#30: ESFixedStart(101:21572) -> Analyze.
+Fix orb movement starting point to random position on the board, Deal 120% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn

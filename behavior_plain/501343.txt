@@ -1,0 +1,59 @@
+#501343 - Dark Kouryu Emperor, Fagan
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:22123) -> GRAAAAAARGH!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 90% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESNoSkyfall(127:22124) -> Wave of Awe
+Condition: 50% chance (ai:0 rnd:50)
+No skyfall for 1 turn
+
+#5: ESOrbChangeAttack(48:22125) -> Dark Dragon Wave
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESBindAwoken(88:22128) -> Gleam of the Dragon Star
+	Bind awoken skills for 2 turns
+	[1] ESBlindStickyRandom(97:22127) -> Shadow of the Dark Emperor
+	Blind random 10 orbs for 3 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:22129) -> Extreme Twin Dragon Palms
+Condition: 50% chance (ai:50 rnd:0)
+Deal 110% damage (2 hits, 55% each)
+
+#12: ESNoSkyfall(127:22124) -> Wave of Awe
+Condition: 50% chance (ai:0 rnd:50)
+No skyfall for 1 turn
+
+#13: ESOrbChangeAttack(48:22125) -> Dark Dragon Wave
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:22140) -> Super resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

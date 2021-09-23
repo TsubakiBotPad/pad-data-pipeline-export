@@ -1,0 +1,78 @@
+#102946 - Alt. Gleaming Queen, Hera-Sowilo
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:8088) -> Gleaming Queen's Whisper
+	Bind awoken skills for 7 turns
+	[1] ESStatusShield(20:8089) -> Protection of the Gods
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindAttack(63:8091) -> Bolt Arrow
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 1 random sub for 10 turns, Deal 400% damage
+
+#7: ESBindAttack(63:8092) -> Bolt Arrow
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind both leaders for 10 turns, Deal 400% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#10: ESOrbChangeAttack(48:8093) -> Shine Blast
+Condition: 60% chance (ai:60 rnd:0)
+Change all Dark orbs to Light orbs, Deal 280% damage
+
+#11: ESDebuffMovetime(39:8094) -> Resting Pulse
+Movetime -1s for 1 turn, Deal 280% damage
+
+#12: ESAttackMultihit(15:8095) -> Shine Wave
+Deal 300% damage (2 hits, 150% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESAbsorbCombo(67:8096) -> Gleaming Queen's Trial
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 8 for 8 turns
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 19
+
+#18: ESFixedStart(101:8097) -> Gleaming Chains
+Fix orb movement starting point to random position on the board, Deal 300% damage
+
+#19: SkillSet:
+	[0] ESGravity(50:8098) -> Sorry
+	Player -99% HP
+	[1] ESAttackMultihit(15:8099) -> Gleaming Queen's Judgment
+	Deal 15,000% damage (5 hits, 3,000% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:8254) -> Alt. Hera Normal Resolve
+Survive attacks with 1 HP when HP > 90%

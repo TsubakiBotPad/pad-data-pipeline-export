@@ -1,0 +1,72 @@
+#3388 - Reincarnated Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:23605) -> Divine Feathered Shawl
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:23606) -> Hidden Heavens
+	Absorb damage when combos <= 14 for 11 turns
+	[2] ESSpinnersFixed(110:23607) -> Looming Darkness
+	Specific orbs change every 1.0s for 10 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#6: ESOrbChangeAttackBits(108:23609) -> Shining Light
+Change all Jammer and Poison orbs to Light orbs, Deal 120% damage
+
+#7: ESSkyfall(68:23610) -> Rainfall
+Condition: 33% chance (ai:0 rnd:33)
+Poison skyfall +20% for 1 turn, Deal 90% damage
+
+#8: ESSkyfall(68:23617) -> Rainfall
+Condition: 33% chance (ai:0 rnd:33)
+Jammer skyfall +25% for 1 turn, Deal 95% damage
+
+#9: ESSkyfallLocked(96:23608) -> Rainfall
+Condition: 34% chance (ai:0 rnd:34)
+Locked random skyfall +25% for 1 turn, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESDamageShield(74:23612) -> Divine Dispelling Gown
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAttributeBlock(107:23613) -> Hidden Healing
+	Unable to match Heal orbs for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPRemainingEnemies(17:23614) -> Divine Dispelling Protection
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#16: ESBoardChangeAttackBits(85:23615) -> Heavenly Vanquishing Light
+Change all orbs to Light, Deal 1,000% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:23616) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

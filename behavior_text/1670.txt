@@ -1,0 +1,81 @@
+#1670 - Norn of the Past, Urd
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 1670
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9241:73) Resolve
+ | Survive attacks with 1 HP when HP > 51%
+ | (9240:72) Light & Dark Resistance
+ | Reduce damage from Light and Dark attrs by 50%
+ | (9239:106) The flow of time has changed
+ | Enemy turn counter change to 1 when HP <= 50%
+
+level: 4
+ type: PASSIVE
+ | (9241:73) Resolve
+ | Survive attacks with 1 HP when HP > 51%
+ | (9240:72) Light & Dark Resistance
+ | Reduce damage from Light and Dark attrs by 50%
+ | (9239:106) The flow of time has changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (9244:83) Norn's Trace + Space-Time Barrier
+ | Absorb damage when combos <= 5 for 99 turns + Void damage >= 10,000,000 for 6 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (9252:98) Bridenir
+   | Blind orbs in specific positions for 2 turns, Deal 170% damage
+   | condition: 50% chance
+   | (9255:83) Bifröst Fate + Norn's Dropped Item
+   | Change the 1st column to Fire orbs and the 6th column to Water orbs + Spawn Bomb orbs in the specified positions, Deal 155% damage
+   | (9258:83) Bonds of the Past + Norn Slave
+   | Jammer skyfall +15% for 1 turn + Change all orbs to Fire, Water, and Heal, Deal 180% damage
+ | group:
+ | condition: hp <= 59
+   | group:
+   | condition: turn 1 while HP > 49
+     | (9245:99) Time Stasis
+     | Seal the 1st column for 2 turns
+   | group:
+     | (9266:15) Fimbulvetr Weaving
+     | Deal 600% damage (6 hits, 100% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (9248:83) The cogs of fate are now in motion + Nornil Curse
+     | Voids status ailments for 999 turns + Movetime 50% for 12 turns
+   | group:
+     | condition: 33% chance
+     | (9261:83) Bifröst Fate + Norn Resistance
+     | Change the 1st row to Fire orbs and the 5th row to Water orbs + RCV 50% for 1 turn, Deal 110% damage
+     | condition: 50% chance
+     | (9264:83) Norn Slave + Reverse time!
+     | Change all orbs to Fire, Water, and Jammer + Delay active skills by 0~2 turns, Deal 90% damage
+     | (9265:15) Weave Tein
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (9251:88) End of Time
+     | Bind awoken skills for 1 turn
+   | group:
+     | (9266:15) Fimbulvetr Weaving
+     | Deal 600% damage (6 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (9250:83) Healing Scratch + The cogs of fate are now in motion + Nornil Curse
+     | Enemy recover 50% HP + Voids status ailments for 999 turns + Movetime 50% for 12 turns
+   | group:
+   | condition: turn 2
+     | (9251:88) End of Time
+     | Bind awoken skills for 1 turn

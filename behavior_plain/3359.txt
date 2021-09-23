@@ -1,0 +1,64 @@
+#3359 - Former Captain of Squad 5, Sosuke Aizen
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:17477) -> We will bring down the Soul Society.
+Absorb damage when combos <= 6 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESDebuffMovetime(39:17480) -> It was simple, really.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 50% for 1 turn, Deal 80% damage
+
+#8: ESAttackMultihit(15:17479) -> Vulnerabilities everywhere.
+Deal 100% damage (2 hits, 50% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBlind5(5:17478) -> Interesting.
+Blind all orbs on the board
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 18
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESAttackUPRemainingEnemies(17:17481) -> I will finish you with my own sword.
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 5 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESRowSpawnMulti(79:17482) -> Goodbye
+Change the 4th row to Dark orbs, Deal 120% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,30 @@
+#5252 - Ryunosuke Umemiya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5252
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13262:92) My mana burns with passion.
+ | Spawn 3 random Wood and Dark orbs
+ group:
+ | group:
+   | condition: 25% chance
+   | (13265:50) You're gonna get hurt!
+   | Player -25% HP
+   | condition: 33% chance
+   | (13263:48) Wanna dance punk?
+   | Change a random attribute to Dark orbs, Deal 90% damage
+   | condition: 33% chance
+   | (13264:15) Hmph! Hmph! Hmph!
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 34% chance
+   | (13266:89) This is really gonna hurt.
+   | Delay active skills by 0~1 turns, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (13267:17) Are you ready?
+   | Increase damage to 150% for the next 5 turns

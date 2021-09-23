@@ -1,0 +1,24 @@
+#103961 - Alt. Flame Text Dragon
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103961
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14004:50) Grrrrrrr!
+ | Player -80% HP
+ group:
+ | group:
+   | condition: 30% chance
+   | (8270:92) Blazing Flare
+   | Spawn 10 random Fire orbs, Deal 100% damage
+   | condition: 40% chance
+   | (8276:15) Vivid Slash
+   | Deal 140% damage (2 hits, 70% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (8275:67) Toon Dragon Sense
+   | Absorb damage when combos <= 5 for 3 turns

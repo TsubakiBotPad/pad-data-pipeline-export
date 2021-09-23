@@ -1,0 +1,48 @@
+#5894 - Valentine Starsea Goddess, Andromeda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESCloud(104:20542) -> H-Hello.
+	A row of clouds appears for 5 turns at a random location
+	[1] ESOrbLock(94:20543) -> Valentine's Day is here again.
+	Lock 15 random orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESOrbLock(94:20547) -> Lovely Chain
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 80% damage
+
+#5: ESRandomSpawn(92:20549) -> Sweet Heart
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Fire and Water orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:20548) -> Pegasus Tackle
+Condition: 34% chance (ai:0 rnd:34)
+Deal 150% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 4
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESSkyfall(68:20545) -> I have something for you.
+	Fire and Water skyfall +15% for 3 turns
+	[1] ESSkyfallLocked(96:20546) -> Would you like it?
+	Locked Fire and Water skyfall +100% for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,28 @@
+#802 - Gods of Hunt, Umisachi & Yamasachi
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 802
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1071:53) Treasure of the Mountains and Seas
+ | Absorb Wood damage for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1073:48) High Tide Jewel
+     | Change all Heal orbs to Water orbs, Deal 75% damage
+     | (1072:48) Low Tide Jewel
+     | Change all Water orbs to Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1072:48) Low Tide Jewel
+     | Change all Water orbs to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | (1074:15) Ceremony of the Mountains and Seas
+   | Deal 300% damage (3 hits, 100% each)

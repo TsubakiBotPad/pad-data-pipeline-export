@@ -1,0 +1,51 @@
+#1560 - 超サイヤ人・破壊王子ベジータ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbCombo(67:1973) -> Face me!
+Absorb damage when combos <= 4 for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 11
+
+#9: ESOrbChangeAttack(48:1974) -> Grr!!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Heal orbs to Jammer orbs, Deal 75% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESInactivity66(66:1975) -> Curse you...
+Do nothing
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBoardChangeAttackBits(85:1976) -> Roar!!
+Change all orbs to Fire, Deal 500% damage

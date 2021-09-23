@@ -1,0 +1,38 @@
+#7123 - Eiby
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7123
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23201:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 75%
+ | condition: when 1 enemies remain
+ | (23202:122) Enemy's next turn changed
+ | Enemy turn counter change to 1
+ | (23200:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (23203:1) Devil Bind
+ | Bind 6 random cards for 10 turns
+ group:
+ | group:
+   | (23205:15) Flurry of Arrows
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1, hp <= 74
+   | (23204:39) Draining Light
+   | Movetime 50% for 10 turns
+ | group:
+ | condition: turn 1, hp <= 1
+   | (23219:88) Dust Arrow
+   | Bind awoken skills for 2 turns, Deal 50% damage
+   | (23205:15) Flurry of Arrows
+   | Deal 100% damage (4 hits, 25% each)
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (23204:39) Draining Light
+ | Movetime 50% for 10 turns

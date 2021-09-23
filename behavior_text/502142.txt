@@ -1,0 +1,37 @@
+#502142 - Dusk Scarlet Dragon Caller, Tsubaki
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 502142
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13998:89) You look ready, let's do this
+ | Delay active skills by 1 turn
+ group:
+ | group:
+ | condition: always turn 1
+   | (13999:74) Burning Dragon Wall
+   | Reduce damage from all sources by 75% for 3 turns
+ | group:
+   | condition: 50% chance
+   | (14590:92) Purgatory
+   | Spawn 2 random Fire and Jammer orbs, Deal 100% damage
+   | (14501:15) Scarlet Flame Dance
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (14502:17) I can keep going!
+   | Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: hp <= 9
+   | condition: 80% chance
+   | (14503:92) Ferociously Soaring Scarlet Flames
+   | Spawn 5 random Fire and Jammer orbs, Deal 200% damage
+   | condition: 50% chance
+   | (14590:92) Purgatory
+   | Spawn 2 random Fire and Jammer orbs, Deal 100% damage
+   | (14501:15) Scarlet Flame Dance
+   | Deal 120% damage (2 hits, 60% each)

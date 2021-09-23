@@ -1,0 +1,69 @@
+#5892 - Beloved Colorful Dragon Caller, Ideal
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:20528) -> Oh, welcome!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:20529) -> Would you like a muffin? They're fresh out of the oven!
+	Void damage >= 30,000,000 for 999 turns
+	[2] ESSpinnersRandom(109:20530) -> There's plenty so make sure you eat up!
+	Random 3 orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBoardChangeAttackBits(85:20532) -> Muffin Sprinkles
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 80% damage
+
+#6: ESRandomSpawn(92:20533) -> Heart-Shaped Chocolates
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 6 random Fire orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:20531) -> Chocolate Truffles
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 5
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:20535) -> Are you full already?
+	Increase damage to 150% for the next 999 turns
+	[1] ESNoSkyfall(127:20536) -> Don't be shy, eat them all up!
+	No skyfall for 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:20538) -> Wow, there aren't that many left
+	Bind awoken skills for 1 turn
+	[1] ESSkillDelay(89:20539) -> Please come again
+	Delay active skills by 5 turns
+
+#14: ESBoardChangeAttackBits(85:20540) -> Cupcake Sprinkles
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 300% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:21947) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

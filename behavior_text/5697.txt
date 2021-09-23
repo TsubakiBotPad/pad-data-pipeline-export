@@ -1,0 +1,35 @@
+#5697 - 男鹿アキタ＆Ｅ６こまち
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+monster_id: 5697
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15194:83) チェンジ、シンカリオン！ + 話は読めた！
+ | Voids status ailments for 999 turns + Blind all orbs on the board
+ group:
+ | group:
+   | condition: 50% chance
+   | (15163:77) フミキリガン バーナーモード
+   | Change the 1st column to Fire orbs, Deal 70% damage
+   | (15161:15) フミキリガン
+   | Deal 50% damage (2 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15164:101) さっさと終わらせるぞ
+     | Fix orb movement starting point to random position on the board
+   | group:
+     | condition: 34% chance
+     | (15165:85) フミキリキャノン
+     | Change all orbs to Fire, Deal 80% damage
+     | condition: 33% chance
+     | (15163:77) フミキリガン バーナーモード
+     | Change the 1st column to Fire orbs, Deal 70% damage
+     | condition: 33% chance
+     | (15161:15) フミキリガン
+     | Deal 50% damage (2 hits, 25% each)

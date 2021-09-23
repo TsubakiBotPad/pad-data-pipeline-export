@@ -1,0 +1,37 @@
+#3057 - Spirit Tree Mechanical Star God, Spica
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3057
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23579:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23580:83) Dependent Protection + Scattered Plants + Foul Mulch Feeder
+ | Void damage >= 5,000,000 for 5 turns + Specific orbs change every 1.0s for 99 turns + Change all orbs to Wood, Jammer, and Poison, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4
+     | (23583:85) Foul Mulch Feeder
+     | Change all orbs to Wood, Jammer, and Poison, Deal 100% damage
+   | group:
+   | condition: turn 5
+     | (23584:83) Dependent Demon's Protection + Foul Mulch Feeder
+     | Absorb damage when combos <= 8 for 999 turns + Change all orbs to Jammer, Deal 100% damage
+   | group:
+     | (23583:85) Foul Mulch Feeder
+     | Change all orbs to Wood, Jammer, and Poison, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (23587:83) Decomposing Plants + Monstrous Darkleaf Mouth + Foul Mulch Feeder
+     | Bind awoken skills for 5 turns + Blind all orbs on the board + Change all orbs to Poison, Deal 100% damage
+   | group:
+     | (23591:15) Leaf Tendril Barrage
+     | Deal 2,000% damage (5 hits, 400% each)

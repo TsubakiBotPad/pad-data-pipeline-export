@@ -1,0 +1,43 @@
+#5452 - 地下闘技場王者・範馬刃牙
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5452
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19480:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (14046:71) 強えなァあんた
+ | Void damage >= 12,000,000 for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (14051:15) 転蓮華
+   | Deal 100% damage
+   | condition: 33% chance
+   | (14052:92) 図に乗りやがって…
+   | Spawn 4 random Fire orbs, Deal 95% damage
+   | condition: 34% chance
+   | (19478:77) Right Low Kick
+   | Change the 5th column to Light orbs, Deal 80% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (14048:83) リハーサル通りだな オイ + こうまでリハーサル通りだと―― + フェアじゃない
+   | Voids status ailments for 999 turns + Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs + Lock 15 random orbs
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (14053:94) これ…最後の技です……
+     | Lock 20 random orbs
+   | group:
+     | (14054:15) フロントネックロック
+     | Deal 150% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (19481:83) This...is my last roll of the dice... + Front Neck-Lock
+   | Lock all orbs + Deal 4,000% damage, Deal 4,000% damage

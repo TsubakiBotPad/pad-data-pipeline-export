@@ -1,0 +1,28 @@
+#335 - Blue Shining Divinegon
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 335
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (320:47) Divine Speed
+ | Deal 50% damage
+ group:
+ | group:
+   | (251:15) Holy Breath
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (758:1) Curse of the Sacred Waters
+     | Bind 2 random cards for 4 turns
+   | group:
+     | condition: 40% chance
+     | (757:48) Holy Water Dragon's Breath
+     | Change a random attribute to Water orbs, Deal 80% damage
+     | (755:15) God Blizzard Breath
+     | Deal 150% damage (2 hits, 75% each)

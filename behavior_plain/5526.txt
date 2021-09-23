@@ -1,0 +1,148 @@
+#5526 - Alatreon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:18803) -> Roar
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:18807) -> Fire Active Status
+	Absorb Fire and Light damage for 4 turns
+	[2] ESSkillDelay(89:18804) -> Dash Attack
+	Delay active skills by 6 turns, Deal 100% damage
+
+#3: ESAttackUPCooldown(19:18816) -> Rage
+Increase damage to 200% for the next 999 turns
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESSkillDelay(89:18805) -> Dash Attack
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~3 turns, Deal 95% damage
+
+#7: ESDebuffRCV(105:18806) -> Claw Attack
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 97% damage
+
+#8: ESRowSpawnMulti(79:18808) -> Flame Breath
+Condition: 34% chance (ai:0 rnd:34)
+Change the 4th and 5th rows to Fire orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESDamageShield(74:18813) -> Dragon Active Status
+Reduce damage from all sources by 75% for 4 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 19
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESSkillDelay(89:18805) -> Dash Attack
+Condition: 50% chance (ai:50 rnd:0)
+Delay active skills by 0~3 turns, Deal 95% damage
+
+#17: ESDebuffRCV(105:18806) -> Claw Attack
+RCV 50% for 1 turn, Deal 97% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: SkillSet:
+	[0] ESBoardChangeAttackBits(85:18815) -> Escaton Judgement
+	Change all orbs to Water and Jammer, Deal 200% damage
+	[1] ESAbsorbAttribute(53:18809) -> Ice Active Status
+	Absorb Water and Dark damage for 4 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 29
+
+#24: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#25: ESSkillDelay(89:18805) -> Dash Attack
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~3 turns, Deal 95% damage
+
+#26: ESDebuffRCV(105:18806) -> Claw Attack
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 97% damage
+
+#27: ESColumnSpawnMulti(77:18810) -> Icicle Drop
+Condition: 34% chance (ai:0 rnd:34)
+Change the 3rd and 4th columns to Water orbs, Deal 100% damage
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 33
+
+#30: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#31: ESDamageShield(74:18813) -> Dragon Active Status
+Reduce damage from all sources by 75% for 4 turns
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 12, target rnd 38
+
+#34: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#35: ESSkillDelay(89:18805) -> Dash Attack
+Condition: 50% chance (ai:50 rnd:0)
+Delay active skills by 0~3 turns, Deal 95% damage
+
+#36: ESSkillDelay(89:18805) -> Dash Attack
+Delay active skills by 0~3 turns, Deal 95% damage
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#38: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#39: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#40: SkillSet:
+	[0] ESBoardChangeAttackBits(85:18814) -> Escaton Judgement
+	Change all orbs to Fire and Jammer, Deal 200% damage
+	[1] ESAbsorbAttribute(53:18807) -> Fire Active Status
+	Absorb Fire and Light damage for 4 turns
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn

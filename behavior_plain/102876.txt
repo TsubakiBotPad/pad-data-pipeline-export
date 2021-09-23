@@ -1,0 +1,90 @@
+#102876 - Alt. Abyssal Shark Dragon, Toa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESDebuffMovetime(39:12112) -> I shall now confirm your wishes.
+	Movetime -4s for 5 turns
+	[1] ESBoardChangeAttackBits(85:12113) -> Abyss Dark Ring
+	Change all orbs to Water, Dark, and Heal, Deal 130% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:4221) -> Conquering Will
+	Enemy recover 55% HP
+	[1] ESAttackUPRemainingEnemies(17:4222) -> Dragonbound's Wrath
+	Increase damage to 200% for the next 999 turns
+
+#9: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESAttackMultihit(15:4232) -> Abyss Hole
+	Deal 120% damage (4 hits, 30% each)
+	[1] ESBoardChangeAttackBits(85:4225) -> Abyss Dark Ring
+	Change all orbs to Water, Dark, and Heal, Deal 130% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBranchCard(90:4227) -> ESBranchCard
+Branch on player_cards HAS [2442, 2443], target rnd 15
+
+#14: ESSkillDelay(89:4229) -> Wave of Calmness
+Delay active skills by 2 turns
+
+#15: ESSkillDelay(89:4228) -> Use the Claws' power as you wish.
+Delay active skills by 2 turns
+
+#16: ESColumnSpawnMulti(77:4230) -> Blue Ice Revival
+Condition: 40% chance (ai:40 rnd:0)
+Change the 1st column to Dark orbs and the 2nd column to Water orbs, Deal 100% damage
+
+#17: ESAttackMultihit(15:4232) -> Abyss Hole
+Condition: 50% chance (ai:50 rnd:0)
+Deal 120% damage (4 hits, 30% each)
+
+#18: ESRandomSpawn(92:4231) -> Abyss' Guidance
+Spawn 8 random Water orbs, Deal 100% damage
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#21: SkillSet:
+	[0] ESAbsorbAttribute(53:4233) -> Abyssal Shark Dragon's Trial
+	Absorb Water damage for 1 turn
+	[1] ESOrbChangeAttack(48:4234) -> Chopping Ring of the Deep Sea
+	Change all Heal orbs to Poison orbs, Deal 50% damage
+
+#22: ESResolve(73:4220) -> Dragonbound's Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#23: ESAttributeResist(72:4348) -> Toa Wood Halven
+Reduce damage from Wood attrs by 50%

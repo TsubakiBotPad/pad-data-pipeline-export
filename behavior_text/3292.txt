@@ -1,0 +1,30 @@
+#3292 - Beast of the Climactic Night, Minotauria
+monster size: 3
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 3292
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5928:20) Stop
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5929:62) Headbutt
+     | Blind all orbs on the board, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (5930:77) Blazing Axe
+     | Change the 6th column to Fire orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (5931:19) Now I'm really mad!
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | (5932:15) Inherited Technique, Full Swing
+   | Deal 300% damage

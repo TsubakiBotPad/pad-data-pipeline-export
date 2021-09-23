@@ -1,0 +1,28 @@
+#5264 - Opacho
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5264
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17602:109) You no catch me!
+ | Random 3 orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (17604:92) You not strong like Opacho.
+   | Spawn 5 random Fire orbs, Deal 80% damage
+   | (17603:15) Dummies.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17605:104) Over Soul MAMA, Opacho
+     | A 2×2 square of clouds appears for 4 turns at a random location
+   | group:
+     | (17606:15) DIE!
+     | Deal 200% damage

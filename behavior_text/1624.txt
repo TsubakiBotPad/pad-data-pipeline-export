@@ -1,0 +1,43 @@
+#1624 - Wandering Wizard, Wee Jas
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1624
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4608:83) Who will be my opponent? + Space-Time Barrier
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4601:83) Time Illusion + Termination's Guidance
+     | Movetime -1s for 5 turns + Change 3 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: when required attributes on board
+     | (4605:92) Time Purification
+     | Change all Poison orbs to Jammer orbs, Deal 180% damage
+     | (4604:79) Break Time
+     | Change the 5th row to Heal orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4600:64) Termination's Guidance
+     | Change 3 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (4606:96) Time Sealing Lock
+     | Locked random skyfall +30% for 5 turns
+   | group:
+   | condition: turn 2 while HP > 9
+     | (4601:83) Time Illusion + Termination's Guidance
+     | Movetime -1s for 5 turns + Change 3 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (4607:15) Space-Time Destruction
+   | Deal 400% damage (4 hits, 100% each)

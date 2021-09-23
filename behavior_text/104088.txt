@@ -1,0 +1,35 @@
+#104088 - Mai Shiranui
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 104088
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19625:104) Come at me!
+ | A 3×1 rectangle of clouds appears for 5 turns at a random location
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (19628:50) Musasabi no Mai
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (19627:127) Float like a butterfly, sting like a Shiranui!
+     | No skyfall for 1 turn
+     | (19626:92) Kachousen
+     | Spawn 3 random Fire orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (19629:101) Suichou no Mai
+     | Fix orb movement starting point to random position on the board
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (19630:15) One, Two, Three!
+     | Deal 120% damage (3 hits, 40% each)

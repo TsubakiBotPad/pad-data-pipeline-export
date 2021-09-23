@@ -1,0 +1,85 @@
+#301459 - Mystic Pentad Dragon, Kotodama
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkillDelay(89:8318) -> Echoing Howl
+	Delay active skills by 5 turns
+	[1] ESRandomSpawn(92:8319) -> Quinary Prism
+	Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESOrbChangeAttack(48:8320) -> Glitter Purge
+Change all Poison orbs to Heal orbs, Deal 500% damage
+
+#7: ESOrbChangeAttack(48:8321) -> Skull Lens
+Change all Jammer orbs to Mortal Poison orbs, Deal 75% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 22
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESDamageShield(74:8322) -> Crystallizing Force
+Reduce damage from all sources by 75% for 2 turns, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 21
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESSkyfall(68:8323) -> Volcano Flamite
+Condition: 20% chance (ai:0 rnd:20)
+Fire skyfall +15% for 10 turns, Deal 150% damage
+
+#16: ESSkyfall(68:8324) -> Ocean Aquarite
+Condition: 20% chance (ai:0 rnd:20)
+Water skyfall +15% for 10 turns, Deal 150% damage
+
+#17: ESSkyfall(68:8325) -> Sky Windite
+Condition: 20% chance (ai:0 rnd:20)
+Wood skyfall +15% for 10 turns, Deal 150% damage
+
+#18: ESSkyfall(68:8326) -> Sunlight Ardaite
+Condition: 20% chance (ai:0 rnd:20)
+Light skyfall +15% for 10 turns, Deal 150% damage
+
+#19: ESSkyfall(68:8327) -> Moonlight Gloomite
+Condition: 20% chance (ai:0 rnd:20)
+Dark skyfall +15% for 10 turns, Deal 150% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#22: SkillSet:
+	[0] ESSkillDelay(89:8318) -> Echoing Howl
+	Delay active skills by 5 turns
+	[1] ESBoardChangeAttackBits(85:8329) -> Linking Rays
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 150% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

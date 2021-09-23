@@ -1,0 +1,69 @@
+#5788 - Yami Marik & The Winged Dragon of Ra - Immortal Phoenix
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:15796) -> Let the Shadow Game begin.
+	Absorb damage when combos <= 6 for 4 turns
+	[1] ESBlind5(5:15797) -> Ra is a card like no other!
+	Blind all orbs on the board
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 8
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#5: ESDamageShield(74:15799) -> No attacks will work!
+Condition: 50% chance (ai:50 rnd:0)
+Reduce damage from all sources by 75% for 1 turn, Deal 80% damage
+
+#6: ESRowSpawnMulti(79:15800) -> Feel its fiery wrath!
+Change the 5th row to Fire orbs, Deal 85% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 6
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESInactivity66(66:15801) -> Time to counterattack!
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:15802) -> Immortal Phoenix's effect activates!
+	Increase damage to 150% for the next 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 6
+
+#13: ESRecoverEnemy86(86:15798) -> Ra! Resurrect and soar into the sky!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 100% HP
+
+#14: ESDamageShield(74:15799) -> No attacks will work!
+Condition: 50% chance (ai:50 rnd:0)
+Reduce damage from all sources by 75% for 1 turn, Deal 80% damage
+
+#15: ESRowSpawnMulti(79:15800) -> Feel its fiery wrath!
+Change the 5th row to Fire orbs, Deal 85% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:15805) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#18: ESAttributeResist(72:15829) -> Water/Light Halved
+Reduce damage from Water and Light attrs by 50%

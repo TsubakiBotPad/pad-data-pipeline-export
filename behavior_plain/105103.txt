@@ -1,0 +1,96 @@
+#105103 - Ken
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSkyfallLocked(96:12386) -> Come on! I'll turn up the heat!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Locked Fire skyfall +100% for 5 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBindAttack(63:12390) -> Thunder Kick
+	Bind 1 random sub for 1~2 turns, Deal 45% damage
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESAttackMultihit(15:12393) -> Hadoken
+	Deal 45% damage
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESGravity(50:12391) -> Inazuma Kick
+	Player -25% HP
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESAttackMultihit(15:12394) -> Shoryuken
+	Deal 50% damage
+
+#8: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAttackMultihit(15:12392) -> Lion Breaker
+	Deal 50% damage (2 hits, 25% each)
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESAbsorbCombo(67:12461) -> Tatsumaki Senpukyaku
+	Absorb damage when combos <= 5 for 1 turn, Deal 40% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:12463) -> Heat Rush
+	Increase damage to 200% for the next 10 turns
+	[1] ESInactivity66(66:12627) -> I hit my boiling point!
+	Do nothing
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 18
+
+#15: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBindAttack(63:12390) -> Thunder Kick
+	Bind 1 random sub for 1~2 turns, Deal 45% damage
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESRowSpawnMulti(79:12399) -> Hadoken
+	Change the 3rd row to Fire orbs, Deal 45% damage
+
+#16: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESGravity(50:12391) -> Inazuma Kick
+	Player -25% HP
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESColumnSpawnMulti(77:12400) -> Shoryuken
+	Change the 4th column to Fire orbs, Deal 50% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESColumnSpawnMulti(77:12401) -> Guren Enjinkyaku
+Change the 4th and 5th columns to Fire orbs, Deal 400% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

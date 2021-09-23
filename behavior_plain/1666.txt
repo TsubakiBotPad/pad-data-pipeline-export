@@ -1,0 +1,60 @@
+#1666 - Sacred Life Goddess, Hathor
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESCloud(104:9699) -> Let's go!
+	A 2×3 rectangle of clouds appears for 6 turns at a random location
+	[1] ESDamageShield(74:9700) -> Protection of the Ether and the Sun
+	Reduce damage from all sources by 75% for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDebuffRCV(105:9702) -> How long can you bear through this?
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+RCV 10% for 5 turns, Deal 15% damage
+
+#9: ESAttackMultihit(15:9703) -> Eternity's Judgment
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 30% damage (2 hits, 15% each)
+
+#10: ESAttackMultihit(15:9704) -> Eternity's Judgment
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 45% damage (3 hits, 15% each)
+
+#11: ESAttackMultihit(15:9705) -> Eternity's Judgment
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 60% damage (4 hits, 15% each)
+
+#12: ESAttackMultihit(15:9706) -> Eternity's Judgment
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 75% damage (5 hits, 15% each)
+
+#13: ESAttackMultihit(15:9707) -> Guidance to the Underworld
+Deal 900% damage (6 hits, 150% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESDebuffMovetime(39:9708) -> Tears of the Sacred Divinity
+	Movetime 50% for 2 turns

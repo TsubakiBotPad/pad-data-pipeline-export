@@ -1,0 +1,24 @@
+#5862 - Tuktoise
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:16086) -> Gaia Wall
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 90% for 3 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 5
+
+#4: ESGravity(50:16087) -> Heavy Press
+Player -99% HP
+
+#5: ESRandomSpawn(92:16088) -> Gaia Storm
+Spawn 10 random Wood orbs, Deal 500% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,38 @@
+#102963 - Church's Minister, Aegir
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102963
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4718:83) It's a wedding!! + Wedding Banquet's Love Lock
+ | Voids status ailments for 999 turns + Locked Heal skyfall +100% for 10 turns
+ group:
+ | group:
+   | (4719:6) What a great day!
+   | Voids player buff effects
+   | condition: 30% chance
+   | (4722:68) Water of Celebration
+   | Water skyfall +15% for 3 turns
+   | (4723:48) Dolphin Surprise
+   | Change a random attribute to Water orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (4719:6) What a great day!
+   | Voids player buff effects
+   | (4720:67) Pledge your love!!
+   | Absorb damage when combos <= 5 for 1 turn
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (4721:94) Oracle
+     | Lock all Water and Light orbs
+   | group:
+     | (4719:6) What a great day!
+     | Voids player buff effects
+     | (4724:15) Divine Contract Jaws
+     | Deal 300% damage (3 hits, 100% each)

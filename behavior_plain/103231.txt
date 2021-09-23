@@ -1,0 +1,41 @@
+#103231 - Alt. Earl of Halloween Fever, Count Pumpkin
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlindStickyRandom(97:11364) -> Pumpkin Night
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind random 10 orbs for 2 turns
+
+#3: ESDebuffMovetime(39:11365) -> Trick & Trick
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 25% for 2 turns, Deal 100% damage
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESFixedStart(101:11366) -> Pumpkin Magic
+Condition: 50% chance (ai:50 rnd:0)
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#6: ESAttackMultihit(15:11367) -> Nightmare Stick
+Deal 110% damage (2 hits, 55% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESSpinnersRandom(109:11368) -> Wonder Card
+Random 3 orbs change every 1.5s for 5 turns, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

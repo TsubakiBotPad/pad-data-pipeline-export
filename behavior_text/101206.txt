@@ -1,0 +1,51 @@
+#101206 - Alt. 5 Mechdragon Fusion, God Canopus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101206
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7620:72) God Canopus Halved
+ | Reduce damage from Wood and Light attrs by 50%
+
+level: 3
+ type: PASSIVE
+ | (7620:72) God Canopus Halved
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (7618:83) God Dragon's Field + God Pulse
+ | Voids status ailments for 999 turns + Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (1467:48) Super Hadar Missile
+     | Change a random attribute to Jammer orbs, Deal 125% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | (1466:15) Lightning Regulus Claw
+     | Deal 175% damage (5 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (1465:63) Canopus Tornado Cutter
+     | Bind 1 random sub for 2~3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (1463:48) Betelgeuse Bomb
+     | Change a random attribute to Fire orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (1464:50) Aldebaran Crusher
+     | Player -99% HP
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (1469:19) God Mode Activated!!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (1468:15) Final God Cannon
+     | Deal 200% damage

@@ -1,0 +1,26 @@
+#501458 - Mystic Pentad Dragon, Folklore
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindAwoken(88:15511) -> Wisdom from Very Ancient Times
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 3 turns, Deal 70% damage
+
+#3: ESDebuffMovetime(39:15512) -> Lost Technology
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Movetime -2s for 5 turns
+
+#4: ESAttackMultihit(15:15514) -> Gear Tempest
+Condition: 30% chance when < 20% HP (ai:30 rnd:0)
+Deal 300% damage (3 hits, 100% each)
+
+#5: ESAttackMultihit(15:15513) -> Gear Spin
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

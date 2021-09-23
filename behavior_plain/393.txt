@@ -1,0 +1,104 @@
+#393 - Fertility Deity, Evil Ceres
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:4319) -> Dark Melancholy
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESStatusShield(20:4320) -> Divine Protection of the Good Harvest
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:4339) -> Healing Wind
+	Enemy recover 50% HP
+	[1] ESGravity(50:4340) -> Evil Eye
+	Player -500% HP
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 15
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#9: ESBoardChangeAttackBits(85:4322) -> Sephiroth Anger
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+
+#10: ESAbsorbAttribute(53:4323) -> Light Fascination
+Absorb Light damage for 1 turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESSkyfall(68:4324) -> Lucent Blessing
+	Light skyfall +20% for 5 turns
+	[1] ESBoardChangeAttackBits(85:4325) -> Sephiroth Rage
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
+
+#14: ESBoardChangeAttackBits(85:4325) -> Sephiroth Rage
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#17: SkillSet:
+	[0] ESVoidShield(71:4327) -> God Tree's Basket
+	Void damage >= 500,000 for 99 turns
+	[1] ESAbsorbAttribute(53:4328) -> Plant Fascination
+	Absorb Wood damage for 1 turn
+
+#18: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4330) -> Flame Fascination
+	Absorb Fire damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#19: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4331) -> Ice Fascination
+	Absorb Water damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#20: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4332) -> Dark Fascination
+	Absorb Dark damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#21: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4328) -> Plant Fascination
+	Absorb Wood damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESResolve(73:4338) -> 30% Resolve
+Survive attacks with 1 HP when HP > 30%

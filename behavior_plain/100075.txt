@@ -1,0 +1,53 @@
+#100075 - Alt. White Knight
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESNoSkyfall(127:16532) -> Trial of the White Knight
+	No skyfall for 99 turns
+	[1] ESSpinnersFixed(110:16533) -> Here I come!
+	Specific orbs change every 1.0s for 99 turns
+	[2] ESAbsorbCombo(67:16534) -> Paladin Shield
+	Absorb damage when combos <= 6 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 11
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESGravity(50:16535) -> Guard Break
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#9: ESAttackMultihit(15:16536) -> White Blade
+Deal 400~600% damage (4~6 hits, 100% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 8
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESBlind5(5:16513) -> I'm only just getting started!
+Blind all orbs on the board
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

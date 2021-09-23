@@ -1,0 +1,35 @@
+#5240 - Anna Kyoyama
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:17572) -> Bring it on.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock 8 random orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 7
+
+#4: ESRandomSpawn(92:17574) -> Itako Tool, the 1080
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Fire orbs, Deal 80% damage
+
+#5: ESAttackMultihit(15:17575) -> Don't be a big baby.
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackUPRemainingEnemies(17:17573) -> Itako-style integration! Spirit channeling!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 4 turns
+
+#8: ESColumnSpawnMulti(77:17576) -> The Left Hand of Doom!!
+Change the 2nd column to Fire orbs, Deal 120% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

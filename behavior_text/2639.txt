@@ -1,0 +1,59 @@
+#2639 - Gods' Threat Venomous Snake, Jörmungandr
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 2639
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2906:72) Halve Light
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (2896:83) Snake Scale + Chaos Rain
+ | Voids status ailments for 5 turns + Jammer and Poison skyfall +8% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 6
+     | condition: 50% chance
+     | (2898:15) Hell Bite
+     | Deal 110% damage
+     | (2899:94) Snake's Glare
+     | Lock 3 random orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (2897:84) World Serpent's Coil
+     | Change all orbs to Jammer and Mortal Poison
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | condition: 50% chance
+     | (2898:15) Hell Bite
+     | Deal 110% damage
+     | (2899:94) Snake's Glare
+     | Lock 3 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (2901:50) Constrict
+     | Player -99% HP
+   | group:
+   | condition: always turn 2
+     | (2902:62) Swallowing Whole
+     | Blind all orbs on the board, Deal 60% damage
+   | group:
+     | condition: 50% chance
+     | (2903:15) Thorn Tail
+     | Deal 140% damage (2 hits, 70% each)
+     | (2904:92) Serpent Hate
+     | Spawn 2 random Jammer and Mortal Poison orbs, Deal 130% damage
+ | group:
+ | condition: turn 3 while HP > 14, hp <= 39
+   | (2900:63) Snake's Deadening Fang
+   | Bind 1 random card for 3 turns, Deal 120% damage
+ | group:
+ | condition: hp <= 14
+   | (2905:15) Overwhelming Force
+   | Deal 500% damage

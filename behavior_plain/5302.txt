@@ -1,0 +1,278 @@
+#5302 - Observer of Upheavals, Reiwa
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:13324) -> Welcome to the new Era
+	Voids status ailments for 999 turns
+	[1] ESInvulnerableOn(119:13325) -> My name is Reiwa
+	Immune to damage from all sources for 999 turns
+	[2] ESNoSkyfall(127:13326) -> I would be happy if you remember it...
+	No skyfall for 10 turns
+	[3] ESRandomSpawn(92:13352) -> Do your best and make some combos
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 15
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 23
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 13
+
+#10: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 7, target rnd 12
+
+#11: SkillSet:
+	[0] ESDamageShield(74:13400) -> How disappointing
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESVoidShield(71:13390) -> Stability
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESSpinnersRandom(109:13394) -> Time-Distortion
+	Random 1 orbs change every 1.0s for 5 turns
+	[3] ESInvulnerableOff(121:13387) -> Okay, let's start
+	Remove damage immunity effect
+
+#12: SkillSet:
+	[0] ESDamageShield(74:13399) -> That was close
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESVoidShield(71:13390) -> Stability
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESInvulnerableOff(121:13387) -> Okay, let's start
+	Remove damage immunity effect
+
+#13: SkillSet:
+	[0] ESDamageShield(74:13388) -> You're...amazing
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESInvulnerableOff(121:13387) -> Okay, let's start
+	Remove damage immunity effect
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 23
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 21
+
+#18: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 20
+
+#19: SkillSet:
+	[0] ESDamageShield(74:13400) -> How disappointing
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESVoidShield(71:13390) -> Stability
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESSpinnersRandom(109:13392) -> Time-Distortion
+	Random 4 orbs change every 1.0s for 5 turns
+	[3] ESInvulnerableOff(121:13387) -> Okay, let's start
+	Remove damage immunity effect
+
+#20: SkillSet:
+	[0] ESDamageShield(74:13399) -> That was close
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESVoidShield(71:13390) -> Stability
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESInvulnerableOff(121:13387) -> Okay, let's start
+	Remove damage immunity effect
+
+#21: SkillSet:
+	[0] ESDamageShield(74:13388) -> You're...amazing
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESInvulnerableOff(121:13387) -> Okay, let's start
+	Remove damage immunity effect
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 95, target rnd 36
+
+#24: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 53
+
+#25: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 39
+
+#26: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 44
+
+#27: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#28: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13332) -> The new Era...
+	Absorb Water damage for 2 turns
+	[1] ESChangeAttribute(46:13337) -> What color is it?
+	Change own attribute to random one of Fire or Water, Deal 100% damage
+
+#29: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13333) -> The new Era...
+	Absorb Wood damage for 2 turns
+	[1] ESChangeAttribute(46:13338) -> What color is it?
+	Change own attribute to random one of Water or Wood, Deal 100% damage
+
+#30: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13334) -> The new Era...
+	Absorb Fire damage for 2 turns
+	[1] ESChangeAttribute(46:13339) -> What color is it?
+	Change own attribute to random one of Wood or Fire, Deal 100% damage
+
+#31: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13335) -> The new Era...
+	Absorb Dark damage for 2 turns
+	[1] ESChangeAttribute(46:13340) -> What color is it?
+	Change own attribute to random one of Light or Dark, Deal 100% damage
+
+#32: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13336) -> The new Era...
+	Absorb Light damage for 2 turns
+	[1] ESChangeAttribute(46:13341) -> What color is it?
+	Change own attribute to random one of Dark or Light, Deal 100% damage
+
+#33: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBlind5(5:13347) -> Black Satisfaction
+	Blind all orbs on the board
+	[1] ESDebuffMovetime(39:13348) -> Time-Robbing
+	Movetime -3s for 2 turns, Deal 95% damage
+
+#34: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbLock(94:13349) -> Ripple Lock
+	Lock 10 random orbs
+	[1] ESAttackMultihit(15:13350) -> Blade Dance
+	Deal 105% damage (3 hits, 35% each)
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#37: SkillSet:
+	[0] ESGravity(50:13343) -> Hey
+	Player -99% HP
+	[1] ESDebuffRCV(105:13344) -> Anti-Cure
+	RCV 50% for 2 turns
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#39: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 26
+
+#40: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#41: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#42: SkillSet:
+	[0] ESAbsorbCombo(67:13354) -> Heaven's Mirror Curtain
+	Absorb damage when combos <= 6 for 99 turns
+	[1] ESGravity(50:13343) -> Hey
+	Player -99% HP
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#44: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13332) -> The new Era...
+	Absorb Water damage for 2 turns
+	[1] ESChangeAttribute(46:13337) -> What color is it?
+	Change own attribute to random one of Fire or Water, Deal 100% damage
+
+#45: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13333) -> The new Era...
+	Absorb Wood damage for 2 turns
+	[1] ESChangeAttribute(46:13338) -> What color is it?
+	Change own attribute to random one of Water or Wood, Deal 100% damage
+
+#46: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13334) -> The new Era...
+	Absorb Fire damage for 2 turns
+	[1] ESChangeAttribute(46:13339) -> What color is it?
+	Change own attribute to random one of Wood or Fire, Deal 100% damage
+
+#47: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13335) -> The new Era...
+	Absorb Dark damage for 2 turns
+	[1] ESChangeAttribute(46:13340) -> What color is it?
+	Change own attribute to random one of Light or Dark, Deal 100% damage
+
+#48: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:13336) -> The new Era...
+	Absorb Light damage for 2 turns
+	[1] ESChangeAttribute(46:13341) -> What color is it?
+	Change own attribute to random one of Dark or Light, Deal 100% damage
+
+#49: ESNoSkyfall(127:13351) -> There
+No skyfall for 2 turns
+
+#50: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBlind5(5:13347) -> Black Satisfaction
+	Blind all orbs on the board
+	[1] ESDebuffMovetime(39:13348) -> Time-Robbing
+	Movetime -3s for 2 turns, Deal 95% damage
+
+#51: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbLock(94:13349) -> Ripple Lock
+	Lock 10 random orbs
+	[1] ESAttackMultihit(15:13350) -> Blade Dance
+	Deal 105% damage (3 hits, 35% each)
+
+#52: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#53: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 57
+
+#54: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#55: ESBindAwoken(88:13355) -> Incapacitate
+Bind awoken skills for 6 turns
+
+#56: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#57: ESAttackMultihit(15:13356) -> Thank you, please come again
+Deal 1,000% damage (5 hits, 200% each)
+
+#58: ESEndPath(36:26) -> ESEndPath
+end_turn

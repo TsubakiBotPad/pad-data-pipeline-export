@@ -1,0 +1,27 @@
+#301412 - Red Riding Hood
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 301412
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24407:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24408:110) Innocent Smile
+ | Specific orbs change every 1.0s for 10 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (24409:92) Gift of Fruit
+   | Spawn 2 random Fire orbs, Deal 100% damage
+ | group:
+   | (24403:46) Radiant Flash
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 1,000% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (24400:83) Iridescent Shine + Radiant Flash
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)

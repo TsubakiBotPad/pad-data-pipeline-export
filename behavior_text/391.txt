@@ -1,0 +1,26 @@
+#391 - Sea Deity, Abyss Neptune
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 391
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (90:20) Protection of the Gods
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1448:64) Hydra's Poison
+     | Change 5 random orbs to Poison orbs, Deal 25% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1449:48) Dark Trident
+     | Change all Light orbs to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (1450:64) Witness the power of the abyss!
+   | Change 12 random orbs to Poison orbs, Deal 50% damage

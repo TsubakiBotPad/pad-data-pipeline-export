@@ -1,0 +1,40 @@
+#306178 - Alt. Seven-Star Beast, Qilin Dragon's Gem
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:18369) -> Mystic Gem
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 3 turns
+
+#3: ESAttackUPRemainingEnemies(17:18349) -> Gem's Miracle
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#5: ESChangeAttribute(46:18348) -> Aurora Flash
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESRandomSpawn(92:18366) -> Chaos Flash
+Spawn 19 random Poison orbs
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:18367) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

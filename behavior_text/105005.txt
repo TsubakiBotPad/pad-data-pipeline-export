@@ -1,0 +1,36 @@
+#105005 - Servant, Saber Alter
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105005
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12241:83) Who is it, you ask? + That's something that should  be obvious with one look.
+ | Reduce damage from all sources by 75% for 10 turns + Void damage >= 10,000,000 for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (12220:48) Ha!
+   | Change a random attribute to Jammer orbs, Deal 95% damage
+   | condition: 33% chance
+   | (12221:89) Yah!
+   | Delay active skills by 0~2 turns, Deal 100% damage
+   | condition: 34% chance
+   | (12222:15) Hmph!
+   | Deal 115% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (12244:105) Don't bother.
+   | RCV 50% for 10 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (12245:88) I'm telling you, don't bother with it.
+     | Bind awoken skills for 5 turns
+   | group:
+     | (12224:77) Excalibur Morgan
+     | Change the 3rd and 4th columns to Dark orbs, Deal 250% damage

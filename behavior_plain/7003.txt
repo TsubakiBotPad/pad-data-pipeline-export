@@ -1,0 +1,149 @@
+#7003 - Reincarnated Rushana
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:22717) -> Radiance of Enlightenment
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:22718) -> Halo of Truth
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESSkillDelay(89:22719) -> Jail of the Six Realms
+	Delay active skills by 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 24
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#8: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESBlindStickyRandom(97:22730) -> Mantra Luckbringer
+	Blind random 15 orbs for 1 turn
+	[1] ESRecoverEnemy86(86:22735) -> Southern Vidyaraja Seal
+	Enemy recover 10% HP, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:22728) -> Mantra Purification
+	Player -75% HP
+	[1] ESAbsorbCombo(67:22733) -> Central Vidyaraja Seal
+	Absorb damage when combos <= 9 for 1 turn, Deal 50% damage
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:22729) -> Mantra Healing
+	Spawn 5 random Jammer, Poison, and Mortal Poison orbs
+	[1] ESOrbChangeAttackBits(108:22734) -> Eastern Vidyaraja Seal
+	Change all Heal orbs to Wood orbs, Deal 95% damage
+
+#11: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffRCV(105:22731) -> Mantra Reckoning
+	RCV 50% for 1 turn
+	[1] ESSpinnersFixed(110:22736) -> Western Vidyaraja Seal
+	Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#12: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffATK(130:22732) -> Mantra Blessing
+	ATK -50% for 1 turn
+	[1] ESDamageShield(74:22737) -> Northern Vidyaraja Seal
+	Reduce damage from all sources by 75% for 1 turn, Deal 105% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESGravity(50:22721) -> Mantra Purification
+	Player -99% HP
+	[1] ESDamageShield(74:22722) -> Northern Vidyaraja Seal
+	Reduce damage from all sources by 75% for 999 turns, Deal 50% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESGravity(50:22728) -> Mantra Purification
+	Player -75% HP
+	[1] ESSkyfall(68:22743) -> Jail of the Six Realms
+	Poison skyfall +20% for 1 turn, Deal 75% damage
+
+#19: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRandomSpawn(92:22729) -> Mantra Healing
+	Spawn 5 random Jammer, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:22744) -> Jail of the Six Realms
+	Lock all orbs, Deal 150% damage
+
+#20: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESBlindStickyRandom(97:22730) -> Mantra Luckbringer
+	Blind random 15 orbs for 1 turn
+	[1] ESOrbLock(94:22744) -> Jail of the Six Realms
+	Lock all orbs, Deal 150% damage
+
+#21: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDebuffRCV(105:22731) -> Mantra Reckoning
+	RCV 50% for 1 turn
+	[1] ESSkillDelay(89:22745) -> Jail of the Six Realms
+	Delay active skills by 0~2 turns, Deal 145% damage
+
+#22: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDebuffATK(130:22732) -> Mantra Blessing
+	ATK -50% for 1 turn
+	[1] ESSkillDelay(89:22745) -> Jail of the Six Realms
+	Delay active skills by 0~2 turns, Deal 145% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 28
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#26: SkillSet:
+	[0] ESBindAwoken(88:22747) -> Illuminate the Path of Justice
+	Bind awoken skills for 5 turns
+	[1] ESBindTyping(3:22748) -> Demon Conqueror Seal
+	Bind Devil cards for 99 turns
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: SkillSet:
+	[0] ESDispel(6:22750) -> Inactivity of the Five Skhandas
+	Voids player buff effects
+	[1] ESGravity(50:22751) -> Anuttara Samyak Sambodhi
+	Player -5,000% HP
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESSuperResolve(129:22715) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

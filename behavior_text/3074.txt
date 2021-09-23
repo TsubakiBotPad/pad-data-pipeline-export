@@ -1,0 +1,68 @@
+#3074 - Awoken Machine Athena
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 3074
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5148:83) Why do you fight? + I won't go easy on you + Iron DEF of Aegis
+ | Delay active skills by 4~6 turns + Voids status ailments for 999 turns + Absorb damage when damage >= 4,000,000 for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 50% chance
+     | (5150:77) C-Shining Spear
+     | Change the 2nd column to Wood orbs and the 5th column to Light orbs, Deal 380% damage
+     | (5152:46) EB & Self Convert
+     | Change own attribute to random one of Wood or Light, Deal 380% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | condition: 40% chance
+     | (5151:50) LB-Siculus Strike
+     | Player -150% HP
+     | (5166:83) Color Delete + CFM-Pulse
+     | Blind orbs in specific positions for 3 turns + Bind 1 random card for 3 turns, Deal 420% damage
+   | group:
+   | condition: execute repeatedly, turn 3-4 of 4
+     | condition: 50% chance
+     | (5150:77) C-Shining Spear
+     | Change the 2nd column to Wood orbs and the 5th column to Light orbs, Deal 380% damage
+     | (5152:46) EB & Self Convert
+     | Change own attribute to random one of Wood or Light, Deal 380% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (5149:74) AS-Complete Protection
+     | Reduce damage from all sources by 99% for 2 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (5154:15) Storm Punisher FPE
+     | Deal 1,200% damage (6 hits, 200% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 40% chance
+     | (5151:50) LB-Siculus Strike
+     | Player -150% HP
+     | (5166:83) Color Delete + CFM-Pulse
+     | Blind orbs in specific positions for 3 turns + Bind 1 random card for 3 turns, Deal 420% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (5150:77) C-Shining Spear
+     | Change the 2nd column to Wood orbs and the 5th column to Light orbs, Deal 380% damage
+     | (5152:46) EB & Self Convert
+     | Change own attribute to random one of Wood or Light, Deal 380% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (5156:86) AS-Overhaul
+     | Enemy recover 50% HP
+   | group:
+     | (5155:15) Starburst SSE
+     | Deal 10,000% damage (10 hits, 1,000% each)

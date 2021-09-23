@@ -1,0 +1,73 @@
+#203337 - Flame Pillar God of the Scorching Sun, Amen
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:22149) -> Flame Pillar God's Protection
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:22150) -> Scorching Sun's Atmosphere
+	Fire skyfall +20% for 5 turns
+	[2] ESSpinnersRandom(109:22151) -> Flare Spark
+	Random 3 orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 15
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbLock(94:22152) -> Flame Chain
+Condition: 33% chance (ai:0 rnd:33)
+Lock all Fire orbs, Deal 80% damage
+
+#6: ESRandomSpawn(92:22154) -> Blazing Claw
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 6 random Fire orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:22153) -> Heat Fist
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:22156) -> Atmospheric Guard
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESAbsorbAttribute(53:22157) -> Flame Pillar of the Sun
+	Absorb Fire damage for 4 turns
+
+#10: ESAttributeBlock(107:22159) -> Hidden Sun
+Condition: 25% chance (ai:0 rnd:25)
+Unable to match Water orbs for 1 turn, Deal 200% damage
+
+#11: ESAttributeBlock(107:22160) -> Hidden Sun
+Condition: 25% chance (ai:0 rnd:25)
+Unable to match Wood orbs for 1 turn, Deal 200% damage
+
+#12: ESAttributeBlock(107:22161) -> Hidden Sun
+Condition: 25% chance (ai:0 rnd:25)
+Unable to match Light orbs for 1 turn, Deal 200% damage
+
+#13: ESAttributeBlock(107:22162) -> Hidden Sun
+Condition: 25% chance (ai:0 rnd:25)
+Unable to match Dark orbs for 1 turn, Deal 200% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:22158) -> Prominence Burst
+Deal 3,500% damage (5 hits, 700% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:22163) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

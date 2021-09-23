@@ -1,0 +1,55 @@
+#4800 - Battle Master Dragon Caller, Valeria
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4800
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4806, 4807, 4808, 4809 on team
+ | (11177:83) Oh, you came to the right place! + I will train diligently today
+ | Voids status ailments for 999 turns + Void damage >= 8,000,000 for 99 turns
+ | (11176:83) Oh, you came to the right place! + Receive my training!
+ | Voids status ailments for 999 turns + Void damage >= 8,000,000 for 99 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (11182:83) Come at me with all your strength! + Your attacks won't get through
+   | Absorb damage when combos <= 7 for 1 turn + Reduce damage from all sources by 75% for 1 turn
+ | group:
+ | condition: always turn 2
+   | condition: when 8 combos last turn
+   | (11188:83) Well, this has a lot of promise + Come and fight me!
+   | RCV 200% for 3 turns + Reduce damage from all sources by 75% for 99 turns
+   | (11185:83) I've not had my full of training yet! + Train properly!
+   | Movetime 200% for 3 turns + Absorb damage when combos <= 7 for 10 turns
+ | group:
+   | group:
+   | condition: turn 3
+     | (11191:17) Not enough fighting spirit!
+     | Increase damage to 150% for the next 99 turns
+   | group:
+     | condition: 33% chance
+     | (11192:89) Put your back into it!
+     | Delay active skills by 0~2 turns, Deal 100% damage
+     | condition: 33% chance
+     | (11193:65) What's wrong? Shameful display!
+     | Bind 3 random subs for 2 turns, Deal 95% damage
+     | condition: 34% chance
+     | (11194:15) No time to rest!
+     | Deal 108% damage (4 hits, 27% each)
+ | group:
+ | condition: turn 3 while HP > 19, hp <= 49
+   | (11191:17) Not enough fighting spirit!
+   | Increase damage to 150% for the next 99 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 3
+     | (11195:55) Catch your breath!
+     | Player recover 100% HP
+   | group:
+     | (11196:15) Will you survive my attack?
+     | Deal 280% damage (8 hits, 35% each)

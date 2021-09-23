@@ -1,0 +1,130 @@
+#3732 - Violent Dragon Lord of Tyranny, Valten
+monster size: 5
+new AI: True
+start/max counter: 9
+counter increment: 1
+monster_id: 3732
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7521:83) Confusion + Dragonscale + Colossus
+ | Specific orbs change every 1.0s for 10 turns + Voids status ailments for 999 turns + Void damage >= 20,000,000 for 999 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turns 3-9
+     | condition: 20% chance
+     | (7525:103) Ignited
+     | Spawn Bomb orbs in the specified positions, Deal 250% damage
+     | condition: 20% chance
+     | (7526:48) Flare Breath
+     | Change all Water orbs to Fire orbs, Deal 265% damage
+     | condition: 20% chance
+     | (7527:94) Nova
+     | Lock 4 random orbs, Deal 260% damage
+     | condition: 20% chance
+     | (7528:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 260% damage
+     | condition: 20% chance
+     | (7529:15) Meteor
+     | Deal 270% damage (3 hits, 90% each)
+   | group:
+   | condition: turn 10
+     | (7524:83) Confusion + Suppression + X Burst + Dragon Tears
+     | Random 3 orbs change every 1.0s for 10 turns + Bind awoken skills for 1 turn + Deal 1,500% damage (10 hits, 150% each) + Player recover 100% HP, Deal 1,500% damage (10 hits, 150% each)
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 3
+     | condition: 20% chance
+     | (7525:103) Ignited
+     | Spawn Bomb orbs in the specified positions, Deal 250% damage
+     | condition: 20% chance
+     | (7526:48) Flare Breath
+     | Change all Water orbs to Fire orbs, Deal 265% damage
+     | condition: 20% chance
+     | (7527:94) Nova
+     | Lock 4 random orbs, Deal 260% damage
+     | condition: 20% chance
+     | (7528:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 260% damage
+     | condition: 20% chance
+     | (7529:15) Meteor
+     | Deal 270% damage (3 hits, 90% each)
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | condition: 20% chance
+     | (7525:103) Ignited
+     | Spawn Bomb orbs in the specified positions, Deal 250% damage
+     | condition: 20% chance
+     | (7526:48) Flare Breath
+     | Change all Water orbs to Fire orbs, Deal 265% damage
+     | condition: 20% chance
+     | (7527:94) Nova
+     | Lock 4 random orbs, Deal 260% damage
+     | condition: 20% chance
+     | (7528:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 260% damage
+     | condition: 20% chance
+     | (7529:15) Meteor
+     | Deal 270% damage (3 hits, 90% each)
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (7524:83) Confusion + Suppression + X Burst + Dragon Tears
+     | Random 3 orbs change every 1.0s for 10 turns + Bind awoken skills for 1 turn + Deal 1,500% damage (10 hits, 150% each) + Player recover 100% HP, Deal 1,500% damage (10 hits, 150% each)
+ | group:
+ | condition: hp <= 65
+   | group:
+   | condition: always turn 1
+     | condition: 50% chance
+     | (7534:83) Wall + Rejection
+     | Reduce damage from all sources by 50% for 3 turns + Leader changes to random sub for 3 turns, Deal 400% damage
+     | (7535:83) Wall + Rejection
+     | Reduce damage from all sources by 75% for 3 turns + Leader changes to random sub for 3 turns, Deal 400% damage
+   | group:
+   | condition: turns 2-9 while HP > 30
+     | condition: 20% chance
+     | (7525:103) Ignited
+     | Spawn Bomb orbs in the specified positions, Deal 250% damage
+     | condition: 20% chance
+     | (7526:48) Flare Breath
+     | Change all Water orbs to Fire orbs, Deal 265% damage
+     | condition: 20% chance
+     | (7527:94) Nova
+     | Lock 4 random orbs, Deal 260% damage
+     | condition: 20% chance
+     | (7528:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 260% damage
+     | condition: 20% chance
+     | (7529:15) Meteor
+     | Deal 270% damage (3 hits, 90% each)
+   | group:
+   | condition: always turn 10
+     | (7524:83) Confusion + Suppression + X Burst + Dragon Tears
+     | Random 3 orbs change every 1.0s for 10 turns + Bind awoken skills for 1 turn + Deal 1,500% damage (10 hits, 150% each) + Player recover 100% HP, Deal 1,500% damage (10 hits, 150% each)
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 3
+     | condition: 20% chance
+     | (7525:103) Ignited
+     | Spawn Bomb orbs in the specified positions, Deal 250% damage
+     | condition: 20% chance
+     | (7526:48) Flare Breath
+     | Change all Water orbs to Fire orbs, Deal 265% damage
+     | condition: 20% chance
+     | (7527:94) Nova
+     | Lock 4 random orbs, Deal 260% damage
+     | condition: 20% chance
+     | (7528:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 260% damage
+     | condition: 20% chance
+     | (7529:15) Meteor
+     | Deal 270% damage (3 hits, 90% each)
+ | group:
+ | condition: turn 2, hp <= 30
+   | condition: 50% chance
+   | (7536:83) Wall + Suppression
+   | Reduce damage from all sources by 50% for 3 turns + Bind awoken skills for 3 turns, Deal 400% damage
+   | (7537:83) Wall + Suppression
+   | Reduce damage from all sources by 75% for 3 turns + Bind awoken skills for 3 turns, Deal 400% damage

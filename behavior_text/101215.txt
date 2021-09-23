@@ -1,0 +1,68 @@
+#101215 - Alt. Maleficent Dragon Lord Zaerog
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 101215
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8250:72) Ninegaruda Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | condition: 50% chance
+ | (1423:53) Light Dragon Scale
+ | Absorb Light damage for 4 turns
+ | (1424:53) Dark Dragon Scale
+ | Absorb Dark damage for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (1425:50) Gravity Breath
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (1427:63) Dragon Lord's Claw
+     | Bind 1 random sub for 1~2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (1428:48) Black Disaster
+     | Change a random attribute to Jammer orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (1425:50) Gravity Breath
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | condition: 50% chance
+     | (1423:53) Light Dragon Scale
+     | Absorb Light damage for 4 turns
+     | (1424:53) Dark Dragon Scale
+     | Absorb Dark damage for 4 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (1426:50) Zero Blast
+     | Player -100% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (1427:63) Dragon Lord's Claw
+     | Bind 1 random sub for 1~2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (1428:48) Black Disaster
+     | Change a random attribute to Jammer orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (1426:50) Zero Blast
+     | Player -100% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | condition: 50% chance
+     | (1423:53) Light Dragon Scale
+     | Absorb Light damage for 4 turns
+     | (1424:53) Dark Dragon Scale
+     | Absorb Dark damage for 4 turns

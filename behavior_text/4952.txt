@@ -1,0 +1,33 @@
+#4952 - コマさん
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4952
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16475:53) こ　こわいズラ…
+ | Absorb Fire damage for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (16478:78) やけどさせる
+     | Change the 5th row to Fire orbs
+   | group:
+     | condition: 50% chance
+     | (16477:92) 火炎の術
+     | Spawn 5 random Fire orbs, Deal 80% damage
+     | (16480:15) ズラ！
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (16481:5) もんげーーっ！
+     | Blind all orbs on the board
+   | group:
+     | (16479:15) ひとだま乱舞
+     | Deal 105% damage (5 hits, 21% each)

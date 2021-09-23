@@ -1,0 +1,62 @@
+#1647 - Dark Knight, Gravis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1647
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: 50% chance
+ | (14300:83) Dark Shield + Dark Spell
+ | Void damage >= 10,000,000 for 999 turns + Seal the 1st and 6th columns for 3 turns
+ | (14304:83) Dark Shield + Dark Spell
+ | Void damage >= 10,000,000 for 999 turns + A 2×5 rectangle of clouds appears for 3 turns at 1st row, 3rd column
+ group:
+ | group:
+   | condition: 50% chance
+   | (14310:102) Explosive Hit
+   | Spawn 5 random Bomb orbs, Deal 100% damage
+   | condition: 50% chance
+   | (14311:108) Disastrous Swing
+   | Change all Jammer orbs to Dark orbs, Deal 150% damage
+   | condition: 50% chance
+   | (14312:48) Doomsday Blow
+   | Change a random attribute to Jammer orbs, Deal 95% damage
+   | condition: 50% chance
+   | (14309:15) Bloody Execution
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (14313:83) Plunged into Darkness + Time Rift
+     | Blind random 15~20 orbs for 5 turns + Movetime 50% for 5 turns
+   | group:
+   | condition: turns 2-5
+     | condition: 50% chance
+     | (14310:102) Explosive Hit
+     | Spawn 5 random Bomb orbs, Deal 100% damage
+     | condition: 50% chance
+     | (14311:108) Disastrous Swing
+     | Change all Jammer orbs to Dark orbs, Deal 150% damage
+     | condition: 50% chance
+     | (14312:48) Doomsday Blow
+     | Change a random attribute to Jammer orbs, Deal 95% damage
+     | condition: 50% chance
+     | (14309:15) Bloody Execution
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (14316:15) Darkness Execution
+     | Deal 300% damage (6 hits, 50% each)
+ type: UNKNOWN_USE
+ | condition: 50% chance
+ | (14306:92) Great Shield of Destruction
+ | Spawn 5 random Mortal Poison orbs, Deal 100% damage
+ | condition: 50% chance
+ | (14307:108) Great Shield of Devastation
+ | Change all Poison orbs to Dark orbs, Deal 150% damage
+ | condition: 50% chance
+ | (14308:48) Obliterating Impact
+ | Change a random attribute to Poison orbs, Deal 95% damage

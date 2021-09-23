@@ -1,0 +1,40 @@
+#102277 - Alt. Barbed Frost Dragon Emperor, Ilsix
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102277
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3116:73) No6根性
+ | Survive attacks with 1 HP when HP > 30%
+ | (8247:72) Ilsix Water Halved
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (3107:20) Ice Armor
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (3109:50) Powerful Claws
+   | Player -99% HP
+   | condition: 70% chance
+   | (3110:15) Ice Edge Hammer
+   | Deal 120% damage
+   | (3111:15) Blizzard of Destruction
+   | Deal 140% damage (2 hits, 70% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (3114:83) Frenzy + Enraged Glare
+     | Change all orbs to Water, Heal, and Jammer + Lock all Jammer orbs, Deal 100% damage
+   | group:
+     | (3115:15) Abyssal Tempest
+     | Deal 500% damage (5 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | (3108:86) Freezing Zone
+   | Enemy recover 50% HP, Deal 80% damage

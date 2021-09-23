@@ -1,0 +1,49 @@
+#1333 - Blessed River Goddess, Sarasvati
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1333
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11862:73) Resolve
+ | Survive attacks with 1 HP when HP > 31%
+ type: PREEMPT
+ | (11863:83) Disappearing Mist + Stone Rain
+ | Bind awoken skills for 5 turns + Locked random skyfall +30% for 20 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (11866:83) Drought + Lost Water of Life
+     | Player -99% HP + RCV 50% for 10 turns
+   | group:
+     | condition: 25% chance
+     | (11869:65) Torrential Downpour
+     | Bind 1 random sub for 2~3 turns, Deal 95% damage
+     | condition: 25% chance
+     | (11870:89) Overflow
+     | Delay active skills by 0~2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (11871:48) High Water
+     | Change a random attribute to Water orbs, Deal 95% damage
+     | condition: 25% chance
+     | (11872:15) Overflowing
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (11873:88) Disappearing Mist
+     | Bind awoken skills for 1 turn
+     | (11874:65) Torrential Downpour
+     | Bind 4 random subs for 1 turn
+   | group:
+     | (11875:85) Muddy Stream
+     | Change all orbs to Water, Deal 300% damage
+ | group:
+ | condition: hp <= 1
+   | (11876:83) Spring of Life + Dam
+   | Enemy recover 100% HP + Lock all orbs, Deal 100% damage

@@ -1,0 +1,90 @@
+#2286 - Incognito Queen, Awilda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2286
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3154:83) I haven't seen you in a while! + I'll stomp you under my heel again!
+ | Player recover 100% HP + Player -80% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | condition: when 978 on team
+     | (3162:15) E-Evil eye??
+     | Deal 80% damage
+     | condition: when 977 on team
+     | (3158:15) Would the two of you like some tea?
+     | Deal 70% damage
+     | condition: when 976 on team
+     | (3156:15) I'll shave off your beard!
+     | Deal 80% damage
+     | condition: when 974 on team
+     | (3160:15) You're too close!
+     | Deal 90% damage
+   | group:
+     | (3165:15) My eyes are up here!
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 978 on team
+     | (3162:15) E-Evil eye??
+     | Deal 80% damage
+     | condition: when 977 on team
+     | (3158:15) Would the two of you like some tea?
+     | Deal 70% damage
+     | condition: when 976 on team
+     | (3156:15) I'll shave off your beard!
+     | Deal 80% damage
+     | condition: when 974 on team
+     | (3160:15) You're too close!
+     | Deal 90% damage
+   | group:
+     | condition: 30% chance
+     | (3163:92) Summer Poison
+     | Spawn 4 random Poison orbs, Deal 80% damage
+     | (3165:15) My eyes are up here!
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | condition: when 978 on team
+   | (3162:15) E-Evil eye??
+   | Deal 80% damage
+   | condition: when 977 on team
+   | (3158:15) Would the two of you like some tea?
+   | Deal 70% damage
+   | condition: when 976 on team
+   | (3156:15) I'll shave off your beard!
+   | Deal 80% damage
+   | condition: when 974 on team
+   | (3160:15) You're too close!
+   | Deal 90% damage
+   | (3164:54) Mid-Summer Embrace
+   | Bind player leader for 3 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | condition: when 978 on team
+     | (3162:15) E-Evil eye??
+     | Deal 80% damage
+     | condition: when 977 on team
+     | (3158:15) Would the two of you like some tea?
+     | Deal 70% damage
+     | condition: when 976 on team
+     | (3156:15) I'll shave off your beard!
+     | Deal 80% damage
+     | condition: when 974 on team
+     | (3160:15) You're too close!
+     | Deal 90% damage
+     | (3166:66) Summer Princess' Command
+     | Do nothing
+   | group:
+     | (3167:15) Sea Dragon Summer Offensive
+     | Deal 500% damage (5 hits, 100% each)

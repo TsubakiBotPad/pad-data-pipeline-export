@@ -1,0 +1,48 @@
+#6414 - Deadly Sin Dragon of Wrath, Valditarne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:18906) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Flames erupt from the ground...|A figure appears from the smoke!
+
+#3: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 5
+
+#4: ESBlindStickySkyfall(128:18902) -> Black Smoke of Indignation
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+For 5 turns, 15% chance for skyfall orbs to be blinded for 2 turns
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlindStickySkyfall(128:18902) -> Black Smoke of Indignation
+	For 5 turns, 15% chance for skyfall orbs to be blinded for 2 turns
+	[1] ESLeaderSwap(75:18904) -> Thanatophobia
+	Leader changes to random sub for 1 turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESAttackMultihit(15:18903) -> Ruthless Massacre
+Deal 100% damage (5 hits, 20% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESLeaderSwap(75:18904) -> Thanatophobia
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 1 turn
+
+#11: ESBoardChangeAttackBits(85:18905) -> Unfettered Wrath
+Change all orbs to Dark, Deal 300% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

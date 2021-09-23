@@ -1,0 +1,46 @@
+#5455 - 地上最強の生物・範馬勇次郎
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 5455
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19479:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (14031:20) 闘いこそが至上のコミュニケーション…
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 50% chance
+     | (14032:83) 猛獣の連撃―― + 味わってみるかいッッッッッ
+     | Player -20% HP + Deal 96% damage (6 hits, 16% each), Deal 96% damage (6 hits, 16% each)
+     | condition: 50% chance
+     | (14041:92) 十秒で倒してのけるわッッ
+     | Spawn 5 random Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (14040:94) 本物の闘争というものを見せてやるッッ
+     | Lock all orbs, Deal 100% damage
+     | condition: 50% chance
+     | (14042:83) 力みなくして + 解放のカタルシスはありえねェ
+     | Specific orbs change every 1.0s for 2 turns + Player -99% HP
+ | group:
+ | condition: always turn 1, hp <= 50
+   | (14035:83) キサマのその克己心に愛すら感じる…！ + 多くの屍を築きし鬼の正体… + 今こそ見せてやろう
+   | Reduce damage from all sources by 75% for 3 turns + ATK -50% for 3 turns + Absorb damage when combos <= 6 for 3 turns
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 2
+     | (14045:17) ちょうしこかせてもらうぜ!!!
+     | Increase damage to 150% for the next 999 turns
+   | group:
+     | (14039:15) まだやらせてくれると言うのか…感謝!!!
+     | Deal 3,000% damage

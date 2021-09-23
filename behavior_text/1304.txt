@@ -1,0 +1,29 @@
+#1304 - Dragon Rider, King Arthur
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1304
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18649:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18555:83) King's Might + Heaven's Blessing
+ | Absorb damage when damage >= 50,000,000 for 10 turns + Jammer and Poison skyfall +15% for 10 turns
+ group:
+ | group:
+ | condition: turns 1-9
+   | (18561:108) Light and Dark
+   | Change all Jammer and Poison orbs to Light and Dark orbs, Deal 120% damage
+   | (18562:94) Chain Dive
+   | Lock all orbs, Deal 100% damage
+ | group:
+ | condition: turn 10
+   | (18558:83) Cut Off the Retreat + King's Praise
+   | RCV 25% for 5 turns + Delay active skills by 5~10 turns
+ | group:
+   | (18563:15) Dual Swords
+   | Deal 300% damage (2 hits, 150% each)

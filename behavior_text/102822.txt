@@ -1,0 +1,28 @@
+#102822 - Newspaper Club's New Member, Waron
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 102822
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4109:94) Can I get an interview?
+ | Lock 5 random orbs
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 2815 on team
+   | (4112:92) Are you here for the interview too, boss?
+   | Spawn 3 random Heal orbs
+   | (4111:77) Ice Camera
+   | Change the 1st column to Water orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (4110:92) Newspaper Extra
+   | Spawn 3 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (4111:77) Ice Camera
+   | Change the 1st column to Water orbs, Deal 100% damage

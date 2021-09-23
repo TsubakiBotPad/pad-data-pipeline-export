@@ -1,0 +1,39 @@
+#701 - Rei&Eva Unit-00
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:18219) -> Heat-Resistant Light Defense Shield
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 30% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 7
+
+#4: ESAttackMultihit(15:18218) -> I will protect you
+Condition: 50% chance (ai:50 rnd:0)
+Deal 100% damage
+
+#5: ESRandomSpawn(92:18220) -> Sniper Rifle
+Spawn 3 random Light orbs, Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBlind5(5:18217) -> Deploy A.T. Field
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board
+
+#8: ESAttackMultihit(15:18218) -> I will protect you
+Condition: 50% chance (ai:50 rnd:0)
+Deal 100% damage
+
+#9: ESRandomSpawn(92:18220) -> Sniper Rifle
+Spawn 3 random Light orbs, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

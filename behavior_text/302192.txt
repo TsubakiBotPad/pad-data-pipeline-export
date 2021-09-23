@@ -1,0 +1,27 @@
+#302192 - Swoop-Winged CyberBeast, Phact
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 302192
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17941:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (17942:83) Gale Wings + Thunderstorm
+ | Absorb damage when combos <= 6 for 999 turns + Change the 1st and 6th columns to Wood and Light orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (17945:79) Tornado Signal
+   | Change the 3rd row to Wood orbs, Deal 100% damage
+   | condition: 50% chance
+   | (17946:15) Emerald Converter
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 1
+   | (17947:15) Overdrive Dive
+   | Deal 2,000% damage

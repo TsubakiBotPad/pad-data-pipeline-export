@@ -1,0 +1,26 @@
+#301302 - Beast Rider, Wiz Merlin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:12076) -> Elemental Magic
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 6 random Fire, Water, Wood, Light, and Dark orbs, Deal 50% damage
+
+#3: ESColumnSpawnMulti(77:12079) -> Icicle Flare
+Condition: When < 20% HP (ai:100 rnd:0)
+Change the 6th column to Water orbs and the 1st column to Fire orbs, Deal 200% damage
+
+#4: ESColumnSpawnMulti(77:12077) -> Ice Rain
+Condition: 50% chance (ai:50 rnd:0)
+Change the 6th column to Water orbs, Deal 100% damage
+
+#5: ESColumnSpawnMulti(77:12078) -> Flare Burst
+Change the 1st column to Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,68 @@
+#515 - Princess Valkyrie
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 515
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6503:73) Valkyrie Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (6476:83) White Valkyrie Shield + Fylgja Fur + Discerning Lifechains
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 999 turns + RCV 50% for 20 turns
+ group:
+ | group:
+   | (6507:83) Sweeping Spirit Garments + Saintly Valkyrie Blade
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 4,000~5,000% damage (4~5 hits, 1,000% each), Deal 4,000~5,000% damage (4~5 hits, 1,000% each)
+ | group:
+ | condition: hp <= 94
+   | (6490:83) Bash + Double Slash
+   | Player -50% HP + Deal 50% damage (2 hits, 25% each), Deal 50% damage (2 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 79, hp <= 89
+   | (6480:67) Test of Skill
+   | Absorb damage when combos <= 5 for 10 turns
+ | group:
+ | condition: turn 1 while HP > 69, hp <= 79
+   | (6504:83) Test of Skill + Test of Perception
+   | Absorb damage when combos <= 5 for 10 turns + A 2×3 rectangle of clouds appears for 10 turns at 2nd row, 3rd column
+ | group:
+ | condition: turn 1 while HP > 59, hp <= 69
+   | (6506:83) Test of Skill + Test of Perception + Test of Speed
+   | Absorb damage when combos <= 5 for 10 turns + A 2×3 rectangle of clouds appears for 10 turns at 2nd row, 3rd column + Movetime 50% for 10 turns
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 59
+   | (6486:83) Test of Skill + Test of Perception + Test of Speed + Test of Endurance
+   | Absorb damage when combos <= 5 for 10 turns + A 2×3 rectangle of clouds appears for 10 turns at 2nd row, 3rd column + Movetime 50% for 10 turns + Increase damage to 150% for the next 10 turns
+ | group:
+ | condition: hp <= 49
+   | (6487:83) Resurrection + Sweeping Spirit Garments
+   | Enemy recover 100% HP + Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+ type: UNKNOWN_USE
+ | condition: at most 2 times
+ | (6485:83) Test of Perception + Test of Speed + Test of Endurance
+ | A 2×3 rectangle of clouds appears for 10 turns at 2nd row, 3rd column + Movetime 50% for 10 turns + Increase damage to 150% for the next 10 turns
+ | condition: at most 2 times
+ | (6505:83) Test of Perception + Test of Speed
+ | A 2×3 rectangle of clouds appears for 10 turns at 2nd row, 3rd column + Movetime 50% for 10 turns
+ | condition: at most 3 times
+ | (6481:104) Test of Perception
+ | A 2×3 rectangle of clouds appears for 10 turns at 2nd row, 3rd column
+ | condition: at most 5 times
+ | (6484:83) Test of Speed + Test of Endurance
+ | Movetime 50% for 10 turns + Increase damage to 150% for the next 10 turns
+ | condition: at most 7 times
+ | (6482:39) Test of Speed
+ | Movetime 50% for 10 turns
+ | condition: at most 15 times
+ | (6483:19) Test of Endurance
+ | Increase damage to 150% for the next 10 turns
+ | (6496:83) Attack Stance - Light + Philanthropy + Decision
+ | Change all Heal orbs to Light orbs + Spawn 3 random Heal orbs + Lock all orbs, Deal 150% damage
+ | (6500:83) Sweeping Spirit Garments + Saintly Valkyrie Blade
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 4,000~5,000% damage (4~5 hits, 1,000% each), Deal 4,000~5,000% damage (4~5 hits, 1,000% each)
+ | (6493:83) Mighty Bash + Triple Slash
+ | Player -55% HP + Deal 75% damage (3 hits, 25% each), Deal 75% damage (3 hits, 25% each)

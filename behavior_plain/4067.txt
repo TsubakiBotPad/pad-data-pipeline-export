@@ -1,0 +1,41 @@
+#4067 - Holy Ritual Love Deity, Venus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:15889) -> Come everyone, all together now!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:15890) -> Let's sing a hymn!
+	Absorb damage when combos <= 5 for 6 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:15891) -> Cupid Song
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Jammer orbs, Deal 100% damage
+
+#5: ESBindAttack(63:15893) -> Beautiful World
+Bind 2 random cards for 1~2 turns, Deal 90% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESDebuffMovetime(39:15892) -> I'm going to keep on singing♪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime -3s for 1 turn
+
+#8: ESBindAttack(63:15894) -> Carol World
+Bind 5 random cards for 1~2 turns, Deal 200% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESTypeResist(118:15946) -> Balance God Halved
+Reduce damage from Balanced and God types by 50%

@@ -1,0 +1,29 @@
+#407832 - ストームトルーパー
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 407832
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (27650:89) 動くな！
+ | Delay active skills by 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (27651:15) 撃て！
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 50% chance
+   | (27652:92) ブラスター・ライフル
+   | Spawn 2 random Fire orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (27653:94) ブラスターをスタンモードにセットしろ
+     | Lock 15 random orbs, Deal 100% damage
+   | group:
+     | (27654:65) スタン・ビーム
+     | Bind 1 random sub for 2 turns, Deal 95% damage

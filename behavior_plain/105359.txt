@@ -1,0 +1,26 @@
+#105359 - Little Blue Note
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackUPRemainingEnemies(17:13462) -> Musician's Bonds
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#4: ESSkillDelay(89:13454) -> Comfortable High-Pitched Sound
+Condition: 50% chance (ai:0 rnd:50)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#5: ESColumnSpawnMulti(77:13455) -> Echoing Melody
+Condition: 50% chance (ai:0 rnd:50)
+Change the 1st column to Water orbs, Deal 95% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

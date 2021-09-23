@@ -1,0 +1,47 @@
+#6492 - Shermie
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 6492
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19713:17) I get fired up, when others are watching...
+ | Increase damage to 150% for the next 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 4
+     | condition: 33% chance
+     | (19715:105) That was a close one.
+     | RCV 50% for 1 turn, Deal 95% damage
+     | condition: 33% chance
+     | (19716:92) Shermie Shoot
+     | Spawn 4 random Light orbs, Deal 98% damage
+     | condition: 34% chance
+     | (19714:15) Shermie Spiral
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (19713:17) I get fired up, when others are watching...
+     | Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19717:101) Goodnight!
+     | Fix orb movement starting point to random position on the board
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 4
+     | (19718:15) Shermie Carnival
+     | Deal 180% damage (3 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (19713:17) I get fired up, when others are watching...
+     | Increase damage to 150% for the next 3 turns
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (19718:15) Shermie Carnival
+     | Deal 180% damage (3 hits, 60% each)

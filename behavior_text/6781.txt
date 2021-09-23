@@ -1,0 +1,47 @@
+#6781 - Deity of Snakes, Nadeko Sengoku
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 6781
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21256:68) Here's Nadeko!
+ | Poison skyfall +10% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21258:57) Snakes, snakes, snakes, snakes.
+     | Change a random attribute to Poison orbs
+   | group:
+   | condition: turn 2 while HP > 49
+     | (21257:64) Really now, you liar...
+     | Change 3 random orbs to Poison orbs, Deal 80% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (21259:64) Really, so full of lies.
+     | Change 4 random orbs to Poison orbs, Deal 90% damage
+   | group:
+     | (21260:64) You really are a liar!
+     | Change 5 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21261:107) Oh! This calls for a penalty.
+     | Unable to match Poison orbs for 4 turns
+   | group:
+   | condition: turn 2
+     | (21258:57) Snakes, snakes, snakes, snakes.
+     | Change a random attribute to Poison orbs
+   | group:
+   | condition: turn 3
+     | (21257:64) Really now, you liar...
+     | Change 3 random orbs to Poison orbs, Deal 80% damage
+   | group:
+   | condition: turn 4
+     | (21259:64) Really, so full of lies.
+     | Change 4 random orbs to Poison orbs, Deal 90% damage

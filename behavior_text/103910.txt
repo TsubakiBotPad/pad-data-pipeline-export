@@ -1,0 +1,29 @@
+#103910 - Flash White Dragon Caller, Sonia Elle
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 103910
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9014:104) Radiant Dragon Tribe's Wave
+ | A 4×5 rectangle of clouds appears for 1 turn at 1st row, 2nd column
+ group:
+ | group:
+ | condition: always turn 1
+   | (9016:65) Radiant Dragon Tribe's Curse
+   | Bind 2 random subs for 2 turns, Deal 70% damage
+ | group:
+   | (9017:15) Whiteout - Nemesis
+   | Deal 120% damage (6 hits, 20% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 2
+     | (9018:66) Draco Summoning
+     | Do nothing
+   | group:
+     | (9019:15) Clearing Tempest
+     | Deal 200% damage (2 hits, 100% each)

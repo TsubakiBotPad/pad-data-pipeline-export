@@ -1,0 +1,43 @@
+#5185 - Black Dragon, Fatalis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:21716) -> Malefic Dragon's Roar
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids status ailments for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESAttackMultihit(15:21717) -> Malefic Dragon's Crawl
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttackUPRemainingEnemies(17:21718) -> Ruinous Cataclysm
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBoardChangeAttackBits(85:21719) -> Ruinous Pyroclasm
+Change all orbs to Fire, Dark, and Heal, Deal 500% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

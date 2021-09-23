@@ -1,0 +1,39 @@
+#6409 - Deadly Sin Dragon King of Sloth, Feygoran
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6409
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18892:106) Enemy's next turn changed
+ | Enemy turn counter change to 2 when HP <= 50%
+ type: PREEMPT
+ | (18893:89) Crazy Lazy
+ | Delay active skills by 3~5 turns
+ group:
+ | group:
+   | (18863:15) Unfettered Sloth
+   | Deal 500% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18894:74) Procrastination
+   | Reduce damage from all sources by 75% for 999 turns
+
+level: 6
+ type: PASSIVE
+ | (18892:106) Enemy's next turn changed
+ | Enemy turn counter change to 2 when HP <= 50%
+ type: PREEMPT
+ | (18934:83) Dormant + Crazy Lazy
+ | Voids status ailments for 4 turns + Delay active skills by 3~5 turns
+ group:
+ | group:
+   | (18863:15) Unfettered Sloth
+   | Deal 500% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18894:74) Procrastination
+   | Reduce damage from all sources by 75% for 999 turns

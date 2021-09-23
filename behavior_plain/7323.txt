@@ -1,0 +1,68 @@
+#7323 - Commanding Hibiscus Starfairy, Rosalyn
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:24355) -> En garde!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:24356) -> Ready yourself!
+	Void damage >= 20,000,000 for 999 turns
+	[2] ESBoardChangeAttackBits(85:24357) -> Take my crimson flame!
+	Change all orbs to Fire, Deal 150% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbLock(94:24358) -> Summer Red Riposte
+Lock all orbs, Deal 90% damage
+
+#6: ESSkillDelay(89:24360) -> Flaming En Rompant
+Condition: 50% chance (ai:0 rnd:50)
+Delay active skills by 4~6 turns, Deal 105% damage
+
+#7: ESAttackMultihit(15:24359) -> Brilliant Flèche
+Condition: 50% chance (ai:0 rnd:50)
+Deal 110% damage (2 hits, 55% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESDebuffMovetime(39:24362) -> Kyaah!
+	Movetime 20% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:24363) -> I won't forgive you for this!
+	Increase damage to 200% for the next 999 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:24365) -> Are you ready?
+	Reduce damage from all sources by 75% for 999 turns
+	[1] ESBindAwoken(88:24366) -> This is the end for you!
+	Bind awoken skills for 5 turns
+
+#14: ESRandomSpawn(92:24367) -> Red Star Fleuret
+Spawn 20 random Fire orbs, Deal 600% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:24353) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

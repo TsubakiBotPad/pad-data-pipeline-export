@@ -1,0 +1,101 @@
+#4937 - Shadow Moon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchCard(90:11739) -> ESBranchCard
+Branch on player_cards HAS [4910], target rnd 6
+
+#5: ESStatusShield(20:11728) -> This is war.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 5 turns
+
+#6: ESStatusShield(20:11738) -> This time I'll send you straight to hell!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 5 turns
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 12
+
+#8: ESAttackMultihit(15:11729) -> Shadow Punch
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#9: ESAttackMultihit(15:11730) -> Shadow Kick
+Condition: 33% chance (ai:0 rnd:33)
+Deal 120% damage
+
+#10: ESOrbChangeAttack(48:11731) -> Shadow Beam
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESRecoverEnemy86(86:11735) -> Stone of the Moon, King Stone
+Enemy recover 100% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 26
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#20: ESAbsorbCombo(67:11736) -> Stone of the Moon, King Stone
+Absorb damage when combos <= 4 for 5 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESGravity(50:11732) -> Satan Sabre
+Condition: One-time use (ai:0 rnd:33) (cost: 1)
+Player -99% HP
+
+#23: ESOrbChangeAttack(48:11733) -> Destruction Ray 
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Dark orbs, Deal 120% damage
+
+#24: ESRandomSpawn(92:11734) -> Harsh Yellow Flare
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random Light orbs, Deal 100% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#28: ESAttackUPRemainingEnemies(17:11737) -> Stone of the Moon, King Stone
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 5 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn

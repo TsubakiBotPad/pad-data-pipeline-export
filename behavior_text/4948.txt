@@ -1,0 +1,37 @@
+#4948 - Holy Ritual Psychopomp Princess, Grida
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4948
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15953:118) Devil Halved
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (15924:83) UWAH-HA-HA-HA! + What a great day!
+ | Absorb Light damage for 5 turns + Heal skyfall +10% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (15920:89) Well, what will you give me?
+     | Delay active skills by 2~3 turns, Deal 85% damage
+   | group:
+     | (15919:15) I'm looking forward to it!
+     | Deal 89% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (15921:74) What other presents will you send me?
+   | Reduce damage from all sources by 75% for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15922:17) Let's end this now!
+     | Increase damage to 150% for the next 3 turns
+   | group:
+     | (15923:85) Christmas Gazer
+     | Change all orbs to Dark, Heal, and Jammer, Deal 148% damage

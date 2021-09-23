@@ -1,0 +1,82 @@
+#6851 - Ron
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBindSkill(14:21461) -> Iza!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 5 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 18
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESRandomSpawn(92:21465) -> Gum Balloon
+Spawn 5 random Wood and Jammer orbs
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESRandomSpawn(92:21464) -> Hmph!
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Wood orbs, Deal 80% damage
+
+#12: ESAttackMultihit(15:21463) -> Hah!
+Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSpinnersRandom(109:21468) -> Inside Loop
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Random 2 orbs change every 1.5s for 2 turns
+
+#15: ESOrbChangeAttack(48:21467) -> Hah, bam!
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Water orbs, Deal 90% damage
+
+#16: ESAttackMultihit(15:21466) -> Yaaaaah, hiyah!
+Deal 100% damage (2 hits, 50% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: ESBlind5(5:21470) -> Take this!
+Blind all orbs on the board
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESRowSpawnMulti(79:21469) -> Piercing Mixer
+Condition: 50% chance (ai:50 rnd:0)
+Change the 5th row to Water orbs, Deal 100% damage
+
+#23: ESSpinnersRandom(109:21471) -> Yo-yo Leap
+Random 2 orbs change every 1.0s for 1 turn, Deal 120% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

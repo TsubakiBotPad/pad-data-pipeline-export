@@ -1,0 +1,48 @@
+#102762 - Purple Plum Virtue, Xin Hua
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBoardChange(84:8783) -> Beautiful Plum Blossoms
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 11
+
+#7: ESColumnSpawnMulti(77:8784) -> Dark Art of Calligraphy
+Condition: 25% chance (ai:0 rnd:25)
+Change the 6th column to Dark orbs, Deal 100% damage
+
+#8: ESOrbLock(94:8785) -> Plum Scent's Allure
+Condition: 25% chance (ai:0 rnd:25)
+Lock 6 random orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:8786) -> Black Branch Onslaught
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBoardChange(84:8787) -> Colorful Requiem's Malodor
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison
+
+#12: ESAttackMultihit(15:8788) -> Black Branch Onslaught - 10,000 Buds
+Deal 200% damage (5 hits, 40% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

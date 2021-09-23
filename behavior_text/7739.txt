@@ -1,0 +1,29 @@
+#7739 - アークデーモン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7739
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26961:73) ＿アーク根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (26961:73) ＿アーク根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (26962:62) 攻撃
+ | Blind all orbs on the board, Deal 100% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (26963:102) イオナズン
+   | Spawn 4 random Bomb orbs, Deal 125% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (26962:62) 攻撃
+   | Blind all orbs on the board, Deal 100% damage

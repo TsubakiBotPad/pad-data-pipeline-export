@@ -1,0 +1,30 @@
+#506412 - Deadly Sin Dragon King of Greed, Rhamamoa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506412
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24152:83) Challenger Trap + Treasure Trap
+ | Player -50% HP + A 1×3 rectangle of clouds appears for 1 turn at a random location
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (24170:104) Treasure Trap
+     | A row of clouds appears for 1 turn at a random location, Deal 50% damage
+     | condition: 50% chance
+     | (24155:62) Treacherous Trap
+     | Blind all orbs on the board, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (24153:50) Challenger Trap
+     | Player -50% HP
+ | group:
+ | condition: hp <= 9
+   | (24156:15) Unfettered Greed
+   | Deal 140% damage (4 hits, 35% each)

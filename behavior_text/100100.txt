@@ -1,0 +1,31 @@
+#100100 - Alt. Mystic Ice Knight
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 100100
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: turn 1
+   | (4782:4) Water Orb change
+   | Change all Wood orbs to Water orbs
+   | (4787:2) Ice Grudge
+   | Bind Wood cards for 2~4 turns
+ | group:
+ | condition: turn 2
+   | (4787:2) Ice Grudge
+   | Bind Wood cards for 2~4 turns
+
+level: 5
+ type: PREEMPT
+ | (4782:4) Water Orb change
+ | Change all Wood orbs to Water orbs
+ | (4787:2) Ice Grudge
+ | Bind Wood cards for 2~4 turns
+ group:
+ condition: turn 1, hp <= 100
+ | (4787:2) Ice Grudge
+ | Bind Wood cards for 2~4 turns

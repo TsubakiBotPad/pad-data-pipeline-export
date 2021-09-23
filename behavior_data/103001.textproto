@@ -1,0 +1,176 @@
+  monster_id: 103001
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 8222
+        }
+      }
+    }
+    groups {
+      group_type: UNKNOWN_USE
+      children {
+        behavior {
+          condition {
+            global_one_time: true
+          }
+          enemy_skill_id: 4915
+        }
+      }
+    }
+  }
+  levels {
+    level: 4
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 8222
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 4906
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  condition {
+                    trigger_monsters: 2143
+                    trigger_monsters: 2144
+                    trigger_monsters: 2971
+                  }
+                  enemy_skill_id: 4909
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 4907
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 4908
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 2
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 4907
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 4916
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 2
+                trigger_turn: 2
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 4907
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 4917
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+            trigger_turn: 1
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              condition {
+                trigger_monsters: 2143
+                trigger_monsters: 2144
+                trigger_monsters: 2971
+              }
+              enemy_skill_id: 4911
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 4907
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 4910
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 19
+          }
+          children {
+            behavior {
+              enemy_skill_id: 4907
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 4918
+            }
+          }
+        }
+      }
+    }
+    groups {
+      group_type: UNKNOWN_USE
+      children {
+        behavior {
+          condition {
+            global_one_time: true
+          }
+          enemy_skill_id: 4915
+        }
+      }
+    }
+  }

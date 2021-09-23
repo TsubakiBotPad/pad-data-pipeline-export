@@ -1,0 +1,41 @@
+#4130 - Blue Sky Goddess of Daybreak, Khepri
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbChangeAttackBits(108:16147) -> First sunrise of the year!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change all Jammer, Poison, and Mortal Poison orbs to Light orbs, Deal 200% damage
+
+#3: ESBindAwoken(88:16148) -> Have you seen the sunrise?
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind awoken skills for 5 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESCloud(104:16150) -> It's gotten so cold
+	A 4×1 rectangle of clouds appears for 3 turns at 3rd row, 2nd column
+	[1] ESOrbSealRow(100:16151) -> I just want to sit by my heater
+	Seal the 5th row for 3 turns
+
+#5: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 7
+
+#6: ESLeaderSwap(75:16154) -> You should see the sunrise
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 3 turns
+
+#7: ESBombRandomSpawn(102:16152) -> This should warm you up
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Bomb orbs
+
+#8: ESBombFixedSpawn(103:16153) -> Are you still cold?
+Condition: 50% chance (ai:0 rnd:50)
+Spawn Bomb orbs in the specified positions
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

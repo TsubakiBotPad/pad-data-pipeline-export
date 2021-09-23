@@ -1,0 +1,64 @@
+#405177 - Alt. Azure Riverdragon, Unma
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 405177
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12845:72) Water Halved
+ | Reduce damage from Water attrs by 50%
+ | (13563:73) 根性
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | condition: 20% chance
+ | (12821:83) Water & Light Divine View + A Wisp of the Rain Dragon's Cloud + Leaving it to the Fortune of Chance
+ | Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns + Unable to match Fire orbs for 1 turn, Deal 120% damage
+ | condition: 20% chance
+ | (12822:83) Water & Light Divine View + A Wisp of the Rain Dragon's Cloud + Leaving it to the Fortune of Chance
+ | Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns + Unable to match Water orbs for 1 turn, Deal 120% damage
+ | condition: 20% chance
+ | (12823:83) Water & Light Divine View + A Wisp of the Rain Dragon's Cloud + Leaving it to the Fortune of Chance
+ | Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns + Unable to match Wood orbs for 1 turn, Deal 120% damage
+ | condition: 20% chance
+ | (12824:83) Water & Light Divine View + A Wisp of the Rain Dragon's Cloud + Leaving it to the Fortune of Chance
+ | Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns + Unable to match Light orbs for 1 turn, Deal 120% damage
+ | condition: 20% chance
+ | (12825:83) Water & Light Divine View + A Wisp of the Rain Dragon's Cloud + Leaving it to the Fortune of Chance
+ | Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns + Unable to match Dark orbs for 1 turn, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 20% chance
+     | (12828:107) Leaving it to the Fortune of Chance
+     | Unable to match Fire orbs for 1 turn, Deal 120% damage
+     | condition: 25% chance
+     | (12829:107) Leaving it to the Fortune of Chance
+     | Unable to match Water orbs for 1 turn, Deal 120% damage
+     | condition: 33% chance
+     | (12830:107) Leaving it to the Fortune of Chance
+     | Unable to match Wood orbs for 1 turn, Deal 120% damage
+     | condition: 50% chance
+     | (12831:107) Leaving it to the Fortune of Chance
+     | Unable to match Light orbs for 1 turn, Deal 120% damage
+     | (12832:107) Leaving it to the Fortune of Chance
+     | Unable to match Dark orbs for 1 turn, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (12833:83) Ocean Wave of the Mighty Rivals + Attack and Defense Splash
+     | Change the 1st and 6th columns to Water, Jammer, and Poison orbs + Reduce damage from all sources by 50% for 1 turn, Deal 50% damage
+     | condition: 50% chance
+     | (12836:83) Ocean Wave of the Mighty Rivals + God's Will of the Playful Dream
+     | Change the 1st and 5th rows to Water, Jammer, and Poison orbs + Bind 2 random subs for 1~2 turns, Deal 50% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (12839:83) Finishing Touch Towards Accomplishment + Fury Overflow of Righteous Indignation
+   | Blind random 15 orbs for 5 turns + A 2×5 rectangle of clouds appears for 10 turns at 1st row, 3rd column
+ | group:
+ | condition: hp <= 9
+   | (12842:83) A Bolt Out of the Blue + Life & Death are ruled by fate
+   | Voids player buff effects + Deal 1,600% damage (4 hits, 400% each), Deal 1,600% damage (4 hits, 400% each)

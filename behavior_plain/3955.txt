@@ -1,0 +1,51 @@
+#3955 - Busy Illuminating Dragon Caller, Myne
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCard(90:13848) -> ESBranchCard
+Branch on player_cards HAS [3942, 3943], target rnd 4
+
+#3: ESDamageShield(74:13878) -> Ah-waah! A guest?!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 90% for 1 turn
+
+#4: ESDamageShield(74:13879) -> Al......?
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 90% for 1 turn
+
+#5: ESAttributeBlock(107:13880) -> You cannot pass...!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Unable to match Fire orbs for 3 turns
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 11
+
+#7: ESRandomSpawn(92:13881) -> Ornament Crash
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Jammer orbs, Deal 95% damage
+
+#8: ESCloud(104:13882) -> Dust Rising Up
+Condition: 33% chance (ai:0 rnd:33)
+A 2×2 square of clouds appears for 2 turns at a random location, Deal 100% damage
+
+#9: ESSpinnersFixed(110:13883) -> Washcloth Flop
+Condition: 34% chance (ai:0 rnd:34)
+Specific orbs change every 1.0s for 2 turns, Deal 105% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSkillDelay(89:13884) -> Bucket Splash
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 2~5 turns
+
+#12: ESAttackMultihit(15:13885) -> Bookcase Bam
+Deal 300% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

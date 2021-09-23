@@ -1,0 +1,45 @@
+#206656 - King of the Fairies, Albrecht
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206656
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22483:73) Resolve
+ | Survive attacks with 1 HP when HP > 9%
+ type: PREEMPT
+ | (22484:83) Bounds of Carnage + Dazzling Tree Canopy + Fairy Woodland
+ | Voids status ailments for 999 turns + For 5 turns, 20% chance for skyfall orbs to be blinded for turn + Bind awoken skills for 1 turn, Deal 90% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | condition: 50% chance
+   | (22486:88) Fairy Woodland
+   | Bind awoken skills for 1 turn, Deal 90% damage
+   | condition: 50% chance
+   | (22487:102) Fae Prank
+   | Spawn 4 random Bomb orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 8
+     | (22488:83) Dance of the Fairies + Forest Light
+     | Random 4 orbs change every 1.0s for 10 turns + No skyfall for 10 turns
+   | group:
+   | condition: turns 2-14 while HP > 8
+     | condition: 50% chance
+     | (22486:88) Fairy Woodland
+     | Bind awoken skills for 1 turn, Deal 90% damage
+     | condition: 50% chance
+     | (22487:102) Fae Prank
+     | Spawn 4 random Bomb orbs, Deal 100% damage
+   | group:
+     | (22200:83) Transformation of Carnage + Bloody Carnage
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 8
+   | (22491:15) Fae Light Blast
+   | Deal 500% damage (5 hits, 100% each)

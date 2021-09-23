@@ -1,0 +1,24 @@
+#100910 - Alt. Black Baron
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100910
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8801:118) Healer & Attacker Type Halved
+ | Reduce damage from Healer and Attacker types by 50%
+ type: PREEMPT
+ | (8797:83) Summon Poison Orbs!... + If you don't want to die
+ | Poison skyfall +15% for 7 turns + Specific orbs change every 1.0s for 7 turns
+ group:
+ | type: MONSTER_STATUS
+   | (8800:18) Resentment
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | (8798:108) Dark Slash
+   | Change all Poison orbs to Dark orbs, Deal 290% damage
+   | (8799:15) Death Edge
+   | Deal 1,050% damage (7 hits, 150% each)

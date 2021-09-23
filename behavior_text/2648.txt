@@ -1,0 +1,39 @@
+#2648 - Metallic Star Dragon, Cancer
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2648
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4037:20) Glitter Shell
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4041:74) Hard Shell
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (4040:15) Cross Scissors
+     | Deal 110% damage (2 hits, 55% each)
+     | condition: 50% chance
+     | (4039:92) Jet Cannon
+     | Spawn 2 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (4038:76) Cutting Water Pincers
+     | Change the 3rd and 4th columns to Water orbs
+   | group:
+   | condition: turn 2 while HP > 9
+     | (4041:74) Hard Shell
+     | Reduce damage from all sources by 50% for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (4042:15) Cancer's Crest - Comet
+   | Deal 400% damage (2 hits, 200% each)

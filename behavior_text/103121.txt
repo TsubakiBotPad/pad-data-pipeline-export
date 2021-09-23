@@ -1,0 +1,31 @@
+#103121 - Beach Lifeguard, Aqua Chaser
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103121
+approved: False
+
+level: 4
+ group:
+ | group:
+ | condition: always turn 2
+   | (5338:19) Chase Mode
+   | Increase damage to 200% for the next 3 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (5337:15) Paddle Rush
+     | Deal 90% damage (3 hits, 30% each)
+   | group:
+     | (5337:15) Paddle Rush
+     | Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (5339:92) Splash Burst
+     | Spawn 5 random Water orbs, Deal 120% damage
+   | group:
+     | (5339:92) Splash Burst
+     | Spawn 5 random Water orbs, Deal 120% damage

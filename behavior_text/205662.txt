@@ -1,0 +1,35 @@
+#205662 - Majic Lin
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 205662
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21851:104) I am a Sorcerer.
+ | A 4×1 rectangle of clouds appears for 4 turns at a random location
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21852:83) Don't think. + Focus your thoughts together.
+     | Voids status ailments for 3 turns + Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | (21855:50) If there's a wall, break it!
+     | Player -50% HP
+   | group:
+     | (21856:15) Dammit...
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (21857:50) Guide my path, Deathsong Starling!
+     | Player -75% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (21858:92) I release thee, Sword of Light!
+     | Spawn 5 random Light orbs, Deal 120% damage

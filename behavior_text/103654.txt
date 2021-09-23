@@ -1,0 +1,49 @@
+#103654 - Kirin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103654
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7241:50) Dash Attack
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 25% chance
+   | (7245:63) Thunderbolt
+   | Bind player leader for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (7246:63) Thunderbolt
+   | Bind friend leader for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (7247:63) Thunderbolt
+   | Bind 2 random subs for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (7244:15) Back Kick
+   | Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (7242:17) Rage
+     | Increase damage to 145% for the next 10 turns
+   | group:
+     | condition: 25% chance
+     | (7248:63) Thunderbolt
+     | Bind player leader for 2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (7249:63) Thunderbolt
+     | Bind friend leader for 2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (7250:63) Thunderbolt
+     | Bind 2 random subs for 2 turns, Deal 100% damage
+     | condition: 25% chance
+     | (7244:15) Back Kick
+     | Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (7243:63) Great Thunderbolt
+   | Bind 6 random cards for 5 turns, Deal 250% damage

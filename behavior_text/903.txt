@@ -1,0 +1,55 @@
+#903 - Lightning Chaser
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 903
+approved: False
+
+level: 5
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (709:48) Discharge
+     | Change a random attribute to Light orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (708:15) Volt Axe
+     | Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (638:17) Chase Mode
+     | Increase damage to 200% for the next 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (709:48) Discharge
+     | Change a random attribute to Light orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (708:15) Volt Axe
+     | Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (709:48) Discharge
+     | Change a random attribute to Light orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (708:15) Volt Axe
+     | Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (709:48) Discharge
+     | Change a random attribute to Light orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (638:17) Chase Mode
+     | Increase damage to 200% for the next 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | (710:48) Thunder Weapon
+     | Change a random attribute to Light orbs, Deal 160% damage

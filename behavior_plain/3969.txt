@@ -1,0 +1,46 @@
+#3969 - Pixel Icedragon Plesios
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfallLocked(96:16302) -> Pixel Temptation
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Locked random skyfall +75% for 5 turns, Deal 120% damage
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 8
+
+#4: ESAttackMultihit(15:16303) -> Frost Fang
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#5: ESRandomSpawn(92:16304) -> Ice Tornado
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 10 random Water orbs, Deal 100% damage
+
+#6: ESBlind62(62:16305) -> Blizzard Storm
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:16295) -> Pixel Power
+	Increase damage to 200% for the next 999 turns
+	[1] ESDamageShield(74:16296) -> Pixel Barrier
+	Reduce damage from all sources by 75% for 10 turns
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 11, target rnd 4
+
+#10: ESAttackMultihit(15:16306) -> Pixel Freeze Breath
+Deal 500% damage (5 hits, 100% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

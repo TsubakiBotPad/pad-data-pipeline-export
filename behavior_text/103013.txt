@@ -1,0 +1,59 @@
+#103013 - Alt. Stone Scales Dragon Emperor, Deightros
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 103013
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6348:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ | (8249:72) Deightros Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (6332:74) Shell Scales
+ | Reduce damage from all sources by 75% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (6344:83) Poison Swirl + Cyclone
+     | Mortal Poison skyfall +20% for 1 turn + Deal 140% damage (2 hits, 70% each), Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (6345:83) Flash Induction + Sharptooth
+     | Fix orb movement starting point to random position on the board + Lock 8 random orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (6333:53) Deep Sea
+     | Absorb Wood and Dark damage for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (6344:83) Poison Swirl + Cyclone
+     | Mortal Poison skyfall +20% for 1 turn + Deal 140% damage (2 hits, 70% each), Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (6345:83) Flash Induction + Sharptooth
+     | Fix orb movement starting point to random position on the board + Lock 8 random orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (6336:74) Shell Scales
+     | Reduce damage from all sources by 75% for 3 turns
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 69
+   | (6346:83) Extreme Cold + Fin Drive
+   | Movetime -1s for 3 turns + Player -99% HP
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 49
+   | (6347:83) Bubble Wall + Sun Jail
+   | Absorb damage when combos <= 5 for 3 turns + Bind 1 random sub for 5 turns, Deal 160% damage
+ | group:
+ | condition: hp <= 14
+   | (6339:85) Myriad Calamity
+   | Change all orbs to Poison, Deal 600% damage
+ | group:
+ | condition: hp <= 1
+   | (6527:83) Resuscitation + Seastar Rock Scales
+   | Enemy recover 100% HP + Absorb damage when combos <= 7 for 999 turns

@@ -1,0 +1,63 @@
+#403638 - Alt. Cthulhu, the Nightmare Incarnate
+monster size: 5
+new AI: True
+start/max counter: 10
+counter increment: 1
+monster_id: 403638
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6799:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (13762:72) Half Water Wood
+ | Reduce damage from Water and Wood attrs by 50%
+ type: PREEMPT
+ | (6789:83) Concept of Boundless Worlds + Dormant Oceanic Evil
+ | Voids status ailments for 999 turns + A row of clouds appears for 30 turns at 5th row, 1st column
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (6790:68) Nature's Encroaching Nightmare
+     | Mortal Poison skyfall +15% for 15 turns, Deal 550% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | (13763:67) Doomsday Sanctuary
+     | Absorb damage when combos <= 7 for 999 turns
+   | group:
+   | condition: turn 3 while HP > 9
+     | condition: 25% chance
+     | (6792:92) Ruler of the One and Only Ocean
+     | Spawn 9 random Water orbs, Deal 340% damage
+     | condition: 25% chance
+     | (6793:15) Father Dagon and His Deep Ones
+     | Deal 400% damage (8 hits, 50% each)
+     | condition: 25% chance
+     | (6795:39) Sealing Silence of the Deep
+     | Movetime 25% for 1 turn, Deal 360% damage
+     | condition: 25% chance
+     | (6796:94) Dreaded Celestial
+     | Lock 15 random orbs, Deal 380% damage
+   | group:
+   | condition: execute repeatedly, turn 1-6 of 6
+     | condition: 25% chance
+     | (6792:92) Ruler of the One and Only Ocean
+     | Spawn 9 random Water orbs, Deal 340% damage
+     | condition: 25% chance
+     | (6793:15) Father Dagon and His Deep Ones
+     | Deal 400% damage (8 hits, 50% each)
+     | condition: 25% chance
+     | (6795:39) Sealing Silence of the Deep
+     | Movetime 25% for 1 turn, Deal 360% damage
+     | condition: 25% chance
+     | (6796:94) Dreaded Celestial
+     | Lock 15 random orbs, Deal 380% damage
+ | group:
+ | condition: hp <= 9
+   | (6794:15) Veracity of the Cosmic Grotesque
+   | Deal 30,000% damage (10 hits, 3,000% each)
+ | group:
+ | condition: hp <= 1
+   | (6798:83) Eternal Cell Regeneration + Veracity of the Cosmic Grotesque
+   | Enemy recover 100% HP + Deal 30,000% damage (10 hits, 3,000% each), Deal 30,000% damage (10 hits, 3,000% each)

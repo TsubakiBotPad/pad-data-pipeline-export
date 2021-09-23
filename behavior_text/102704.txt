@@ -1,0 +1,54 @@
+#102704 - Zangetsu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 102704
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (2775:95) Can you still stand and continue?
+ | Spawn 3 random Heal orbs
+
+level: 4
+ type: PREEMPT
+ | condition: when 2675, 2676, 2677, 3353, 3354 on team
+ | (2777:83) Amongst these swords, there is one... that is the true me. + Try to defeat me if you can!!
+ | Do nothing + Player recover 100% HP
+ | (2770:55) Try to defeat me if you can!!
+ | Player recover 100% HP
+ type: DEATH
+ condition: when defeated
+ | (2775:95) Can you still stand and continue?
+ | Spawn 3 random Heal orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (17530:74) Too weak.
+   | Reduce damage from all sources by 75% for 1 turn
+ | group:
+ | condition: turn 2
+   | (1:82) Disable Skill
+   | Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (2773:6) You haven't the time to be crawling around!!
+   | Voids player buff effects
+   | (2801:20) You don't have time to be kneeling!
+   | Voids status ailments for 3 turns
+ | group:
+ | condition: turn 4
+   | (2772:94) Move on to the next one!
+   | Lock all Dark orbs, Deal 100% damage
+   | (17529:17) Never take your eyes off the enemy.
+   | Increase damage to 250% for the next 1 turn
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (1:82) Disable Skill
+   | Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (17529:17) Never take your eyes off the enemy.
+   | Increase damage to 250% for the next 1 turn

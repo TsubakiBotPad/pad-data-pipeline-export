@@ -1,0 +1,25 @@
+#100430 - Queen Gold Dragon
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100430
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15023:84) Gold Change
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (15025:92) Color Drop
+   | Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (15023:84) Gold Change
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (15027:52) Queen's Will
+ | Enemy ally recover 100% HP

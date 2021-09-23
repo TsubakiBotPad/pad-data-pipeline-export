@@ -1,0 +1,54 @@
+#206233 - Super Reincarnated Tsukuyomi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:22290) -> True Spirit of the Moonlight Princess
+	Absorb damage when combos <= 9 for 999 turns
+	[1] ESBlindStickySkyfall(128:22291) -> Remaining Lifetime
+	For 4 turns, 20% chance for skyfall orbs to be blinded for turn
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 11
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 9
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 9
+
+#7: SkillSet:
+	[0] ESColumnSpawnMulti(77:22293) -> Shadowed Moon
+	Change the 1st column to Dark orbs, Deal 55% damage
+	[1] ESBlindStickyRandom(97:22294) -> Waxing Crescent
+	Blind random 10 orbs for 1 turn, Deal 45% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:22295) -> Resounding Dusk Moon Swoop
+Deal 500% damage (10 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> Transformation of Carnage
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> Bloody Carnage
+	Deal 3,500% damage (7 hits, 500% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:22296) -> Resolve
+Survive attacks with 1 HP when HP > 20%

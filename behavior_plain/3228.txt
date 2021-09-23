@@ -1,0 +1,49 @@
+#3228 - Old Castle Patissiere, Undine
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindSkill(14:19892) -> Try some of my handmade sweets
+	Bind active skills for 10 turns
+	[1] ESGravity(50:19893) -> Feel free to eat as much as you want!
+	Player -99% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAttackMultihit(15:19894) -> There's plenty left over
+Deal 100% damage
+
+#7: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#8: ESGravity(50:19895) -> Would you like some more?
+Player -99% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESAttackUPRemainingEnemies(17:19896) -> I can't wait to keep cooking!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,60 @@
+#6690 - Melodic Ancient Raccoon, Furaku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:20780) -> Rhythmic Drum
+	ATK -75% for 10 turns
+	[1] ESSpinnersFixed(110:20781) -> Raccoon's Enchantment
+	Specific orbs change every 1.0s for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESBlindStickyRandom(97:20782) -> Mesmerizing Drops
+Condition: 34% chance (ai:0 rnd:34)
+Blind random 5 orbs for 1 turn, Deal 100% damage
+
+#5: ESBombRandomSpawn(102:20783) -> Mesmerizing Drops
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Bomb orbs, Deal 95% damage
+
+#6: ESRandomSpawn(92:20784) -> Mesmerizing Drops
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Mortal Poison orbs, Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESBoardSizeChange(126:20786) -> Roar of the World-Rumbling Drum
+	Change board size to 7x6 for 3 turns
+	[1] ESAbsorbCombo(67:20787) -> Rhythmic Dance
+	Absorb damage when combos <= 9 for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 3, target rnd 4
+
+#14: ESAttackMultihit(15:20788) -> Tak-takka-tak-tak
+Deal 300% damage (5 hits, 60% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

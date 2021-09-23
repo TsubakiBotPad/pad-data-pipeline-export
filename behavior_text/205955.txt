@@ -1,0 +1,33 @@
+#205955 - Bright Crimson Divine Mech King, Grandis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205955
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22807:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22808:20) Divine Mech King's Wall
+ | Voids status ailments for 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | (22809:15) Lava Schlagen
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22810:109) Divine Mech King's Will
+     | Random 2 orbs change every 1.0s for 1 turn
+   | group:
+   | condition: turns 2-14
+     | (22809:15) Lava Schlagen
+     | Deal 100% damage
+   | group:
+     | (22200:83) Transformation of Carnage + Bloody Carnage
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)

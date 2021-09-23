@@ -1,0 +1,31 @@
+#502420 - Dark Plant Mechanical Star God, Spica
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 502420
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21091:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (21059:68) I will awaken your power.
+ | Jammer skyfall +15% for 5 turns
+ group:
+ | group:
+   | (21060:48) Star Consumption
+   | Change a random attribute to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21095:74) Not yet...
+     | Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (21096:15) Mow-Down
+     | Deal 120% damage
+     | (21060:48) Star Consumption
+     | Change a random attribute to Wood orbs, Deal 100% damage

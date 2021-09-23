@@ -1,0 +1,118 @@
+#2879 - Destroying Thunder Dragon, Dorva
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:4685) -> What is your wish?
+	Voids status ailments for 5 turns
+	[1] ESDamageShield(74:4353) -> Dividing Damage
+	Reduce damage from all sources by 50% for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:4381) -> Overcoming Will
+	Enemy recover 29% HP
+	[1] ESAttackUPRemainingEnemies(17:4222) -> Dragonbound's Wrath
+	Increase damage to 200% for the next 999 turns
+
+#9: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESAttackMultihit(15:4695) -> Dual Shade
+	Deal 120% damage (2 hits, 60% each)
+	[1] ESBoardChangeAttackBits(85:4686) -> Sunset Zone
+	Change all orbs to Fire, Water, Dark, and Heal, Deal 150% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 23
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBranchCard(90:4688) -> ESBranchCard
+Branch on player_cards HAS [1948, 1949, 2745], target rnd 15
+
+#14: SkillSet:
+	[0] ESBlind5(5:4690) -> Vesperal Gloom
+	Blind all orbs on the board
+	[1] ESBoardChangeAttackBits(85:4686) -> Sunset Zone
+	Change all orbs to Fire, Water, Dark, and Heal, Deal 150% damage
+
+#15: SkillSet:
+	[0] ESBlind5(5:4689) -> I recognize the strength of your wish
+	Blind all orbs on the board
+	[1] ESBoardChangeAttackBits(85:4686) -> Sunset Zone
+	Change all orbs to Fire, Water, Dark, and Heal, Deal 150% damage
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 14
+
+#19: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b100
+
+#20: ESRowSpawnMulti(79:4691) -> Dusk Guidance
+Condition: 30% chance (ai:30 rnd:0)
+Change the 3rd row to Heal orbs, Deal 175% damage
+
+#21: ESColumnSpawnMulti(77:4694) -> Purple Lightning
+Condition: 50% chance (ai:50 rnd:0)
+Change the 3rd column to Dark orbs and the 5th column to Water orbs, Deal 80% damage
+
+#22: ESAttackMultihit(15:4695) -> Dual Shade
+Deal 120% damage (2 hits, 60% each)
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 26
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#25: SkillSet:
+	[0] ESAbsorbAttribute(53:4698) -> Destroying Thunder Dragon's Trial
+	Absorb Dark damage for 1 turn
+	[1] ESColumnSpawnMulti(77:4699) -> Dark Slash
+	Change the 2nd and 5th columns to Dark orbs, Deal 100% damage
+
+#26: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBlind5(5:4690) -> Vesperal Gloom
+	Blind all orbs on the board
+	[1] ESColumnSpawnMulti(77:4694) -> Purple Lightning
+	Change the 3rd column to Dark orbs and the 5th column to Water orbs, Deal 80% damage
+
+#27: SkillSet:
+	[0] ESBlind5(5:4690) -> Vesperal Gloom
+	Blind all orbs on the board
+	[1] ESRowSpawnMulti(79:4691) -> Dusk Guidance
+	Change the 3rd row to Heal orbs, Deal 175% damage
+
+#28: ESAttributeResist(72:4702) -> Light Halve
+Reduce damage from Light attrs by 50%

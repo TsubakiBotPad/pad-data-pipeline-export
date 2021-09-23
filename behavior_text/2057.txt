@@ -1,0 +1,38 @@
+#2057 - Gilgamesh
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2057
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2126:83) Took you long enough! + I was worried you'd gotten lost! + It's go time!
+ | Do nothing + Do nothing + Voids status ailments for 1 turn
+ group:
+ | group:
+   | condition: 30% chance
+   | (2127:15) Goblin Punch
+   | Deal 80% damage (8 hits, 10% each)
+   | condition: 30% chance
+   | (2128:48) Aera
+   | Change a random attribute to Wood orbs, Deal 100% damage
+   | condition: 30% chance
+   | (2129:48) Wind Slash
+   | Change a random attribute to Jammer orbs, Deal 120% damage
+   | (1:82) Disable Skill
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (2138:83) I suppose I misjudged! + Fighting all four of you... + ...is just too tough for me... + ...NOT! Ha, I lied! Like a rug! Oh, I kill me! + Jump
+     | Increase damage to 200% for the next 999 turns + Reduce damage from all sources by 50% for 1 turn + Voids status ailments for 999 turns + Do nothing + Deal 120% damage, Deal 120% damage
+   | group:
+     | condition: 50% chance
+     | (2139:63) Electrocute
+     | Bind 1 random sub for 2 turns, Deal 80% damage
+     | condition: 50% chance
+     | (2137:15) Jump
+     | Deal 120% damage

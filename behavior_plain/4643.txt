@@ -1,0 +1,69 @@
+#4643 - Light Companion Dragon, Goteene
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDeathCry(69:10383) -> Spe Dun Dragon Light Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Goteene's appearance is changing|Help have been summoned
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESBindSkill(14:10376) -> Holy Sealing Technique
+Bind active skills for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#10: ESOrbChangeAttack(48:10377) -> Light Pillar
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Light orbs, Deal 110% damage
+
+#11: ESSkillDelay(89:10378) -> Diminishing Rush
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 1~2 turns, Deal 100% damage
+
+#12: ESAttackMultihit(15:10379) -> Tradition
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESBindSkill(14:10376) -> Holy Sealing Technique
+	Bind active skills for 1 turn
+	[1] ESOrbSealRow(100:10380) -> Behavior Shield
+	Seal the 5th row for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:10382) -> Last Decision
+Deal 165% damage (3 hits, 55% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

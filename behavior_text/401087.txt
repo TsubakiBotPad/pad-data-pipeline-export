@@ -1,0 +1,29 @@
+#401087 - Alt. Green Dragon Fruit
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 401087
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25359:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25358:66) It's snoring peacefully
+ | Do nothing
+ group:
+ | group:
+ | condition: when hp is full
+   | (25358:66) It's snoring peacefully
+   | Do nothing
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turn 1
+     | (25353:19) Looks like it's awake
+     | Increase damage to 1,000% for the next 999 turns
+   | group:
+     | (25354:85) Green Strike
+     | Change all orbs to Wood, Deal 100% damage

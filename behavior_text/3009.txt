@@ -1,0 +1,25 @@
+#3009 - Giselle and Giant Dokuro
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 3009
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5050:20) Dokuro's Divine Protection
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 4
+   | (5051:15) Dokuro Attack
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (5052:92) Dokuro Crisis
+   | Spawn 3 random Poison orbs, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (5051:15) Dokuro Attack
+   | Deal 100% damage (2 hits, 50% each)

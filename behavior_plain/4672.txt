@@ -1,0 +1,62 @@
+#4672 - 早川あおい
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbCombo(67:10572) -> I'll do it as long as it's Pro!
+Absorb damage when combos <= 4 for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 17
+
+#10: ESOrbChangeAttackBits(108:10574) -> On a diet?
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Change all Heal orbs to Jammer orbs, Deal 80% damage
+
+#11: ESOrbChangeAttack(48:10609) -> Curve
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESAttackUPRemainingEnemies(17:10573) -> What you believe in will be deceived
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 5 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESRowSpawnMulti(79:10575) -> Marine Ball
+Change the 5th row to Water orbs, Deal 200% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,41 @@
+#1855 - The Warden, Uighur
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInactivity66(66:1858) -> I respect your reckless courage!!
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 8
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBindSkill(14:1859) -> Taizan-ryu Senjo Ben!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 3 turns
+
+#9: ESAttackMultihit(15:1860) -> Moko Hakyoku Do!
+Deal 500% damage
+
+#10: ESNone(0:0) -> ESNone
+nothing
+
+#11: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:5293) -> Oroa!!
+	Do nothing

@@ -1,0 +1,30 @@
+#2540 - Traditional Daruma, Grand Tengu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2540
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16104:83) Let's play! + It's a badminton battle!
+ | Absorb damage when combos <= 5 for 5 turns + Movetime -3s for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16108:98) Splash splashh
+     | Blind orbs in specific positions for 1 turn, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (16106:39) It's a badminton battle!
+     | Movetime -3s for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (16107:109) Spin the top
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (16109:17) N...Not bad
+   | Increase damage to 150% for the next 999 turns

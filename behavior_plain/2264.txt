@@ -1,0 +1,25 @@
+#2264 - Sanada Yukimura
+monster size: 5
+new AI: True
+start/max counter: 11
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 6)
+	[0] ESAbsorbCombo(67:16009) -> Do you really think you can defeat me?
+	Absorb damage when combos <= 3 for 6 turns
+	[1] ESRandomSpawn(92:16031) -> Show me that you're ready
+	Spawn 6 random Water, Wood, Light, Dark, and Heal orbs
+
+#3: ESRandomSpawn(92:16010) -> Come at me with everything you've got
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 3 random Heal orbs
+
+#4: ESAttackMultihit(15:16011) -> Cross-shaped Spear Combo Attack
+Deal 1,000% damage (10 hits, 100% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

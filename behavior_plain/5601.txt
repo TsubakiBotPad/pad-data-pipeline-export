@@ -1,0 +1,51 @@
+#5601 - Yoshitora Tokugawa
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:23875) -> Let's make this fight a good one!
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Absorb damage when combos <= 4 for 7 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 12
+
+#4: ESRandomSpawn(92:23876) -> Pink Blossoms
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Spawn 3 random Dark orbs, Deal 70% damage
+
+#5: ESColumnSpawnMulti(77:23877) -> White Lilies
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Change the 1st column to Wood orbs, Deal 80% damage
+
+#6: ESColumnSpawnMulti(77:23878) -> Tree Peonies
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 6th column to Heal orbs, Deal 85% damage
+
+#7: ESColumnSpawnMulti(77:23879) -> Camellias
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change the 3rd and 4th columns to Fire orbs, Deal 90% damage
+
+#8: ESAttackMultihit(15:23880) -> Morning Glory
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 95% damage (5 hits, 19% each)
+
+#9: ESRandomSpawn(92:23881) -> Moonflower
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 5 random Wood and Light orbs, Deal 100% damage
+
+#10: ESBoardChangeAttackBits(85:23882) -> Fluttering Butterfly Blossom
+Change all orbs to Fire, Light, and Heal, Deal 150% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBoardChangeAttackBits(85:23884) -> Profusion of Flowers
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 250% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

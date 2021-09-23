@@ -1,0 +1,62 @@
+#101459 - Alt. Mystic Pentad Dragon, Kotodama
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 101459
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8747:72) Kotodama Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (8317:83) Echoing Howl + Quinary Prism
+ | Delay active skills by 5 turns + Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (8320:48) Glitter Purge
+     | Change all Poison orbs to Heal orbs, Deal 500% damage
+     | (8321:48) Skull Lens
+     | Change all Jammer orbs to Mortal Poison orbs, Deal 75% damage
+     | (8322:74) Crystallizing Force
+     | Reduce damage from all sources by 75% for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (8320:48) Glitter Purge
+     | Change all Poison orbs to Heal orbs, Deal 500% damage
+     | (8321:48) Skull Lens
+     | Change all Jammer orbs to Mortal Poison orbs, Deal 75% damage
+     | condition: 20% chance
+     | (8323:68) Volcano Flamite
+     | Fire skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (8324:68) Ocean Aquarite
+     | Water skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (8325:68) Sky Windite
+     | Wood skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (8326:68) Sunlight Ardaite
+     | Light skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (8327:68) Moonlight Gloomite
+     | Dark skyfall +15% for 10 turns, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (8320:48) Glitter Purge
+     | Change all Poison orbs to Heal orbs, Deal 500% damage
+     | (8321:48) Skull Lens
+     | Change all Jammer orbs to Mortal Poison orbs, Deal 75% damage
+     | (8328:83) Echoing Howl + Linking Rays
+     | Delay active skills by 5 turns + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 150% damage
+ | group:
+ | condition: hp <= 29
+   | (8320:48) Glitter Purge
+   | Change all Poison orbs to Heal orbs, Deal 500% damage
+   | (8321:48) Skull Lens
+   | Change all Jammer orbs to Mortal Poison orbs, Deal 75% damage
+   | (8328:83) Echoing Howl + Linking Rays
+   | Delay active skills by 5 turns + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 150% damage

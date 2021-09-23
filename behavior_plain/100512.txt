@@ -1,0 +1,56 @@
+#100512 - Alt. Red Giant Gigas
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInactivity66(66:5580) -> Here I come!!
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESOrbSealColumn(99:5581) -> Countdown Pose [3]
+Seal the 6th column for 1 turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#11: ESAbsorbCombo(67:5582) -> Countdown Pose [2]
+Absorb damage when combos <= 5 for 1 turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#14: ESBindAwoken(88:5583) -> Countdown Pose [1]
+Bind awoken skills for 1 turn
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#16: ESAttackMultihit(15:5584) -> Fiiiiiiire!!
+Deal 900% damage (3 hits, 300% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

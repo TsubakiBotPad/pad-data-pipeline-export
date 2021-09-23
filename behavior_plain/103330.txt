@@ -1,0 +1,26 @@
+#103330 - Time-Shift Black Dragon Caller, Sonia
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersFixed(110:10734) -> Dragon Pulse of Darkness
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 1 turn
+
+#3: ESAttackUPRemainingEnemies(17:10735) -> Black Dragon's Roar
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#4: ESBoardChangeAttackBits(85:10737) -> Draco Summon - Dark, Fire & Life
+Condition: When < 10% HP (ai:100 rnd:0)
+Change all orbs to Fire, Dark, and Heal, Deal 400% damage
+
+#5: ESAttackMultihit(15:10736) -> Black Dragon's Dance
+Deal 300% damage (3 hits, 100% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

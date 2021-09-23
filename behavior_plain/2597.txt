@@ -1,0 +1,37 @@
+#2597 - Alphadios, Lord of Spirits
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:24919) -> Only able to summon Light creatures
+	Absorb Fire, Water, Wood, and Dark damage for 1 turn
+	[1] ESAttributeBlock(107:24920) -> Only able to cast Light spells
+	Unable to match Fire, Water, Wood, and Dark orbs for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 8
+
+#5: ESAbsorbCombo(67:24918) -> Melody of the Shining Spirits
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 7 for 5 turns
+
+#6: ESAttackMultihit(15:24921) -> Triple Breaker
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBoardChangeAttackBits(85:24922) -> Spirit Light
+Change all orbs to Light, Deal 300% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

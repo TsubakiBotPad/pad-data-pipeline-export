@@ -1,0 +1,42 @@
+#2307 - Divine Water Messenger, Kappa
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:3436) -> Out of the way!
+Spawn 10 random Jammer orbs, Deal 50% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESSkyfall(68:3437) -> Yusui Dish
+Water skyfall +15% for 99 turns
+
+#11: ESColumnSpawnMulti(77:3438) -> Salmon Sword
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 4th column to Water orbs, Deal 150% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

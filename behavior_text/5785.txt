@@ -1,0 +1,35 @@
+#5785 - Seto Kaiba & Obelisk the Tormentor
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+monster_id: 5785
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15828:72) Grass/Light Halved
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (15813:83) Duel! + My mighty Egyptian God is here at last! 
+ | A 2×2 square of clouds appears for 5 turns at a random location + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (15808:15) Obelisk! Attack!
+   | Deal 90% damage
+   | (15811:15) Nothing can stop the wrath of Obelisk!
+   | Deal 94% damage (2 hits, 47% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (15810:13) Trap Card "Life Shaver"
+     | Change 2 random orb types to Jammer orbs
+   | group:
+     | (15812:15) Fist of Fate
+     | Deal 160% damage
+ | group:
+ | condition: turn 1, hp <= 14
+   | (15809:89) Spell Card "Command Silencer"
+   | Delay active skills by 2 turns

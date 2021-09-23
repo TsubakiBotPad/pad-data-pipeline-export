@@ -1,0 +1,28 @@
+#400294 - Alt. Toytops
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 400294
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21018:129) Alt. Super Resolve
+ | Damage which would reduce HP from above 75% to below 75% is nullified
+ type: PREEMPT
+ | (19263:75) Toy Change
+ | Leader changes to random sub for 2 turns
+ group:
+ condition: execute repeatedly, turn 1-3 of 3, hp <= 100
+ | (19264:15) Falling Tackle
+ | Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (19409:17) Wave of Carnage
+ | Increase damage to 700% for the next 999 turns
+ type: UNKNOWN_USE
+ | (19408:50) Toy Crush
+ | Player -400% HP
+ | (20950:46) Indiscriminate Carnage
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage

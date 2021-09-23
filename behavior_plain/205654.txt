@@ -1,0 +1,57 @@
+#205654 - Sosuke Sagara & Arbalest
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:21903) -> Here I come!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESAttackMultihit(15:21904) -> Cannonfire
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#6: ESRandomSpawn(92:21905) -> Shotcannon's Shell
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Dark orbs, Deal 90% damage
+
+#7: ESRowSpawnMulti(79:21908) -> One Flash
+Condition: 34% chance (ai:0 rnd:34)
+Change the 1st row to Dark orbs, Deal 80% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:21909) -> Dodge
+	Delay active skills by 0~2 turns
+	[1] ESAbsorbCombo(67:21907) -> Leap
+	Absorb damage when combos <= 5 for 3 turns
+
+#10: ESBoardChangeAttackBits(85:21910) -> Monomolecular Cutter
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Light, Dark, and Jammer, Deal 150% damage
+
+#11: ESRandomSpawn(92:21911) -> Shotcannon
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Dark orbs, Deal 200% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:21912) -> Thrusted Fist
+Deal 290% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

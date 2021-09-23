@@ -1,0 +1,82 @@
+#4227 - Hexazeon
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 4227
+approved: False
+
+level: 1
+ type: PASSIVE
+ | condition: when 1 enemies remain
+ | (9145:122) An adventurer! Splendid!
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (9138:123) Protected from damage by the Augites
+ | Immune to damage from all sources for 999 turns
+ group:
+ | (9139:94) Stellar Dragon's Glare
+ | Lock all orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 3 enemies remain, hp <= 100
+ | (9140:104) Dragon Cloud
+ | A 6×2 rectangle of clouds appears for 3 turns at a random location, Deal 100% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | condition: 25% chance
+ | (9141:99) Sealing Pulse
+ | Seal the 1st column for 3 turns, Deal 100% damage
+ | condition: 25% chance
+ | (9142:99) Sealing Pulse
+ | Seal the 6th column for 3 turns, Deal 100% damage
+ | condition: 25% chance
+ | (9143:100) Sealing Pulse
+ | Seal the 1st row for 3 turns, Deal 100% damage
+ | condition: 25% chance
+ | (9144:100) Sealing Pulse
+ | Seal the 5th row for 3 turns, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (9149:83) All Augites have been shattered + Chest Core's Shine + Fortified Scales
+   | Remove damage immunity effect + Voids status ailments for 66 turns + Void damage >= 66,666,666 for 999 turns
+ | group:
+   | group:
+   | condition: turn 2 while HP > 89
+     | (9152:83) Time Binding + Wave + Wave
+     | Delay active skills by 1 turn + Player -99% HP + Player -99% HP
+   | group:
+     | condition: 25% chance
+     | (9160:48) Rotting Pain
+     | Change a random attribute to Jammer orbs, Deal 250% damage
+     | (9159:15) Four Resonating Guns
+     | Deal 340% damage (4 hits, 85% each)
+ | group:
+ | condition: always turn 2, hp <= 89
+   | (9155:83) Secular Sword + Empty Teachings
+   | Absorb damage when combos <= 6 for 66 turns + Specific orbs change every 1.0s for 6 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 3 while HP > 19
+     | (9158:83) Deprivation + Holy Charity
+     | Movetime -3s for 6 turns + Heal skyfall +15% for 6 turns
+   | group:
+     | condition: 30% chance
+     | (9163:83) Rotting Pain + Wave
+     | Change a random attribute to Jammer orbs + Player -99% HP, Deal 250% damage
+     | (9162:83) Four Resonating Guns + Wave
+     | Deal 340% damage (4 hits, 85% each) + Player -99% HP, Deal 340% damage (4 hits, 85% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 3
+     | (9218:83) Stellar Dragon's Glare + Barbed Chain Cage
+     | Lock all orbs + Bind awoken skills for 3 turns
+   | group:
+     | (9167:83) Metamorphosis + Six Limitless Flashes
+     | Change own attribute to random one of Water or Light + Deal 3,600% damage (6 hits, 600% each), Deal 3,600% damage (6 hits, 600% each)
+ type: UNKNOWN_USE
+ | (9182:66) Wait and See
+ | Do nothing

@@ -1,0 +1,143 @@
+#2396 - Awoken Loki
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShield(71:7134) -> Let's take it easy for now, eh?
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESLeaderSwap(75:7135) -> Sly Prank
+	Leader changes to random sub for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 28
+
+#6: ESAttackUpStatus(18:7167) -> Trickster's Trap
+Increase damage to 200% for the next 999 turns
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 14
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfall(68:7137) -> Shadow of Jörmungandr! Unleash chaos!
+	Jammer and Poison skyfall +8% for 5 turns
+	[1] ESGravity(50:7138) -> Deathline Rune
+	Player -98% HP
+
+#12: ESBoardChange(84:7139) -> World Serpent's Coil
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change all orbs to Jammer and Mortal Poison
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 23
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: SkillSet:
+	[0] ESDebuffRCV(105:7141) -> Shadow of Hel! Extinguish all life!
+	RCV 50% for 99 turns
+	[1] ESGravity(50:7142) -> Deathland Rune
+	Player -99% HP
+
+#17: ESOrbLock(94:7143) -> Dead Judgment
+Lock all Poison and Mortal Poison orbs, Deal 150% damage
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 23
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 22
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#21: SkillSet:
+	[0] ESCloud(104:7145) -> Shadow of Fenrir! Seal the heavens!
+	A 4×2 rectangle of clouds appears for 10 turns at 1st row, 2nd column
+	[1] ESGravity(50:7146) -> Death Rune
+	Player -100% HP
+
+#22: ESRandomSpawn(92:7147) -> Chain Crunch
+Condition: When jammer orbs are on the board (ai:100 rnd:0)
+Spawn 1 random Dark orb, Deal 150% damage
+
+#23: SkillSet:
+	Condition: 20% chance (ai:20 rnd:0)
+	[0] ESRandomSpawn(92:7156) -> Blessings of the Trickster God
+	Spawn 3 random Jammer and Poison orbs
+	[1] ESBindAttack(63:7157) -> Fake Spear Gungnir
+	Bind 1 random card for 1 turn, Deal 100% damage
+
+#24: SkillSet:
+	Condition: 25% chance (ai:25 rnd:0)
+	[0] ESRandomSpawn(92:7156) -> Blessings of the Trickster God
+	Spawn 3 random Jammer and Poison orbs
+	[1] ESBindAwoken(88:7158) -> Fake Ring Draupnir
+	Bind awoken skills for 1 turn, Deal 100% damage
+
+#25: SkillSet:
+	Condition: 34% chance (ai:34 rnd:0)
+	[0] ESRandomSpawn(92:7156) -> Blessings of the Trickster God
+	Spawn 3 random Jammer and Poison orbs
+	[1] ESOrbLock(94:7160) -> Fake Hammer Mjölnir
+	Lock 5 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+
+#26: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:7156) -> Blessings of the Trickster God
+	Spawn 3 random Jammer and Poison orbs
+	[1] ESRowSpawnMulti(79:7161) -> Fake Blade Lævateinn
+	Change the 5th row to Fire orbs, Deal 100% damage
+
+#27: SkillSet:
+	[0] ESRandomSpawn(92:7156) -> Blessings of the Trickster God
+	Spawn 3 random Jammer and Poison orbs
+	[1] ESGravity(50:7159) -> Fake Ship Skidbladnir
+	Player -99% HP
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 31
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#30: SkillSet:
+	[0] ESBoardChange(84:7149) -> Hold on! It's not your turn yet!
+	Change all orbs to Light, Heal, and Jammer
+	[1] ESDebuffMovetime(39:7150) -> Oh, fine... I'll let you have your fun
+	Movetime 25% for 1 turn
+	[2] ESSkillDelay(89:7151) -> Can you erase all the Jammers?
+	Delay active skills by 30 turns
+
+#31: ESOrbChangeAttack(48:7152) -> Nope, guess not!
+Change all Jammer orbs to Dark orbs, Deal 1,000% damage
+
+#32: SkillSet:
+	[0] ESInactivity66(66:7154) -> Guess now's as good a time as any
+	Do nothing
+	[1] ESEndBattle(40:7155) -> Well then, if you'll excuse me...
+	Reduce self HP to 0

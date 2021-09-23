@@ -1,0 +1,52 @@
+#502804 - 酒呑童子
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:26298) -> はっはっはー！
+	Absorb damage when combos <= 6 for 4 turns
+	[1] ESSkyfallLocked(96:26299) -> オレ様と勝負だ！
+	Locked random skyfall +50% for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRandomSpawn(92:26303) -> 炎鬼の酒
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Fire orbs, Deal 100% damage
+
+#5: ESRandomSpawn(92:26304) -> 氷鬼の酒
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Water orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:26305) -> 風鬼の酒
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random Wood orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESNoSkyfall(127:26301) -> 面白いじゃねぇか
+	No skyfall for 3 turns
+	[1] ESOrbLock(94:26302) -> まだまだいくぜ！
+	Lock all orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESDeathCry(69:26307) -> 死亡時
+Condition: On death (ai:0 rnd:0)
+Show message: なかなかやるじゃねぇか……|こっからが本番だぜ！

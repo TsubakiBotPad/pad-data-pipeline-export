@@ -1,0 +1,48 @@
+#3357 - Head Captain of 13 Court Guard Squads, Genryusai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:17451) -> All things of this world,  turn to ashes, Ryujinjakka.
+Reduce damage from all sources by 50% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESOrbChangeAttackBits(108:17452) -> I'll have to punish you some more.
+Condition: 33% chance (ai:0 rnd:33)
+Change all Water and Heal orbs to Fire orbs, Deal 70% damage
+
+#8: ESColumnSpawnMulti(77:17454) -> Ryujin Jakka Hitotsume Nadegiri
+Condition: 33% chance (ai:0 rnd:33)
+Change the 5th column to Fire orbs, Deal 80% damage
+
+#9: ESAttackMultihit(15:17453) -> What? You can't reach me.
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPRemainingEnemies(17:17455) -> Stop.
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#12: ESRandomSpawn(92:17456) -> Don't you know what "stop" means, kid?
+Spawn 6 random Fire orbs, Deal 130% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

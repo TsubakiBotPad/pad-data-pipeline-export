@@ -1,0 +1,65 @@
+#3260 - Yamato Flame Dragon Caller, Tsubaki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:6874) -> Scarlet Sky Robes
+	Voids status ailments for 999 turns
+	[1] ESBindTyping(3:6875) -> Dragonbind Kotodama
+	Bind Dragon cards for 10 turns
+	[2] ESAttackMultihit(15:6924) -> Flame Camellia
+	Deal 420% damage (2 hits, 210% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:6885) -> Soaring Camellia Flame
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 2,700% damage (9 hits, 300% each)
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:6879) -> Vanishing Lifespring - Red Sun
+	Change all Fire and Light orbs to Jammer orbs
+	[1] ESAbsorbCombo(67:6880) -> Crimson Blossom Storm
+	Absorb damage when combos <= 6 for 5 turns
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#9: ESDamageShield(74:6884) -> Fire Guardian's Sunblade
+Condition: 50% chance (ai:50 rnd:0)
+Reduce damage from all sources by 50% for 1 turn, Deal 320% damage
+
+#10: ESBindSkill(14:6878) -> Firechain Thrust
+Bind active skills for 5 turns, Deal 320% damage
+
+#11: ESAttackMultihit(15:6877) -> Scorched Edge
+Deal 360% damage (3 hits, 120% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESOrbChangeAttack(48:6882) -> Banishing Firebrand
+Change all Jammer orbs to Fire orbs, Deal 800% damage
+
+#14: ESDamageShield(74:6884) -> Fire Guardian's Sunblade
+Condition: 50% chance (ai:50 rnd:0)
+Reduce damage from all sources by 50% for 1 turn, Deal 320% damage
+
+#15: ESRandomSpawn(92:6883) -> Scarlet Embers
+Spawn 4 random Jammer orbs, Deal 320% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

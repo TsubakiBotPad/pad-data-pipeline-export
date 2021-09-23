@@ -1,0 +1,37 @@
+#1654 - Armored Red Storm Knight, Delgado
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:14730) -> Knight Armor
+	Voids status ailments for 5 turns
+	[1] ESDamageShield(74:14295) -> Knight's Pride
+	Reduce damage from all sources by 99% for 3 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 6
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBlind62(62:14298) -> Axe Bash
+Blind all orbs on the board, Deal 600% damage
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:8128) -> Emerald's Shining Light
+	Bind awoken skills for 1 turn
+	[1] ESBlind62(62:14298) -> Axe Bash
+	Blind all orbs on the board, Deal 600% damage
+
+#7: ESBlind62(62:14298) -> Axe Bash
+Blind all orbs on the board, Deal 600% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

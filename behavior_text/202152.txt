@@ -1,0 +1,31 @@
+#202152 - Dark Masters, Demon Dragon of Annihilation
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202152
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2512:83) Annihilating Horn of the Demon Dragon + Sealing Darkness
+ | Voids status ailments for 999 turns + Bind active skills for 3 turns
+ group:
+ | group:
+   | (2499:15) Double Breaker
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 79
+   | condition: 50% chance
+   | (2517:48) Pitch Black Draconic Circle
+   | Change all Heal orbs to Jammer orbs, Deal 90% damage
+   | (2499:15) Double Breaker
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2516:83) Puzzle of Despair + Hidden Hope
+   | Blind all orbs on the board + Change all orbs to Fire, Water, Wood, Light, and Dark
+ | group:
+ | condition: hp <= 19
+   | (2513:15) Demon Hellbreath
+   | Deal 300% damage

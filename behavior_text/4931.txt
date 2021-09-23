@@ -1,0 +1,32 @@
+#4931 - Kamen Rider Build
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4931
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20896:68) Now, shall we begin the experiment?
+ | Jammer and Poison skyfall +10% for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (20898:48) Vortex Break!
+   | Change all Jammer orbs to Light orbs, Deal 90% damage
+   | (20894:15) Drill Crusher
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (20897:107) I'm amazing! I'm the best! I'm a genius!
+   | Unable to match Jammer and Poison orbs for 2 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (20893:88) Victory conditions have been fulfilled!
+     | Bind awoken skills for 1 turn
+   | group:
+     | (20895:79) Vortex Finish!
+     | Change the 1st and 2nd rows to Light orbs, Deal 120% damage

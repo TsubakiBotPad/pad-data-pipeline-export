@@ -1,0 +1,47 @@
+#5181 - Sacred Fruitdragon, Whippe
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5181
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12932:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (12916:83) Aging Agar + Brilliant Recipe + Caramelisé Coating
+ | Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns + Reduce damage from all sources by 90% for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (12926:88) Overrun Nappé
+     | Bind awoken skills for 2 turns, Deal 80% damage
+     | (12927:104) Cream Dolce
+     | A 3×2 rectangle of clouds appears for 4 turns at a random location, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 15% chance
+     | (12925:6) Ebarbé Piqué
+     | Voids player buff effects
+     | condition: 33% chance
+     | (12920:83) Piping Tourage + Glassage Haché
+     | Change player HP to 50,000 for 1 turn + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+     | condition: 33% chance
+     | (12923:105) Tranche Compote
+     | RCV 50% for 2 turns, Deal 80% damage
+     | condition: 34% chance
+     | (12924:46) Fraise Brulée
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 84% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (12928:83) Purée Appareil + Apaisé Enrobé
+     | Blind all orbs on the board + Seal the 1st and 5th rows for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (12931:85) Sweet Specialité
+     | Change all orbs to Light, Deal 800% damage

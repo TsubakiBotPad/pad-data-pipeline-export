@@ -1,0 +1,32 @@
+#7467 - Clioth
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7467
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25723:129) Super Resolve
+ | Damage which would reduce HP from above 70% to below 70% is nullified
+ type: PREEMPT
+ | (25706:83) Forbidden Guidance + Mystic Barrier + Mystic Power
+ | Forces attacks to hit this enemy for 99 turns + Voids status ailments for 999 turns + Haste all cards' skills by 15 turns
+ group:
+ | group:
+   | (25718:83) Life Deprivation + Water Arrow
+   | RCV 25% for 1 turn + Change all Fire orbs to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1
+     | (25710:83) Complete Focus + Chaotic World
+     | Increase damage to 300% for the next 999 turns + Specific orbs change every 1.0s for 15 turns
+   | group:
+     | (25714:83) Devil's Grasp + Ice Arrow
+     | Lock all Water orbs + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 69
+ | (25810:15) Shock Wave
+ | Deal 180% damage (3 hits, 60% each)

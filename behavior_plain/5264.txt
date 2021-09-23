@@ -1,0 +1,35 @@
+#5264 - Opacho
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersRandom(109:17602) -> You no catch me!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Random 3 orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:17604) -> You not strong like Opacho.
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Fire orbs, Deal 80% damage
+
+#5: ESAttackMultihit(15:17603) -> Dummies.
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESCloud(104:17605) -> Over Soul MAMA, Opacho
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A 2×2 square of clouds appears for 4 turns at a random location
+
+#8: ESAttackMultihit(15:17606) -> DIE!
+Deal 200% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

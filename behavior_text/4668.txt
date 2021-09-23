@@ -1,0 +1,30 @@
+#4668 - 阿麻央真
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4668
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10584:50) Malice Prince
+ | Player -75% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (10586:48) H-Shot
+     | Change a random attribute to Light orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (10585:74) Heavy Ball
+     | Reduce damage from all sources by 50% for 2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (10587:89) Wild Ball
+     | Delay active skills by 0~2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (10588:110) Excalibur!!!
+   | Specific orbs change every 2.0s for 1 turn, Deal 150% damage

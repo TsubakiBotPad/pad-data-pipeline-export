@@ -1,0 +1,40 @@
+#6489 - Four Heavenly Kings of Orochi, Yashiro Nanakase
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersRandom(109:19725) -> Let's have some fun.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Random 3 orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRandomSpawn(92:19726) -> Jet Counter
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 6 random Wood orbs, Deal 98% damage
+
+#5: ESRandomSpawn(92:19727) -> Jet Counter: Still
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Fire and Wood orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:19728) -> Missile Might Bash
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:19729) -> You need strength, my friend.
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#9: ESAttackMultihit(15:19730) -> Final Impact
+Deal 110% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,61 @@
+#103881 - Alt. Demonic Phantom, Hashihime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103881
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8241:72) Rashomon Light Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (8038:83) My severed arm still aches... + What do you want with me?
+ | Absorb Light and Dark damage for 5 turns + Voids status ailments for 5 turns
+ group:
+ | type: MONSTER_STATUS
+   | (8042:18) Crafty
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 4
+     | condition: 33% chance
+     | (8043:89) Helmet Splitter
+     | Delay active skills by 0~1 turns, Deal 270% damage
+     | condition: 50% chance
+     | (8044:94) Forward Kick
+     | Lock 6 random orbs, Deal 270% damage
+     | (8045:15) Strike
+     | Deal 300% damage
+   | group:
+   | condition: turn 5 while HP > 4
+     | (8041:83) Don't mess with a demon! + Steel Demonskin
+     | RCV 50% for 7 turns + Reduce damage from all sources by 75% for 7 turns
+   | group:
+   | condition: turns 6-11 while HP > 4
+     | condition: 33% chance
+     | (8043:89) Helmet Splitter
+     | Delay active skills by 0~1 turns, Deal 270% damage
+     | condition: 50% chance
+     | (8044:94) Forward Kick
+     | Lock 6 random orbs, Deal 270% damage
+     | (8045:15) Strike
+     | Deal 300% damage
+   | group:
+   | condition: turn 12 while HP > 4
+     | (8049:83) You gonna keep dancing? + Fall here!
+     | Bind awoken skills for 1 turn + Deal 7,000% damage (7 hits, 1,000% each), Deal 7,000% damage (7 hits, 1,000% each)
+   | group:
+     | condition: 33% chance
+     | (8043:89) Helmet Splitter
+     | Delay active skills by 0~1 turns, Deal 270% damage
+     | condition: 50% chance
+     | (8044:94) Forward Kick
+     | Lock 6 random orbs, Deal 270% damage
+     | (8045:15) Strike
+     | Deal 300% damage
+ | group:
+ | condition: hp <= 4
+   | (8046:15) Wildflower Bonebreaker
+   | Deal 5,000% damage (5 hits, 1,000% each)

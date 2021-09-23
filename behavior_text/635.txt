@@ -1,0 +1,28 @@
+#635 - Wind Archdemon Astaroth
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 635
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (671:5) Let's have some fun!
+ | Blind all orbs on the board
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (672:48) No healing for you!
+     | Change all Heal orbs to a random attribute, Deal 50% damage
+     | (670:50) Here I come!
+     | Player -75% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (670:50) Here I come!
+     | Player -75% HP
+ | group:
+ | condition: hp <= 29
+   | (673:15) Do it Cauchemar!
+   | Deal 140% damage (4 hits, 35% each)

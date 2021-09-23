@@ -1,0 +1,39 @@
+#2685 - La Muerte, Yasutora Sado
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttackUPRemainingEnemies(17:17405) -> I'll fight you with everything I've got.
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:17407) -> Brazo Derecho Del Gigante
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 50% for 1 turn, Deal 70% damage
+
+#7: ESAttackMultihit(15:17408) -> Brazo Izquierdo Del Diablo
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 70% damage (2 hits, 35% each)
+
+#8: ESAttackUPRemainingEnemies(17:17406) -> I finally have control.
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 3 turns
+
+#9: ESAttackMultihit(15:17409) -> La Muerte
+Deal 55% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

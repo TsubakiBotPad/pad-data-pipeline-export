@@ -1,0 +1,30 @@
+#205014 - Servant, Lancer
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205014
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (19564:89) Come!
+ | Delay active skills by 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (12239:65) I'm not letting you get away.
+     | Bind 2 random subs for 3 turns, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (12207:83) I'll have your heart! + Gae Bolg: Barbed Spear that Pierces with Death
+     | Do nothing + Deal 120% damage, Deal 120% damage
+ | group:
+ | condition: always turn 1, hp <= 50
+   | (19565:67) Protection from Arrows
+   | Absorb damage when combos <= 7 for 5 turns
+ | group:
+ | condition: hp <= 14
+   | (12211:83) It's a bit far, but I'll settle it now! + Gae Bolg: Soaring Spear that Strikes with Death
+   | Do nothing + Change the 3rd row to Water orbs, Deal 200% damage

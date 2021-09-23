@@ -1,0 +1,131 @@
+#3414 - Green-Horned Demon Princess, Fujin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:10900) -> Protection of the Planets
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESAttackUPRemainingEnemies(17:10901) -> Limit of the Sky
+	Increase damage to 150% for the next 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 13
+
+#9: ESAbsorbThreshold(87:10903) -> Preserving Bottle
+Condition: 33% chance (ai:0 rnd:33)
+Absorb damage when damage >= 30,000,000 for 30 turns
+
+#10: ESSkyfall(68:10904) -> Waking Sun - Aqua
+Condition: 33% chance (ai:0 rnd:33)
+Fire and Water skyfall +20% for 3 turns
+
+#11: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESStatusShield(20:10899) -> Protection of the Stars
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:10903) -> Preserving Bottle
+	Absorb damage when damage >= 30,000,000 for 30 turns
+	[2] ESSkyfall(68:10904) -> Waking Sun - Aqua
+	Fire and Water skyfall +20% for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:10912) -> Mhidofa Uvundukia
+Deal 108% damage (6 hits, 18% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 22
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESRandomSpawn(92:10908) -> Sana Azlak
+Spawn 6 random Water orbs, Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESDebuffRCV(105:10910) -> Shifa'a
+RCV 50% for 3 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESCloud(104:10913) -> Gunpowder Smoke
+A column of clouds appears for 1 turn at a random location
+
+#23: SkillSet:
+	[0] ESAttackMultihit(15:10912) -> Mhidofa Uvundukia
+	Deal 108% damage (6 hits, 18% each)
+	[1] ESCloud(104:10913) -> Gunpowder Smoke
+	A column of clouds appears for 1 turn at a random location
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESResolve(73:10898) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#26: ESNone(0:0) -> ESNone
+nothing
+
+#27: ESNone(0:0) -> ESNone
+nothing
+
+#28: ESNone(0:0) -> ESNone
+nothing
+
+#29: ESNone(0:0) -> ESNone
+nothing
+
+#30: ESNone(0:0) -> ESNone
+nothing
+
+#31: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#32: ESOrbChangeAttack(48:10314) -> Soppy Flame
+Change a random attribute to Fire orbs, Deal 110% damage
+
+#33: ESBombRandomSpawn(102:10312) -> Affliction Bombing
+Spawn 1 random locked Bomb orb
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESAttackMultihit(15:10315) -> Flame Rush
+Deal 120% damage (3 hits, 40% each)
+
+#36: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#37: ESDamageShield(74:10296) -> Rite of Belzenlok I
+Reduce damage from all sources by 50% for 4 turns

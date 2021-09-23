@@ -1,0 +1,52 @@
+#3286 - Soul Reaper's Disciple, Melissa
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 3286
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 1509, 1510 on team
+ | (5954:83) Master! Please duel with me! + Go, my Demon Minions!
+ | Voids status ailments for 999 turns + A row of clouds appears for 1 turn at 1st row, 1st column
+ | (5940:83) Behold: the results of my training! + Go, my Demon Minions!
+ | Voids status ailments for 999 turns + A row of clouds appears for 1 turn at 1st row, 1st column
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (5941:15) The Demon Minions are acting up
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: turn 2 while HP > 49
+     | (5942:92) The Demon Minions are at it again
+     | Spawn 8 random Jammer orbs, Deal 140% damage
+   | group:
+     | condition: 50% chance
+     | (5952:62) Darkness Mist
+     | Blind all orbs on the board, Deal 100% damage
+     | (5953:15) Chaos Ray
+     | Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (5943:89) Imma show you a big one! Wait right there!
+     | Delay active skills by 2 turns
+   | group:
+   | condition: turn 2
+     | (5946:83) Grr, my magic spell page got eaten... + 3
+     | Do nothing + Do nothing
+   | group:
+   | condition: turn 3
+     | (5947:48) Hidden Dagger
+     | Change a random attribute to Jammer orbs, Deal 220% damage
+   | group:
+   | condition: turn 4
+     | (5948:66) Oh, a magic spell page fell out♪
+     | Do nothing
+   | group:
+     | (5949:15) Endless Nightmare
+     | Deal 360% damage (6 hits, 60% each)

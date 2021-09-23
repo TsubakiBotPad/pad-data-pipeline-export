@@ -1,0 +1,116 @@
+#2890 - Heaven Winged Machine, Seraphis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:4280) -> Heaven's Armor
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:4281) -> Limited Barrier
+	Reduce damage from all sources by 50% for 5 turns
+	[2] ESSkyfallLocked(96:4282) -> Electromagnetic Field
+	Locked random skyfall +15% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:4478) -> Holy Repair
+	Enemy recover 19% HP
+	[1] ESAttackMultihit(15:4296) -> Limit Break
+	Deal 800% damage (2 hits, 400% each)
+
+#7: ESAttackMultihit(15:4296) -> Limit Break
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 800% damage (2 hits, 400% each)
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 27
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESOrbLock(94:4284) -> Shock Ray
+Condition: One-time use (ai:0 rnd:25) (cost: 1)
+Lock 3 random orbs, Deal 120% damage
+
+#12: ESRandomSpawn(92:4285) -> Flash Bomb
+Condition: One-time use (ai:0 rnd:25) (cost: 1)
+Spawn 3 random Light orbs, Deal 120% damage
+
+#13: ESDebuffMovetime(39:4286) -> Machine Glare
+Condition: One-time use (ai:0 rnd:25) (cost: 1)
+Movetime -1s for 1 turn, Deal 120% damage
+
+#14: ESInactivity66(66:4287) -> Gathering magical power
+Condition: 25% chance (ai:0 rnd:25)
+Do nothing
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 23
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESInactivity66(66:4291) -> Full Charge
+Condition: One-time use (ai:0 rnd:25) (cost: 1)
+Do nothing
+
+#19: ESSkillDelay(89:4288) -> Suppressive Wave
+Condition: 25% chance (ai:0 rnd:25)
+Delay active skills by 0~3 turns, Deal 140% damage
+
+#20: ESAbsorbCombo(67:4289) -> Ordeal Section
+Condition: 25% chance (ai:0 rnd:25)
+Absorb damage when combos <= 6 for 1 turn, Deal 140% damage
+
+#21: ESSkyfall(68:4290) -> Jamming
+Condition: 25% chance (ai:0 rnd:25)
+Jammer skyfall +20% for 1 turn, Deal 140% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#24: ESAttackMultihit(15:4292) -> Steel Wing
+Condition: One-time use (ai:60 rnd:0) (cost: 1)
+Deal 180% damage (3 hits, 60% each)
+
+#25: ESBindAttack(63:4293) -> Paralysis Sight
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 3 turns, Deal 170% damage
+
+#26: ESAttackMultihit(15:4294) -> Core Full Burst
+Deal 520% damage (4 hits, 130% each)
+
+#27: ESAttackUPRemainingEnemies(17:4295) -> Awaken Force
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#29: ESAttributeResist(72:4477) -> Robot Dark Halven
+Reduce damage from Dark attrs by 50%
+
+#30: ESResolve(73:4480) -> Robot Resolve
+Survive attacks with 1 HP when HP > 50%

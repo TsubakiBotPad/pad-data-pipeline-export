@@ -1,0 +1,40 @@
+#100410 - Alt. Gaiadragon Yggdrasil
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:11115) -> Field Resistance
+	Voids status ailments for 999 turns
+	[1] ESBindRandom(1:11116) -> Plant Net
+	Bind 6 random cards for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESAttackMultihit(15:11118) -> God Gaia Breath
+Deal 100% damage (2 hits, 50% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESAttackUPRemainingEnemies(17:11117) -> Force of Nature
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 500% for the next 99 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESTurnChangePassive(106:11113) -> Next turn changed
+Enemy turn counter change to 2 when HP <= 50%

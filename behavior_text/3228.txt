@@ -1,0 +1,26 @@
+#3228 - Old Castle Patissiere, Undine
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3228
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19891:83) Try some of my handmade sweets + Feel free to eat as much as you want!
+ | Bind active skills for 10 turns + Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (19894:15) There's plenty left over
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (19895:50) Would you like some more?
+     | Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 49
+   | (19896:17) I can't wait to keep cooking!
+   | Increase damage to 200% for the next 999 turns

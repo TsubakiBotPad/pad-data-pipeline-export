@@ -1,0 +1,31 @@
+#504354 - Spirit Numen of Wood, Byuto
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 504354
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16895:74) Ok, come at me however you like.
+ | Reduce damage from all sources by 99% for 1 turn
+ group:
+ | group:
+   | (16894:15) Wind Shredder
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 96
+   | (16893:40) I see, I see...
+   | Reduce self HP to 0
+
+level: 2
+ type: PREEMPT
+ | (16889:83) Are you ready? + Ok, try attacking me.
+ | Absorb damage when damage >= 1 for 99 turns + Spawn 10 random Fire, Water, and Heal orbs
+ group:
+ | condition: when 3 combos last turn
+ | (16886:83) Yes, this should be enough. + Now, I'll blow it away.
+ | Increase damage to 200% for the next 1 turn + Reduce self HP to 0
+ | (16885:92) I think I'll need a bit more...
+ | Spawn 10 random Fire, Water, and Heal orbs

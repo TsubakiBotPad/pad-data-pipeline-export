@@ -1,0 +1,58 @@
+#3848 - Endless Summer's Hunting Deity, Artemis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3848
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25989:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25967:83) Who wants to play with me? + I'm coming for you next! + You won't escape me!
+ | Voids status ailments for 999 turns + Absorb Water and Wood damage for 10 turns + No skyfall for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 50% chance
+     | (25984:83) There! + I've got you now!
+     | Change the 1st column to Water orbs + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+     | (25987:83) Gotcha! + I've got you now!
+     | Spawn 7 random Water orbs + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: turn 10
+     | (25976:83) I'm not done yet! + Time to go all out!
+     | Void damage >= 20,000,000 for 999 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (25984:83) There! + I've got you now!
+     | Change the 1st column to Water orbs + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+     | (25987:83) Gotcha! + I've got you now!
+     | Spawn 7 random Water orbs + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (25979:83) Hunting Deity's Tactics + I've got you now!
+   | Delay active skills by 3 turns + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | (25982:83) Hunting Deity's Tranquility + I've got you now!
+   | Enemy recover 15% HP + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (25974:130) You're done for now!
+     | ATK -75% for 1 turn
+   | group:
+   | condition: turns 2-9
+     | (25975:15) Lunatic Shot
+     | Deal 1,050% damage (7 hits, 150% each)
+   | group:
+     | (25975:15) Lunatic Shot
+     | Deal 1,050% damage (7 hits, 150% each)
+ | group:
+ | condition: hp <= 1
+   | (25971:83) Let's keep playing! + How about this?
+   | Enemy recover 100% HP + Change all orbs to Water

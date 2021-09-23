@@ -1,0 +1,133 @@
+#5434 - Reincarnated Hathor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:29121) -> いきますよ～！
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:29122) -> 聖命神の守り
+	Void damage >= 700,000,000 for 999 turns
+	[2] ESAttributeBlock(107:29123) -> ホルスの援護
+	Unable to match Heal orbs for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESCloud(104:29125) -> 冥界への導き
+	A row of clouds appears for 1 turn at 1st row, 1st column
+	[1] ESGravity(50:29126) -> ヘブンアタック
+	Player -120% HP
+	[2] ESDebuffRCV(105:29127) -> 炎隼の猛襲
+	RCV 25% for 5 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 21
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 27
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESMaxHPChange(111:29147) -> 聖命の圧縮
+	Change player HP to 50% for 1 turn
+	[1] ESRandomSpawn(92:29148) -> 聖命神の慈悲
+	Spawn 10 random Heal orbs
+	[2] ESAttackMultihit(15:29149) -> ヘブンフレイム
+	Deal 102% damage (3 hits, 34% each)
+
+#15: SkillSet:
+	[0] ESBlindStickyRandom(97:29151) -> 聖命神の憂鬱
+	Blind random 12 orbs for 3 turns
+	[1] ESRandomSpawn(92:29152) -> 聖命神の慈悲
+	Spawn 8 random Heal orbs
+	[2] ESAttackMultihit(15:29153) -> ヘブンフレイム
+	Deal 99% damage (3 hits, 33% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESAbsorbAttribute(53:29138) -> ヘブンマジック
+	Absorb Fire damage for 1 turn
+	[1] ESOrbChangeAttackBits(108:29139) -> 炎隼紅蓮撃
+	Change all Water orbs to Fire orbs, Deal 100% damage
+
+#18: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAbsorbAttribute(53:29141) -> ヘブンマジック
+	Absorb Light damage for 1 turn
+	[1] ESOrbChangeAttackBits(108:29142) -> ヘブンフラッシュ
+	Change all Heal orbs to Light orbs, Deal 100% damage
+
+#19: SkillSet:
+	[0] ESAbsorbAttribute(53:29144) -> ヘブンマジック
+	Absorb Wood damage for 1 turn
+	[1] ESAttributeBlock(107:29145) -> 炎隼瞬光撃
+	Unable to match Fire and Light orbs for 1 turn, Deal 101% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 25
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: SkillSet:
+	[0] ESBindAwoken(88:29129) -> やりましたね～！
+	Bind awoken skills for 1 turn
+	[1] ESCloud(104:29130) -> おかえしです～！
+	A row of clouds appears for 1 turn at 4th row, 1st column
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESOrbSealRow(100:29132) -> う～ん…
+	Seal the 5th row for 10 turns
+	[1] ESEndBattle(40:29133) -> 疲れちゃった～
+	Reduce self HP to 0
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: SkillSet:
+	[0] ESSkillDelay(89:29135) -> 聖命神の気まぐれ
+	Delay active skills by 5 turns
+	[1] ESAttackUPRemainingEnemies(17:29136) -> ホルスの鳴き声
+	Increase damage to 150% for the next 999 turns
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESTypeResist(118:29154) -> 体力半減
+Reduce damage from Physical types by 50%

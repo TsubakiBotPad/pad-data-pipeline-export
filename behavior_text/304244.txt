@@ -1,0 +1,32 @@
+#304244 - Awoken Spica
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 304244
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18022:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (18022:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18023:71) Dependent Protection
+ | Void damage >= 80,000,000 for 999 turns
+ group:
+ | group:
+   | (18025:108) Foul Feeder
+   | Change all Poison and Mortal Poison orbs to Wood orbs, Deal 400% damage
+   | (18024:92) Gluttonous Predator
+   | Spawn 5 random Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (18026:88) Decomposing Plants
+     | Bind awoken skills for 1 turn
+   | group:
+     | (18027:15) Leaf Pearl Multi-Attack
+     | Deal 1,000% damage (5 hits, 200% each)

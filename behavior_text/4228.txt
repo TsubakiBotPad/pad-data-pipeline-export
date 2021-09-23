@@ -1,0 +1,31 @@
+#4228 - Yellow Augite, Magatama of Yonder
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4228
+approved: False
+
+level: 1
+ type: PASSIVE
+ | condition: when 3 enemies remain
+ | (9170:122) The Yellow Augite is pulsating
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (9168:119) Augite's Resonance
+ | Immune to damage from all sources for 999 turns
+ group:
+ | (9169:15) Flash
+ | Deal 100% damage
+ type: UNKNOWN_USE
+ | (9177:39) Instant Ripped Death
+ | Movetime 50% for 1 turn
+ | (9171:15) Disorientating Flash
+ | Deal 300% damage (3 hits, 100% each)
+ | condition: when 1 enemies remain
+ | (9172:52) Radiance of Regeneration
+ | Enemy ally recover 100% HP
+ | (9173:121) Augite's Resonance disappeared
+ | Remove damage immunity effect
+ | (9174:67) Secular Sword's Reflexion
+ | Absorb damage when combos <= 6 for 6 turns

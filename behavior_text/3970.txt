@@ -1,0 +1,32 @@
+#3970 - Pixel Flowerdragon Brachys
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3970
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16307:105) Pixel Bloom
+ | RCV 50% for 5 turns
+ group:
+ | condition: 34% chance
+ | (16308:15) Aerial Crush
+ | Deal 105% damage (3 hits, 35% each)
+ | condition: 33% chance
+ | (16309:92) Wind Press
+ | Spawn 10 random Wood orbs, Deal 100% damage
+ | condition: 33% chance
+ | (16310:64) Poison Bloom
+ | Change 6 random orbs to Poison orbs, Deal 90% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (16294:83) Pixel Power + Pixel Barrier
+   | Increase damage to 200% for the next 999 turns + Reduce damage from all sources by 75% for 10 turns
+ | group:
+ | condition: hp <= 10
+   | (16311:15) Pixel Gaia Impact
+   | Deal 500% damage (5 hits, 100% each)

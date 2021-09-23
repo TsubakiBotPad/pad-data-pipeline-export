@@ -1,0 +1,96 @@
+#2877 - Storm Hawk Dragon, Kuarje
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:4546) -> I don't care about your hopes!
+	Voids status ailments for 5 turns
+	[1] ESBoardChangeAttackBits(85:4547) -> Storm Light Ring
+	Change all orbs to Wood, Light, and Heal, Deal 130% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 1% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:4552) -> Overcoming Will
+	Enemy recover 50% HP
+	[1] ESAttackUPRemainingEnemies(17:4551) -> Raising Flap
+	Increase damage to 200% for the next 1 turn
+
+#9: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESAttackMultihit(15:4553) -> Storm Raid
+	Deal 110% damage (2 hits, 55% each)
+	[1] ESBoardChangeAttackBits(85:4547) -> Storm Light Ring
+	Change all orbs to Wood, Light, and Heal, Deal 130% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBranchCard(90:4549) -> ESBranchCard
+Branch on player_cards HAS [2508, 2509], target rnd 15
+
+#14: ESAttackUPRemainingEnemies(17:4551) -> Raising Flap
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#15: ESAttackUPRemainingEnemies(17:4550) -> You're a troublesome one, aren't you?
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#16: ESAttackUPRemainingEnemies(17:4551) -> Raising Flap
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#17: ESAttackMultihit(15:4553) -> Storm Raid
+Condition: 20% chance (ai:20 rnd:0)
+Deal 110% damage (2 hits, 55% each)
+
+#18: ESColumnSpawnMulti(77:4559) -> Green Wind Soul Cutter
+Condition: 50% chance (ai:50 rnd:0)
+Change the 3rd column to Light orbs and the 4th column to Wood orbs, Deal 95% damage
+
+#19: ESRandomSpawn(92:4560) -> Mountain Haze's Guidance
+Spawn 8 random Wood orbs, Deal 90% damage
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 11
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	[0] ESAbsorbAttribute(53:4555) -> Storm Hawk Dragon's Trial
+	Absorb Wood damage for 1 turn
+	[1] ESRowSpawnMulti(79:4556) -> Splitting Storm Wind
+	Change the 2nd and 4th rows to Wood and Jammer orbs, Deal 100% damage
+
+#23: ESAttributeResist(72:4561) -> Fire Halven
+Reduce damage from Fire attrs by 50%
+
+#24: ESResolve(73:4220) -> Dragonbound's Resolve
+Survive attacks with 1 HP when HP > 50%

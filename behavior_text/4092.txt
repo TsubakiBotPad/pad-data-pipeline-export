@@ -1,0 +1,44 @@
+#4092 - Raging Blue Flame, Iori Yagami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4092
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 4076, 4077, 4078 on team
+ | (8668:94) Then let it burn, as it demands.
+ | Lock 4 random orbs
+ | condition: when 4076, 4077, 4078 on team
+ | (8667:94) Then let it burn, as it demands.
+ | Lock all Dark orbs
+ | (8665:94) I will end your pain.
+ | Lock all Dark orbs
+ | (8666:94) I will end your pain.
+ | Lock 4 random orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (8670:75) Kuzukaze
+     | Leader changes to random sub for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8671:79) 108 Shiki: Yamibarai
+     | Change the 5th row to Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8672:15) 127 Shiki: Aoibana
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8673:54) You won't die that easy!
+     | Bind player leader for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8674:77) Ura 108 Shiki: Yasakazuki
+     | Change the 2nd column to Dark orbs, the 4th column to Dark orbs, and the 6th column to Dark orbs, Deal 150% damage

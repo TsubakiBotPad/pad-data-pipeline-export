@@ -1,0 +1,77 @@
+#3844 - Awoken Akechi Mitsuhide
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkillDelay(89:9592) -> Allow me to get us started.
+Delay active skills by 5 turns, Deal 120% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 18
+
+#10: ESOrbChangeAttack(48:9593) -> I don't need this!
+Condition: 33% chance (ai:33 rnd:0)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#11: ESDamageShield(74:9594) -> Reinforce defences and keep attacking.
+Condition: 50% chance (ai:50 rnd:0)
+Reduce damage from all sources by 50% for 1 turn, Deal 80% damage
+
+#12: ESAttackMultihit(15:9595) -> You can't escape my attacks for an instant!
+Deal 120% damage (3 hits, 40% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESSpinnersFixed(110:9596) -> I didn't want to use this but...
+	Specific orbs change every 1.0s for 3 turns
+	[1] ESBlindStickyFixed(98:9597) -> You've forced my hand.
+	Blind orbs in specific positions for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:9598) -> Let's end this.
+	Increase damage to 150% for the next 99 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:9600) -> Not...not yet!
+Deal 500% damage (5 hits, 100% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESGravity(50:9601) -> This isn't over yet...
+	Player -99% HP
+
+#21: ESTypeResist(118:9591) -> Akechi Dragon Half Reduced
+Reduce damage from Dragon types by 50%

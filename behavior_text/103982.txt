@@ -1,0 +1,63 @@
+#103982 - Parademon Shock Trooper (Film)
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 103982
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8446:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (8446:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (8439:63) Blitz
+ | Bind 1 random sub for 3 turns, Deal 100% damage
+ group:
+ | group:
+ | condition: turns 1-4
+   | condition: 34% chance
+   | (8440:15) Rapid Fire
+   | Deal 105~150% damage (7~10 hits, 15% each)
+   | condition: 33% chance
+   | (8435:89) Flanking Assault
+   | Delay active skills by 0~2 turns, Deal 110% damage
+   | condition: 33% chance
+   | (8441:48) Apokaliptan Weaponry
+   | Change a random attribute to Fire orbs, Deal 130% damage
+ | group:
+ | condition: turn 5
+   | (8445:15) All-Out Attack
+   | Deal 195% damage (3 hits, 65% each)
+ | group:
+   | condition: 34% chance
+   | (8440:15) Rapid Fire
+   | Deal 105~150% damage (7~10 hits, 15% each)
+   | condition: 33% chance
+   | (8435:89) Flanking Assault
+   | Delay active skills by 0~2 turns, Deal 110% damage
+   | condition: 33% chance
+   | (8441:48) Apokaliptan Weaponry
+   | Change a random attribute to Fire orbs, Deal 130% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turns 1-4
+   | condition: 34% chance
+   | (8440:15) Rapid Fire
+   | Deal 105~150% damage (7~10 hits, 15% each)
+   | condition: 33% chance
+   | (8435:89) Flanking Assault
+   | Delay active skills by 0~2 turns, Deal 110% damage
+   | condition: 33% chance
+   | (8441:48) Apokaliptan Weaponry
+   | Change a random attribute to Fire orbs, Deal 130% damage
+ | group:
+ | condition: turn 5
+   | (8444:17) Mindless Loyalty
+   | Increase damage to 300% for the next 999 turns

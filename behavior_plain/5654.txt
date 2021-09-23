@@ -1,0 +1,49 @@
+#5654 - Sosuke Sagara & Arbalest
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:14932) -> We'll be done with this in one minute!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESDebuffRCV(105:14933) -> Let's go!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 5 turns
+
+#5: ESAttackMultihit(15:14935) -> Chain guns, crowd control.
+Condition: 33% chance (ai:0 rnd:33)
+Deal 70% damage (5 hits, 14% each)
+
+#6: ESRandomSpawn(92:14936) -> Shotcannon
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 6 random Jammer orbs, Deal 65% damage
+
+#7: ESColumnSpawnMulti(77:14937) -> Monomolecular Cutter
+Condition: 34% chance (ai:0 rnd:34)
+Change the 4th column to Dark and Jammer orbs, Deal 65% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESVoidShield(71:14934) -> Lambda Drive activated.
+Void damage >= 5,000,000 for 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESTypeResist(118:14995) -> Attack Machine Halved
+Reduce damage from Attacker and Machine types by 50%

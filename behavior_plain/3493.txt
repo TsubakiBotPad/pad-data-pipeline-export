@@ -1,0 +1,72 @@
+#3493 - Reincarnated Hermes
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:21742) -> Knowledge Barrier
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:21743) -> Magic Wall
+	Reduce damage from all sources by 75% for 3 turns
+	[2] ESAttributeBlock(107:21744) -> Lost Chemical
+	Unable to match Fire orbs for 3 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 13
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 9
+
+#7: SkillSet:
+	[0] ESOrbChangeAttack(48:21750) -> Dream Water
+	Change a random attribute to Water orbs, Deal 45% damage
+	[1] ESOrbLock(94:21751) -> Lock Alchemy
+	Lock 15 random orbs, Deal 55% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	[0] ESAbsorbCombo(67:21747) -> Magic Absorbing Wall
+	Absorb damage when combos <= 7 for 3 turns
+	[1] ESAttributeBlock(107:21748) -> Lost Chemical
+	Unable to match Wood orbs for 3 turns, Deal 100% damage
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: SkillSet:
+	[0] ESDamageShield(74:21743) -> Magic Wall
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESAttributeBlock(107:21744) -> Lost Chemical
+	Unable to match Fire orbs for 3 turns, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:21753) -> Divine Blessing
+	ATK -99% for 1 turn
+	[1] ESDebuffMovetime(39:21754) -> Spirit of the Commerce Deity
+	Movetime 25% for 1 turn
+
+#14: ESAttackMultihit(15:21755) -> End of Alchemy
+Deal 500% damage (5 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:21740) -> Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified

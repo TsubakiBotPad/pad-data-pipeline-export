@@ -1,0 +1,24 @@
+#300270 - Alt. Mist Chimera
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300270
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19265:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19269:108) Chimera Mist
+ | Change all Poison orbs to Dark orbs, Deal 300% damage
+ | (19270:15) Chimera Mist
+ | Deal 250% damage (5 hits, 50% each)
+ group:
+ | (19271:92) Mist Breath
+ | Spawn 4 random Dark orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (19409:17) Wave of Carnage
+ | Increase damage to 700% for the next 999 turns

@@ -1,0 +1,28 @@
+#204218 - Valentine Sprite, Pixie
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESOrbLock(94:8964) -> Delivering happiness to everyone ♪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 1 random orb
+
+#5: ESOrbChangeAttack(48:8965) -> Sweeeet Gift
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Heal orbs, Deal 100% damage
+
+#6: ESOrbChangeAttack(48:8966) -> Bitteeer Gift
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

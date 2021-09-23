@@ -1,0 +1,26 @@
+#540 - Fire Samurai Dragon, Shingen
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 540
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (1133:15) Swift Like the Wind
+ | Deal 50% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (275:20) Quiet as Woods
+   | Voids status ailments for 999 turns
+ | group:
+ | condition: hp <= 59
+   | condition: 50% chance
+   | (276:15) Attack like Wildfire
+   | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: turn 2, hp <= 29
+   | (277:8) Immovable as a Mountain
+   | Increase damage to 200% for the next attack

@@ -1,0 +1,29 @@
+#501506 - Shining Dragon Swordsman
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESFixedTarget(112:20467) -> You can't run!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Forces attacks to hit this enemy for 99 turns
+
+#3: ESDamageShield(74:20469) -> Shield of Shining Light
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 3 turns
+
+#4: ESColumnSpawnMulti(77:20470) -> Great Light Slash
+Condition: 30% chance when < 50% HP (ai:30 rnd:0)
+Change the 3rd and 4th columns to Light orbs, Deal 120% damage
+
+#5: ESAttackMultihit(15:20468) -> Rapid Dragon Strike
+Deal 100% damage (5 hits, 20% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSuperResolve(129:20475) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

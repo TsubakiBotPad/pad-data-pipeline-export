@@ -1,0 +1,63 @@
+#1664 - God of Dark Riches, Osiris
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbThreshold(87:10056) -> Crown of Death
+	Absorb damage when damage >= 4,000,000 for 10 turns
+	[1] ESCloud(104:10057) -> Dark Cloud
+	A 1×2 rectangle of clouds appears for 10 turns at a random location
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:10059) -> Almulk Ghadab
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 270% damage (3 hits, 90% each)
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 12
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESRowSpawnMulti(79:10063) -> Hudr Leaf
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd and 3rd rows to Wood and Jammer orbs, Deal 120% damage
+
+#10: ESSkillDelay(89:10064) -> Uwaaba
+Delay active skills by 0~3 turns, Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:10060) -> The Malice of Rebellion
+	Movetime 50% for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:10061) -> Aaru's Throne
+	Increase damage to 150% for the next 99 turns
+
+#13: ESRowSpawnMulti(79:10063) -> Hudr Leaf
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd and 3rd rows to Wood and Jammer orbs, Deal 120% damage
+
+#14: ESSkillDelay(89:10064) -> Uwaaba
+Delay active skills by 0~3 turns, Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:10065) -> Fire Att. Halved
+Reduce damage from Fire attrs by 50%

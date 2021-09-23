@@ -1,0 +1,44 @@
+#102586 - Alt. Wind Keeper
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 102586
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8938:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+
+level: 4
+ type: PASSIVE
+ | (8938:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (8927:74) Metal Shield
+ | Reduce damage from all sources by 75% for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (8929:97) Exhaust Hit
+   | Blind random 5 orbs for 2 turns, Deal 140% damage
+   | condition: 20% chance
+   | (8932:83) Warning + Seven Smog
+   | Delay active skills by 2 turns + Spawn 7 random Poison orbs
+   | condition: 30% chance
+   | (8933:94) All Alert
+   | Lock all orbs, Deal 160% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (8936:83) Capture Net + Hold Wind
+   | Bind 2 random subs for 3 turns + Bind active skills for 5 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (8928:68) Acid Rain
+     | Poison skyfall +15% for 10 turns
+   | group:
+     | (8937:15) Killing Code
+     | Deal 300% damage (6 hits, 50% each)

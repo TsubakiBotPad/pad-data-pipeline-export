@@ -1,0 +1,28 @@
+#7810 - オビ＝ワン・ケノービ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7810
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27718:105) なんだか嫌な予感がする
+ | RCV 50% for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (27719:39) 不器用だから追放されたのか
+   | Movetime 50% for 3 turns, Deal 90% damage
+ | group:
+   | condition: 50% chance
+   | (27724:15) フォース・プッシュ
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 50% chance
+   | (27725:77) 切りつける
+   | Change the 1st column to Light orbs, Deal 95% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (27720:83) 罠だ、返事はするな + つぶされ、粉々に砕かれ… + 忘却の彼方に吹き飛ばされるぞ！
+   | Delay active skills by 5 turns + Spawn 6 random Light orbs + Absorb Light damage for 3 turns

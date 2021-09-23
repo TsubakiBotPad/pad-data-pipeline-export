@@ -1,0 +1,29 @@
+#1614 - Fire Wizard, Laila
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:14281) -> Shaitan, do it!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Heal skyfall +25% for 50 turns
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESAttackMultihit(15:14282) -> Cane Strike
+Deal 10,000% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESBindAwoken(88:14283) -> Good luck next time!
+	Bind awoken skills for 1 turn

@@ -1,0 +1,61 @@
+#100010 - Alt. Brachio
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESRandomSpawn(92:10321) -> Wind Breath
+Spawn 3 random Wood orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 16
+
+#8: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 12
+
+#9: ESRandomSpawn(92:10321) -> Wind Breath
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Wood orbs, Deal 100% damage
+
+#10: ESSkillDelay(89:10322) -> Air Reduction
+Delay active skills by 0~2 turns, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESDamageShield(74:10323) -> New Greenery Protection
+Reduce damage from all sources by 50% for 5 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackUPRemainingEnemies(17:10324) -> Earth's Anger
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 99 turns
+
+#17: ESAttackMultihit(15:10325) -> Gaia Breath
+Deal 140% damage (2 hits, 70% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

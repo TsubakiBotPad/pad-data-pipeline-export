@@ -1,0 +1,31 @@
+#7337 - Vacuous Dionaea Darkfairy, Ornaea
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7337
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 2552, 2553, 3582, 3583, 5486 on team
+ | (24037:70) Y'know that guy who looks like a gigaton of rock?
+ | Do nothing
+ | (24035:94) I'm going to trap you!
+ | Lock 15 random orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (24223:1) Ensnare
+   | Bind 1 random card for 2 turns, Deal 70% damage
+   | condition: 50% chance
+   | (24224:15) Snaring Thorn Shears
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24036:13) I'm going to dissolve you!
+   | Change 1 random orb type to Jammer orbs
+ | group:
+ | condition: hp <= 9
+   | (24062:15) Plant Needles
+   | Deal 150% damage (3 hits, 50% each)

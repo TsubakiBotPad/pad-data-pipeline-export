@@ -1,0 +1,37 @@
+#2821 - Volleyball Club's Devil, Theurgia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2821
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13137:83) Don't drop the ball! + Don't stop moving!
+ | Change all orbs to Fire, Water, Wood, Light, Dark, Jammer, and Poison + Lock all Jammer and Poison orbs, Deal 60% damage
+ group:
+ | group:
+   | condition: 16% chance
+   | (13140:48) Concentrate!
+   | Change all Water orbs to Fire orbs, Deal 60% damage
+   | condition: 60% chance
+   | (13140:48) Concentrate!
+   | Change all Water orbs to Fire orbs, Deal 60% damage
+   | condition: 60% chance
+   | (13141:79) Don't give up!
+   | Change the 1st and 2nd rows to Fire, Jammer, and Poison orbs, Deal 60% damage
+ | group:
+ | condition: always turn 1, hp <= 79
+   | condition: 16% chance
+   | (13140:48) Concentrate!
+   | Change all Water orbs to Fire orbs, Deal 60% damage
+   | (13142:74) It really starts now
+   | Reduce damage from all sources by 50% for 10 turns
+ | group:
+ | condition: hp <= 29
+   | condition: 16% chance
+   | (13140:48) Concentrate!
+   | Change all Water orbs to Fire orbs, Deal 60% damage
+   | (13143:15) Pick up everything!
+   | Deal 150% damage (5 hits, 30% each)

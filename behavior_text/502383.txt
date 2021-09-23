@@ -1,0 +1,28 @@
+#502383 - Awoken Aegir
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 502383
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15460:83) Roar of the Sea God + Binding Water
+ | Change all orbs to Water and Jammer + Lock 15 random orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (15462:53) Sacred Waters of Protection
+     | Absorb Wood damage for 2 turns
+   | group:
+     | condition: 30% chance
+     | (15463:105) Impale
+     | RCV 50% for 2 turns, Deal 170% damage
+     | (15461:15) Defiant God's Clutches
+     | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1, hp <= 29
+   | (15464:17) Vik Enhancement
+   | Increase damage to 200% for the next 6 turns

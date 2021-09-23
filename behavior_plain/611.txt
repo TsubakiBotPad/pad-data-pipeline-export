@@ -1,0 +1,26 @@
+#611 - Kapibara-san
+monster size: 4
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#2: ESInactivity16(16:298) -> Be slack
+Condition: 50% chance (ai:0 rnd:50)
+Do nothing
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESStatusShield(20:300) -> Kyulu
+Voids status ailments for 999 turns
+
+#5: ESAttackMultihit(15:299) -> Dogooon
+Condition: When < 40% HP (ai:100 rnd:0)
+Deal 600% damage (3 hits, 200% each)
+
+#6: ESInactivity16(16:298) -> Be slack
+Condition: 50% chance (ai:0 rnd:50)
+Do nothing

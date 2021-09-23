@@ -1,0 +1,38 @@
+#502639 - Gods' Threat Venomous Snake, Jörmungandr
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 502639
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15500:83) Chaos Rain + Mark of Ragnarok
+ | Jammer and Poison skyfall +8% for 5 turns + Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (15494:63) Snake's Deadening Fang
+   | Bind 1 random sub for 1 turn, Deal 130% damage
+   | (15493:15) Thorn Tail
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (15496:67) It won't end like this!
+     | Absorb damage when combos <= 6 for 2 turns
+   | group:
+     | condition: 30% chance
+     | (15495:53) Venomous Snake's Huge Jaws
+     | Absorb Wood damage for 1 turn, Deal 140% damage
+     | condition: 30% chance
+     | (15494:63) Snake's Deadening Fang
+     | Bind 1 random sub for 1 turn, Deal 130% damage
+     | (15493:15) Thorn Tail
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 9
+   | (15497:15) Overwhelming Force
+   | Deal 500% damage

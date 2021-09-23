@@ -1,0 +1,64 @@
+#6719 - Distant Twin-Relic Dragon, Jurond
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6719
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20327:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20332:83) Heaven's Whirlwind + Ancient Escarpment + Shielding Tornado + Pillage
+ | Voids status ailments for 999 turns + Void damage >= 60,000,000 for 999 turns + Random 3 orbs change every 1.0s for 5 turns + ATK -75% for 10 turns
+ | (20328:83) Heaven's Whirlwind + Ancient Escarpment + Shielding Tornado
+ | Voids status ailments for 999 turns + Void damage >= 60,000,000 for 999 turns + Random 3 orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 5
+     | condition: 20% chance, when Fire, Water, Wood, Light, and Dark attributes are used to attack
+     | (20339:107) Gust Needle
+     | Unable to match Dark orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance, when Fire, Water, Wood, Light, and Dark attributes are used to attack
+     | (20338:107) Gust Needle
+     | Unable to match Light orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance, when Fire, Water, Wood, Light, and Dark attributes are used to attack
+     | (20337:107) Gust Needle
+     | Unable to match Wood orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance, when Fire, Water, Wood, Light, and Dark attributes are used to attack
+     | (20336:107) Gust Needle
+     | Unable to match Water orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance, when Fire, Water, Wood, Light, and Dark attributes are used to attack
+     | (20335:107) Gust Needle
+     | Unable to match Fire orbs for 1 turn, Deal 100% damage
+     | condition: when 11 combos last turn
+     | (20598:128) Stinging Rain
+     | For 1 turn, 30% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+     | condition: 50% chance
+     | (20341:39) Gale Spear
+     | Movetime -3s for 1 turn, Deal 110% damage
+     | (20340:15) Gaia Blast
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (20334:109) Breeze of Trust
+     | Random 3 orbs change every 1.0s for 5 turns, Deal 180% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | condition: when 1 or more skills are used
+   | (20345:83) Ancient Cliff + Magnificent Storm + Pillage
+   | Reduce damage from all sources by 90% for 999 turns + Change player HP to 50% for 5 turns + RCV 50% for 10 turns
+   | (20342:83) Ancient Cliff + Magnificent Storm
+   | Reduce damage from all sources by 90% for 999 turns + Change player HP to 50% for 5 turns
+ | group:
+ | condition: hp <= 10
+   | group:
+   | condition: turn 2
+     | (20347:83) Pillage + Sweeping Dust Storm
+     | ATK -75% for 10 turns + Bind awoken skills for 5 turns
+   | group:
+     | (20349:83) Land Shift + Aerial Burst
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,500% damage (5 hits, 300% each), Deal 1,500% damage (5 hits, 300% each)

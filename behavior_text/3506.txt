@@ -1,0 +1,25 @@
+#3506 - Reincarnated Pandora
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3506
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15661:83) You can do it, right? + Even in times like this... + Now, grasp hold of hope... + Pandora's Box
+ | Voids status ailments for 999 turns + Bind awoken skills for 5 turns + Absorb damage when combos <= 9 for 1 turn + Spawn 6 random Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 10 combos last turn
+   | (15666:83) Congratulations + Right, I'll give it my all
+   | Movetime 110% for 99 turns + Absorb damage when combos <= 7 for 999 turns
+   | (15669:88) No Cheating...
+   | Bind awoken skills for 10 turns
+   | (15670:65) Nightmarish Present
+   | Bind 4 random subs for 6 turns
+ | group:
+   | (15671:15) Endless Disaster
+   | Deal 100% damage (4 hits, 25% each)

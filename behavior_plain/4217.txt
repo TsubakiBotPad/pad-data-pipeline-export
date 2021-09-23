@@ -1,0 +1,26 @@
+#4217 - Charming Patissiere, Minotauria
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAbsorbCombo(67:8961) -> Looks yummy, right?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 2 turns
+
+#4: ESDamageShield(74:8963) -> Coating
+Condition: 20% chance (ai:20 rnd:0)
+Reduce damage from all sources by 50% for 1 turn
+
+#5: ESAttackMultihit(15:8962) -> White Flare
+Condition: 60% chance (ai:60 rnd:0)
+Deal 110% damage (2 hits, 55% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,30 @@
+#500113 - Ifrit
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:14507) -> Vast Body of Flames
+Reduce damage from all sources by 30% for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBombRandomSpawn(102:14508) -> Incendiary Bomb
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 3 random Bomb orbs, Deal 50% damage
+
+#7: ESAttackMultihit(15:14509) -> Stomp!
+Deal 200% damage (2 hits, 100% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

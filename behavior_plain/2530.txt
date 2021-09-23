@@ -1,0 +1,49 @@
+#2530 - Dark Crimson Armor Dragon, Ruchbah
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkyfall(68:3582) -> Evil Core
+Jammer skyfall +10% for 15 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:3241) -> Limit Burst
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 1,000% damage (2 hits, 500% each)
+
+#9: ESSkillDelay(89:3240) -> Absorption
+Condition: When < 80% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 1 turn
+
+#10: ESRandomSpawn(92:3584) -> Envy Poison
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Poison orbs
+
+#11: ESBlind62(62:3583) -> Demon's Flare
+Blind all orbs on the board, Deal 140% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESDebuffMovetime(39:3580) -> Mind Eater
+	Movetime -3s for 7 turns

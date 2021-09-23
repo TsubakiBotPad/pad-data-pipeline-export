@@ -1,0 +1,48 @@
+#502638 - Jörmungandr
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+monster_id: 502638
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15396:68) I'm coming to get you!
+ | Poison skyfall +10% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (15398:94) Snake Glare
+   | Lock 3 random orbs, Deal 100% damage
+   | (15397:15) Flying Scale Blade
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15399:5) I'll swallow you whole!
+     | Blind all orbs on the board
+   | group:
+   | condition: turn 2
+     | (15400:64) Digestive Juices
+     | Change 3 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: turn 3
+     | (15401:64) Digestive Juices
+     | Change 6 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: turn 4
+     | (15402:64) Digestive Juices
+     | Change 9 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: turn 5
+     | (15403:64) Digestive Juices
+     | Change 12 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: turn 6
+     | (15404:64) Digestive Juices
+     | Change 15 random orbs to Poison orbs, Deal 100% damage
+   | group:
+     | (15405:64) Digestive Juices
+     | Change 30 random orbs to Poison orbs, Deal 100% damage

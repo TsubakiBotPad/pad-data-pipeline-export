@@ -1,0 +1,24 @@
+#4694 - Iceblade Divine Beast, Shust
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4694
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10716:94) Wisdom of the Freezing Divine Beast
+ | Lock all orbs
+ group:
+ | group:
+ | condition: execute repeatedly, turn 3 of 3, hp <= 100
+   | condition: 50% chance
+   | (10732:17) I can't go easy on you
+   | Increase damage to 150% for the next 2 turns
+   | (10733:77) What now, then?!
+   | Change the 3rd and 4th columns to Water orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 19
+   | (10717:79) Blue Origin
+   | Change the 5th row to Water orbs, Deal 300% damage

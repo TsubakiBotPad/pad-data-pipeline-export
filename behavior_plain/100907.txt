@@ -1,0 +1,40 @@
+#100907 - Alt. Aqua Baron
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfall(68:9888) -> Blizzard
+	Water skyfall +20% for 20 turns
+	[1] ESSpinnersFixed(110:9889) -> Crystal Force
+	Specific orbs change every 1.0s for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSpinnersFixed(110:9891) -> Crystal Reversal
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 10 turns, Deal 260% damage
+
+#7: ESAttackMultihit(15:9893) -> Cold Trident
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 360% damage (3 hits, 120% each)
+
+#8: ESAttackMultihit(15:9892) -> Ice Rush
+Deal 300% damage (2 hits, 150% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESTypeResist(118:9894) -> Physical Balanced Halved
+Reduce damage from Balanced and Physical types by 50%

@@ -1,0 +1,37 @@
+#5129 - Wandering Ancient Dragon Knight - Rex
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 5129
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12749:83) Rock Barrier + Spirit of the Ancient Dragon Knight
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 8 for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (12752:96) Sword of Wandering
+     | Locked random skyfall +100% for 99 turns, Deal 300% damage
+   | group:
+     | condition: 33% chance
+     | (12755:50) Nothingness Life
+     | Player -99% HP
+     | condition: 50% chance
+     | (12756:74) Rock-Slicing Destruction
+     | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (12753:15) Rock Breaking Hell Guidance
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (12757:17) Power Released
+     | Increase damage to 300% for the next 999 turns
+   | group:
+     | (12758:15) Celestial Life Exorcism
+     | Deal 300% damage (10 hits, 30% each)

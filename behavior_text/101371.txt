@@ -1,0 +1,31 @@
+#101371 - Alt. Crazed King of Purgatory, Beelzebub
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101371
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1394:92) You get no mercy!!
+ | Change all orbs to Poison, Deal 10% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1396:48) Hell's Charge
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1395:15) Ora ora ora oraah!!
+     | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1397:92) You're going down!!
+     | Change all orbs to Poison, Deal 10% damage
+   | group:
+     | (1398:64) Infernal Drive
+     | Change 6 random orbs to Poison orbs, Deal 125% damage

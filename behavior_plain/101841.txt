@@ -1,0 +1,112 @@
+#101841 - Alt. Giant Arched Sea Dragon King, Volsung
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfall(68:8738) -> Aquaflame Evocation
+	Fire and Water skyfall +20% for 10 turns
+	[1] ESSkyfallLocked(96:8739) -> Enchant Lock
+	Locked Fire and Water skyfall +100% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESSkillDelay(89:3250) -> Wrath of Water
+	Delay active skills by 5 turns
+	[1] ESBindAttack(63:3251) -> Swirl Cage
+	Bind 6 random cards for 5 turns, Deal 2,500% damage
+
+#7: ESAttackMultihit(15:3247) -> Flare Stream
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 500% damage (5 hits, 100% each)
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 90, target rnd 14
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 65, target rnd 23
+
+#11: ESAttackMultihit(15:3246) -> Vortex Breath
+Condition: 50% chance (ai:0 rnd:50)
+Deal 150% damage (3 hits, 50% each)
+
+#12: ESRowSpawnMulti(79:3248) -> Press Wave
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSkillDelay(89:3260) -> Power Suction
+Delay active skills by 3 turns
+
+#15: ESAttackMultihit(15:3246) -> Vortex Breath
+Deal 150% damage (3 hits, 50% each)
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 11
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESBranchCard(90:3253) -> ESBranchCard
+Branch on player_cards HAS [1948, 1949], target rnd 21
+
+#19: ESBranchCard(90:3255) -> ESBranchCard
+Branch on player_cards HAS [2442, 2443], target rnd 22
+
+#20: SkillSet:
+	[0] ESGravity(50:3257) -> Flare Tick Explosion
+	Player -99% HP
+	[1] ESBindSkill(14:3258) -> Sea King's Eye
+	Bind active skills for 10 turns
+
+#21: ESGravity(50:3254) -> Can you fight through my trial?
+Player -99% HP
+
+#22: ESBindSkill(14:3256) -> I don't need to fight with you.
+Bind active skills for 10 turns
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#25: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 27
+
+#26: ESAttackMultihit(15:3246) -> Vortex Breath
+Deal 150% damage (3 hits, 50% each)
+
+#27: ESAbsorbAttribute(53:3249) -> Anti-Plant
+Condition: When < 65% HP (ai:100 rnd:0)
+Absorb Wood damage for 3 turns
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESResolve(73:3242) -> Vol Spirit
+Survive attacks with 1 HP when HP > 54%
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESAttributeResist(72:8791) -> Volsung Fire Water Halved
+Reduce damage from Fire and Water attrs by 50%

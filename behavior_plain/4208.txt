@@ -1,0 +1,33 @@
+#4208 - Valentine Adamantine Princess, Facet
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindSkill(14:21934) -> I made these all by myself
+	Bind active skills for 4 turns
+	[1] ESPoisonChangeRandomAttack(64:21935) -> Would you like to try one?
+	Change 1 random orb to Poison orbs, Deal 70% damage
+
+#3: ESOrbChangeAttackBits(108:21939) -> Why won't you try them?!
+Change all Poison orbs to Water orbs, Deal 150% damage
+
+#4: ESPoisonChangeRandomAttack(64:21936) -> Do you want to try two more?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change 2 random orbs to Poison orbs, Deal 80% damage
+
+#5: ESPoisonChangeRandomAttack(64:21937) -> How about a lot more?
+Condition: 50% chance (ai:0 rnd:50)
+Change 4 random orbs to Poison orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:21938) -> Delicious, aren't they!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

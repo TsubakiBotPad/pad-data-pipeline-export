@@ -1,0 +1,28 @@
+#105356 - Lightflute Dragon
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105356
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (13442:92) Healing Melody
+ | Spawn 10 random Heal orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (13443:105) Symphonic Harmony
+   | RCV 50% for 3 turns
+ | group:
+   | condition: 50% chance
+   | (13444:92) Sforzato Pesante
+   | Spawn 1 random Heal orb, Deal 105% damage
+   | condition: 50% chance
+   | (13445:48) Adagio Calando
+   | Change a random attribute to Light orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | (13446:92) Ritardando Ambient
+   | Spawn 8 random Light orbs, Deal 150% damage

@@ -1,0 +1,24 @@
+#200027 - Alt. Lil' Green Dragon
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 5
+
+#2: ESAttackUPCooldown(19:7454) -> Anger
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 99 turns
+
+#3: ESRandomSpawn(92:7457) -> Wind Ball
+Spawn 1 random Wood orb, Deal 100% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESDamageShield(74:7451) -> Wood Guard
+Reduce damage from all sources by 50% for 2 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

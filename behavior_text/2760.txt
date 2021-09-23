@@ -1,0 +1,50 @@
+#2760 - Yellow Chrysanthemum Virtue, Xiu Min
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2760
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19458:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (19459:83) Noble One's Modesty + Perfect Day for Painting + Chill-Flower's Rising
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 5 turns + Random 2 orbs change every 1.0s for 1 turn, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 33% chance
+     | (19463:83) Vibrant Petals + Chill-Flower's Rising
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Random 1 orbs change every 0.5s for 1 turn, Deal 50% damage
+     | condition: 34% chance
+     | (19464:83) Vibrant Petals + Chill-Flower's Rising
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Random 2 orbs change every 1.0s for 1 turn, Deal 50% damage
+     | condition: 33% chance
+     | (19465:83) Vibrant Petals + Chill-Flower's Rising
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Random 3 orbs change every 2.0s for 1 turn, Deal 50% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | (19470:83) Clear Autumn Skies + Noble One's Mastery
+     | Enemy recover 50% HP + Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 33% chance
+     | (19463:83) Vibrant Petals + Chill-Flower's Rising
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Random 1 orbs change every 0.5s for 1 turn, Deal 50% damage
+     | condition: 34% chance
+     | (19464:83) Vibrant Petals + Chill-Flower's Rising
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Random 2 orbs change every 1.0s for 1 turn, Deal 50% damage
+     | condition: 33% chance
+     | (19465:83) Vibrant Petals + Chill-Flower's Rising
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Random 3 orbs change every 2.0s for 1 turn, Deal 50% damage
+ | group:
+ | condition: hp <= 9
+   | (19473:15) Polychrome Chrysanthemum
+   | Deal 200% damage (10 hits, 20% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (19470:83) Clear Autumn Skies + Noble One's Mastery
+   | Enemy recover 50% HP + Increase damage to 200% for the next 999 turns

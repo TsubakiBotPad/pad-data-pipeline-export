@@ -1,0 +1,80 @@
+#303773 - Judging Rabbit Dragonbound, Saria
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:24629) -> Book of Defensive Skills
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:24523) -> Rabbit Dragon's Barrier
+	Void damage >= 1,000,000,000 for 999 turns
+	[2] ESDamageShield(74:24524) -> Shield of Karmic Judgement
+	Reduce damage from all sources by 99% for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 2, target rnd 11
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESRandomSpawn(92:24525) -> Shine Flare
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 2 random Fire and Light orbs, Deal 340% damage
+
+#7: ESAttackMultihit(15:24526) -> Blaze Sword
+Condition: 50% chance (ai:0 rnd:50)
+Deal 345% damage (3 hits, 115% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	[0] ESChangeAttribute(46:24401) -> Iridescent Shine
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:24402) -> Radiant Flash
+	Deal 1,000% damage (5 hits, 200% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardSizeChange(126:24631) -> Trial Board
+	Change board size to 6x5 for 1 turn
+	[1] ESBindAwoken(88:24632) -> Secret Power Suppression
+	Bind awoken skills for 1 turn
+	[2] ESBindRandom(1:24633) -> Chant of Peace
+	Bind 6 random cards for 1 turn
+	[3] ESRandomSpawn(92:24634) -> Make as many combos as you can!
+	Spawn 9 random Fire, Water, Wood, and Heal orbs
+
+#12: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 9, target rnd 14
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:24637) -> Adequate Compensation
+	Delay active skills by 6 turns
+	[1] ESCloud(104:24638) -> Final Trial
+	A 4×3 rectangle of clouds appears for 1 turn at 2nd row, 2nd column
+
+#14: ESTargetedSkillHaste(139:24635) -> Adequate Compensation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Haste all cards' skills by 3 turns
+
+#15: ESAttackMultihit(15:24527) -> Judgement Sword
+Deal 1,500% damage (5 hits, 300% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:24628) -> Super Resolve
+Damage which would reduce HP from above 2% to below 2% is nullified

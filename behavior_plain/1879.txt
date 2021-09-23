@@ -1,0 +1,75 @@
+#1879 - Armored Blade Dragon, Diagoldos
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:1813) -> Light Sword Scale
+Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: ESRowSpawnMulti(79:1815) -> Tail Slash
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 3rd row to Jammer orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:1814) -> Sword Phalanx
+Deal 90~150% damage (3~5 hits, 30% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESAbsorbCombo(67:1816) -> Sword Mountain Stance
+Absorb damage when combos <= 4 for 2 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESOrbChangeAttack(48:1817) -> Pouring Light Blade
+Change a random attribute to Light orbs, Deal 85% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1100
+
+#21: ESRowSpawnMulti(79:1818) -> Lightning Horizon
+Change the 2nd, 3rd, and 4th rows to Light orbs, Deal 300% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttributeResist(72:1775) -> Halve Dark
+Reduce damage from Dark attrs by 50%

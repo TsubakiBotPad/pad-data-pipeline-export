@@ -1,0 +1,48 @@
+#400915 - Alt. Angelit
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 400915
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25438:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25422:108) Heart Attack
+ | Change all Jammer and Poison orbs to Heal orbs, Deal 250% damage
+ | (25423:92) Angelit Heart
+ | Spawn 8 random Heal orbs, Deal 150% damage
+ group:
+ | group:
+   | (25425:108) Heart Attack
+   | Change all Jammer and Poison orbs to Heal orbs, Deal 120% damage
+   | (25426:92) Angelit Heart
+   | Spawn 8 random Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25428:86) Healit!
+     | Enemy recover 100% HP
+   | group:
+     | (25427:15) Angelit Heaven Attack
+     | Deal 200% damage (2 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: turn 1, hp <= 100
+   | (25424:17) Angrilit!
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25428:86) Healit!
+     | Enemy recover 100% HP
+   | group:
+   | condition: turn 2
+     | (25424:17) Angrilit!
+     | Increase damage to 1,000% for the next 999 turns

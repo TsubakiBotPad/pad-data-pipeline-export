@@ -1,0 +1,72 @@
+#5109 - Blanka
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindSkill(14:12474) -> Vauuuun! Gurrrrrr...Graaauh!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESAttackMultihit(15:12475) -> Wild Hunt
+Condition: 25% chance (ai:0 rnd:25)
+Deal 110% damage (5 hits, 22% each)
+
+#5: ESRandomSpawn(92:12476) -> Electric Thunder
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 4 random Light orbs, Deal 100% damage
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:12478) -> Rolling Attack
+	Deal 50% damage
+	[1] ESGravity(50:12479) -> Vertical Rolling
+	Player -25% HP
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:12481) -> Back Step Rolling
+	Deal 45% damage
+	[1] ESAttackMultihit(15:12482) -> Raging Bash
+	Deal 60% damage (4 hits, 15% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSkyfallLocked(96:12483) -> Jungle Dynamo
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Locked random skyfall +30% for 3 turns
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 16
+
+#11: ESBindAttack(63:12484) -> Ground Shave Rolling
+Condition: 25% chance (ai:0 rnd:25)
+Bind 1 random sub for 1 turn, Deal 130% damage
+
+#12: ESOrbLock(94:12485) -> Rolling Attack
+Condition: 25% chance (ai:0 rnd:25)
+Lock 10 random orbs, Deal 115% damage
+
+#13: ESDebuffMovetime(39:12486) -> Back Step Rolling
+Condition: 25% chance (ai:0 rnd:25)
+Movetime -1s for 1 turn, Deal 110% damage
+
+#14: ESSkillDelay(89:12487) -> Vertical Rolling
+Condition: 25% chance (ai:0 rnd:25)
+Delay active skills by 0~2 turns, Deal 105% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBindAttack(63:12488) -> Dynamic Rolling
+Bind 1 random sub for 1~2 turns, Deal 200% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

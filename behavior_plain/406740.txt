@@ -1,0 +1,46 @@
+#406740 - Super Purple Carbuncle
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:22442) -> Power of the Purple Jewel
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Poison skyfall +20% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESAttackMultihit(15:22207) -> Carbuncle Rush
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#8: ESChangeAttribute(46:20950) -> Indiscriminate Carnage
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+
+#9: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> Transformation of Carnage
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> Bloody Carnage
+	Deal 3,500% damage (7 hits, 500% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:22267) -> Resolve
+Survive attacks with 1 HP when HP > 35%
+
+#12: ESTurnChangeRemainingEnemies(122:22206) -> Enemy's next turn changed
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1

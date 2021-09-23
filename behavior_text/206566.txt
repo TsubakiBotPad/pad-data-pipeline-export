@@ -1,0 +1,32 @@
+#206566 - Rui
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206566
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (20050:94) I won't let anyone get in our way.
+ | Lock 8 random orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (20052:94) Steel Threads
+   | Lock 5 random orbs, Deal 80% damage
+   | condition: 33% chance
+   | (20059:63) Blood Demon Art: Murderous Eye Basket
+   | Bind 1 random sub for 2 turns, Deal 90% damage
+   | condition: 34% chance
+   | (20058:15) What an unpleasant feeling!
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20060:68) It's like these scum exist just to interfere with me!
+     | Jammer skyfall +10% for 5 turns
+   | group:
+     | (20061:94) Blood Demon Art: Cutting Thread Rotation
+     | Lock 12 random orbs, Deal 120% damage

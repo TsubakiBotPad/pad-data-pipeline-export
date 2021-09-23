@@ -1,0 +1,40 @@
+#303259 - Falcon Guardian's Dark Scorpion Goddess, Serket
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 303259
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5872:83) Protector's Giant Shield + Mystic Immunity Barrier
+ | Reduce damage from all sources by 75% for 3 turns + Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (5873:92) Scorpion Needle
+     | Spawn 6 random Poison orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 19
+     | (5876:83) Gharib Difae + A Glimpse of Light & Dark
+     | Absorb damage when combos <= 6 for 2 turns + Fix orb movement starting point to random position on the board
+   | group:
+   | condition: turn 3 while HP > 19
+     | (5877:62) Protector's Blade
+     | Blind all orbs on the board, Deal 200% damage
+   | group:
+   | condition: turn 4 while HP > 19
+     | (5880:83) Neurotoxins + Sm Dhanab
+     | Movetime -1s for 10 turns + Change a random attribute to Mortal Poison orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (5881:77) Scorpion Slash
+     | Change the 1st column to Poison orbs, Deal 140% damage
+     | (5882:15) Scorpion's Pincer Guillotine
+     | Deal 160% damage (2 hits, 80% each)
+ | group:
+ | condition: hp <= 19
+   | (5883:77) Kthyr Akrab
+   | Change the 1st, 3rd, and 5th columns to Poison orbs and the 2nd, 4th, and 6th columns to Mortal Poison orbs, Deal 600% damage

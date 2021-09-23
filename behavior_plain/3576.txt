@@ -1,0 +1,117 @@
+#3576 - Seventh Dragon Caller, Shapeshifter Wallace
+monster size: 5
+new AI: True
+start/max counter: 1023
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 512)
+	[0] ESVoidShield(71:6886) -> Concealed Mountain Path
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESStatusShield(20:6887) -> Guardian Dragon Formation
+	Voids status ailments for 999 turns
+	[2] ESDamageShield(74:6888) -> Mucus Skin
+	Reduce damage from all sources by 75% for 7 turns
+
+#3: SkillSet:
+	Condition: When < 15% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:6911) -> Rainbow Cloak
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:6920) -> Everstorm Rainbow Blade
+	Deal 12,000% damage (10 hits, 1,200% each)
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 256)
+	[0] ESChangeAttribute(46:6890) -> Rainbow Cloak
+	Change own attribute to Fire
+	[1] ESPoisonChangeRandomAttack(64:6891) -> Hell Poison Claw
+	Change 7 random orbs to Poison orbs, Deal 310% damage
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 128)
+	[0] ESChangeAttribute(46:6893) -> Rainbow Cloak
+	Change own attribute to Water
+	[1] ESPoisonChangeRandomAttack(64:6894) -> Hell Venom Claw
+	Change 5 random orbs to Poison orbs, Deal 320% damage
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 64)
+	[0] ESChangeAttribute(46:6896) -> Rainbow Cloak
+	Change own attribute to Wood
+	[1] ESBindAttack(63:6897) -> Paralysis Vine
+	Bind 1 random sub for 7 turns, Deal 330% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESChangeAttribute(46:6899) -> Rainbow Cloak
+	Change own attribute to Light
+	[1] ESPoisonChangeRandomAttack(64:6900) -> Poison Rave
+	Change 10 random orbs to Poison orbs, Deal 350% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESChangeAttribute(46:6902) -> Rainbow Cloak
+	Change own attribute to Dark
+	[1] ESPoisonChangeRandomAttack(64:6903) -> Hell Poison Rave
+	Change 7 random orbs to Poison orbs, Deal 370% damage
+
+#9: ESOrbChangeAttack(48:6905) -> Hell Bloom
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change all Poison orbs to Jammer orbs, Deal 6,000% damage
+
+#10: ESOrbLock(94:6906) -> Thousand-Blade Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Lock all orbs, Deal 300% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfall(68:6907) -> The Allure of Swift Death
+	Mortal Poison skyfall +20% for 7 turns
+	[1] ESAttributeBlock(107:6908) -> The Art of Contamination
+	Unable to match Poison and Mortal Poison orbs for 2 turns
+	[2] ESAttackMultihit(15:6909) -> Storm Rave
+	Deal 420% damage (7 hits, 60% each)
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESChangeAttribute(46:6911) -> Rainbow Cloak
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESBindAttack(63:6912) -> Paralysis Vine
+	Bind 1 random sub for 7 turns, Deal 330% damage
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:6914) -> Thorned Husk Fang
+	Locked Poison and Mortal Poison skyfall +100% for 5 turns
+	[1] ESAttackMultihit(15:6915) -> Cyclone Rave
+	Deal 490% damage (7 hits, 70% each)
+
+#14: SkillSet:
+	Condition: 45% chance (ai:0 rnd:45)
+	[0] ESChangeAttribute(46:6911) -> Rainbow Cloak
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESBoardChangeAttackBits(85:6925) -> Seven Gardens
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison, Deal 400% damage
+
+#15: SkillSet:
+	Condition: 40% chance (ai:0 rnd:40)
+	[0] ESChangeAttribute(46:6911) -> Rainbow Cloak
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:6915) -> Cyclone Rave
+	Deal 490% damage (7 hits, 70% each)
+
+#16: SkillSet:
+	Condition: 15% chance (ai:0 rnd:15)
+	[0] ESChangeAttribute(46:6911) -> Rainbow Cloak
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESPoisonChangeRandomAttack(64:6926) -> Dead Poison Rave
+	Change 14 random orbs to Poison orbs, Deal 400% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttributeResist(72:6922) -> Wood damage halved
+Reduce damage from Wood attrs by 50%

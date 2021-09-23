@@ -1,0 +1,96 @@
+#1253 - Blazing Dragonfire Angel, Uriel
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 0
+monster_id: 1253
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4142:83) 5 Blazing Spheres appear + Holy Talisman protect me!
+ | Do nothing + Reduce damage from all sources by 50% for 10 turns
+ type: DEATH
+ condition: when defeated
+ | (4139:95) Holy Flame Oracle
+ | Fire skyfall +15% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4150:2) Saintly Chains of Water Admonition
+     | Bind Water cards for 10 turns
+     | condition: 20% chance
+     | (4247:83) Uses 3 Blazing Spheres + Saint Blast!
+     | Do nothing + Change the 2nd and 4th rows to Fire and Light orbs, Deal 200% damage
+     | condition: 50% chance
+     | (4246:83) Uses 2 Blazing Spheres + Holy Pillar!
+     | Do nothing + Change the 3rd column to Light orbs and the 4th column to Fire orbs, Deal 150% damage
+     | condition: 50% chance
+     | (4245:83) Uses 1 Blazing Sphere + Photon Flare!
+     | Do nothing + Change a random attribute to Jammer orbs, Deal 100% damage
+     | (4244:83) Uses 1 Blazing Sphere + Photon Slash!
+     | Do nothing + Change the 3rd row to Fire and Light orbs, Deal 100% damage
+   | group:
+   | condition: turns 2-3 while HP > 49
+     | condition: 20% chance
+     | (4247:83) Uses 3 Blazing Spheres + Saint Blast!
+     | Do nothing + Change the 2nd and 4th rows to Fire and Light orbs, Deal 200% damage
+     | condition: 50% chance
+     | (4246:83) Uses 2 Blazing Spheres + Holy Pillar!
+     | Do nothing + Change the 3rd column to Light orbs and the 4th column to Fire orbs, Deal 150% damage
+     | condition: 50% chance
+     | (4245:83) Uses 1 Blazing Sphere + Photon Flare!
+     | Do nothing + Change a random attribute to Jammer orbs, Deal 100% damage
+     | (4244:83) Uses 1 Blazing Sphere + Photon Slash!
+     | Do nothing + Change the 3rd row to Fire and Light orbs, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | condition: 50% chance
+     | (4246:83) Uses 2 Blazing Spheres + Holy Pillar!
+     | Do nothing + Change the 3rd column to Light orbs and the 4th column to Fire orbs, Deal 150% damage
+     | condition: 50% chance
+     | (4245:83) Uses 1 Blazing Sphere + Photon Flare!
+     | Do nothing + Change a random attribute to Jammer orbs, Deal 100% damage
+     | (4244:83) Uses 1 Blazing Sphere + Photon Slash!
+     | Do nothing + Change the 3rd row to Fire and Light orbs, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 49
+     | condition: 50% chance
+     | (4245:83) Uses 1 Blazing Sphere + Photon Flare!
+     | Do nothing + Change a random attribute to Jammer orbs, Deal 100% damage
+     | (4244:83) Uses 1 Blazing Sphere + Photon Slash!
+     | Do nothing + Change the 3rd row to Fire and Light orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4149:83) Heat Stab + Skill Melt
+     | Player -99% HP + Delay active skills by 1~3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4066:83) Glory... + Cross!
+     | Change the 2nd row to Fire orbs + Change the 2nd column to Light orbs, Deal 65% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (4239:83) Uses 5 Blazing Spheres + Sacred Explosion!
+     | Do nothing + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 500% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4066:83) Glory... + Cross!
+     | Change the 2nd row to Fire orbs + Change the 2nd column to Light orbs, Deal 65% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4149:83) Heat Stab + Skill Melt
+     | Player -99% HP + Delay active skills by 1~3 turns
+ type: UNKNOWN_USE
+ | (4240:83) Uses 4 Blazing Spheres + Divine Explosion!
+ | Do nothing + Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 350% damage
+ | (4241:83) Uses 3 Blazing Spheres + Saint Explosion!
+ | Do nothing + Change all orbs to Fire, Water, Wood, and Light, Deal 300% damage
+ | (4242:83) Uses 2 Blazing Spheres + Holy Explosion!
+ | Do nothing + Change all orbs to Fire, Wood, and Light, Deal 250% damage
+ | (4243:83) Uses 1 Blazing Sphere + Photon Explosion!
+ | Do nothing + Change all orbs to Fire and Light, Deal 200% damage
+ | (4063:85) Explosion
+ | Change all orbs to Fire, Deal 150% damage

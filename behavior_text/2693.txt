@@ -1,0 +1,28 @@
+#2693 - Squad 10 Lieutenant, Rangiku Matsumoto
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2693
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17431:104) Growl, Haineko
+ | A 1×2 rectangle of clouds appears for 1 turn at a random location
+ group:
+ | group:
+   | condition: 50% chance
+   | (17432:104) It will shred anything it touches.
+   | A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 90% damage
+   | (17433:15) You're too slow.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (17435:1) There's nowhere to run.
+     | Bind 2 random cards for 1 turn
+   | group:
+     | (17434:104) Haineko!!
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 110% damage

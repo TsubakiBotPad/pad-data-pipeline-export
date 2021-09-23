@@ -1,0 +1,63 @@
+#5363 - ババァーン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5363
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (13563:73) 根性
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | (13568:83) 大したことないな + 戦神の覇気
+ | Deal 120% damage (2 hits, 60% each) + Delay active skills by 6 turns, Deal 120% damage (2 hits, 60% each)
+ group:
+ | group:
+   | (13568:83) 大したことないな + 戦神の覇気
+   | Deal 120% damage (2 hits, 60% each) + Delay active skills by 6 turns, Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 1
+   | (13567:83) いてぇじゃねぇか！！ + まだ終わんねぇぞコラ！！ + 武神裸締め
+   | Increase damage to 200% for the next 999 turns + Enemy recover 100% HP + Unable to match Heal orbs for 1 turn
+ type: UNKNOWN_USE
+ | (13554:77) 夜穿天昇
+ | Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 200% damage
+ | condition: 20% chance
+ | (13562:83) 無尽蔵な世界の排他的概念 + 凡てを焦土せし狂気の輪廻
+ | Voids status ailments for 999 turns + Void damage >= 40,000,000 for 999 turns
+
+level: 2
+ type: PASSIVE
+ | (13563:73) 根性
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | (13552:127) 月の陰り
+ | No skyfall for 5 turns
+ group:
+ | group:
+ | condition: turn 1 while HP > 79, hp <= 100
+   | (13553:92) 彩星ノ宝珠
+   | Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs
+ | group:
+ | condition: hp <= 79
+   | condition: 20% chance
+   | (13561:71) 凡てを焦土せし狂気の輪廻
+   | Void damage >= 40,000,000 for 999 turns
+   | condition: 20% chance
+   | (13564:17) いてぇじゃねぇか！！
+   | Increase damage to 200% for the next 999 turns
+   | condition: 20% chance
+   | (13565:86) まだ終わんねぇぞコラ！！
+   | Enemy recover 100% HP
+ | group:
+ | condition: hp <= 14
+   | (13566:107) 武神裸締め
+   | Unable to match Heal orbs for 1 turn
+ type: UNKNOWN_USE
+ | (13554:77) 夜穿天昇
+ | Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 200% damage
+ | condition: 20% chance
+ | (13562:83) 無尽蔵な世界の排他的概念 + 凡てを焦土せし狂気の輪廻
+ | Voids status ailments for 999 turns + Void damage >= 40,000,000 for 999 turns

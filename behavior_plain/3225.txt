@@ -1,0 +1,79 @@
+#3225 - Masquerade Devil, Rozuel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:8) (cost: 1)
+	[0] ESAbsorbCombo(67:20268) -> Where's my pumpkin?
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESSkyfallLocked(96:20269) -> I better make sure I don't lose it
+	Locked random skyfall +100% for 5 turns
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 8
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESBombRandomSpawn(102:20276) -> Pumpkin Bomb
+Spawn 5 random Bomb orbs, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	[0] ESAttackMultihit(15:20271) -> You'll have to do better than that!
+	Deal 100% damage (4 hits, 25% each)
+	[1] ESDebuffRCV(105:20272) -> I'll take your pumpkin!
+	RCV 25% for 1 turn
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESBlindStickyRandom(97:20274) -> A large cloud of bats swarms overhead
+	Blind random 15 orbs for 1 turn
+	[1] ESBlindStickySkyfall(128:20275) -> More bats arrive
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 6
+
+#15: ESAttackMultihit(15:20277) -> Halloween Assault
+Deal 600% damage (6 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 15
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: ESAttackUPRemainingEnemies(17:20278) -> Say your prayers
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:20266) -> Resolve
+Survive attacks with 1 HP when HP > 50%

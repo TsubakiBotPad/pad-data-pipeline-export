@@ -1,0 +1,30 @@
+#502401 - Hel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:15443) -> Death Rain
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Poison skyfall +10% for 3 turns
+
+#3: ESSpinnersRandom(109:15446) -> Infernal Swamp
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Random 2 orbs change every 1.5s for 3 turns
+
+#4: ESDebuffMovetime(39:15447) -> Corpse Doll
+Condition: 30% chance when < 50% HP (ai:30 rnd:0)
+Movetime -3s for 1 turn, Deal 125% damage
+
+#5: ESPoisonChangeRandomAttack(64:15445) -> Poison Tail
+Condition: 30% chance (ai:30 rnd:0)
+Change 4 random orbs to Poison orbs, Deal 120% damage
+
+#6: ESAttackMultihit(15:15444) -> Life Shaver
+Deal 100% damage (5 hits, 20% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

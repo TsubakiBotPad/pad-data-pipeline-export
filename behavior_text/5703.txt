@@ -1,0 +1,33 @@
+#5703 - 月山シノブ＆Ｅ３つばさ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5703
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15263:83) チェンジ、シンカリオン！ + 月山流忍法、木枯しの術！
+ | Voids status ailments for 999 turns + Blind all orbs on the board
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (15233:85) はあぁぁぁぁ！
+     | Change all orbs to Jammer, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (15234:15) 月山流手裏剣術
+     | Deal 120% damage (3 hits, 40% each)
+     | (15235:77) 必殺！フミキリシュリケン
+     | Change the 2nd column to Dark orbs and the 5th column to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15232:17) その気合い、受け止めた
+     | Increase damage to 150% for the next 3 turns
+   | group:
+     | (15235:77) 必殺！フミキリシュリケン
+     | Change the 2nd column to Dark orbs and the 5th column to Dark orbs, Deal 100% damage

@@ -1,0 +1,43 @@
+#3224 - Dancing Seiryuu Princess, Karin
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:12638) -> Let's dance!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Absorb damage when combos <= 6 for 10 turns
+
+#3: ESLeaderSwap(75:12639) -> Swinging left and right!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Leader changes to random sub for 2 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESAttackMultihit(15:12640) -> Cheer up!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 110% damage
+
+#6: ESBindAttack(63:12641) -> Sacred Beast Dance
+Condition: 50% chance (ai:0 rnd:50)
+Bind 2 random subs for 1~2 turns, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBlindStickyRandom(97:12642) -> The night is coming!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs for 5 turns
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 5
+
+#10: ESAttackMultihit(15:12643) -> Eastern Seven-Star Formation
+Deal 245% damage (7 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

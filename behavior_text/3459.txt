@@ -1,0 +1,48 @@
+#3459 - Demonic Gentleman of Heresy, Azazel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3459
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7638:72) Dark damage halved
+ | Reduce damage from Dark attrs by 50%
+ | (7694:73) Azazel Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (7624:83) Worship me! + Wings of Restraint
+ | Voids status ailments for 999 turns + Seal the 1st row for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (7630:83) Eye of Reality + Lethal Chain
+     | Absorb damage when damage >= 15,000,000 for 999 turns + Deal 140% damage (7 hits, 20% each), Deal 140% damage (7 hits, 20% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (7635:94) Pearl Face
+     | Lock 10 random Light, Heal, Poison, and Mortal Poison orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (7636:92) Shenisa
+     | Spawn 7 random Mortal Poison orbs, Deal 50% damage
+     | (7634:77) Erythra
+     | Change the 1st and 2nd columns to Fire, Water, and Poison orbs, the 3rd and 4th columns to Wood, Light, and Poison orbs, and the 5th and 6th columns to Dark, Heal, and Poison orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (7627:83) Sacred Goat Blood + God's Echo
+     | Enemy recover 100% HP + Reduce damage from all sources by 50% for 99 turns, Deal 200% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (7633:83) Heavenly Eye of Reality + Lethal Chain
+     | Delay active skills by 7 turns + Deal 150% damage (5 hits, 30% each), Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: hp <= 14
+   | (7637:15) Sanction Spiral
+   | Deal 1,000% damage (10 hits, 100% each)

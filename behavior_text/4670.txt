@@ -1,0 +1,31 @@
+#4670 - 橘みずき
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4670
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10576:85) I go shopping occasionally
+ | Change all orbs to Water, Light, and Heal, Deal 100% damage
+ group:
+ | group:
+   | condition: 25% chance
+   | (10577:98) Crossfire
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (10578:98) Crossfire
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (10608:48) Slider
+   | Change a random attribute to Water orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10579:39) A short temper is a disadvantage
+   | Movetime -1s for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (10580:79) Crescent Moon
+   | Change the 5th row to Light orbs, Deal 200% damage

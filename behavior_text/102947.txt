@@ -1,0 +1,96 @@
+#102947 - Alt. Nocturnal Corpse Wyrm, Dragon Zombie
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102947
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7501:83) Cruel Malice + Lifeline + Death Miasma
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 999 turns + Mortal Poison skyfall +5% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (7504:68) Death Miasma
+     | Mortal Poison skyfall +5% for 5 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | condition: 34% chance
+     | (7510:83) Castaway Cataract + Hellish Ambience
+     | Change the 1st, 3rd, and 5th columns to Jammer orbs + Player -50% HP, Deal 75% damage
+     | condition: 50% chance
+     | (7512:83) Test of Mortality + Hellish Ambience
+     | Change the 1st row to Heal orbs and the 5th row to Mortal Poison orbs + Player -50% HP
+     | condition: 50% chance
+     | (7507:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | (7509:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | condition: 50% chance
+     | (7510:83) Castaway Cataract + Hellish Ambience
+     | Change the 1st, 3rd, and 5th columns to Jammer orbs + Player -50% HP, Deal 75% damage
+     | (7512:83) Test of Mortality + Hellish Ambience
+     | Change the 1st row to Heal orbs and the 5th row to Mortal Poison orbs + Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | condition: 50% chance
+     | (7510:83) Castaway Cataract + Hellish Ambience
+     | Change the 1st, 3rd, and 5th columns to Jammer orbs + Player -50% HP, Deal 75% damage
+     | condition: 50% chance
+     | (7507:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | (7509:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | condition: 50% chance
+     | (7510:83) Castaway Cataract + Hellish Ambience
+     | Change the 1st, 3rd, and 5th columns to Jammer orbs + Player -50% HP, Deal 75% damage
+     | (7512:83) Test of Mortality + Hellish Ambience
+     | Change the 1st row to Heal orbs and the 5th row to Mortal Poison orbs + Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (7504:68) Death Miasma
+     | Mortal Poison skyfall +5% for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | condition: 50% chance
+     | (7510:83) Castaway Cataract + Hellish Ambience
+     | Change the 1st, 3rd, and 5th columns to Jammer orbs + Player -50% HP, Deal 75% damage
+     | condition: 50% chance
+     | (7507:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | (7509:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (7500:17) Corpse Dragon's Wail
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 9
+     | (7504:68) Death Miasma
+     | Mortal Poison skyfall +5% for 5 turns
+   | group:
+   | condition: turn 3 while HP > 9
+     | condition: 34% chance
+     | (7510:83) Castaway Cataract + Hellish Ambience
+     | Change the 1st, 3rd, and 5th columns to Jammer orbs + Player -50% HP, Deal 75% damage
+     | condition: 50% chance
+     | (7512:83) Test of Mortality + Hellish Ambience
+     | Change the 1st row to Heal orbs and the 5th row to Mortal Poison orbs + Player -50% HP
+     | condition: 50% chance
+     | (7507:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | (7509:98) Evil Seal of Repulsion
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (7514:48) Deadly Poison Breath
+   | Change a random attribute to Mortal Poison orbs, Deal 1,200% damage

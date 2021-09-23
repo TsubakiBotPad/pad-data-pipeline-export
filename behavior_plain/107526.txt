@@ -1,0 +1,35 @@
+#107526 - 三輪霞
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSkillDelay(89:26727) -> I don't plan to hand over victory to you.
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Delay active skills by 5 turns
+
+#5: ESSkyfall(68:26577) -> New Shadow Style: Simple Domain
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Water and Light skyfall +20% for 5 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:26579) -> Full-Auto Reflex Attack
+	Do nothing
+	[1] ESColumnSpawnMulti(76:26580) -> Focus my full strength on creating an opening first.
+	Change the 1st and 6th columns to Water and Light orbs
+
+#7: ESAttackMultihit(15:26581) -> Quick Draw
+Deal 200% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

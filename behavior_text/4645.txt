@@ -1,0 +1,32 @@
+#4645 - Dark Companion Dragon, Doltos
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4645
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10401:62) Call of Darkness
+ | Blind all orbs on the board, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (10402:92) The Chosen Darkness
+   | Spawn 3 random Dark orbs, Deal 100% damage
+   | condition: 33% chance
+   | (10403:48) Dark Pillar
+   | Change a random attribute to Dark orbs, Deal 105% damage
+   | condition: 34% chance
+   | (10404:15) Spirit Darkness
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10406:83) Swallowing Darkness + Dark Pillar
+     | Blind random 8 orbs for 1 turn + Change a random attribute to Dark orbs, Deal 105% damage
+   | group:
+     | (10407:15) Shadow Wings
+     | Deal 150% damage (2 hits, 75% each)

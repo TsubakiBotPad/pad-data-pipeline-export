@@ -1,0 +1,99 @@
+#3285 - Psychopomp Princess of Oblivion, Grida
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchCard(90:5971) -> ESBranchCard
+Branch on player_cards HAS [2744], target rnd 8
+
+#7: SkillSet:
+	[0] ESGravity(50:5955) -> Uwahahaha! Respect my authority!
+	Player -99% HP
+	[1] ESStatusShield(20:5956) -> I'm the baddest of the bad!
+	Voids status ailments for 5 turns
+
+#8: SkillSet:
+	[0] ESGravity(50:5955) -> Uwahahaha! Respect my authority!
+	Player -99% HP
+	[1] ESStatusShield(20:5972) -> Sure, I'll let you go...if you win!
+	Voids status ailments for 5 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBranchCard(90:5958) -> ESBranchCard
+Branch on player_cards HAS [1849], target rnd 15
+
+#14: ESRowSpawnMulti(79:5960) -> Scythe of Divine Judgment
+Change the 1st row to Jammer orbs, Deal 120% damage
+
+#15: ESInactivity66(66:5959) -> Oh, hello Father♪
+Do nothing
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESRowSpawnMulti(79:5960) -> Scythe of Divine Judgment
+Condition: 60% chance (ai:60 rnd:0)
+Change the 1st row to Jammer orbs, Deal 120% damage
+
+#18: ESMortalPoisonChangeRandom(61:5961) -> Dead Gift
+Change 2 random orbs to Mortal Poison orbs
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESInactivity66(66:5962) -> You've got some nerve! I will end you!
+	Do nothing
+	[1] ESGravity(50:5963) -> Death Sentence
+	Player -99% HP
+
+#21: ESMortalPoisonChangeRandom(61:5965) -> 3
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change 3 random orbs to Mortal Poison orbs
+
+#22: ESMortalPoisonChangeRandom(61:5966) -> 2
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change 3 random orbs to Mortal Poison orbs
+
+#23: ESMortalPoisonChangeRandom(61:5967) -> 1
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change 3 random orbs to Mortal Poison orbs
+
+#24: ESAttackMultihit(15:5968) -> Catastrophe
+Deal 2,000% damage (2 hits, 1,000% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESRandomSpawn(92:5970) -> I-I lost...*sniff*
+	Spawn 3 random Poison orbs

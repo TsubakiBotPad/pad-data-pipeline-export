@@ -1,0 +1,28 @@
+#4065 - Kouryu Emperor of the Holy Feast, Fagan
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4065
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12662:20) Oh! Are you being nice?
+ | Voids status ailments for 999 turns, Deal 80% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (12663:102) A present for you!
+   | Spawn 5 random Bomb orbs, Deal 90% damage
+   | condition: 50% chance
+   | (12664:101) Hmm, where to next...?
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (12665:53) Aaah! I'm so tired...
+   | Absorb Fire and Dark damage for 10 turns
+ | group:
+ | condition: hp <= 20
+   | (12666:15) True Boisterous Dance
+   | Deal 280% damage (4 hits, 70% each)

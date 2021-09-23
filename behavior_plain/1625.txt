@@ -1,0 +1,91 @@
+#1625 - Space-Time Sorcerer, Wee Jas
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:13358) -> You will struggle
+	Movetime 25% for 1 turn
+	[1] ESMaxHPChange(111:13359) -> Look
+	Change player HP to 1,000,000 for 1 turn
+	[2] ESBombRandomSpawn(102:13396) -> Keep giving all you've got
+	Spawn 6 random Bomb orbs
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:13358) -> You will struggle
+	Movetime 25% for 1 turn
+	[1] ESMaxHPChange(111:13359) -> Look
+	Change player HP to 1,000,000 for 1 turn
+	[2] ESBombRandomSpawn(102:13360) -> Keep giving all you've got
+	Spawn 8 random locked Bomb orbs
+
+#5: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 7
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:13398) -> Not bad at all!
+	Absorb damage when combos <= 5 for 10 turns
+	[1] ESSkyfall(68:13363) -> Well, entertain me
+	Jammer skyfall +15% for 10 turns
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:13362) -> Not bad at all!
+	Absorb damage when combos <= 7 for 10 turns
+	[1] ESSkyfall(68:13363) -> Well, entertain me
+	Jammer skyfall +15% for 10 turns
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 16
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 16
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESOrbChangeAttackBits(108:13364) -> Time Purification
+Change all Jammer orbs to Light orbs, Deal 150% damage
+
+#12: ESSkillDelay(89:13365) -> Rollback
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 1~3 turns, Deal 100% damage
+
+#13: ESBombRandomSpawn(102:13366) -> Foreign Matter
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random locked Bomb orbs, Deal 90% damage
+
+#14: ESAttackMultihit(15:13367) -> Out of Sight
+Condition: 34% chance (ai:0 rnd:34)
+Deal 108% damage (4 hits, 27% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: ESDebuffMovetime(39:13358) -> You will struggle
+Movetime 25% for 1 turn
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBoardChangeAttackBits(85:13368) -> Space-Time Chaos
+Change all orbs to Light and Jammer, Deal 300% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

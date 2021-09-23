@@ -1,0 +1,34 @@
+#6299 - 「ワン・フォー・オール」緑谷出久
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6299
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18479:83) Leave it to me! + Full Cowl: Shoot Style
+ | Movetime 50% for 5 turns + Random 3 orbs change every 1.5s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18482:75) I won't let you!!
+     | Leader changes to random sub for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (18484:48) SMASH
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | (18483:15) One For All 20%
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18485:74) If you want to fight...l won't hold back!
+     | Reduce damage from all sources by 50% for 5 turns
+   | group:
+     | (18486:92) Manchester Smash
+     | Spawn 5 random Fire and Wood orbs, Deal 120% damage

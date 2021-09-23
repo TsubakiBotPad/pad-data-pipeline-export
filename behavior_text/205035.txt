@@ -1,0 +1,135 @@
+#205035 - Magic Dracosnake of the Evilfangs, Zahhak
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205035
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11643:118) God Halved
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (11644:83) Overflowing Bloodlust + Serpent Barrier + Sky-High Jump
+ | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns + Absorb damage when combos <= 7 for 1 turn
+ group:
+ | group:
+ | condition: always turn 1
+   | condition: when 8 combos last turn
+   | (11845:15) Fall from the sky
+   | Deal 100% damage
+   | (11844:15) Snake Fist Drive Strike
+   | Deal 180% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (11850:83) Raging Roar + Hitting the ground
+     | Increase damage to 150% for the next 5 turns + Seal the 5th row for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | condition: 25% chance
+     | (11846:92) Snake Venom Breath
+     | Spawn 7 random Poison orbs, Deal 90% damage
+     | condition: 25% chance
+     | (11847:1) Twin Snake Bite
+     | Bind 2 random cards for 1~3 turns, Deal 100% damage
+     | condition: 25% chance
+     | (11848:15) Very Strong Charge
+     | Deal 105% damage
+     | condition: 25% chance
+     | (11849:15) Rising Fist
+     | Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 9
+     | (11853:83) Wearing Miasma + Surrounded by Miasma
+     | Do nothing + Poison skyfall +20% for 99 turns
+   | group:
+     | condition: 25% chance
+     | (11856:92) Snake Venom Breath
+     | Spawn 7 random Mortal Poison orbs, Deal 90% damage
+     | condition: 25% chance
+     | (11857:1) Twin Snake Bite
+     | Bind 3 random cards for 2~4 turns, Deal 100% damage
+     | condition: 25% chance
+     | (11858:92) Very Strong Charge
+     | Spawn 4 random Poison orbs, Deal 105% damage
+     | condition: 25% chance
+     | (11859:15) Rising Fist
+     | Deal 115% damage (5 hits, 23% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11860:67) Heaven-High Jump
+     | Absorb damage when combos <= 9 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (11861:15) Double Snake Fist Drive Impact
+     | Deal 500% damage
+
+level: 6
+ type: PASSIVE
+ | (11643:118) God Halved
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (11840:83) Overflowing Bloodlust + Serpent Barrier + Sky-High Jump
+ | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns + Absorb damage when combos <= 8 for 1 turn
+ group:
+ | group:
+ | condition: always turn 1
+   | condition: when 9 combos last turn
+   | (11845:15) Fall from the sky
+   | Deal 100% damage
+   | (11844:15) Snake Fist Drive Strike
+   | Deal 180% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (11850:83) Raging Roar + Hitting the ground
+     | Increase damage to 150% for the next 5 turns + Seal the 5th row for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | condition: 25% chance
+     | (11846:92) Snake Venom Breath
+     | Spawn 7 random Poison orbs, Deal 90% damage
+     | condition: 25% chance
+     | (11847:1) Twin Snake Bite
+     | Bind 2 random cards for 1~3 turns, Deal 100% damage
+     | condition: 25% chance
+     | (11848:15) Very Strong Charge
+     | Deal 105% damage
+     | condition: 25% chance
+     | (11849:15) Rising Fist
+     | Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 9
+     | (11853:83) Wearing Miasma + Surrounded by Miasma
+     | Do nothing + Poison skyfall +20% for 99 turns
+   | group:
+     | condition: 25% chance
+     | (11856:92) Snake Venom Breath
+     | Spawn 7 random Mortal Poison orbs, Deal 90% damage
+     | condition: 25% chance
+     | (11857:1) Twin Snake Bite
+     | Bind 3 random cards for 2~4 turns, Deal 100% damage
+     | condition: 25% chance
+     | (11858:92) Very Strong Charge
+     | Spawn 4 random Poison orbs, Deal 105% damage
+     | condition: 25% chance
+     | (11859:15) Rising Fist
+     | Deal 115% damage (5 hits, 23% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11860:67) Heaven-High Jump
+     | Absorb damage when combos <= 9 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (11861:15) Double Snake Fist Drive Impact
+     | Deal 500% damage

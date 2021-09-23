@@ -1,0 +1,101 @@
+#5179 - Howling Stormdragon, Rokks
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombFixedSpawn(103:12874) -> Rock You! Baby!
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESVoidShield(71:12875) -> Full Up Distortion
+	Void damage >= 25,000,000 for 999 turns
+	[2] ESLeaderSwap(75:12876) -> Eighth Note Beats
+	Leader changes to random sub for 8 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 20
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombFixedSpawn(103:12874) -> Rock You! Baby!
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESVoidShield(71:12875) -> Full Up Distortion
+	Void damage >= 25,000,000 for 999 turns
+	[2] ESLeaderSwap(75:12876) -> Eighth Note Beats
+	Leader changes to random sub for 8 turns
+
+#11: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12880) -> Head Banging-Mosh
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESBindAttack(63:12881) -> Overdrive-Death Growl
+	Bind 2 random cards for 1~2 turns, Deal 50% damage
+
+#12: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12880) -> Head Banging-Mosh
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESSkillDelay(89:12882) -> Howling-Shout
+	Delay active skills by 1~2 turns, Deal 45% damage
+
+#13: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAttackMultihit(15:12880) -> Head Banging-Mosh
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESOrbLock(94:12883) -> Accent-Fuzz
+	Lock 15 random orbs, Deal 40% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: SkillSet:
+	[0] ESDamageShield(74:12885) -> Stage Diving
+	Reduce damage from all sources by 50% for 8 turns
+	[1] ESStatusShield(20:12886) -> Crowd Surfing
+	Voids status ailments for 999 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESLeaderSwap(75:12888) -> Mic Turn
+	Leader changes to random sub for 1 turn
+	[1] ESAttackMultihit(15:12889) -> Wall of Death
+	Deal 1,800~2,700% damage (6~9 hits, 300% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttributeResist(72:12890) -> Wood Halved
+Reduce damage from Wood attrs by 50%

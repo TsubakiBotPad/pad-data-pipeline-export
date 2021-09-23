@@ -1,0 +1,39 @@
+#506177 - Seven-Star Beast, Qilin Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:22047) -> Seven-Star Protection
+	Reduce damage from all sources by 77% for 7 turns
+	[1] ESSkyfall(68:22048) -> Black Rain
+	Jammer skyfall +15% for 7 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESAttackMultihit(15:22049) -> Light Sword Chaos Strike
+Deal 100% damage (4 hits, 25% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22051) -> Seven-Star Bladewings
+	Increase damage to 150% for the next 999 turns
+	[1] ESBlindStickySkyfall(128:22052) -> Dark Rain
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

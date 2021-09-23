@@ -1,0 +1,27 @@
+#303550 - Heroic Thunderstone Edge, Caladbolg
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 303550
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18033:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18034:83) Ulidian Thunder + Thunderstone Swordplay
+ | Bind awoken skills for 5 turns + Lock all orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (18037:109) Slash of Confusion
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (18038:97) Lightlost Swordstroke
+   | Blind random 6 orbs for 1 turn, Deal 95% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18039:83) Unclouded Determination + Recovering Chance
+   | Increase damage to 200% for the next 999 turns + Absorb damage when combos <= 7 for 999 turns

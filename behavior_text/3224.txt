@@ -1,0 +1,32 @@
+#3224 - Dancing Seiryuu Princess, Karin
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3224
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12638:67) Let's dance!
+ | Absorb damage when combos <= 6 for 10 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (12639:75) Swinging left and right!
+   | Leader changes to random sub for 2 turns
+ | group:
+   | condition: 50% chance
+   | (12640:15) Cheer up!
+   | Deal 110% damage
+   | condition: 50% chance
+   | (12641:63) Sacred Beast Dance
+   | Bind 2 random subs for 1~2 turns, Deal 95% damage
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (12642:97) The night is coming!
+   | Blind all orbs for 5 turns
+ | group:
+ | condition: hp <= 20
+   | (12643:15) Eastern Seven-Star Formation
+   | Deal 245% damage (7 hits, 35% each)

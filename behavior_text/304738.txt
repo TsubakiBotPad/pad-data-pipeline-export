@@ -1,0 +1,44 @@
+#304738 - Resolute Primordial Divinity, Kamimusubi
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 304738
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24554:73) Resolve
+ | Survive attacks with 1 HP when HP > 5%
+ | (24604:72) Light & Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (24555:83) Spiritual Defensive Formation + Heal Counterstrike
+ | Voids status ailments for 999 turns + Unable to match Heal orbs for 5 turns, Deal 90% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (24562:15) Brilliant Arrow Attack
+     | Deal 105% damage (5 hits, 21% each)
+   | group:
+   | condition: turn 5 while HP > 49
+     | (24557:107) Heal Counterstrike
+     | Unable to match Heal orbs for 5 turns, Deal 90% damage
+   | group:
+     | (24400:83) Iridescent Shine + Radiant Flash
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 4
+     | (24558:83) Ethereal Origins + Eternal Wanderer
+     | Change player HP to 50% for 2 turns + For 9 turns, 20% chance for skyfall orbs to be blinded for turn
+   | group:
+   | condition: turn 5 while HP > 4
+     | (24561:107) Light Counterstrike
+     | Unable to match Light orbs for 5 turns, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (24563:15) Primordial Loss
+   | Deal 500% damage (5 hits, 100% each)

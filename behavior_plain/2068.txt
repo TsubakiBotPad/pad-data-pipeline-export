@@ -1,0 +1,141 @@
+#2068 - Aamir
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESNoSkyfall(127:15052) -> Show me lots of combos
+	No skyfall for 2 turns
+	[1] ESDebuffMovetime(39:15053) -> Hmm, is that so...
+	Movetime 240% for 2 turns
+	[2] ESRandomSpawn(92:15054) -> 40 combos in 4 turns!
+	Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+
+#3: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 14, target rnd 18
+
+#4: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 13, target rnd 19
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 12, target rnd 20
+
+#6: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 11, target rnd 21
+
+#7: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 22
+
+#8: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 9, target rnd 23
+
+#9: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 24
+
+#10: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 7, target rnd 25
+
+#11: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 26
+
+#12: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 5, target rnd 27
+
+#13: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 4, target rnd 28
+
+#14: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 3, target rnd 29
+
+#15: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 2, target rnd 30
+
+#16: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 31
+
+#17: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 0, target rnd 32
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#22: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#23: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#24: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#25: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#26: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#27: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#28: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#29: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#30: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#31: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#32: ESRowSpawnMulti(78:15055) -> Well, very pretty, right?
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change the 1st and 5th rows to Fire orbs and the 2nd and 4th rows to Water orbs
+
+#33: ESColumnSpawnMulti(76:15056) -> Can you do it in a hurry?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 1st and 6th columns to Fire orbs and the 2nd and 5th columns to Water orbs
+
+#34: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:15058) -> Well, show me then
+	Change all orbs to Fire
+	[1] ESColumnSpawnMulti(76:15059) -> Like this, then.....
+	Change the 2nd and 5th columns to Water orbs
+	[2] ESRowSpawnMulti(78:15060) -> This!
+	Change the 2nd and 4th rows to Wood orbs
+	[3] ESDebuffMovetime(39:15061) -> That wasn't needed, right?
+	Movetime -5s for 1 turn
+
+#35: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 40, target rnd 37
+
+#36: SkillSet:
+	[0] ESInactivity66(66:15064) -> Well, your total combo was...
+	Do nothing
+	[1] ESAttackMultihit(15:15066) -> Terrible!
+	Deal 1,000% damage (5 hits, 200% each)
+
+#37: SkillSet:
+	[0] ESInactivity66(66:15064) -> Well, your total combo was...
+	Do nothing
+	[1] ESEndBattle(40:15065) -> Terrific!
+	Reduce self HP to 0
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn

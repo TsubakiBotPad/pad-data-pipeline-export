@@ -1,0 +1,60 @@
+#7349 - Thoughtful Pansy Starfairy, Joachim
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:24311) -> Let me show you the way.
+	Bind awoken skills for 3 turns
+	[1] ESBlind5(5:24312) -> Lantern, burn brightly.
+	Blind all orbs on the board
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESSpinnersFixed(110:24313) -> Butterfly Guide
+Condition: 50% chance (ai:0 rnd:50)
+Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+
+#6: ESBlind62(62:24314) -> Brooch's Light
+Condition: 50% chance (ai:0 rnd:50)
+Blind all orbs on the board, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESSpinnersFixed(110:24317) -> Butterflies, dance in the sky.
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESBoardChangeAttackBits(85:24316) -> Light, gather to me.
+	Change all orbs to Light, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAbsorbCombo(67:24319) -> Let me show you the way.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 7 for 5 turns
+
+#13: ESBoardChangeAttackBits(85:24318) -> Butterfly Luminescence
+Change all orbs to Wood, Light, and Heal, Deal 400% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:24247) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,148 @@
+#3087 - Lovely Dragon Caller, Ana
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:5230) -> Changing Ana
+Condition: On death (ai:0 rnd:0)
+Show message: Armor Drop set on D-Gear! |Divine Law Goddess, Valkyrie Rose's Energy grants
+Ana new powers
+
+#3: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESSkillDelay(89:5250) -> Ana starts crying
+	Delay active skills by 0~3 turns
+	[1] ESAttackMultihit(15:5251) -> 10 combos!!
+	Deal 200% damage (10 hits, 20% each)
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 17
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#6: SkillSet:
+	Condition: One-time use (ai:34 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:5234) -> Monsters!
+	Do nothing
+	[1] ESColumnSpawnMulti(77:5235) -> Dragon Summoning!!!
+	Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 80% damage
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1011
+
+#8: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:5234) -> Monsters!
+	Do nothing
+	[1] ESColumnSpawnMulti(77:5236) -> Dragon Summoning!!!
+	Change the 1st column to Water orbs and the 6th column to Wood orbs, Deal 80% damage
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b10011
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:5234) -> Monsters!
+	Do nothing
+	[1] ESColumnSpawnMulti(77:5237) -> Dragon Summoning!!!
+	Change the 1st column to Wood orbs and the 6th column to Fire orbs, Deal 80% damage
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: SkillSet:
+	Condition: 34% chance (ai:34 rnd:0)
+	[0] ESColumnSpawnMulti(77:5235) -> Dragon Summoning!!!
+	Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 80% damage
+	[1] ESDamageShield(74:5248) -> The Monsters block the way
+	Reduce damage from all sources by 50% for 2 turns
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1011
+
+#14: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESColumnSpawnMulti(77:5236) -> Dragon Summoning!!!
+	Change the 1st column to Water orbs and the 6th column to Wood orbs, Deal 80% damage
+	[1] ESDamageShield(74:5248) -> The Monsters block the way
+	Reduce damage from all sources by 50% for 2 turns
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b10011
+
+#16: SkillSet:
+	[0] ESColumnSpawnMulti(77:5237) -> Dragon Summoning!!!
+	Change the 1st column to Wood orbs and the 6th column to Fire orbs, Deal 80% damage
+	[1] ESDamageShield(74:5248) -> The Monsters block the way
+	Reduce damage from all sources by 50% for 2 turns
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 22
+
+#18: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 26
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 28
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 30
+
+#22: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 26
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 28
+
+#25: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 30
+
+#26: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESGravity(50:5239) -> Heat Breath
+	Player -50% HP
+	[1] ESAttackMultihit(15:5244) -> 3 combos ♪
+	Deal 60% damage (3 hits, 20% each)
+
+#27: SkillSet:
+	[0] ESOrbChangeAttack(48:5241) -> Ice Blade
+	Change a random attribute to Water orbs, Deal 60% damage
+	[1] ESAttackMultihit(15:5244) -> 3 combos ♪
+	Deal 60% damage (3 hits, 20% each)
+
+#28: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESOrbChangeAttack(48:5241) -> Ice Blade
+	Change a random attribute to Water orbs, Deal 60% damage
+	[1] ESAttackMultihit(15:5244) -> 3 combos ♪
+	Deal 60% damage (3 hits, 20% each)
+
+#29: SkillSet:
+	[0] ESOrbChangeAttack(48:5243) -> Gale
+	Change a random attribute to Jammer orbs, Deal 50% damage
+	[1] ESAttackMultihit(15:5244) -> 3 combos ♪
+	Deal 60% damage (3 hits, 20% each)
+
+#30: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESGravity(50:5239) -> Heat Breath
+	Player -50% HP
+	[1] ESAttackMultihit(15:5244) -> 3 combos ♪
+	Deal 60% damage (3 hits, 20% each)
+
+#31: SkillSet:
+	[0] ESOrbChangeAttack(48:5243) -> Gale
+	Change a random attribute to Jammer orbs, Deal 50% damage
+	[1] ESAttackMultihit(15:5244) -> 3 combos ♪
+	Deal 60% damage (3 hits, 20% each)

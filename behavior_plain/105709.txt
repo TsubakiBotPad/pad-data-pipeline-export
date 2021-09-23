@@ -1,0 +1,70 @@
+#105709 - セイリュウ＆ブラックシンカリオン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbAttribute(53:15277) -> チェンジ、ブラックシンカリオン！
+Absorb Light damage for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 19
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 15
+
+#10: ESColumnSpawnMulti(77:15179) -> ダークフミキリシュリケン
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st column to Dark orbs and the 6th column to Fire orbs, Deal 90% damage
+
+#11: ESOrbChangeAttackBits(108:15180) -> ダークフミキリガン
+Condition: 25% chance (ai:0 rnd:25)
+Change all Light orbs to Dark orbs, Deal 100% damage
+
+#12: ESAttackMultihit(15:15181) -> ダークシャリンドリル
+Condition: 25% chance (ai:0 rnd:25)
+Deal 135% damage (3 hits, 45% each)
+
+#13: ESColumnSpawnMulti(77:15182) -> ダークカイサツソード
+Condition: 25% chance (ai:0 rnd:25)
+Change the 3rd column to Dark orbs and the 4th column to Dark orbs, Deal 125% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 19
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESBindAwoken(88:15278) -> 無駄だ！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 4 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESRowSpawnMulti(79:15184) -> デスグランクロス！
+Change the 2nd row to Dark orbs, the 3rd row to Dark orbs, and the 4th row to Dark orbs, Deal 150% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,37 @@
+#5663 - Volkan & Dortin
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:14904) -> All right, it's our turn!
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Absorb Fire damage for 5 turns
+
+#3: ESRandomSpawn(92:14905) -> Don't be a sore loser!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Spawn 6 random Wood orbs, Deal 70% damage
+
+#4: ESOrbSealRow(100:14906) -> Haaaah ha ha ha!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Seal the 5th row for 3 turns, Deal 50% damage
+
+#5: ESCloud(104:14907) -> Our schemes are fool-proof!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+A row of clouds appears for 2 turns at 1st row, 5th column, Deal 50% damage
+
+#6: ESSpinnersFixed(110:14908) -> You're mine!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 2.0s for 3 turns
+
+#7: ESAttackMultihit(15:14909) -> Auuughhhh!
+Deal 150% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESTypeResist(118:14962) -> Physical Balanced Halved
+Reduce damage from Balanced and Physical types by 50%

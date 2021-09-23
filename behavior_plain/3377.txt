@@ -1,0 +1,53 @@
+#3377 - Holy Ritual Ninja Princess, Hatsume
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:15881) -> Shh!
+	Movetime -2s for 5 turns
+	[1] ESBlind5(5:15882) -> Sleep well my good child♪
+	Blind all orbs on the board
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 8
+
+#4: ESSpinnersRandom(109:15883) -> Secret Laws of the Sacred Heart
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Random 3 orbs change every 1.0s for 4 turns
+
+#5: ESOrbChangeAttackBits(108:15885) -> Present Changing Technique
+Condition: 50% chance (ai:50 rnd:0)
+Change all Wood orbs to Fire orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:15884) -> Don't be noisy now
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBindAwoken(88:15886) -> Don't wake him up
+Bind awoken skills for 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRowSpawnMulti(79:15887) -> Dance of the Holy Flame
+Change the 1st row to Light orbs and the 5th row to Fire orbs, Deal 190% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTypeResist(118:15949) -> Heal Devil Halved
+Reduce damage from Healer and Devil types by 50%

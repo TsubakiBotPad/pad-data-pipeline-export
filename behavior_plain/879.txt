@@ -1,0 +1,22 @@
+#879 - キングゴルドラ＆キンゴルネコ
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#2: ESInactivity16(16:621) -> Meow meeow meooow♪
+Condition: 30% chance (ai:0 rnd:30)
+Do nothing
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBindRandom(1:629) -> Sing and Dance nya!
+Condition: When < 50% HP , one-time use (ai:70 rnd:0) (cost: 1)
+Bind 3 random cards for 2~3 turns
+
+#5: ESOrbChangeAttack(48:630) -> Gold Bonus nya!
+Change a random attribute to Light orbs, Deal 90% damage

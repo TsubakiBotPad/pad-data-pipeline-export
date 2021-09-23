@@ -1,0 +1,27 @@
+#100308 - Alt. Emerald Pengdra
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESOrbLock(94:5103) -> Wings of Wood
+Lock all Wood orbs, Deal 20% damage
+
+#5: ESRandomSpawn(92:5124) -> Wings of Wood
+Spawn 3 random Wood orbs, Deal 20% damage
+
+#6: ESOrbChangeSingle(4:5108) -> Guard Stance-Wood
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Water orbs to Heal orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

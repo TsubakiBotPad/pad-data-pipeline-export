@@ -1,0 +1,19 @@
+#1486 - ヴァンＰ魔
+monster size: 3
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBindRandomSub(65:1357) -> 超魔眼力
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 4 random subs for 1~3 turns
+
+#4: ESOrbChangeAttack(48:1358) -> ワープホイッスル
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Jammer orbs, Deal 75% damage

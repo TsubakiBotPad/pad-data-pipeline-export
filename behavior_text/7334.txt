@@ -1,0 +1,31 @@
+#7334 - Compassionate Saxifrage Starfairy, Sekka
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7334
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24320:83) Stand and face me. + Here I come!
+ | ATK -50% for 5 turns + Player -99% HP
+ group:
+ | group:
+   | condition: 33% chance
+   | (24325:127) Sudden Hail Slash
+   | No skyfall for 1 turn
+   | condition: 33% chance
+   | (24324:77) Snow Moon Slash
+   | Change the 1st and 6th columns to Water orbs, Deal 100% damage
+   | condition: 34% chance
+   | (24323:15) Rockfoil Blade
+   | Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24326:83) How interesting... + Show me more of your power!
+   | RCV 50% for 5 turns + Reduce damage from all sources by 75% for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (24329:85) Scattering Flower Slash
+   | Change all orbs to Water and Light, Deal 300% damage

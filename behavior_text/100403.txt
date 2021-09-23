@@ -1,0 +1,27 @@
+#100403 - Alt. Griffin, the Hunter of Tempests
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 100403
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9315:106) Supersonic
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (9312:83) Squall + Godspeed
+ | Player -50% HP + Deal 50% damage, Deal 50% damage
+ group:
+ | group:
+   | (9314:15) Scratch
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (9313:109) Tornado
+   | Random 12 orbs change every 1.5s for 1 turn
+ | group:
+ | condition: hp <= 29
+   | (9316:15) Kamikaze
+   | Deal 200% damage (4 hits, 50% each)

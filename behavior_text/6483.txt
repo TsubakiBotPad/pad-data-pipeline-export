@@ -1,0 +1,38 @@
+#6483 - Chris
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 6483
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19643:67) I suppose I'll get serious.
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (19647:75) Direction Change
+     | Leader changes to random sub for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 33% chance
+     | (19645:79) Scramble Dash
+     | Change the 2nd row to Dark orbs, Deal 95% damage
+     | condition: 33% chance
+     | (19646:92) You make me laugh, chump.
+     | Spawn 3 random Dark orbs, Deal 98% damage
+     | condition: 34% chance
+     | (19644:15) Slide Touch
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19648:39) Aww, you're boring!
+     | Movetime 50% for 4 turns
+   | group:
+     | (19649:15) Twister Drive
+     | Deal 125% damage (5 hits, 25% each)

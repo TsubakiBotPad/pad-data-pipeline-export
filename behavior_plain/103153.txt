@@ -1,0 +1,102 @@
+#103153 - Alt. Azure Spring Dragon Goddess, Kuramitsuha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkillDelay(89:5734) -> Let us head into the darkness...
+	Delay active skills by 2~3 turns
+	[1] ESSkyfall(68:5735) -> Mist of Hidden Sorrow
+	Jammer skyfall +20% for 15 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESDamageShield(74:5745) -> Elemental Shield Protection
+	Reduce damage from all sources by 50% for 10 turns
+	[1] ESBlindStickyFixed(98:5741) -> Veiled Boundaries
+	Blind orbs in specific positions for 1 turn, Deal 90% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 26
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESBlindStickyFixed(98:5737) -> A Shroud from the East
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 100% damage
+
+#14: ESBlindStickyFixed(98:5738) -> A Shroud from the West
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 100% damage
+
+#15: ESBlindStickyFixed(98:5739) -> Blackened Heavens
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 90% damage
+
+#16: ESBlindStickyFixed(98:5740) -> Blackened Earth
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 90% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: ESRowSpawnMulti(79:5743) -> Shadow Blade Storm
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Water and Jammer orbs, Deal 110% damage
+
+#21: ESBindAttack(63:5742) -> Dark Water Roaring Chains
+Condition: 50% chance (ai:0 rnd:50)
+Bind 1 random card for 1 turn, Deal 110% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1100
+
+#24: ESAttackMultihit(15:5746) -> Drumming in the Night
+Deal 180% damage (3 hits, 60% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESAbsorbThreshold(87:5744) -> Thousand-Year Imprisonment
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when damage >= 800,000 for 10 turns
+
+#27: ESBlindStickyFixed(98:5747) -> Stirring the Eternal Grudge
+Blind orbs in specific positions for 1 turn, Deal 600% damage
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

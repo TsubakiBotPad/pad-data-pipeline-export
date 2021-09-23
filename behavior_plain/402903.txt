@@ -1,0 +1,56 @@
+#402903 - Alt. Awoken Liu Bei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19349) -> Brave Resolve
+	Voids status ailments for 999 turns
+	[1] ESOrbChangeAttackBits(108:19350) -> Leading a Comeback
+	Change all Heal orbs to Wood orbs, Deal 80% damage
+	[2] ESDebuffRCV(105:19351) -> Ascension's Noble Path
+	RCV 25% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 10
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 8
+
+#6: SkillSet:
+	[0] ESAttackMultihit(15:19353) -> Path to Destruction
+	Deal 100% damage (2 hits, 50% each)
+	[1] ESDebuffRCV(105:19354) -> Ascension's Noble Path
+	RCV 10% for 1 turn, Deal 50% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:19355) -> Omen of Conquest
+Deal 1,600% damage (4 hits, 400% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	[0] ESBindAwoken(88:20947) -> Magic Tower
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:20948) -> Bloody Carnage
+	Deal 3,500% damage (7 hits, 500% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:19347) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESAttributeResist(72:20999) -> Fire & Wood Halved
+Reduce damage from Fire and Wood attrs by 50%

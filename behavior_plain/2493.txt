@@ -1,0 +1,62 @@
+#2493 - Protective Star Angel, Rozuel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:23145) -> Star Angel's Barrier
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:23146) -> Charging Order
+	Reduce damage from all sources by 90% for 3 turns
+	[2] ESDebuffRCV(105:23147) -> Protecting Hymn
+	RCV 0% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBombRandomSpawn(102:23151) -> Flare Bomb
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Bomb orbs, Deal 100% damage
+
+#7: ESBlindStickyRandom(97:23152) -> Flashburn
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 10 orbs for 3 turns, Deal 95% damage
+
+#8: ESRowSpawnMulti(79:23153) -> Scarlet Azure Blade
+Condition: 34% chance (ai:0 rnd:34)
+Change the 2nd and 3rd rows to Fire and Water orbs, Deal 105% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#13: ESAttackMultihit(15:23154) -> Lost Song
+Deal 1,000% damage (5 hits, 200% each)
+
+#14: SkillSet:
+	[0] ESSkyfall(68:23149) -> Gift from Heaven
+	Jammer skyfall +20% for 99 turns
+	[1] ESSkyfallLocked(96:23150) -> Shooting Stars
+	Locked random skyfall +50% for 10 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

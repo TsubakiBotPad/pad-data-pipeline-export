@@ -1,0 +1,56 @@
+#7122 - Sacred Sinful Demon Summoner, Irene
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7122
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23116:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23117:83) Demonic Barrier + Demonic Howl + Power Plunder + Little Devil Fang
+ | Voids status ailments for 999 turns + No skyfall for 10 turns + Absorb damage when damage >= 500,000,000 for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 33% chance
+     | (23122:83) Wonder Claw + Power Plunder
+     | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (23125:83) Wonder Claw + Power Plunder
+     | Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs + Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+     | (23128:83) Wonder Claw + Power Plunder
+     | Spawn 6 random Heal, Jammer, Poison, and Mortal Poison orbs + Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (23131:83) Power Plunder + Little Devil Fang
+     | Absorb damage when damage >= 500,000,000 for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (23132:83) Power Plunder + Soul's Howl
+     | Void damage >= 500,000,000 for 999 turns + Reduce damage from all sources by 50% for 99 turns
+   | group:
+     | condition: 33% chance
+     | (23135:83) Guilty Claw + Little Devil Fang
+     | Player -75% HP + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | condition: 33% chance
+     | (23137:83) Guilty Claw + Wonder Potion
+     | Player -75% HP + ATK -50% for 1 turn, Deal 100% damage
+     | condition: 34% chance
+     | (23139:83) Guilty Claw + Wonder Potion
+     | Player -75% HP + RCV 50% for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (23141:83) Wonder Potion + Final Mercy
+     | Bind awoken skills for 1 turn + Change all orbs to Heal
+   | group:
+     | (23218:15) Deadly Claw
+     | Deal 1,500% damage (5 hits, 300% each)

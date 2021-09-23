@@ -1,0 +1,31 @@
+#2384 - Ruling Firestorm God, Set
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2384
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23773:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23774:83) Fuoyhan Jdar + Hajmat Mueakasa Aiqtirah + Kafr Matar + Tahdhir Waqt
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 10 for 1 turn + Locked random skyfall +100% for 99 turns + Movetime 25% for 10 turns, Deal 150% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (23778:83) Athnan nar Sayf + Hajmat Mueakasa Aiqtirah
+   | Change the 2nd and 5th columns to Fire and Jammer orbs + Absorb damage when combos <= 9 for 1 turn, Deal 45% damage
+   | condition: 50% chance
+   | (23781:83) Qunbula Ainfijar + Hajmat Mueakasa Aiqtirah
+   | Spawn 5 random Bomb orbs + Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 98
+   | (23785:83) Hajmat Mueakasa Aiqtirah + Aiqtirah Ghadab
+   | Absorb damage when combos <= 10 for 1 turn + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (23784:15) Easifah Khms Sayf
+   | Deal 500% damage (5 hits, 100% each)

@@ -1,0 +1,26 @@
+#406144 - Ascendant Demon King of Conflict, Beleth's Gem
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406144
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18367:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18369:89) Mystic Gem
+ | Delay active skills by 3 turns
+ group:
+ condition: execute repeatedly, turn 1-3 of 3, hp <= 100
+ | (18348:46) Aurora Flash
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (18349:17) Gem's Miracle
+ | Increase damage to 1,000% for the next 999 turns
+ type: UNKNOWN_USE
+ | (20950:46) Indiscriminate Carnage
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage

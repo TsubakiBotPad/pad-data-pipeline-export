@@ -1,0 +1,28 @@
+#201230 - Alt. Awoken Phantom God, Odin TAMADRA
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201230
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15716:19) Valhalla's Song-TAMA!
+ | Increase damage to 200% for the next 5 turns
+ group:
+ | (15722:64) Calamity Spear Gungnir-TAMA!
+ | Change 3 random orbs to Poison orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | (15725:64) Calamity Spear Gungnir-TAMA!
+ | Change 3 random orbs to Poison orbs, Deal 150% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (15719:107) Phantom God Power-TAMA!
+   | Unable to match Water orbs for 5 turns
+ | group:
+   | (15728:64) Calamity Spear Gungnir-TAMA!
+   | Change 3 random orbs to Poison orbs, Deal 300% damage

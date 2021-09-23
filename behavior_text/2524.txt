@@ -1,0 +1,49 @@
+#2524 - Holy Night Messenger, Santa Claus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2524
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3638:62) Chimney Drop
+ | Blind all orbs on the board, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3645:6) Rudolph's Steely Gaze
+     | Voids player buff effects
+     | condition: 34% chance
+     | (3639:92) Present Box
+     | Spawn 5 random Jammer orbs, Deal 120% damage
+     | condition: 33% chance
+     | (3640:92) Present Box
+     | Spawn 3 random Water orbs, Deal 130% damage
+     | condition: 33% chance
+     | (3641:50) Present Box
+     | Player -80% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (3645:6) Rudolph's Steely Gaze
+     | Voids player buff effects
+     | condition: 50% chance
+     | (3642:15) Rudolph Attack
+     | Deal 160% damage (2 hits, 80% each)
+     | (3644:94) Rudolph Antler Lock
+     | Lock 5 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs, Deal 140% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 69
+   | (3643:1) Lullaby
+   | Bind 3 random cards for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (3646:89) Rudolph Tackle
+     | Delay active skills by 2 turns, Deal 160% damage
+   | group:
+     | (3647:15) Chicken Barrel
+     | Deal 600% damage (6 hits, 100% each)

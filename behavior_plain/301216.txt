@@ -1,0 +1,91 @@
+#301216 - Rebel Seraph Lucifer
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:17927) -> Pass this trial if you wish to advance
+	Bind awoken skills for 3 turns
+	[1] ESBindSkill(14:17928) -> Clear a path on the board
+	Bind active skills for 3 turns
+	[2] ESNoSkyfall(127:17929) -> First, show me what you can do
+	No skyfall for 3 turns
+	[3] ESRandomSpawn(92:17930) -> Erase all of the Poison Orbs
+	Spawn 4 random Poison orbs
+	[4] ESDebuffMovetime(39:17931) -> If you can't... You know what will happen!
+	Movetime 50% for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESOrbChangeAttackBits(108:17938) -> Try again!
+Change all Poison orbs to Dark orbs, Deal 1,000,000% damage
+
+#9: ESBoardChange(84:17933) -> Next, don't make any combos
+Change all orbs to Fire, Water, Wood, and Dark
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 15
+
+#14: SkillSet:
+	[0] ESNoSkyfall(127:16959) -> Skyless
+	No skyfall for 1 turn
+	[1] ESSkyfall(68:17935) -> Fine, this is the final stage
+	Dark skyfall +100% for 1 turn
+	[2] ESDebuffMovetime(39:17932) -> Within the time limit...
+	Movetime 150% for 1 turn
+	[3] ESBoardChange(84:17936) -> Erase every Fire, Water & Wood Orb
+	Change all orbs to Fire, Water, and Wood
+
+#15: ESAttackMultihit(15:17939) -> Try again!
+Deal 1,000,000% damage (10 hits, 100,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 22
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#19: ESOrbChangeAttackBits(108:17940) -> Try again!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Fire, Water, and Wood orbs to Heal orbs, Deal 1,000,000% damage
+
+#20: ESEndBattle(40:17937) -> Fine, you may proceed.
+Reduce self HP to 0
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:17939) -> Try again!
+Deal 1,000,000% damage (10 hits, 100,000% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

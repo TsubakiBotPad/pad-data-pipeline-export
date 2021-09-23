@@ -1,0 +1,42 @@
+#5577 - Shiki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5577
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23864:110) I'll play with you.
+ | Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | (23866:48) Cloudburst
+   | Change all Dark orbs to Jammer orbs, Deal 105% damage
+   | condition: 50% chance
+   | (23865:92) Exodus Stream
+   | Spawn 4 random Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (23867:79) Elysium Halo
+   | Change the 3rd row to Dark orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (23870:83) Setsuna + Tartarus Drop
+     | Blind all orbs on the board + Player -50% HP
+   | group:
+     | condition: 33% chance
+     | (23871:127) Lotus Dance of Sublimation
+     | No skyfall for 1 turn
+     | condition: 33% chance
+     | (23872:89) Lotus Dance of Oblivion
+     | Delay active skills by 1~2 turns, Deal 90% damage
+     | condition: 34% chance
+     | (23873:15) Tenma Wave Cyclone
+     | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: hp <= 14
+   | (23874:85) Skandha Avidya
+   | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 250% damage

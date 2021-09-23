@@ -1,0 +1,54 @@
+#5766 - Kamen Rider Zero-One Shining Hopper
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5766
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20899:83) Zero-One. + That's my name!
+ | RCV 25% for 3 turns + Movetime -4s for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (20903:74) Authorize Buster
+     | Reduce damage from all sources by 50% for 5 turns
+   | group:
+     | condition: 25% chance
+     | (20906:92) Zero-One Dust
+     | Spawn 3 random Light and Jammer orbs, Deal 90% damage
+     | condition: 25% chance
+     | (20908:92) Progrise Dust
+     | Spawn 3 random Dark and Jammer orbs, Deal 80% damage
+     | condition: 25% chance
+     | (20910:102) Zero-One Bomber
+     | Spawn 3 random Bomb orbs, Deal 90% damage
+     | condition: 25% chance
+     | (20912:103) Progrise Bomber
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (20900:83) There's only one person who can rise above me. + Me!
+     | Increase damage to 150% for the next 5 turns + Random 3 orbs change every 1.0s for 5 turns
+   | group:
+     | condition: 25% chance
+     | (20907:92) Zero-One Buster Dust
+     | Spawn 4 random Light and Jammer orbs, Deal 100% damage
+     | condition: 25% chance
+     | (20909:92) Progrise Buster Dust
+     | Spawn 4 random Dark and Jammer orbs, Deal 95% damage
+     | condition: 25% chance
+     | (20911:102) Zero-One Buster Bomber
+     | Spawn 5 random Bomb orbs, Deal 100% damage
+     | condition: 25% chance
+     | (20913:103) Progrise Buster Bomber
+     | Spawn Bomb orbs in the specified positions, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | (20914:85) Shining Impact
+   | Change all orbs to Light and Jammer, Deal 100% damage

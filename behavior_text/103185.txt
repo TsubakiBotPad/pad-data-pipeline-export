@@ -1,0 +1,46 @@
+#103185 - Frost Spore Crusher, Hammer Troll
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103185
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12808:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12809:83) Frost Barrier + Frozen
+ | Voids status ailments for 10 turns + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 74
+     | (12814:50) Break into Pieces
+     | Player -99% HP
+   | group:
+     | condition: 50% chance
+     | (12815:15) Pulverization
+     | Deal 120% damage
+     | condition: 50% chance
+     | (12816:89) Troll Dance
+     | Delay active skills by 1~2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 1 while HP > 14
+     | (12812:83) Absolute Zero + Break into Pieces
+     | Locked Water skyfall +100% for 99 turns + Player -99% HP
+   | group:
+   | condition: turn 2 while HP > 14
+     | (12814:50) Break into Pieces
+     | Player -99% HP
+ | group:
+ | condition: hp <= 14
+   | (12817:15) Green Ice Crush
+   | Deal 800% damage (4 hits, 200% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (12818:83) Resolve + Frost Enhancement
+   | Enemy recover 51% HP + Increase damage to 200% for the next 99 turns

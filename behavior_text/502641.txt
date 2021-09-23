@@ -1,0 +1,24 @@
+#502641 - Gods' Enemy Monstrous Wolf, Fenrir
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 502641
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15523:83) Sky Shaking Howl + Mark of Ragnarok
+ | Absorb damage when combos <= 5 for 10 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-9 of 10
+   | condition: 50% chance
+   | (15526:104) Infernal Smoke
+   | A 3×1 rectangle of clouds appears for 1 turn at a random location, Deal 150% damage
+   | (15524:15) God Eating
+   | Deal 98~112% damage (7~8 hits, 14% each)
+ | group:
+ | condition: execute repeatedly, turn 10 of 10
+   | (15525:17) Unleash Ragnarok
+   | Increase damage to 1,000% for the next 1 turn

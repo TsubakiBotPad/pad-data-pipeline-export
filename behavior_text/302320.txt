@@ -1,0 +1,82 @@
+#302320 - Awoken Jord
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 302320
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3183:89) Pride of the Aesir
+ | Delay active skills by 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 1347 on team
+     | (3193:55) That look suits you!
+     | Player recover 100% HP
+     | condition: when 374, 375, 655 on team
+     | (3191:1) Enough struggling!
+     | Bind 6 random cards for 1 turn
+     | condition: when 362, 363, 1423 on team
+     | (3195:92) Don't go anywhere!
+     | Spawn 1 random Water orb
+     | condition: 10% chance
+     | (3184:94) Earth-Shattering Thunder Hammer
+     | Lock all Light orbs, Deal 90% damage
+     | condition: 30% chance
+     | (3185:92) Lightning Punch
+     | Spawn 1 random Light orb, Deal 100% damage
+     | condition: 30% chance
+     | (3186:79) Bolt Impact
+     | Change the 4th and 5th rows to Wood and Light orbs, Deal 120% damage
+     | condition: 30% chance
+     | (3188:77) Swing
+     | Change the 2nd and 3rd columns to Wood and Jammer orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 6
+     | condition: 10% chance
+     | (3184:94) Earth-Shattering Thunder Hammer
+     | Lock all Light orbs, Deal 90% damage
+     | condition: 30% chance
+     | (3185:92) Lightning Punch
+     | Spawn 1 random Light orb, Deal 100% damage
+     | condition: 30% chance
+     | (3186:79) Bolt Impact
+     | Change the 4th and 5th rows to Wood and Light orbs, Deal 120% damage
+     | condition: 30% chance
+     | (3188:77) Swing
+     | Change the 2nd and 3rd columns to Wood and Jammer orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (3189:15) Earth God's Rage
+     | Deal 300% damage (2 hits, 150% each)
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | condition: 10% chance
+     | (3184:94) Earth-Shattering Thunder Hammer
+     | Lock all Light orbs, Deal 90% damage
+     | condition: 30% chance
+     | (3185:92) Lightning Punch
+     | Spawn 1 random Light orb, Deal 100% damage
+     | condition: 30% chance
+     | (3186:79) Bolt Impact
+     | Change the 4th and 5th rows to Wood and Light orbs, Deal 120% damage
+     | condition: 30% chance
+     | (3188:77) Swing
+     | Change the 2nd and 3rd columns to Wood and Jammer orbs, Deal 150% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: when 1347 on team
+   | (3193:55) That look suits you!
+   | Player recover 100% HP
+   | condition: when 374, 375, 655 on team
+   | (3191:1) Enough struggling!
+   | Bind 6 random cards for 1 turn
+   | condition: when 362, 363, 1423 on team
+   | (3195:92) Don't go anywhere!
+   | Spawn 1 random Water orb
+   | (3187:74) Sacred Realm of Vingolf
+   | Reduce damage from all sources by 75% for 1 turn

@@ -1,0 +1,86 @@
+#505215 - Tumultuous School Dragon, Viper Orochi
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRowSpawnMulti(79:23482) -> First Sword
+	Change the 2nd row to Water and Dark orbs, Deal 100% damage
+	[1] ESBoardChange(84:23483) -> A voice calls from far away
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 13
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 7
+
+#6: SkillSet:
+	[0] ESAttackMultihit(15:23495) -> Three Sword Slash
+	Deal 150% damage (3 hits, 50% each)
+	[1] ESBoardChange(84:23483) -> A voice calls from far away
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESColumnSpawnMulti(77:23486) -> Second Sword
+	Change the 4th column to Water and Dark orbs, Deal 100% damage
+	[1] ESSpinnersFixed(110:23487) -> Oh no... Where did my glasses go?
+	Specific orbs change every 1.0s for 5 turns
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#10: SkillSet:
+	[0] ESAttackMultihit(15:23495) -> Three Sword Slash
+	Deal 150% damage (3 hits, 50% each)
+	[1] ESBoardChange(84:23483) -> A voice calls from far away
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRowSpawnMulti(79:23489) -> Third Sword
+	Change the 5th row to Water and Dark orbs, Deal 100% damage
+	[1] ESOrbLock(94:23490) -> My hair's slicked back and lookin' good!
+	Lock 10 random orbs
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 16
+
+#14: SkillSet:
+	[0] ESAttackMultihit(15:23495) -> Three Sword Slash
+	Deal 150% damage (3 hits, 50% each)
+	[1] ESBoardChange(84:23483) -> A voice calls from far away
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:23492) -> Aww my cute widdle puddy cat!
+	Spawn 4 random Heal orbs
+	[1] ESBlind62(62:23493) -> Sunglasses Smash
+	Blind all orbs on the board, Deal 100% damage
+
+#16: ESAttackMultihit(15:23495) -> Three Sword Slash
+Deal 150% damage (3 hits, 50% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESSkillSet(83:23424) -> Ah! That's the bell! + They left in high spirits
+	Do nothing + Do nothing

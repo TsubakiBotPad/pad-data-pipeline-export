@@ -1,0 +1,80 @@
+#305874 - Pixel Awoken Hera
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305874
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16361:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ | (16363:106) Dark Power
+ | Enemy turn counter change to 1 when HP <= 100%
+ type: PREEMPT
+ | (16276:87) Goddess' Mystic Barrier
+ | Absorb damage when damage >= 20,000,000 for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (16365:88) Goddess' Whisper
+     | Bind awoken skills for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (16278:15) Double Slap
+     | Deal 45% damage (3 hits, 15% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (16279:48) Mischief by God
+     | Change a random attribute to Jammer orbs, Deal 60% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (16280:92) Goddess' Wicked Deeds
+     | Spawn 8 random Poison orbs, Deal 50% damage
+ | group:
+ | condition: turn 2, hp <= 74
+   | (16277:74) Goddess' Barrier
+   | Reduce damage from all sources by 50% for 10 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 3
+     | (16292:88) Gathering Magical Power
+     | Bind awoken skills for 5 turns
+   | group:
+     | (16281:15) Graviton Bomb
+     | Deal 2,000% damage
+ | group:
+ | condition: hp <= 1
+   | (16364:86) Blessing of the Gods
+   | Enemy recover 75% HP
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (16282:83) Blessing of the Gods + Divine Queen's Grudge + Goddess' Barrier
+   | Enemy recover 100% HP + RCV 50% for 10 turns + Reduce damage from all sources by 50% for 10 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (16284:83) Goddess' Whisper + Double Slap
+     | Bind awoken skills for 2 turns + Deal 150% damage (3 hits, 50% each), Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (16287:83) Goddess' Breath + Mischief by God
+     | Bind 1 random sub for 2~3 turns + Change a random attribute to Jammer orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (16289:83) Ultra Gravity + God's Wicked Deeds
+     | Player -99% HP + Spawn 8 random Poison orbs
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 2
+     | (16366:88) Gathering Magical Power
+     | Bind awoken skills for 5 turns
+   | group:
+     | (16293:83) Majesty of the Gods + Graviton Bomb
+     | Voids player buff effects + Deal 2,000% damage, Deal 2,000% damage

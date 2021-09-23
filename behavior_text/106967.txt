@@ -1,0 +1,41 @@
+#106967 - Loki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106967
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (22639:83) Bow in the presence of Loki! + Now, come.
+ | Player -75% HP + Bind active skills for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (22506:92) Enough!
+   | Spawn 3 random Wood orbs, Deal 80% damage
+   | condition: 50% chance
+   | (22505:15) Silence! Silence!!
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22507:105) There is only one Loki... It's a lonely life.
+     | RCV 50% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (22504:94) Kneel before the son of Laufey.
+     | Lock all Dark orbs, Deal 90% damage
+     | condition: 50% chance
+     | (22503:92) This is Laufey's revenge!
+     | Spawn 4 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | condition: 50% chance
+   | (22509:97) I shall crush the spirits of the gods with an impossible victory!
+   | Blind random 4~6 orbs for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (22508:15) Destroy them!
+   | Deal 120% damage

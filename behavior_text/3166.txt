@@ -1,0 +1,32 @@
+#3166 - Flaming Revolution Dghiragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3166
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24945:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (24910:83) Dghiragon Entry + Revolution 2
+ | Voids status ailments for 999 turns + Change player HP to 50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2
+     | (24912:15) Triple Breaker
+     | Deal 102% damage (3 hits, 34% each)
+   | group:
+   | condition: turn 3
+     | (24914:83) Revolution 0 + Perfect Offense
+     | Enemy recover 50% HP + Increase damage to 300% for the next 5 turns
+   | group:
+     | (24912:15) Triple Breaker
+     | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (24914:83) Revolution 0 + Perfect Offense
+   | Enemy recover 50% HP + Increase damage to 300% for the next 5 turns

@@ -1,0 +1,31 @@
+#101307 - Alt. Awoken Wadatsumi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101307
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9617:72) Water Halved
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (9613:83) Ocean Vestments + Pitch-Black
+ | Absorb damage when combos <= 5 for 999 turns + Blind all orbs on the board
+ group:
+ | group:
+   | condition: 50% chance
+   | (1082:48) Ocean Blade
+   | Change all Wood orbs to Water orbs, Deal 100% damage
+   | condition: 70% chance
+   | (1083:48) Blessing & Curse of the Sacred Waters
+   | Change all Water orbs to Heal orbs, Deal 150% damage
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (9616:83) Father Sea's Curse + Hollow Vortex
+   | Change 3 random orb types to Jammer orbs + Lock 15 random orbs
+ | group:
+ | condition: hp <= 24
+   | (1085:15) Sea God's Strike
+   | Deal 400% damage

@@ -1,0 +1,25 @@
+#2328 - Misato&AAA Wunder, Main Battery Gunfire
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2328
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18287:50) Emergency Launch!
+ | Player -75% HP
+ group:
+ | group:
+ | condition: turn 1
+   | (18288:74) A.T. field at maximum strength!
+   | Reduce damage from all sources by 50% for 10 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (18289:17) All main guns, ready salvo!
+   | Increase damage to 150% for the next 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (18290:79) Fire!
+   | Change the 2nd row to Fire orbs and the 4th row to Fire orbs, Deal 90% damage

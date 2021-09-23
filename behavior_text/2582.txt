@@ -1,0 +1,49 @@
+#2582 - Flame Keeper
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2582
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3627:50) Heavy Raid
+ | Player -80% HP
+ group:
+ | group:
+   | condition: 30% chance
+   | (3628:62) Exhaust Hit
+   | Blind all orbs on the board, Deal 90% damage
+   | condition: 20% chance
+   | (3629:89) Warning
+   | Delay active skills by 1 turn
+   | condition: 20% chance
+   | (3632:92) Seven Smog
+   | Spawn 7 random Poison orbs
+   | condition: 30% chance
+   | (3633:94) Red Alert
+   | Lock all Fire orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (3630:65) Capture Net
+     | Bind 2 random subs for 3 turns
+   | group:
+     | condition: 30% chance
+     | (3628:62) Exhaust Hit
+     | Blind all orbs on the board, Deal 90% damage
+     | condition: 20% chance
+     | (3629:89) Warning
+     | Delay active skills by 1 turn
+     | condition: 30% chance
+     | (3632:92) Seven Smog
+     | Spawn 7 random Poison orbs
+     | condition: 20% chance
+     | (3633:94) Red Alert
+     | Lock all Fire orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 29
+   | (3631:15) Killing Code
+   | Deal 300% damage (6 hits, 50% each)

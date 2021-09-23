@@ -1,0 +1,53 @@
+#207516 - 漏瑚
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:26755) -> Brat.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire damage for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 10
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESGravity(50:26696) -> You're right...about having no sense of danger.
+	Player -75% HP
+	[1] ESBombRandomSpawn(102:26697) -> Ember Insects
+	Spawn 3 random Bomb orbs
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRowSpawnMulti(79:26699) -> There's more!
+	Change the 3rd row to Fire orbs, Deal 100% damage
+	[1] ESOrbLock(94:26700) -> That's all it took?
+	Lock all Fire orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:26701) -> Did I wound your pride?
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESRowSpawnMulti(79:26699) -> There's more!
+	Change the 3rd row to Fire orbs, Deal 100% damage
+	[2] ESOrbLock(94:26700) -> That's all it took?
+	Lock all Fire orbs
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 5
+
+#10: ESRandomSpawn(92:26702) -> That was easier than I expected.
+Spawn 10 random Fire orbs, Deal 200% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

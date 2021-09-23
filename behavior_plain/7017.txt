@@ -1,0 +1,73 @@
+#7017 - Super Reincarnated Yamato Takeru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:23683) -> True Spirit of the God-Emperor
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:23684) -> Noble Spirit of Kusanagi
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESDebuffATK(130:23685) -> Grip of the Blue Right Hand
+	ATK -75% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAttackMultihit(15:23688) -> Halo Sword
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESColumnSpawnMulti(77:23689) -> Blazing Meteor Blade
+	Change the 1st column to Fire orbs, the 3rd column to Fire orbs, and the 5th column to Fire orbs, Deal 30% damage
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAttackMultihit(15:23688) -> Halo Sword
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESOrbLock(94:23690) -> Nimbus Cloud
+	Lock 20 random orbs, Deal 40% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:23692) -> Unleashed Sword of the Right Hand
+	No skyfall for 99 turns
+	[1] ESDebuffRCV(105:23693) -> Incinerating Blue Flame
+	RCV 25% for 5 turns
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAttackMultihit(15:23696) -> Halo Sword
+	Deal 100% damage (4 hits, 25% each)
+	[1] ESColumnSpawnMulti(77:23697) -> Blazing Meteor Blade
+	Change the 1st column to Water orbs, the 3rd column to Water orbs, and the 5th column to Water orbs, Deal 50% damage
+
+#10: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAttackMultihit(15:23696) -> Halo Sword
+	Deal 100% damage (4 hits, 25% each)
+	[1] ESOrbLock(94:23698) -> Nimbus Cloud
+	Lock 20 random orbs, Deal 65% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:23699) -> The Divine Sword Kusanagi
+Deal 1,000% damage (10 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSuperResolve(129:23681) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

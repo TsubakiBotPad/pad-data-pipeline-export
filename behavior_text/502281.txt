@@ -1,0 +1,30 @@
+#502281 - Creator God of Twin Skies, Izanagi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 502281
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27000:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (27001:83) Show me the extent of your power. + Come at me with everything you've got!
+ | ATK -75% for 3 turns + Lock all orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (27007:109) Time-Flowing Spear
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (27008:127) Crushing Heavens
+   | No skyfall for 1 turn
+   | condition: 34% chance
+   | (27009:15) Twin Skies' Strike
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (27004:83) Not bad. + Have a taste of my true strength!
+   | Reduce damage from all sources by 80% for 3 turns + Increase damage to 150% for the next 999 turns

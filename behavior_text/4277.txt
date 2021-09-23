@@ -1,0 +1,45 @@
+#4277 - Reincarnated Sun Wukong
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4277
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23650:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23651:83) Give me everything you've got! + Supersonic Cloud! To me!! + Dragonband Compliant Rod! Extend!!
+ | No skyfall for 5 turns + A row of clouds appears for 5 turns at 5th row, 1st column + Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 50% chance
+     | (23658:79) Golden Scepter
+     | Change the 1st and 5th rows to Light and Jammer orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23659:15) Golden Rod Monkey Dance
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (23655:83) About time I showed you my real power! + Come! Fight me!
+     | Increase damage to 200% for the next 999 turns + Void damage >= 20,000,000 for 999 turns
+   | group:
+     | condition: 50% chance
+     | (23658:79) Golden Scepter
+     | Change the 1st and 5th rows to Light and Jammer orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23659:15) Golden Rod Monkey Dance
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (23660:83) Summon Clones + Let's end this!
+     | Absorb damage when combos <= 7 for 999 turns + Bind awoken skills for 5 turns
+   | group:
+     | (23663:15) Golden Staff Monkey Dance
+     | Deal 600% damage (6 hits, 100% each)

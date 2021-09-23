@@ -1,0 +1,27 @@
+#5651 - Merchant's Younger Daughter, Claiomh Everlasting
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5651
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21859:94) Come at me, boy!
+ | Lock 10 random orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (21860:92) Thrust her Sword
+   | Spawn 4 random Light orbs, Deal 80% damage
+   | condition: 33% chance
+   | (21862:15) Swung the Sword
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 34% chance
+   | (21863:15) Follow-up Attack
+   | Deal 125% damage (5 hits, 25% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (21861:74) Leap Back
+   | Reduce damage from all sources by 50% for 3 turns

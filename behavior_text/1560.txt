@@ -1,0 +1,26 @@
+#1560 - 超サイヤ人・破壊王子ベジータ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1560
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (1973:67) Face me!
+ | Absorb damage when combos <= 4 for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1974:48) Grr!!!
+   | Change all Heal orbs to Jammer orbs, Deal 75% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (1975:66) Curse you...
+     | Do nothing
+   | group:
+     | (1976:85) Roar!!
+     | Change all orbs to Fire, Deal 500% damage

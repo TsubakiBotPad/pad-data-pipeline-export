@@ -1,0 +1,75 @@
+#1379 - フリーザ・最終形態
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESNone(0:0) -> ESNone
+nothing
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 10
+
+#5: ESAttackUPRemainingEnemies(17:1116) -> お待ちかね100パーセント!
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 17
+
+#7: ESBlind62(62:1117) -> オレが負けるかーっ!!!!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board, Deal 125% damage
+
+#8: ESOrbChangeAttack(48:1113) -> こんどは死ぬかもね
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Jammer orbs, Deal 75% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESStatusShield(20:1114) -> いまのはいたかった…
+Condition: When < 75% HP (ai:100 rnd:0)
+Voids status ailments for 999 turns
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 5
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESAttackMultihit(15:1115) -> いたかったぞーっ!!!!!
+Condition: When < 75% HP (ai:100 rnd:0)
+Deal 250% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESInactivity66(66:1118) -> この星を消す!!!
+Condition: When < 30% HP (ai:100 rnd:0)
+Do nothing
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b100
+
+#21: ESAttackMultihit(15:1119) -> ふっとベーっ!!!!!
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 1,000% damage

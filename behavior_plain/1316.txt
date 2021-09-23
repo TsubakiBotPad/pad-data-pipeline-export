@@ -1,0 +1,22 @@
+#1316 - Underworld Tyrant, Baphomet
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBindAttack(63:1056) -> Break Armor
+Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind player leader for 3 turns, Deal 75% damage
+
+#4: ESBlind62(62:1058) -> Lord of Vermilion
+Condition: When < 50% HP (ai:100 rnd:0)
+Blind all orbs on the board, Deal 150% damage
+
+#5: ESOrbChangeAttack(48:1057) -> Darkstrike
+Change all Light orbs to Dark orbs, Deal 120% damage

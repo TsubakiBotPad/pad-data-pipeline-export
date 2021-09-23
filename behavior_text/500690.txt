@@ -1,0 +1,24 @@
+#500690 - Marine Spec Ops Goblin
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 500690
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21086:92) Wild Strikes
+ | Spawn 5 random Water orbs, Deal 80% damage
+ group:
+ | (21087:15) Charge
+ | Deal 100% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (21099:74) Defensive Stance
+   | Reduce damage from all sources by 75% for 2 turns
+ | group:
+   | (20586:15) Super Charge
+   | Deal 200% damage

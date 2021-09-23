@@ -1,0 +1,21 @@
+#200894 - Dark Liege, Vampire Duke
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:19592) -> State your business
+	Reduce damage from all sources by 95% for 2 turns
+	[1] ESOrbChangeAttackBits(108:19593) -> Begone!
+	Change all Jammer orbs to Dark orbs, Deal 100% damage
+
+#3: ESBoardChangeAttackBits(85:19595) -> Ice of Darkness
+Change all orbs to Water, Dark, and Heal, Deal 100% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn

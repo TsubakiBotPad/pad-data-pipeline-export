@@ -1,0 +1,46 @@
+#201305 - Alt. Gryps Rider, Vector Finn
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:25613) -> Magic Wings of Fianna
+	Absorb Light and Dark damage for 10 turns
+	[1] ESBoardChangeAttackBits(85:25614) -> King's Magic Spear
+	Change all orbs to Jammer and Poison, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESOrbChangeAttackBits(108:25619) -> Magic Blood Spear Mac an Luin
+Change all Jammer and Poison orbs to Light and Dark orbs, Deal 120% damage
+
+#7: ESBoardChangeAttackBits(85:25618) -> Turbulence
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffRCV(105:25616) -> Cut Off the Retreat
+	RCV 25% for 5 turns
+	[1] ESSpinnersFixed(110:25617) -> Old Soldier's Praise
+	Specific orbs change every 1.0s for 5 turns
+
+#10: ESAttackMultihit(15:25620) -> King's Claws
+Deal 1,000% damage (2 hits, 500% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

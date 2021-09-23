@@ -1,0 +1,25 @@
+#101463 - Alt. Awoken Sopdet
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 101463
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1983:87) Protection of the Nile
+ | Absorb damage when damage >= 200,000 for 999 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (8228:66) I'll only wait two turns for you.
+   | Do nothing
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (1985:15) Goodbye.
+   | Deal 1,400% damage (7 hits, 200% each)

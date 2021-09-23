@@ -1,0 +1,47 @@
+#4949 - ジバニャン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:16467) -> だるいニャ～ン…
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Jammer skyfall +15% for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 8
+
+#4: ESBindRandom(1:16470) -> しびれるお札
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 3 turns
+
+#5: ESRandomSpawn(92:16469) -> 火花の術
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Fire orbs, Deal 80% damage
+
+#6: ESAttackMultihit(15:16472) -> ニャッ！
+Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESOrbLock(94:16473) -> ニャーン！
+Lock 6 random orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:16471) -> ひゃくれつ肉球
+Deal 110% damage (10 hits, 11% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,196 @@
+#5881 - Traffikaos
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 5881
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16573:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (16609:110) Chest Glows Green
+ | Specific orbs change every 2.0s for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (16610:67) Eye Glows Green
+     | Absorb damage when combos <= 3 for 5 turns
+   | group:
+     | condition: 50% chance
+     | (16580:101) Traffic Signal Sensor
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+     | condition: 50% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 2
+     | (16611:96) Eye Glows Yellow
+     | Locked random skyfall +100% for 1 turn
+   | group:
+     | condition: 50% chance
+     | (16585:94) Traffic Signal Controls
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 3
+     | (16612:17) Eye Glows Red
+     | Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (16590:62) Light on an unlit street
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 50% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (16594:86) Repair Phase
+   | Enemy recover 50% HP
+
+level: 5
+ type: PASSIVE
+ | (16573:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (16574:83) Area Control + Chest Glows Green
+ | Voids status ailments for 999 turns + Specific orbs change every 2.0s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (16614:83) Eye Glows Green + Lights lead the way
+     | Absorb damage when combos <= 4 for 99 turns + Change a random attribute to Wood orbs, Deal 95% damage
+   | group:
+     | condition: 33% chance
+     | (16579:48) Lights lead the way
+     | Change a random attribute to Wood orbs, Deal 95% damage
+     | condition: 33% chance
+     | (16580:101) Traffic Signal Sensor
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+     | condition: 34% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 2 while HP > 19
+     | (16582:83) Eye Glows Yellow + Signs of Danger
+     | Locked random skyfall +100% for 5 turns + Change the 3rd row to Light and Jammer orbs, Deal 95% damage
+   | group:
+     | condition: 33% chance
+     | (16584:79) Signs of Danger
+     | Change the 3rd row to Light and Jammer orbs, Deal 95% damage
+     | condition: 33% chance
+     | (16585:94) Traffic Signal Controls
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 34% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 3 while HP > 19
+     | (16586:83) Eye Glows Red + Regulation Compensation
+     | Increase damage to 150% for the next 999 turns + Change the 1st row to Jammer orbs and the 3rd row to Jammer orbs
+   | group:
+     | condition: 33% chance
+     | (16589:92) Movement Deterrent
+     | Spawn 6 random Fire and Poison orbs, Deal 95% damage
+     | condition: 33% chance
+     | (16590:62) Light on an unlit street
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 34% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: always turn 2
+     | (16591:84) Chaotic Traffic Network
+     | Change all orbs to Jammer and Poison
+   | group:
+     | (16592:15) Rising Red Glow
+     | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (16593:83) Repair Phase + Chest Glows Red
+   | Enemy recover 50% HP + Seal the 1st and 6th columns for 5 turns
+
+level: 7
+ type: PASSIVE
+ | (16573:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (16574:83) Area Control + Chest Glows Green
+ | Voids status ailments for 999 turns + Specific orbs change every 2.0s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (16577:83) Eye Glows Green + Lights lead the way
+     | Absorb damage when combos <= 5 for 99 turns + Change a random attribute to Wood orbs, Deal 95% damage
+   | group:
+     | condition: 33% chance
+     | (16579:48) Lights lead the way
+     | Change a random attribute to Wood orbs, Deal 95% damage
+     | condition: 33% chance
+     | (16580:101) Traffic Signal Sensor
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+     | condition: 34% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 2 while HP > 19
+     | (16582:83) Eye Glows Yellow + Signs of Danger
+     | Locked random skyfall +100% for 5 turns + Change the 3rd row to Light and Jammer orbs, Deal 95% damage
+   | group:
+     | condition: 33% chance
+     | (16584:79) Signs of Danger
+     | Change the 3rd row to Light and Jammer orbs, Deal 95% damage
+     | condition: 33% chance
+     | (16585:94) Traffic Signal Controls
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 34% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 3 while HP > 19
+     | (16586:83) Eye Glows Red + Regulation Compensation
+     | Increase damage to 150% for the next 999 turns + Change the 1st row to Jammer orbs and the 3rd row to Jammer orbs
+   | group:
+     | condition: 33% chance
+     | (16589:92) Movement Deterrent
+     | Spawn 6 random Fire and Poison orbs, Deal 95% damage
+     | condition: 33% chance
+     | (16590:62) Light on an unlit street
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 34% chance
+     | (16581:15) Chaotic Traffic
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: always turn 2
+     | (16591:84) Chaotic Traffic Network
+     | Change all orbs to Jammer and Poison
+   | group:
+     | (16592:15) Rising Red Glow
+     | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (16593:83) Repair Phase + Chest Glows Red
+   | Enemy recover 50% HP + Seal the 1st and 6th columns for 5 turns

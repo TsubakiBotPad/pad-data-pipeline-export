@@ -1,0 +1,132 @@
+#406565 - Enmu
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b10
+
+#4: ESBindRandom(1:20158) -> To die as you dream...
+Bind 4 random cards for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESInactivity66(66:20159) -> All human hearts are the same.
+	Do nothing
+	[1] ESOrbLock(94:20160) -> Fragile and weak like glasswork.
+	Lock 8 random orbs
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESInactivity66(66:20184) -> Oh, you're awake?
+	Do nothing
+	[1] ESGravity(50:20185) -> You should have stayed asleep.
+	Player -5% HP
+
+#9: ESBindAttack(63:20067) -> Blood Demon Art: Whispers of Forced Unconscious Hypnosis
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Bind player leader for 1 turn, Deal 50% damage
+
+#10: ESGravity(50:20192) -> Go to sleeeeep...
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Player -10% HP
+
+#11: ESSkillDelay(89:20096) -> Sleeep...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 0~1 turns
+
+#12: ESBindAttribute(2:20107) -> Sleeep!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind Light cards for 1 turn
+
+#13: ESRandomSpawn(92:20066) -> Hee hee!
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Dark orbs, Deal 90% damage
+
+#14: ESAttackMultihit(15:20065) -> Tee hee hee!
+Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 20
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: SkillSet:
+	[0] ESGravity(50:20161) -> There it is!
+	Player -5% HP
+	[1] ESBlindStickyRandom(97:20162) -> That's the expression I wanted to see!
+	Blind random 1~2 orbs for 1 turn
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 24
+
+#21: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#22: ESAttackUPRemainingEnemies(17:20163) -> While you were deep asleep...
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 110% for the next 999 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 28
+
+#25: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#26: ESNoSkyfall(127:20165) -> Won't you just leave them for me to eat later?
+No skyfall for 1 turn
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 32
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#30: ESBlind62(62:20181) -> Can you protect them...by yourself?
+Blind all orbs on the board, Deal 100% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b10
+
+#33: ESBindAttack(63:20072) -> Blood Demon Art: Eyes of Forced Unconscious Hypnosis
+Bind both leaders for 1 turn, Deal 120% damage
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESSuperResolve(129:20118) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#36: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:20166) -> What a pathetic...
+	Do nothing

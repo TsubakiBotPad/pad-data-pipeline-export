@@ -1,0 +1,63 @@
+#3842 - Awoken Ishida Mitsunari
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESLeaderSwap(75:16679) -> Are you capable of stopping me?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Leader changes to random sub for 3 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkillDelay(89:16680) -> You are not the true leader!
+	Delay active skills by 3~6 turns
+	[1] ESAttackMultihit(15:16789) -> Scatter!
+	Deal 1,000% damage (4 hits, 250% each)
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 7
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:16682) -> Such a weak attack...
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESDebuffRCV(105:16683) -> Destroy that body!
+	RCV 25% for 5 turns
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:16685) -> Not bad, are you...
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESNoSkyfall(127:16686) -> Try to show more of your true power.
+	No skyfall for 5 turns
+
+#8: ESAttackMultihit(15:16687) -> Loyal Retainers' Swords
+Deal 200% damage (4 hits, 50% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:16689) -> This will end it.
+	Increase damage to 1,000% for the next 999 turns
+	[1] ESDamageShield(74:16690) -> I shall not give you long.
+	Reduce damage from all sources by 99% for 3 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTurnChangePassive(106:16677) -> Enemy's next turn changed
+Enemy turn counter change to 3 when HP <= 50%

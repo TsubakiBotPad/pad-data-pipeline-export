@@ -1,0 +1,24 @@
+#794 - Thunder Giant, Cyclops
+monster size: 3
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 794
+approved: False
+
+level: 5
+ group:
+ | group:
+   | condition: 50% chance
+   | (595:50) Heavy Blow
+   | Player -75% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (596:66) Raised Weapon
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (597:15) Giga Impact
+     | Deal 200% damage

@@ -1,0 +1,27 @@
+#1179 - Fire Sprite, Parrot
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1179
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (903:55) Lucky Encounter
+ | Player recover 100% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (904:48) Fire Spirit's Writing
+   | Change a random attribute to Fire orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (905:15) Magical Book
+     | Deal 25% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (906:15) The Sword Kusanagi
+     | Deal 150~200% damage (3~4 hits, 50% each)

@@ -1,0 +1,108 @@
+#104320 - Younger Toguro, 80% Power
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:9444) -> 変身2回目戸愚呂弟
+Condition: On death (ai:0 rnd:0)
+Show message: At last, you've done as I asked.
+I've waited a long time for this moment.|Now destiny has rewarded my patience.
+
+#3: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 6
+
+#4: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 3, target rnd 30
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESStatusShield(20:9438) -> It's time. You have something to prove to me.
+Voids status ailments for 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 28
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 24
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 20
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 18
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 17
+
+#16: ESAttackMultihit(15:9439) -> Come on!
+Deal 100% damage
+
+#17: ESSpinnersFixed(110:9440) -> Let's kick this up a notch, shall we?
+Specific orbs change every 1.0s for 1 turn, Deal 120% damage
+
+#18: ESSkillDelay(89:9441) -> Is that all you got for me?
+Delay active skills by 1~2 turns, Deal 90% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttackMultihit(15:9439) -> Come on!
+Condition: 33% chance (ai:33 rnd:0)
+Deal 100% damage
+
+#21: ESSpinnersFixed(110:9440) -> Let's kick this up a notch, shall we?
+Condition: 50% chance (ai:50 rnd:0)
+Specific orbs change every 1.0s for 1 turn, Deal 120% damage
+
+#22: ESSkillDelay(89:9441) -> Is that all you got for me?
+Delay active skills by 1~2 turns, Deal 90% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#26: ESBindSkill(14:9442) -> My total power would be wasted on you.
+Bind active skills for 3 turns
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttackMultihit(15:9443) -> I'll finish this as I am, at 80 percent.
+Deal 160% damage (4 hits, 40% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 33
+
+#31: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#32: ESInactivity66(66:9445) -> It's time. You have something to prove to me.
+Do nothing
+
+#33: ESEndPath(36:26) -> ESEndPath
+end_turn

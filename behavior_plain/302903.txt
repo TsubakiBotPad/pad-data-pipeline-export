@@ -1,0 +1,38 @@
+#302903 - Awoken Liu Bei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19349) -> Brave Resolve
+	Voids status ailments for 999 turns
+	[1] ESOrbChangeAttackBits(108:19350) -> Leading a Comeback
+	Change all Heal orbs to Wood orbs, Deal 80% damage
+	[2] ESDebuffRCV(105:19351) -> Ascension's Noble Path
+	RCV 25% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 6
+
+#4: SkillSet:
+	[0] ESAttackMultihit(15:19353) -> Path to Destruction
+	Deal 100% damage (2 hits, 50% each)
+	[1] ESDebuffRCV(105:19354) -> Ascension's Noble Path
+	RCV 10% for 1 turn, Deal 50% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:19355) -> Omen of Conquest
+Deal 1,600% damage (4 hits, 400% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESResolve(73:19347) -> Resolve
+Survive attacks with 1 HP when HP > 50%

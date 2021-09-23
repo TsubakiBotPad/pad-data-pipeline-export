@@ -1,0 +1,104 @@
+#104884 - An Incarnation of the Radius
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESGravity(50:11455) -> Slam
+Player -99% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#11: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 96, target rnd 13
+
+#12: ESAttackMultihit(15:11461) -> Black Great Holy Tree
+Deal 110% damage (2 hits, 55% each)
+
+#13: ESRecoverEnemy86(86:11471) -> White Great Holy Tree
+Enemy recover 100% HP
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 22
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESRecoverEnemy86(86:11471) -> White Great Holy Tree
+Enemy recover 100% HP
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 28
+
+#21: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlindStickyFixed(98:11473) -> Massive Dust Cloud
+	Blind orbs in specific positions for 2 turns
+	[1] ESOrbChangeAttack(48:11464) -> Splitting Ground
+	Change a random attribute to Wood orbs, Deal 120% damage
+
+#22: ESSkillDelay(89:11456) -> Downward Sword Slash
+Condition: 20% chance (ai:0 rnd:20)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#23: ESRowSpawnMulti(79:11457) -> Sweeping Beam Attack
+Condition: 20% chance (ai:0 rnd:20)
+Change the 2nd row to Light orbs, Deal 105% damage
+
+#24: ESRowSpawnMulti(79:11458) -> Sweeping Beam Attack
+Condition: 20% chance (ai:0 rnd:20)
+Change the 3rd row to Light orbs, Deal 105% damage
+
+#25: ESRowSpawnMulti(79:11459) -> Sweeping Beam Attack
+Condition: 20% chance (ai:0 rnd:20)
+Change the 4th row to Light orbs, Deal 105% damage
+
+#26: ESAttackMultihit(15:11461) -> Black Great Holy Tree
+Condition: 20% chance (ai:0 rnd:20)
+Deal 110% damage (2 hits, 55% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttackMultihit(15:11465) -> Spear Throw
+Deal 300% damage (3 hits, 100% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESResolve(73:11466) -> Resolve
+Survive attacks with 1 HP when HP > 50%

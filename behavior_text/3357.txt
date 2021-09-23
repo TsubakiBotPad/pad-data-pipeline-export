@@ -1,0 +1,33 @@
+#3357 - Head Captain of 13 Court Guard Squads, Genryusai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3357
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17451:74) All things of this world,  turn to ashes, Ryujinjakka.
+ | Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (17452:108) I'll have to punish you some more.
+   | Change all Water and Heal orbs to Fire orbs, Deal 70% damage
+   | condition: 33% chance
+   | (17454:77) Ryujin Jakka Hitotsume Nadegiri
+   | Change the 5th column to Fire orbs, Deal 80% damage
+   | condition: 34% chance
+   | (17453:15) What? You can't reach me.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (17455:17) Stop.
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (17456:92) Don't you know what "stop" means, kid?
+     | Spawn 6 random Fire orbs, Deal 130% damage

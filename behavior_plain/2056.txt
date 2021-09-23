@@ -1,0 +1,102 @@
+#2056 - Neo Exdeath
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESInactivity66(66:2112) -> All memories...dimensions...existence...
+	Do nothing
+	[1] ESInactivity66(66:2113) -> All that is shall be returned to nothing.
+	Do nothing
+	[2] ESStatusShield(20:2116) -> Then I, too, can disappear...forever!!!
+	Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 14
+
+#9: ESDispel(6:2118) -> Dispel
+Voids player buff effects
+
+#10: ESAttackMultihit(15:2119) -> Almagest
+Condition: 40% chance (ai:0 rnd:40)
+Deal 120~160% damage (3~4 hits, 40% each)
+
+#11: ESBindAttack(63:2120) -> Delta Attack
+Condition: 40% chance (ai:0 rnd:40)
+Bind 1 random sub for 3 turns, Deal 90% damage
+
+#12: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 20% chance (ai:0 rnd:20)
+Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESInactivity66(66:2121) -> The Laws of the universe mean nothing!
+Condition: When < 40% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: ESBindAttack(63:2122) -> Grand Cross
+Condition: When < 40% HP (ai:100 rnd:0)
+Bind 2 random cards for 1~3 turns, Deal 120% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESAttackMultihit(15:2188) -> Meteor
+	Deal 120% damage (4 hits, 30% each)
+	[1] ESGravity(50:2192) -> Maelstrom
+	Player -99% HP
+
+#23: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESAttackMultihit(15:2119) -> Almagest
+	Deal 120~160% damage (3~4 hits, 40% each)
+	[1] ESAttackMultihit(15:2193) -> Comet
+	Deal 50~200% damage (1~4 hits, 50% each)
+
+#24: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESAttackMultihit(15:2193) -> Comet
+	Deal 50~200% damage (1~4 hits, 50% each)
+	[1] ESAttackMultihit(15:2194) -> Vacuum Wave
+	Deal 120% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn

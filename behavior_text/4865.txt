@@ -1,0 +1,23 @@
+#4865 - The Goddess of Underworld, Sinon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4865
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11492:106) Don't screw with me!
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (11485:83) Then let's light him up! + I'll be playing to win.
+ | Spawn 3 random locked Bomb orbs + Voids status ailments for 5 turns
+ group:
+ | group:
+   | (11488:83) He won't even know what hit him. + Why you!
+   | Fix orb movement starting point to random position on the board + Deal 100% damage, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (11491:102) They're pulling out all the stops tonight.
+   | Spawn 8 random Bomb orbs

@@ -1,0 +1,81 @@
+#2877 - Storm Hawk Dragon, Kuarje
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2877
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4561:72) Fire Halven
+ | Reduce damage from Fire attrs by 50%
+ | (4220:73) Dragonbound's Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (4561:72) Fire Halven
+ | Reduce damage from Fire attrs by 50%
+ | (4220:73) Dragonbound's Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (4548:83) I don't care about your hopes! + Storm Light Ring
+ | Voids status ailments for 5 turns + Change all orbs to Wood, Light, and Heal, Deal 130% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2508, 2509 on team
+     | (4550:17) You're a troublesome one, aren't you?
+     | Increase damage to 200% for the next 1 turn
+     | (4551:17) Raising Flap
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 20% chance
+     | (4553:15) Storm Raid
+     | Deal 110% damage (2 hits, 55% each)
+     | condition: 50% chance
+     | (4559:77) Green Wind Soul Cutter
+     | Change the 3rd column to Light orbs and the 4th column to Wood orbs, Deal 95% damage
+     | (4560:92) Mountain Haze's Guidance
+     | Spawn 8 random Wood orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4551:17) Raising Flap
+     | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4557:83) Storm Hawk Dragon's Trial + Splitting Storm Wind
+     | Absorb Wood damage for 1 turn + Change the 2nd and 4th rows to Wood and Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4551:17) Raising Flap
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 20% chance
+     | (4553:15) Storm Raid
+     | Deal 110% damage (2 hits, 55% each)
+     | condition: 50% chance
+     | (4559:77) Green Wind Soul Cutter
+     | Change the 3rd column to Light orbs and the 4th column to Wood orbs, Deal 95% damage
+     | (4560:92) Mountain Haze's Guidance
+     | Spawn 8 random Wood orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | (4558:83) Storm Raid + Storm Light Ring
+   | Deal 110% damage (2 hits, 55% each) + Change all orbs to Wood, Light, and Heal, Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4554:83) Overcoming Will + Raising Flap
+     | Enemy recover 50% HP + Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4558:83) Storm Raid + Storm Light Ring
+     | Deal 110% damage (2 hits, 55% each) + Change all orbs to Wood, Light, and Heal, Deal 110% damage (2 hits, 55% each)

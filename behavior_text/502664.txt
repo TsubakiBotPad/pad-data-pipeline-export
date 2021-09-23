@@ -1,0 +1,32 @@
+#502664 - Creation Empress God, Izanami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 502664
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27010:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (27011:83) Hohoho. + I wonder, can you defeat me?
+ | Absorb damage when combos <= 6 for 3 turns + A 2×1 rectangle of clouds appears for 1 turn at a random location
+ group:
+ | group:
+   | condition: 50% chance
+   | (27019:105) Young Dragon's Wave
+   | RCV 50% for 1 turn, Deal 80% damage
+   | condition: 50% chance
+   | (27018:92) Heaven's Cloak of Light
+   | Spawn 4 random Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (27014:83) Is that all you amount to? + Show me more of your strength.
+     | Delay active skills by 3 turns + Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | (27017:104) Heaven's River of Clouds
+     | A 1×2 rectangle of clouds appears for 1 turn at a random location, Deal 150% damage

@@ -1,0 +1,137 @@
+  monster_id: 100130
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 9129
+        }
+      }
+    }
+    groups {
+      group_type: DEATH
+      condition {
+        if_defeated: true
+      }
+      children {
+        behavior {
+          enemy_skill_id: 9137
+        }
+      }
+    }
+  }
+  levels {
+    level: 4
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 9129
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 9130
+        }
+      }
+    }
+    groups {
+      group_type: DEATH
+      condition {
+        if_defeated: true
+      }
+      children {
+        behavior {
+          enemy_skill_id: 9137
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9131
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 2
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9132
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 3
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9133
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9134
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 5
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9015
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 6
+            trigger_turn: 6
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9130
+            }
+          }
+        }
+      }
+    }
+  }

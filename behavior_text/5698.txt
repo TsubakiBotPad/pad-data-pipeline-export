@@ -1,0 +1,32 @@
+#5698 - 男鹿アキタ＆Ｅ５＋Ｅ６
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+monster_id: 5698
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15265:83) リンク、シンカリオン！ + 行くぞ
+ | Reduce damage from all sources by 50% for 3 turns + Absorb damage when combos <= 4 for 5 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (15220:5) 話は読めてる
+   | Blind all orbs on the board
+   | condition: 33% chance
+   | (15221:108) くらえ！
+   | Change all Fire, Water, and Wood orbs to Fire orbs, Deal 80% damage
+   | condition: 33% chance
+   | (15218:15) Ｅ６の機動性を見せてやる！
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15219:107) 舐めるな！
+     | Unable to match Water orbs for 3 turns
+   | group:
+     | (15222:79) グランクロス！
+     | Change the 2nd row to Fire orbs, the 3rd row to Wood orbs, and the 4th row to Fire orbs, Deal 125% damage

@@ -1,0 +1,39 @@
+#4806 - Sword Dragon Caller, Lieto
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4806
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4800, 4801 on team
+ | (11125:68) Eww! You were chasing teachers?...
+ | Jammer skyfall +15% for 10 turns
+ | (11124:68) Come and kill some time
+ | Jammer skyfall +15% for 10 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (11127:102) Entertain me!
+   | Spawn 4 random Bomb orbs, Deal 90% damage
+   | condition: 33% chance
+   | (11128:89) This is going to get difficult
+   | Delay active skills by 0~2 turns, Deal 100% damage
+   | condition: 34% chance
+   | (11129:15) Can you go on?
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11130:83) That one was effective... + I'll return the favor
+   | Absorb damage when combos <= 5 for 999 turns + Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11133:74) Give me a break!
+     | Reduce damage from all sources by 50% for 10 turns
+   | group:
+     | (11134:15) Sorry but I've had enough now
+     | Deal 240% damage (4 hits, 60% each)

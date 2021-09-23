@@ -1,0 +1,39 @@
+#402756 - Crimson Orchid Virtue, Xiang Mei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 402756
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21985:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (21997:74) Come at me!
+ | Reduce damage from all sources by 75% for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (21998:92) Flame Bloom
+   | Spawn 4 random Fire orbs
+   | condition: 50% chance
+   | (21999:15) Crimson Wing Dance
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22000:83) Season of Decay + Suffer!
+     | Unable to match Heal orbs for 1 turn + Poison skyfall +15% for 5 turns
+   | group:
+     | condition: 50% chance
+     | (22003:108) Love of Fair Crimson
+     | Change all Heal orbs to Fire orbs, Deal 30% damage
+     | condition: 50% chance
+     | (21998:92) Flame Bloom
+     | Spawn 4 random Fire orbs
+     | condition: 50% chance
+     | (21999:15) Crimson Wing Dance
+     | Deal 105% damage (3 hits, 35% each)

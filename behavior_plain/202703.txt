@@ -1,0 +1,93 @@
+#202703 - Squad 6 Captain, Byakuya Kuchiki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 7
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: SkillSet:
+	[0] ESInactivity66(66:2802) -> This is the true form of Senbonzakura.
+	Do nothing
+	[1] ESInactivity66(66:2803) -> Senkei... Senbonzakura Kageyoshi.
+	Do nothing
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: SkillSet:
+	[0] ESStatusShield(20:2791) -> Then feast your eyes...
+	Voids status ailments for 999 turns
+	[1] ESAttackMultihit(15:2792) -> Senbonzakura Kageyoshi
+	Deal 110% damage (10 hits, 11% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#12: ESColumnSpawnMulti(77:2794) -> Hado Number 33: Sokatsui
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 3rd column to Water orbs and the 4th column to Fire orbs, Deal 90% damage
+
+#13: ESAttackMultihit(15:2795) -> Infinite blades attack
+Deal 110% damage (10 hits, 11% each)
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 19
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: ESBranchCard(90:2757) -> ESBranchCard
+Branch on player_cards HAS [2675, 2676, 2677, 3353, 3354], target rnd 18
+
+#17: SkillSet:
+	[0] ESInactivity66(66:2802) -> This is the true form of Senbonzakura.
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:2796) -> Senkei Senbonzakura Kageyoshi
+	Increase damage to 200% for the next 999 turns
+
+#18: SkillSet:
+	[0] ESInactivity66(66:2802) -> This is the true form of Senbonzakura.
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:2796) -> Senkei Senbonzakura Kageyoshi
+	Increase damage to 200% for the next 999 turns
+	[2] ESInactivity66(66:2800) -> You are only the second to ever see it.
+	Do nothing
+
+#19: ESAttackMultihit(15:2798) -> Senbonzakura Kageyoshi... Shukei Hakuteiken
+Condition: When < 15% HP (ai:100 rnd:0)
+Deal 600% damage
+
+#20: ESGravity(50:2797) -> Hado Number 4: Byakurai
+Condition: One-time use (ai:30 rnd:0) (cost: 1)
+Player -99% HP
+
+#21: ESAttackMultihit(15:2805) -> Slash
+Deal 110% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESInactivity66(66:2823) -> The battle... is yours.
+	Do nothing

@@ -1,0 +1,25 @@
+#500901 - Wind Chaser
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:15391) -> Wind Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 3 turns
+
+#3: SkillSet:
+	Condition: 30% chance when < 50% HP (ai:30 rnd:0)
+	[0] ESAttackMultihit(15:15394) -> Aero Blade
+	Deal 140% damage (2 hits, 70% each)
+	[1] ESSpinnersRandom(109:15393) -> Metal Cyclone
+	Random 1 orbs change every 1.0s for 1 turn
+
+#4: ESAttackMultihit(15:15392) -> Aero Stream
+Deal 100% damage (5 hits, 20% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

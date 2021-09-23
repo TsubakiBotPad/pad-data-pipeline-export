@@ -1,0 +1,27 @@
+#2536 - Long-Standing Desire God-Emperor, Yamato Takeru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:16141) -> The feast ends here
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 10 random Jammer and Poison orbs
+
+#3: ESRandomSpawn(92:16142) -> You can't afford to be distracted
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Mortal Poison
+
+#4: SkillSet:
+	[0] ESInactivity66(66:16144) -> So you failed to stop me
+	Do nothing
+	[1] ESRandomSpawn(92:16145) -> This won't end so easily
+	Spawn 1 random Mortal Poison orb
+	[2] ESEndBattle(40:16146) -> Farewell
+	Reduce self HP to 0
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

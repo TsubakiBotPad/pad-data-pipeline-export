@@ -1,0 +1,66 @@
+#1836 - Medjedra
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESOrbLock(94:5481) -> Medjetic Eye
+Lock all Poison and Mortal Poison orbs
+
+#5: ESBindAwoken(88:5482) -> Medjetic Eye
+Bind awoken skills for 2 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 16
+
+#9: ESOrbLock(94:5486) -> Medje Kick
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 1 random orb, Deal 100% damage
+
+#10: ESSkillDelay(89:5487) -> Medje Tackle
+Delay active skills by 1 turn, Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESLeaderSwap(75:5484) -> Medjellusion
+Leader changes to random sub for 3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 19
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESBindSkill(14:5483) -> Maga Maga
+Bind active skills for 5 turns
+
+#19: ESAttackMultihit(15:5485) -> Medje The End
+Deal 240% damage (3 hits, 80% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

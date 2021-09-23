@@ -1,0 +1,26 @@
+#7051 - Dan
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7051
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22999:20) The Saikyo scoundrel. Let's go!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (23002:109) Legendary Taunt
+     | Random 2 orbs change every 1.0s for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (23000:15) Gadoken
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (23001:17) My strength is skyrocketing!
+   | Increase damage to 150% for the next 3 turns

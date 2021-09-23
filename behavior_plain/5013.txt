@@ -1,0 +1,35 @@
+#5013 - Servant, Archer
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:19550) -> I'll be your opponent.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire damage for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESSpinnersFixed(110:19553) -> Caladbolg II
+Condition: 50% chance (ai:50 rnd:0)
+Specific orbs change every 1.5s for 1 turn, Deal 95% damage
+
+#5: ESRandomSpawn(92:19551) -> Kanshou and Bakuya
+Spawn 3 random Fire and Dark orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESDamageShield(74:19552) -> Rho Aias: 7 Rings of Heaven
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 4 turns
+
+#8: ESAttackMultihit(15:19554) -> Unlimited Blade Works
+Deal 140% damage (5 hits, 28% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

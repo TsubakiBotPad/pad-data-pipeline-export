@@ -1,0 +1,60 @@
+#104138 - Nergigante
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 104138
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18820:83) Roar + Extinction Dragon's Force
+ | Leader changes to random sub for 3 turns + Reduce damage from all sources by 50% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8835:78) Spread Wing Attack
+     | Change the 3rd row to Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (8833:15) Heavy Slam
+     | Deal 70% damage
+     | (8834:15) Headbutt
+     | Deal 90% damage
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (18839:97) Destruction Impulse
+     | Blind random 5~7 orbs for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (8839:83) Tail Scythe + Annihilation Spike Whirl
+     | Deal 70% damage + Seal the 1st row for 4 turns, Deal 70% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (8840:89) Foreleg Uppercut
+     | Delay active skills by 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (8843:83) Head Strike + Spike Shot
+     | Player -50% HP + Deal 60% damage (2 hits, 30% each), Deal 60% damage (2 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (8846:83) Roar + Pounce Attack
+     | Bind awoken skills for 1 turn + Change all Light orbs to Jammer orbs, Deal 110% damage
+     | (8849:83) Tail Strike + Binding Attack
+     | Change all Fire orbs to Jammer orbs + Bind player leader for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18842:83) Spike Regeneration + Annihilation Fist
+     | Enemy recover 10% HP + Deal 110% damage, Deal 110% damage
+ | group:
+ | condition: hp <= 9
+   | (18821:15) Heaven's Ruin
+   | Deal 120% damage (3 hits, 40% each)

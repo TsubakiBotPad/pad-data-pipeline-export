@@ -1,0 +1,58 @@
+#103699 - Alt. Awoken Nohime
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 103699
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16643:126) I'll do something nice for you.
+ | Change board size to 7x6 for 3 turns
+ | (17170:83) That looks like a lot of Orbs. + If that's so easy for you... + Would you forgive me if I did this? + Haven't had enough yet? + Black Death Butterfly
+ | Delay active skills by 15 turns + Bind awoken skills for 5 turns + Seal the 1st column for 10 turns + A 1×6 rectangle of clouds appears for 10 turns at 1st row, 6th column + For 20 turns, 10% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+ | condition: always turn 1
+   | (17022:83) Show me your full power! + Supreme Attendant's Robes + Can you overcome this?
+   | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 2 turns + Absorb damage when combos <= 9 for 2 turns
+ | group:
+ | condition: always turn 2
+   | condition: 33% chance
+   | (16651:83) It hurts, doesn't it... + Can you withstand this?
+   | Player -75% HP + Deal 50% damage (5 hits, 10% each), Deal 50% damage (5 hits, 10% each)
+   | condition: 33% chance
+   | (16654:83) I'll make it so you can't move. + Still not enough!
+   | Bind 1 random sub for 2 turns + Lock 21 random orbs, Deal 50% damage
+   | condition: 34% chance
+   | (16657:83) It's pitch black! + There's not even one ray of light.
+   | Blind all orbs on the board + Blind random 21 orbs for 1 turn, Deal 50% damage
+ | group:
+   | group:
+   | condition: turn 3 while HP > 49
+     | (16660:83) Oh what a shame. + Looks like you're still not ready.
+     | Void damage >= 30,000,000 for 999 turns + Specific orbs change every 1.0s for 10 turns
+   | group:
+     | condition: 33% chance
+     | (16651:83) It hurts, doesn't it... + Can you withstand this?
+     | Player -75% HP + Deal 50% damage (5 hits, 10% each), Deal 50% damage (5 hits, 10% each)
+     | condition: 33% chance
+     | (16654:83) I'll make it so you can't move. + Still not enough!
+     | Bind 1 random sub for 2 turns + Lock 21 random orbs, Deal 50% damage
+     | condition: 34% chance
+     | (16657:83) It's pitch black! + There's not even one ray of light.
+     | Blind all orbs on the board + Blind random 21 orbs for 1 turn, Deal 50% damage
+ | group:
+ | condition: always turn 3, hp <= 49
+   | (16663:83) You're pretty good aren't you. + Time to go all out!
+   | Enemy recover 100% HP + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 4
+     | (16666:83) I'm impressed you've gotten so far. + But how about this?
+     | Bind awoken skills for 1 turn + Blind orbs in specific positions for 1 turn
+   | group:
+     | (16669:15) You've entertained me.
+     | Deal 600% damage (4 hits, 150% each)

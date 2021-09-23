@@ -1,0 +1,33 @@
+#785 - Mystic Crystal Dragon, CrystalSkull
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+monster_id: 785
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (614:5) Hollow Eye Glint
+ | Blind all orbs on the board
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (601:1) Cursing Light of the Crystal
+     | Bind 2 random cards for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 70% chance
+     | (600:15) Crystal Fangs
+     | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (601:1) Cursing Light of the Crystal
+     | Bind 2 random cards for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (602:48) False Light of Mystery
+     | Change a random attribute to Jammer orbs, Deal 150% damage

@@ -1,0 +1,37 @@
+#201110 - Alt. Light Twin Star Divinegon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:25440) -> Starry Sky Gleam
+	Absorb Light and Dark damage for 5 turns
+	[1] ESBindAwoken(88:25441) -> Twin Light Thunderhorn
+	Bind awoken skills for 4 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 7
+
+#5: ESRandomSpawn(92:25442) -> Holy Breath
+Spawn 5 random Light orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackUPRemainingEnemies(17:25444) -> Divine Polar Wrath
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#8: ESRandomSpawn(92:25443) -> God Holy Breath
+Spawn 15 random Light orbs, Deal 300% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

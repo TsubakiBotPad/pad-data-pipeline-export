@@ -1,0 +1,48 @@
+#504010 - Fall Chrysanthemum Virtue, Xiu Min
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:22078) -> Sadly, this is the end for you lot.
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESSpinnersRandom(109:22079) -> Season of Transition
+	Random 1 orbs change every 0.5s for 1 turn, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESSpinnersRandom(109:22079) -> Season of Transition
+Condition: 33% chance (ai:0 rnd:33)
+Random 1 orbs change every 0.5s for 1 turn, Deal 100% damage
+
+#5: ESSpinnersRandom(109:22080) -> Season of Transition
+Condition: 34% chance (ai:0 rnd:34)
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#6: ESSpinnersRandom(109:22081) -> Season of Transition
+Condition: 33% chance (ai:0 rnd:33)
+Random 3 orbs change every 2.0s for 1 turn, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22083) -> Noble One's Mastery
+	Increase damage to 150% for the next 999 turns
+	[1] ESNoSkyfall(127:22084) -> Coming of Autumn
+	No skyfall for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

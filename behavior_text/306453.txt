@@ -1,0 +1,38 @@
+#306453 - Violet Hellstone Pillar
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306453
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19395:74) Demonic Flame Wall
+ | Reduce damage from all sources by 99% for 99 turns
+ group:
+ | condition: 33% chance
+ | (19396:39) Crushing Flame
+ | Movetime -4s for 1 turn
+ | condition: 33% chance
+ | (19397:130) Crippling Flame
+ | ATK -50% for 1 turn
+ | condition: 34% chance
+ | (19398:105) Paralyzing Flame
+ | RCV 50% for 1 turn
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | condition: 33% chance
+   | (19396:39) Crushing Flame
+   | Movetime -4s for 1 turn
+   | condition: 33% chance
+   | (19397:130) Crippling Flame
+   | ATK -50% for 1 turn
+   | condition: 34% chance
+   | (19398:105) Paralyzing Flame
+   | RCV 50% for 1 turn
+ | group:
+   | (19403:40) Magical power depleted
+   | Reduce self HP to 0

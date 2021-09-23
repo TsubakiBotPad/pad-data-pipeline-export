@@ -1,0 +1,51 @@
+#1884 - Curved Blade Brave, Kopis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 1884
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5891:71) Brilliant Fighting Spirit
+ | Void damage >= 600,000 for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (5902:15) Multiple Curved Blades
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (5901:103) Blazing Curved Blades
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3-4 of 4
+     | (5902:15) Multiple Curved Blades
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | condition: 34% chance
+     | (5893:53) Shield of Taghyir
+     | Absorb Water damage for 5 turns
+     | condition: 33% chance
+     | (5897:83) Style Change + Shield of Taghyir
+     | Change own attribute to Water + Absorb Wood damage for 5 turns
+     | condition: 33% chance
+     | (5900:83) Style Change + Shield of Taghyir
+     | Change own attribute to Wood + Absorb Fire damage for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (5901:103) Blazing Curved Blades
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | (5902:15) Multiple Curved Blades
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 9
+   | (5903:103) Nar Hujum
+   | Spawn Bomb orbs in the specified positions, Deal 220% damage

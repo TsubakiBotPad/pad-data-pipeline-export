@@ -1,0 +1,36 @@
+#5662 - Majic Lin
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:14910) -> I'm a sorcerer, too, you know!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Jammer and Poison skyfall +10% for 4 turns
+
+#3: ESSpinnersFixed(110:14911) -> I disturb thee, Cage of Light!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Specific orbs change every 1.0s for 4 turns
+
+#4: ESAbsorbCombo(67:14912) -> I run, Snowtipped Mountain!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 6 for 15 turns
+
+#5: ESGravity(50:14913) -> I'll hit you with everything I've got!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#6: SkillSet:
+	[0] ESInactivity66(66:14915) -> I-I release thee...
+	Do nothing
+	[1] ESOrbChangeAttack(48:14916) -> Sword of Light!
+	Change a random attribute to Light orbs, Deal 150% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESTypeResist(118:14963) -> Balance Recovery Halved
+Reduce damage from Balanced and Healer types by 50%

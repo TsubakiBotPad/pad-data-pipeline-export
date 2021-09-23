@@ -1,0 +1,38 @@
+#2786 - Trance Kuja
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2786
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3897:83) My time is almost up... + Reflect
+ | Do nothing + Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 75% chance
+   | (3899:94) Flare
+   | Lock 3 random Fire, Water, Wood, Light, and Dark orbs, Deal 110% damage
+   | condition: 25% chance
+   | (3898:79) Holy
+   | Change the 2nd and 4th rows to Light orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 59
+   | condition: 40% chance, one time only
+   | (3901:86) Curaga
+   | Enemy recover 100% HP
+   | condition: 75% chance
+   | (3899:94) Flare
+   | Lock 3 random Fire, Water, Wood, Light, and Dark orbs, Deal 110% damage
+   | condition: 25% chance
+   | (3898:79) Holy
+   | Change the 2nd and 4th rows to Light orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | condition: 40% chance, one time only
+   | (3901:86) Curaga
+   | Enemy recover 100% HP
+   | (3900:92) Flare Star
+   | Spawn 8 random Fire orbs, Deal 250% damage

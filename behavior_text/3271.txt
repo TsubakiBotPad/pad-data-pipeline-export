@@ -1,0 +1,54 @@
+#3271 - Reincarnated Hino Kagutsuchi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3271
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16208:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ | (16209:106) Enemy's next turn changed in anger
+ | Enemy turn counter change to 1 when HP <= 75%
+ type: PREEMPT
+ | (16189:83) Snake God's Protective Flame + Strong Flame Spell + Roar of the Underworld
+ | Void damage >= 10,000,000 for 999 turns + Reduce damage from all sources by 75% for 99 turns + Delay active skills by 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16193:83) Snake God's Roar + Crazed Unearthly Rumble
+     | Player -99% HP + Mortal Poison skyfall +10% for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16210:83) Snake God's Roar + Crazed Unearthly Rumble
+     | Player -99% HP + Poison skyfall +20% for 2 turns
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 1 while HP > 24
+     | (16196:83) God Encircling Protective Flame + Underworld Guiding Flame
+     | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16199:83) Crazed Unearthly Rumble + Soul-Binding Hellfire
+     | Poison skyfall +15% for 1 turn + Lock 15 random orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16202:83) Crazed Unearthly Rumble + Life-Stealing Hellfire
+     | Jammer skyfall +15% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (16192:89) Roar of the Underworld
+     | Delay active skills by 10 turns
+   | group:
+     | (16205:15) Snake King's Massacring Strike
+     | Deal 800% damage (8 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | (16206:83) God Encircling Protective Flame + Snake God's Healing Flame + Roar of the Underworld
+   | Voids status ailments for 999 turns + Enemy recover 75% HP + Delay active skills by 10 turns

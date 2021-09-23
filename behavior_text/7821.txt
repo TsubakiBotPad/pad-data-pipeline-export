@@ -1,0 +1,33 @@
+#7821 - 最後のジェダイ・レイ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7821
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27908:72) ＿レイ闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (27909:105) 私の頭から出て行って
+ | RCV 50% for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (27910:88) あなたには何も教えない
+   | Bind awoken skills for 3 turns, Deal 90% damage
+   | (27911:83) あなたは恐れている + ダースベイダーの様に強くなれない事を
+   | Bind active skills for 2 turns + Blind all orbs on the board, Deal 120% damage
+ | group:
+ | condition: always turn 2
+   | (27911:83) あなたは恐れている + ダースベイダーの様に強くなれない事を
+   | Bind active skills for 2 turns + Blind all orbs on the board, Deal 120% damage
+ | group:
+   | (27915:15) フォース・プッシュ
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 3, hp <= 49
+   | (27914:39) 手を取りたかった、ベンの手を
+   | Movetime 25% for 1 turn

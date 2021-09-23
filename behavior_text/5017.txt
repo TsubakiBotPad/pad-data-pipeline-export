@@ -1,0 +1,41 @@
+#5017 - Servant, Caster
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5017
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12198:20) Do you honestly think you can defeat me?
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (12199:48) How does that feel?
+   | Change a random attribute to Dark orbs, Deal 95% damage
+   | condition: 50% chance
+   | (12200:15) I have no use for you.
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 50
+   | condition: 50% chance
+   | (12201:50) You are a nuisance, so die!
+   | Player -75% HP
+   | condition: 50% chance
+   | (12199:48) How does that feel?
+   | Change a random attribute to Dark orbs, Deal 95% damage
+   | condition: 50% chance
+   | (12200:15) I have no use for you.
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (12202:88) Rule Breaker
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (12246:83) Are you surprised? + This is my Noble Phantasm, Rule Breaker.
+     | Do nothing + Deal 200% damage (2 hits, 100% each), Deal 200% damage (2 hits, 100% each)

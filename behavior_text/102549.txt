@@ -1,0 +1,53 @@
+#102549 - Alt. Awoken Yamatsumi
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102549
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3515:20) What are you doing on my grounds!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (3517:94) Miracle
+     | Lock 6 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+     | (3516:15) Shower of Blossoms
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (3521:48) Fire Fighting Black Dog
+     | Change all Fire orbs to Jammer orbs, Deal 140% damage
+     | (3522:77) Guiding White Dog
+     | Change the 3rd and 4th columns to Jammer orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (3517:94) Miracle
+     | Lock 6 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+     | (3516:15) Shower of Blossoms
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1 while HP > 19
+     | (3518:86) Amenotamu-zake
+     | Enemy recover 30% HP
+   | group:
+     | (3520:48) Behold my Magnificent Strength!
+     | Change a random attribute to Water orbs, Deal 160% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (3519:50) Spirit of Kagutsuchi
+     | Player -100% HP
+   | group:
+     | (3523:15) God of War's Great Strength
+     | Deal 320% damage (2 hits, 160% each)

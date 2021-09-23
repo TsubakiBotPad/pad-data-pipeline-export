@@ -1,0 +1,29 @@
+#502414 - Alt. Dub-Metalit
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 502414
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25205:71) Hard Metal Body
+ | Void damage >= 1,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (25213:15) Muscle Charge
+     | Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 49
+     | (25209:83) Pump Up + Bench Press
+     | Increase damage to 200% for the next 999 turns + Player -99% HP
+   | group:
+     | (25212:15) Macho Impact
+     | Deal 450% damage (3 hits, 150% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (25209:83) Pump Up + Bench Press
+   | Increase damage to 200% for the next 999 turns + Player -99% HP

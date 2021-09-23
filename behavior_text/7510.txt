@@ -1,0 +1,41 @@
+#7510 - 七海建人
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7510
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26683:83) I hate overtime... + ...So let's just finish this quickly.
+ | Do nothing + Blind random 7 orbs for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (26686:17) Ratio Technique
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (26687:101) It's not good to get distracted.
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+     | condition: 50% chance
+     | (26688:48) I'd say you're the fool.
+     | Change a random attribute to Light orbs, Deal 95% damage
+   | group:
+     | condition: 50% chance
+     | (26687:101) It's not good to get distracted.
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+     | condition: 50% chance
+     | (26688:48) I'd say you're the fool.
+     | Change a random attribute to Light orbs, Deal 95% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (26689:83) I can halt your movements. + I'll shower you with blows.
+   | Bind 4 random subs for 5 turns + No skyfall for 5 turns
+ | group:
+ | condition: turn 2, hp <= 20
+   | (26692:111) Oh, pardon me. I'll end you now.
+   | Change player HP to 50% for 3 turns

@@ -1,0 +1,32 @@
+#4641 - Wood Companion Dragon, Nehd
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4641
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10351:15) Reaping Cut
+ | Deal 120% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (10352:92) Burying
+   | Spawn 3 random Wood orbs, Deal 110% damage
+   | condition: 33% chance
+   | (10353:77) Vertical Slash
+   | Change the 4th column to Wood orbs, Deal 100% damage
+   | condition: 34% chance
+   | (10354:79) Vertical Slash
+   | Change the 3rd row to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10356:83) Reaping Cut + Restrain
+     | Deal 120% damage + Bind 1 random sub for 3 turns, Deal 120% damage
+   | group:
+     | (10357:15) Reaping Dismissal
+     | Deal 160% damage

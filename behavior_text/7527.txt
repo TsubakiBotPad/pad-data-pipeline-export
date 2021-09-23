@@ -1,0 +1,39 @@
+#7527 - 花御
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7527
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (26619:83) Stop it, + foolish children.
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 5 for 999 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (26622:105) What a wonderful reaction.
+   | RCV 50% for 1 turn, Deal 95% damage
+   | condition: 25% chance
+   | (26623:63) You move well.
+   | Bind 1 random card for 2 turns, Deal 100% damage
+   | condition: 25% chance
+   | (26624:92) So, how will they attack?
+   | Spawn 5 random Wood orbs, Deal 105% damage
+   | condition: 25% chance
+   | (26759:77) Learn how great the land is!
+   | Change the 3rd and 4th columns to Wood orbs, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (26625:83) I should take you... + ...somewhat seriously.
+   | Increase damage to 150% for the next 999 turns + Reduce damage from all sources by 50% for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26628:83) I'm enjoying... + ...a fight!
+     | Delay active skills by 3~5 turns + ATK -50% for 5 turns
+   | group:
+     | (26631:83) My delight in this battle... + ...isn't waning!
+     | Spawn 5 random Wood, Dark, and Jammer orbs + Deal 300% damage (3 hits, 100% each), Deal 300% damage (3 hits, 100% each)

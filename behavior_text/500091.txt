@@ -1,0 +1,23 @@
+#500091 - Siren
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500091
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23335:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23260:105) Song of Praise
+ | RCV 200% for 3 turns
+ group:
+ | group:
+   | (23261:92) Pure Melody
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (23336:40) They wander off somewhere...
+   | Reduce self HP to 0

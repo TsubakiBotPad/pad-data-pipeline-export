@@ -1,0 +1,68 @@
+  monster_id: 3839
+  levels {
+    level: 4
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 8149
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 9
+            trigger_turn: 1
+            trigger_turn_end: 7
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8150
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8151
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 9
+            trigger_turn: 8
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8154
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 9
+            trigger_turn: 9
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8155
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 8149
+            }
+          }
+        }
+      }
+    }
+  }

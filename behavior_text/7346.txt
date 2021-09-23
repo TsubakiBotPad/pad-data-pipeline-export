@@ -1,0 +1,34 @@
+#7346 - Uniting Ipomoea Starfairy, Meris
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7346
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24301:83) It's showtime! + I wonder what will happen!
+ | Absorb Water and Dark damage for 5 turns + A 2×5 rectangle of clouds appears for 5 turns at a random location
+ group:
+ | group:
+   | (24308:94) Early Lock
+   | Lock all Water and Dark orbs, Deal 110% damage
+   | condition: 50% chance
+   | (24307:85) Ocean Blue
+   | Change all orbs to Water and Heal, Deal 90% damage
+   | condition: 50% chance
+   | (24306:92) Purple Saucer
+   | Spawn 10 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | condition: 50% chance
+   | (24304:107) Magical Parasol
+   | Unable to match Water orbs for 5 turns
+   | condition: 50% chance
+   | (24305:107) Magical Parasol
+   | Unable to match Dark orbs for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (24309:92) Heavenly Magic
+   | Spawn 5 random Water and Dark orbs, Deal 300% damage

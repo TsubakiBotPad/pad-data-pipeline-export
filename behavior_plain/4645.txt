@@ -1,0 +1,69 @@
+#4645 - Dark Companion Dragon, Doltos
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDeathCry(69:10408) -> Spe Dun Dragon Dark Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Doltos's appearance is changing|Help has been summoned
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESBlind62(62:10401) -> Call of Darkness
+Blind all orbs on the board, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#10: ESRandomSpawn(92:10402) -> The Chosen Darkness
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Dark orbs, Deal 100% damage
+
+#11: ESOrbChangeAttack(48:10403) -> Dark Pillar
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Dark orbs, Deal 105% damage
+
+#12: ESAttackMultihit(15:10404) -> Spirit Darkness
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (2 hits, 60% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESBlindStickyRandom(97:10405) -> Swallowing Darkness
+	Blind random 8 orbs for 1 turn
+	[1] ESOrbChangeAttack(48:10403) -> Dark Pillar
+	Change a random attribute to Dark orbs, Deal 105% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:10407) -> Shadow Wings
+Deal 150% damage (2 hits, 75% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

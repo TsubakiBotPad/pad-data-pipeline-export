@@ -1,0 +1,69 @@
+#3658 - Glavenus
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESBindRandomSub(65:7203) -> Roar
+	Bind 1 random sub for 1 turn
+	[1] ESInactivity66(66:7204) -> Fireball Charge
+	Do nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:7211) -> Scalding Tail
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 3)
+Increase damage to 150% for the next 10 turns
+
+#9: ESStorePower(8:7212) -> Great Tailspin Stance
+Condition: One-time use (ai:100 rnd:0) (cost: 5)
+Increase damage to 4,100% for the next attack
+
+#10: ESBombRandomSpawn(102:7213) -> Three-hit Fireball Breath
+Condition: 50% chance when < 40% HP (ai:50 rnd:0)
+Spawn 6 random Bomb orbs, Deal 100% damage
+
+#11: ESAttackMultihit(15:7214) -> Combo Jumping Tail Strike
+Condition: When < 40% HP (ai:100 rnd:0)
+Deal 140% damage (2 hits, 70% each)
+
+#12: ESRandomSpawn(92:7206) -> Bite
+Condition: One-time use (ai:0 rnd:20) (cost: 1)
+Spawn 3 random Fire orbs, Deal 100% damage
+
+#13: ESBombRandomSpawn(102:7207) -> Fireball Breath
+Condition: One-time use (ai:0 rnd:20) (cost: 1)
+Spawn 3 random Bomb orbs, Deal 100% damage
+
+#14: ESRandomSpawn(92:7208) -> Fire Wave
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 6 random Fire orbs, Deal 110% damage
+
+#15: ESAttackMultihit(15:7209) -> Tail Slam
+Condition: 20% chance (ai:0 rnd:20)
+Deal 120% damage
+
+#16: ESGravity(50:7210) -> Jumping Tail Strike
+Condition: 20% chance (ai:0 rnd:20)
+Player -70% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

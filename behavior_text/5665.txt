@@ -1,0 +1,31 @@
+#5665 - Kurz Weber
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5665
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14960:118) Physical Machine Halved
+ | Reduce damage from Physical and Machine types by 50%
+ type: PREEMPT
+ | (14893:97) Ugh, they made it.
+ | Blind random 10 orbs for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (14894:15) You're mine!
+   | Deal 70% damage
+   | condition: 50% chance
+   | (14895:101) Is my targeting off or something?
+   | Fix orb movement starting point to random position on the board, Deal 65% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (14896:17) Worth a shot...
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 20
+   | (14897:15) Percussive Shot
+   | Deal 100% damage

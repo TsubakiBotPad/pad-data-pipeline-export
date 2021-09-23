@@ -1,0 +1,67 @@
+#406566 - Rui
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 406566
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20118:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20146:83) Don't disturb... + ...my family's peaceful life.
+ | Locked random skyfall +30% for 5 turns + Do nothing
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (20149:127) No one will ever
+     | No skyfall for 1 turn
+   | group:
+   | condition: turn 2 while HP > 49
+     | (20151:94) We are family.
+     | Lock 6 random orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (20150:130) You!
+     | ATK -50% for 2 turns
+   | group:
+   | condition: turn 4 while HP > 49
+     | (20153:4) That's a genuine bond!
+     | Change a random attribute to Wood orbs
+     | (20188:83) Give me your sister. + If you hand her over quietly,
+     | RCV 50% for 1 turn + Player -5% HP
+   | group:
+   | condition: turn 5 while HP > 49
+     | (20188:83) Give me your sister. + If you hand her over quietly,
+     | RCV 50% for 1 turn + Player -5% HP
+   | group:
+     | condition: 50% chance
+     | (20178:50) How unpleasant...
+     | Player -5% HP
+     | (20058:15) What an unpleasant feeling!
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20156:74) Did you think...
+     | Reduce damage from all sources by 30% for 1 turn
+   | group:
+   | condition: turn 2
+     | (20054:83) Blood Demon Art: Cutting Thread Cage + I have no more use for you. + Goodbye.
+     | Lock 5 random orbs + Do nothing + Player -5% HP
+   | group:
+   | condition: turn 3
+     | (20059:63) Blood Demon Art: Murderous Eye Basket
+     | Bind 1 random sub for 2 turns, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (20179:68) It's like these scum exist just to interfere with me!
+     | Jammer skyfall +5% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (20152:94) Blood Demon Art: Cutting Thread Rotation
+     | Lock 5 random orbs, Deal 120% damage

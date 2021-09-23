@@ -1,0 +1,65 @@
+#3227 - Masquerade Goddess, Parvati
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:19881) -> Treat yourself to some sweets
+	Spawn 10 random Heal orbs
+	[1] ESSkillDelay(89:19882) -> Let's all eat them together
+	Delay active skills by 3~5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESAttackMultihit(15:19883) -> Hoarding Sweets
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#6: ESRandomSpawn(92:19884) -> Leftover Sweets
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 1 random Heal orb, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 5
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESOrbChangeAttack(48:19886) -> Here, have some more
+	Change a random attribute to Heal orbs, Deal 100% damage
+	[1] ESBombRandomSpawn(102:19887) -> What's this?
+	Spawn 5 random Bomb orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESRecoverEnemy86(86:19889) -> I'm full of sugar and raring to go!
+	Enemy recover 50% HP
+	[1] ESAttackUPRemainingEnemies(17:19890) -> I'll keep on trying my best
+	Increase damage to 200% for the next 999 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:19879) -> Resolve
+Survive attacks with 1 HP when HP > 50%

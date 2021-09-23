@@ -1,0 +1,24 @@
+#500489 - Missionary of Time, Chrono Turtle
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:23551) -> Gro gro!
+	Absorb damage when combos <= 6 for 5 turns
+	[1] ESSkyfall(68:23552) -> Groro!
+	Jammer skyfall +20% for 5 turns
+
+#3: ESOrbChangeAttackBits(108:23563) -> Groooar!
+Change all Jammer orbs to Water orbs, Deal 100% damage
+
+#4: ESAttackMultihit(15:23562) -> Groooar!
+Deal 180% damage (2 hits, 90% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

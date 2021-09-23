@@ -1,0 +1,55 @@
+#2833 - Immortal Enemy, Doomsday (Film)
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2833
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4108:72) Light Halven
+ | Reduce damage from Light attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (4108:72) Light Halven
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (4129:20) Unnatural Growth
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (4132:92) Enraged Howl
+   | Spawn 3 random Poison orbs, Deal 100% damage
+   | (4131:8) Transformation
+   | Increase damage to 140% for the next attack
+ | group:
+ | condition: hp <= 69
+   | condition: 30% chance
+   | (4132:92) Enraged Howl
+   | Spawn 3 random Poison orbs, Deal 100% damage
+   | (4130:15) Energy Beams
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 49
+   | condition: 30% chance
+   | (4132:92) Enraged Howl
+   | Spawn 3 random Poison orbs, Deal 100% damage
+   | (4133:15) Clone Strength
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 29
+   | condition: 30% chance
+   | (4132:92) Enraged Howl
+   | Spawn 3 random Poison orbs, Deal 100% damage
+   | (4134:15) Bone Spikes
+   | Deal 160% damage (4 hits, 40% each)
+ | group:
+ | condition: hp <= 9
+   | condition: 30% chance
+   | (4132:92) Enraged Howl
+   | Spawn 3 random Poison orbs, Deal 100% damage
+   | (4135:86) Crushing Blow
+   | Enemy recover 10% HP, Deal 200% damage

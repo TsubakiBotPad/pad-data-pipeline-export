@@ -1,0 +1,112 @@
+#3732 - Violent Dragon Lord of Tyranny, Valten
+monster size: 5
+new AI: True
+start/max counter: 9
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 9)
+	[0] ESSpinnersFixed(110:7518) -> Confusion
+	Specific orbs change every 1.0s for 10 turns
+	[1] ESStatusShield(20:7519) -> Dragonscale
+	Voids status ailments for 999 turns
+	[2] ESVoidShield(71:7520) -> Colossus
+	Void damage >= 20,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 9)
+	[0] ESSpinnersRandom(109:7523) -> Confusion
+	Random 3 orbs change every 1.0s for 10 turns
+	[1] ESBindAwoken(88:7538) -> Suppression
+	Bind awoken skills for 1 turn
+	[2] ESAttackMultihit(15:7522) -> X Burst
+	Deal 1,500% damage (10 hits, 150% each)
+	[3] ESRecoverPlayer(55:7539) -> Dragon Tears
+	Player recover 100% HP
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: SkillSet:
+	Condition: 50% chance when < 66% HP (ai:50 rnd:0)
+	[0] ESDamageShield(74:7532) -> Wall
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESLeaderSwap(75:7530) -> Rejection
+	Leader changes to random sub for 3 turns, Deal 400% damage
+
+#10: SkillSet:
+	Condition: When < 66% HP (ai:100 rnd:0)
+	[0] ESDamageShield(74:7533) -> Wall
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESLeaderSwap(75:7530) -> Rejection
+	Leader changes to random sub for 3 turns, Deal 400% damage
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 100, target rnd 19
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 19
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: SkillSet:
+	Condition: 50% chance when < 31% HP (ai:50 rnd:0)
+	[0] ESDamageShield(74:7532) -> Wall
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESBindAwoken(88:7531) -> Suppression
+	Bind awoken skills for 3 turns, Deal 400% damage
+
+#16: SkillSet:
+	Condition: When < 31% HP (ai:100 rnd:0)
+	[0] ESDamageShield(74:7533) -> Wall
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESBindAwoken(88:7531) -> Suppression
+	Bind awoken skills for 3 turns, Deal 400% damage
+
+#17: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 100, target rnd 19
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBombFixedSpawn(103:7525) -> Ignited
+Condition: 20% chance (ai:0 rnd:20)
+Spawn Bomb orbs in the specified positions, Deal 250% damage
+
+#20: ESOrbChangeAttack(48:7526) -> Flare Breath
+Condition: 20% chance (ai:0 rnd:20)
+Change all Water orbs to Fire orbs, Deal 265% damage
+
+#21: ESOrbLock(94:7527) -> Nova
+Condition: 20% chance (ai:0 rnd:20)
+Lock 4 random orbs, Deal 260% damage
+
+#22: ESCloud(104:7528) -> Heat Haze
+Condition: 20% chance (ai:0 rnd:20)
+A 1×1 square of clouds appears for 1 turn at a random location, Deal 260% damage
+
+#23: ESAttackMultihit(15:7529) -> Meteor
+Condition: 20% chance (ai:0 rnd:20)
+Deal 270% damage (3 hits, 90% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

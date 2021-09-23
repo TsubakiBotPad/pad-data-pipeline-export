@@ -1,0 +1,31 @@
+#101602 - Alt. Apex Blue Flower Dragon, Starling
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 101602
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8010:83) Gothic Rose + Translucent Cold
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 4,000,000 for 99 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (3106:85) Frozen Pain
+   | Change all orbs to Water and Poison, Deal 300% damage
+ | group:
+ | condition: hp <= 99
+   | condition: 20% chance
+   | (3105:89) Sigh of Sadness
+   | Delay active skills by 0~2 turns
+   | condition: 70% chance
+   | (3104:94) Glass Leaf
+   | Lock all Wood orbs, Deal 120% damage
+   | (3103:77) Ice and Roses
+   | Change the 1st column to Water orbs, the 2nd column to Wood orbs, and the 3rd column to Poison orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 19
+   | (3106:85) Frozen Pain
+   | Change all orbs to Water and Poison, Deal 300% damage

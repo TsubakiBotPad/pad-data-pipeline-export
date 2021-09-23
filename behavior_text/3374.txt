@@ -1,0 +1,40 @@
+#3374 - Powder Snow Byakko, Haku
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3374
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15944:118) Dragon God Halved
+ | Reduce damage from Dragon and God types by 50%
+ type: PREEMPT
+ | (15896:50) Don't come...
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (15897:74) Warm Gloves
+   | Reduce damage from all sources by 50% for 1 turn, Deal 95% damage
+   | (15898:15) Double Wreath Swing
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 20, hp <= 49
+   | (15899:88) I told you not to...
+   | Bind awoken skills for 3 turns
+   | condition: 50% chance
+   | (15897:74) Warm Gloves
+   | Reduce damage from all sources by 50% for 1 turn, Deal 95% damage
+   | (15898:15) Double Wreath Swing
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 1
+     | (15899:88) I told you not to...
+     | Bind awoken skills for 3 turns
+   | group:
+     | (15900:15) Western Seven-Star Formation
+     | Deal 175% damage (7 hits, 25% each)

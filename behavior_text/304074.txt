@@ -1,0 +1,38 @@
+#304074 - Tempestuous Princess of Hell, Sitri
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304074
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24534:73) Resolve
+ | Survive attacks with 1 HP when HP > 5%
+ | (24604:72) Light & Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (24535:83) Magic Circle's Flowing Wall + Evil Water's Charm
+ | Void damage >= 1,000,000,000 for 999 turns + ATK -75% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (24541:92) Dirty Force
+     | Spawn 4 random Jammer and Poison orbs, Deal 100% damage
+     | condition: 50% chance
+     | (24542:15) Water Ring Jail
+     | Deal 104% damage (4 hits, 26% each)
+   | group:
+     | (24400:83) Iridescent Shine + Radiant Flash
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (24538:83) Grief-Filled Rage + Nightmare Invasion
+   | Increase damage to 150% for the next 999 turns + RCV 25% for 10 turns
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (24543:85) Fearful Splash
+   | Change all orbs to Water, Jammer, and Poison, Deal 500% damage

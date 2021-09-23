@@ -1,0 +1,39 @@
+#3837 - Wood Warchief Dragon, Ganzo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3837
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7987:83) Eternity Armor + Temporal Transformation
+ | Absorb Wood damage for 5 turns + Delay active skills by 3 turns
+ group:
+ | group:
+   | condition: 70% chance
+   | (7989:108) Flame Grip
+   | Change all Fire orbs to Wood orbs, Deal 140% damage
+   | (7988:74) Carapace Compression
+   | Reduce damage from all sources by 50% for 1 turn, Deal 140% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (7992:83) Ancient Dragon Wind + Great Reduction
+   | RCV 50% for 10 turns + Player -99% HP
+ | group:
+ | condition: hp <= 39
+   | (7997:83) Miasma + Full Head-On Strike
+   | Spawn 3 random Poison orbs + Deal 180% damage (2 hits, 90% each), Deal 180% damage (2 hits, 90% each)
+ | group:
+ | condition: hp <= 29
+   | (7998:83) Miasma + Full Head-On Strike
+   | Spawn 6 random Poison orbs + Deal 180% damage (2 hits, 90% each), Deal 180% damage (2 hits, 90% each)
+ | group:
+ | condition: hp <= 19
+   | (7999:83) Miasma + Full Head-On Strike
+   | Spawn 9 random Poison orbs + Deal 180% damage (2 hits, 90% each), Deal 180% damage (2 hits, 90% each)
+ | group:
+ | condition: hp <= 9
+   | (8000:85) Deadly Miasma Wave
+   | Change all orbs to Poison, Deal 500% damage

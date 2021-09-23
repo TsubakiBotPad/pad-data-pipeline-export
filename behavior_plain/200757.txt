@@ -1,0 +1,33 @@
+#200757 - Alt. Scorched Claw Dragon, Flare Drall
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:25525) -> Pain Flare
+	No skyfall for 5 turns
+	[1] ESGravity(50:25524) -> Charge
+	Player -99% HP
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 7
+
+#5: ESColumnSpawnMulti(77:25193) -> Flare Claw
+Change the 1st column to Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESColumnSpawnMulti(77:25194) -> Twin Blaze Claws
+Change the 1st and 6th columns to Fire orbs, Deal 750% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

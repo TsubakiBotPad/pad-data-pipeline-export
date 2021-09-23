@@ -1,0 +1,36 @@
+#1845 - Unleashed Knight Dragon King, Nordis
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 1845
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2456:72) 龍騎士風ドラゴン・パッシブ
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (2463:83) Here I come, brave rival! + Dragon Knight
+ | Voids status ailments for 999 turns + Bind Dark cards for 3 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (2475:83) His sword is raised + Proud Slash
+   | Increase damage to 200% for the next 2 turns + Change the 3rd row to Light orbs, Deal 80% damage
+   | condition: 30% chance
+   | (2476:83) Ruthless Saw + Dragontree Shield
+   | Deal 100% damage (2 hits, 50% each) + Absorb Water damage for 1 turn, Deal 100% damage (2 hits, 50% each)
+   | condition: 30% chance
+   | (2477:83) Stun Buckler + Slash and Thrust
+   | Delay active skills by 0~1 turns + Deal 110% damage, Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (2467:6) Brave Resistance
+   | Voids player buff effects
+   | (2468:50) Brave Resistance
+   | Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | (2466:15) Last Belief
+   | Deal 1,000% damage (2 hits, 500% each)

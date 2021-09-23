@@ -1,0 +1,22 @@
+#200027 - Alt. Lil' Green Dragon
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200027
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, when hp is full
+   | (7451:74) Wood Guard
+   | Reduce damage from all sources by 50% for 2 turns
+ | group:
+ | condition: hp <= 99
+   | (7457:92) Wind Ball
+   | Spawn 1 random Wood orb, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (7454:19) Anger
+   | Increase damage to 200% for the next 99 turns

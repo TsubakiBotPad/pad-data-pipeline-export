@@ -1,0 +1,97 @@
+#3286 - Soul Reaper's Disciple, Melissa
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchCard(90:5950) -> ESBranchCard
+Branch on player_cards HAS [1509, 1510], target rnd 8
+
+#7: SkillSet:
+	[0] ESStatusShield(20:5938) -> Behold: the results of my training!
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:5939) -> Go, my Demon Minions!
+	A row of clouds appears for 1 turn at 1st row, 1st column
+
+#8: SkillSet:
+	[0] ESStatusShield(20:5951) -> Master! Please duel with me!
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:5939) -> Go, my Demon Minions!
+	A row of clouds appears for 1 turn at 1st row, 1st column
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 21
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESAttackMultihit(15:5941) -> The Demon Minions are acting up
+Deal 120% damage (2 hits, 60% each)
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: ESRandomSpawn(92:5942) -> The Demon Minions are at it again
+Spawn 8 random Jammer orbs, Deal 140% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBlind62(62:5952) -> Darkness Mist
+Condition: 50% chance (ai:50 rnd:0)
+Blind all orbs on the board, Deal 100% damage
+
+#19: ESAttackMultihit(15:5953) -> Chaos Ray
+Deal 110% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSkillDelay(89:5943) -> Imma show you a big one! Wait right there!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Delay active skills by 2 turns
+
+#22: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:5944) -> Grr, my magic spell page got eaten...
+	Do nothing
+	[1] ESInactivity66(66:5945) -> 3
+	Do nothing
+
+#23: ESOrbChangeAttack(48:5947) -> Hidden Dagger
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change a random attribute to Jammer orbs, Deal 220% damage
+
+#24: ESInactivity66(66:5948) -> Oh, a magic spell page fell out♪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#25: ESAttackMultihit(15:5949) -> Endless Nightmare
+Deal 360% damage (6 hits, 60% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn

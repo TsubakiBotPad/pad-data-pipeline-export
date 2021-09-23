@@ -1,0 +1,31 @@
+#2650 - Metallic Star Dragon, Taurus
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2650
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2921:15) Massive Charge
+ | Deal 70% damage
+ group:
+ | group:
+   | condition: 20% chance
+   | (2925:8) Inner Anger
+   | Increase damage to 200% for the next attack
+   | condition: 40% chance
+   | (2924:15) Innocent Rage
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 40% chance
+   | (2923:92) Clement Tackle
+   | Spawn 6 random Heal orbs, Deal 130% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2922:68) Torchlight of Saintly Horns
+   | Light skyfall +15% for 10 turns
+ | group:
+ | condition: hp <= 9
+   | (2926:50) Taurus's Crest - Cosmos
+   | Player -100% HP

@@ -1,0 +1,52 @@
+#5996 - Malefic Silver Dragon of the Ancient Ruins, Deiglost
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5996
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17016:118) Dragon & Devil Halved
+ | Reduce damage from Dragon and Devil types by 50%
+
+level: 4
+ type: PASSIVE
+ | (17016:118) Dragon & Devil Halved
+ | Reduce damage from Dragon and Devil types by 50%
+ type: PREEMPT
+ | (17000:83) Chaos Barrier + Demon King's Might
+ | Void damage >= 2,000,000 for 3 turns + Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 50% chance
+     | (17002:92) Chaos Inferno
+     | Spawn 3 random Fire and Dark orbs, Deal 100% damage
+     | (17006:79) Evil Star Flame
+     | Change the 1st row to Light orbs and the 5th row to Dark orbs, Deal 95% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (17004:14) Malefic Dragon's Roar
+     | Bind active skills for 5 turns
+   | group:
+     | condition: 50% chance
+     | (17002:92) Chaos Inferno
+     | Spawn 3 random Fire and Dark orbs, Deal 100% damage
+     | (17006:79) Evil Star Flame
+     | Change the 1st row to Light orbs and the 5th row to Dark orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17005:17) Purple Ball of Evil
+     | Increase damage to 200% for the next 5 turns
+   | group:
+   | condition: turn 2
+     | (17019:88) Zorc Nightmare
+     | Bind awoken skills for 1 turn
+   | group:
+     | (17007:15) Global Catastrophe
+     | Deal 180% damage (6 hits, 30% each)

@@ -1,0 +1,75 @@
+#1345 - Eternal Twin Stars, Idunn & Idunna
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRecoverPlayer(55:3367) -> Golden Apple of Immortality
+Player recover 100% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCard(90:3373) -> ESBranchCard
+Branch on player_cards HAS [376, 377, 656, 1348], target rnd 14
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 17
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 20
+
+#9: ESGravity(50:3376) -> End of Eternity
+Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Player -100% HP
+
+#10: ESAttackMultihit(15:3372) -> Walnut Shot
+Condition: 33% chance (ai:0 rnd:33)
+Deal 150% damage (3 hits, 50% each)
+
+#11: ESRandomSpawn(92:3371) -> Arrow Rain
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random Water orbs, Deal 130% damage
+
+#12: ESColumnSpawnMulti(77:3370) -> Twin Aqua Feather
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st and 6th columns to Water orbs, Deal 140% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESStatusShield(20:3374) -> Don't come any closer!
+Voids status ailments for 999 turns
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 9
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#19: ESRecoverEnemy86(86:3369) -> Twinkle Apple
+Enemy recover 100% HP
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 9
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: ESBindSkill(14:3368) -> Angel Kiss
+Bind active skills for 3 turns

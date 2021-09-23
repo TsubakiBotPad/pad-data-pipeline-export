@@ -1,0 +1,44 @@
+#101527 - Alt. High Water Ninja
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:8192) -> Ninpo - Misty Sky's Spirit Barrier
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire and Dark damage for 5 turns
+
+#5: ESAbsorbAttribute(53:8193) -> Ninpo - Misty Sky's Spirit Barrier
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water and Dark damage for 5 turns
+
+#6: ESAbsorbAttribute(53:8194) -> Ninpo - Misty Sky's Spirit Barrier
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood and Dark damage for 5 turns
+
+#7: ESAbsorbAttribute(53:8195) -> Ninpo - Misty Sky's Spirit Barrier
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light and Dark damage for 5 turns
+
+#8: ESBindAttack(63:8196) -> Cold Beauty Technique
+Condition: One-time use (ai:0 rnd:20) (cost: 1)
+Bind 3 random subs for 2~3 turns, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBindAttack(63:8196) -> Cold Beauty Technique
+Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 3 random subs for 2~3 turns, Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

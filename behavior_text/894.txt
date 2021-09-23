@@ -1,0 +1,34 @@
+#894 - Dark Liege, Vampire Duke
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 894
+approved: False
+
+level: 4
+ group:
+ | group:
+   | condition: 50% chance
+   | (2616:79) Black Slash
+   | Change the 3rd row to Dark orbs, Deal 130% damage
+   | (2620:62) Shadow Claw
+   | Blind all orbs on the board, Deal 140% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 69
+   | (2617:53) Dark Magic Clothing
+   | Absorb Light damage for 2 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: always turn 1
+     | (2618:86) Vampire Sword
+     | Enemy recover 30% HP, Deal 160% damage
+   | group:
+   | condition: turn 2 while HP > 19
+     | (2617:53) Dark Magic Clothing
+     | Absorb Light damage for 2 turns
+ | group:
+ | condition: hp <= 19
+   | (2619:15) Darkside
+   | Deal 330% damage (3 hits, 110% each)

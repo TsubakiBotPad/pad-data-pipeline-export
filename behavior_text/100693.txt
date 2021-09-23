@@ -1,0 +1,33 @@
+#100693 - Alt. Noble Wolf King Hero, Cu Chulainn
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 100693
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7874:72) Water halved
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (7865:20) You'll have to get through me!
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (447:48) Wolf Attack
+   | Change a random attribute to Jammer orbs, Deal 70% damage
+   | condition: 70% chance
+   | (448:15) Whirlwind Barrage
+   | Deal 100~150% damage (4~6 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (449:50) Pitch Black Assassin's Dagger
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (7866:15) Demise
+     | Deal 200% damage

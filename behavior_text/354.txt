@@ -1,0 +1,25 @@
+#354 - Undine
+monster size: 4
+new AI: False
+start/max counter: 4
+counter increment: 0
+monster_id: 354
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 10, hp <= 100
+   | (133:20) Skill Guard
+   | Voids status ailments for 10 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 10
+     | (133:20) Skill Guard
+     | Voids status ailments for 10 turns
+   | group:
+   | condition: execute repeatedly, turn 2-10 of 10
+     | condition: 40% chance, one time only
+     | (82:7) Cure
+     | Enemy recover 50% HP

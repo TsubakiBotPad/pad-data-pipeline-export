@@ -1,0 +1,26 @@
+#443 - Ancient Wood Dragon, Lagavulin
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 443
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (205:20) Fertile Guard
+   | Voids status ailments for 999 turns
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (202:15) Barley Storm
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 2, hp <= 9
+   | (213:2) Fire Extinguishing Ivy
+   | Bind Fire cards for 5 turns
+   | condition: 50% chance
+   | (202:15) Barley Storm
+   | Deal 120% damage (3 hits, 40% each)

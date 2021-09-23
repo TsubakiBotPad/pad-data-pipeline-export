@@ -1,0 +1,38 @@
+#5720 - 五ツ橋ジョウ＆７００のぞみ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:15254) -> ワシらも行くっちゃ！
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:15255) -> こいつを食らうっちゃ！
+	Movetime -2s for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 7
+
+#4: ESOrbChangeAttackBits(108:15256) -> やるしかねぇっちゃ
+Condition: 50% chance (ai:50 rnd:0)
+Change all Light orbs to Water orbs, Deal 50% damage
+
+#5: ESAttackMultihit(15:15257) -> 今っちゃ！
+Deal 60% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackUPRemainingEnemies(17:15258) -> 勝負っちゃ！
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 1 turn
+
+#8: ESColumnSpawnMulti(77:15259) -> シンカブレード
+Change the 3rd column to Water orbs, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,52 @@
+#3361 - The 4th Espada, Ulquiorra Shifar
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttackUPRemainingEnemies(17:17472) -> Resurreccion Segunda Etapa
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 10
+
+#7: ESBindAwoken(88:17475) -> Don't make me laugh.
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Bind awoken skills for 1 turn, Deal 45% damage
+
+#8: ESBlindStickyRandom(97:17473) -> You're a fool...
+Blind random 1~3 orbs for 1 turn, Deal 65% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESRecoverEnemy86(86:17474) -> Instant Regeneration
+Enemy recover 50% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESRandomSpawn(92:17476) -> Lanza del Relampago
+Spawn 4 random Light and Dark orbs, Deal 130% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

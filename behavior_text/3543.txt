@@ -1,0 +1,42 @@
+#3543 - Summit Horn Wisedragon, Bacches
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 3543
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6583:106) Enemy's next turn changed in anger
+ | Enemy turn counter change to 2 when HP <= 50%
+ | (6824:72) Bacches Wood damage halved
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (6571:20) Getting ready to headbutt
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | (6573:83) Thunderhorn Destruction + Getting ready to headbutt
+   | Deal 2,400% damage (6 hits, 400% each) + Voids status ailments for 5 turns, Deal 2,400% damage (6 hits, 400% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (6576:83) Fortified Cells + Colossal Dragon's Majesty
+     | Reduce damage from all sources by 50% for 6 turns + Blind orbs in specific positions for 6 turns
+   | group:
+   | condition: turn 2
+     | (6577:15) Crushing Claw
+     | Deal 600% damage (2 hits, 300% each)
+   | group:
+   | condition: turn 3
+     | (6578:15) Crushing Claw
+     | Deal 600% damage (2 hits, 300% each)
+   | group:
+   | condition: turn 4
+     | (6581:83) Traces of the Demon Army + Colossal Dragon's Pressure
+     | Reduce damage from all sources by 75% for 10 turns + Seal the 5th row for 10 turns
+   | group:
+     | (6582:15) Thunderhorn Catastrophe
+     | Deal 870% damage (3 hits, 290% each)

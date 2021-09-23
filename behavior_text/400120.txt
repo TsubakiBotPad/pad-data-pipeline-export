@@ -1,0 +1,26 @@
+#400120 - Alt. Basilisk
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 400120
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21018:129) Alt. Super Resolve
+ | Damage which would reduce HP from above 75% to below 75% is nullified
+ type: PREEMPT
+ | (19256:68) Hell Rain
+ | Poison skyfall +15% for 10 turns
+ group:
+ condition: execute repeatedly, turn 1-3 of 3, hp <= 100
+ | (19257:15) Hell Fang
+ | Deal 100% damage (2 hits, 50% each)
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (19409:17) Wave of Carnage
+ | Increase damage to 700% for the next 999 turns
+ type: UNKNOWN_USE
+ | (20950:46) Indiscriminate Carnage
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage

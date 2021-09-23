@@ -1,0 +1,80 @@
+#1095 - Water Twin Star Leviathan
+monster size: 5
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindSkill(14:924) -> Sea Serpent's Whirlwind
+Bind active skills for 10 turns
+
+#5: ESNone(0:0) -> ESNone
+nothing
+
+#6: ESNone(0:0) -> ESNone
+nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESNone(0:0) -> ESNone
+nothing
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESAttackMultihit(15:925) -> Constrict
+Deal 25% damage
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESAttackMultihit(15:926) -> Constrict
+Deal 50% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESAttackMultihit(15:927) -> Constrict
+Deal 100% damage
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 21
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#20: ESAttackMultihit(15:928) -> Constrict
+Deal 200% damage
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 24
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#23: ESAttackMultihit(15:929) -> Crunch
+Deal 1,000% damage
+
+#24: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1111110
+
+#25: ESAttackMultihit(15:938) -> Engulf
+Deal 1,000% damage

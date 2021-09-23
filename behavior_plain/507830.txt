@@ -1,0 +1,64 @@
+#507830 - ダース・モール
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAttributeBlock(107:27822) -> ジェダイ！待っていたぞ
+	Unable to match Heal orbs for 3 turns
+	[1] ESAbsorbCombo(67:27823) -> 今までの選択がお前をこの瞬間に導いた
+	Absorb damage when combos <= 6 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlindStickySkyfall(128:27825) -> 我々は暗闇の中で強くなる
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESSkyfall(68:27826) -> 我々はシスだ
+	Dark skyfall +15% for 5 turns, Deal 115% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:27828) -> フォース・プッシュ
+	ATK -75% for 1 turn
+	[1] ESBoardChangeAttackBits(85:27829) -> 味方になるか、死ね
+	Change all orbs to Fire, Dark, and Heal, Deal 75% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESOrbSealRow(100:27830) -> キック
+Seal the 5th row for 1 turn, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESGravity(50:27831) -> 切りつける
+Player -99% HP
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:27820) -> ＿モール根性
+Survive attacks with 1 HP when HP > 50%
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

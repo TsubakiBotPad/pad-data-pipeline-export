@@ -1,0 +1,30 @@
+#100545 - Alt. Low Fire Ninja
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESCloud(104:5492) -> Smoke Bomb
+A 3×1 rectangle of clouds appears for 1 turn at a random location
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindRandom(1:5494) -> Ninja Trick Shadow Tagging
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 5 turns
+
+#7: ESAttackMultihit(15:5493) -> Shuriken Strike
+Deal 90% damage (3 hits, 30% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

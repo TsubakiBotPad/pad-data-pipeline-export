@@ -1,0 +1,49 @@
+#2932 - Burning Tail, Goukami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:4609) -> Scorching Heat Mantle
+Reduce damage from all sources by 75% for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:4613) -> Scorching Heat Mantle
+Condition: When < 30% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 2 turns
+
+#7: ESRowSpawnMulti(79:4614) -> Inferno Blast
+Condition: When < 30% HP (ai:100 rnd:0)
+Change the 1st row to Fire orbs, Deal 250% damage
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 80, target rnd 14
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESGravity(50:4611) -> Blazing Tail
+Player -99% HP
+
+#12: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#13: ESAttackMultihit(15:4612) -> Hellfire Claw
+Deal 100% damage (2 hits, 50% each)
+
+#14: ESRandomSpawn(92:4610) -> Powerful Blaze
+Spawn 6 random Fire orbs, Deal 150% damage

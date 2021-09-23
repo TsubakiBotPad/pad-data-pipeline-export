@@ -1,0 +1,35 @@
+#6276 - Eva Pilots, Shinji&Rei
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:18249) -> Why me?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 6 for 5 turns, Deal 70% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:18250) -> Don't say sad stuff, okay?
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Water and Light orbs, Deal 80% damage
+
+#5: ESDamageShield(74:18251) -> I should protect Unit-01, then?
+Reduce damage from all sources by 50% for 1 turn, Deal 95% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESRecoverEnemy86(86:18252) -> You won't die.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 50% HP
+
+#8: ESAttackMultihit(15:18253) -> It's time.
+Deal 260% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,98 @@
+  monster_id: 6186
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 17659
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 17660
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+            trigger_turn_end: 4
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 17655
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 5
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 17656
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 5
+                trigger_turn: 1
+                trigger_turn_end: 4
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 17655
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 5
+                trigger_turn: 5
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 17658
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+          }
+          children {
+            behavior {
+              enemy_skill_id: 17658
+            }
+          }
+        }
+      }
+    }
+  }

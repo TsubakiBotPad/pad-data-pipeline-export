@@ -1,0 +1,23 @@
+#1707 - Twilight Sorcerer, Chester
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1707
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13535:83) Charge your power as much as you want! + Because here starts hell!
+ | Delay active skills by 99 turns + Change player HP to 30,000 for 15 turns
+ group:
+ | group:
+ | condition: turns 1-14
+   | condition: 50% chance
+   | (13539:15) Oh! You can't go there
+   | Deal 100% damage (4 hits, 25% each)
+   | (13538:92) Just go and have fun
+   | Spawn 3 random Jammer and Poison orbs
+ | group:
+   | (13540:83) I won't forgive you + Let's play together next time
+   | Movetime 50% for 1 turn + Deal 1,000% damage (4 hits, 250% each), Deal 1,000% damage (4 hits, 250% each)

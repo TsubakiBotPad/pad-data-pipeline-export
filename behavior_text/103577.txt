@@ -1,0 +1,60 @@
+#103577 - Alt. Eighth Dragon Caller, Tidebringer Amnel
+monster size: 5
+new AI: True
+start/max counter: 10
+counter increment: 0
+monster_id: 103577
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7023:72) Light damage halved
+ | Reduce damage from Light attrs by 50%
+ | (12175:73) Dragonbound Soul Spirit
+ | Survive attacks with 1 HP when HP > 99%
+ type: PREEMPT
+ | (7003:83) Light Dragon Barrier + Guardian Dragon Formation + Blazing Sun Prison
+ | Void damage >= 10,000,000 for 999 turns + Voids status ailments for 999 turns + Bind 4 random subs for 15 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (7018:46) Change mon Attaque
+   | Change own attribute to random one of Light or Water, Deal 320% damage
+   | condition: 30% chance
+   | (7019:88) Divine Charm
+   | Bind awoken skills for 1 turn, Deal 290% damage
+   | condition: 20% chance
+   | (7017:67) Prism Burst
+   | Absorb damage when combos <= 8 for 1 turn, Deal 290% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | condition: 34% chance
+   | (7008:83) Deep Shadow + Shining Stream
+   | Absorb Dark damage for 3 turns + Deal 480% damage (4 hits, 120% each), Deal 480% damage (4 hits, 120% each)
+   | condition: 33% chance
+   | (7009:83) Cyclone + Shining Stream
+   | Deal 280% damage (2 hits, 140% each) + Deal 480% damage (4 hits, 120% each), Deal 280% damage (2 hits, 140% each)
+   | condition: 33% chance
+   | (7010:83) Shell Scales + Shining Stream
+   | Reduce damage from all sources by 75% for 3 turns + Deal 480% damage (4 hits, 120% each), Deal 480% damage (4 hits, 120% each)
+ | group:
+ | condition: turn 2 while HP > 9, hp <= 49
+   | (7012:83) Cyclone + Shining Stream
+   | Deal 280% damage (2 hits, 140% each) + Deal 480% damage (4 hits, 120% each), Deal 280% damage (2 hits, 140% each)
+ | group:
+ | condition: turn 3 while HP > 9, hp <= 29
+   | (7015:83) Cyclone + Shining Stream
+   | Deal 280% damage (2 hits, 140% each) + Deal 480% damage (4 hits, 120% each), Deal 280% damage (2 hits, 140% each)
+ | group:
+ | condition: hp <= 9
+   | (7022:83) Photon Break + Myriad Meteor Ray
+   | Voids player buff effects + Deal 18,000% damage (6 hits, 3,000% each), Deal 18,000% damage (6 hits, 3,000% each)
+ type: UNKNOWN_USE
+ | (7013:83) Shell Scales + Shining Stream
+ | Reduce damage from all sources by 75% for 3 turns + Deal 480% damage (4 hits, 120% each), Deal 480% damage (4 hits, 120% each)
+ | (7011:83) Deep Shadow + Shining Stream
+ | Absorb Dark damage for 3 turns + Deal 480% damage (4 hits, 120% each), Deal 480% damage (4 hits, 120% each)
+ | (7016:83) Shell Scales + Shining Stream
+ | Reduce damage from all sources by 75% for 3 turns + Deal 480% damage (4 hits, 120% each), Deal 480% damage (4 hits, 120% each)
+ | (7014:83) Deep Shadow + Shining Stream
+ | Absorb Dark damage for 3 turns + Deal 480% damage (4 hits, 120% each), Deal 480% damage (4 hits, 120% each)

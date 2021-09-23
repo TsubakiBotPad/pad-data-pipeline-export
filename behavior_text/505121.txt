@@ -1,0 +1,39 @@
+#505121 - Seven-Star's Righteous Princess, Qilin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 505121
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21985:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22033:83) ...Leave me! + Protective Type
+ | Absorb damage when combos <= 9 for 5 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (22036:15) Light Sword Dance Strike
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 50% chance
+   | (22037:94) Immovable Flash
+   | Lock 10 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22038:83) Immovable Type + Invisible Type
+     | Seal the 5th row for 3 turns + A row of clouds appears for 3 turns at 1st row, 1st column
+   | group:
+     | condition: 50% chance
+     | (22041:109) Furious Cut
+     | Random 1 orbs change every 0.5s for 1 turn, Deal 120% damage
+     | condition: 50% chance
+     | (22036:15) Light Sword Dance Strike
+     | Deal 105% damage (3 hits, 35% each)
+     | condition: 50% chance
+     | (22037:94) Immovable Flash
+     | Lock 10 random orbs, Deal 100% damage

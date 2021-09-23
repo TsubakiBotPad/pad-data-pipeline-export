@@ -1,0 +1,31 @@
+#7327 - Dignified Hydrangea Starfairy, Natsuru
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7327
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24342:83) Drip drop♪ + Pitter patter♪ + Splish splash♪
+ | Voids status ailments for 999 turns + Unable to match Water orbs for 5 turns + Change all orbs to Water and Heal, Deal 150% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (24348:53) Mophead
+   | Absorb Water damage for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (24347:110) Lacecap
+   | Specific orbs change every 0.5s for 1 turn, Deal 90% damage
+   | condition: 34% chance
+   | (24346:92) Hydro Ball
+   | Spawn 10 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24349:83) Rain Dance + Do you like rain?
+   | Water skyfall +20% for 5 turns + Locked Water skyfall +100% for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (24352:92) Hydro Cannon
+   | Spawn 15 random Water orbs, Deal 300% damage

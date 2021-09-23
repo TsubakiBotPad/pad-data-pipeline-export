@@ -1,0 +1,50 @@
+#6341 - Trapthorn Dragon, Zelenbus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6341
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18150:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (18149:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (18151:83) Hard Shell + Mischievous Vines
+ | Void damage >= 10,000,000 for 999 turns + Specific orbs change every 1.0s for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18158:89) Acidic Sap
+   | Delay active skills by 0~2 turns, Deal 100% damage
+   | condition: 50% chance
+   | (18159:15) Vine Thorn Whip
+   | Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (18155:86) Healing Nectar
+   | Enemy recover 50% HP
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (18156:88) Power-Dissolving Fluids
+     | Bind awoken skills for 5 turns
+   | group:
+     | (18160:15) Thorn Whip Assault
+     | Deal 600% damage (6 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (18154:83) Healing Nectar + Power-Dissolving Fluids
+     | Enemy recover 50% HP + Bind awoken skills for 5 turns
+   | group:
+   | condition: turn 2
+     | (18156:88) Power-Dissolving Fluids
+     | Bind awoken skills for 5 turns
+     | (18160:15) Thorn Whip Assault
+     | Deal 600% damage (6 hits, 100% each)

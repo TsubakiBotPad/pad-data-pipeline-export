@@ -1,0 +1,44 @@
+#1655 - Holy Knight, Arcline
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1655
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21694:83) Resolute Justice + Piercing Belief + Life Deprivation
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 20,000,000 for 3 turns + RCV 50% for 6 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 50% chance
+   | (21703:48) Lame du Tonnerre
+   | Change a random attribute to Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (21704:15) Atout Durée
+   | Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: turn 3
+   | (21697:83) Convicting Intent + Sharpened Mind
+   | Reduce damage from all sources by 80% for 99 turns + Increase damage to 150% for the next 2 turns
+ | group:
+ | condition: turns 4-5
+   | condition: 50% chance
+   | (21703:48) Lame du Tonnerre
+   | Change a random attribute to Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (21704:15) Atout Durée
+   | Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: turn 6
+   | (21700:83) Sharpened Mind + Life Deprivation
+   | Increase damage to 200% for the next 999 turns + RCV 25% for 10 turns
+ | group:
+   | condition: 50% chance
+   | (21703:48) Lame du Tonnerre
+   | Change a random attribute to Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (21704:15) Atout Durée
+   | Deal 111% damage (3 hits, 37% each)

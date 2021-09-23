@@ -1,0 +1,169 @@
+#4286 - King of Perdition, Satan Void
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:9093) -> Will you challenge me?
+	Voids status ailments for 999 turns
+	[1] ESInvulnerableOn(119:9094) -> Choose how you will suffer...
+	Immune to damage from all sources for 999 turns
+	[2] ESInactivity66(66:9095) -> If you match Orbs, I take time away
+	Do nothing
+	[3] ESInactivity66(66:9096) -> If you don't match Orbs, I take your power
+	Do nothing
+
+#3: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 5
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:9102) -> I see... Then I will take your power.
+	Delay active skills by 99 turns
+	[1] ESInvulnerableOff(121:9100) -> Shall we begin?
+	Remove damage immunity effect
+	[2] ESDispel(6:268) -> Wave of Nothingness
+	Voids player buff effects
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:9098) -> Very well...
+	Void damage >= 40,000,000 for 99 turns
+	[1] ESDebuffMovetime(39:9099) -> I will take time from you.
+	Movetime -3s for 99 turns
+	[2] ESInvulnerableOff(121:9100) -> Shall we begin?
+	Remove damage immunity effect
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 32
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 30
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 28
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 26
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 24
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 22
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 20
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 18
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 40
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 35
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBindAwoken(88:9222) -> Suffer this torment
+Bind awoken skills for 3 turns, Deal 220% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBoardChangeAttackBits(85:9108) -> Chaos is almost upon you
+Change all orbs to Heal, Jammer, and Poison, Deal 200% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBindRandom(1:9105) -> Well, what are you going to do?
+Bind 1 random card for 3 turns, Deal 250% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:9223) -> Does it hurt?
+Deal 400% damage (4 hits, 100% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBlindStickyRandom(97:9221) -> Scared?
+Blind random 12 orbs for 3 turns, Deal 240% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESSkillDelay(89:9107) -> Suffer!
+Delay active skills by 3 turns, Deal 270% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESAttackUPRemainingEnemies(17:9110) -> I will return you to nothing
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 600% for the next 1 turn
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#33: ESAttackMultihit(15:9111) -> End of Existence
+Deal 6,000% damage (6 hits, 1,000% each)
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 38
+
+#36: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#37: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 45
+
+#38: ESOrbLock(94:9106) -> Struggle
+Lock all orbs, Deal 300% damage
+
+#39: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#40: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 43
+
+#41: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#42: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 45
+
+#43: ESGravity(50:9104) -> I'll crush you...
+Player -99% HP
+
+#44: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#45: ESAttackMultihit(15:9109) -> End of the World
+Deal 600% damage (6 hits, 100% each)
+
+#46: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#47: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:9112) -> If...I...lose...
+	Do nothing

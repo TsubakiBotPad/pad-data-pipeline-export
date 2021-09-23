@@ -1,0 +1,48 @@
+#207522 - 加茂憲紀
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDebuffMovetime(39:26597) -> I'll strike first!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -2s for 5 turns, Deal 100% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: ESDebuffMovetime(39:26600) -> Blood Manipulation
+Movetime -1s for 3 turns, Deal 95% damage
+
+#7: ESAttackMultihit(15:26598) -> Slicing Exorcism
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackUPRemainingEnemies(17:26607) -> Flowing Red Scale
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 6
+
+#11: SkillSet:
+	[0] ESInactivity66(66:26608) -> I can't...
+	Do nothing
+	[1] ESBindRandomSub(65:26609) -> Crimson Binding
+	Bind 1 random sub for 1 turn
+	[2] ESAttackMultihit(15:26610) -> ...afford to lose!
+	Deal 200% damage (4 hits, 50% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

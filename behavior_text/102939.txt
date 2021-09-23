@@ -1,0 +1,47 @@
+#102939 - Alt. Treasure Blade Dragon, Drahklist
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+monster_id: 102939
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5187:73) Drahklist Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (8229:72) Drahklist Halved
+ | Reduce damage from Fire and Wood attrs by 50%
+ type: PREEMPT
+ | (5179:83) Antifield + Hundred Sword Armor
+ | Absorb Fire and Wood damage for 5 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (5184:50) Fresh
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5180:98) Shadow Rapier
+     | Blind orbs in specific positions for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (5181:89) Bone Breaker
+     | Delay active skills by 1 turn, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5182:15) Asura Slash
+     | Deal 175% damage (5 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (5186:74) Parade
+   | Reduce damage from all sources by 75% for 3 turns
+ | group:
+ | condition: hp <= 14
+   | (5183:77) Sky Dashing Hundred Dragon Blades
+   | Change the 1st, 3rd, and 5th columns to Fire orbs and the 2nd, 4th, and 6th columns to Wood orbs, Deal 750% damage
+ type: UNKNOWN_USE
+ | condition: at most 2 times
+ | (5185:74) Parade
+ | Reduce damage from all sources by 50% for 3 turns

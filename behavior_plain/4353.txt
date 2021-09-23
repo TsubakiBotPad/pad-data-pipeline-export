@@ -1,0 +1,164 @@
+#4353 - Spirit Numen of Water, Zapan
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:9711) -> Overcoat of Grand Style
+	Voids status ailments for 999 turns
+	[1] ESGravity(50:9712) -> Explosive Wave
+	Player -99% HP
+	[2] ESColumnSpawnMulti(76:9713) -> Blowing Dirty Water
+	Change the 1st column to Water, Jammer, and Poison orbs and the 3rd and 4th columns to Water, Jammer, and Poison orbs
+	[3] ESVoidShield(71:9714) -> Surging Waves
+	Void damage >= 15,000,000 for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 21
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 16
+
+#11: ESRandomSpawn(92:9716) -> Water Hazard
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 8 random Water orbs, Deal 100% damage
+
+#12: ESOrbLock(94:9717) -> Blizzard Wave
+Condition: 25% chance (ai:0 rnd:25)
+Lock 14 random orbs, Deal 110% damage
+
+#13: ESBindRandom(1:9718) -> Frozen Tentacle
+Condition: 25% chance (ai:0 rnd:25)
+Bind 2 random cards for 1 turn, Deal 105% damage
+
+#14: ESAttackMultihit(15:9719) -> Frost Hurricane
+Condition: 25% chance (ai:0 rnd:25)
+Deal 120% damage (4 hits, 30% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 40
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: SkillSet:
+	[0] ESBindSkill(14:9720) -> Rough Seas
+	Bind active skills for 3 turns
+	[1] ESOrbSealRow(100:9721) -> Land Subsidence
+	Seal the 5th row for 3 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 38
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 27
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#24: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#25: SkillSet:
+	[0] ESBoardChange(84:9723) -> Untamable Raging Waves
+	Change all orbs to Heal and Poison
+	[1] ESDebuffRCV(105:9724) -> Ocean Current Mayhem
+	RCV 50% for 99 turns
+	[2] ESBindRandom(1:9725) -> Freeze Wave
+	Bind 6 random cards for 10 turns
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#28: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 33
+
+#29: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:9727) -> Heavy Rain
+	Water skyfall +25% for 1 turn
+	[1] ESAttackMultihit(15:9730) -> Tidal Wave
+	Deal 125% damage (5 hits, 25% each)
+
+#30: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:9728) -> Misery Water
+	Absorb Water damage for 1 turn
+	[1] ESAttackMultihit(15:9730) -> Tidal Wave
+	Deal 125% damage (5 hits, 25% each)
+
+#31: SkillSet:
+	[0] ESDebuffMovetime(39:9729) -> Wave of Disaster
+	Movetime 50% for 1 turn
+	[1] ESAttackMultihit(15:9730) -> Tidal Wave
+	Deal 125% damage (5 hits, 25% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#34: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 40
+
+#35: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#36: SkillSet:
+	[0] ESBindAwoken(88:9734) -> Ocean Ripple
+	Bind awoken skills for 3 turns
+	[1] ESBlindStickyRandom(97:9735) -> Depths of the Abyss
+	Blind all orbs for 3 turns
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#38: ESAttackMultihit(15:9738) -> Neo Tidal Wave
+Deal 2,400% damage (6 hits, 400% each)
+
+#39: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#40: ESStorePower(8:9737) -> Unleashing the Great Sea
+Increase damage to 230% for the next attack
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: ESAttributeResist(72:9710) -> Water Att. Half Reduced
+Reduce damage from Water attrs by 50%
