@@ -1,0 +1,36 @@
+#7349 - Thoughtful Pansy Starfairy, Joachim
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7349
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24247:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (24310:83) Let me show you the way. + Lantern, burn brightly.
+ | Bind awoken skills for 3 turns + Blind all orbs on the board
+ group:
+ | group:
+   | condition: 50% chance
+   | (24313:110) Butterfly Guide
+   | Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+   | condition: 50% chance
+   | (24314:62) Brooch's Light
+   | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (24315:83) Butterflies, dance in the sky. + Light, gather to me.
+   | Specific orbs change every 1.0s for 1 turn + Change all orbs to Light, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (24319:67) Let me show you the way.
+     | Absorb damage when combos <= 7 for 5 turns
+   | group:
+     | (24318:85) Butterfly Luminescence
+     | Change all orbs to Wood, Light, and Heal, Deal 400% damage

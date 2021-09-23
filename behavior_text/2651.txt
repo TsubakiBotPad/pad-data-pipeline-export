@@ -1,0 +1,31 @@
+#2651 - Metallic Star Dragon, Aries
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2651
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4031:67) Asteroid Steps
+ | Absorb damage when combos <= 4 for 3 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (4033:62) Black Cloud
+   | Blind all orbs on the board, Deal 80% damage
+   | condition: 40% chance
+   | (4034:92) Dark Satellite
+   | Spawn 8 random Dark orbs, Deal 100% damage
+   | condition: 30% chance
+   | (4035:92) Death Erosion
+   | Spawn 6 random Poison orbs
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (4032:89) Helical Horns' Curse
+   | Delay active skills by 2 turns
+ | group:
+ | condition: hp <= 9
+   | (4036:15) Aries's Crest - Chaos
+   | Deal 300~500% damage (3~5 hits, 100% each)

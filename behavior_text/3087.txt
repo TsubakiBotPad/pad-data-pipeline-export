@@ -1,0 +1,44 @@
+#3087 - Lovely Dragon Caller, Ana
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3087
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: 34% chance
+ | (5231:83) Monsters! + Dragon Summoning!!!
+ | Do nothing + Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 80% damage
+ | condition: 50% chance
+ | (5232:83) Monsters! + Dragon Summoning!!!
+ | Do nothing + Change the 1st column to Water orbs and the 6th column to Wood orbs, Deal 80% damage
+ | (5233:83) Monsters! + Dragon Summoning!!!
+ | Do nothing + Change the 1st column to Wood orbs and the 6th column to Fire orbs, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 50% chance
+     | (5238:83) Heat Breath + 3 combos ♪
+     | Player -50% HP + Deal 60% damage (3 hits, 20% each), Deal 60% damage (3 hits, 20% each)
+     | (5242:83) Gale + 3 combos ♪
+     | Change a random attribute to Jammer orbs + Deal 60% damage (3 hits, 20% each), Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 34% chance
+     | (5245:83) Dragon Summoning!!! + The Monsters block the way
+     | Change the 1st column to Fire orbs and the 6th column to Water orbs + Reduce damage from all sources by 50% for 2 turns, Deal 80% damage
+     | condition: 50% chance
+     | (5246:83) Dragon Summoning!!! + The Monsters block the way
+     | Change the 1st column to Water orbs and the 6th column to Wood orbs + Reduce damage from all sources by 50% for 2 turns, Deal 80% damage
+     | (5247:83) Dragon Summoning!!! + The Monsters block the way
+     | Change the 1st column to Wood orbs and the 6th column to Fire orbs + Reduce damage from all sources by 50% for 2 turns, Deal 80% damage
+ | group:
+ | condition: hp <= 19
+   | (5249:83) Ana starts crying + 10 combos!!
+   | Delay active skills by 0~3 turns + Deal 200% damage (10 hits, 20% each), Deal 200% damage (10 hits, 20% each)
+ type: UNKNOWN_USE
+ | (5240:83) Ice Blade + 3 combos ♪
+ | Change a random attribute to Water orbs + Deal 60% damage (3 hits, 20% each), Deal 60% damage

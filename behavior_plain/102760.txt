@@ -1,0 +1,29 @@
+#102760 - Yellow Chrysanthemum Virtue, Xiu Min
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:9464) -> Melancholic Colors
+	Jammer and Poison skyfall +20% for 10 turns
+	[1] ESVoidShield(71:9465) -> Colorless
+	Void damage >= 1,000,000 for 99 turns
+
+#3: ESAttackMultihit(15:9469) -> Polychrome Chrysanthemum
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 200% damage (10 hits, 20% each)
+
+#4: ESBoardChangeAttackBits(85:9467) -> Vibrant Petals
+Condition: 50% chance (ai:50 rnd:0)
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+
+#5: ESSpinnersRandom(109:9468) -> Chill-Flower's Rising
+Random 1 orbs change every 1.5s for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

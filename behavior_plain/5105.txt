@@ -1,0 +1,61 @@
+#5105 - R. Mika
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:22911) -> I'll totally make this look cool!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock 15 random orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbLock(94:22912) -> Daydream Headlock
+Condition: 33% chance (ai:0 rnd:33)
+Lock 10 random orbs, Deal 80% damage
+
+#6: ESRandomSpawn(92:22915) -> Peach Gator
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Water orbs, Deal 90% damage
+
+#7: ESAttackMultihit(15:22913) -> Passion Press
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:22917) -> Pumped up!
+	Increase damage to 150% for the next 3 turns
+	[1] ESStatusShield(20:22918) -> All right! Let's begin!
+	Voids status ailments for 3 turns
+
+#10: ESRandomSpawn(92:22920) -> Steel Chair
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Water and Wood orbs, Deal 90% damage
+
+#11: ESBoardChangeAttackBits(85:22921) -> Rainbow Typhoon
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 80% damage
+
+#12: ESAttackMultihit(15:22919) -> Nadeshiko (Front)
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:22922) -> Peach Assault
+Deal 195% damage (3 hits, 65% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

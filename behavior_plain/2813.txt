@@ -1,0 +1,199 @@
+#2813 - Light Music Club's Kirin Princess, Sakuya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:9552) -> Is everyone ready?
+	Bind awoken skills for 5 turns
+	[1] ESBindSkill(14:9553) -> Brace yourself!
+	Bind active skills for 5 turns
+	[2] ESAbsorbCombo(67:9554) -> Here I come!
+	Absorb damage when combos <= 6 for 1 turn
+	[3] ESDebuffMovetime(39:9555) -> Let's bring the house down!♪
+	Movetime 200% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 18, target rnd 38
+
+#9: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 7, target rnd 11
+
+#10: ESAttackMultihit(15:9572) -> Too bad, but come again
+Deal 20,000% damage (2 hits, 10,000% each)
+
+#11: SkillSet:
+	[0] ESColumnSpawnMulti(76:9557) -> Now we're rocking!
+	Change the 1st and 6th columns to Light orbs and the 2nd and 5th columns to Dark orbs
+	[1] ESBombFixedSpawn(103:9558) -> More, mooore!
+	Spawn Bomb orbs in the specified positions
+	[2] ESAbsorbCombo(67:9559) -> Let's go in high spirits♪
+	Absorb damage when combos <= 7 for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 18, target rnd 43
+
+#16: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 18
+
+#17: ESAttackMultihit(15:9572) -> Too bad, but come again
+Deal 20,000% damage (2 hits, 10,000% each)
+
+#18: SkillSet:
+	[0] ESCloud(104:9561) -> Everyone's enthusiasm is great!
+	A 3×2 rectangle of clouds appears for 1 turn at 3rd row, 3rd column
+	[1] ESRandomSpawn(92:9562) -> I'm not done yet!
+	Spawn 10 random Fire, Water, Wood, and Light orbs
+	[2] ESAbsorbCombo(67:9563) -> I wonder if you can make it to the end!
+	Absorb damage when combos <= 8 for 1 turn
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 26
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#22: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 9, target rnd 24
+
+#23: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 0, target rnd 50
+
+#24: SkillSet:
+	[0] ESRandomSpawn(92:9565) -> Thanks for everything!
+	Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+	[1] ESAbsorbCombo(67:9566) -> This is the end!
+	Absorb damage when combos <= 9 for 1 turn
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 33
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#28: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 31
+
+#29: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 33
+
+#30: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:9573) -> I can hear voices from everywhere
+	Do nothing
+	[1] ESRandomSpawn(92:9603) -> Thanks for the encore!
+	Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+	[2] ESAbsorbCombo(67:9604) -> This is really the end!
+	Absorb damage when combos <= 9 for 1 turn
+
+#31: ESEndBattle(40:9568) -> That was a great combo!
+Reduce self HP to 0
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 31
+
+#34: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#35: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 31
+
+#36: ESAttackMultihit(15:9572) -> Too bad, but come again
+Deal 20,000% damage (2 hits, 10,000% each)
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#38: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#39: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#40: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#41: SkillSet:
+	[0] ESInactivity66(66:9569) -> Good Soprano
+	Do nothing
+	[1] ESCloud(104:9561) -> Everyone's enthusiasm is great!
+	A 3×2 rectangle of clouds appears for 1 turn at 3rd row, 3rd column
+	[2] ESRandomSpawn(92:9562) -> I'm not done yet!
+	Spawn 10 random Fire, Water, Wood, and Light orbs
+	[3] ESAbsorbCombo(67:9563) -> I wonder if you can make it to the end!
+	Absorb damage when combos <= 8 for 1 turn
+
+#42: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#43: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 26
+
+#44: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#45: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#46: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 1, target rnd 48
+
+#47: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 18, target rnd 16
+
+#48: SkillSet:
+	[0] ESInactivity66(66:9569) -> Good Soprano
+	Do nothing
+	[1] ESRandomSpawn(92:9565) -> Thanks for everything!
+	Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
+	[2] ESAbsorbCombo(67:9566) -> This is the end!
+	Absorb damage when combos <= 9 for 1 turn
+
+#49: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#50: ESSetCounter(25:15) -> ESSetCounter
+counter = 5
+
+#51: ESAttackMultihit(15:9572) -> Too bad, but come again
+Deal 20,000% damage (2 hits, 10,000% each)
+
+#52: ESEndPath(36:26) -> ESEndPath
+end_turn

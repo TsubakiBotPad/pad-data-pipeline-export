@@ -1,0 +1,59 @@
+#5081 - Chun-Li
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:12560) -> Want to see my Kung-Fu? I'll show you.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 5 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12562) -> Rankyaku
+	Deal 80% damage
+	[1] ESAttackMultihit(15:12563) -> Yosokyaku
+	Deal 105% damage (3 hits, 35% each)
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12565) -> Hyakuretsukyaku
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESOrbChangeAttack(48:12566) -> Spinning Bird Kick
+	Change a random attribute to Water orbs, Deal 40% damage
+
+#6: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESRowSpawnMulti(79:12568) -> Kikoken
+	Change the 3rd row to Water orbs, Deal 40% damage
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESOrbChangeAttack(48:12569) -> Spinning Bird Kick
+	Change a random attribute to Water orbs, Deal 40% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:12570) -> Renkiko
+	Increase damage to 150% for the next 10 turns
+	[1] ESInactivity66(66:12672) -> I won't let up on you!
+	Do nothing
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 16, target rnd 4
+
+#10: ESRandomSpawn(92:12571) -> Hoyokusen
+Spawn 10 random Water orbs, Deal 350% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

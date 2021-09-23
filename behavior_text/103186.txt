@@ -1,0 +1,35 @@
+#103186 - Scorched Forest Blade, Samurai Troll
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 103186
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12947:83) Swordsman's Resolution + Dual Blade Type
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 10 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (12950:83) Synchronized Battle + Sword's Back Strike
+   | Movetime 25% for 2 turns + Fix orb movement starting point to random position on the board, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (12953:83) Imminent Battle + Surprise Attack
+   | Bind awoken skills for 1 turn + Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (12956:17) Sheath Torn to Pieces
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | condition: 33% chance
+   | (12957:77) One Swing of Fire
+   | Change the 4th column to Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (12958:79) One Stroke of Wind
+   | Change the 3rd row to Wood orbs, Deal 100% damage
+   | condition: 34% chance
+   | (12959:15) Swiftness Sword Technique
+   | Deal 105% damage (3 hits, 35% each)

@@ -1,0 +1,81 @@
+#6406 - Deadly Sin Dragon King of Envy, Jevi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 4
+
+#3: ESGravity(50:18896) -> Resentful Roar
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:18938) -> Resentful Roar
+	Player -99% HP
+	[1] ESDebuffRCV(105:18900) -> Covetous Revenge
+	RCV 50% for 5 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESRowSpawnMulti(79:18865) -> Spiteful Screech
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:18866) -> Jealous Rage
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESGravity(50:18896) -> Resentful Roar
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:18898) -> Envious Rage
+	Absorb Water and Light damage for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 11, target rnd 7
+
+#15: ESAttackMultihit(15:18901) -> Unfettered Envy
+Deal 300% damage (3 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 15
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: SkillSet:
+	[0] ESGravity(50:18896) -> Resentful Roar
+	Player -99% HP
+	[1] ESDebuffRCV(105:18900) -> Covetous Revenge
+	RCV 50% for 5 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:18895) -> Resolve
+Survive attacks with 1 HP when HP > 50%

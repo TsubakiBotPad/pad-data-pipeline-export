@@ -1,0 +1,42 @@
+#101187 - Alt. Dark Sprite, Cattleya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101187
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (5480:95) Tee-hee!
+ | Spawn 3 random Mortal Poison orbs
+
+level: 5
+ type: PREEMPT
+ | (5474:98) Affectionate Brush Strokes
+ | Blind orbs in specific positions for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (5480:95) Tee-hee!
+ | Spawn 3 random Mortal Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5476:50) Destructive Writing
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5475:48) Dark Spirit's Writing
+     | Change a random attribute to Dark orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5477:68) Book of Wonders♪
+     | Poison skyfall +20% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5478:92) Secret Chest
+     | Spawn 6 random Poison orbs, Deal 200% damage

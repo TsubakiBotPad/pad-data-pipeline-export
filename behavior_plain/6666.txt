@@ -1,0 +1,123 @@
+#6666 - Duplicitous Mystic, Mikage
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 10, target rnd 6
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:20638) -> Domain Barrier
+	Voids status ailments for 999 turns
+	[1] ESBlindStickyRandom(97:20639) -> Remains of the Dark Night
+	Blind random 15 orbs for 10 turns
+
+#6: ESBranchCard(90:20797) -> ESBranchCard
+Branch on player_cards HAS [5875], target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:20638) -> Domain Barrier
+	Voids status ailments for 999 turns
+	[1] ESBlindStickyRandom(97:20639) -> Remains of the Dark Night
+	Blind random 15 orbs for 10 turns
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:20638) -> Domain Barrier
+	Voids status ailments for 999 turns
+	[1] ESBlindStickyRandom(97:20796) -> You're hiding your true power, aren't you
+	Blind random 15 orbs for 10 turns
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 27
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#11: ESColumnSpawnMulti(77:20640) -> Black Pillars of Smoke
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd and 5th columns to Dark and Poison orbs, Deal 95% damage
+
+#12: ESRowSpawnMulti(79:20641) -> Black Pillars of Smoke
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd and 4th rows to Dark and Jammer orbs, Deal 95% damage
+
+#13: ESAttackMultihit(15:20642) -> Killing Curse
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#17: SkillSet:
+	[0] ESDamageShield(74:20644) -> Spectre Manipulation
+	Reduce damage from all sources by 75% for 99 turns
+	[1] ESAbsorbCombo(67:20645) -> Spell Release
+	Absorb damage when combos <= 5 for 999 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 22
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: ESLeaderSwap(75:20646) -> Incantation of Substitution
+Leader changes to random sub for 1 turn, Deal 100% damage
+
+#22: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#23: ESColumnSpawnMulti(77:20640) -> Black Pillars of Smoke
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd and 5th columns to Dark and Poison orbs, Deal 95% damage
+
+#24: ESRowSpawnMulti(79:20641) -> Black Pillars of Smoke
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd and 4th rows to Dark and Jammer orbs, Deal 95% damage
+
+#25: ESAttackMultihit(15:20642) -> Killing Curse
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:20648) -> Incantation of Vengeance
+	Bind awoken skills for 5 turns
+	[1] ESSkillDelay(89:20649) -> Chant of Destruction
+	Delay active skills by 5 turns
+
+#28: ESAttackMultihit(15:20650) -> Unleash Cursed Power
+Deal 500% damage (5 hits, 100% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESSuperResolve(129:20636) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#31: ESNone(136:19049) -> ESNone
+nothing

@@ -1,0 +1,22 @@
+#401086 - Alt. Blue Dragon Fruit
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESFixedTarget(112:25348) -> Fruit Target
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Forces attacks to hit this enemy for 99 turns
+
+#3: ESAttackUPRemainingEnemies(17:25351) -> Sun Charge
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#4: ESOrbChangeAttack(48:25357) -> Blue Fruit
+Change a random attribute to Water orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

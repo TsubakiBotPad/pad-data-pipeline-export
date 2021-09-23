@@ -1,0 +1,55 @@
+#205639 - Lina = Inverse
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:21827) -> Let's go!
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:21828) -> Lei Wing!
+	Delay active skills by 1~3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESRandomSpawn(92:21829) -> Flame Arrow
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 4 random Fire orbs, Deal 90% damage
+
+#5: ESRowSpawnMulti(79:21830) -> Bram Blazer!
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st row to Water orbs, Deal 70% damage
+
+#6: ESColumnSpawnMulti(77:21831) -> Elmekia Lance
+Condition: 25% chance (ai:0 rnd:25)
+Change the 5th column to Light orbs, Deal 80% damage
+
+#7: ESAttackMultihit(15:21832) -> Blast Wave
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESLeaderSwap(75:21833) -> Zellas Bullid!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Leader changes to random sub for 3 turns
+
+#10: ESColumnSpawnMulti(77:21834) -> Dynast Blas!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 2nd and 5th columns to Light orbs, Deal 200% damage
+
+#11: ESRandomSpawn(92:21835) -> Ragna Blast!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 6 random Dark orbs, Deal 250% damage
+
+#12: ESRandomSpawn(92:21836) -> Dragon Slave
+Spawn 10 random Jammer orbs, Deal 300% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

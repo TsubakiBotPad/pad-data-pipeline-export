@@ -1,0 +1,41 @@
+#3045 - Juppongatana "Myo-o", Yukyuzan Anji
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3045
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4982:62) All that matters is the mission...
+ | Blind all orbs on the board, Deal 100% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (4983:48) "Myo-o The Angry" cannot lose!
+   | Change all Light orbs to Dark orbs, Deal 100% damage
+   | (4984:15) "Myo-o The Angry" cannot lose!
+   | Deal 100% damage
+ | group:
+   | (4986:15) Futae no Kiwami
+   | Deal 160% damage (2 hits, 80% each)
+ | group:
+ | condition: hp <= 69
+   | (4987:92) Hyoh!!
+   | Spawn 3 random Fire orbs, Deal 150% damage
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (4985:86) Hyoooh
+   | Enemy recover 15% HP
+ | group:
+ | condition: hp <= 44
+   | condition: 50% chance, one time only
+   | (4988:63) Long range
+   | Bind 1 random sub for 3 turns, Deal 80% damage
+   | (4987:92) Hyoh!!
+   | Spawn 3 random Fire orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (4989:15) Hyoh!!
+   | Deal 400% damage

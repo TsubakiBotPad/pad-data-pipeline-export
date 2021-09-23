@@ -1,0 +1,41 @@
+#5266 - Mikihisa Asakura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5266
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (13248:50) Hello
+ | Player -99% HP
+ group:
+ | group:
+ | condition: turn 1
+   | (13249:89) Shall we give it a try?
+   | Delay active skills by 0~2 turns, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (13250:92) Well? Don't be shy! Come at me!!
+   | Spawn 5 random Wood orbs, Deal 90% damage
+ | group:
+ | condition: turn 3
+   | (13251:15) Make your move.
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 4
+   | (13252:48) Brat.
+   | Change a random attribute to Wood orbs, Deal 95% damage
+ | group:
+ | condition: turn 5
+   | (13253:83) Accept your defeat! + Shamanic Oracle
+   | Bind awoken skills for 1 turn + Absorb damage when combos <= 5 for 10 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (13256:92) Power crushes everything.
+   | Spawn 10 random Wood orbs, Deal 250% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (13254:88) Accept your defeat!
+   | Bind awoken skills for 1 turn

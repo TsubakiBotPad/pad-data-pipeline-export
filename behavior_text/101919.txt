@@ -1,0 +1,43 @@
+#101919 - Alt. Rumbling Firedragon, Armored Tyrannos
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101919
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12108:83) Gigantic Body + Black Missile
+ | Absorb damage when combos <= 6 for 999 turns + Poison skyfall +15% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (7612:89) Hyper Claw
+     | Delay active skills by 1 turn, Deal 250% damage
+     | (7613:15) Claw Rush
+     | Deal 270% damage (3 hits, 90% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 25% chance
+     | (7608:103) Line Bomb
+     | Spawn Bomb orbs in the specified positions, Deal 200% damage
+     | condition: 25% chance
+     | (7609:103) Line Bomb
+     | Spawn Bomb orbs in the specified positions, Deal 200% damage
+     | condition: 25% chance
+     | (7610:103) Line Bomb
+     | Spawn Bomb orbs in the specified positions, Deal 200% damage
+     | condition: 25% chance
+     | (7611:103) Line Bomb
+     | Spawn Bomb orbs in the specified positions, Deal 200% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (7614:39) Jamming Missile
+   | Movetime -1s for 10 turns, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 19
+   | (7615:17) Red Device
+   | Increase damage to 200% for the next 999 turns

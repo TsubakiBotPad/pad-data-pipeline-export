@@ -1,0 +1,39 @@
+#4391 - Beguiling Girl, Pixie
+monster size: 3
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 4391
+approved: False
+
+level: 4
+ group:
+ | group:
+   | (9950:63) Zio
+   | Bind 1 random sub for 2 turns, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (9950:63) Zio
+     | Bind 1 random sub for 2 turns, Deal 120% damage
+   | group:
+     | condition: 50% chance
+     | (9951:86) Dia
+     | Enemy recover 30% HP
+     | condition: 50% chance
+     | (9950:63) Zio
+     | Bind 1 random sub for 2 turns, Deal 120% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (9952:17) Tarukaja
+   | Increase damage to 150% for the next 3 turns
+ | group:
+   | condition: 50% chance
+   | (9951:86) Dia
+   | Enemy recover 30% HP
+   | condition: 50% chance
+   | (9950:63) Zio
+   | Bind 1 random sub for 2 turns, Deal 120% damage

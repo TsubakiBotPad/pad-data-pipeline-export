@@ -1,0 +1,43 @@
+#6671 - Wild Demon Mercenary, Ouki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6671
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20651:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (20651:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (20652:67) Spell Deployment
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (20653:92) Flames of Hell
+   | Spawn 5 random Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (20654:97) Lure into Darkness
+   | Blind random 6 orbs for 1 turn, Deal 95% damage
+   | condition: 34% chance
+   | (20655:15) Hateful Blow
+   | Deal 105% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (20656:83) Grudge Transfer + Chains of Hatred
+   | Movetime -2s for 5 turns + RCV 50% for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (20659:15) Unleashed Resentment
+   | Deal 300% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (20660:17) Flames of Hatred
+   | Increase damage to 200% for the next 999 turns

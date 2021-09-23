@@ -1,0 +1,44 @@
+#100092 - Alt. Dryad
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 5, target rnd 6
+
+#3: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 8, target rnd 6
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 10, target rnd 6
+
+#5: ESBombRandomSpawn(102:17090) -> Fruit of the Giant Tree
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 5 random Bomb orbs
+
+#6: ESBlindStickyRandom(97:17089) -> Shade of the Giant Tree
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind random 20 orbs for 3 turns
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 10
+
+#8: ESRandomSpawn(92:17091) -> Greening the Board
+Spawn 3 random Wood orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackUPCooldown(19:17092) -> Wrath of Mother Nature
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#11: ESRandomSpawn(92:17091) -> Greening the Board
+Spawn 3 random Wood orbs, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

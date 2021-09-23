@@ -1,0 +1,30 @@
+#3517 - Lightwing Ray Dragon Caller, Navi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3517
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15067:83) Try to solve this tricky puzzle! + Let's start with a combo of 7! + I'll give you a hint! + Let's move from top to bottom!
+ | Change all orbs to Light + Absorb damage when combos <= 6 for 1 turn + Do nothing + Specific orbs change every 5.0s for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 7 combos last turn
+   | (15072:83) Nice♪Right, on to the next one! + Next is a combo of 8! + My hint this time is.... + Snake from left to right
+   | Change all orbs to Light + Absorb damage when combos <= 7 for 1 turn + Do nothing + Specific orbs change every 5.0s for 1 turn
+   | (15124:50) It looks like I've won!
+   | Player -100% HP
+ | group:
+ | condition: turn 2
+   | condition: when 8 combos last turn
+   | (15077:83) Great Job! + Last is a combo of 9! + My last hint is... + Let's rewind time with spinning candy!
+   | Change all orbs to Light + Absorb damage when combos <= 8 for 1 turn + Do nothing + Specific orbs change every 5.0s for 1 turn
+   | (15124:50) It looks like I've won!
+   | Player -100% HP
+ | group:
+   | (15124:50) It looks like I've won!
+   | Player -100% HP

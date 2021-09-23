@@ -1,0 +1,53 @@
+#6373 - Ren Amamiya & Satanael
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAttributeBlock(107:18722) -> Pillage them! 
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Unable to match Heal orbs for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESOrbChangeAttack(48:18724) -> Maeigoan
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Dark orbs, Deal 80% damage
+
+#7: ESBlind62(62:18723) -> Black Viper
+Blind all orbs on the board, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#10: ESLeaderSwap(75:18725) -> Survival Trick
+Leader changes to random sub for 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:18727) -> Tyrant's Mind
+	Increase damage to 150% for the next 5 turns
+	[1] ESBindRandomSub(65:18728) -> Begone!
+	Bind 4 random subs for 6 turns
+
+#13: ESAttackMultihit(15:18729) -> Riot Gun
+Deal 76% damage (4 hits, 19% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

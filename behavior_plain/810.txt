@@ -1,0 +1,29 @@
+#810 - War God of Metal, Takeminakata
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:651) -> Divine Wind of Suwa
+Voids status ailments for 999 turns
+
+#3: ESAttackUPRemainingEnemies(17:653) -> Unforgivable Revision
+Condition: When < 75% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 99 turns
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 25, target rnd 6
+
+#5: ESAttackMultihit(15:663) -> God Skill, God Channeling
+Deal 650% damage (2 hits, 325% each)
+
+#6: ESOrbChangeAttack(48:652) -> Wisteria Branch of Rust
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Jammer orbs, Deal 130% damage
+
+#7: ESAttackMultihit(15:654) -> Divine Katana of Yasaka
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 160% damage (8 hits, 20% each)

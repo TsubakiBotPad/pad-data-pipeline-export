@@ -1,0 +1,44 @@
+#101105 - Alt. Moonbeam Fang Witch, Lilith
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 101105
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12130:83) Dark Night of the Witches + Midnight Soar
+ | Blind orbs in specific positions for 10 turns + Absorb damage when combos <= 5 for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (7784:79) Moonlight Scythe
+   | Change the 5th row to Light orbs, Deal 100% damage
+ | group:
+ | condition: always turn 2
+   | (7785:79) Moonlight Scythe
+   | Change the 3rd row to Light orbs, Deal 100% damage
+ | group:
+ | condition: always turn 3
+   | (7786:79) Moonlight Scythe
+   | Change the 1st row to Light orbs, Deal 100% damage
+ | group:
+   | group:
+   | condition: turn 4
+     | (7787:83) Come on! I'm falling asleep here! + Yeah, I'm just gonna go...
+     | Mortal Poison skyfall +10% for 10 turns + Reduce self HP to 0
+   | group:
+     | condition: 33% chance
+     | (7784:79) Moonlight Scythe
+     | Change the 5th row to Light orbs, Deal 100% damage
+     | condition: 34% chance
+     | (7785:79) Moonlight Scythe
+     | Change the 3rd row to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (7786:79) Moonlight Scythe
+     | Change the 1st row to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 4, hp <= 99
+   | (7790:83) Hahaha! Now you're talking! + Let the games begin!
+   | Poison skyfall +10% for 10 turns + Increase damage to 300% for the next 99 turns

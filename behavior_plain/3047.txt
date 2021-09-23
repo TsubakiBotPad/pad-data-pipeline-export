@@ -1,0 +1,85 @@
+#3047 - Juppongatana "Sword Hunter", Sawagejo Cho
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkyfall(68:4974) -> A fair fight, huh?
+Wood skyfall +20% for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESStatusShield(20:4977) -> They call me "Sword Hunter" Cho. Now see my true skill.
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 999 turns
+
+#9: ESAttackUPRemainingEnemies(17:4981) -> You're all... annoying!!
+Condition: When < 20% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 20
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 18
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESBindSkill(14:4975) -> Gotcha!
+Bind active skills for 1 turn, Deal 100% damage
+
+#16: ESAttackMultihit(15:4976) -> Gotcha!
+Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESOrbLock(94:4978) -> "Hakujin" - The Thin One
+Condition: 70% chance when < 70% HP (ai:70 rnd:0)
+Lock 2 random orbs, Deal 125% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 23
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: ESOrbLock(94:4979) -> "Orochi" Pose. Take this.
+Lock 3 random orbs, Deal 125% damage
+
+#23: ESOrbLock(94:4980) -> "Orochi" Pose
+Lock 3 random orbs, Deal 150% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:4962) -> You'll never get to Shishio-sama!
+	Do nothing

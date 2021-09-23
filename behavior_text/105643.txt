@@ -1,0 +1,40 @@
+#105643 - Goury = Gabriev
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 105643
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14978:15) Here I come!
+ | Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (14982:50) In that case... Take this!
+     | Player -75% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (14979:48) I won't let you!
+     | Change a random attribute to Light orbs, Deal 95% damage
+     | condition: 50% chance
+     | (14980:15) I'm not done yet!
+     | Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (15010:74) Things aren't looking too good...
+   | Reduce damage from all sources by 75% for 5 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (14983:17) Light, come forth!
+     | Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: turn 2
+     | (15010:74) Things aren't looking too good...
+     | Reduce damage from all sources by 75% for 5 turns

@@ -1,0 +1,38 @@
+#104297 - Dusk Shadow God, Ra Dragon
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 104297
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14277:74) Black Swooping Wings
+ | Reduce damage from all sources by 80% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (14279:97) Dark Coffin
+     | Blind random 5 orbs for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (14278:15) Black Bolt
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (14280:85) Dark Sun Crown
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 200% damage
+     | (14279:97) Dark Coffin
+     | Blind random 5 orbs for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 50% chance
+     | (14280:85) Dark Sun Crown
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 200% damage
+     | (14278:15) Black Bolt
+     | Deal 100% damage (2 hits, 50% each)

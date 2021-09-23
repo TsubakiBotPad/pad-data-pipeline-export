@@ -1,0 +1,47 @@
+#2580 - Ancient Ocean Dragon, Coelacanth
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2580
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3625:73) Coelacanth's Temper
+ | Survive attacks with 1 HP when HP > 76%
+
+level: 4
+ type: PASSIVE
+ | (3625:73) Coelacanth's Temper
+ | Survive attacks with 1 HP when HP > 76%
+ type: PREEMPT
+ | (3664:50) Dark Pressure
+ | Player -50% HP
+ group:
+ | group:
+   | condition: 40% chance
+   | (3623:86) Longevity Attack
+   | Enemy recover 10% HP, Deal 90% damage
+   | condition: 40% chance
+   | (3665:92) Single Shadow
+   | Spawn 1 random Dark orb, Deal 100% damage
+   | condition: 20% chance
+   | (3666:53) Secret Plan of the Living Fossil
+   | Absorb Light damage for 1 turn
+ | group:
+ | condition: turn 1, hp <= 49
+   | (3626:62) Attack from the Deep Sea
+   | Blind all orbs on the board, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (3621:15) Screw Headbutt
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | (3602:86) Longevity Invasion
+   | Enemy recover 9% HP, Deal 160% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (3613:17) Wind-Up Full Throttle
+ | Increase damage to 200% for the next 999 turns

@@ -1,0 +1,60 @@
+#3014 - Liberty Geist
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:4961) -> Black Robot Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: This... is not... the end!|Limiters have been released
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:4952) -> Heat Smoke
+	Jammer and Poison skyfall +15% for 5 turns
+	[1] ESDamageShield(74:4953) -> Started accumulating power in his fists
+	Reduce damage from all sources by 50% for 3 turns
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESInactivity66(66:4955) -> 3
+Do nothing
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESRandomSpawn(92:4956) -> 2
+Condition: When fire orbs are on the board (ai:100 rnd:0)
+Change all Fire orbs to Jammer orbs
+
+#10: ESInactivity66(66:4957) -> 2
+Do nothing
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESAttackUPRemainingEnemies(17:4958) -> 1
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#14: ESInactivity66(66:4959) -> 1
+Do nothing
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b111
+
+#16: ESBoardChangeAttackBits(85:4960) -> Burning Destruction Fist
+Change all orbs to Fire, Deal 1,000% damage

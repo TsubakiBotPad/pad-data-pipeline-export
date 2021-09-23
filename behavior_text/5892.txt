@@ -1,0 +1,39 @@
+#5892 - Beloved Colorful Dragon Caller, Ideal
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5892
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21947:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20527:83) Oh, welcome! + Would you like a muffin? They're fresh out of the oven! + There's plenty so make sure you eat up!
+ | Voids status ailments for 999 turns + Void damage >= 30,000,000 for 999 turns + Random 3 orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (20532:85) Muffin Sprinkles
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 80% damage
+   | condition: 33% chance
+   | (20533:92) Heart-Shaped Chocolates
+   | Spawn 6 random Fire orbs, Deal 90% damage
+   | condition: 34% chance
+   | (20531:15) Chocolate Truffles
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (20534:83) Are you full already? + Don't be shy, eat them all up!
+   | Increase damage to 150% for the next 999 turns + No skyfall for 5 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (20537:83) Wow, there aren't that many left + Please come again
+     | Bind awoken skills for 1 turn + Delay active skills by 5 turns
+   | group:
+     | (20540:85) Cupcake Sprinkles
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 300% damage

@@ -1,0 +1,63 @@
+#656 - Loki, the Finisher
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESLeaderSwap(75:3321) -> Sly Trick
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Leader changes to random sub for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCard(90:3328) -> ESBranchCard
+Branch on player_cards HAS [374, 375, 655, 1347], target rnd 12
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 15
+
+#8: ESRandomSpawn(92:3326) -> Black Pain
+Condition: When < 20% HP (ai:100 rnd:0)
+Spawn 6 random Mortal Poison orbs, Deal 200% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlind62(62:3324) -> Surprise Attack
+	Blind all orbs on the board, Deal 120% damage
+	[1] ESChangeAttribute(46:3323) -> Transformation
+	Change own attribute to random one of Fire, Water, or Wood
+
+#10: ESAttackMultihit(15:3322) -> Fear Gift
+Condition: 60% chance (ai:60 rnd:0)
+Deal 120% damage (2 hits, 60% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESRecoverPlayer(55:3329) -> My friend! How've you been?
+Player recover 100% HP
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 8
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#17: ESDebuffMovetime(39:3327) -> Steel Puzzle
+Movetime -2s for 3 turns

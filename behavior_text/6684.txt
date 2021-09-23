@@ -1,0 +1,34 @@
+#6684 - Indigo Shadow Shark, Kunashi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6684
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20676:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (20767:83) Cold Rain under the Sea + View of the Ocean Floor
+ | Player -99% HP + Blind random 15 orbs for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (20678:109) Drifting Medusa
+   | Random 3 orbs change every 2.0s for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (20679:92) Ocean Spray
+   | Spawn 5 random Water orbs, Deal 95% damage
+   | condition: 34% chance
+   | (20680:15) Tail Fin Slap
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (20769:83) Cold Rain under the Sea + Clear Sky after Rain
+   | Player -99% HP + RCV 50% for 10 turns
+ | group:
+ | condition: hp <= 9
+   | (20683:15) Drink Deeply of Heaven's Rains
+   | Deal 300% damage

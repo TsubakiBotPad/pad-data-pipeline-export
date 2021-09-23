@@ -1,0 +1,31 @@
+#501506 - Shining Dragon Swordsman
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 501506
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20475:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20467:112) You can't run!
+ | Forces attacks to hit this enemy for 99 turns
+ group:
+ | group:
+   | (20468:15) Rapid Dragon Strike
+   | Deal 100% damage (5 hits, 20% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20469:74) Shield of Shining Light
+     | Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | condition: 30% chance
+     | (20470:77) Great Light Slash
+     | Change the 3rd and 4th columns to Light orbs, Deal 120% damage
+     | (20468:15) Rapid Dragon Strike
+     | Deal 100% damage (5 hits, 20% each)

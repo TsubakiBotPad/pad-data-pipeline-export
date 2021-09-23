@@ -1,0 +1,31 @@
+#300974 - Red Pirate Dragon, Bartholomew
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 300974
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (715:20) Diamond Cross
+ | Voids status ailments for 20 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (714:17) Black Bird
+   | Increase damage to 300% for the next 3 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (717:48) Main Battery Discharge
+   | Change a random attribute to Fire orbs, Deal 125% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (717:48) Main Battery Discharge
+     | Change a random attribute to Fire orbs, Deal 125% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (716:15) Royal Fortune
+     | Deal 160% damage (4 hits, 40% each)

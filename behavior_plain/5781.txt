@@ -1,0 +1,106 @@
+#5781 - Yami Yugi & The Dark Magician Duo
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:25091) -> Duel!
+	Voids status ailments for 999 turns
+	[1] ESDebuffATK(130:25092) -> It's my turn! I draw!
+	ATK -50% for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESDebuffMovetime(39:25093) -> It's my turn! I draw!
+	Movetime -3s for 1 turn
+	[1] ESRecoverEnemy86(86:25096) -> Spell Card "Magic Formula"
+	Enemy recover 10% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:25094) -> It's my turn! I draw!
+	Bind awoken skills for 1 turn
+	[1] ESBindRandom(1:25099) -> Spell Card "Thousand Knives"
+	Bind 1 random card for 10 turns, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: SkillSet:
+	[0] ESFixedStart(101:25095) -> It's my turn! I draw!
+	Fix orb movement starting point to random position on the board
+	[1] ESBoardChangeAttackBits(85:25098) -> Dark Burning Attack
+	Change all orbs to Fire, Light, Dark, and Heal, Deal 200% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: SkillSet:
+	[0] ESDebuffATK(130:25092) -> It's my turn! I draw!
+	ATK -50% for 1 turn
+	[1] ESAttackMultihit(15:25100) -> Spell Card "Diffusion Wave-Motion"
+	Deal 180% damage (6 hits, 30% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAbsorbThreshold(87:25097) -> Trap Card "Magic Cylinder"
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Absorb damage when damage >= 20,000,000 for 5 turns
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:25093) -> It's my turn! I draw!
+	Movetime -3s for 1 turn
+	[1] ESAttackUPRemainingEnemies(17:25102) -> Magicians Unite
+	Increase damage to 300% for the next 999 turns
+
+#24: SkillSet:
+	[0] ESFixedStart(101:25095) -> It's my turn! I draw!
+	Fix orb movement starting point to random position on the board
+	[1] ESRowSpawnMulti(79:25101) -> Dark Magic Attack
+	Change the 4th and 5th rows to Dark orbs, Deal 150% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESSuperResolve(129:25107) -> ＿Yugi Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

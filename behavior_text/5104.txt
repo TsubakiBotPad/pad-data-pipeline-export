@@ -1,0 +1,55 @@
+#5104 - Vega
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5104
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12431:39) Let my beauty intoxicate you.
+ | Movetime -1s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (12435:75) Izuna Drop
+     | Leader changes to random sub for 1 turn, Deal 90% damage
+   | group:
+     | condition: 33% chance
+     | (12433:15) Buster Claw
+     | Deal 100% damage
+     | condition: 33% chance
+     | (12434:15) Matador Flash
+     | Deal 105% damage (3 hits, 35% each)
+     | condition: 34% chance
+     | (12436:109) Aurora Spin Edge
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (12432:67) Matador Turn
+     | Absorb damage when combos <= 4 for 5 turns
+   | group:
+   | condition: always turn 2
+     | (12438:75) Grand Izuna Drop
+     | Leader changes to random sub for 2 turns, Deal 90% damage
+   | group:
+     | condition: 30% chance
+     | (12439:79) Bloody Kiss - Torero
+     | Change the 3rd row to Dark orbs, Deal 130% damage
+     | condition: 30% chance
+     | (12440:77) Bloody Kiss - Rojo
+     | Change the 5th column to Light orbs, Deal 130% damage
+     | condition: 30% chance
+     | (12441:48) Bloody Kiss - Azul
+     | Change a random attribute to Jammer orbs, Deal 120% damage
+     | condition: 10% chance
+     | (12437:15) Matador Blitz
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 14
+   | (12442:15) Bloody Rain
+   | Deal 224% damage (8 hits, 28% each)

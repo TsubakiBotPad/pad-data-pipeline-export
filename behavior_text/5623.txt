@@ -1,0 +1,39 @@
+#5623 - Strolling Dragon Callers, Alpha & Omega
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5623
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14817:83) I'll give you candy for a combo of 6♪ + I'm counting on you for a good combo! + Cheery Candy!
+ | Absorb damage when combos <= 5 for 999 turns + No skyfall for 5 turns + Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+ group:
+ | group:
+ | condition: turns 1-4
+   | condition: when 6 combos last turn
+   | (14825:83) Great! You did it!♪ + Here's the candy, like I promised!
+   | Do nothing + Reduce self HP to 0
+   | condition: when 5 combos last turn
+   | (14824:83) Unlucky, just a bit more♪ + You'll show me your worth now, right!
+   | Do nothing + Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+   | (14826:83) Make 1 combo with each color♪ + Take your time!
+   | Do nothing + Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+ | group:
+ | condition: turn 5
+   | condition: when 6 combos last turn
+   | (14825:83) Great! You did it!♪ + Here's the candy, like I promised!
+   | Do nothing + Reduce self HP to 0
+   | (14829:83) Fight♪ + Don't give up!
+   | Movetime 500% for 99 turns + Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+ | group:
+   | condition: when 6 combos last turn
+   | (14825:83) Great! You did it!♪ + Here's the candy, like I promised!
+   | Do nothing + Reduce self HP to 0
+   | condition: when 5 combos last turn
+   | (14824:83) Unlucky, just a bit more♪ + You'll show me your worth now, right!
+   | Do nothing + Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+   | (14826:83) Make 1 combo with each color♪ + Take your time!
+   | Do nothing + Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs

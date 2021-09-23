@@ -1,0 +1,61 @@
+#2809 - Ecstatic Mythical Beast Demon, Aamir
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2809
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12681:73) Resolve
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | (12682:83) Hey! Good of you to come! + Make sure you take a rest! + For eternity!
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 8,000,000 for 999 turns + Bind awoken skills for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 50
+     | condition: 25% chance
+     | (12686:62) Can you quit staring at me like that?
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 25% chance
+     | (12687:63) Sleep now!
+     | Bind 1 random sub for 2 turns, Deal 95% damage
+     | condition: 25% chance
+     | (12688:102) Shall I grow beautiful flowers?
+     | Spawn 5 random Bomb orbs, Deal 95% damage
+     | condition: 25% chance
+     | (12689:15) What about this?
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: turn 10 while HP > 20
+     | (12690:83) You can stay here forever! + Forever!!
+     | Lock all orbs + Bind 4 random subs for 10 turns
+   | group:
+     | condition: 25% chance
+     | (12686:62) Can you quit staring at me like that?
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 25% chance
+     | (12687:63) Sleep now!
+     | Bind 1 random sub for 2 turns, Deal 95% damage
+     | condition: 25% chance
+     | (12688:102) Shall I grow beautiful flowers?
+     | Spawn 5 random Bomb orbs, Deal 95% damage
+     | condition: 25% chance
+     | (12689:15) What about this?
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 1 while HP > 20, hp <= 50
+   | (12693:83) Hmmm + How cold you are!
+   | Player -99% HP + Poison skyfall +15% for 10 turns
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 1
+     | (12696:17) What a persistent kid!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (12697:15) Sorry, but I've had enough
+     | Deal 300% damage (6 hits, 50% each)

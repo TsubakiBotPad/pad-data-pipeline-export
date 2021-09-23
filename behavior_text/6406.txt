@@ -1,0 +1,63 @@
+#6406 - Deadly Sin Dragon King of Envy, Jevi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6406
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18895:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18896:50) Resentful Roar
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (18865:79) Spiteful Screech
+   | Change the 3rd row to Water orbs, Deal 100% damage
+   | condition: 50% chance
+   | (18866:15) Jealous Rage
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18897:83) Resentful Roar + Envious Rage
+   | Player -99% HP + Absorb Water and Light damage for 5 turns
+ | group:
+ | condition: hp <= 10
+   | (18901:15) Unfettered Envy
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18899:83) Resentful Roar + Covetous Revenge
+   | Player -99% HP + RCV 50% for 5 turns
+
+level: 6
+ type: PASSIVE
+ | (18895:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18937:83) Resentful Roar + Covetous Revenge
+ | Player -99% HP + RCV 50% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18865:79) Spiteful Screech
+   | Change the 3rd row to Water orbs, Deal 100% damage
+   | condition: 50% chance
+   | (18866:15) Jealous Rage
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18897:83) Resentful Roar + Envious Rage
+   | Player -99% HP + Absorb Water and Light damage for 5 turns
+ | group:
+ | condition: hp <= 10
+   | (18901:15) Unfettered Envy
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18899:83) Resentful Roar + Covetous Revenge
+   | Player -99% HP + RCV 50% for 5 turns

@@ -1,0 +1,42 @@
+#1102 - Creation Tree Spirit, Alraune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindRandomSub(65:4440) -> Nap Lullaby
+Bind 4 random subs for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:4443) -> Good Luck Charm
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:4444) -> Now I'm serious ♪
+	Increase damage to 200% for the next 5 turns
+
+#7: ESRecoverEnemy86(86:4446) -> Cure
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 100% HP
+
+#8: ESRowSpawnMulti(79:4442) -> Breath of Life
+Condition: 40% chance (ai:40 rnd:0)
+Change the 5th row to Wood and Jammer orbs, Deal 110% damage
+
+#9: ESRandomSpawn(92:4441) -> Holy Watering
+Condition: When fire, heal, jammer, poison, or mortal poison orbs are on the board (ai:100 rnd:0)
+Spawn 5 random Water orbs, Deal 75% damage
+
+#10: ESRandomSpawn(92:4481) -> Holy Watering
+Spawn 10 random Water orbs, Deal 120% damage

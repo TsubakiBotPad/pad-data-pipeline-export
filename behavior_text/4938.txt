@@ -1,0 +1,38 @@
+#4938 - Masked Rider Ouja
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4938
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11794:20) Oh, so this is where the all the fun is. 
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (11795:15) Veno Visor
+   | Deal 100% damage
+   | (11796:92) Venosnaker
+   | Spawn 3 random Poison orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: always turn 1
+     | (11797:17) This place's getting on my nerves.
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | condition: 33% chance
+     | (11798:83) Sword Vent + Veno Saber
+     | Do nothing + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | condition: 50% chance
+     | (11795:15) Veno Visor
+     | Deal 100% damage
+     | (11796:92) Venosnaker
+     | Spawn 3 random Poison orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 14
+   | (11801:83) Final Vent + Veno-crash
+   | Do nothing + Deal 160% damage (4 hits, 40% each), Deal 160% damage (4 hits, 40% each)

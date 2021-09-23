@@ -1,0 +1,53 @@
+#2335 - Thunder Armor Dragon, Albireo
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindAttack(63:3349) -> Paralyze Breath
+Bind player leader for 2 turns, Deal 60% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRecoverEnemyAlly(52:3235) -> Follow Repair
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 45% HP
+
+#9: ESAttackMultihit(15:3241) -> Limit Burst
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 1,000% damage (2 hits, 500% each)
+
+#10: ESSkillDelay(89:3240) -> Absorption
+Condition: When < 80% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 1 turn
+
+#11: ESOrbLock(94:3350) -> Peaky Lightning
+Condition: 40% chance (ai:0 rnd:40)
+Lock all Light orbs, Deal 120% damage
+
+#12: ESRandomSpawn(92:3351) -> Gold Pulse
+Condition: 40% chance (ai:0 rnd:40)
+Spawn 5 random Light orbs, Deal 100% damage
+
+#13: ESOrbChangeAttack(48:3352) -> Thunder Poison
+Condition: 20% chance (ai:0 rnd:20)
+Change all Light orbs to Poison orbs, Deal 80% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

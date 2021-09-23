@@ -1,0 +1,35 @@
+#1109 - Flame Twin Star Ifrit
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1109
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1
+     | (3777:20) It noticed you
+     | Voids status ailments for 999 turns
+   | group:
+     | (3776:66) Gazing in your direction
+     | Do nothing
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: always turn 1
+     | (3773:89) Ferocious Flames
+     | Delay active skills by 2 turns, Deal 100% damage
+   | group:
+     | (3774:15) Corona Blow
+     | Deal 160% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 80% chance
+   | (3775:92) Magic Dragon Flame
+   | Spawn 3 random Fire and Dark orbs, Deal 190% damage
+   | (3774:15) Corona Blow
+   | Deal 160% damage

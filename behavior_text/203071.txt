@@ -1,0 +1,33 @@
+#203071 - Scholarly God of Wealth Building, Ganesha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203071
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21756:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (21757:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (21758:83) Beat me and I'll give you a reward + Godly Treasure Scales + Invocation Test
+ | Void damage >= 20,000,000 for 999 turns + Specific orbs change every 1.0s for 10 turns + Movetime 50% for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (21765:92) Vinayaka
+   | Spawn 4 random Jammer orbs, Deal 100% damage
+   | condition: 50% chance
+   | (21766:48) Vighnesvara
+   | Change all Jammer orbs to Light orbs, Deal 150% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (21762:83) Scholarly God's Wisdom + Ankusha
+   | Voids status ailments for 999 turns + Change all orbs to Light
+ | group:
+ | condition: hp <= 9
+   | (21767:85) Dhahab Ankusha
+   | Change all orbs to Light, Deal 600% damage

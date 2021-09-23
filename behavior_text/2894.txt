@@ -1,0 +1,81 @@
+#2894 - Loyal Demon Prince, Cauchemar
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2894
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10983:83) Cauchemar Zone + Cauchemar Liberation + Cauchemar Despair
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 999 turns + Specific orbs change every 1.0s for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 4
+     | (10998:48) Cauchemar Infinity
+     | Change all Jammer orbs to Wood orbs, Deal 240% damage
+     | condition: 33% chance
+     | (10987:92) Cauchemar Fragment
+     | Spawn 2 random Jammer and Poison orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10988:48) Cauchemar Tempest
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+     | condition: 34% chance
+     | (10989:15) Cauchemar Impact
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (10998:48) Cauchemar Infinity
+     | Change all Jammer orbs to Wood orbs, Deal 240% damage
+     | (10990:83) Cauchemar Despair + Cauchemar Catastrophe
+     | Random 4 orbs change every 1.5s for 4 turns + Change the 1st, 3rd, and 5th rows to Jammer orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (10993:83) Cauchemar Mind + Astaroth's Murmurs
+     | Bind 3 random subs for 4 turns + Movetime 50% for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 4
+     | (10998:48) Cauchemar Infinity
+     | Change all Jammer orbs to Wood orbs, Deal 240% damage
+     | condition: 33% chance
+     | (10987:92) Cauchemar Fragment
+     | Spawn 2 random Jammer and Poison orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10988:48) Cauchemar Tempest
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+     | condition: 34% chance
+     | (10989:15) Cauchemar Impact
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (10998:48) Cauchemar Infinity
+     | Change all Jammer orbs to Wood orbs, Deal 240% damage
+     | (10990:83) Cauchemar Despair + Cauchemar Catastrophe
+     | Random 4 orbs change every 1.5s for 4 turns + Change the 1st, 3rd, and 5th rows to Jammer orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (10998:48) Cauchemar Infinity
+     | Change all Jammer orbs to Wood orbs, Deal 240% damage
+     | condition: 33% chance
+     | (10987:92) Cauchemar Fragment
+     | Spawn 2 random Jammer and Poison orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10988:48) Cauchemar Tempest
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+     | condition: 34% chance
+     | (10989:15) Cauchemar Impact
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (10996:83) Cauchemar Despair + Astaroth's Judgment
+     | Random 4 orbs change every 1.5s for 4 turns + Blind all orbs on the board
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (10999:85) Cauchemar Destruction
+     | Change all orbs to Jammer, Deal 500% damage

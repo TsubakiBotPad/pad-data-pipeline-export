@@ -1,0 +1,24 @@
+#502940 - Distant Sea Dragon, Whaledor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 502940
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27036:83) I have been waiting for you. + Fight me.
+ | Delay active skills by 1~2 turns + Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (27042:79) Hydro Splash
+   | Change the 1st row to Water orbs, Deal 100% damage
+   | condition: 50% chance
+   | (27043:79) Hydro Splash
+   | Change the 5th row to Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (27039:83) Hmm, not bad. + Witness my limitless power!
+   | No skyfall for 3 turns + Increase damage to 150% for the next 999 turns

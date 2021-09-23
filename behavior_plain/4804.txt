@@ -1,0 +1,103 @@
+#4804 - Rising Dragon Caller, Omega
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:11150) -> ESBranchCard
+Branch on player_cards HAS [4796, 4797], target rnd 6
+
+#5: ESBlindStickyRandom(97:11162) -> W-Well, you can't get through!...
+Blind all orbs for 10 turns
+
+#6: ESBlindStickyRandom(97:11163) -> Huh, oh, Suou?!...
+Blind all orbs for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 22
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: SkillSet:
+	[0] ESSkyfall(68:11165) -> G-Go back!
+	Poison skyfall +15% for 10 turns
+	[1] ESDebuffRCV(105:11166) -> It's d-d-dangerous!
+	RCV 50% for 10 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#14: ESOrbChangeAttackBits(108:11168) -> P-Please be patient!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Poison orbs to Heal orbs, Deal 150% damage
+
+#15: ESRandomSpawn(92:11167) -> B-Be careful!
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Heal and Mortal Poison orbs
+
+#16: ESAttackMultihit(15:11123) -> S-Sorry!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: SkillSet:
+	[0] ESColumnSpawnMulti(76:11170) -> Go away!
+	Change the 1st column to Mortal Poison orbs and the 6th column to Heal orbs
+	[1] ESDamageShield(74:11171) -> I hate p-pain...
+	Reduce damage from all sources by 50% for 99 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 26
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#24: ESBoardChange(84:11172) -> Any more of it and...
+Change all orbs to Heal
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBoardChangeAttackBits(85:11173) -> Oh stop it already!
+Change all orbs to Mortal Poison, Deal 100% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11174) -> Oh, you are not an intruder?!...
+	Do nothing

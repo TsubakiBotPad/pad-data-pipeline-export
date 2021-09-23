@@ -1,0 +1,45 @@
+#1851 - Tyrannical Pupil, Jagi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1851
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1851:39) Say my name!
+ | Movetime -2s for 2 turns
+
+level: 5
+ type: PREEMPT
+ | (1851:39) Say my name!
+ | Movetime -2s for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (1852:48) Hokuto Rakan Geki!!
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (1852:48) Hokuto Rakan Geki!!
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (1851:39) Say my name!
+     | Movetime -2s for 2 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1853:77) You can't see through my Nanto Seiken!
+     | Change the 3rd column to Dark orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (1853:77) You can't see through my Nanto Seiken!
+     | Change the 3rd column to Dark orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (1851:39) Say my name!
+     | Movetime -2s for 2 turns

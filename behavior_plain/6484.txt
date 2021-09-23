@@ -1,0 +1,45 @@
+#6484 - Chris of the Flames of Destiny
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:19731) -> Now, let's have some fun. My flames!
+	Fire and Dark skyfall +20% for 3 turns
+	[1] ESAttributeBlock(107:19733) -> Tsuki o Tsumu Honoo
+	Unable to match Dark orbs for 3 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:19731) -> Now, let's have some fun. My flames!
+	Fire and Dark skyfall +20% for 3 turns
+	[1] ESAttributeBlock(107:19784) -> Tsuki o Tsumu Honoo
+	Unable to match Fire orbs for 3 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESRandomSpawn(92:19732) -> Taiyou o Iru Honoo
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 2 random Fire and Dark orbs, Deal 95% damage
+
+#6: ESOrbChangeAttack(48:19734) -> Kagami o Hofuru Honoo
+Change a random attribute to Fire orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAbsorbAttribute(53:19735) -> You did well for a bug.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Fire damage for 5 turns
+
+#9: ESRowSpawnMulti(79:19736) -> Ankoku Orochinagi
+Change the 5th row to Fire and Dark orbs, Deal 120% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

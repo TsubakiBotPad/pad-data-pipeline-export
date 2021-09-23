@@ -1,0 +1,43 @@
+#4181 - Composed God of Great Knowledge, Dagda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4181
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16530:73) Resolve
+ | Survive attacks with 1 HP when HP > 30%
+ type: PREEMPT
+ | (16526:83) A test before we begin + You did well to withstand that... + I won't hold back any more!
+ | Deal 145% damage + Reduce damage from all sources by 50% for 99 turns + Absorb damage when combos <= 11 for 99 turns, Deal 145% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (16529:83) Cauldron of Plenty + Harp - Lullaby
+     | Voids status ailments for 999 turns + Bind 2 random cards for 10 turns
+   | group:
+     | condition: 20% chance
+     | (16522:15) Harp - Dirge
+     | Deal 110% damage
+     | (16523:85) Harp - Ballad
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 82% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (16527:83) Not too bad + Entertain me some more
+     | Movetime -2s for 10 turns + Increase damage to 150% for the next 99 turns
+   | group:
+     | condition: 20% chance
+     | (16523:85) Harp - Ballad
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 82% damage
+     | (16522:15) Harp - Dirge
+     | Deal 110% damage
+ | group:
+ | condition: hp <= 1
+   | (16528:83) Club of Resurrection + Club of Destruction + It's over... + Explosive Whirlwind Mace!!
+   | Enemy recover 50% HP + Voids player buff effects + Bind awoken skills for 1 turn + Deal 1,010% damage (10 hits, 101% each), Deal 1,010% damage (10 hits, 101% each)

@@ -1,0 +1,77 @@
+#302718 - Original Goddess, Gaia Dragon
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 302718
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2971:83) Antivirus + Gigantic Body + Energy Calm
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 7 turns + Void damage >= 6,000,000 for 99 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (2972:92) The huge body started to move
+   | Spawn 3 random Jammer orbs
+ | group:
+ | condition: always turn 2
+   | (2973:8) It raises its arm
+   | Increase damage to 690% for the next attack
+ | group:
+ | condition: always turn 3
+   | (2974:92) It rearranges its posture
+   | Spawn 3 random Jammer orbs
+ | group:
+ | condition: always turn 4
+   | (2975:8) It raises its arm again
+   | Increase damage to 690% for the next attack
+ | group:
+ | condition: always turn 5
+   | (2976:5) It opens its mouth
+   | Blind all orbs on the board
+ | group:
+   | group:
+   | condition: turn 6 while HP > 49
+     | condition: 20% chance
+     | (2990:83) Gaia Beam + Inhale
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Fire and Water damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2991:83) Gaia Beam + Inhale
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Water and Wood damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2992:83) Gaia Beam + Inhale
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Wood and Light damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2993:83) Gaia Beam + Inhale
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Light and Dark damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2994:83) Gaia Beam + Inhale
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Fire and Dark damage for 3 turns, Deal 450% damage
+   | group:
+     | (2979:89) Skill Break
+     | Delay active skills by 3~5 turns, Deal 260% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 6
+     | (2978:50) Grand Ray
+     | Player -500% HP
+   | group:
+     | condition: 50% chance
+     | (2980:94) Hardened Sign
+     | Lock 6 random orbs, Deal 340% damage
+     | (2981:62) Earth's Mantle Press
+     | Blind all orbs on the board, Deal 360% damage
+ | group:
+ | condition: hp <= 29
+   | condition: 50% chance
+   | (2982:86) Cell Mending
+   | Enemy recover 10% HP, Deal 420% damage
+   | (2983:63) Great Vine
+   | Bind 1 random card for 5 turns, Deal 410% damage
+ | group:
+ | condition: hp <= 19
+   | (2984:50) Grand Ray
+   | Player -500% HP

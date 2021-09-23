@@ -1,0 +1,266 @@
+#6886 - Freezeblade Ice Sprite King, Hoppo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSetCounter(25:15) -> ESSetCounter
+counter = 11
+
+#5: SkillSet:
+	[0] ESStatusShield(20:21629) -> Thanks for helping me out there.
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:21630) -> In return, I'll give you...
+	Reduce damage from all sources by 75% for 999 turns
+	[2] ESSpinnersFixed(110:21631) -> ...a taste of my full power!
+	Specific orbs change every 1.0s for 5 turns
+	[3] ESAttributeBlock(107:21639) -> Freeze
+	Unable to match Wood orbs for 2 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 56
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 52
+
+#9: ESBranchDamageAttribute(114:21670) -> ESBranchDamageAttribute
+Branch on color attacked with == 0, target rnd 46
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 42, target rnd 39
+
+#12: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 32, target rnd 39
+
+#13: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 22, target rnd 32
+
+#14: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 12, target rnd 25
+
+#15: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 18
+
+#16: SkillSet:
+	[0] ESOrbLock(94:21659) -> Frozen Ground
+	Lock all orbs
+	[1] ESAttackMultihit(15:21660) -> Ice Crystal Blade
+	Deal 110% damage (2 hits, 55% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 20
+
+#19: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESChangeAttribute(46:21650) -> Ice Shift
+	Change own attribute to Wood
+	[1] ESAbsorbAttribute(53:21653) -> Life-Sucking Blade
+	Absorb Fire damage for 2 turns, Deal 100% damage
+
+#20: ESSetCounter(25:15) -> ESSetCounter
+counter = 30
+
+#21: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESChangeAttribute(46:21651) -> Ice Shift
+	Change own attribute to Light
+	[1] ESAbsorbAttribute(53:21657) -> Life-Sucking Blade
+	Absorb Dark damage for 2 turns, Deal 100% damage
+
+#22: ESSetCounter(25:15) -> ESSetCounter
+counter = 40
+
+#23: SkillSet:
+	[0] ESChangeAttribute(46:21652) -> Ice Shift
+	Change own attribute to Dark
+	[1] ESAbsorbAttribute(53:21656) -> Life-Sucking Blade
+	Absorb Light damage for 2 turns, Deal 100% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#26: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESChangeAttribute(46:21648) -> Ice Shift
+	Change own attribute to Fire
+	[1] ESAbsorbAttribute(53:21654) -> Life-Sucking Blade
+	Absorb Water damage for 2 turns, Deal 100% damage
+
+#27: ESSetCounter(25:15) -> ESSetCounter
+counter = 30
+
+#28: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESChangeAttribute(46:21651) -> Ice Shift
+	Change own attribute to Light
+	[1] ESAbsorbAttribute(53:21657) -> Life-Sucking Blade
+	Absorb Dark damage for 2 turns, Deal 100% damage
+
+#29: ESSetCounter(25:15) -> ESSetCounter
+counter = 40
+
+#30: SkillSet:
+	[0] ESChangeAttribute(46:21652) -> Ice Shift
+	Change own attribute to Dark
+	[1] ESAbsorbAttribute(53:21656) -> Life-Sucking Blade
+	Absorb Light damage for 2 turns, Deal 100% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESSetCounter(25:15) -> ESSetCounter
+counter = 10
+
+#33: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESChangeAttribute(46:21649) -> Ice Shift
+	Change own attribute to Water
+	[1] ESAbsorbAttribute(53:21655) -> Life-Sucking Blade
+	Absorb Wood damage for 2 turns, Deal 100% damage
+
+#34: ESSetCounter(25:15) -> ESSetCounter
+counter = 30
+
+#35: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESChangeAttribute(46:21651) -> Ice Shift
+	Change own attribute to Light
+	[1] ESAbsorbAttribute(53:21657) -> Life-Sucking Blade
+	Absorb Dark damage for 2 turns, Deal 100% damage
+
+#36: ESSetCounter(25:15) -> ESSetCounter
+counter = 40
+
+#37: SkillSet:
+	[0] ESChangeAttribute(46:21652) -> Ice Shift
+	Change own attribute to Dark
+	[1] ESAbsorbAttribute(53:21656) -> Life-Sucking Blade
+	Absorb Light damage for 2 turns, Deal 100% damage
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#39: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#40: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESChangeAttribute(46:21648) -> Ice Shift
+	Change own attribute to Fire
+	[1] ESAbsorbAttribute(53:21654) -> Life-Sucking Blade
+	Absorb Water damage for 2 turns, Deal 100% damage
+
+#41: ESSetCounter(25:15) -> ESSetCounter
+counter = 10
+
+#42: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESChangeAttribute(46:21649) -> Ice Shift
+	Change own attribute to Water
+	[1] ESAbsorbAttribute(53:21655) -> Life-Sucking Blade
+	Absorb Wood damage for 2 turns, Deal 100% damage
+
+#43: ESSetCounter(25:15) -> ESSetCounter
+counter = 20
+
+#44: SkillSet:
+	[0] ESChangeAttribute(46:21650) -> Ice Shift
+	Change own attribute to Wood
+	[1] ESAbsorbAttribute(53:21653) -> Life-Sucking Blade
+	Absorb Fire damage for 2 turns, Deal 100% damage
+
+#45: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#46: SkillSet:
+	Condition: 20% chance & when Fire, Water, Wood, Light, and Dark are used to attack (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:21637) -> Freeze
+	Unable to match Fire orbs for 2 turns
+	[1] ESSpinnersRandom(109:21642) -> Chilling Blade
+	Random 4 orbs change every 1.0s for 5 turns, Deal 105% damage
+
+#47: SkillSet:
+	Condition: 20% chance & when Fire, Water, Wood, Light, and Dark are used to attack (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:21638) -> Freeze
+	Unable to match Water orbs for 2 turns
+	[1] ESSpinnersRandom(109:21642) -> Chilling Blade
+	Random 4 orbs change every 1.0s for 5 turns, Deal 105% damage
+
+#48: SkillSet:
+	Condition: 20% chance & when Fire, Water, Wood, Light, and Dark are used to attack (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:21639) -> Freeze
+	Unable to match Wood orbs for 2 turns
+	[1] ESSpinnersRandom(109:21642) -> Chilling Blade
+	Random 4 orbs change every 1.0s for 5 turns, Deal 105% damage
+
+#49: SkillSet:
+	Condition: 20% chance & when Fire, Water, Wood, Light, and Dark are used to attack (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:21640) -> Freeze
+	Unable to match Light orbs for 2 turns
+	[1] ESSpinnersRandom(109:21642) -> Chilling Blade
+	Random 4 orbs change every 1.0s for 5 turns, Deal 105% damage
+
+#50: SkillSet:
+	Condition: 20% chance & when Fire, Water, Wood, Light, and Dark are used to attack (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:21641) -> Freeze
+	Unable to match Dark orbs for 2 turns
+	[1] ESSpinnersRandom(109:21642) -> Chilling Blade
+	Random 4 orbs change every 1.0s for 5 turns, Deal 105% damage
+
+#51: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#52: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#53: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#54: SkillSet:
+	[0] ESVoidShield(71:21662) -> Ice Armor
+	Void damage >= 50,000,000 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:21663) -> Icy Frost
+	Increase damage to 150% for the next 999 turns
+
+#55: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#56: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:21665) -> Freeze Over
+	Bind awoken skills for 1 turn
+	[1] ESBlindStickyRandom(97:21666) -> Icy Blizzard
+	Blind random 15 orbs for 1 turn
+
+#57: SkillSet:
+	[0] ESChangeAttribute(46:21668) -> Ice Shift
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:21669) -> Dreamlike Glacial Blade
+	Deal 1,000% damage (10 hits, 100% each)
+
+#58: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#59: ESSuperResolve(129:21627) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

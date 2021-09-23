@@ -1,0 +1,48 @@
+#7202 - Shizumaru Hisame
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 7202
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23913:53) Forgive me, but I cannot back down.
+ | Absorb Water damage for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (23917:75) Freezing Rain Repeller
+   | Leader changes to random sub for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (23915:92) Mist Blast
+   | Spawn 4 random Water orbs, Deal 100% damage
+   | condition: 34% chance
+   | (23916:85) Cross Current Slicer
+   | Change all orbs to Fire, Water, and Heal, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (23914:89) Triangle Flying
+     | Delay active skills by 3 turns
+   | group:
+   | condition: turn 2 while HP > 14
+     | (23920:77) Dreadful Drizzle
+     | Change the 1st column to Water orbs, Deal 50% damage
+   | group:
+   | condition: turn 3 while HP > 14
+     | (23919:77) Rains of Time
+     | Change the 6th column to Water orbs, Deal 100% damage
+   | group:
+     | (23921:77) Lightning Rain
+     | Change the 1st column to Water orbs and the 6th column to Light orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 14
+   | condition: 50% chance
+   | (23922:77) Crazy Downpour
+   | Change the 1st and 6th columns to Water orbs, Deal 180% damage
+   | condition: 50% chance
+   | (23923:15) Hurricane Shredder Slash
+   | Deal 200% damage (10 hits, 20% each)

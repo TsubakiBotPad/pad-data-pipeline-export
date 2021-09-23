@@ -1,0 +1,43 @@
+#102006 - Alt. Avowed Thief, Ishikawa Goemon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 102006
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1596:73) 五右衛門・パッシブ
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 5
+ type: PASSIVE
+ | (1596:73) 五右衛門・パッシブ
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (8263:83) Tenka Gomen + Art of Roaring Fireworks
+ | Voids status ailments for 999 turns + Deal 390% damage (3 hits, 130% each), Deal 390% damage (3 hits, 130% each)
+ group:
+ | group:
+   | (217:15) Ninja Art Fireworks
+   | Deal 200% damage
+ | group:
+ | condition: hp <= 79
+   | condition: 33% chance
+   | (2239:62) Grand Smokescreen
+   | Blind all orbs on the board, Deal 130% damage
+   | condition: 33% chance
+   | (2240:15) Coin Barrage
+   | Deal 60~180% damage (2~6 hits, 30% each)
+   | condition: 33% chance
+   | (218:1) What a Great View!
+   | Bind 3 random cards for 2~3 turns
+ | group:
+ | condition: hp <= 29
+   | (2238:15) True Ninja Art Fireworks
+   | Deal 300% damage
+ | group:
+ | condition: hp <= 1
+   | (2241:86) Golden Pipe
+   | Enemy recover 100% HP

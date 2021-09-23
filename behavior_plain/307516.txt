@@ -1,0 +1,43 @@
+#307516 - 漏瑚
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESCloud(104:26781) -> You're a fool.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A row of clouds appears for 3 turns at 1st row, 1st column
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRowSpawnMulti(79:26782) -> Hyaa!
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd row to Fire orbs, Deal 100% damage
+
+#5: ESRowSpawnMulti(79:26783) -> Hyaa!
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Fire orbs, Deal 100% damage
+
+#6: ESRowSpawnMulti(79:26784) -> Hyaa!
+Condition: 34% chance (ai:0 rnd:34)
+Change the 4th row to Fire orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESAttackUPRemainingEnemies(17:26785) -> Don't underestimate me, brat!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,67 @@
+#3414 - Green-Horned Demon Princess, Fujin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3414
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10898:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (10902:83) Protection of the Planets + Limit of the Sky
+ | Reduce damage from all sources by 75% for 1 turn + Increase damage to 150% for the next 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-3 while HP > 49
+     | condition: 33% chance
+     | (10903:87) Preserving Bottle
+     | Absorb damage when damage >= 30,000,000 for 30 turns
+     | condition: 33% chance
+     | (10904:68) Waking Sun - Aqua
+     | Fire and Water skyfall +20% for 3 turns
+     | condition: 34% chance
+     | (10905:83) Protection of the Stars + Preserving Bottle + Waking Sun - Aqua
+     | Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 30 turns + Fire and Water skyfall +20% for 3 turns
+   | group:
+   | condition: turn 4 while HP > 49
+     | (10912:15) Mhidofa Uvundukia
+     | Deal 108% damage (6 hits, 18% each)
+   | group:
+     | condition: 33% chance
+     | (10903:87) Preserving Bottle
+     | Absorb damage when damage >= 30,000,000 for 30 turns
+     | condition: 33% chance
+     | (10904:68) Waking Sun - Aqua
+     | Fire and Water skyfall +20% for 3 turns
+     | condition: 34% chance
+     | (10905:83) Protection of the Stars + Preserving Bottle + Waking Sun - Aqua
+     | Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 30 turns + Fire and Water skyfall +20% for 3 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (10908:92) Sana Azlak
+     | Spawn 6 random Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (10910:105) Shifa'a
+     | RCV 50% for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (10913:104) Gunpowder Smoke
+   | A column of clouds appears for 1 turn at a random location
+ type: UNKNOWN_USE
+ | (10914:83) Mhidofa Uvundukia + Gunpowder Smoke
+ | Deal 108% damage (6 hits, 18% each) + A column of clouds appears for 1 turn at a random location, Deal 108% damage (6 hits, 18% each)
+ | (10314:48) Soppy Flame
+ | Change a random attribute to Fire orbs, Deal 110% damage
+ | (10312:102) Affliction Bombing
+ | Spawn 1 random locked Bomb orb
+ | (10315:15) Flame Rush
+ | Deal 120% damage (3 hits, 40% each)
+ | (10296:74) Rite of Belzenlok I
+ | Reduce damage from all sources by 50% for 4 turns

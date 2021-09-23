@@ -1,0 +1,41 @@
+#203962 - Water Text Dragon
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbLock(94:8277) -> Gah!
+Lock 3 random orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAbsorbCombo(67:8275) -> Toon Dragon Sense
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 3 turns
+
+#9: ESRandomSpawn(92:8271) -> Chilling Ice
+Condition: 30% chance (ai:30 rnd:0)
+Spawn 10 random Water orbs, Deal 100% damage
+
+#10: ESAttackMultihit(15:8276) -> Vivid Slash
+Condition: 40% chance (ai:40 rnd:0)
+Deal 140% damage (2 hits, 70% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

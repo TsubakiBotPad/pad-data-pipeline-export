@@ -1,0 +1,43 @@
+#3941 - Investigation Pursuing Dragon Caller, Nees
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3941
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (13858:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | condition: when 5429, 5430 on team
+ | (13860:71) It's been a while...let's fight it out
+ | Void damage >= 10,000,000 for 3 turns
+ | (13859:71) Did you come to see her?
+ | Void damage >= 10,000,000 for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (13861:15) Hell Bullet
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 50% chance
+   | (13862:92) Dark Whirlwind
+   | Spawn 5 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 50
+   | (13863:17) Ultimate Dedication
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (13864:74) As commander, I protect my comrades
+     | Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | (13865:15) Neverending Bullets
+     | Deal 300% damage (10 hits, 30% each)
+ | group:
+ | condition: hp <= 1
+   | (13866:86) Vent Noir
+   | Enemy recover 50% HP

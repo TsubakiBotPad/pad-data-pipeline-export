@@ -1,0 +1,40 @@
+#4925 - Masked Rider Kuuga
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4925
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11740:15) Mighty Kick
+ | Deal 80% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (11741:65) Roundhouse Kick
+   | Bind 1 random sub for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (11742:15) Punch
+   | Deal 90% damage (2 hits, 45% each)
+   | condition: 34% chance
+   | (11743:15) Kick
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (11744:86) Power of Amadam
+     | Enemy recover 100% HP
+   | group:
+     | condition: 50% chance
+     | (11745:83) Jump + Punch
+     | Do nothing + Deal 90% damage (2 hits, 45% each), Deal 90% damage (2 hits, 45% each)
+     | condition: 50% chance
+     | (11746:83) Jump + Kick
+     | Do nothing + Deal 100% damage, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | (11748:15) Mighty Kick
+   | Deal 150% damage

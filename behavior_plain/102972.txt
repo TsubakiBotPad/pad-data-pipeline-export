@@ -1,0 +1,80 @@
+#102972 - Alt. Green Earth Wind Dragon Caller, Kaede
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:6747) -> Wind Dragon's Protective Armor
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:6748) -> Vanishing Lifespring - Green Life
+	Fire, Water, Light, and Dark skyfall +100% for 3 turns
+
+#3: ESAttackMultihit(15:6762) -> Nevergreen Tempest
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 1,750% damage (5 hits, 350% each)
+
+#4: ESOrbChangeAttack(48:6750) -> Summit Gale
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change all Heal orbs to Wood orbs, Deal 360% damage
+
+#5: ESCloud(104:6751) -> Passing Spirits
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+A 4×1 rectangle of clouds appears for 3 turns at a random location
+
+#6: ESOrbChangeAttack(48:6752) -> Holy Foundling's Endless Evergreen
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change all Heal orbs to Wood orbs, Deal 3,600% damage
+
+#7: ESRecoverPlayer(55:6753) -> Scattering Willow Flowers
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Player recover 100% HP
+
+#8: ESOrbChangeAttack(48:6754) -> Holy Foundling's Endless Evergreen
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all Heal orbs to Wood orbs, Deal 3,600% damage
+
+#9: ESAttackMultihit(15:6755) -> Wind Fang
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 400% damage (2 hits, 200% each)
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:6756) -> Holy Summit's Mystic Fog
+	Absorb damage when combos <= 6 for 5 turns
+	[1] ESLeaderSwap(75:6757) -> Seedling Magatama
+	Leader changes to random sub for 3 turns
+
+#11: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 90, target rnd 18
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: ESDebuffMovetime(39:6761) -> Thousand-Echo Windmill
+Movetime 50% for 1 turn, Deal 300% damage
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1
+
+#16: ESAttackMultihit(15:6760) -> Wind Fang
+Deal 400% damage (2 hits, 200% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:6759) -> Nevergreen Tempest
+Deal 1,750% damage (5 hits, 350% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESTypeResist(118:12149) -> Tsuba Kae Sumi Dragon Halved
+Reduce damage from Dragon types by 50%

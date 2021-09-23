@@ -1,0 +1,33 @@
+#5661 - Amelia = Wil = Tesla = Saillune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5661
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14917:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (14964:118) Devil Attack Halved
+ | Reduce damage from Attacker and Devil types by 50%
+ type: PREEMPT
+ | (14918:15) Feel the hammer of justice!
+ | Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (14919:83) Elmekia Lance + Break!
+   | Change the 3rd row to Light orbs + Deal 35% damage, Deal 25% damage
+   | condition: 50% chance
+   | (14922:15) Visfan Rank
+   | Deal 70% damage (2 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | (14924:77) Ra Tilt
+   | Change the 3rd and 4th columns to Light orbs, Deal 200% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (14923:86) Resurrection
+   | Enemy recover 100% HP

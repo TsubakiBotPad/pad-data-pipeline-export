@@ -1,0 +1,30 @@
+#501227 - Icewing Twin Dragon King, Beyzul
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:13976) -> Even hell freezes over
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Water skyfall +15% for 5 turns
+
+#3: ESAttackUPRemainingEnemies(17:13979) -> Impudent brats...
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#4: ESOrbChangeAttack(48:13980) -> Absolute End
+Condition: 50% chance when < 10% HP (ai:50 rnd:0)
+Change a random attribute to Water orbs, Deal 200% damage
+
+#5: ESRandomSpawn(92:13977) -> Ice Spear
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Water orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:13978) -> Wing Cutter
+Deal 100% damage (2 hits, 50% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

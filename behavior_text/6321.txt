@@ -1,0 +1,31 @@
+#6321 - トガヒミコ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6321
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18375:110) I'm Toga!
+ | Specific orbs change every 1.0s for 6 turns, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18376:101) Ka-yuuute!
+     | Fix orb movement starting point to random position on the board
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18377:7) Slurp
+     | Enemy recover 5% HP, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18378:105) You're so mean!
+     | RCV 50% for 2 turns
+   | group:
+     | (18379:92) I'll stab you!
+     | Spawn 4 random Light orbs, Deal 120% damage

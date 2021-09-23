@@ -1,0 +1,31 @@
+#2642 - Metallic Star Dragon, Scorpio
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2642
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2690:92) Poison Debris
+ | Spawn 3 random Poison orbs
+ group:
+ | group:
+   | condition: 30% chance
+   | (2695:48) Flame Sterilization
+   | Change all Poison orbs to Fire orbs, Deal 150% damage
+   | condition: 35% chance
+   | (2694:65) Tail Stroke
+   | Bind 1 random sub for 1 turn, Deal 100% damage
+   | condition: 35% chance
+   | (2693:92) Pinpoint Venom
+   | Spawn 1 random Poison orb, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2691:92) Burning Scorpio's Stinger
+   | Spawn 5 random Poison orbs
+ | group:
+ | condition: hp <= 9
+   | (2696:15) Scorpio's Crest - Meteor
+   | Deal 600% damage

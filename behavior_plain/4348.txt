@@ -1,0 +1,34 @@
+#4348 - Detouring Star Angel, Lumiel
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESBindSkill(14:13146) -> Hey! Let's go!
+	Bind active skills for 10 turns
+	[1] ESDebuffMovetime(39:13147) -> Wait!!
+	Movetime -3s for 10 turns
+
+#3: ESAttackMultihit(15:13149) -> An alley cat!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 50% damage
+
+#4: ESAttackMultihit(15:13150) -> A toy shop!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 100% damage (2 hits, 50% each)
+
+#5: ESAttackMultihit(15:13151) -> A candy shop!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 150% damage (3 hits, 50% each)
+
+#6: ESAttackMultihit(15:13152) -> A red sunset!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 200% damage (4 hits, 50% each)
+
+#7: ESAttackMultihit(15:13153) -> Let's go home...
+Deal 800% damage (4 hits, 200% each)

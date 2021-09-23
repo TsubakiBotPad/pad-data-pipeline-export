@@ -1,0 +1,36 @@
+#400234 - Alt. Mystic Mask
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 400234
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25319:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25313:20) Mystic Ceremony
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | (25318:15) Eye Beam
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 4
+   | group:
+   | condition: turn 1
+     | (25317:94) Mystic Lock
+     | Lock all orbs
+   | group:
+     | (25315:15) Miraculous Eye Beam
+     | Deal 1,000% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (25316:83) Resurrection Ceremony + Resurrection Ceremony
+ | Enemy ally recover 100% HP + Enemy ally recover 100% HP
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (25314:52) Resurrection Ceremony
+ | Enemy ally recover 100% HP

@@ -1,0 +1,49 @@
+#205022 - Servant, True Assassin
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205022
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21575:83) How gracious of you. + I can regain the points I have lost.
+ | Lock all orbs + Blind random 4~6 orbs for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (21578:94) That's far enough.
+   | Lock 15 random orbs, Deal 90% damage
+   | condition: 33% chance
+   | (21579:75) You're of no use.
+   | Leader changes to random sub for 1 turn, Deal 80% damage
+   | condition: 34% chance
+   | (21581:15) Keh!
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (21584:74) This was my blunder.
+     | Reduce damage from all sources by 50% for 5 turns
+   | group:
+     | condition: 33% chance
+     | (21583:92) Gah!
+     | Spawn 5 random Dark orbs, Deal 95% damage
+     | condition: 33% chance
+     | (21580:105) Hehe...
+     | RCV 50% for 1 turn, Deal 90% damage
+     | condition: 34% chance
+     | (21582:67) Huh?!
+     | Absorb damage when combos <= 5 for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (21585:50) Noble Phantasm
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (21586:15) Zabaniya!
+     | Deal 150% damage (5 hits, 30% each)

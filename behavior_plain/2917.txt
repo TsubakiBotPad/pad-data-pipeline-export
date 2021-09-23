@@ -1,0 +1,131 @@
+#2917 - Barbarossa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:14162) -> Amuse me!
+	Bind awoken skills for 5 turns
+	[1] ESBindSkill(14:14163) -> I got a special puzzle for you
+	Bind active skills for 5 turns
+	[2] ESRandomSpawn(92:14164) -> Don't make any combos!!!
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[3] ESBlind5(5:14167) -> Hoho!
+	Blind all orbs on the board
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 27
+
+#6: SkillSet:
+	[0] ESColumnSpawnMulti(76:14166) -> Next!
+	Change the 1st and 2nd columns to Fire orbs and the 3rd and 4th columns to Water orbs
+	[1] ESBlind5(5:14167) -> Hoho!
+	Blind all orbs on the board
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 27
+
+#11: SkillSet:
+	[0] ESNoSkyfall(127:14169) -> Pretty good!!!
+	No skyfall for 1 turn
+	[1] ESBoardChange(84:14170) -> Have some of this!
+	Change all orbs to Heal
+	[2] ESBombRandomSpawn(102:14171) -> What are you going to do?
+	Spawn 4 random Bomb orbs
+	[3] ESBlind5(5:14167) -> Hoho!
+	Blind all orbs on the board
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 27
+
+#16: SkillSet:
+	[0] ESBoardChange(84:14173) -> This is gonna get tricky!
+	Change all orbs to Jammer
+	[1] ESSpinnersFixed(110:14174) -> Faster, Fasteeeer!
+	Specific orbs change every 0.5s for 1 turn
+	[2] ESBlind5(5:14167) -> Hoho!
+	Blind all orbs on the board
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 27
+
+#21: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombRandomSpawn(102:14176) -> You can do it if you try!
+	Spawn 6 random Bomb orbs
+	[1] ESRandomSpawn(92:14177) -> And now, the final curtain!
+	Spawn 6 random Water, Heal, Jammer, and Poison orbs
+	[2] ESBlind5(5:14167) -> Hoho!
+	Blind all orbs on the board
+	[3] ESInactivity66(66:14178) -> I've saved the best for last!
+	Do nothing
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombRandomSpawn(102:14176) -> You can do it if you try!
+	Spawn 6 random Bomb orbs
+	[1] ESRandomSpawn(92:14177) -> And now, the final curtain!
+	Spawn 6 random Water, Heal, Jammer, and Poison orbs
+	[2] ESBlind5(5:14167) -> Hoho!
+	Blind all orbs on the board
+	[3] ESInactivity66(66:14178) -> I've saved the best for last!
+	Do nothing
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 28
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#26: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 28
+
+#27: ESAttackMultihit(15:14180) -> Whatcha doin'?
+Deal 500% damage (5 hits, 100% each)
+
+#28: ESEndBattle(40:14179) -> Not bad!!
+Reduce self HP to 0
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn

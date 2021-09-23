@@ -1,0 +1,55 @@
+#5580 - Yashamaru Kurama
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlindStickyFixed(98:14613) -> Sorry, but your life ends here.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind orbs in specific positions for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBindAttack(63:14614) -> Wintry Gust
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random sub for 1~2 turns, Deal 95% damage
+
+#6: ESRowSpawnMulti(79:14615) -> Azure Gale
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Wood orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:14616) -> Arctic Tempest
+Condition: 34% chance (ai:0 rnd:34)
+Deal 108% damage (6 hits, 18% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESAbsorbCombo(67:14617) -> Double Jump
+Absorb damage when combos <= 6 for 10 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESColumnSpawnMulti(77:14619) -> Skand's Divine Squall
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Change the 4th column to Wood orbs, Deal 250% damage
+
+#14: ESAttackMultihit(15:14618) -> Ebony Tengu Feathers
+Deal 220% damage (10 hits, 22% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

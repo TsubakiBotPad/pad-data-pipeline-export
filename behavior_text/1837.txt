@@ -1,0 +1,50 @@
+#1837 - Guardian of Dark Riches, Medjedra
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+monster_id: 1837
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1787:75) Medjellusion
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (1785:67) Unmoving Soul
+   | Absorb damage when combos <= 4 for 99 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (1786:48) Invisible Glimpse
+     | Change all Heal orbs to Jammer orbs, Deal 25% damage
+     | condition: 30% chance
+     | (1789:48) Medjebeam
+     | Change a random attribute to Dark orbs, Deal 100% damage
+     | condition: 40% chance
+     | (1788:50) Medjebeam
+     | Player -99% HP
+     | condition: 60% chance
+     | (1790:62) Medjebeam
+     | Blind all orbs on the board, Deal 75% damage
+     | (1787:75) Medjellusion
+     | Leader changes to random sub for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 30% chance
+     | (1789:48) Medjebeam
+     | Change a random attribute to Dark orbs, Deal 100% damage
+     | condition: 40% chance
+     | (1788:50) Medjebeam
+     | Player -99% HP
+     | condition: 60% chance
+     | (1790:62) Medjebeam
+     | Blind all orbs on the board, Deal 75% damage
+     | (1787:75) Medjellusion
+     | Leader changes to random sub for 3 turns
+ | group:
+ | condition: hp <= 29
+   | (1791:15) Medje The End
+   | Deal 240% damage (3 hits, 80% each)

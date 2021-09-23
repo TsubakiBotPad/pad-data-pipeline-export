@@ -1,0 +1,69 @@
+#4641 - Wood Companion Dragon, Nehd
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDeathCry(69:10358) -> Spe Dun Dragon Wood Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Nehd's appearance is changing|Help have been summoned
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESAttackMultihit(15:10351) -> Reaping Cut
+Deal 120% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#10: ESRandomSpawn(92:10352) -> Burying
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Wood orbs, Deal 110% damage
+
+#11: ESColumnSpawnMulti(77:10353) -> Vertical Slash
+Condition: 33% chance (ai:0 rnd:33)
+Change the 4th column to Wood orbs, Deal 100% damage
+
+#12: ESRowSpawnMulti(79:10354) -> Vertical Slash
+Condition: 34% chance (ai:0 rnd:34)
+Change the 3rd row to Wood orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESAttackMultihit(15:10351) -> Reaping Cut
+	Deal 120% damage
+	[1] ESBindRandomSub(65:10355) -> Restrain
+	Bind 1 random sub for 3 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:10357) -> Reaping Dismissal
+Deal 160% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

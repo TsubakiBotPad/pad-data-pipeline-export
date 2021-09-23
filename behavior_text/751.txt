@@ -1,0 +1,31 @@
+#751 - Incarnation of Kirin, Sakuya
+monster size: 2
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 751
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (562:5) I won't let you pass here!
+ | Blind all orbs on the board
+ group:
+ | group:
+ | condition: turn 1 while HP > 59, hp <= 100
+   | (563:2) Protective Light Formation
+   | Bind Dark cards for 3~4 turns
+ | group:
+ | condition: hp <= 59
+   | group:
+   | condition: turn 1 while HP > 19
+     | (563:2) Protective Light Formation
+     | Bind Dark cards for 3~4 turns
+   | group:
+     | condition: 70% chance
+     | (564:15) Aurora Strikes
+     | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 19
+   | (565:15) Dance of the Four Sources
+   | Deal 800% damage (4 hits, 200% each)

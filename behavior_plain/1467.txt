@@ -1,0 +1,32 @@
+#1467 - Amaterasu Ohkami TAMADRA
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:697) -> ESPreemptive
+Enable preempt if level 3
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindRandom(1:2638) -> Purification TAMA-!
+Bind 6 random cards for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRandomSpawn(92:2639) -> Yasakani no MagaTAMA!
+Spawn 1 random Heal orb, Deal 230% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

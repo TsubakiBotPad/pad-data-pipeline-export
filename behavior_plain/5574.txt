@@ -1,0 +1,77 @@
+#5574 - Genjuro Kibagami
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchCard(90:14602) -> ESBranchCard
+Branch on player_cards HAS [5565, 5566], target rnd 6
+
+#5: ESBindRandomSub(65:14600) -> Get out of my sight.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 4 random subs for 2 turns
+
+#6: ESBindRandomSub(65:14601) -> Haohmaru... Your head is mine!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 4 random subs for 2 turns
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 18
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:14604) -> Triple Death Hack: Fang
+	Deal 25% damage
+	[1] ESAttackMultihit(15:14605) -> Triple Death Hack: Horn
+	Deal 35% damage
+	[2] ESAttackMultihit(15:14606) -> Triple Death Hack: Element
+	Deal 45% damage
+
+#10: ESColumnSpawnMulti(77:14607) -> Lightning Wings
+Condition: 25% chance (ai:0 rnd:25)
+Change the 5th column to Dark orbs, Deal 95% damage
+
+#11: ESBindAttack(63:14608) -> Zen Blade
+Condition: 25% chance (ai:0 rnd:25)
+Bind friend leader for 1~3 turns, Deal 90% damage
+
+#12: ESRowSpawnMulti(79:14609) -> Cherry Blossom Slice
+Condition: 25% chance (ai:0 rnd:25)
+Change the 3rd row to Dark orbs, Deal 95% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: ESLeaderSwap(75:14610) -> Slash of a Hundred Demons
+Leader changes to random sub for 1 turn, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBoardChangeAttackBits(85:14612) -> Reverse Five Flash Rip
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 250% damage
+
+#19: ESRandomSpawn(92:14611) -> Five Flash Rip
+Spawn 2 random Fire, Water, Wood, Light, and Dark orbs, Deal 220% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

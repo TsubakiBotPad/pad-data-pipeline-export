@@ -1,0 +1,33 @@
+#106321 - トガヒミコ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106321
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18430:89) Let's be logical.
+ | Delay active skills by 4~6 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (18432:88) You're lacking logic.
+     | Bind awoken skills for 1 turn, Deal 110% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (18433:6) Quirk: Erasure
+     | Voids player buff effects
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18432:88) You're lacking logic.
+     | Bind awoken skills for 1 turn, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | (18431:1) Binding Cloth
+   | Bind 2 random cards for 10 turns, Deal 100% damage
+ type: UNKNOWN_USE
+ | (18434:92) This is as far as you go.
+ | Spawn 10 random Dark orbs, Deal 120% damage

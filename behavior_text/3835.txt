@@ -1,0 +1,39 @@
+#3835 - Fire Warchief Dragon, Goura
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3835
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7795:83) War Scales + Raging Blaze
+ | Absorb Fire damage for 5 turns + Change all Water, Light, and Dark orbs to Fire orbs, Deal 180% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (7797:108) Sublimation
+   | Change all Water orbs to Fire orbs, Deal 140% damage
+   | (7796:15) Brutal Inferno Fangs
+   | Deal 165% damage (3 hits, 55% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (7800:83) Flame Spiral + Hellfire Rope
+   | Specific orbs change every 1.0s for 10 turns + Absorb damage when combos <= 6 for 10 turns
+ | group:
+ | condition: hp <= 39
+   | (7804:83) Incineration + Brutal Inferno Fangs
+   | Lock 4 random Fire, Water, Wood, Light, Dark, and Heal orbs + Deal 165% damage (3 hits, 55% each), Deal 165% damage (3 hits, 55% each)
+ | group:
+ | condition: hp <= 29
+   | (7805:83) Incineration + Brutal Inferno Fangs
+   | Lock 8 random Fire, Water, Wood, Light, Dark, and Heal orbs + Deal 165% damage (3 hits, 55% each), Deal 165% damage (3 hits, 55% each)
+ | group:
+ | condition: hp <= 19
+   | (7806:83) Incineration + Brutal Inferno Fangs
+   | Lock 12 random Fire, Water, Wood, Light, Dark, and Heal orbs + Deal 165% damage (3 hits, 55% each), Deal 165% damage (3 hits, 55% each)
+ | group:
+ | condition: hp <= 14
+   | (7807:94) Roaring Destruction
+   | Lock all orbs, Deal 500% damage

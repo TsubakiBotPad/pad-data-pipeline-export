@@ -1,0 +1,31 @@
+#1170 - Purple Flower Dragon, Orchid
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 1170
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (205:20) Fertile Guard
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | (49:48) Curing Breath
+   | Change all Poison orbs to Heal orbs, Deal 120% damage
+   | (48:64) Poison Fog
+   | Change 6 random orbs to Poison orbs, Deal 50% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (40:65) Serpent Eye
+   | Bind 2 random subs for 3 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (51:60) Poison Marking
+     | Change 3 random orbs to Poison orbs
+   | group:
+     | (50:15) Purple Orbit
+     | Deal 150% damage (3 hits, 50% each)

@@ -1,0 +1,31 @@
+#5887 - Elite Disciple, Eugeo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5887
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16414:53) I have to move forward!
+ | Absorb Wood damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16417:17) Lend me your strength, Blue Rose Sword!
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16416:1) Enhance Armament!
+     | Bind 1 random card for 3 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (16421:83) You're not getting away! + Release Recollection!
+     | Bind awoken skills for 1 turn + Bind 1 random card for 5 turns
+   | group:
+     | (16419:92) Bloom! Blue Roses!
+     | Spawn 8 random Water orbs, Deal 300% damage

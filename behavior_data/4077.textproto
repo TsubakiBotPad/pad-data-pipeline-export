@@ -1,0 +1,127 @@
+  monster_id: 4077
+  levels {
+    level: 4
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          condition {
+            trigger_monsters: 4094
+            trigger_monsters: 4095
+          }
+          enemy_skill_id: 8610
+        }
+      }
+      children {
+        behavior {
+          condition {
+            trigger_monsters: 4091
+            trigger_monsters: 4092
+            trigger_monsters: 4093
+          }
+          enemy_skill_id: 8609
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 8608
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 4
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 33
+                  }
+                  enemy_skill_id: 8617
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 8618
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 8619
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 4
+                trigger_turn: 2
+                trigger_turn_end: 4
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 8620
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 8621
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 24
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 2
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 8622
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 2
+                trigger_turn: 2
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 8623
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

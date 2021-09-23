@@ -1,0 +1,104 @@
+#2968 - Illusionless Time Dragonbound, Mille
+monster size: 5
+new AI: True
+start/max counter: 1023
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCard(90:4705) -> ESBranchCard
+Branch on player_cards HAS [2141, 2142, 2143, 2144, 2145, 2146], target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 512)
+	[0] ESStatusShield(20:4576) -> Did you think that was my real form?
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:4577) -> Space-Time Distortion
+	Void damage >= 500,000 for 5 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 512)
+	[0] ESStatusShield(20:4576) -> Did you think that was my real form?
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:4706) -> Your Dragon God is waiting for you...
+	Void damage >= 500,000 for 5 turns
+
+#5: ESAttackMultihit(15:4594) -> Time Saw
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 1,000% damage (5 hits, 200% each)
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 256)
+	[0] ESRowSpawnMulti(79:4579) -> Continuous Border
+	Change the 3rd row to Heal and Jammer orbs, Deal 160% damage
+	[1] ESFixedStart(101:4580) -> Time Warp
+	Fix orb movement starting point to random position on the board
+
+#8: ESAttackMultihit(15:4582) -> Hour Hand Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 128)
+Deal 180% damage (2 hits, 90% each)
+
+#9: ESBindRandomSub(65:4583) -> Time Bind
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Bind 2 random subs for 6 turns
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESRowSpawnMulti(79:4579) -> Continuous Border
+	Change the 3rd row to Heal and Jammer orbs, Deal 160% damage
+	[1] ESFixedStart(101:4580) -> Time Warp
+	Fix orb movement starting point to random position on the board
+
+#11: ESAttackMultihit(15:4585) -> Hour Hand Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Deal 200% damage (2 hits, 100% each)
+
+#12: ESRecoverEnemy86(86:4586) -> Time Leap
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Enemy recover 50% HP
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRowSpawnMulti(79:4579) -> Continuous Border
+	Change the 3rd row to Heal and Jammer orbs, Deal 160% damage
+	[1] ESFixedStart(101:4580) -> Time Warp
+	Fix orb movement starting point to random position on the board
+
+#14: ESAttackMultihit(15:4588) -> Hour Hand Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 220% damage (2 hits, 110% each)
+
+#15: ESDebuffMovetime(39:4589) -> Time Steal
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime -3s for 5 turns
+
+#16: ESAttackMultihit(15:4590) -> Time Saw
+Deal 1,000% damage (5 hits, 200% each)
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 7, target rnd 21
+
+#20: SkillSet:
+	[0] ESAbsorbCombo(67:4591) -> Strain
+	Absorb damage when combos <= 6 for 1 turn
+	[1] ESFixedStart(101:4592) -> Time Warp
+	Fix orb movement starting point to random position on the board
+
+#21: SkillSet:
+	[0] ESAbsorbCombo(67:4708) -> Strain
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESFixedStart(101:4592) -> Time Warp
+	Fix orb movement starting point to random position on the board
+
+#22: ESAttributeResist(72:4704) -> Time Dark Halven
+Reduce damage from Dark attrs by 50%

@@ -1,0 +1,38 @@
+#872 - プレシィアイルー
+monster size: 2
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#2: ESInactivity16(16:621) -> Meow meeow meooow♪
+Condition: 30% chance (ai:0 rnd:30)
+Do nothing
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 30, target rnd 9
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESGravity(50:631) -> Barrel Bomb nya!
+Player -75% HP
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESOrbChangeAttack(48:619) -> Cold Breath nya!
+Condition: One-time use (ai:40 rnd:0) (cost: 1)
+Change a random attribute to Water orbs, Deal 50% damage
+
+#10: ESInactivity16(16:621) -> Meow meeow meooow♪
+Condition: 15% chance (ai:0 rnd:15)
+Do nothing

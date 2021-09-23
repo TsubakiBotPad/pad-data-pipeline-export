@@ -1,0 +1,33 @@
+#200360 - Alt. Thanatos
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfallLocked(96:26382) -> Calming Lullaby
+	Locked Heal skyfall +100% for 99 turns
+	[1] ESBindRandom(1:26383) -> Annaru's Coma
+	Bind 6 random cards for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPCooldown(19:26384) -> Advent of Deep Death
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#7: ESAttackMultihit(15:26379) -> Bitemare
+Deal 725% damage (5 hits, 145% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

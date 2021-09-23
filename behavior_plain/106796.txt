@@ -1,0 +1,107 @@
+#106796 - Apparition Killer, Kiss-Shot
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffATK(130:21320) -> Return to my side.
+	ATK -75% for 4 turns
+	[1] ESAbsorbAttribute(53:21321) -> Live with me.
+	Absorb Dark damage for 99 turns
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 22
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 26
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESStatusShield(20:21136) -> Don't feel too despondent.
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:21137) -> I shall give you a handicap.
+	Movetime 150% for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESColumnSpawnMulti(77:21141) -> Kiss-Shot's Chop
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st column to Dark orbs, Deal 80% damage
+
+#14: ESRandomSpawn(92:21142) -> Hyaa-hah!
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Fire and Dark orbs, Deal 90% damage
+
+#15: ESAttackMultihit(15:21143) -> Hah! Haa! Ahaha!
+Condition: 25% chance (ai:0 rnd:25)
+Deal 96% damage (3 hits, 32% each)
+
+#16: ESAttackMultihit(15:21144) -> Hahaha! Aahahaha!
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage (2 hits, 50% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#20: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:21139) -> I do not wish to hold back.
+	Increase damage to 150% for the next 999 turns
+	[1] ESSkillDelay(89:21140) -> What nerve!
+	Delay active skills by 0~2 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 7
+
+#23: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#24: SkillSet:
+	[0] ESDamageShield(74:21323) -> How wonderful!
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESDebuffATK(130:21324) -> More, more, more!
+	ATK -75% for 5 turns
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBindAwoken(88:21148) -> How sad it makes me to know that I'll never hear ye speak!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#27: ESAttackMultihit(15:21149) -> Prepare to die!
+Deal 200% damage (2 hits, 100% each)
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

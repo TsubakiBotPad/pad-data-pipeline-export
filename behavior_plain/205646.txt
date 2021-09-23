@@ -1,0 +1,53 @@
+#205646 - Orphen
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindAwoken(88:21864) -> I'll repay my debt.
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Bind awoken skills for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESDamageShield(74:21865) -> I spin thee thus, Halo Armor!
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Reduce damage from all sources by 50% for 2 turns, Deal 90% damage
+
+#5: ESSkillDelay(89:21866) -> Flow thus! Angel Breath!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#6: ESAttackUPRemainingEnemies(17:21868) -> I'm giving it my all!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 4)
+Increase damage to 150% for the next 5 turns
+
+#7: ESBombRandomSpawn(102:21869) -> I crush thee, Primordial Silence!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 4 random Bomb orbs, Deal 80% damage
+
+#8: ESAttackMultihit(15:21870) -> I call upon thee, Sisters of Destruction!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 90% damage (3 hits, 30% each)
+
+#9: ESRandomSpawn(92:21871) -> I release thee, Sword of Light!
+Spawn 6 random Light orbs, Deal 200% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: ESRecoverEnemy86(86:21867) -> I repair thee, Scars of the Sunset!
+Enemy recover 10%~20% HP
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

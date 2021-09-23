@@ -1,0 +1,32 @@
+#3376 - Goddess of the Sanctuary, Freyja
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3376
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15946:118) Balance God Halved
+ | Reduce damage from Balanced and God types by 50%
+ type: PREEMPT
+ | (15880:83) Come warm up a bit with us + Cat Dance
+ | Voids status ailments for 999 turns + Player -50% HP
+ group:
+ | group:
+   | (15876:15) Jingle Bells♪
+   | Deal 94% damage (2 hits, 47% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (15877:74) Come here my darling kitties
+   | Reduce damage from all sources by 30% for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15878:17) Enhancing Earth
+     | Increase damage to 150% for the next 3 turns
+   | group:
+     | (15879:92) Snow Gaia Break
+     | Spawn 6 random Wood orbs, Deal 100% damage

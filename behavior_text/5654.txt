@@ -1,0 +1,41 @@
+#5654 - Sosuke Sagara & Arbalest
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5654
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14995:118) Attack Machine Halved
+ | Reduce damage from Attacker and Machine types by 50%
+ type: PREEMPT
+ | (14932:74) We'll be done with this in one minute!
+ | Reduce damage from all sources by 75% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (14933:105) Let's go!
+     | RCV 50% for 5 turns
+   | group:
+     | condition: 33% chance
+     | (14935:15) Chain guns, crowd control.
+     | Deal 70% damage (5 hits, 14% each)
+     | condition: 33% chance
+     | (14936:92) Shotcannon
+     | Spawn 6 random Jammer orbs, Deal 65% damage
+     | condition: 34% chance
+     | (14937:77) Monomolecular Cutter
+     | Change the 4th column to Dark and Jammer orbs, Deal 65% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (14934:71) Lambda Drive activated.
+     | Void damage >= 5,000,000 for 5 turns
+   | group:
+   | condition: turn 2
+     | (14933:105) Let's go!
+     | RCV 50% for 5 turns

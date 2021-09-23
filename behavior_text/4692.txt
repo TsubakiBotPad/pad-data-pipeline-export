@@ -1,0 +1,26 @@
+#4692 - Twin Stars of Purgatory, Belial
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4692
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10712:74) Take care, sister!
+ | Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (10713:67) Humph, I'll play around with you
+   | Absorb damage when combos <= 5 for 3 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (10714:17) Wisdom of the Twin Star
+     | Increase damage to 300% for the next 1 turn
+   | group:
+     | (10715:103) Evil Vanguard that dwells in death
+     | Spawn Bomb orbs in the specified positions, Deal 200% damage

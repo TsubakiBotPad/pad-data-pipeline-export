@@ -1,0 +1,117 @@
+#403903 - Alt. Devil Star Divine Queen, Hera-Nyx
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESStatusShield(20:13757) -> Here at last... Shall we begin?
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:13758) -> Demon Star Crest
+	Void damage >= 30,000,000 for 999 turns
+	[2] ESAttributeBlock(107:13760) -> Wonder how long you can last♪
+	Unable to match Light orbs for 2 turns
+	[3] ESAttackMultihit(15:13759) -> See how you handle my fist!
+	Deal 550% damage
+
+#3: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy7(7:8122) -> Demon Star's Radiance
+	Enemy recover 100% HP
+	[1] ESAttackUPRemainingEnemies(17:8123) -> I won't let you do that!
+	Increase damage to 150% for the next 999 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESInactivity66(66:8105) -> Splendid♪ Not over yet though...
+	Do nothing
+	[1] ESGravity(50:8106) -> Graviton Fist
+	Player -99% HP
+	[2] ESBlind62(62:8107) -> High Kick
+	Blind all orbs on the board, Deal 100% damage
+
+#5: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAbsorbCombo(67:8113) -> I'll have to get serious soon!
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESDebuffMovetime(39:8114) -> Come on! Faster!
+	Movetime -1s for 10 turns
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 23
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#8: ESBlindStickyRandom(97:8116) -> Black Screw Blow
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 4)
+Blind random 6 orbs for 2 turns, Deal 350% damage
+
+#9: ESAttackMultihit(15:8117) -> Full Spin Kick
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Deal 480% damage (6 hits, 80% each)
+
+#10: ESAttackMultihit(15:8118) -> Hell Shot Punch
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Deal 700% damage
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: ESAttackMultihit(15:8109) -> Spin Kick
+Deal 330% damage (3 hits, 110% each)
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESSkillDelay(89:8110) -> Body Blow
+Delay active skills by 0~3 turns, Deal 280% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESAttackMultihit(15:8111) -> Combo Rush
+Deal 400% damage (5 hits, 80% each)
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b111
+
+#21: ESSpinnersFixed(110:8112) -> Axe Kick
+Specific orbs change every 1.0s for 1 turn, Deal 300% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 26
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#25: SkillSet:
+	[0] ESChangeAttribute(46:8119) -> It's been fun, but let's end this.
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESAttackMultihit(15:8120) -> This is my full power!!!
+	Deal 60,000% damage (10 hits, 6,000% each)
+
+#26: ESAttackMultihit(15:8126) -> Whirling Magical Power
+Deal 50,000% damage (10 hits, 5,000% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESResolve(73:8125) -> Hera Resolve
+Survive attacks with 1 HP when HP > 50%

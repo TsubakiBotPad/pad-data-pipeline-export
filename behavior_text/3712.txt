@@ -1,0 +1,50 @@
+#3712 - Awoken Uriel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3712
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17080:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (17066:83) Agile Wings of Heaven + Resolve in a Crisis + Unblessed Future
+ | Absorb damage when combos <= 8 for 999 turns + Player -99% HP + Seal the 1st row for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 33% chance
+     | (17070:79) Divine Inferno
+     | Change the 3rd row to Fire orbs, Deal 100% damage
+     | condition: 33% chance
+     | (17071:48) Divine Fire's Ashes
+     | Change a random attribute to Jammer orbs, Deal 105% damage
+     | condition: 34% chance
+     | (17072:15) Divine Light's Radiance
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (17073:83) Extinguished Divine Light + Gift for Evil
+     | Blind all orbs on the board + Spawn Bomb orbs in the specified positions
+   | group:
+     | condition: 33% chance
+     | (17070:79) Divine Inferno
+     | Change the 3rd row to Fire orbs, Deal 100% damage
+     | condition: 33% chance
+     | (17071:48) Divine Fire's Ashes
+     | Change a random attribute to Jammer orbs, Deal 105% damage
+     | condition: 34% chance
+     | (17072:15) Divine Light's Radiance
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 9
+   | (17076:15) Blazing Flame Attack
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (17077:83) Judgment of Evil + Sacred Protection
+   | Increase damage to 200% for the next 999 turns + Movetime -3s for 1 turn

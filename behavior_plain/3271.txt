@@ -1,0 +1,113 @@
+#3271 - Reincarnated Hino Kagutsuchi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShield(71:16190) -> Snake God's Protective Flame
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESDamageShield(74:16191) -> Strong Flame Spell
+	Reduce damage from all sources by 75% for 99 turns
+	[2] ESSkillDelay(89:16192) -> Roar of the Underworld
+	Delay active skills by 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 24
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 19
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 12
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:16194) -> Snake God's Roar
+	Player -99% HP
+	[1] ESSkyfall(68:16195) -> Crazed Unearthly Rumble
+	Mortal Poison skyfall +10% for 2 turns
+
+#10: SkillSet:
+	[0] ESGravity(50:16194) -> Snake God's Roar
+	Player -99% HP
+	[1] ESSkyfall(68:16211) -> Crazed Unearthly Rumble
+	Poison skyfall +20% for 2 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESStatusShield(20:16197) -> God Encircling Protective Flame
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:16198) -> Underworld Guiding Flame
+	Absorb damage when combos <= 6 for 999 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:16200) -> Crazed Unearthly Rumble
+	Poison skyfall +15% for 1 turn
+	[1] ESOrbLock(94:16201) -> Soul-Binding Hellfire
+	Lock 15 random orbs, Deal 100% damage
+
+#17: SkillSet:
+	[0] ESSkyfall(68:16203) -> Crazed Unearthly Rumble
+	Jammer skyfall +15% for 1 turn
+	[1] ESAttackMultihit(15:16204) -> Life-Stealing Hellfire
+	Deal 120% damage (3 hits, 40% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 22
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: ESSkillDelay(89:16192) -> Roar of the Underworld
+Delay active skills by 10 turns
+
+#22: ESAttackMultihit(15:16205) -> Snake King's Massacring Strike
+Deal 800% damage (8 hits, 100% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESStatusShield(20:16197) -> God Encircling Protective Flame
+	Voids status ailments for 999 turns
+	[1] ESRecoverEnemy86(86:16207) -> Snake God's Healing Flame
+	Enemy recover 75% HP
+	[2] ESSkillDelay(89:16192) -> Roar of the Underworld
+	Delay active skills by 10 turns
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESResolve(73:16208) -> Resolve
+Survive attacks with 1 HP when HP > 75%
+
+#27: ESTurnChangePassive(106:16209) -> Enemy's next turn changed in anger
+Enemy turn counter change to 1 when HP <= 75%

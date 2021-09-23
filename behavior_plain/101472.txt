@@ -1,0 +1,80 @@
+#101472 - Alt. Stormwing Dragon Emperor, Threedia
+monster size: 2
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:1272) -> Gale Barrier
+Voids status ailments for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESOrbChangeAttack(48:1273) -> Howling Gust
+Change all Fire orbs to Jammer orbs, Deal 100% damage
+
+#9: ESOrbChangeAttack(48:1279) -> Howling Gust
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESAttackMultihit(15:1274) -> Wild Talon Rake
+Deal 200% damage (4 hits, 50% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESBindAttack(63:1275) -> Tornado Seal
+Bind 4 random subs for 1~2 turns, Deal 80% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#21: ESInactivity66(66:1276) -> Temporary Calm
+Do nothing
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttackMultihit(15:1277) -> World-Wrecking Windstorm
+Deal 2,500% damage (5 hits, 500% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttributeResist(72:8248) -> Sevenzard Wood Halved
+Reduce damage from Wood attrs by 50%

@@ -1,0 +1,49 @@
+#2394 - Awoken Freyja
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2394
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9575:73) Freyja Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (9575:73) Freyja Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (9578:83) Welcome! + Please, take it easy.
+ | Voids status ailments for 999 turns + Mortal Poison skyfall +15% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (9586:108) Beautiful flowers are dangerous.
+     | Change all Mortal Poison orbs to Heal orbs, Deal 150% damage
+     | condition: 33% chance
+     | (9583:83) This flower is beautiful, isn't it? + These ones are also lovely!
+     | Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs + Leader changes to random sub for 1 turn, Deal 50% damage
+     | condition: 50% chance
+     | (9584:83) This flower is beautiful, isn't it? + This one is cute too.
+     | Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs + Delay active skills by 1~2 turns, Deal 50% damage
+     | (9585:83) This flower is beautiful, isn't it? + Lovely Aroma
+     | Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs + Deal 45% damage (3 hits, 15% each), Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (9584:83) This flower is beautiful, isn't it? + This one is cute too.
+     | Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs + Delay active skills by 1~2 turns, Deal 50% damage
+     | (9585:83) This flower is beautiful, isn't it? + Lovely Aroma
+     | Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs + Deal 45% damage (3 hits, 15% each), Deal 50% damage
+ | group:
+ | condition: hp <= 19
+   | (9587:85) Flowers in full bloom are splendid!
+   | Change all orbs to Mortal Poison, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (9590:83) I feel so much better when I'm surrounded by flowers. + Don't get so rowdy.
+   | Enemy recover 50% HP + Movetime 50% for 10 turns

@@ -1,0 +1,71 @@
+#100187 - Alt. Zeus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 100187
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4759:83) Supercell + King of Gods' Majesty
+ | Lock 20 random orbs + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (4773:83) Poison Lightning + Constrain
+     | Change 6 random orbs to Poison orbs + Lock all Mortal Poison orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 30% chance
+     | (4763:48) Tera Bolt
+     | Change all Heal orbs to Jammer orbs, Deal 70% damage
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (4773:83) Poison Lightning + Constrain
+     | Change 6 random orbs to Poison orbs + Lock all Mortal Poison orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (4761:15) Lightning of God
+     | Deal 150% damage
+     | condition: 30% chance
+     | (4763:48) Tera Bolt
+     | Change all Heal orbs to Jammer orbs, Deal 70% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4773:83) Poison Lightning + Constrain
+     | Change 6 random orbs to Poison orbs + Lock all Mortal Poison orbs, Deal 50% damage
+   | group:
+   | condition: turn 2 while HP > 19
+     | (4762:3) Glare of Zeus
+     | Bind God cards for 2~4 turns
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 4
+     | condition: 50% chance
+     | (4761:15) Lightning of God
+     | Deal 150% damage
+     | condition: 30% chance
+     | (4763:48) Tera Bolt
+     | Change all Heal orbs to Jammer orbs, Deal 70% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (4773:83) Poison Lightning + Constrain
+     | Change 6 random orbs to Poison orbs + Lock all Mortal Poison orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | condition: 50% chance
+     | (4761:15) Lightning of God
+     | Deal 150% damage
+     | condition: 30% chance
+     | (4763:48) Tera Bolt
+     | Change all Heal orbs to Jammer orbs, Deal 70% damage
+ | group:
+ | condition: hp <= 19
+   | (4760:15) Super Nova
+   | Deal 250% damage (10 hits, 25% each)

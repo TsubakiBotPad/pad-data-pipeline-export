@@ -1,0 +1,36 @@
+#1445 - 黄金聖闘士・蟹座のデスマスク
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1445
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (1180:39) 積尸気をとおってあの世へいくのだ!!
+   | Movetime -1s for 3 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1181:48) 往生際の悪いヤツだ！
+   | Change a random attribute to Jammer orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 29
+   | (1182:15) 積尸気冥界波!!
+   | Deal 120% damage (3 hits, 40% each)
+
+level: 5
+ type: PREEMPT
+ | (1180:39) 積尸気をとおってあの世へいくのだ!!
+ | Movetime -1s for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1181:48) 往生際の悪いヤツだ！
+   | Change a random attribute to Jammer orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 29
+   | (1182:15) 積尸気冥界波!!
+   | Deal 120% damage (3 hits, 40% each)

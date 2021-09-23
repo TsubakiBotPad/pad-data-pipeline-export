@@ -1,0 +1,59 @@
+#7513 - 真人
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 7513
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26703:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (26704:67) Luck's really on my side.
+ | Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (26708:107) Don't worry about it. Let's continue.
+   | Unable to match Heal orbs for 3 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 33% chance
+     | (26705:109) Idle Transfiguration
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 120% damage
+     | condition: 33% chance
+     | (26706:63) Your mobility is impressive.
+     | Bind 1 random card for 2 turns, Deal 100% damage
+     | condition: 34% chance
+     | (26707:15) This is so fun!
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+     | condition: 33% chance
+     | (26705:109) Idle Transfiguration
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 120% damage
+     | condition: 33% chance
+     | (26706:63) Your mobility is impressive.
+     | Bind 1 random card for 2 turns, Deal 100% damage
+     | condition: 34% chance
+     | (26707:15) This is so fun!
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (26709:53) Your soul is trembling.
+   | Absorb Light damage for 5 turns
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 2
+     | (26710:83) What fresh inspiration... + ...this is! + Is this death?
+     | Do nothing + Movetime 50% for 1 turn + Bind awoken skills for 1 turn
+   | group:
+   | condition: turns 3-4
+     | (26714:15) You can't beat me.
+     | Deal 300% damage
+   | group:
+     | (26714:15) You can't beat me.
+     | Deal 300% damage

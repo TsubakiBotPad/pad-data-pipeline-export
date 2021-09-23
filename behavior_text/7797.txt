@@ -1,0 +1,87 @@
+#7797 - 翔月の地柱神・コンス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7797
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29242:129) 超根性
+ | Damage which would reduce HP from above 40% to below 40% is nullified
+ | (29243:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (29191:83) まだまだこれから！ + ついてこれるかな！ + 深緑の闇
+ | Voids status ailments for 999 turns + ATK -75% for 5 turns + For 10 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 39
+     | condition: 33% chance
+     | (29232:83) 葉影 + 地柱神の拘束
+     | Blind random 15 orbs for 3 turns + Lock all Wood and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (29235:83) 封葉 + 緑力 + 深緑の息吹
+     | Bind active skills for 5 turns + Change all Heal orbs to Wood orbs + Deal 102% damage (3 hits, 34% each), Deal 10% damage
+     | (29239:83) 暗葉 + 深緑の息吹
+     | Change all Heal orbs to Dark orbs + Deal 102% damage (3 hits, 34% each), Deal 10% damage
+   | group:
+   | condition: turn 5 while HP > 39
+     | (29216:83) 地柱神の鉄壁 + リーフエネルギー + リーフチェンジ
+     | Void damage >= 600,000,000 for 999 turns + Increase damage to 150% for the next 999 turns + Leader changes to random sub for 3 turns
+   | group:
+     | condition: 33% chance
+     | (29232:83) 葉影 + 地柱神の拘束
+     | Blind random 15 orbs for 3 turns + Lock all Wood and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (29235:83) 封葉 + 緑力 + 深緑の息吹
+     | Bind active skills for 5 turns + Change all Heal orbs to Wood orbs + Deal 102% damage (3 hits, 34% each), Deal 10% damage
+     | (29239:83) 暗葉 + 深緑の息吹
+     | Change all Heal orbs to Dark orbs + Deal 102% damage (3 hits, 34% each), Deal 10% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: always turn 1
+     | (29203:83) 試練を与えるね！ + この状態で… + 5属性消せるかな？ + 浮遊葉
+     | Immune to damage from all sources for 999 turns + Movetime 50% for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison + Specific orbs change every 0.5s for 7 turns
+   | group:
+   | condition: always turn 2
+     | condition: when all Fire, Water, Wood, Light, and Dark orbs are matched last turn
+     | (29208:83) すごいね！ + キミにはこれ！ + リーフブレンド + 深緑の加護
+     | Remove damage immunity effect + Haste all cards' skills by 3 turns + Change all orbs to Wood and Jammer + Reduce damage from all sources by 70% for 99 turns, Deal 50% damage
+     | (29212:83) ダメだったね！ + キミにはこれ！ + 舞い散る木の葉 + 深緑の加護
+     | Remove damage immunity effect + Bind awoken skills for 5 turns + A row of clouds appears for 5 turns at 2nd row, 1st column + Reduce damage from all sources by 70% for 99 turns, Deal 50% damage
+   | group:
+   | condition: turns 3-6 while HP > 9
+     | condition: 33% chance
+     | (29220:83) 眩い月光 + 地柱神の気迫 + 深緑の息吹
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Absorb damage when combos <= 9 for 1 turn + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (29224:83) 眩い月光 + 地柱神の生彩 + 深緑の息吹
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Absorb Fire, Water, and Wood damage for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (29228:83) 眩い月光 + 地柱神の生彩 + 深緑の息吹
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Absorb Light and Dark damage for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 7 while HP > 9
+     | (29216:83) 地柱神の鉄壁 + リーフエネルギー + リーフチェンジ
+     | Void damage >= 600,000,000 for 999 turns + Increase damage to 150% for the next 999 turns + Leader changes to random sub for 3 turns
+   | group:
+     | condition: 33% chance
+     | (29220:83) 眩い月光 + 地柱神の気迫 + 深緑の息吹
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Absorb damage when combos <= 9 for 1 turn + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (29224:83) 眩い月光 + 地柱神の生彩 + 深緑の息吹
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Absorb Fire, Water, and Wood damage for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (29228:83) 眩い月光 + 地柱神の生彩 + 深緑の息吹
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Absorb Light and Dark damage for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 3
+     | (29195:83) 癒しの葉 + 魅了の舞 + リーフシャワー
+     | Enemy recover 30% HP + Movetime 25% for 5 turns + Delay active skills by 10 turns
+   | group:
+     | (29199:83) 地柱神の決断 + おわりだよ！ + クレセントリーフ
+     | Bind awoken skills for 1 turn + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,000% damage (5 hits, 400% each), Deal 2,000% damage (5 hits, 400% each)

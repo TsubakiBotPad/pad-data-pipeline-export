@@ -1,0 +1,46 @@
+#201360 - Destroyer Dragon, Apocalypse
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbThreshold(87:25596) -> Plasma Ball
+	Absorb damage when damage >= 5,000,000 for 5 turns
+	[1] ESGravity(50:25597) -> Ray of Destruction
+	Player -150% HP
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#6: ESAttackMultihit(15:25594) -> Ray of Judgement
+Deal 120% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:25600) -> Thunder Repair
+	Absorb Light damage for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:25601) -> Plasma Charge
+	Increase damage to 500% for the next 999 turns
+
+#9: ESBoardChangeAttackBits(85:25598) -> Final Judgement
+Change all orbs to Light, Dark, and Heal, Deal 300% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:25602) -> Resolve
+Survive attacks with 1 HP when HP > 50%

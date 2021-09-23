@@ -1,0 +1,40 @@
+#201228 - Alt. Awoken Odin TAMADRA
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:15715) -> Robe of Protection-TAMA!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 80% for 5 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 7
+
+#4: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 10
+
+#5: ESOrbChangeAttack(48:15721) -> Gungnir-TAMA!
+Change a random attribute to Light orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAbsorbCombo(67:15718) -> Chieftain God Power-TAMA!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 6 for 5 turns
+
+#8: ESOrbChangeAttack(48:15727) -> Gungnir-TAMA!
+Change a random attribute to Light orbs, Deal 300% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESOrbChangeAttack(48:15724) -> Gungnir-TAMA!
+Change a random attribute to Light orbs, Deal 150% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

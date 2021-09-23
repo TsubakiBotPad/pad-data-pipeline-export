@@ -1,0 +1,39 @@
+#104215 - West Loving Goddess, Haku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESInactivity66(66:9213) -> Do you like it?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESAttackMultihit(15:8995) -> Sweet Combo
+Deal 100% damage (2 hits, 50% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#10: ESInactivity66(66:9214) -> Don't get cocky now
+Do nothing
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

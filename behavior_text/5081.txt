@@ -1,0 +1,31 @@
+#5081 - Chun-Li
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5081
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12560:67) Want to see my Kung-Fu? I'll show you.
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (12561:83) Rankyaku + Yosokyaku
+   | Deal 80% damage + Deal 105% damage (3 hits, 35% each), Deal 80% damage
+   | condition: 33% chance
+   | (12564:83) Hyakuretsukyaku + Disable Skill + Spinning Bird Kick
+   | Deal 60% damage (4 hits, 15% each) + Deal 100% damage + Change a random attribute to Water orbs, Deal 60% damage (4 hits, 15% each)
+   | condition: 34% chance
+   | (12567:83) Kikoken + Disable Skill + Spinning Bird Kick
+   | Change the 3rd row to Water orbs + Deal 100% damage + Change a random attribute to Water orbs, Deal 40% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (12671:83) Renkiko + I won't let up on you!
+   | Increase damage to 150% for the next 10 turns + Do nothing
+ | group:
+ | condition: hp <= 15
+   | (12571:92) Hoyokusen
+   | Spawn 10 random Water orbs, Deal 350% damage

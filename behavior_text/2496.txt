@@ -1,0 +1,29 @@
+#2496 - Gleaming Axe Star Angel, Ariel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2496
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18633:83) Are you ready for this? + Stars, come to me!
+ | RCV 50% for 10 turns + Absorb damage when combos <= 7 for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18636:77) Slashing Star
+   | Change the 4th column to Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (18637:79) Swinging Star
+   | Change the 3rd row to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18638:39) This will end it.
+     | Movetime 50% for 10 turns
+   | group:
+     | (18639:15) Judgment Star
+     | Deal 300% damage (3 hits, 100% each)

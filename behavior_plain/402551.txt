@@ -1,0 +1,81 @@
+#402551 - Alt. Awoken Takemikazuchi
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESOrbLock(94:13640) -> Bring it! Come on!
+	Lock all orbs
+	[1] ESAbsorbCombo(67:13641) -> I'll beat you to pieces!
+	Absorb damage when combos <= 6 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:13564) -> It hurts!!
+	Increase damage to 200% for the next 999 turns
+	[1] ESRecoverEnemy86(86:13565) -> I'm not finished!!
+	Enemy recover 100% HP
+	[2] ESAttributeBlock(107:13566) -> Martial God Rear Naked Choke
+	Unable to match Heal orbs for 1 turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 17
+
+#9: ESBindRandom(1:2632) -> War God Grapevine Stretch
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 1 random card for 3 turns, Deal 240% damage
+
+#10: ESSkillDelay(89:2630) -> Quintessence of the Low Kick
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 1 turn, Deal 240% damage
+
+#11: ESColumnSpawnMulti(77:2631) -> Lightning Strike
+Condition: 34% chance (ai:0 rnd:34)
+Change the 3rd and 4th columns to Light orbs, Deal 240% damage
+
+#12: ESAttackMultihit(15:2633) -> Martial God Hell Thrust
+Condition: 33% chance (ai:0 rnd:33)
+Deal 300% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESRandomSpawn(92:2634) -> Onamazu's Poison Mist
+Spawn 8 random Poison orbs
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESBlind5(5:2635) -> I'm gonna end this! Get ready!
+Blind all orbs on the board
+
+#20: ESColumnSpawnMulti(77:2636) -> Itsu-no-Ohabari's Breaking Thunder
+Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs, Deal 1,000% damage
+
+#21: ESResolve(73:2637) -> Takemi Resolve
+Survive attacks with 1 HP when HP > 50%

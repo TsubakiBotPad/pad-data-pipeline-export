@@ -1,0 +1,47 @@
+#2292 - Bleak Night Daughter, Pandora
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2292
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25943:72) Light halved
+ | Reduce damage from Light attrs by 50%
+ | (25944:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25920:83) I Love the Ocean... + Secret Box
+ | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (25937:83) Here... + Strange Box
+   | Change 7 random orbs to Poison orbs + ATK -75% for 1 turn, Deal 10% damage
+   | (25940:83) Quiet now... + I can hear the sound of the waves...
+   | Bind 3 random subs for 3 turns + Spawn 8 random Jammer orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (25927:83) Summer Box + These are for you... + Could we rest for a bit...?
+     | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Change 10 random orbs to Poison orbs + Reduce damage from all sources by 50% for 99 turns, Deal 10% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (25931:83) I want to make some memories... + Stay with me...
+     | Dark skyfall +35% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (25934:83) Bleak Night Goddess' Feelings + Eerie Box
+     | Spawn 7 random Heal orbs + RCV 25% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (25923:83) The ocean... + It's so beautiful...
+     | Movetime 25% for 1 turn + ATK -75% for 1 turn
+   | group:
+     | (25926:15) I should leave now...
+     | Deal 1,050% damage (7 hits, 150% each)

@@ -1,0 +1,60 @@
+#2646 - Metallic Star Dragon, Dark Gemini
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbAttribute(53:2697) -> Cloaking Light
+Absorb Light damage for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESAttackMultihit(15:2703) -> Gemini's Crest - Chaos
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 300~500% damage (3~5 hits, 100% each)
+
+#10: ESBindSkill(14:2701) -> Deflective Dark
+Condition: One-time use (ai:0 rnd:20) (cost: 1)
+Bind active skills for 1 turn
+
+#11: ESRandomSpawn(92:2700) -> Bleak Fellow
+Condition: 40% chance (ai:0 rnd:40)
+Spawn 3 random Dark orbs, Deal 100% damage
+
+#12: ESRandomSpawn(92:2702) -> Little Jam
+Condition: 40% chance (ai:0 rnd:40)
+Spawn 2 random Jammer orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESColumnSpawnMulti(76:2698) -> Dark Child's Five Fingers
+Change the 1st and 2nd columns to Dark orbs
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

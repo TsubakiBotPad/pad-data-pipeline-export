@@ -1,0 +1,26 @@
+#5000 - New Year's Hunting Princess, Artemis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5000
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16155:68) Let's purify evil!
+ | Jammer skyfall +20% for 5 turns
+ group:
+ | group:
+   | (16156:108) Demon Repelling Arrow Shot
+   | Change all Jammer orbs to Wood orbs, Deal 110% damage
+   | condition: 50% chance
+   | (16157:92) The purification isn't enough!
+   | Spawn 5 random Jammer orbs, Deal 100% damage
+   | condition: 50% chance
+   | (16158:15) Rain of attacks
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 50
+   | (16159:67) Purification Ceremony
+   | Absorb damage when combos <= 6 for 5 turns

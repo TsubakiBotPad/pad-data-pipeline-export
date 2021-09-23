@@ -1,0 +1,40 @@
+#203334 - Sunset God of Twilight, Aten
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:25605) -> Night Sky's Shining Light
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:25606) -> Signs of Change
+	Specific orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 5
+
+#4: ESAttackMultihit(15:25610) -> Signpost Shining in the Night
+Deal 1,500% damage (5 hits, 300% each)
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:25608) -> Light of Love and Despair
+	Movetime 50% for 1 turn
+	[1] ESDebuffATK(130:25609) -> Heavenly Sun of the Shadow Lands
+	ATK -50% for 1 turn
+
+#6: ESAttackMultihit(15:25610) -> Signpost Shining in the Night
+Deal 1,500% damage (5 hits, 300% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSuperResolve(129:25603) -> Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified
+
+#9: ESTurnChangePassive(106:25611) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 1%

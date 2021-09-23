@@ -1,0 +1,28 @@
+#500379 - Dino Rider Drake
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 500379
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1149:13) Jurassic Howling
+ | Change 2 random orb types to Jammer orbs
+ group:
+ | group:
+   | (15491:15) Heat Axe
+   | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1151:66) Ride On
+     | Do nothing
+   | group:
+     | condition: 50% chance
+     | (1152:15) Golden Hind
+     | Deal 150% damage
+     | (15498:15) High Heat Axe
+     | Deal 105% damage (3 hits, 35% each)

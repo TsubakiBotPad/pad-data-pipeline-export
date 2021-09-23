@@ -1,0 +1,32 @@
+#3244 - Steel Dragon Emperor, Ninegaruda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3244
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5623:83) Death Bomb + Heart Crush
+ | Spawn Bomb orbs in the specified positions + Change all Heal orbs to Jammer orbs, Deal 100% damage
+ group:
+ | group:
+   | (5624:103) Exploding Fist
+   | Spawn Bomb orbs in the specified positions, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (5625:74) Iron Shackles
+     | Reduce damage from all sources by 50% for 9 turns
+   | group:
+     | condition: 50% chance, when required attributes on board
+     | (5626:92) Heart Smash
+     | Change all Heal orbs to Jammer orbs, Deal 150% damage
+     | (5627:103) Burst Bomb
+     | Spawn Bomb orbs in the specified positions, Deal 170% damage
+ | group:
+ | condition: hp <= 14
+   | (5628:15) Suppressed Torment
+   | Deal 1,000% damage (2 hits, 500% each)

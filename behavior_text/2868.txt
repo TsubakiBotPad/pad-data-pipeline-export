@@ -1,0 +1,28 @@
+#2868 - 黒ずくめの男達・ジン＆ウォッカ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 2868
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4398:89) Glacial Eyes
+ | Delay active skills by 0~2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 2861, 2862 on team
+   | (4403:15) Farewell... Detective!!
+   | Deal 120% damage
+   | (4399:15) This ends here!!!
+   | Deal 120% damage
+ | group:
+ | condition: turn 2
+   | (4400:39) Last Chance...
+   | Movetime -1s for 2 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (4401:64) APTX4869
+   | Change 5 random orbs to Poison orbs, Deal 10% damage

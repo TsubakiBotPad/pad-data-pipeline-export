@@ -1,0 +1,139 @@
+#4419 - Monstrous Cetacean of the Clouds, Moby Dick
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESCloud(104:9911) -> Cloud Cluster
+	A 6×2 rectangle of clouds appears for 1 turn at 4th row, 1st column
+	[1] ESStatusShield(20:9912) -> Protective Cloud Formation
+	Voids status ailments for 99 turns
+	[2] ESAbsorbCombo(67:9913) -> Rainbow Fog
+	Absorb damage when combos <= 7 for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:9944) -> Updraft
+	Enemy recover 75% HP
+	[1] ESAttackUPRemainingEnemies(17:9945) -> Swelling Clouds
+	Increase damage to 150% for the next 99 turns
+	[2] ESCloud(104:9946) -> Disastrous Cloud
+	A 2×5 rectangle of clouds appears for 1 turn at 1st row, 3rd column
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 30
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESCloud(104:9915) -> Cloud Cluster
+	A 6×2 rectangle of clouds appears for 1 turn at 1st row, 1st column
+	[1] ESAbsorbCombo(67:9916) -> Prism Fog
+	Absorb damage when combos <= 4 for 5 turns
+	[2] ESAttackMultihit(15:9917) -> Lightning Ball Strike
+	Deal 270% damage (9 hits, 30% each)
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESCloud(104:9919) -> Cloud Cluster
+	A 6×2 rectangle of clouds appears for 1 turn at 3rd row, 1st column
+	[1] ESSkillDelay(89:9920) -> Moby Dick's Mighty Roar
+	Delay active skills by 1~3 turns
+	[2] ESLeaderSwap(75:9921) -> Rising Flip
+	Leader changes to random sub for 1 turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESCloud(104:9923) -> Cloud Cluster
+	A 3×3 square of clouds appears for 1 turn at 2nd row, 3rd column
+	[1] ESAttackMultihit(15:9924) -> Storm Blow
+	Deal 240% damage (2 hits, 120% each)
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESCloud(104:9926) -> Cloud Cluster
+	A 3×3 square of clouds appears for 1 turn at 3rd row, 2nd column
+	[1] ESAbsorbAttribute(53:9927) -> Divine Cloud
+	Absorb Light damage for 5 turns
+	[2] ESBoardChange(84:9928) -> Flash Storm
+	Change all orbs to Light
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESCloud(104:9930) -> Cloud Cluster
+	A 3×3 square of clouds appears for 1 turn at 2nd row, 4th column
+	[1] ESOrbChangeAttack(48:9931) -> Plasma Breath
+	Change a random attribute to Light orbs, Deal 250% damage
+
+#14: ESBindAwoken(88:9932) -> Micro Burst
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 5 turns
+
+#15: ESOrbChangeAttackBits(108:9933) -> Heaven's Breaching
+Change all Jammer orbs to Light orbs, Deal 260% damage
+
+#16: ESOrbChangeAttackBits(108:9934) -> Dirty Cloud
+Change all Light and Heal orbs to Jammer orbs, Deal 210% damage
+
+#17: ESOrbChangeAttack(48:9935) -> Dirty Cloud
+Change a random attribute to Jammer orbs, Deal 210% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: SkillSet:
+	[0] ESDamageShield(74:9937) -> Colossal Cumulonimbus Cloud
+	Reduce damage from all sources by 75% for 10 turns
+	[1] ESBindTarget(54:9938) -> Plasma Chain
+	Bind both leaders for 3 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 27
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#25: ESBoardChange(84:9939) -> Grimy Cloud
+Change all orbs to Fire, Light, Heal, Jammer, and Poison, Deal 246% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b100
+
+#28: ESBindRandomSub(65:9940) -> Lightning Chain
+Bind 2 random subs for 1~2 turns, Deal 220% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESAttackMultihit(15:9941) -> Mesocyclone
+Deal 1,300% damage (10 hits, 130% each)
+
+#31: ESResolve(73:9942) -> 50% Resolve
+Survive attacks with 1 HP when HP > 50%

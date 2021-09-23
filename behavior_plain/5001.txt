@@ -1,0 +1,35 @@
+#5001 - Shirou Emiya
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:19539) -> I'll fight as a Master!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESSpinnersFixed(110:19540) -> Trace On!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.5s for 4 turns
+
+#5: ESSkillDelay(89:19542) -> Damn you!
+Condition: 50% chance (ai:50 rnd:0)
+Delay active skills by 1~2 turns, Deal 95% damage
+
+#6: ESAttackMultihit(15:19541) -> Haaah!
+Deal 100% damage (2 hits, 50% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:19543) -> Raaargh!!
+Deal 150% damage (3 hits, 50% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

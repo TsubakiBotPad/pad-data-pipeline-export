@@ -1,0 +1,30 @@
+#4707 - Kaguya, Princess of Tsukuyomi
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4707
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10731:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (10726:68) Tsukuyomi's Dance
+ | Heal skyfall +20% for 5 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (10727:77) Crescent Moon Katana
+   | Change the 2nd column to Light orbs, Deal 120% damage
+   | (10729:15) Attack
+   | Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10728:53) Robe of the Night Sky
+   | Absorb Dark damage for 3 turns
+ | group:
+ | condition: turn 2, hp <= 29
+   | (10730:105) White Rabbit Rumble
+   | RCV 50% for 5 turns

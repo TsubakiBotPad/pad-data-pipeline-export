@@ -1,0 +1,71 @@
+#1338 - Durga
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 1338
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10218:73) Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ | (10219:106) Pick up the pace!
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (10222:83) What do you want? + I don't like you.
+ | Bind both leaders for 4 turns + Absorb damage when damage >= 5,000,000 for 10 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1
+     | (10226:88) Is that it?
+     | Bind awoken skills for 2 turns
+     | (10225:83) Hey! + You're OK with this, right?
+     | Bind active skills for 5 turns + Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (10236:92) You're useless!
+     | Spawn 3 random Jammer orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10226:88) Is that it?
+     | Bind awoken skills for 2 turns
+     | (10236:92) You're useless!
+     | Spawn 3 random Jammer orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turn 1 while HP > 49
+     | (10225:83) Hey! + You're OK with this, right?
+     | Bind active skills for 5 turns + Player -99% HP
+   | group:
+     | (10236:92) You're useless!
+     | Spawn 3 random Jammer orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (10229:83) Protect me! + Let me get rid of these!
+     | Reduce damage from all sources by 50% for 999 turns + Change all Dark orbs to Jammer orbs, Deal 100% damage
+   | group:
+     | (10230:108) It suits you!
+     | Change all Jammer orbs to Mortal Poison orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10228:108) Let me get rid of these!
+     | Change all Dark orbs to Jammer orbs, Deal 100% damage
+     | condition: 33% chance
+     | (10224:50) You're OK with this, right?
+     | Player -99% HP
+     | condition: 34% chance
+     | (10231:15) Hey now, what's up with you?
+     | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 9
+   | (10235:15) You're not that good...
+   | Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (10234:83) Is that it? + Just sleep already!
+   | Bind awoken skills for 2 turns + Bind 4 random subs for 2 turns

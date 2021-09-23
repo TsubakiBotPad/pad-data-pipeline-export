@@ -1,0 +1,30 @@
+#7829 - ランド・カルリジアン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7829
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27789:13) お邪魔かな？
+ | Change 2 random orb types to Jammer orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (27790:67) 何がそんなにおかしい？
+   | Absorb damage when combos <= 6 for 5 turns, Deal 80% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (27791:79) もう少し上だ！もう少し上！
+     | Change the 2nd row to Water orbs and the 3rd row to Fire orbs, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (27793:92) ブラスター
+     | Spawn 3 random Fire and Water orbs, Deal 90% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (27792:17) 俺の船に何をした？
+   | Increase damage to 200% for the next 999 turns

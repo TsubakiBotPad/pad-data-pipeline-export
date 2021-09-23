@@ -1,0 +1,46 @@
+#1998 - Shinra Light Dragon God Ryuga Card
+monster size: 1
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESNone(0:8593) -> ESNone
+nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 11
+
+#9: ESRowSpawnMulti(79:2010) -> Oni Flame Slash
+Condition: 50% chance (ai:50 rnd:0)
+Change the 3rd row to Fire orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESNone(0:8589) -> ESNone
+nothing
+
+#12: ESRowSpawnMulti(79:2010) -> Oni Flame Slash
+Condition: 50% chance (ai:50 rnd:0)
+Change the 3rd row to Fire orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

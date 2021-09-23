@@ -1,0 +1,63 @@
+#102481 - 最終形態・天堂地獄
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:3484) -> Eat me! Tendo Jigoku Absorbing Form!
+Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESRecoverEnemy86(86:3487) -> Regeneration
+Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 30% HP
+
+#10: ESRandomSpawn(92:3489) -> Flame Arrow
+Condition: When < 20% HP (ai:100 rnd:0)
+Spawn 8 random Fire orbs, Deal 260% damage
+
+#11: ESAttackMultihit(15:3485) -> Absorbing Form Bite
+Condition: 70% chance (ai:70 rnd:0)
+Deal 100% damage
+
+#12: ESAttackMultihit(15:3488) -> Strong Blow
+Condition: 70% chance (ai:70 rnd:0)
+Deal 120% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESBranchCard(90:3490) -> ESBranchCard
+Branch on player_cards HAS [2468, 2469], target rnd 18
+
+#17: ESAbsorbAttribute(53:3486) -> Absorption
+Absorb Fire damage for 3 turns
+
+#18: ESAbsorbAttribute(53:3491) -> Shall I devour your 8 dragons as well?
+Absorb Fire damage for 3 turns

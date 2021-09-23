@@ -1,0 +1,70 @@
+#3045 - Juppongatana "Myo-o", Yukyuzan Anji
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBlind62(62:4982) -> All that matters is the mission...
+Blind all orbs on the board, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESOrbChangeAttack(48:4983) -> "Myo-o The Angry" cannot lose!
+Change all Light orbs to Dark orbs, Deal 100% damage
+
+#11: ESAttackMultihit(15:4984) -> "Myo-o The Angry" cannot lose!
+Deal 100% damage
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#13: ESAttackMultihit(15:4989) -> Hyoh!!
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 400% damage
+
+#14: ESBindAttack(63:4988) -> Long range
+Condition: When < 45% HP , one-time use (ai:50 rnd:0) (cost: 1)
+Bind 1 random sub for 3 turns, Deal 80% damage
+
+#15: ESRandomSpawn(92:4987) -> Hyoh!!
+Condition: When < 70% HP (ai:100 rnd:0)
+Spawn 3 random Fire orbs, Deal 150% damage
+
+#16: ESAttackMultihit(15:4986) -> Futae no Kiwami
+Deal 160% damage (2 hits, 80% each)
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 13
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESRecoverEnemy86(86:4985) -> Hyoooh
+Enemy recover 15% HP
+
+#20: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:4964) -> ...Uh......uh...
+	Do nothing

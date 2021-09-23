@@ -1,0 +1,30 @@
+#306078 - Alt. Magical Machinist, Menoa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306078
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18113:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18114:74) Mechanical Wall
+ | Reduce damage from all sources by 90% for 999 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (14721:83) Element Shift + Quick Time
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Movetime -3s for 1 turn, Deal 95% damage
+   | condition: 33% chance
+   | (14722:83) Element Shift + Territory Drop
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + No skyfall for 1 turn
+   | condition: 34% chance
+   | (14723:83) Element Shift + Power Break
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + ATK -25% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (14724:83) Element Shift + Magical Burst
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)

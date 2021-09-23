@@ -1,0 +1,31 @@
+#1380 - ザーボン
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 1380
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1131:66) なぜフリーザさまにさからおうとする…
+ | Do nothing
+
+level: 5
+ type: PREEMPT
+ | (1131:66) なぜフリーザさまにさからおうとする…
+ | Do nothing
+ group:
+ | group:
+ | condition: hp <= 74
+   | condition: 30% chance
+   | (1121:8) うぬぼれやがって…！
+   | Increase damage to 175% for the next attack
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (1122:62) 笑わせるんじゃない!!
+   | Blind all orbs on the board, Deal 125% damage
+ | group:
+ | condition: hp <= 24
+   | (1123:15) うぁがーーっ!!!!
+   | Deal 140% damage (2 hits, 70% each)

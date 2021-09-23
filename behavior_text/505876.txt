@@ -1,0 +1,27 @@
+#505876 - Black Fox of the Autumn Moon, Amakozumi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 505876
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21985:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22100:74) Hehe, entertain me!
+ | Reduce damage from all sources by 90% for 2 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (22101:48) Memoirs of a Quiet Night
+   | Change a random attribute to Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (22102:92) Dark Night's Trick
+   | Spawn 4 random Jammer orbs, Deal 90% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (22103:83) Excellent! + Fox Spirit of the Autumn Moon
+   | ATK -75% for 5 turns + Seal the 1st row for 5 turns

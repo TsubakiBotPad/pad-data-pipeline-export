@@ -1,0 +1,55 @@
+#389 - War Deity, Dark Minerva
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESAttackPreemptive(47:370) -> Quick Bomb
+Deal 100% damage
+
+#2: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 5
+
+#3: ESAttackMultihit(15:265) -> Flame Slash
+Deal 100% damage (2 hits, 50% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 14
+
+#6: ESBindAttribute(2:377) -> Dark Bind
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind Dark cards for 2~4 turns
+
+#7: ESNone(0:0) -> ESNone
+nothing
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESInactivity16(16:371) -> Countless Dark Bullets Appear
+Do nothing
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:372) -> Barrage Bomb
+Deal 120~180% damage (4~6 hits, 30% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBindAttribute(2:396) -> Hyper Dark Bind
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind Dark cards for 10 turns
+
+#15: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 7
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

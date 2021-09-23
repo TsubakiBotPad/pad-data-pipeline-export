@@ -1,0 +1,40 @@
+#104082 - Ryo Sakazaki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffMovetime(39:19613) -> Come! Come!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -2s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRandomSpawn(92:19614) -> Kohou
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Light orbs, Deal 95% damage
+
+#5: ESOrbLock(94:19615) -> Dis Kyokugen Karate, will you?! Now savor the pain it brings.
+Condition: 33% chance (ai:0 rnd:33)
+Lock 3 random orbs, Deal 98% damage
+
+#6: ESAttackMultihit(15:19616) -> Kyokugenryu Renbu Ken
+Condition: 34% chance (ai:0 rnd:34)
+Deal 99% damage (3 hits, 33% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDamageShield(74:19617) -> Kyokugen Karate is peerless! But you realized that too late!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 30% for 4 turns
+
+#9: ESAttackMultihit(15:19618) -> Ryuuko Ranbu
+Deal 120% damage (6 hits, 20% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

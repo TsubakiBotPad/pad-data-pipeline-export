@@ -1,0 +1,31 @@
+#6323 - サー・ナイトアイ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6323
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18440:67) Quirk: Foresight
+ | Absorb damage when combos <= 6 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18441:127) Predict the future and take the initiative.
+     | No skyfall for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18442:92) Humor is an effective weapon.
+     | Spawn 4 random Light and Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18443:17) You're a strong one.
+     | Increase damage to 200% for the next 5 turns
+   | group:
+     | (18444:48) Hyper-Density Seals
+     | Change a random attribute to Light orbs, Deal 150% damage

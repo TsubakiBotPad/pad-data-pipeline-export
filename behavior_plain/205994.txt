@@ -1,0 +1,88 @@
+#205994 - Red Clablin
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 7, target rnd 8
+
+#5: ESAbsorbCombo(67:17017) -> Flame Wall
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 3 for 5 turns
+
+#6: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 12
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESAbsorbCombo(67:16977) -> Flame Wall
+Absorb damage when combos <= 5 for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#13: ESRecoverEnemyAlly(52:17013) -> Revive
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 50% HP
+
+#14: ESRandomSpawn(92:16978) -> Flaming Club
+Condition: 30% chance (ai:30 rnd:0)
+Spawn 4 random Fire orbs, Deal 95% damage
+
+#15: ESRowSpawnMulti(79:16980) -> Burning Blow
+Condition: 30% chance (ai:30 rnd:0)
+Change the 4th row to Fire orbs, Deal 98% damage
+
+#16: ESAttackMultihit(15:16979) -> Thump
+Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 23
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: ESAttackUPRemainingEnemies(17:16981) -> Raised Weapon
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 1 turn
+
+#21: ESAttackMultihit(15:16982) -> Morning Star
+Deal 135% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#24: ESAttackMultihit(15:16982) -> Morning Star
+Deal 135% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESResolve(73:16983) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,51 @@
+#4771 - Kotarou Katsura
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttackMultihit(15:16900) -> It's not Zura. It's Katsura! 
+Deal 50% damage (2 hits, 25% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 10
+
+#7: ESAttackMultihit(15:16902) -> It's my turn now.
+Condition: 50% chance (ai:50 rnd:0)
+Deal 101% damage
+
+#8: ESRandomSpawn(92:16901) -> Let's go, Elizabeth!
+Spawn 3 random Water orbs, Deal 95% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESDamageShield(74:16903) -> I won't run anywhere again.
+Reduce damage from all sources by 30% for 3 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:16904) -> I'm not Katsura. I'm Zura!
+Deal 120% damage (3 hits, 40% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,81 @@
+#2057 - Gilgamesh
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 5
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: SkillSet:
+	[0] ESInactivity66(66:2123) -> Took you long enough!
+	Do nothing
+	[1] ESInactivity66(66:2124) -> I was worried you'd gotten lost!
+	Do nothing
+	[2] ESStatusShield(20:2125) -> It's go time!
+	Voids status ailments for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:2130) -> I suppose I misjudged!
+	Increase damage to 200% for the next 999 turns
+	[1] ESDamageShield(74:2132) -> Fighting all four of you...
+	Reduce damage from all sources by 50% for 1 turn
+	[2] ESStatusShield(20:2134) -> ...is just too tough for me...
+	Voids status ailments for 999 turns
+	[3] ESInactivity66(66:2136) -> ...NOT! Ha, I lied! Like a rug! Oh, I kill me!
+	Do nothing
+	[4] ESAttackMultihit(15:2137) -> Jump
+	Deal 120% damage
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 14
+
+#11: ESBindAttack(63:2139) -> Electrocute
+Condition: 50% chance (ai:50 rnd:0)
+Bind 1 random sub for 2 turns, Deal 80% damage
+
+#12: ESAttackMultihit(15:2137) -> Jump
+Condition: 50% chance (ai:50 rnd:0)
+Deal 120% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:2127) -> Goblin Punch
+Condition: 30% chance (ai:30 rnd:0)
+Deal 80% damage (8 hits, 10% each)
+
+#15: ESOrbChangeAttack(48:2128) -> Aera
+Condition: 30% chance (ai:30 rnd:0)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#16: ESOrbChangeAttack(48:2129) -> Wind Slash
+Condition: 30% chance (ai:30 rnd:0)
+Change a random attribute to Jammer orbs, Deal 120% damage
+
+#17: ESAttackSinglehit(82:1) -> Disable Skill
+Deal 100% damage
+
+#18: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESSkillSet(83:2143) -> Urgh! + I, uh, have an important appointment! + We'll meet again!
+	Do nothing + Do nothing + Do nothing

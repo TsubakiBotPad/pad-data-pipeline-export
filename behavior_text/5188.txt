@@ -1,0 +1,47 @@
+#5188 - Gore Magala
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 5188
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13039:50) Charge
+ | Player -50% HP
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 33% chance
+   | (13040:92) Radial Strike
+   | Spawn 4 random Dark orbs, Deal 95% damage
+   | condition: 34% chance
+   | (13038:15) Multibites
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: execute repeatedly, turn 1 of 6
+   | (13041:17) Frenzy
+   | Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: execute repeatedly, turn 2-4 of 6
+   | condition: 33% chance
+   | (13044:63) Binding Attack
+   | Bind 1 random sub for 2 turns, Deal 100% damage
+   | condition: 33% chance
+   | (13042:100) Wing Combo Strike
+   | Seal the 5th row for 1 turn, Deal 110% damage
+   | condition: 34% chance
+   | (13043:105) Frenzied Wyrm's Breath
+   | RCV 50% for 1 turn, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 5-6 of 6
+   | condition: 33% chance
+   | (13039:50) Charge
+   | Player -50% HP
+   | condition: 33% chance
+   | (13040:92) Radial Strike
+   | Spawn 4 random Dark orbs, Deal 95% damage
+   | condition: 34% chance
+   | (13038:15) Multibites
+   | Deal 110% damage (2 hits, 55% each)

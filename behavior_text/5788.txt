@@ -1,0 +1,37 @@
+#5788 - Yami Marik & The Winged Dragon of Ra - Immortal Phoenix
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5788
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15805:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (15829:72) Water/Light Halved
+ | Reduce damage from Water and Light attrs by 50%
+ type: PREEMPT
+ | (15803:83) Let the Shadow Game begin. + Ra is a card like no other!
+ | Absorb damage when combos <= 6 for 4 turns + Blind all orbs on the board
+ group:
+ | group:
+   | condition: 50% chance
+   | (15799:74) No attacks will work!
+   | Reduce damage from all sources by 75% for 1 turn, Deal 80% damage
+   | (15800:79) Feel its fiery wrath!
+   | Change the 5th row to Fire orbs, Deal 85% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (15798:86) Ra! Resurrect and soar into the sky!
+   | Enemy recover 100% HP
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15804:83) Time to counterattack! + Immortal Phoenix's effect activates!
+     | Do nothing + Increase damage to 150% for the next 1 turn
+   | group:
+     | (15800:79) Feel its fiery wrath!
+     | Change the 5th row to Fire orbs, Deal 85% damage

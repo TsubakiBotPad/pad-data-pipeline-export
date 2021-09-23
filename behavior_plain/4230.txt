@@ -1,0 +1,33 @@
+#4230 - Green Augite, Holy Sword of Jade
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttackUPCooldown(19:9179) -> The Green Augite is pulsating
+Increase damage to 200% for the next 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 3, target rnd 8
+
+#7: ESAttackMultihit(15:9181) -> Slash
+Deal 180% damage
+
+#8: ESRecoverEnemyAlly(52:9180) -> Radiance of Regeneration
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#9: ESAttackMultihit(15:9181) -> Slash
+Deal 180% damage

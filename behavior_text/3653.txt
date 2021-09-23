@@ -1,0 +1,35 @@
+#3653 - Rathian
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3653
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18766:83) Roar + Dash
+ | Seal the 1st column for 6 turns + Player -70% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (18768:89) Aerial Attack
+   | Delay active skills by 2~3 turns, Deal 80% damage
+   | (18769:48) Flame Breath
+   | Change a random attribute to Fire orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18772:83) Tailspin + Wheeling Bite
+     | Change the 3rd row to Poison orbs + Bind 3 random cards for 5 turns, Deal 100% damage
+   | group:
+     | condition: 33% chance
+     | (18771:92) Triple Flame Breath
+     | Spawn 8 random Fire orbs, Deal 90% damage
+     | condition: 33% chance
+     | (18775:15) Triple Dash
+     | Deal 99% damage (3 hits, 33% each)
+     | condition: 34% chance
+     | (18776:77) Aerial Tail Somersault
+     | Change the 6th column to Poison orbs, Deal 115% damage

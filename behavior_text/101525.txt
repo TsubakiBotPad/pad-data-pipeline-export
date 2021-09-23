@@ -1,0 +1,35 @@
+#101525 - Alt. Honorable Dragon General, Kanetsugu
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 101525
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1377:20) Shining Love
+ | Voids status ailments for 10 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1378:48) Honorable Dragon Cannon
+   | Change a random attribute to Heal orbs, Deal 300% damage
+ | group:
+ | condition: always turn 1, hp <= 84
+   | (1379:19) Honorable Dragon's Roar
+   | Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (1381:3) Gaze of the Honorable Dragon
+   | Bind Devil cards for 5 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1378:48) Honorable Dragon Cannon
+     | Change a random attribute to Heal orbs, Deal 300% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1380:48) Gold Coin Throw
+     | Change all Heal orbs to Jammer orbs, Deal 50% damage

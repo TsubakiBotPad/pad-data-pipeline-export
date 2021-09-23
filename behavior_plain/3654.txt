@@ -1,0 +1,75 @@
+#3654 - Kirin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESGravity(50:7241) -> Dash Attack
+Player -99% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:7242) -> Rage
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 145% for the next 10 turns
+
+#9: ESBindAttack(63:7243) -> Great Thunderbolt
+Condition: When < 10% HP (ai:100 rnd:0)
+Bind 6 random cards for 5 turns, Deal 250% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#11: ESBindAttack(63:7245) -> Thunderbolt
+Condition: 25% chance (ai:0 rnd:25)
+Bind player leader for 1 turn, Deal 100% damage
+
+#12: ESBindAttack(63:7246) -> Thunderbolt
+Condition: 25% chance (ai:0 rnd:25)
+Bind friend leader for 1 turn, Deal 100% damage
+
+#13: ESBindAttack(63:7247) -> Thunderbolt
+Condition: 25% chance (ai:0 rnd:25)
+Bind 2 random subs for 1 turn, Deal 100% damage
+
+#14: ESAttackMultihit(15:7244) -> Back Kick
+Condition: 25% chance (ai:0 rnd:25)
+Deal 150% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBindAttack(63:7248) -> Thunderbolt
+Condition: 25% chance (ai:0 rnd:25)
+Bind player leader for 2 turns, Deal 100% damage
+
+#17: ESBindAttack(63:7249) -> Thunderbolt
+Condition: 25% chance (ai:0 rnd:25)
+Bind friend leader for 2 turns, Deal 100% damage
+
+#18: ESBindAttack(63:7250) -> Thunderbolt
+Condition: 25% chance (ai:0 rnd:25)
+Bind 2 random subs for 2 turns, Deal 100% damage
+
+#19: ESAttackMultihit(15:7244) -> Back Kick
+Condition: 25% chance (ai:0 rnd:25)
+Deal 150% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,153 @@
+#2526 - Awoken Machine Hera
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3637) -> Singularity
+	Absorb Light and Dark damage for 2 turns
+	[1] ESStatusShield(20:3565) -> Machinery Body
+	Voids status ailments for 999 turns
+
+#5: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3637) -> Singularity
+	Absorb Light and Dark damage for 2 turns
+	[1] ESStatusShield(20:3565) -> Machinery Body
+	Voids status ailments for 999 turns
+
+#6: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3637) -> Singularity
+	Absorb Light and Dark damage for 2 turns
+	[1] ESStatusShield(20:3565) -> Machinery Body
+	Voids status ailments for 999 turns
+
+#7: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3637) -> Singularity
+	Absorb Light and Dark damage for 2 turns
+	[1] ESStatusShield(20:3565) -> Machinery Body
+	Voids status ailments for 999 turns
+
+#8: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3637) -> Singularity
+	Absorb Light and Dark damage for 2 turns
+	[1] ESStatusShield(20:3565) -> Machinery Body
+	Voids status ailments for 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESGravity(50:3572) -> Dark Railgun
+Condition: When < 20% HP (ai:100 rnd:0)
+Player -1,000% HP
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 25
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESSkillDelay(89:3566) -> Black Weapon
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 3 turns, Deal 130% damage
+
+#15: ESRandomSpawn(92:3567) -> Black Weapon
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Mortal Poison orbs, Deal 130% damage
+
+#16: ESOrbLock(94:3569) -> Black Weapon
+Condition: 34% chance (ai:0 rnd:34)
+Lock 8 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs, Deal 130% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#19: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3593) -> Elemental Absorber
+	Absorb Fire damage for 2 turns
+	[1] ESOrbChangeAttack(48:3608) -> Flare Combat
+	Change a random attribute to Fire orbs, Deal 130% damage
+
+#20: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3594) -> Elemental Absorber
+	Absorb Water damage for 2 turns
+	[1] ESOrbChangeAttack(48:3609) -> Aqua Combat
+	Change a random attribute to Water orbs, Deal 130% damage
+
+#21: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3595) -> Elemental Absorber
+	Absorb Wood damage for 2 turns
+	[1] ESOrbChangeAttack(48:3610) -> Earth Combat
+	Change a random attribute to Wood orbs, Deal 130% damage
+
+#22: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3596) -> Elemental Absorber
+	Absorb Light damage for 2 turns
+	[1] ESOrbChangeAttack(48:3611) -> Light Combat
+	Change a random attribute to Light orbs, Deal 130% damage
+
+#23: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:3597) -> Elemental Absorber
+	Absorb Dark damage for 2 turns
+	[1] ESOrbChangeAttack(48:3612) -> Dark Combat
+	Change a random attribute to Dark orbs, Deal 130% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 29
+
+#26: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:3575) -> Limit Signal
+	Bind awoken skills for 2 turns
+	[1] ESRandomSpawn(92:3573) -> Rust Generate
+	Spawn 12 random Jammer orbs
+
+#27: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindRandom(1:3574) -> Numb Signal
+	Bind 4 random cards for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:3577) -> Power Steel
+	Increase damage to 200% for the next 1 turn
+
+#28: ESAttackMultihit(15:3571) -> Myriad Swords Wings
+Deal 150~240% damage (5~8 hits, 30% each)
+
+#29: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 26
+
+#30: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#31: ESRecoverEnemy86(86:3570) -> Half Repair
+Enemy recover 50% HP
+
+#32: ESAttributeResist(72:3564) -> 光半減
+Reduce damage from Light attrs by 50%

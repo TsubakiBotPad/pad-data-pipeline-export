@@ -1,0 +1,53 @@
+#103153 - Alt. Azure Spring Dragon Goddess, Kuramitsuha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103153
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5736:83) Let us head into the darkness... + Mist of Hidden Sorrow
+ | Delay active skills by 2~3 turns + Jammer skyfall +20% for 15 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (5748:83) Elemental Shield Protection + Veiled Boundaries
+   | Reduce damage from all sources by 50% for 10 turns + Blind orbs in specific positions for 1 turn, Deal 90% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 25% chance
+     | (5737:98) A Shroud from the East
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (5738:98) A Shroud from the West
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (5739:98) Blackened Heavens
+     | Blind orbs in specific positions for 1 turn, Deal 90% damage
+     | condition: 25% chance
+     | (5740:98) Blackened Earth
+     | Blind orbs in specific positions for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (5743:79) Shadow Blade Storm
+     | Change the 3rd row to Water and Jammer orbs, Deal 110% damage
+     | condition: 50% chance
+     | (5742:63) Dark Water Roaring Chains
+     | Bind 1 random card for 1 turn, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5746:15) Drumming in the Night
+     | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (5744:87) Thousand-Year Imprisonment
+     | Absorb damage when damage >= 800,000 for 10 turns
+   | group:
+     | (5747:98) Stirring the Eternal Grudge
+     | Blind orbs in specific positions for 1 turn, Deal 600% damage

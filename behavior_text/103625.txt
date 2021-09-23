@@ -1,0 +1,43 @@
+#103625 - 魔術師・飛王・リード
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 103625
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 3613 on team
+ | (6738:83) You're nothing more than a puppet! + Death Seal
+ | Voids status ailments for 4 turns + Player -99% HP
+ | condition: when 3611, 3612 on team
+ | (6737:83) I shall erase you from all dimensions! + Death Seal
+ | Voids status ailments for 4 turns + Player -99% HP
+ | (6705:83) Let me grant your wish + Death Seal
+ | Voids status ailments for 4 turns + Player -99% HP
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 6
+   | (6706:92) Black wings overturn the corpses
+   | Spawn 3 random Jammer orbs
+ | group:
+ | condition: execute repeatedly, turn 2 of 6
+   | (6707:92) Black wings overturn the corpses
+   | Spawn 6 random Jammer orbs
+ | group:
+ | condition: execute repeatedly, turn 3 of 6
+   | (6708:92) Black wings overturn the corpses
+   | Spawn 12 random Jammer orbs
+ | group:
+ | condition: execute repeatedly, turn 4 of 6
+   | (6709:92) Black wings overturn the corpses
+   | Spawn 24 random Jammer orbs
+ | group:
+ | condition: execute repeatedly, turn 5 of 6
+   | (6710:85) Black wings overturned all the corpses
+   | Change all orbs to Jammer, Deal 500% damage
+ | group:
+ | condition: execute repeatedly, turn 6 of 6
+   | (6704:50) Death Seal
+   | Player -99% HP

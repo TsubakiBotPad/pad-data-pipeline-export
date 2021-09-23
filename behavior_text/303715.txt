@@ -1,0 +1,27 @@
+#303715 - Awoken Raphael
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303715
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18051:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18052:50) Perish!
+ | Player -150% HP
+ group:
+ | group:
+ | condition: turns 1-2
+   | (18053:83) Vanish! + Lightning of Judgement
+   | Voids player buff effects + Deal 200% damage (4 hits, 50% each), Deal 200% damage (4 hits, 50% each)
+ | group:
+ | condition: turn 3
+   | (18056:19) Reduce to ashes!
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | (18053:83) Vanish! + Lightning of Judgement
+   | Voids player buff effects + Deal 200% damage (4 hits, 50% each), Deal 200% damage (4 hits, 50% each)

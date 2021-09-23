@@ -1,0 +1,33 @@
+#4210 - South Loving Goddess, Leilan
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4210
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8970:78) This is a little awkward...
+ | Change the 3rd row to Fire orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 4
+     | condition: 15% chance
+     | (8972:88) Trouncing Wink
+     | Bind awoken skills for 2 turns
+     | (8995:15) Sweet Combo
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (8973:62) No peeking!
+     | Blind all orbs on the board, Deal 120% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (8971:53) Suzaku's Perception
+   | Absorb Fire damage for 2 turns
+ | group:
+ | condition: hp <= 9
+   | (8974:85) Suzaku Seven-Star Perception
+   | Change all orbs to Fire, Wood, and Light, Deal 180% damage

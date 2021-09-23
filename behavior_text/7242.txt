@@ -1,0 +1,37 @@
+#7242 - Darkshade Snake of the Eclipse, Apophis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7242
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23712:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23713:83) Symbol of Chaos + Snakeskin of Turmoil + Tail-Eye Opens + Glaring Eyes
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000,000 for 999 turns + Haste both leaders' skills by 99 turns + Delay random sub's skills by 10~40 turns
+ group:
+ | group:
+   | (23796:128) Everlasting Eclipse
+   | For 99 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (23718:83) Power of Chaos + Great Snake's Stare + Tail-Eye Opens
+   | Increase damage to 150% for the next 999 turns + ATK -90% for 99 turns + Haste both leaders' skills by 99 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (23730:83) Guidance to a Lightless World + Great Snake's Stare
+     | Bind awoken skills for 1 turn + ATK -90% for 99 turns
+   | group:
+     | (23732:83) Snakeskin of Transformation + Glaring Great Snake
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Haste all cards' skills by 99 turns, Deal 2,000% damage
+ type: UNKNOWN_USE
+ | (23721:83) Rampant Evil + Glaring Snake Eyes
+ | Change the 1st and 5th rows to Dark and Jammer orbs + Haste random sub's skills by 1~10 turns, Deal 50% damage
+ | (23724:83) Swallowing the Sun + Glaring Snake Eyes
+ | Blind random 15 orbs for 3 turns + Delay random sub's skills by 3~10 turns, Deal 100% damage

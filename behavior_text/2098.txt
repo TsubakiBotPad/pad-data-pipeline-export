@@ -1,0 +1,52 @@
+#2098 - Griffin Rider, Gilliam
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2098
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13792:83) Flight Through Clear Skies + Wind Mischief
+ | Absorb damage when combos <= 7 for 10 turns + Random 2 orbs change every 0.5s for 10 turns
+ group:
+ | group:
+ | condition: always turn 10
+   | (13795:83) Air Resistance + Down Force
+   | Reduce damage from all sources by 75% for 10 turns + Delay active skills by 10 turns
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 50
+     | condition: 33% chance
+     | (13801:48) Royal Gale
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 33% chance
+     | (13802:15) Eternal Wind
+     | Deal 120% damage (3 hits, 40% each)
+     | condition: 34% chance
+     | (13803:94) Glowing Ethesia
+     | Lock all Wood and Dark orbs, Deal 110% damage
+   | group:
+     | condition: 33% chance
+     | (13801:48) Royal Gale
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 33% chance
+     | (13802:15) Eternal Wind
+     | Deal 120% damage (3 hits, 40% each)
+     | condition: 34% chance
+     | (13803:94) Glowing Ethesia
+     | Lock all Wood and Dark orbs, Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 50
+   | (13798:83) Mistral Arrow + Calm Breeze
+   | Change the 1st and 5th rows to Poison orbs and the 3rd row to Mortal Poison orbs + No skyfall for 5 turns, Deal 110% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turns 1-9
+     | (13804:85) Rush Storm
+     | Change all orbs to Wood and Dark, Deal 300% damage
+   | group:
+     | (13804:85) Rush Storm
+     | Change all orbs to Wood and Dark, Deal 300% damage

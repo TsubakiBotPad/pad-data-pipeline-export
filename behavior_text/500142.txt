@@ -1,0 +1,29 @@
+#500142 - Flamedragon Muspelheim
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500142
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14510:39) Heat Wave
+ | Movetime -2s for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (14511:48) Fire Eating
+   | Change all Fire orbs to Jammer orbs, Deal 50% damage
+   | (14512:15) Colossal Fireball
+   | Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | condition: 30% chance
+   | (14511:48) Fire Eating
+   | Change all Fire orbs to Jammer orbs, Deal 50% damage
+   | (14521:15) Colossal Fireball
+   | Deal 130% damage
+ type: UNKNOWN_USE
+ | (14513:15) Colossal Fireball
+ | Deal 200% damage

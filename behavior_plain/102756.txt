@@ -1,0 +1,29 @@
+#102756 - Crimson Orchid Virtue, Xiang Mei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:10160) -> Colorful Melody
+	Spawn 8 random Fire, Water, Wood, and Heal orbs
+	[1] ESRandomSpawn(92:10161) -> Love of Fair Crimson
+	Spawn 1 random Heal orb
+
+#3: ESAttackMultihit(15:10165) -> Compassionate Butterfly
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 200% damage (10 hits, 20% each)
+
+#4: ESRandomSpawn(92:10163) -> Flame Bloom
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Fire orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:10164) -> Crimson Wing Dance
+Deal 120% damage (3 hits, 40% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,65 @@
+#303341 - 進月の地柱神・コンス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 303341
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29188:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (29155:83) さぁ、戦おうよ！ + 進月の緑光 + ムーンリーフ
+ | Voids status ailments for 999 turns + Absorb Wood and Light damage for 5 turns + Change the 1st row to Wood orbs, Deal 30% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (29180:83) 地柱神の祈り + 照葉 + スピードリーフ
+     | Wood skyfall +25% for 1 turn + Lock 10 random orbs + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: turn 2 while HP > 49
+     | (29184:83) 生命の樹葉 + 生命奪取 + スピードリーフ
+     | Change all Wood orbs to Heal orbs + RCV 25% for 1 turn + Deal 96% damage (4 hits, 24% each), Deal 10% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (29180:83) 地柱神の祈り + 照葉 + スピードリーフ
+     | Wood skyfall +25% for 1 turn + Lock 10 random orbs + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: turn 4 while HP > 49
+     | (29184:83) 生命の樹葉 + 生命奪取 + スピードリーフ
+     | Change all Wood orbs to Heal orbs + RCV 25% for 1 turn + Deal 96% damage (4 hits, 24% each), Deal 10% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | (29169:83) リーフエンハンス + ムーンガード
+     | Increase damage to 150% for the next 999 turns + Reduce damage from all sources by 50% for 99 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (29180:83) 地柱神の祈り + 照葉 + スピードリーフ
+     | Wood skyfall +25% for 1 turn + Lock 10 random orbs + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (29184:83) 生命の樹葉 + 生命奪取 + スピードリーフ
+     | Change all Wood orbs to Heal orbs + RCV 25% for 1 turn + Deal 96% damage (4 hits, 24% each), Deal 10% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (29173:83) 深緑のオーラ + 地柱神の導き + スピードリーフ
+   | Absorb damage when combos <= 8 for 1 turn + Fix orb movement starting point to random position on the board + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+   | (29177:83) ポイズンリーフ + 深緑増加
+   | Spawn 9 random Mortal Poison orbs + Change all Fire orbs to Wood orbs, Deal 106% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (29163:83) リーフガード + 煌めく月 + 嵐葉
+     | Void damage >= 10,000,000 for 1 turn + Bind awoken skills for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
+   | group:
+     | (29166:83) 大気光象 + リーフブラスト
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,100% damage (7 hits, 300% each), Deal 2,100% damage (7 hits, 300% each)
+ | group:
+ | condition: hp <= 1
+   | (29159:83) 地柱神の光 + 煌めく月 + 鮮やかな緑光
+   | Enemy recover 100% HP + Bind awoken skills for 1 turn + Bind 2 random subs for 3 turns

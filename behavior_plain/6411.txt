@@ -1,0 +1,28 @@
+#6411 - Deadly Sin Dragon of Greed, Rhamamoa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindAwoken(88:18859) -> Avaricious Scheme
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 3 turns
+
+#3: ESRandomSpawn(92:18860) -> Disseminating Light
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Light orbs, Deal 100% damage
+
+#4: ESAttackMultihit(15:18861) -> Strike of Riches
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (4 hits, 30% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:18919) -> I won't let anybody take my treasure!
+	Do nothing

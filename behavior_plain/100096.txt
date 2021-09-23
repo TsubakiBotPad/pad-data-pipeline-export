@@ -1,0 +1,26 @@
+#100096 - Alt. Succubus
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:23206) -> Dark Night's Temptation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs
+
+#3: ESSkyfall(68:23207) -> Dark Night's Temptation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Poison skyfall +15% for 15 turns
+
+#4: ESAttackUPRemainingEnemies(17:23208) -> Nightmare Inducing
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#5: ESRandomSpawn(92:23209) -> Poison Mist
+Spawn 3 random Poison and Mortal Poison orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

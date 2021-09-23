@@ -1,0 +1,58 @@
+#1365 - Shadow Moon Dragon Knight, Mulan
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:1404) -> Here I go
+Voids status ailments for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESDebuffMovetime(39:1405) -> Moonflower Gaze
+Movetime -1s for 4 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#13: ESOrbChangeAttack(48:1406) -> Moon Heaven Strike
+Condition: 50% chance (ai:50 rnd:0)
+Change all Light orbs to Dark orbs, Deal 85% damage
+
+#14: ESAttackMultihit(15:1407) -> Nine Dragon Claws
+Deal 120% damage (3 hits, 40% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBlind62(62:1408) -> Get ready for this
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board, Deal 10% damage
+
+#17: ESAttackMultihit(15:1409) -> Moonshadow Dance
+Deal 160% damage (4 hits, 40% each)

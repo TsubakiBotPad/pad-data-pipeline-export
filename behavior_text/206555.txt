@@ -1,0 +1,39 @@
+#206555 - Twelve Kizuki: Upper Rank 3, Akaza
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206555
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20113:83) Destructive Death: Compass Needle + If you won't become a demon, I'll have to kill you.
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (20081:83) Destructive Death: Compass Needle + If you won't become a demon, I'll have to kill you.
+ | Reduce damage from all sources by 50% for 3 turns + Player -75% HP
+ group:
+ | group:
+   | (20084:15) Destructive Death: Air Type
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (20085:83) You need all your strength for me! + Concentrate on me!
+     | Absorb damage when combos <= 5 for 3 turns + Movetime -3s for 3 turns
+   | group:
+     | (20088:15) Destructive Death: Disorder
+     | Deal 165% damage (5 hits, 33% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (20089:83) Then you could fight me forever! + Technique Development
+     | Do nothing + Increase damage to 150% for the next 999 turns
+   | group:
+     | (20092:15) Destructive Death: Annihilation Type
+     | Deal 200% damage (10 hits, 20% each)

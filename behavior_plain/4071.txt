@@ -1,0 +1,73 @@
+#4071 - Great Mocking Mask Duke of Hell, Dantalion
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCard(90:13851) -> ESBranchCard
+Branch on player_cards HAS [3940, 3941], target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:13888) -> Let me show you the Puppet Show
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:13889) -> Which? Comedy? Tragedy?
+	Absorb damage when combos <= 6 for 999 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:13890) -> Did you find it?
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:13889) -> Which? Comedy? Tragedy?
+	Absorb damage when combos <= 6 for 999 turns
+
+#5: ESNoSkyfall(127:13891) -> Boring as expected
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No skyfall for 10 turns
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 12
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBlindStickyRandom(97:13896) -> The black puppet starts to move
+	Blind random 4 orbs for 1 turn
+	[1] ESRowSpawnMulti(79:13898) -> Innocent Inferno
+	Change the 3rd row to Fire orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBlindStickyRandom(97:13896) -> The black puppet starts to move
+	Blind random 4 orbs for 1 turn
+	[1] ESOrbChangeAttack(48:13899) -> Oblivion Flame
+	Change a random attribute to Jammer orbs, Deal 95% damage
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESSpinnersRandom(109:13897) -> The white puppet starts to move
+	Random 2 orbs change every 1.0s for 1 turn
+	[1] ESBoardChangeAttackBits(85:13900) -> Misconversion
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 90% damage
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESSpinnersRandom(109:13897) -> The white puppet starts to move
+	Random 2 orbs change every 1.0s for 1 turn
+	[1] ESAttackMultihit(15:13901) -> Concept Break
+	Deal 120% damage (3 hits, 40% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackUPRemainingEnemies(17:13902) -> Hihihi, it's almost over
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#13: ESAttackMultihit(15:13903) -> I'll be back soon for the sequel
+Deal 300% damage (5 hits, 60% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

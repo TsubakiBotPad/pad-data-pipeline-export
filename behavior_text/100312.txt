@@ -1,0 +1,24 @@
+#100312 - Alt. Blazing Ice Ogre
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100312
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8206:73) Ogre Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (8269:15) Strike
+ | Deal 60% damage (2 hits, 30% each)
+ group:
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 100
+   | (367:1) Binding Move
+   | Bind 1 random card for 10 turns
+ | group:
+ | condition: hp <= 49
+   | (365:15) Flame Strike
+   | Deal 150% damage

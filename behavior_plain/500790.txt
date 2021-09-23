@@ -1,0 +1,33 @@
+#500790 - Stone Gaze Demon Bird, Cockatrice
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESJammerChangeRandom(13:503) -> Chaos Eye
+Change 2 random orb types to Jammer orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 30, target rnd 8
+
+#7: ESBindRandom(1:504) -> Pupil of the Evil Eye
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 2 random cards for 4 turns
+
+#8: ESAttackMultihit(15:512) -> Snake Bite
+Deal 130% damage (2 hits, 65% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

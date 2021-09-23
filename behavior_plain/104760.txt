@@ -1,0 +1,44 @@
+#104760 - Kamui
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchCard(90:11024) -> ESBranchCard
+Branch on player_cards HAS [4765], target rnd 6
+
+#5: ESLeaderSwap(75:11066) -> Stand down. I'm enjoying myself right now.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 2 turns
+
+#6: ESSkillDelay(89:11019) -> You're acting too arrogant towards me!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 0~2 turns
+
+#7: ESAttackMultihit(15:11023) -> I want nothing to do with weaklings.
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 240% damage (4 hits, 60% each)
+
+#8: ESAttackMultihit(15:11020) -> You're in the way. Move.
+Condition: 33% chance (ai:0 rnd:33)
+Deal 120% damage (2 hits, 60% each)
+
+#9: ESSkyfall(68:11021) -> I'll kill you.
+Condition: 33% chance (ai:0 rnd:33)
+Fire and Dark skyfall +20% for 3 turns
+
+#10: ESBindAttack(63:11022) -> Sorry, but I won't let anyone ruin my fun.
+Condition: 34% chance (ai:0 rnd:34)
+Bind 1 random sub for 1 turn, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

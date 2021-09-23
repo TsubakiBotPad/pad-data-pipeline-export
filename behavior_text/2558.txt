@@ -1,0 +1,30 @@
+#2558 - Alcyone
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2558
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18610:83) Deep in the night's sky... + the stars shine brightly... + It's so bright! Turn them off...
+ | Blind all orbs on the board + Spawn 6 random Light orbs + Lock all Light orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (18621:108) Ugh! It's too bright!!
+   | Change all Light orbs to Heal orbs, Deal 10,000% damage
+   | (18614:83) Mmmm... + It's bright...mmmnmm... + Zzzz...
+   | Spawn 10 random Water, Light, and Dark orbs + Lock all Light orbs + Blind all orbs on the board
+ | group:
+ | condition: turn 2
+   | (18621:108) Ugh! It's too bright!!
+   | Change all Light orbs to Heal orbs, Deal 10,000% damage
+   | (18617:83) Mm... + Just a bit longer... + It's bright...mmmnmm... + Zzzz...
+   | Spawn 15 random Light and Jammer orbs + Movetime -1s for 1 turn + Lock all Light orbs + Blind all orbs on the board
+ | group:
+   | (18621:108) Ugh! It's too bright!!
+   | Change all Light orbs to Heal orbs, Deal 10,000% damage
+   | (18620:40) Ahhh, I slept well...
+   | Reduce self HP to 0

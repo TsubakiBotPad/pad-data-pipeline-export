@@ -1,0 +1,32 @@
+#101758 - Alt. Black Flying Sorceress, Goetia
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 101758
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17237:73) Goe Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (14337:83) Sorcerous Barrier + Are you challenging me? + Grovel before me
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 10 turns + RCV 0% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | (14341:83) Magical Power Transformation + Evil Restriction
+     | Change a random attribute to Dark orbs + Lock 15 random orbs, Deal 50% damage
+   | group:
+   | condition: turn 10 while HP > 9
+     | (14347:83) Devil's Restraint + Devil Unleashed!
+     | Bind 6 random cards for 1 turn + Deal 1,400% damage (7 hits, 200% each), Deal 1,400% damage (7 hits, 200% each)
+   | group:
+     | (14349:15) Devil Unleashed!
+     | Deal 1,400% damage (7 hits, 200% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (14344:83) Solomon's Necromancy + The Devil's Guidance
+   | Voids player buff effects + Increase damage to 200% for the next 999 turns

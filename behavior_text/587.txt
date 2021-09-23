@@ -1,0 +1,29 @@
+#587 - Werewolf
+monster size: 2
+new AI: False
+start/max counter: 0
+counter increment: 0
+monster_id: 587
+approved: False
+
+level: 5
+ group:
+ condition: hp <= 69
+ | condition: 70% chance
+ | (240:15) Wolf Combo
+ | Deal 125% damage (5 hits, 25% each)
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (516:17) Howl of Anger
+   | Increase damage to 300% for the next 10 turns
+ | group:
+ | condition: always turn 12
+   | (516:17) Howl of Anger
+   | Increase damage to 300% for the next 10 turns
+ | group:
+ | condition: turns 2-11, hp <= 69
+   | condition: 70% chance
+   | (240:15) Wolf Combo
+   | Deal 125% damage (5 hits, 25% each)

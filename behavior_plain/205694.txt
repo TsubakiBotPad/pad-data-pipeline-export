@@ -1,0 +1,61 @@
+#205694 - 速杉ハヤト＆Ｅ５はやぶさ
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:15185) -> チェンジ、シンカリオン！
+	Voids status ailments for 999 turns
+	[1] ESOrbLock(94:15186) -> インターロック
+	Lock all orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 12
+
+#9: ESDamageShield(74:15188) -> 絶対諦めないから
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 3 turns, Deal 150% damage
+
+#10: ESColumnSpawnMulti(77:15187) -> カイサツソード！
+Change the 3rd column to Wood orbs and the 4th column to Wood orbs, Deal 125% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESAttackUPRemainingEnemies(17:15189) -> 決めるよ、シャショット！
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESRowSpawnMulti(79:15190) -> グランクロス！
+Change the 2nd row to Wood orbs, the 3rd row to Wood orbs, and the 4th row to Wood orbs, Deal 200% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

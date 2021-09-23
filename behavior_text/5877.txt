@@ -1,0 +1,44 @@
+#5877 - Sha-77 Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5877
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16605:98) 7 Scar
+ | Blind orbs in specific positions for 1 turn
+ group:
+ | condition: 50% chance
+ | (16539:92) Sha-Dragon Flare
+ | Spawn 7 random Fire orbs, Deal 300% damage
+ | condition: 50% chance
+ | (16541:15) 7th Impact
+ | Deal 315% damage (7 hits, 45% each)
+
+level: 5
+ type: PREEMPT
+ | (16538:98) 7 Scar
+ | Blind orbs in specific positions for 7 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (16539:92) Sha-Dragon Flare
+   | Spawn 7 random Fire orbs, Deal 300% damage
+   | condition: 33% chance
+   | (16540:92) Rainbow 77
+   | Spawn 1 random Fire, Water, Wood, Light, Dark, Jammer, and Poison orb, Deal 280% damage
+   | condition: 34% chance
+   | (16541:15) 7th Impact
+   | Deal 315% damage (7 hits, 45% each)
+ | group:
+ | condition: hp <= 6
+   | group:
+   | condition: turn 1
+     | (16542:103) 77 Bomb
+     | Spawn locked Bomb orbs in the specified positions
+   | group:
+     | (16543:15) Sha-rded Impact -77-
+     | Deal 700% damage (7 hits, 100% each)

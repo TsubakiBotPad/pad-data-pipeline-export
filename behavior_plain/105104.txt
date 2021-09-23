@@ -1,0 +1,92 @@
+#105104 - Vega
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDebuffMovetime(39:12470) -> Let my beauty intoxicate you.
+Movetime -2s for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESLeaderSwap(75:12435) -> Izuna Drop
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 1 turn, Deal 90% damage
+
+#10: ESAttackMultihit(15:12433) -> Buster Claw
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#11: ESAttackMultihit(15:12434) -> Matador Flash
+Condition: 33% chance (ai:0 rnd:33)
+Deal 105% damage (3 hits, 35% each)
+
+#12: ESSpinnersRandom(109:12471) -> Aurora Spin Edge
+Condition: 34% chance (ai:0 rnd:34)
+Random 3 orbs change every 1.0s for 3 turns, Deal 95% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESAbsorbCombo(67:12432) -> Matador Turn
+Absorb damage when combos <= 4 for 5 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESLeaderSwap(75:12438) -> Grand Izuna Drop
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 2 turns, Deal 90% damage
+
+#19: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 25
+
+#20: ESRowSpawnMulti(79:12439) -> Bloody Kiss - Torero
+Condition: 30% chance (ai:0 rnd:30)
+Change the 3rd row to Dark orbs, Deal 130% damage
+
+#21: ESColumnSpawnMulti(77:12440) -> Bloody Kiss - Rojo
+Condition: 30% chance (ai:0 rnd:30)
+Change the 5th column to Light orbs, Deal 130% damage
+
+#22: ESOrbChangeAttack(48:12441) -> Bloody Kiss - Azul
+Condition: 30% chance (ai:0 rnd:30)
+Change a random attribute to Jammer orbs, Deal 120% damage
+
+#23: ESAttackMultihit(15:12437) -> Matador Blitz
+Condition: 10% chance (ai:0 rnd:10)
+Deal 120% damage (3 hits, 40% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttackMultihit(15:12442) -> Bloody Rain
+Deal 224% damage (8 hits, 28% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn

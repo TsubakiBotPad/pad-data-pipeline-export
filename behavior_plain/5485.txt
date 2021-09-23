@@ -1,0 +1,154 @@
+#5485 - Super Reincarnated Lakshmi
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:25000) -> Play with me!
+	Bind awoken skills for 6 turns
+	[1] ESSkillDelay(89:25001) -> I challenge you to a puzzle!
+	Delay active skills by 99 turns
+	[2] ESRandomSpawn(92:25003) -> Here's what you have to do...
+	Spawn 10 random Heal, Jammer, Poison, and Mortal Poison orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESOrbChangeAttackBits(108:25024) -> Bad luck! I win♪
+Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: SkillSet:
+	[0] ESBlind5(5:25005) -> On to the next one!
+	Blind all orbs on the board
+	[1] ESBindSkill(14:25006) -> How about...
+	Bind active skills for 5 turns
+	[2] ESRandomSpawn(92:25007) -> ...THIS?
+	Spawn 6 random Jammer and Poison orbs
+	[3] ESBindTarget(54:25008) -> Here's a little bonus for you♪
+	Bind both leaders for 5 turns
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESOrbChangeAttackBits(108:25024) -> Bad luck! I win♪
+Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: SkillSet:
+	[0] ESBlind5(5:25015) -> Let's keep going♪
+	Blind all orbs on the board
+	[1] ESRandomSpawn(92:25027) -> Are you ready?!
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[2] ESNoSkyfall(127:25016) -> Next up!
+	No skyfall for 1 turn
+	[3] ESRandomSpawn(92:25017) -> Try to only make one combo♪
+	Spawn 15 random Jammer orbs
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 21
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#16: ESOrbChangeAttackBits(108:25024) -> Bad luck! I win♪
+Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+
+#17: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 2, target rnd 19
+
+#18: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 1, target rnd 21
+
+#19: ESAttackMultihit(15:25026) -> Bad luck! I win♪
+Deal 10,000% damage (10 hits, 1,000% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 24
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#23: SkillSet:
+	[0] ESAbsorbCombo(67:25010) -> Now, can you make 5 combos?!
+	Absorb damage when combos <= 4 for 1 turn
+	[1] ESDebuffMovetime(39:25011) -> Don't forget to erase all the Jammers...
+	Movetime -1s for 1 turn
+	[2] ESRandomSpawn(92:25012) -> Go!
+	Spawn 10 random Jammer orbs
+	[3] ESSpinnersRandom(109:25013) -> Oh! I'll add this too!
+	Random 1 orbs change every 0.5s for 1 turn
+
+#24: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 29
+
+#25: ESSetCounter(25:15) -> ESSetCounter
+counter = 2
+
+#26: ESOrbChangeAttackBits(108:25024) -> Bad luck! I win♪
+Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+
+#27: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 5, target rnd 29
+
+#28: ESAttackMultihit(15:25026) -> Bad luck! I win♪
+Deal 10,000% damage (10 hits, 1,000% each)
+
+#29: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 32
+
+#30: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#31: SkillSet:
+	[0] ESRandomSpawn(92:25019) -> This is the last puzzle!
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESAbsorbCombo(67:25020) -> I want you to make 6 combos♪
+	Absorb damage when combos <= 5 for 1 turn
+	[2] ESRandomSpawn(92:25021) -> And of course, don't forget...
+	Spawn 12 random Jammer orbs
+	[3] ESCloud(104:25022) -> Annnd... Go!
+	A 2×2 square of clouds appears for 1 turn at 2nd row, 2nd column
+
+#32: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 37
+
+#33: ESSetCounter(25:15) -> ESSetCounter
+counter = 3
+
+#34: ESOrbChangeAttackBits(108:25024) -> Bad luck! I win♪
+Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+
+#35: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 37
+
+#36: ESAttackMultihit(15:25026) -> Bad luck! I win♪
+Deal 10,000% damage (10 hits, 1,000% each)
+
+#37: SkillSet:
+	[0] ESInactivity66(66:25025) -> That's it! I had a blast♪
+	Do nothing
+	[1] ESBoardChange(84:25028) -> Splaaaaaash☆
+	Change all orbs to Water
+	[2] ESEndBattle(40:25030) -> Let's meet again!
+	Reduce self HP to 0

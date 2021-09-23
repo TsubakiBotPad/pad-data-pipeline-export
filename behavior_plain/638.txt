@@ -1,0 +1,43 @@
+#638 - Fallen Angel Lucifer
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindAttribute(2:1312) -> Charismatic Evil
+Bind Dark cards for 3 turns
+
+#5: ESPoisonChangeRandomCount(60:1313) -> I will be your opponent
+Change 3 random orbs (excluding hearts) to Poison orbs
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 11
+
+#8: ESOrbChangeAttack(48:1314) -> Evil Nova
+Condition: 60% chance (ai:60 rnd:0)
+Change all Dark orbs to Jammer orbs, Deal 75% damage
+
+#9: ESAttackMultihit(15:1315) -> Cursed Blade
+Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESInactivity66(66:1316) -> Perish!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#12: ESAttackMultihit(15:1317) -> The Morning Star
+Deal 2,000% damage

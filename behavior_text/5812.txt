@@ -1,0 +1,35 @@
+#5812 - Kuriboh
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5812
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15830:72) Fire damage halved
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (15841:39) Summon Kuriboh
+ | Movetime 150% for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (15768:92) Kuri!
+   | Spawn 3 random Wood orbs, Deal 100% damage
+   | condition: 33% chance
+   | (15771:60) Detonate
+   | Change 3 random orbs to Poison orbs
+   | condition: 34% chance
+   | (15770:15) Kuuuu!
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15769:15) Spell Card "Multiply"
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (15772:15) Kuriiiii!
+     | Deal 140% damage

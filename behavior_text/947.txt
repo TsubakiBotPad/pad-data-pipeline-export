@@ -1,0 +1,37 @@
+#947 - サーティワン・愛猫神・バステト
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 947
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (707:55) Want some ice cream?
+ | Player recover 100% HP
+ group:
+ | group:
+   | condition: 10% chance
+   | (700:48) Very Berry Strawberry
+   | Change a random attribute to Fire orbs, Deal 80% damage
+   | condition: 15% chance
+   | (701:48) Pop Rock Ice Cream
+   | Change a random attribute to Water orbs, Deal 80% damage
+   | condition: 20% chance
+   | (702:48) Green Tea
+   | Change a random attribute to Wood orbs, Deal 80% damage
+   | condition: 25% chance
+   | (703:48) Pineapple Nuts
+   | Change a random attribute to Light orbs, Deal 80% damage
+   | condition: 30% chance
+   | (704:48) Chopped Chocolate
+   | Change a random attribute to Dark orbs, Deal 80% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (705:17) Challenge the Triple
+   | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: hp <= 29
+   | (706:15) Flavor Combination
+   | Deal 100% damage (4 hits, 25% each)

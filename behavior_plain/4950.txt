@@ -1,0 +1,61 @@
+#4950 - ジバニャンＳ
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:11983) -> ダルいんですけど～
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Jammer skyfall +15% for 10 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:11985) -> シビれるニャーン！
+	Lock all orbs
+	[1] ESBindRandomSub(65:11986) -> ニャンとぉー！
+	Bind 1 random sub for 10 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESAttackMultihit(15:11987) -> ニャッ！
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#7: ESOrbChangeAttack(48:11988) -> アッチアチだニャーン！
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Fire orbs, Deal 95% damage
+
+#8: ESAttackMultihit(15:11989) -> ニャニャニャニャニャー！
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:11991) -> ニャハハ！　Ｓランクだニャン！
+	Increase damage to 150% for the next 5 turns
+	[1] ESDamageShield(74:11992) -> オレっち　最強ニャーン！！
+	Reduce damage from all sources by 50% for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:11993) -> ひゃくれつ肉球
+Deal 200% damage (10 hits, 20% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

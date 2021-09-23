@@ -1,0 +1,82 @@
+#5102 - Cammy
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlind62(62:12526) -> For those who I wish to protect... I will fight you!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board, Deal 100% damage
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 76, target rnd 9
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#5: SkillSet:
+	Condition: 15% chance (ai:15 rnd:0)
+	[0] ESSpinnersRandom(109:12538) -> Hooligan Combination
+	Random 1 orbs change every 2.0s for 1 turn
+	[1] ESOrbSealRow(100:12539) -> Lazer Edge Slicer
+	Seal the 5th row for 1 turn, Deal 190% damage
+
+#6: SkillSet:
+	Condition: 15% chance (ai:15 rnd:0)
+	[0] ESSpinnersRandom(109:12538) -> Hooligan Combination
+	Random 1 orbs change every 2.0s for 1 turn
+	[1] ESAttackMultihit(15:12540) -> Fatal Leg Twister
+	Deal 210% damage
+
+#7: SkillSet:
+	Condition: 15% chance (ai:15 rnd:0)
+	[0] ESSpinnersRandom(109:12538) -> Hooligan Combination
+	Random 1 orbs change every 2.0s for 1 turn
+	[1] ESGravity(50:12541) -> Cross Scissors Pressure
+	Player -75% HP
+
+#8: SkillSet:
+	Condition: 15% chance (ai:15 rnd:0)
+	[0] ESSpinnersRandom(109:12538) -> Hooligan Combination
+	Random 1 orbs change every 2.0s for 1 turn
+	[1] ESColumnSpawnMulti(77:12542) -> Cannon Strike
+	Change the 4th column to Fire and Wood orbs, Deal 200% damage
+
+#9: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12528) -> Lift Upper
+	Deal 80% damage
+	[1] ESGravity(50:12529) -> Lift Combination
+	Player -40% HP
+
+#10: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12531) -> Knee Bullet
+	Deal 50% damage (2 hits, 25% each)
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESRowSpawnMulti(79:12532) -> Spiral Arrow
+	Change the 5th row to Wood orbs, Deal 45% damage
+
+#11: ESSpinnersRandom(109:12533) -> Axel Spin Knuckle
+Condition: 34% chance (ai:0 rnd:34)
+Random 2 orbs change every 1.0s for 1 turn, Deal 200% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackUPRemainingEnemies(17:12543) -> Delta Drive
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 16, target rnd 5
+
+#15: ESColumnSpawnMulti(77:12544) -> Cross Stinger Assault
+Change the 1st, 3rd, and 5th columns to Fire and Wood orbs, Deal 350% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,59 @@
+#505982 - Fiendish Assassin, Shivnia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESRandomSpawn(92:23347) -> Eliminate anyone who gets in our way.
+	Spawn 30 random Heal orbs
+	[1] ESNoSkyfall(127:23348) -> Let's see how ya do with no powers!
+	No skyfall for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:23352) -> Mmnmm...
+	Enemy recover 5% HP
+	[1] ESGravity(50:23353) -> Hey! Wake up!
+	Player -30% HP
+
+#8: SkillSet:
+	[0] ESAttackMultihit(15:23355) -> What're ya doing Shivy?!
+	Deal 100% damage
+	[1] ESSkyfall(68:23356) -> Oh! We're in the middle of a mission...
+	Jammer skyfall +10% for 1 turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESSkillDelay(89:23349) -> How dull.
+Condition: 50% chance (ai:50 rnd:0)
+Delay active skills by 2 turns, Deal 100% damage
+
+#12: ESOrbSealColumn(99:23350) -> You can't run!
+Seal the 6th column for 1 turn
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESDeathCry(69:23357) -> On Death
+Condition: On death (ai:0 rnd:0)
+Show message: It's time we went all out!

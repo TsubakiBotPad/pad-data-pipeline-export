@@ -1,0 +1,46 @@
+#202590 - Alt. Phantom Keeper
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:25635) -> Shadow Energy
+	Absorb Dark damage for 6 turns
+	[1] ESVoidShield(71:25636) -> Killing Machine
+	Void damage >= 5,000,000 for 6 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 8
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#6: ESRandomSpawn(92:25640) -> Dark Sphere
+Spawn 3 random Dark orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:25638) -> Warning
+	Delay active skills by 5 turns
+	[1] ESAttackUPRemainingEnemies(17:25639) -> Berserk Alert
+	Increase damage to 500% for the next 999 turns
+
+#9: ESRowSpawnMulti(79:25641) -> Twin Shadow Burst
+Change the 1st and 5th rows to Dark orbs, Deal 300% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:25642) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,95 @@
+  monster_id: 7123
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 23201
+        }
+      }
+      children {
+        behavior {
+          condition {
+            trigger_enemies_remaining: 1
+          }
+          enemy_skill_id: 23202
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 23200
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 23203
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            behavior {
+              enemy_skill_id: 23205
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 74
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 23204
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 1
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 23219
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 23205
+            }
+          }
+        }
+      }
+    }
+    groups {
+      group_type: REMAINING
+      condition {
+        hp_threshold: 100
+        trigger_enemies_remaining: 1
+        trigger_turn: 1
+      }
+      children {
+        behavior {
+          enemy_skill_id: 23204
+        }
+      }
+    }
+  }

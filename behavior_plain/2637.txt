@@ -1,0 +1,90 @@
+#2637 - Scorching Horned Heavenly Fire God, Agni
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESAbsorbCombo(67:4509) -> Roaring Flame's Fighting Spirit
+	Absorb damage when combos <= 5 for 5 turns
+	[1] ESStatusShield(20:4510) -> Mahattvatabaha
+	Voids status ailments for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#5: ESSkillDelay(89:4512) -> Thrust Away
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Delay active skills by 1~3 turns, Deal 120% damage
+
+#6: ESColumnSpawnMulti(77:4513) -> Flame Erupting Horns
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 1st column to Fire orbs, Deal 130% damage
+
+#7: ESOrbLock(94:4514) -> Sun's Sacred Flame
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Lock 15 random orbs, Deal 140% damage
+
+#8: ESColumnSpawnMulti(77:4515) -> Flame Roaring Horns
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 6th column to Fire orbs, Deal 150% damage
+
+#9: ESAbsorbThreshold(87:4516) -> Cruel Fire Ring
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when damage >= 300,000 for 10 turns
+
+#10: ESColumnSpawnMulti(77:4517) -> Twin Flame Horns
+Change the 1st and 6th columns to Fire orbs, Deal 160% damage
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: ESDamageShield(74:4523) -> Fierce Charge Stance
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Reduce damage from all sources by 75% for 4 turns
+
+#14: ESDamageShield(74:4518) -> Fierce Charge Stance
+Reduce damage from all sources by 50% for 4 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESInactivity66(66:4519) -> 3
+Do nothing
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 21
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: ESInactivity66(66:4520) -> 2
+Do nothing
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 24
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#23: ESDebuffMovetime(39:4521) -> 1
+Movetime -2s for 1 turn
+
+#24: ESAttackMultihit(15:4522) -> Paryavasaanam
+Deal 1,200% damage (6 hits, 200% each)
+
+#25: ESAttributeResist(72:4536) -> Water & Dark Halven
+Reduce damage from Water and Dark attrs by 50%

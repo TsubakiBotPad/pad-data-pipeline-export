@@ -1,0 +1,33 @@
+#6293 - 「ワン・フォー・オール」オールマイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6293
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18496:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18487:83) I'm here!! + DETROIT SMASH
+ | Reduce damage from all sources by 90% for 5 turns + Deal 150% damage, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (18489:77) TEXAS SMASH
+     | Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (18490:105) CAROLINA SMASH
+     | RCV 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 24, hp <= 49
+   | (18491:83) Your games end here. + It's over.
+   | Void damage >= 1,000,000 for 4 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 24
+   | (18494:15) Plus Ultra!!
+   | Deal 2,000% damage (5 hits, 400% each)

@@ -1,0 +1,27 @@
+#600916 - Devilit
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 600916
+approved: False
+
+level: 1
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (723:60) Devilit Poison
+     | Change 6 random orbs (excluding hearts) to Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (724:48) Heart Break
+     | Change all Heal orbs to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (722:15) Hell & Heaven
+   | Deal 200% damage (4 hits, 50% each)
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (721:17) Angrilit
+ | Increase damage to 300% for the next 999 turns

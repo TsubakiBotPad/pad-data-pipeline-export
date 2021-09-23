@@ -1,0 +1,46 @@
+#5781 - Yami Yugi & The Dark Magician Duo
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 0
+monster_id: 5781
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25107:129) ＿Yugi Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25090:83) Duel! + It's my turn! I draw!
+ | Voids status ailments for 999 turns + ATK -50% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (25103:83) It's my turn! I draw! + Spell Card "Magic Formula"
+     | Movetime -3s for 1 turn + Enemy recover 10% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (25104:83) It's my turn! I draw! + Spell Card "Thousand Knives"
+     | Bind awoken skills for 1 turn + Bind 1 random card for 10 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (25105:83) It's my turn! I draw! + Dark Burning Attack
+     | Fix orb movement starting point to random position on the board + Change all orbs to Fire, Light, Dark, and Heal, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (25106:83) It's my turn! I draw! + Spell Card "Diffusion Wave-Motion"
+     | ATK -50% for 1 turn + Deal 180% damage (6 hits, 30% each), Deal 180% damage (6 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (25097:87) Trap Card "Magic Cylinder"
+     | Absorb damage when damage >= 20,000,000 for 5 turns
+   | group:
+   | condition: turn 2
+     | (25108:83) It's my turn! I draw! + Magicians Unite
+     | Movetime -3s for 1 turn + Increase damage to 300% for the next 999 turns
+   | group:
+     | (25109:83) It's my turn! I draw! + Dark Magic Attack
+     | Fix orb movement starting point to random position on the board + Change the 4th and 5th rows to Dark orbs, Deal 150% damage

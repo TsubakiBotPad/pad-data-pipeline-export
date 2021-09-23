@@ -1,0 +1,86 @@
+#3749 - Awoken Tethys
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3749
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26252:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (26253:72) Wood Reduced
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (26230:83) Welcome! + Sound of the Ocean Waves + Sound of the Ocean Ripples
+ | Delay active skills by 5 turns + Voids status ailments for 999 turns + Absorb damage when damage >= 30,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (26249:83) Water Attack + Water Clutch
+     | Change all Heal orbs to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (26251:105) Water Haze
+     | RCV 25% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (26249:83) Water Attack + Water Clutch
+     | Change all Heal orbs to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (26251:105) Water Haze
+     | RCV 25% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (26240:83) Protection of the Ocean + High Tide
+     | Reduce damage from all sources by 75% for 999 turns + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26249:83) Water Attack + Water Clutch
+     | Change all Heal orbs to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26251:105) Water Haze
+     | RCV 25% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (26243:83) Surging Waves + Water Clutch
+     | Change all Wood and Heal orbs to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 19
+     | (26246:83) Smile of the Seven Seas Goddess + Ocean Lullaby
+     | ATK -75% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (26243:83) Surging Waves + Water Clutch
+     | Change all Wood and Heal orbs to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 19
+     | (26246:83) Smile of the Seven Seas Goddess + Ocean Lullaby
+     | ATK -75% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26243:83) Surging Waves + Water Clutch
+     | Change all Wood and Heal orbs to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26246:83) Smile of the Seven Seas Goddess + Ocean Lullaby
+     | ATK -75% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26236:83) Stormy Weather + Trick of the Ocean
+     | Bind awoken skills for 1 turn + Leader changes to random sub for 1 turn
+   | group:
+     | (26239:15) Blue Expanse of the Sun and Sea
+     | Deal 2,000% damage (10 hits, 200% each)
+ | group:
+ | condition: hp <= 1
+   | (26234:83) Healing of the Ocean + Here you go!
+   | Enemy recover 100% HP + Delay active skills by 7 turns

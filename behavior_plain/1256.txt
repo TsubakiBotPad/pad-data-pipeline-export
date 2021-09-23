@@ -1,0 +1,76 @@
+#1256 - Savior Archangel, Raphael
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESDamageShield(74:9067) -> I'm beat!
+	Reduce damage from all sources by 75% for 99 turns
+	[1] ESBoardChange(84:9068) -> You can heal up now
+	Change all orbs to Heal
+	[2] ESAttributeBlock(107:9069) -> Is that what you thought I would say?
+	Unable to match Heal orbs for 6 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 19
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 18
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 17
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 16
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#14: ESRowSpawnMulti(78:9071) -> One
+Change the 3rd row to Fire orbs
+
+#15: ESColumnSpawnMulti(76:9072) -> Two
+Change the 2nd column to Water orbs and the 5th column to Wood orbs
+
+#16: ESRowSpawnMulti(78:9073) -> Three
+Change the 1st row to Light orbs and the 3rd row to Dark orbs
+
+#17: ESColumnSpawnMulti(76:9074) -> Four
+Change the 1st column to Water orbs and the 3rd column to Wood orbs
+
+#18: ESBoardChange(84:9075) -> Five
+Change all orbs to Heal
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: ESAttackMultihit(15:9076) -> Sleep for eternity
+Deal 2,400% damage (6 hits, 400% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttributeResist(72:9066) -> Raphael Resolve
+Reduce damage from Dark attrs by 50%

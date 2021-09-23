@@ -1,0 +1,24 @@
+#6774 - Mayoi Hachikuji
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6774
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21162:83) Please don't talk to me. + I don't like you!
+ | Bind 6 random cards for 2 turns + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+ group:
+ | group:
+   | condition: 50% chance
+   | (21166:1) Please don't come near me.
+   | Bind 2 random cards for 3 turns, Deal 80% damage
+   | condition: 50% chance
+   | (21165:15) I'm scared!
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (21167:92) Take that!
+   | Spawn 5 random Light orbs, Deal 120% damage

@@ -1,0 +1,35 @@
+#990 - Nocturne Chanter, Tsukuyomi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 990
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3878:67) Don't touch me...
+ | Absorb damage when combos <= 7 for 3 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (3879:15) Nocturnal Blades
+   | Deal 70~140% damage (7~14 hits, 10% each)
+ | group:
+ | condition: hp <= 99
+   | (3880:92) Full Moon
+   | Spawn 3 random Heal and Poison orbs, Deal 80% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 69
+   | (3881:39) Divine Song's Tuning
+   | Movetime -1s for 5 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3882:66) Time, stop...
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (3883:50) Nocturnal Sky Bell Execution
+     | Player -500% HP

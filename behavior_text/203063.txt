@@ -1,0 +1,25 @@
+#203063 - Extant Red Dragon Caller, Sonia TAMADRA
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203063
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5053:67) Stop TAMA!
+ | Absorb damage when combos <= 5 for 99 turns
+ group:
+ | group:
+   | (5054:92) Dragon Flare
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (5062:66) Draco Summon TAMA!
+     | Do nothing
+   | group:
+     | (5055:92) Meteo Flame
+     | Spawn 10 random Fire orbs, Deal 500% damage

@@ -1,0 +1,36 @@
+#101217 - Alt. Keeper of the Sacred Texts, Metatron
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101217
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6853:106) Turn changed through divine intervention
+ | Enemy turn counter change to 1 when HP <= 70%
+ | (8255:72) Light Metatron Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (6846:83) White Wings of Divine Intervention + Trials of Heaven
+ | RCV 50% for 10 turns + Absorb damage when combos <= 5 for 999 turns
+ group:
+ | group:
+   | (6847:15) You've a while to go yet
+   | Deal 1,000% damage
+ | group:
+ | condition: hp <= 70
+   | condition: 50% chance
+   | (6848:104) Divine One's Writing
+   | A column of clouds appears for 1 turn at a random location, Deal 200% damage
+   | (6849:104) Divine One's Writing
+   | A row of clouds appears for 1 turn at a random location, Deal 200% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (6852:83) Holy Throne + Prediction
+   | Increase damage to 150% for the next 999 turns + Bind awoken skills for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (6854:15) Meterion Kesh
+   | Deal 30,000% damage (10 hits, 3,000% each)

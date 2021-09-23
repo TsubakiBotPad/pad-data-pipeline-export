@@ -1,0 +1,31 @@
+#105668 - Naga the Serpent
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 105668
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15012:67) Hohohoho!
+ | Absorb damage when combos <= 6 for 999 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (15003:92) My turn! Freeze Arrow!
+   | Spawn 6 random Water orbs, Deal 95% damage
+   | condition: 33% chance
+   | (15004:63) Freeze Brid
+   | Bind 1 random sub for 2~3 turns, Deal 100% damage
+   | condition: 34% chance
+   | (15005:50) Buday Wind
+   | Player -75% HP
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (15006:17) Hmph! Nice try!
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 20
+   | (15007:92) Vice Freeze!
+   | Spawn 10 random Water orbs, Deal 150% damage

@@ -1,0 +1,67 @@
+#103210 - Alt. Light Guardian Dragon, Hokurai
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 103210
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5689:73) Resolve Light Wisdom King Dragon
+ | Survive attacks with 1 HP when HP > 71%
+ | (12092:118) Guardian Dragon Devil Halved
+ | Reduce damage from Devil types by 50%
+
+level: 4
+ type: PASSIVE
+ | (5689:73) Resolve Light Wisdom King Dragon
+ | Survive attacks with 1 HP when HP > 71%
+ | (12092:118) Guardian Dragon Devil Halved
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (5677:83) Northern Lightning's Divine Protection + Purifying Thunderplains
+ | Voids status ailments for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 130% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | (5680:89) Diverging Flash
+     | Delay active skills by 3 turns
+   | group:
+     | condition: 40% chance
+     | (5686:92) Thunder Vajra
+     | Spawn 5 random Heal orbs, Deal 150% damage
+     | (5687:94) Lightning Vajra
+     | Lock 5 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1 while HP > 9
+     | (5681:54) Converging Flash
+     | Bind player leader for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5688:48) Bolt Vajra
+     | Change all Heal orbs to Jammer orbs, Deal 110% damage
+     | condition: 40% chance
+     | (5686:92) Thunder Vajra
+     | Spawn 5 random Heal orbs, Deal 150% damage
+     | (5687:94) Lightning Vajra
+     | Lock 5 random orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 40% chance
+     | (5686:92) Thunder Vajra
+     | Spawn 5 random Heal orbs, Deal 150% damage
+     | (5687:94) Lightning Vajra
+     | Lock 5 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (5682:83) Crisis Wisdom + Lightning strikes the field
+     | Enemy recover 10% HP + Bind 6 random cards for 4 turns
+   | group:
+     | (5685:15) Six Flash Thunder Blade
+     | Deal 600% damage (6 hits, 100% each)

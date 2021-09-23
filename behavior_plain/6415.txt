@@ -1,0 +1,55 @@
+#6415 - Deadly Sin Dragon King of Wrath, Valditarne
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESVoidShield(71:18908) -> Flames of Fury
+	Void damage >= 1,000,000 for 6 turns
+	[1] ESAttackUPRemainingEnemies(17:18909) -> Raging Inferno
+	Increase damage to 200% for the next 1 turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESVoidShield(71:18941) -> Flames of Fury
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:18909) -> Raging Inferno
+	Increase damage to 200% for the next 1 turn
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESAttackMultihit(15:18903) -> Ruthless Massacre
+Deal 100% damage (5 hits, 20% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackUPRemainingEnemies(17:18910) -> Raging Inferno
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 4)
+Increase damage to 250% for the next 1 turn
+
+#10: ESAttackUPRemainingEnemies(17:18911) -> Raging Inferno
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 300% for the next 1 turn
+
+#11: ESAttackUPRemainingEnemies(17:18912) -> Raging Inferno
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 500% for the next 999 turns
+
+#12: ESAttackMultihit(15:18903) -> Ruthless Massacre
+Deal 100% damage (5 hits, 20% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

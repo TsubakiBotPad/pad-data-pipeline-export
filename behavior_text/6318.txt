@@ -1,0 +1,28 @@
+#6318 - 蛙吹梅雨
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6318
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18406:39) Ribbit...
+ | Movetime -2s for 6 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18407:94) Calm down.
+   | Lock 8 random orbs, Deal 80% damage
+   | (18408:15) Leap
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18409:14) There's still a chance.
+     | Bind active skills for 5 turns
+   | group:
+     | (18410:64) Poison Mucus
+     | Change 3 random orbs to Poison orbs, Deal 120% damage

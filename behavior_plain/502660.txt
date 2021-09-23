@@ -1,0 +1,73 @@
+#502660 - Fervent Monkey King, Sun Wukong
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESCloud(104:21975) -> Supersonic Cloud! To me!!
+A row of clouds appears for 2 turns at a random location
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 14
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#9: ESOrbChangeAttack(48:21976) -> Supersonic Rush
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#10: ESAttackMultihit(15:21977) -> Compliant Rod Barrage
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:21979) -> Golden Staff Monkey Dance
+Deal 150% damage (3 hits, 50% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESOrbSealRow(100:21978) -> Compliant Rod! Extend!!
+Seal the 1st row for 2 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 3, target rnd 8
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#21: ESCloud(104:21975) -> Supersonic Cloud! To me!!
+A row of clouds appears for 2 turns at a random location
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn

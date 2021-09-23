@@ -1,0 +1,26 @@
+#301096 - Alt. Wind Twin Star Fafnir
+monster size: 5
+new AI: False
+start/max counter: 5
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESDebuffMovetime(39:16217) -> Snore
+	Movetime 50% for 4 turns
+	[1] ESInactivity16(16:883) -> *Snores*
+	Do nothing
+
+#3: ESInactivity16(16:883) -> *Snores*
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#4: ESAttackUPRemainingEnemies(17:884) -> Awakening
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#5: ESAttackMultihit(15:885) -> Dragon Star
+Deal 100% damage (2 hits, 50% each)

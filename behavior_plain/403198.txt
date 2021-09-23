@@ -1,0 +1,56 @@
+#403198 - Alt. Goddess of Demon Conquest, Trailokyavijaya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 10
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 8
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:20989) -> Mantric Hymn
+	Lock all orbs
+	[1] ESGravity(50:20990) -> Om Sumbha
+	Player -100% HP
+	[2] ESAttackMultihit(15:20991) -> Nisumbha
+	Deal 130% damage
+
+#6: SkillSet:
+	[0] ESChangeAttribute(46:19312) -> Hum Vajra
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:19313) -> Hum Phat
+	Deal 250% damage (5 hits, 50% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:20992) -> Mantra's End
+Deal 1,000% damage (10 hits, 100% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	[0] ESBindAwoken(88:20947) -> Magic Tower
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:20948) -> Bloody Carnage
+	Deal 3,500% damage (7 hits, 500% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:19307) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESTypeResist(118:20996) -> Dragon & Machine Halved
+Reduce damage from Dragon and Machine types by 50%

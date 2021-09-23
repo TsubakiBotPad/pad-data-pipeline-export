@@ -1,0 +1,25 @@
+#542 - Wood Samurai Dragon, Masamune
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 542
+approved: False
+
+level: 5
+ group:
+ | group:
+ | condition: hp <= 74
+   | condition: 70% chance
+   | (417:15) Whirlwind Slice
+   | Deal 125% damage (5 hits, 25% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (418:66) A Sudden Gust of Wind
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (419:15) Celestial Tempest
+     | Deal 300% damage

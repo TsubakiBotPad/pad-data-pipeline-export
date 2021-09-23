@@ -1,0 +1,38 @@
+#2505 - Awoken Astaroth
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2505
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23188:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23189:83) Demonic Barrier + Life-Draining Prophecy + Archdemon's Spiritual Power
+ | Void damage >= 30,000,000 for 999 turns + Absorb damage when combos <= 7 for 999 turns + Delay active skills by 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (23212:83) Spinning Panel + Lost Fire
+     | Specific orbs change every 1.0s for 10 turns + Unable to match Fire orbs for 3 turns
+   | group:
+     | (23196:108) Crazy Smile
+     | Change all Jammer and Poison orbs to Wood orbs, Deal 150% damage
+     | condition: 50% chance
+     | (23197:79) Lazy Smile
+     | Change the 2nd row to Wood and Jammer orbs and the 4th row to Wood and Poison orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23198:15) Scepter Swing
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (23193:83) Spinning Panel + Lost Dark
+   | Specific orbs change every 1.0s for 10 turns + Unable to match Dark orbs for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (23199:15) Cauchemar Crusher
+   | Deal 1,000% damage (5 hits, 200% each)

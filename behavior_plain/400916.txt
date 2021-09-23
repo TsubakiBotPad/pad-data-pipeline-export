@@ -1,0 +1,50 @@
+#400916 - Alt. Devilit
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAttributeBlock(107:25431) -> Hide Orbs
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Heal orbs for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 7
+
+#4: ESAttackUPRemainingEnemies(17:25432) -> Angrilit!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#5: ESPoisonChangeRandomAttack(64:25433) -> Devilit Poison
+Change 3 random orbs to Poison orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESRecoverEnemy86(86:25435) -> Healit!
+Enemy recover 100% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPRemainingEnemies(17:25424) -> Angrilit!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#12: ESAttackMultihit(15:25434) -> Devilit Hell Attack
+Deal 200% damage (2 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:25438) -> Resolve
+Survive attacks with 1 HP when HP > 50%

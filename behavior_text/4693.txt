@@ -1,0 +1,24 @@
+#4693 - God of Commerce, Mercury
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4693
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10708:74) Wisdom of the Commerce Deity
+ | Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 4 of 4, hp <= 100
+   | condition: 50% chance
+   | (10710:77) Let me show you alchemy!
+   | Change the 2nd and 5th columns to Wood orbs, Deal 110% damage
+   | (10711:88) This is a Sage's power!
+   | Bind awoken skills for 2 turns
+ | group:
+ | condition: hp <= 19
+   | (10709:103) Defense Training
+   | Spawn Bomb orbs in the specified positions, Deal 200% damage

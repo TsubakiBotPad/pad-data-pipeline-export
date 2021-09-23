@@ -1,0 +1,68 @@
+#4281 - Awoken Hathor
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:23571) -> Vicissitudes of Sacred Life
+	Absorb damage when combos <= 5 for 5 turns
+	[1] ESVoidShield(71:23572) -> Heaven Shield
+	Void damage >= 1,000,000 for 999 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 9
+
+#6: ESOrbChangeAttackBits(108:23573) -> Heaven Shine
+Change all Heal orbs to Light orbs, Deal 120% damage
+
+#7: ESRandomSpawn(92:23574) -> Cow Horns
+Spawn 4 random Light and Heal orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 6
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:23576) -> Sanatorium
+	Enemy recover 50% HP
+	[1] ESAttackUPRemainingEnemies(17:23577) -> Per Ankh
+	Increase damage to 150% for the next 999 turns
+
+#12: ESRandomSpawn(92:23574) -> Cow Horns
+Spawn 4 random Light and Heal orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:23576) -> Sanatorium
+	Enemy recover 50% HP
+	[1] ESAttackUPRemainingEnemies(17:23577) -> Per Ankh
+	Increase damage to 150% for the next 999 turns
+
+#15: ESOrbChangeAttackBits(108:23578) -> Heaven Light Splash
+Change all Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs to Light and Heal orbs, Deal 200% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:23569) -> Resolve
+Survive attacks with 1 HP when HP > 50%

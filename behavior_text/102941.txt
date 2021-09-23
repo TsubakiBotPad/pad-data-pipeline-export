@@ -1,0 +1,60 @@
+#102941 - Alt. Green Hell Dragon, Raguel
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 102941
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8233:83) Hell Gate + Anima Oblio
+ | Bind active skills for 5 turns + Bind awoken skills for 6 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (5191:89) Acheron River of Woe
+   | Delay active skills by 2 turns
+ | group:
+ | condition: hp <= 99
+   | condition: 50% chance
+   | (5197:77) Ondulazione
+   | Change the 1st column to Water orbs, Deal 140% damage
+   | (5198:77) Bufera
+   | Change the 6th column to Wood orbs, Deal 140% damage
+ | group:
+ | condition: turn 1 while HP > 59, hp <= 79
+   | (5193:62) The First Circle, Limbo
+   | Blind all orbs on the board, Deal 140% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 59
+   | (5202:83) The First Circle, Limbo + The Fourth Circle, Greed
+   | Blind all orbs on the board + Change 5 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (5206:83) Devil's Half Divinity + Dephaser
+     | Change own attribute to Dark + Reduce damage from all sources by 99% for 1 turn
+   | group:
+   | condition: turn 2 while HP > 39
+     | (5202:83) The First Circle, Limbo + The Fourth Circle, Greed
+     | Blind all orbs on the board + Change 5 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 2 while HP > 19, hp <= 39
+   | (5203:83) The First Circle, Limbo + The Fourth Circle, Greed + The Eighth Circle, Fraud
+   | Blind all orbs on the board + Change 5 random orbs to Poison orbs + Bind 3 random cards for 3 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (5196:15) The Last Circle, Cocytus
+   | Deal 750% damage (5 hits, 150% each)
+ type: UNKNOWN_USE
+ | condition: at most 5 times
+ | (5204:83) The Fourth Circle, Greed + The Eighth Circle, Fraud
+ | Change 5 random orbs to Poison orbs + Bind 3 random cards for 3 turns, Deal 100% damage
+ | condition: at most 7 times
+ | (5194:64) The Fourth Circle, Greed
+ | Change 5 random orbs to Poison orbs, Deal 150% damage
+ | condition: at most 15 times
+ | (5195:63) The Eighth Circle, Fraud
+ | Bind 3 random cards for 3 turns, Deal 160% damage

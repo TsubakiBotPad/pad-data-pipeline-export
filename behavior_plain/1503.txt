@@ -1,0 +1,40 @@
+#1503 - Fire Dragon Knight
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESLeaderSwap(75:13369) -> Fire Dragon's Whim
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Leader changes to random sub for 1 turn
+
+#3: ESSpinnersFixed(110:13370) -> Round Dance of Burning Illusion
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 5 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#5: ESColumnSpawnMulti(77:13371) -> Blaze Blade
+Condition: 50% chance (ai:0 rnd:50)
+Change the 1st column to Fire orbs, Deal 100% damage
+
+#6: ESDebuffRCV(105:13372) -> Burn
+Condition: 50% chance (ai:0 rnd:50)
+RCV 50% for 1 turn, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESOrbSealColumn(99:13373) -> Firewall Boundary
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 6th column for 1 turn
+
+#9: ESRandomSpawn(92:13374) -> Blazing Sword
+Spawn 15 random Fire orbs, Deal 250% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

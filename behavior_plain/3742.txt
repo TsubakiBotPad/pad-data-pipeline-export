@@ -1,0 +1,57 @@
+#3742 - Dragonbound Wanjé
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDebuffMovetime(39:7387) -> Woo-hoo!
+Movetime -2s for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESColumnSpawnMulti(76:7388) -> Ackris! Yoo-hoo!
+Change the 3rd and 4th columns to Water and Jammer orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: ESGravity(50:7389) -> Do your best, Ackris!
+Player -90% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESOrbLock(94:7391) -> Ackris is spinning around
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 8 random orbs, Deal 160% damage
+
+#15: ESRecoverEnemy86(86:7390) -> Twinkle ☆ Aqua
+Enemy recover 50% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttributeResist(72:7444) -> Fire damage halved
+Reduce damage from Fire attrs by 50%

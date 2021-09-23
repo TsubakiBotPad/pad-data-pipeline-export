@@ -1,0 +1,67 @@
+#7210 - Earthquake
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:23904) -> The treasures of this world are all mine!!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock all orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 17
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:23905) -> Fat Breath
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Fire orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:23906) -> Fat Bound
+Condition: 33% chance (ai:0 rnd:33)
+Deal 99% damage (3 hits, 33% each)
+
+#7: ESDamageShield(74:23908) -> Fat Replica Attack
+Condition: 34% chance (ai:0 rnd:34)
+Reduce damage from all sources by 50% for 1 turn, Deal 90% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESSkillDelay(89:23912) -> Triangle Flying
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESOrbLock(94:23907) -> Fat Chainsaw
+Condition: 33% chance (ai:0 rnd:33)
+Lock 10 random orbs, Deal 95% damage
+
+#14: ESBombRandomSpawn(102:23909) -> Fat Bomber
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Bomb orbs, Deal 90% damage
+
+#15: ESAttackMultihit(15:23910) -> Damned Earth
+Condition: 34% chance (ai:0 rnd:34)
+Deal 125% damage (5 hits, 25% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBoardChangeAttackBits(85:23911) -> Earth Crisis
+Change all orbs to Fire and Heal, Deal 200% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

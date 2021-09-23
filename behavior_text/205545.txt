@@ -1,0 +1,40 @@
+#205545 - Senri
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205545
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22474:73) Resolve
+ | Survive attacks with 1 HP when HP > 7%
+ type: PREEMPT
+ | (22475:83) Bounds of Carnage + Heavenly Flames + Burning Up
+ | Voids status ailments for 999 turns + Change all orbs to Fire + Jammer and Poison skyfall +15% for 10 turns, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 6
+     | (22478:108) Ash Embers
+     | Change all Jammer and Poison orbs to Fire orbs, Deal 150% damage
+     | (22479:15) Twin Dogs' Charge
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: turn 10 while HP > 6
+     | (22480:83) Guardian's Wrath + Burning Up
+     | Increase damage to 150% for the next 999 turns + Jammer and Poison skyfall +15% for 10 turns
+   | group:
+   | condition: turns 11-14 while HP > 6
+     | (22478:108) Ash Embers
+     | Change all Jammer and Poison orbs to Fire orbs, Deal 150% damage
+     | (22479:15) Twin Dogs' Charge
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+     | (22200:83) Transformation of Carnage + Bloody Carnage
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 6
+   | (22482:15) Forever Frolicking
+   | Deal 600% damage (6 hits, 100% each)

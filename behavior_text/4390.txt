@@ -1,0 +1,47 @@
+#4390 - Twin Wardens, Justine & Caroline
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4390
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10026:83) Heh... This will be hell for you! + Let's go!
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (10002:83) Heh... This will be hell for you! + Let's go!
+ | Voids status ailments for 999 turns + Player -50% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (10005:83) Vorpal Blade + Riot Gun
+     | Deal 55% damage + Deal 55% damage, Deal 55% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (10008:83) Blazing Hell + Ice Age
+     | Change the 2nd, 3rd, and 4th rows to Fire and Jammer orbs + Lock all orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (10011:83) Thunder Reign + Panta Rhei
+     | Bind 2 random cards for 3 turns + Delay active skills by 1~2 turns, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (10014:83) Psycho Force + Atomic Flare
+     | Blind random 5 orbs for 2 turns + Bind awoken skills for 2 turns, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (10017:83) Divine Judgement + Demonic Decree
+     | Player -50% HP + Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (10021:15) All-Out Attack
+     | Deal 300% damage (10 hits, 30% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (10020:83) *chuckle* You're way better than we thought you'd be, Inmate! + We'll give it all we've got from now on!
+   | Blind all orbs on the board + Increase damage to 150% for the next 99 turns

@@ -1,0 +1,27 @@
+#301418 - Cinderella
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 301418
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24407:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24414:14) Glass Magic
+ | Bind active skills for 99 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (24415:92) Glass Slipper
+   | Spawn 2 random Light orbs, Deal 100% damage
+ | group:
+   | (24403:46) Radiant Flash
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 1,000% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (24400:83) Iridescent Shine + Radiant Flash
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)

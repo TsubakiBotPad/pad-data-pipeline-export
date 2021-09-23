@@ -1,0 +1,86 @@
+#4808 - Vortex Dragon Caller, Vigo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:11138) -> ESBranchCard
+Branch on player_cards HAS [4806, 4807], target rnd 6
+
+#5: ESAbsorbCombo(67:11136) -> I hope you're a good training partner
+Absorb damage when combos <= 10 for 999 turns
+
+#6: ESAbsorbCombo(67:11137) -> Let's practice together once in a while
+Absorb damage when combos <= 10 for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESSpinnersFixed(110:11139) -> Show me what you've got
+Specific orbs change every 1.0s for 4 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESBombRandomSpawn(102:11140) -> How about...this!
+Spawn 3 random Bomb orbs
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESColumnSpawnMulti(77:11141) -> Let's see how you handle this!
+Change the 1st column to Water and Light orbs and the 6th column to Water and Light orbs, Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#22: ESBindAwoken(88:11142) -> Let's end it now...
+Bind awoken skills for 1 turn
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#25: ESAttackMultihit(15:11143) -> I look forward to next time
+Deal 3,000% damage (6 hits, 500% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: SkillSet:
+	Condition: On death (ai:0 rnd:0)

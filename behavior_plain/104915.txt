@@ -1,0 +1,79 @@
+#104915 - Masked Rider Den-O
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 18
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 17
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 16
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 15
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 14
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 13
+
+#11: ESAttackMultihit(15:11759) -> Super Ultra Move, Part 1
+Deal 80% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESRowSpawnMulti(79:11761) -> Super Ultra Move,
+	Change the 3rd row to Fire orbs, Deal 45% damage
+	[1] ESColumnSpawnMulti(77:11762) -> Part 2
+	Change the 3rd and 4th columns to Fire orbs, Deal 45% damage
+
+#14: ESRowSpawnMulti(79:11763) -> Super Ultra Move, Part 2'
+Change the 3rd row to Fire orbs, Deal 100% damage
+
+#15: SkillSet:
+	[0] ESBlindStickyFixed(98:11765) -> Super Ultra Move,
+	Blind orbs in specific positions for 1 turn
+	[1] ESColumnSpawnMulti(77:11766) -> Part 3
+	Change the 3rd and 4th columns to Fire orbs, Deal 110% damage
+
+#16: SkillSet:
+	[0] ESBlindStickyFixed(98:11832) -> Super Ultra Move, Part 3!
+	Blind orbs in specific positions for 2 turns
+	[1] ESInactivity66(66:11769) -> Hah, fooled you!
+	Do nothing
+	[2] ESRowSpawnMulti(79:11770) -> Straight through the middle! 
+	Change the 3rd row to Fire orbs, Deal 120% damage
+
+#17: SkillSet:
+	[0] ESRowSpawnMulti(79:11772) -> Super Ultra Move,
+	Change the 2nd and 4th rows to Fire orbs, Deal 65% damage
+	[1] ESColumnSpawnMulti(77:11773) -> Part 5
+	Change the 3rd and 4th columns to Fire orbs, Deal 65% damage
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#19: ESOrbSealRow(100:11833) -> Super Ultra Move, Special Edition!
+Seal the 5th row for 3 turns, Deal 150% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

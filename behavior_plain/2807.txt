@@ -1,0 +1,55 @@
+#2807 - Colorful Queen, Hera-Beorc
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:8075) -> Photosynthesis
+	Absorb Light damage for 10 turns
+	[1] ESVoidShield(71:8076) -> Mystic Viridian Barrier
+	Void damage >= 6,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:8078) -> Don't leave the Jammers♪
+	Voids status ailments for 999 turns
+	[1] ESRandomSpawn(92:8079) -> Alluring Moth Scales
+	Spawn 10 random Jammer orbs
+
+#7: ESRandomSpawn(92:8081) -> Demon Tree Creation
+Condition: When jammer orbs are on the board (ai:100 rnd:0)
+Change all Jammer orbs to Wood orbs, Deal 10,000% damage
+
+#8: ESAttackMultihit(15:8087) -> Jupiter Origin
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 12,000% damage (6 hits, 2,000% each)
+
+#9: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:8084) -> Hallucination
+	Change all orbs to Wood, Heal, Jammer, and Poison, Deal 350% damage
+	[1] ESFixedStart(101:8085) -> Start from here♪
+	Fix orb movement starting point to random position on the board
+
+#10: ESRandomSpawn(92:8082) -> Dark Tree Thorns
+Condition: 80% chance & when Fire or Heal orbs are on the board (ai:80 rnd:0)
+Spawn 5 random Jammer orbs, Deal 280% damage
+
+#11: ESBindAttack(63:8083) -> Restrain
+Bind 1 random card for 5 turns, Deal 280% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

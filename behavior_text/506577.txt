@@ -1,0 +1,39 @@
+#506577 - Bull Demon King
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506577
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21985:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22055:89) Bow before me.
+ | Delay active skills by 1~3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (22056:76) Explosive Strike
+   | Change the 6th column to Fire orbs
+   | condition: 50% chance
+   | (22057:15) Twin Clubs' Barrage
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22058:83) Ashen Flame-Wreathed Armor + Blazing Ashes
+     | Reduce damage from all sources by 75% for 5 turns + Jammer skyfall +15% for 5 turns
+   | group:
+     | condition: 50% chance
+     | (22061:107) Eternal Flame
+     | Unable to match Jammer orbs for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (22056:76) Explosive Strike
+     | Change the 6th column to Fire orbs
+     | condition: 50% chance
+     | (22057:15) Twin Clubs' Barrage
+     | Deal 105% damage (3 hits, 35% each)

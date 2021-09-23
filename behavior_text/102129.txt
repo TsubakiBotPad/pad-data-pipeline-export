@@ -1,0 +1,33 @@
+#102129 - Alt. Relentless Destroyer, Grand Tengu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102129
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2621:20) Here I come!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 39
+     | (2622:1) Bind!!
+     | Bind 6 random cards for 4~5 turns
+   | group:
+     | condition: 50% chance
+     | (2623:15) Destroy!!
+     | Deal 140% damage (2 hits, 70% each)
+     | (2624:92) Terminate!!
+     | Spawn 4 random Mortal Poison orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (2626:66) Fighting spirit increases
+     | Do nothing
+   | group:
+     | (2625:15) Vanishing of Sin
+     | Deal 1,200% damage (4 hits, 300% each)

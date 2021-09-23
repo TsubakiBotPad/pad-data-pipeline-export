@@ -1,0 +1,26 @@
+#1925 - War Deity of the Magic Spear, Odin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1925
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11411:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (11407:79) Demonic Dual Spears
+ | Change the 1st row to Dark orbs and the 5th row to Heal orbs, Deal 90% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (11408:77) Azure Blade
+   | Change the 1st column to Water orbs, Deal 100% damage
+   | (11409:77) Purple Thrust
+   | Change the 6th column to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (11410:15) Bölverkr's Strike
+   | Deal 150% damage

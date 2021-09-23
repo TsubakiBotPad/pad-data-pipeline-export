@@ -1,0 +1,80 @@
+#102479 - 堕転したマギ・ジュダル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102479
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3474:15) Here I go!
+ | Deal 50% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | (3475:20) Magic Barrier
+     | Voids status ailments for 999 turns
+   | group:
+   | condition: turn 2 while HP > 89
+     | condition: when 2472, 2473 on team
+     | (3483:15) Hey, fellow Magi!
+     | Deal 100% damage
+     | condition: 35% chance
+     | (3477:77) Wind Magic
+     | Change the 6th column to Wood orbs, Deal 100% damage
+     | condition: 35% chance
+     | (3478:77) Ice Magic
+     | Change the 1st column to Water orbs, Deal 100% damage
+     | condition: 30% chance
+     | (3476:92) Rain of Ice Spears
+     | Spawn 8 random Water orbs, Deal 120% damage
+   | group:
+     | condition: 35% chance
+     | (3477:77) Wind Magic
+     | Change the 6th column to Wood orbs, Deal 100% damage
+     | condition: 35% chance
+     | (3478:77) Ice Magic
+     | Change the 1st column to Water orbs, Deal 100% damage
+     | condition: 30% chance
+     | (3476:92) Rain of Ice Spears
+     | Spawn 8 random Water orbs, Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 89
+   | condition: when 2472, 2473 on team
+   | (3483:15) Hey, fellow Magi!
+   | Deal 100% damage
+   | condition: 35% chance
+   | (3477:77) Wind Magic
+   | Change the 6th column to Wood orbs, Deal 100% damage
+   | condition: 35% chance
+   | (3478:77) Ice Magic
+   | Change the 1st column to Water orbs, Deal 100% damage
+   | condition: 30% chance
+   | (3476:92) Rain of Ice Spears
+   | Spawn 8 random Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (3479:17) That hurts!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | condition: when 2472, 2473 on team
+     | (3483:15) Hey, fellow Magi!
+     | Deal 100% damage
+     | condition: 35% chance
+     | (3477:77) Wind Magic
+     | Change the 6th column to Wood orbs, Deal 100% damage
+     | condition: 35% chance
+     | (3478:77) Ice Magic
+     | Change the 1st column to Water orbs, Deal 100% damage
+     | condition: 30% chance
+     | (3476:92) Rain of Ice Spears
+     | Spawn 8 random Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | (3481:92) Black Lightning Spears
+   | Spawn 8 random Light and Dark orbs, Deal 300% damage

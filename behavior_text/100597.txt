@@ -1,0 +1,31 @@
+#100597 - Alt. Awoken Hera-Is
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 100597
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (88:1) Ice Coffin
+   | Bind 5 random cards for 1~2 turns
+ | group:
+ | condition: hp <= 74
+   | condition: 75% chance
+   | (89:15) Freeze Blast
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 54
+   | condition: 20% chance, one time only
+   | (100:13) Mischief by God
+   | Change 2 random orb types to Jammer orbs
+   | condition: 75% chance
+   | (89:15) Freeze Blast
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: turn 2, hp <= 39
+   | (99:1) Crystal Coffin
+   | Bind 3 random cards for 2~3 turns

@@ -1,0 +1,111 @@
+#403600 - Heaven Scribe, Enoch
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:6536) -> Saint's Robe
+	Voids status ailments for 999 turns
+	[1] ESAttributeBlock(107:6537) -> Staff of Destiny
+	Unable to match Heal orbs for 3 turns
+
+#3: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:6531) -> Divine Cure
+	Enemy recover 15% HP
+	[1] ESAbsorbCombo(67:6553) -> Sage Wisdom
+	Absorb damage when combos <= 6 for 999 turns
+
+#4: ESAbsorbCombo(67:6553) -> Sage Wisdom
+Condition: When < 35% HP (ai:100 rnd:0)
+Absorb damage when combos <= 6 for 999 turns
+
+#5: ESAttackMultihit(15:6554) -> Rizentbard
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 1,200% damage (4 hits, 300% each)
+
+#6: ESDamageShield(74:6544) -> Sanctuary
+Condition: When < 80% HP , one-time use (ai:100 rnd:0) (cost: 8)
+Reduce damage from all sources by 50% for 10 turns
+
+#7: ESGravity(50:6539) -> Corsier
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Player -50% HP
+
+#8: ESDamageShield(74:6545) -> Sanctuary
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 50% for 10 turns
+
+#9: ESAttackMultihit(15:6540) -> Arentillia
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 140% damage (2 hits, 70% each)
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlind62(62:6541) -> Goudenbel
+	Blind all orbs on the board, Deal 100% damage
+	[1] ESRecoverPlayer(55:6542) -> Cure
+	Player recover 100% HP
+
+#11: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESChangeAttribute(46:6547) -> Apotheosis Omen
+	Change own attribute to Light
+	[1] ESAttackMultihit(15:6540) -> Arentillia
+	Deal 140% damage (2 hits, 70% each)
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESChangeAttribute(46:6546) -> Another Fate
+	Change own attribute to random one of Dark or Light
+	[1] ESAttackMultihit(15:6540) -> Arentillia
+	Deal 140% damage (2 hits, 70% each)
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 21
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESAttributeBlock(107:6548) -> Staff of Destiny
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 2 turns
+
+#16: ESAttributeBlock(107:6549) -> Staff of Destiny
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 2 turns
+
+#17: ESAttributeBlock(107:6550) -> Staff of Destiny
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 2 turns
+
+#18: ESAttributeBlock(107:6551) -> Staff of Destiny
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 2 turns
+
+#19: ESAttributeBlock(107:6552) -> Staff of Destiny
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 2 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1
+
+#22: ESSkillDelay(89:6556) -> Misheliente
+Delay active skills by 1 turn, Deal 250% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttributeResist(72:6557) -> Light Dark Halved
+Reduce damage from Light and Dark attrs by 50%
+
+#25: ESResolve(73:6555) -> Resolve
+Survive attacks with 1 HP when HP > 76%

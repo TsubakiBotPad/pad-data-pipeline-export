@@ -1,0 +1,54 @@
+#5102 - Cammy
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5102
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12526:62) For those who I wish to protect... I will fight you!
+ | Blind all orbs on the board, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (12527:83) Lift Upper + Lift Combination
+   | Deal 80% damage + Player -40% HP, Deal 80% damage
+   | condition: 33% chance
+   | (12530:83) Knee Bullet + Disable Skill + Spiral Arrow
+   | Deal 50% damage (2 hits, 25% each) + Deal 100% damage + Change the 5th row to Wood orbs, Deal 50% damage (2 hits, 25% each)
+   | condition: 34% chance
+   | (12533:109) Axel Spin Knuckle
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 200% damage
+ | group:
+ | condition: hp <= 75
+   | condition: 15% chance
+   | (12534:83) Hooligan Combination + Lazer Edge Slicer
+   | Random 1 orbs change every 2.0s for 1 turn + Seal the 5th row for 1 turn, Deal 190% damage
+   | condition: 15% chance
+   | (12535:83) Hooligan Combination + Fatal Leg Twister
+   | Random 1 orbs change every 2.0s for 1 turn + Deal 210% damage, Deal 210% damage
+   | condition: 15% chance
+   | (12536:83) Hooligan Combination + Cross Scissors Pressure
+   | Random 1 orbs change every 2.0s for 1 turn + Player -75% HP
+   | condition: 15% chance
+   | (12537:83) Hooligan Combination + Cannon Strike
+   | Random 1 orbs change every 2.0s for 1 turn + Change the 4th column to Fire and Wood orbs, Deal 200% damage
+   | condition: 33% chance
+   | (12527:83) Lift Upper + Lift Combination
+   | Deal 80% damage + Player -40% HP, Deal 80% damage
+   | condition: 33% chance
+   | (12530:83) Knee Bullet + Disable Skill + Spiral Arrow
+   | Deal 50% damage (2 hits, 25% each) + Deal 100% damage + Change the 5th row to Wood orbs, Deal 50% damage (2 hits, 25% each)
+   | condition: 34% chance
+   | (12533:109) Axel Spin Knuckle
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 200% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (12543:17) Delta Drive
+   | Increase damage to 150% for the next 5 turns
+ | group:
+ | condition: hp <= 15
+   | (12544:77) Cross Stinger Assault
+   | Change the 1st, 3rd, and 5th columns to Fire and Wood orbs, Deal 350% damage

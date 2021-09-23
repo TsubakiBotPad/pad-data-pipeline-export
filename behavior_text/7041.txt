@@ -1,0 +1,41 @@
+#7041 - Super Reincarnated Kushinadahime
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7041
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23381:73) Resolve
+ | Survive attacks with 1 HP when HP > 25%
+ type: PREEMPT
+ | (23382:83) Blessed Harvest + True Spirit of the Miko Goddess + Protection of the Harvest
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 8 for 999 turns + Void damage >= 50,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (23386:83) Benevolent Protection + Vines get in the way of the puzzle!
+     | Reduce damage from all sources by 75% for 5 turns + Movetime 25% for 5 turns
+   | group:
+   | condition: turns 2-5 while HP > 24
+     | (23390:83) Lifespan Diminisher + Ruined Harvest Mudslide
+     | Change the 3rd row to Heal orbs + Change all Heal orbs to Jammer orbs, Deal 50% damage
+   | group:
+   | condition: turn 6 while HP > 24
+     | (23389:17) Harvest Time
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (23390:83) Lifespan Diminisher + Ruined Harvest Mudslide
+     | Change the 3rd row to Heal orbs + Change all Heal orbs to Jammer orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 2
+     | (23389:17) Harvest Time
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (23393:50) Judgment Slash
+     | Player -2,000% HP

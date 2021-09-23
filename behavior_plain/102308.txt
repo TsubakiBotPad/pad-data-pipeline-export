@@ -1,0 +1,40 @@
+#102308 - Alt. Furi
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:14494) -> I'm scared...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 999 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#4: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 7
+
+#5: ESDamageShield(74:14495) -> I'm frightened....
+Reduce damage from all sources by 50% for 1 turn
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESFixedStart(101:14496) -> A helpful gust of wind
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAbsorbCombo(67:14497) -> You angered me!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 9 for 10 turns
+
+#10: ESAttackMultihit(15:14498) -> Windmill
+Deal 240% damage (4 hits, 60% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,25 @@
+#1247 - Shadow Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESStatusShield(20:19949) -> Now what will you do?
+	Voids status ailments for 3 turns
+	[1] ESDebuffATK(130:19950) -> How will you clear a path?
+	ATK -50% for 3 turns
+
+#3: ESBlindStickyRandom(97:19951) -> Forge your own path
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs for 1 turn, Deal 100% damage
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:19953) -> Poor thing...
+	Bind awoken skills for 1 turn
+	[1] ESEndBattle(40:19954) -> May our paths meet again
+	Reduce self HP to 0

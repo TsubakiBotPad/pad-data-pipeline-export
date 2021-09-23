@@ -1,0 +1,53 @@
+#505875 - Amakozumi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:21964) -> Watch out, I'm strong!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESOrbChangeAttack(48:21965) -> Memoirs of a Quiet Night
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#5: ESRandomSpawn(92:21966) -> Dark Night's Trick
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Jammer orbs, Deal 90% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESDebuffATK(130:21967) -> Fox Spirit of the Autumn Moon
+ATK -50% for 2 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:21968) -> Fierce Fox Assault
+Condition: 50% chance (ai:50 rnd:0)
+Deal 150% damage (3 hits, 50% each)
+
+#12: ESOrbChangeAttack(48:21965) -> Memoirs of a Quiet Night
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#13: ESRandomSpawn(92:21966) -> Dark Night's Trick
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Jammer orbs, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,41 @@
+#5992 - Blue Jellime
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESRecoverEnemy7(7:16962) -> Absorb
+Condition: 10% chance (ai:10 rnd:0)
+Enemy recover 10% HP, Deal 100% damage
+
+#5: ESBindRandom(1:16963) -> Water Fang
+Condition: 40% chance (ai:40 rnd:0)
+Bind 1 random card for 1 turn, Deal 95% damage
+
+#6: ESRandomSpawn(92:16960) -> Jellime Attack
+Spawn 1 random Water orb, Deal 98% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRandomSpawn(92:16961) -> Melt
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 2 random Water orbs
+
+#9: ESAttackMultihit(15:16964) -> Jellime Shoot
+Deal 120% damage (3 hits, 40% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESTypeResist(118:17015) -> Healer & Attacker Halved
+Reduce damage from Healer and Attacker types by 50%

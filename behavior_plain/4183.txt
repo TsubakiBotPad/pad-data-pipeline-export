@@ -1,0 +1,39 @@
+#4183 - Blazing Sun God of Great Talent, Lugh
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbThreshold(87:17315) -> The Way of Light
+	Absorb damage when damage >= 1,500,000 for 999 turns
+	[1] ESDebuffATK(130:17316) -> Depowering Orb of Guidance
+	ATK -99% for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 7
+
+#5: ESAttackMultihit(15:17319) -> Spear of Sunlight Brionac
+Deal 100% damage (5 hits, 20% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#8: SkillSet:
+	[0] ESDebuffATK(130:17316) -> Depowering Orb of Guidance
+	ATK -99% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:17318) -> Empowering Orb of Guidance
+	Increase damage to 300% for the next 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

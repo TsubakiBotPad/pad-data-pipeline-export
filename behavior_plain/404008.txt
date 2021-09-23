@@ -1,0 +1,56 @@
+#404008 - Spring Orchid Virtue, Xiang Mei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:18094) -> Noble One's Modesty
+	Voids status ailments for 999 turns
+	[1] ESAttributeBlock(107:18095) -> Devotion to Elegance
+	Unable to match Fire, Water, Wood, Light, and Dark orbs for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESChangeAttribute(46:18080) -> Crimson Orchid
+Change own attribute to Fire, Deal 150% damage
+
+#7: ESAttackUPCooldown(19:18112) -> Noble One's Mastery
+Increase damage to 1,000% for the next 999 turns
+
+#8: ESAttributeBlock(107:18101) -> Season of Loss
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Heal orbs for 1 turn, Deal 100% damage
+
+#9: ESAttributeBlock(107:18096) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 1 turn, Deal 100% damage
+
+#10: ESAttributeBlock(107:18097) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 1 turn, Deal 100% damage
+
+#11: ESAttributeBlock(107:18098) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 1 turn, Deal 100% damage
+
+#12: ESAttributeBlock(107:18099) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 1 turn, Deal 100% damage
+
+#13: ESAttributeBlock(107:18100) -> Season of Loss
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

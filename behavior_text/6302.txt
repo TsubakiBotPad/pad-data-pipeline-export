@@ -1,0 +1,33 @@
+#6302 - 「爆破」爆豪勝己
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6302
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18471:83) I wanna crush you at your strongest. + AP Shot
+ | Absorb damage when combos <= 6 for 4 turns + Spawn 3 random locked Bomb orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (18474:1) Don't you dare run away!!
+   | Bind 2 random cards for 5 turns, Deal 80% damage
+   | condition: 33% chance
+   | (18475:62) You're trash!!
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 34% chance
+   | (18476:102) AP Shot: Auto-Cannon
+   | Spawn 5 random locked Bomb orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18477:17) Like I'd lose!!
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18478:79) Howitzer Impact
+     | Change the 1st row to Fire orbs and the 2nd row to Fire orbs, Deal 80% damage

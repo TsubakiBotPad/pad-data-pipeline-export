@@ -1,0 +1,58 @@
+#6136 - Overseer, Kirei Kotomine
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:19577) -> I'm jealous of you all.
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19581) -> Both of us are short on time.
+	Void damage >= 15,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBoardChangeAttackBits(85:19585) -> Hmph.
+Condition: When < 10% HP (ai:100 rnd:0)
+Change all orbs to Dark, Jammer, and Poison, Deal 400% damage
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: ESSkillDelay(89:19579) -> Gaaah!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 2~4 turns, Deal 105% damage
+
+#9: ESBoardChangeAttackBits(85:19578) -> Hmph.
+Change all orbs to Dark, Jammer, and Poison, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESSpinnersRandom(109:19580) -> I simply feel bliss in others' misfortune.
+	Random 4 orbs change every 0.5s for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:19582) -> You shall fulfill your obligations.
+	Increase damage to 200% for the next 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:19583) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,54 @@
+#502432 - Shadow Dog Dragon, Shibabowdra
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 502432
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3421:20) Round Pupil
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 20% chance
+   | (3423:63) Play-Bite
+   | Bind 1 random sub for 2 turns, Deal 50% damage
+   | condition: 35% chance
+   | (3426:15) Slash Woof
+   | Deal 110% damage
+   | condition: 35% chance
+   | (3427:79) Present Bone
+   | Change the 3rd row to Dark orbs, Deal 100% damage
+   | condition: 10% chance
+   | (3424:5) Dig a Hole
+   | Blind all orbs on the board
+ | group:
+ | condition: always turn 1, hp <= 69
+   | (3425:74) Stay
+   | Reduce damage from all sources by 30% for 5 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3428:50) Wonder Bark
+     | Player -100% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 20% chance
+     | (3423:63) Play-Bite
+     | Bind 1 random sub for 2 turns, Deal 50% damage
+     | condition: 35% chance
+     | (3426:15) Slash Woof
+     | Deal 110% damage
+     | condition: 35% chance
+     | (3427:79) Present Bone
+     | Change the 3rd row to Dark orbs, Deal 100% damage
+     | condition: 10% chance
+     | (3424:5) Dig a Hole
+     | Blind all orbs on the board
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (3422:52) Friendly Thought
+ | Enemy ally recover 45% HP

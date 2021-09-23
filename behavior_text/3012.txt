@@ -1,0 +1,57 @@
+#3012 - Deighk
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3012
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5144:73) Eight Resolve
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (5071:74) Shell Scale
+ | Reduce damage from all sources by 75% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (5073:15) Cyclone
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (5074:101) Flash Induction
+     | Fix orb movement starting point to random position on the board
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (5075:53) Deep Shadow
+     | Absorb Dark damage for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (5073:15) Cyclone
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (5074:101) Flash Induction
+     | Fix orb movement starting point to random position on the board
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (5072:74) Shell Scale
+     | Reduce damage from all sources by 75% for 3 turns
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 69
+   | (5076:50) Fin Drive
+   | Player -99% HP
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 49
+   | (5077:63) Sun Jail
+   | Bind 1 random sub for 5 turns, Deal 160% damage
+ | group:
+ | condition: hp <= 14
+   | (5078:15) Meteors Myriad
+   | Deal 900% damage (6 hits, 150% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (5079:52) Resuscitation
+ | Enemy ally recover 100% HP

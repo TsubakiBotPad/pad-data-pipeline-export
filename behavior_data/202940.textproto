@@ -1,0 +1,53 @@
+  monster_id: 202940
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 17549
+            }
+          }
+        }
+      }
+      children {
+        group {
+          children {
+            behavior {
+              enemy_skill_id: 17548
+            }
+          }
+        }
+      }
+    }
+  }
+  levels {
+    level: 2
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 17549
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        behavior {
+          enemy_skill_id: 17548
+        }
+      }
+    }
+  }

@@ -1,0 +1,43 @@
+#102807 - Alt. Colorful Queen, Hera-Beorc
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 102807
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8254:73) Alt. Hera Normal Resolve
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | (8077:83) Photosynthesis + Mystic Viridian Barrier
+ | Absorb Light damage for 10 turns + Void damage >= 6,000,000 for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (8080:83) Don't leave the Jammers♪ + Alluring Moth Scales
+   | Voids status ailments for 999 turns + Spawn 10 random Jammer orbs
+ | group:
+   | condition: when required attributes on board
+   | (8081:92) Demon Tree Creation
+   | Change all Jammer orbs to Wood orbs, Deal 10,000% damage
+   | condition: 80% chance, when required attributes on board
+   | (8082:92) Dark Tree Thorns
+   | Spawn 5 random Jammer orbs, Deal 280% damage
+   | (8083:63) Restrain
+   | Bind 1 random card for 5 turns, Deal 280% damage
+ | group:
+ | condition: turn 2 while HP > 9, hp <= 49
+   | condition: when required attributes on board
+   | (8081:92) Demon Tree Creation
+   | Change all Jammer orbs to Wood orbs, Deal 10,000% damage
+   | (8086:83) Hallucination + Start from here♪
+   | Change all orbs to Wood, Heal, Jammer, and Poison + Fix orb movement starting point to random position on the board, Deal 350% damage
+ | group:
+ | condition: hp <= 9
+   | condition: when required attributes on board
+   | (8081:92) Demon Tree Creation
+   | Change all Jammer orbs to Wood orbs, Deal 10,000% damage
+   | (8087:15) Jupiter Origin
+   | Deal 12,000% damage (6 hits, 2,000% each)

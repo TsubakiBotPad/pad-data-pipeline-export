@@ -1,0 +1,57 @@
+#307420 - Mistwing King of the Fairies, Albrecht
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 307420
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24607:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24608:83) Fairy Paradise + Woodland Revolution
+ | Voids status ailments for 999 turns + No skyfall for 99 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (24611:83) Realm of the Fairy King + Feast of the Fairy King
+   | Change board size to 7x6 for 1 turn + Absorb damage when combos <= 12 for 1 turn
+   | condition: 25% chance
+   | (24614:83) Realm of the Fairy King + Feast of the Fairy King
+   | Change board size to 6x5 for 1 turn + Reduce damage from all sources by 50% for 1 turn
+   | condition: 25% chance
+   | (24617:83) Primary Lock + Fae Rush
+   | Lock all orbs + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+   | condition: 25% chance
+   | (24620:83) Primary Burst + Fae Rush
+   | Locked random skyfall +100% for 1 turn + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 4
+     | (24622:83) Feast of the Fairy King + Fairy Prison
+     | Absorb damage when damage >= 1,000,000,000 for 999 turns + Bind awoken skills for 5 turns
+   | group:
+   | condition: turns 2-5 while HP > 4
+     | condition: 25% chance
+     | (24611:83) Realm of the Fairy King + Feast of the Fairy King
+     | Change board size to 7x6 for 1 turn + Absorb damage when combos <= 12 for 1 turn
+     | condition: 25% chance
+     | (24614:83) Realm of the Fairy King + Feast of the Fairy King
+     | Change board size to 6x5 for 1 turn + Reduce damage from all sources by 50% for 1 turn
+     | condition: 25% chance
+     | (24617:83) Primary Lock + Fae Rush
+     | Lock all orbs + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+     | condition: 25% chance
+     | (24620:83) Primary Burst + Fae Rush
+     | Locked random skyfall +100% for 1 turn + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+   | group:
+   | condition: turn 6 while HP > 4
+     | (24625:17) Incarnation of Destruction
+     | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 4
+   | (24599:83) Fairy Prison + Ether Blast
+   | Bind awoken skills for 1 turn + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)

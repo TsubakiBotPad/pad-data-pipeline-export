@@ -1,0 +1,28 @@
+#2690 - Toshiro Hitsugaya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2690
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17508:50) What are you up to?
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (17510:1) I'm going to kill you...
+   | Bind 1 random card for 10 turns, Deal 80% damage
+   | (17509:15) Blast!!
+   | Deal 90% damage (2 hits, 45% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17512:17) It's over...
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | (17511:79) Reign over the frosted heavens... Hyorinmaru!!!
+     | Change the 1st row to Water orbs and the 5th row to Water orbs, Deal 85% damage

@@ -1,0 +1,60 @@
+#2642 - Metallic Star Dragon, Scorpio
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:2690) -> Poison Debris
+Spawn 3 random Poison orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESAttackMultihit(15:2696) -> Scorpio's Crest - Meteor
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 600% damage
+
+#10: ESOrbChangeAttack(48:2695) -> Flame Sterilization
+Condition: One-time use (ai:0 rnd:30) (cost: 1)
+Change all Poison orbs to Fire orbs, Deal 150% damage
+
+#11: ESBindRandomSub(65:2694) -> Tail Stroke
+Condition: 35% chance (ai:0 rnd:35)
+Bind 1 random sub for 1 turn, Deal 100% damage
+
+#12: ESRandomSpawn(92:2693) -> Pinpoint Venom
+Condition: 35% chance (ai:0 rnd:35)
+Spawn 1 random Poison orb, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESRandomSpawn(92:2691) -> Burning Scorpio's Stinger
+Spawn 5 random Poison orbs
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

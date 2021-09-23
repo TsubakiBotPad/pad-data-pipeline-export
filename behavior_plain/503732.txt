@@ -1,0 +1,75 @@
+#503732 - Violent Dragon Lord of Tyranny, Valten
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:14589) -> I am truly legendary
+	Reduce damage from all sources by 80% for 5 turns
+	[1] ESAbsorbCombo(67:14573) -> Right, show me what you've got!
+	Absorb damage when combos <= 4 for 10 turns
+	[2] ESSpinnersRandom(109:14574) -> Confusion
+	Random 1 orbs change every 1.0s for 10 turns
+
+#3: ESSkyfallLocked(96:14581) -> Indelible Flare
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Locked random skyfall +20% for 5 turns
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 12
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBombRandomSpawn(102:14576) -> Ignited
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 3 random Bomb orbs, Deal 98% damage
+
+#7: ESOrbChangeAttack(48:14577) -> Flare Breath
+Condition: 20% chance (ai:0 rnd:20)
+Change a random attribute to Fire orbs, Deal 100% damage
+
+#8: ESOrbLock(94:14578) -> Nova
+Condition: 20% chance (ai:0 rnd:20)
+Lock 4 random orbs, Deal 103% damage
+
+#9: ESCloud(104:14579) -> Heat Haze
+Condition: 20% chance (ai:0 rnd:20)
+A 1×1 square of clouds appears for 1 turn at a random location, Deal 101% damage
+
+#10: ESAttackMultihit(15:14580) -> Meteor
+Condition: 20% chance (ai:0 rnd:20)
+Deal 108% damage (3 hits, 36% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:14582) -> You put up a good fight
+	Increase damage to 1,000% for the next 1 turn
+	[1] ESOrbSealColumn(99:14583) -> Now let's finish it
+	Seal the 1st and 6th columns for 1 turn
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:14585) -> X Burst
+Deal 1,500% damage (10 hits, 150% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESDeathCry(69:14588) -> Valten's Curtain Call
+Condition: On death (ai:0 rnd:0)
+Show death effect

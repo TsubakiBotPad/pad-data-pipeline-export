@@ -1,0 +1,30 @@
+#501170 - Purple Flower Dragon, Orchid
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 501170
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15359:109) Enchanting Fragrance
+ | Random 2 orbs change every 1.0s for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (15360:15) Dark Seed Breath
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (15361:60) Poisonous Pollen
+     | Change 4 random orbs (excluding hearts) to Poison orbs
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (15362:84) Flower Snake's Evil Eye
+   | Change all orbs to Jammer
+ | group:
+ | condition: hp <= 9
+   | (15363:77) Purple Death
+   | Change the 3rd and 4th columns to Dark orbs, Deal 200% damage

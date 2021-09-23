@@ -1,0 +1,80 @@
+#3091 - Great Scorching Heat, Kurenai Goukami
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:5211) -> Burning Heat Mantle
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESGravity(50:5212) -> Blazing Tail
+	Player -99% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 24
+
+#10: ESRandomSpawn(92:5213) -> Powerful Blaze
+Spawn 6 random Fire orbs, Deal 170% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 24
+
+#16: ESAttackMultihit(15:5214) -> Hellfire Claw
+Deal 200% damage (2 hits, 100% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#21: ESGravity(50:5212) -> Blazing Tail
+Player -99% HP
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESRowSpawnMulti(79:5216) -> Inferno Blast
+Change the 1st row to Fire orbs, Deal 200% damage
+
+#24: ESOrbChangeAttack(48:5215) -> Flame Breath
+Change a random attribute to Fire orbs, Deal 100% damage

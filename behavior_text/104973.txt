@@ -1,0 +1,33 @@
+#104973 - バクロ婆
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 104973
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12064:92) ババ～ン！（アタシが来たよ！）
+ | Spawn 3 random Mortal Poison orbs
+ group:
+ | group:
+   | condition: 40% chance
+   | (11903:15) ババッ！
+   | Deal 110% damage
+   | condition: 40% chance
+   | (11904:48) ババーン？（茶でも飲むかい？）
+   | Change a random attribute to Heal orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11907:75) ババァーン！（ひっこみな！）
+     | Leader changes to random sub for 1 turn
+   | group:
+     | (11906:15) 愛のビンタ
+     | Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1 while HP > 19, hp <= 100
+ | (12065:105) ババァン…（アンタも大変だね）
+ | RCV 50% for 5 turns

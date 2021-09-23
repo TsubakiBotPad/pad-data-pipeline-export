@@ -1,0 +1,36 @@
+#4193 - Water Scroll Dragon
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESGravity(50:9187) -> Gyah!
+Condition: 50% chance (ai:50 rnd:0)
+Player -50% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESOrbSealRow(100:9188) -> Gyoooun!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 1st row for 2 turns
+
+#7: ESAttackMultihit(15:9189) -> Grrroarrr!
+Condition: 50% chance (ai:50 rnd:0)
+Deal 135% damage (3 hits, 45% each)
+
+#8: ESGravity(50:9187) -> Gyah!
+Condition: 50% chance (ai:50 rnd:0)
+Player -50% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

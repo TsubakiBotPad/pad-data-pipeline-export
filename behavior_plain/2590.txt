@@ -1,0 +1,80 @@
+#2590 - Phantom Keeper
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESGravity(50:3627) -> Heavy Raid
+Player -80% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESBlind62(62:3628) -> Exhaust Hit
+Condition: 30% chance (ai:0 rnd:30)
+Blind all orbs on the board, Deal 90% damage
+
+#10: ESSkillDelay(89:3629) -> Warning
+Condition: One-time use (ai:0 rnd:20) (cost: 1)
+Delay active skills by 1 turn
+
+#11: ESRandomSpawn(92:3632) -> Seven Smog
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 7 random Poison orbs
+
+#12: ESOrbLock(94:3670) -> Black Alert
+Condition: 30% chance (ai:0 rnd:30)
+Lock all Dark orbs, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESBindRandomSub(65:3630) -> Capture Net
+Bind 2 random subs for 3 turns
+
+#17: ESAttackMultihit(15:3631) -> Killing Code
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 300% damage (6 hits, 50% each)
+
+#18: ESBlind62(62:3628) -> Exhaust Hit
+Condition: 30% chance (ai:0 rnd:30)
+Blind all orbs on the board, Deal 90% damage
+
+#19: ESSkillDelay(89:3629) -> Warning
+Condition: One-time use (ai:0 rnd:20) (cost: 1)
+Delay active skills by 1 turn
+
+#20: ESRandomSpawn(92:3632) -> Seven Smog
+Condition: 30% chance (ai:0 rnd:30)
+Spawn 7 random Poison orbs
+
+#21: ESOrbLock(94:3670) -> Black Alert
+Condition: 20% chance (ai:0 rnd:20)
+Lock all Dark orbs, Deal 110% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn

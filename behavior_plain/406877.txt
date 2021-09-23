@@ -1,0 +1,85 @@
+#406877 - Golden Destructor, Brahma Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlindStickySkyfall(128:21590) -> Destructive Intent
+	For 4 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESVoidShield(71:21591) -> Path of Destruction
+	Void damage >= 100,000,000 for 4 turns
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBombFixedSpawn(103:21595) -> Left hand illuminates in radiant red
+Condition: 50% chance (ai:0 rnd:50)
+Spawn Bomb orbs in the specified positions
+
+#8: ESSpinnersFixed(110:21596) -> Right hand illuminates in brilliant blue
+Condition: 50% chance (ai:0 rnd:50)
+Specific orbs change every 1.0s for 1 turn
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: SkillSet:
+	[0] ESDamageShield(74:21593) -> Lost Mind's Eye
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESNoSkyfall(127:21594) -> World-Wrecking Rumble
+	No skyfall for 4 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESBombFixedSpawn(103:21595) -> Left hand illuminates in radiant red
+Condition: 50% chance (ai:0 rnd:50)
+Spawn Bomb orbs in the specified positions
+
+#18: ESSpinnersFixed(110:21596) -> Right hand illuminates in brilliant blue
+Condition: 50% chance (ai:0 rnd:50)
+Specific orbs change every 1.0s for 1 turn
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESBindAwoken(88:21598) -> Impending Annihilation
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:21599) -> Ultimate Punch
+	Deal 2,000% damage (10 hits, 200% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESSuperResolve(129:21588) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

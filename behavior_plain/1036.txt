@@ -1,0 +1,53 @@
+#1036 - 形態変化・ユピー
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:3076) -> Bottomless Aura
+Absorb damage when combos <= 4 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESInactivity66(66:3077) -> Building up Anger
+Do nothing
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: ESInactivity66(66:3077) -> Building up Anger
+Do nothing
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11110
+
+#15: ESAttackMultihit(15:3078) -> Youuuuuuu!!!!
+Deal 300% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

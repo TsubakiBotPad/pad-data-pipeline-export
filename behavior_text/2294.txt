@@ -1,0 +1,36 @@
+#2294 - Red Puppet Master of Destruction, Pure Machina
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2294
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3825:83) Sangen Mechanism + Heal-to-Red Twist Puppetry
+ | Absorb Light and Dark damage for 5 turns + Change all Heal orbs to Fire orbs, Deal 90% damage
+ group:
+ | group:
+   | condition: 40% chance
+   | (3826:83) Elemental Flip + Blue-to-Green Twist Puppetry
+   | Change own attribute to random one of Fire or Wood + Change all Water orbs to Wood orbs, Deal 110% damage
+   | condition: 25% chance
+   | (3827:83) Elemental Flip + Heal-to-Red Twist Puppetry
+   | Change own attribute to random one of Fire or Wood + Change all Heal orbs to Fire orbs, Deal 90% damage
+   | condition: 35% chance
+   | (3828:83) Elemental Flip + Green Line Stitch Puppetry
+   | Change own attribute to random one of Fire or Wood + Change the 3rd row to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3830:83) Impassive + Orb Destruction
+     | Voids status ailments for 1 turn + Spawn 15 random Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (3831:79) Red-Green Stitch Puppetry
+     | Change the 1st, 3rd, and 5th rows to Fire orbs and the 2nd and 4th rows to Wood orbs, Deal 220% damage
+ type: UNKNOWN_USE
+ | (3837:83) Impassive + Twin Hold
+ | Voids status ailments for 1 turn + Bind both leaders for 1 turn

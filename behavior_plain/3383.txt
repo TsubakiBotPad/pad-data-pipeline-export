@@ -1,0 +1,76 @@
+#3383 - Reincarnated Isis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22185) -> Spirit of the Water Deity
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:22186) -> Star Mother's Protection
+	Reduce damage from all sources by 95% for 2 turns
+	[2] ESDebuffATK(130:22187) -> Deluge of the Nile
+	ATK -75% for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESDebuffRCV(105:22194) -> Flooding of the Holy Ocean
+	RCV 50% for 1 turn
+	[1] ESAttackMultihit(15:22195) -> Burning Life Glint
+	Deal 120% damage (3 hits, 40% each)
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRandomSpawn(92:22197) -> Holy Ocean's Wave
+	Spawn 3 random Jammer, Poison, and Mortal Poison orbs
+	[1] ESOrbLock(94:22198) -> Burning Life Gleam
+	Lock all orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#12: SkillSet:
+	[0] ESVoidShield(71:22189) -> Heavenly Guidance
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:22190) -> Rage of the Nile
+	Increase damage to 200% for the next 999 turns
+
+#13: SkillSet:
+	[0] ESAbsorbCombo(67:22192) -> Heavenly Star-Mother
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:22190) -> Rage of the Nile
+	Increase damage to 200% for the next 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:22199) -> Glimmer of the Water Deity
+Deal 300% damage (3 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:22183) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,41 @@
+#1945 - Bamboo Cutter's Blossom, Kaguya-Hime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1945
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1959:73) Kaguya Passive
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (1972:55) I'll purify you!
+ | Player recover 100% HP
+ group:
+ | group:
+   | condition: 60% chance
+   | (1956:48) Swallow's Cowry Shell
+   | Change all Dark orbs to Heal orbs, Deal 125% damage
+   | condition: 20% chance
+   | (1955:85) Dragon Neck Jewel
+   | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 75% damage
+   | condition: 10% chance
+   | (1952:48) Fire Rat Fur Robe
+   | Change all Heal orbs to Fire orbs, Deal 75% damage
+   | condition: 10% chance
+   | (1953:50) Buddha's Stone Bowl
+   | Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 74
+   | (1954:3) Jeweled Branch of Horai
+   | Bind Devil cards for 2~3 turns
+ | group:
+ | condition: hp <= 29
+   | (1958:77) Ascension
+   | Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 200% damage
+ | group:
+ | condition: hp <= 1
+   | (1957:86) Elixir of Life
+   | Enemy recover 100% HP

@@ -1,0 +1,95 @@
+#203507 - Reincarnated Astaroth
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:14442) -> I don't want to do anything!
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:14443) -> Such a hassle...
+	Bind awoken skills for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 22
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 18
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: SkillSet:
+	[0] ESBindSkill(14:9039) -> No skills for you!
+	Bind active skills for 10 turns
+	[1] ESDebuffMovetime(39:9040) -> Hyah ♪
+	Movetime -2s for 10 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESGravity(50:9044) -> Here I come ♪
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Player -99% HP
+
+#15: ESRowSpawnMulti(79:9043) -> How about this?
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st row to Wood and Jammer orbs and the 5th row to Wood and Poison orbs, Deal 70% damage
+
+#16: ESRandomSpawn(92:9045) -> I'm going to block you!
+Spawn 6 random Wood, Jammer, and Poison orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: ESAbsorbCombo(67:9042) -> Okay, now it's playtime♪
+Absorb damage when combos <= 7 for 6 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 26
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#24: ESAttackUPRemainingEnemies(17:9046) -> Unforgivable!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 99 turns
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESAttackMultihit(15:9047) -> Playtime's over!
+Deal 240% damage (3 hits, 80% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn

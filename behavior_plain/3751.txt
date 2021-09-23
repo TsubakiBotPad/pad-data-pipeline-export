@@ -1,0 +1,104 @@
+#3751 - Awoken Cronus
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:13464) -> Get over it!
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:13465) -> King's Test
+	Absorb damage when combos <= 6 for 1 turn
+	[2] ESDebuffMovetime(39:13466) -> King's Edict
+	Movetime 25% for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 10
+
+#9: ESDamageShield(74:13468) -> Looks like you're starting to get it
+Reduce damage from all sources by 75% for 10 turns
+
+#10: ESBindAwoken(88:13467) -> That's it?
+Bind awoken skills for 10 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#14: ESOrbChangeAttackBits(108:13472) -> Trash Shift
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all Jammer orbs to Wood orbs, Deal 150% damage
+
+#15: ESRowSpawnMulti(79:13473) -> Adamant Judgment
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Wood and Jammer orbs, Deal 95% damage
+
+#16: ESSkillDelay(89:13474) -> Breaking Swallow
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#17: ESAttackMultihit(15:13475) -> Killer Scythe
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#21: SkillSet:
+	[0] ESSkyfallLocked(96:13470) -> Well, that wasn't enough
+	Locked random skyfall +20% for 10 turns
+	[1] ESSkyfall(68:13471) -> You can have fun with this
+	Jammer skyfall +15% for 10 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 27
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#25: SkillSet:
+	[0] ESBindAwoken(88:13477) -> That's enough
+	Bind awoken skills for 1 turn
+	[1] ESMaxHPChange(111:13478) -> Let's finish this!
+	Change player HP to 1,000 for 1 turn
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESAttackMultihit(15:13479) -> Adamant Punishment
+Deal 320% damage (4 hits, 80% each)
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

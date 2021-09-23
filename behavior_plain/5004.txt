@@ -1,0 +1,41 @@
+#5004 - Servant, Saber
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:19529) -> You have no qualms about dying here...
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+RCV 50% for 4 turns
+
+#3: ESAttackUPRemainingEnemies(17:19530) -> I shall answer you with a blow of all my might.
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 150% for the next 999 turns
+
+#4: ESGravity(50:19531) -> This is where you die.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -50% HP
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESInactivity66(66:19532) -> Ex...
+Do nothing
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#10: ESRowSpawnMulti(79:19533) -> ...Calibur!
+Change the 1st and 2nd rows to Water orbs, Deal 130% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

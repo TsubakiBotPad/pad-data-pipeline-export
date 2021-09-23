@@ -1,0 +1,42 @@
+#4388 - Morgana
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4388
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18700:96) Witness my resolve!
+ | Locked random skyfall +50% for 7 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (18701:89) Garula
+   | Delay active skills by 2~3 turns, Deal 80% damage
+   | condition: 33% chance
+   | (18703:109) Miracle Punch
+   | Random 1 orbs change every 0.5s for 1 turn, Deal 90% damage
+   | condition: 34% chance
+   | (18705:15) I'll cut you off!
+   | Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (18704:53) Wind Boost
+     | Absorb Wood damage for 10 turns
+   | group:
+     | (18706:89) Garudyne
+     | Delay active skills by 3~4 turns, Deal 110% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (18702:86) Dia
+     | Enemy recover 40% HP
+   | group:
+   | condition: turn 2
+     | (18704:53) Wind Boost
+     | Absorb Wood damage for 10 turns

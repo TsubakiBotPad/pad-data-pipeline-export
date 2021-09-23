@@ -1,0 +1,38 @@
+#100984 - Alt. Gigas the Great
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 100984
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9538:73) Gigas Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (9540:83) Great Lariat + Great Bodyyy!
+ | Deal 100% damage + Reduce damage from all sources by 50% for 99 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 30% chance
+     | (879:50) Great Press
+     | Player -99% HP
+     | (880:15) Great Chop
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (878:16) Grrrreat!
+     | Do nothing
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (9541:67) Super Final Big Bang Great!
+     | Absorb damage when combos <= 6 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (882:15) Fire!!
+     | Deal 1,200% damage (4 hits, 300% each)

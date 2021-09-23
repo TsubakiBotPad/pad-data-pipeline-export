@@ -1,0 +1,35 @@
+#810 - War God of Metal, Takeminakata
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 810
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (651:20) Divine Wind of Suwa
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (652:48) Wisteria Branch of Rust
+   | Change a random attribute to Jammer orbs, Deal 130% damage
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (653:17) Unforgivable Revision
+   | Increase damage to 200% for the next 99 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (652:48) Wisteria Branch of Rust
+     | Change a random attribute to Jammer orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (654:15) Divine Katana of Yasaka
+     | Deal 160% damage (8 hits, 20% each)
+ | group:
+ | condition: hp <= 24
+   | (663:15) God Skill, God Channeling
+   | Deal 650% damage (2 hits, 325% each)

@@ -1,0 +1,62 @@
+#5660 - Zelgadis = Greywords
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESLeaderSwap(75:14925) -> I don't chase carrots.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Leader changes to random sub for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 76, target rnd 6
+
+#5: ESOrbSealRow(100:14930) -> Is that all you got?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 5th row for 4 turns
+
+#6: ESColumnSpawnMulti(77:14926) -> Dug Haut
+Condition: 33% chance (ai:0 rnd:33)
+Change the 2nd and 5th columns to Wood orbs, Deal 60% damage
+
+#7: ESRowSpawnMulti(79:14927) -> Elmekia Flame
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Light orbs, Deal 65% damage
+
+#8: ESRandomSpawn(92:14928) -> Gozu Vrow
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random Dark orbs, Deal 70% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESAttackUPRemainingEnemies(17:14929) -> Astral Vine
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 4
+
+#15: ESColumnSpawnMulti(77:14931) -> Ra Tilt
+Change the 3rd and 4th columns to Light orbs, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESTypeResist(118:14965) -> Recovery Dragon
+Reduce damage from Healer and Dragon types by 50%

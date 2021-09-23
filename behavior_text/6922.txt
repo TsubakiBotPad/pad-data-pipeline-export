@@ -1,0 +1,43 @@
+#6922 - ダーク・フェニックス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6922
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22624:83) I am Dark Phoenix! + You want to fight? As you wish...
+ | Fire and Dark skyfall +15% for 5 turns + Unable to match Dark orbs for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (22627:92) The Black Angel, Chaos-Bringer!
+   | Spawn 6 random Dark orbs, Deal 100% damage
+   | condition: 25% chance
+   | (22628:94) Witness the birth of a god!
+   | Lock 10 random orbs, Deal 95% damage
+   | condition: 25% chance
+   | (22631:15) I AM POWER!
+   | Deal 105% damage
+   | condition: 25% chance
+   | (22630:62) My destiny lies in the stars!
+   | Blind all orbs on the board, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (22629:88) There is no mercy in my heart.
+   | Bind awoken skills for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (22633:83) I don't want to hurt anyone else! + Kill me! While my heart is still human!
+     | Voids status ailments for 999 turns + Movetime -3s for 5 turns
+   | group:
+     | condition: 50% chance
+     | (22635:92) This hunger for pleasure will consume me!
+     | Spawn 5 random Fire and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (22632:15) HYAAAAAAAAAH!
+     | Deal 120% damage (3 hits, 40% each)

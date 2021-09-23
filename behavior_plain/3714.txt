@@ -1,0 +1,64 @@
+#3714 - Awoken Michael
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17051) -> Archangel's Guidance
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:17052) -> Mystic Wings
+	Void damage >= 15,000,000 for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 6
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESJammerChangeRandom(13:17061) -> Vanishing Protection
+	Change 2 random orb types to Jammer orbs
+	[1] ESAttackUPRemainingEnemies(17:17062) -> Eternal Radiance
+	Increase damage to 150% for the next 999 turns
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:17059) -> Sword of Justice
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESSpinnersFixed(110:17056) -> Bewitching Judgment
+	Specific orbs change every 1.0s for 2 turns, Deal 60% damage
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:17059) -> Sword of Justice
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESBlindStickyRandom(97:17057) -> Dark Judgment
+	Blind random 10 orbs for 2 turns, Deal 50% damage
+
+#8: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAttackMultihit(15:17059) -> Sword of Justice
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESColumnSpawnMulti(77:17058) -> Meddling Judgment
+	Change the 4th column to Water and Jammer orbs, Deal 55% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:17063) -> End of Days
+Deal 600% damage (6 hits, 100% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESTypeResist(118:17064) -> God & Devil Halved
+Reduce damage from God and Devil types by 50%
+
+#13: ESTurnChangePassive(106:17065) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 50%

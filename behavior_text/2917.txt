@@ -1,0 +1,53 @@
+#2917 - Barbarossa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2917
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14161:83) Amuse me! + I got a special puzzle for you + Don't make any combos!!! + Hoho!
+ | Bind awoken skills for 5 turns + Bind active skills for 5 turns + Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Blind all orbs on the board
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 1 combos last turn
+   | (14180:15) Whatcha doin'?
+   | Deal 500% damage (5 hits, 100% each)
+   | (14165:83) Next! + Hoho!
+   | Change the 1st and 2nd columns to Fire orbs and the 3rd and 4th columns to Water orbs + Blind all orbs on the board
+ | group:
+ | condition: turn 2
+   | condition: when 1 combos last turn
+   | (14180:15) Whatcha doin'?
+   | Deal 500% damage (5 hits, 100% each)
+   | (14168:83) Pretty good!!! + Have some of this! + What are you going to do? + Hoho!
+   | No skyfall for 1 turn + Change all orbs to Heal + Spawn 4 random Bomb orbs + Blind all orbs on the board
+ | group:
+ | condition: turn 3
+   | condition: when 1 combos last turn
+   | (14180:15) Whatcha doin'?
+   | Deal 500% damage (5 hits, 100% each)
+   | (14172:83) This is gonna get tricky! + Faster, Fasteeeer! + Hoho!
+   | Change all orbs to Jammer + Specific orbs change every 0.5s for 1 turn + Blind all orbs on the board
+ | group:
+ | condition: turn 4
+   | condition: when 1 combos last turn
+   | (14180:15) Whatcha doin'?
+   | Deal 500% damage (5 hits, 100% each)
+   | (14175:83) You can do it if you try! + And now, the final curtain! + Hoho! + I've saved the best for last!
+   | Spawn 6 random Bomb orbs + Spawn 6 random Water, Heal, Jammer, and Poison orbs + Blind all orbs on the board + Do nothing
+ | group:
+ | condition: turn 5
+   | condition: when 10 combos last turn
+   | (14179:40) Not bad!!
+   | Reduce self HP to 0
+   | condition: when 1 combos last turn
+   | (14180:15) Whatcha doin'?
+   | Deal 500% damage (5 hits, 100% each)
+ | group:
+   | condition: when 10 combos last turn
+   | (14179:40) Not bad!!
+   | Reduce self HP to 0

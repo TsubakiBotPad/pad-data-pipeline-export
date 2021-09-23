@@ -1,0 +1,49 @@
+#4674 - 暗黒スバル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4674
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10591:83) Inner-Thigh-Propping Twist Down + Intimidating Air
+ | Voids status ailments for 10 turns + Delay active skills by 2 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (10592:50) Phantom Ball
+   | Player -99% HP
+ | group:
+   | group:
+   | condition: turn 2 while HP > 49
+     | condition: 33% chance
+     | (10608:48) Slider
+     | Change a random attribute to Water orbs, Deal 100% damage
+     | condition: 34% chance
+     | (10611:48) Sinker
+     | Change a random attribute to Dark orbs, Deal 100% damage
+   | group:
+     | condition: 33% chance
+     | (10592:50) Phantom Ball
+     | Player -99% HP
+     | condition: 33% chance
+     | (10608:48) Slider
+     | Change a random attribute to Water orbs, Deal 100% damage
+     | condition: 34% chance
+     | (10611:48) Sinker
+     | Change a random attribute to Dark orbs, Deal 100% damage
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (10595:83) Black Stars + Black Vanguard
+   | Spawn 9 random Dark orbs + Blind all orbs on the board
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 3
+     | (10596:74) YOU'RE here
+     | Reduce damage from all sources by 50% for 5 turns
+   | group:
+     | (10597:62) Gloomy Star Cloud
+     | Blind all orbs on the board, Deal 300% damage

@@ -1,0 +1,48 @@
+#4211 - East Loving Goddess, Karin
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDamageShield(74:8975) -> I'm so embarrassed!...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 1 turn
+
+#5: ESAbsorbAttribute(53:8976) -> Seiryuu's Perception
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Absorb Water damage for 2 turns
+
+#6: ESBoardChangeAttackBits(85:8979) -> Seiryuu Seven-Star Perception
+Condition: When < 10% HP (ai:100 rnd:0)
+Change all orbs to Water, Wood, and Dark, Deal 180% damage
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESGravity(50:8977) -> Tiny Bashful Punch
+Condition: 15% chance (ai:15 rnd:0)
+Player -90% HP
+
+#10: ESAttackMultihit(15:8995) -> Sweet Combo
+Deal 100% damage (2 hits, 50% each)
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESAttackMultihit(15:8978) -> Don't smirk at me!
+Deal 120% damage (4 hits, 30% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

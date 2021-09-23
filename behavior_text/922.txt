@@ -1,0 +1,32 @@
+#922 - Elemental of Gold Glimmer, Genie
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 922
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20379:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (20367:83) Miracle of the Lamp + Flashing Field
+ | Void damage >= 10,000,000 for 999 turns + Absorb Dark damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | (20370:92) Treasure's Glimmer
+     | Spawn 2 random Jammer, Poison, and Mortal Poison orbs, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | (20594:83) Smoke rises from the lamp + Miracle of the Lamp
+     | Poison skyfall +15% for 99 turns + Increase damage to 300% for the next 999 turns
+   | group:
+     | (20370:92) Treasure's Glimmer
+     | Spawn 2 random Jammer, Poison, and Mortal Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (20372:15) Lamp out of control
+   | Deal 400% damage (4 hits, 100% each)

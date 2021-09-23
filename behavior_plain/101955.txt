@@ -1,0 +1,51 @@
+#101955 - Alt. Awoken Lakshmi
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESBindAwoken(88:8131) -> Let's plaaay!
+	Bind awoken skills for 6 turns
+	[1] ESBindSkill(14:8132) -> It's Puzzle Fight Time!
+	Bind active skills for 6 turns
+	[2] ESBoardChange(84:8133) -> It's gonna get harder! Get ready!
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#3: ESOrbChangeAttack(48:8146) -> Nope! Wroong!
+Change all Jammer orbs to Water orbs, Deal 90,000% damage
+
+#4: ESRowSpawnMulti(78:8135) -> Can you erase my Jammers?
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Change the 1st and 5th rows to Water, Heal, and Jammer orbs and the 3rd row to Jammer orbs
+
+#5: ESColumnSpawnMulti(76:8136) -> Here I gooo!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 1st, 4th, and 6th columns to Water, Heal, and Jammer orbs and the 3rd column to Jammer orbs
+
+#6: ESRandomSpawn(92:8137) -> My... You're not bad!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 13 random Jammer orbs
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlindStickyRandom(97:8138) -> However, this here...
+	Blind random 30 orbs for 1 turn
+	[1] ESRandomSpawn(92:8139) -> Can you erase these!?
+	Spawn 16 random Jammer orbs
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:8141) -> You're impressive!
+	Movetime -2s for 1 turn
+	[1] ESRandomSpawn(92:8142) -> This will finish it!
+	Spawn 4 random Jammer orbs
+	[2] ESFixedStart(101:8143) -> Eat this!
+	Fix orb movement starting point to random position on the board
+
+#9: ESEndBattle(40:8145) -> That was fun! See ya!
+Reduce self HP to 0

@@ -1,0 +1,44 @@
+#3383 - Reincarnated Isis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3383
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22183:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (22184:83) Spirit of the Water Deity + Star Mother's Protection + Deluge of the Nile
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 95% for 2 turns + ATK -75% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | condition: 50% chance
+     | (22193:83) Flooding of the Holy Ocean + Burning Life Glint
+     | RCV 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | condition: 50% chance
+     | (22196:83) Holy Ocean's Wave + Burning Life Gleam
+     | Spawn 3 random Jammer, Poison, and Mortal Poison orbs + Lock all orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (22188:83) Heavenly Guidance + Rage of the Nile
+     | Void damage >= 10,000,000 for 999 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (22193:83) Flooding of the Holy Ocean + Burning Life Glint
+     | RCV 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | condition: 50% chance
+     | (22196:83) Holy Ocean's Wave + Burning Life Gleam
+     | Spawn 3 random Jammer, Poison, and Mortal Poison orbs + Lock all orbs, Deal 100% damage
+ | group:
+ | condition: turn 2 while HP > 9, hp <= 49
+   | (22191:83) Heavenly Star-Mother + Rage of the Nile
+   | Absorb damage when combos <= 7 for 999 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (22199:15) Glimmer of the Water Deity
+   | Deal 300% damage (3 hits, 100% each)

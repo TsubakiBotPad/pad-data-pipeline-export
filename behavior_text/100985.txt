@@ -1,0 +1,36 @@
+#100985 - Alt. Divine Queen Hera
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 100985
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8254:73) Alt. Hera Normal Resolve
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | (8251:63) Divine Queen's Seal
+ | Bind 1 random card for 3 turns, Deal 400% damage
+ group:
+ | group:
+   | (1240:48) Black Nightmare
+   | Change all Light orbs to Jammer orbs, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | (1241:3) Divine Queen's Breath
+   | Bind God cards for 5 turns
+   | (1240:48) Black Nightmare
+   | Change all Light orbs to Jammer orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (1241:3) Divine Queen's Breath
+     | Bind God cards for 5 turns
+     | (1242:50) Ultra Gravity
+     | Player -99% HP
+   | group:
+     | (1243:15) Ultra Graviton Bomb
+     | Deal 500% damage

@@ -1,0 +1,33 @@
+#206784 - The Girl Bewitched by a Cat, Tsubasa Hanekawa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206784
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21269:62) Nyahahahaha!
+ | Blind all orbs on the board, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (21273:1) Nyow shrivel in bliss.
+   | Bind 2 random cards for 3 turns, Deal 80% damage
+   | condition: 50% chance
+   | (21274:86) Energy Drain
+   | Enemy recover 10% HP, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (21270:83) I won't make the same mistake twice! + I'm going to kill you for sure.
+   | Reduce damage from all sources by 50% for 3 turns + Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21275:83) Huh? + Are you begging for your life?
+     | Bind awoken skills for 1 turn + Player -99% HP
+   | group:
+     | (21278:15) Enough of this. Die then.
+     | Deal 110% damage (2 hits, 55% each)

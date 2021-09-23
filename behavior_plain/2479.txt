@@ -1,0 +1,75 @@
+#2479 - 堕転したマギ・ジュダル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAttackMultihit(15:3474) -> Here I go!
+Deal 50% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 90, target rnd 19
+
+#9: ESAttackUPRemainingEnemies(17:3479) -> That hurts!
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 22
+
+#11: ESBranchCard(90:3482) -> ESBranchCard
+Branch on player_cards HAS [2472, 2473], target rnd 16
+
+#12: ESColumnSpawnMulti(77:3477) -> Wind Magic
+Condition: 35% chance (ai:0 rnd:35)
+Change the 6th column to Wood orbs, Deal 100% damage
+
+#13: ESColumnSpawnMulti(77:3478) -> Ice Magic
+Condition: 35% chance (ai:0 rnd:35)
+Change the 1st column to Water orbs, Deal 100% damage
+
+#14: ESRandomSpawn(92:3476) -> Rain of Ice Spears
+Condition: 30% chance (ai:0 rnd:30)
+Spawn 8 random Water orbs, Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESAttackMultihit(15:3483) -> Hey, fellow Magi!
+Deal 100% damage
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: ESStatusShield(20:3475) -> Magic Barrier
+Voids status ailments for 999 turns
+
+#22: ESRandomSpawn(92:3481) -> Black Lightning Spears
+Spawn 8 random Light and Dark orbs, Deal 300% damage

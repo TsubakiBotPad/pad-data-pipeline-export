@@ -1,0 +1,95 @@
+#4957 - エンマ大王
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:12047) -> お前のチカラ　見せてもらおう！
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESAbsorbAttribute(53:12048) -> さあ　かかってこい！
+	Absorb Dark damage for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 11
+
+#9: ESCloud(104:12053) -> これが大王の力だ！
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 90% damage
+
+#10: ESOrbSealRow(100:12054) -> ハハッ　動けるか？
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Seal the 1st row for 1 turn, Deal 90% damage
+
+#11: ESAttackMultihit(15:12049) -> お前にたえられるか！？
+Condition: 25% chance (ai:0 rnd:25)
+Deal 105% damage (3 hits, 35% each)
+
+#12: ESOrbChangeAttack(48:12050) -> 燃えろ！　れんごくの炎！！
+Condition: 25% chance (ai:0 rnd:25)
+Change a random attribute to Fire orbs, Deal 95% damage
+
+#13: ESDebuffMovetime(39:12051) -> させるかっ！
+Condition: 25% chance (ai:0 rnd:25)
+Movetime -2s for 1 turn, Deal 95% damage
+
+#14: ESOrbLock(94:12052) -> スキだらけだぜ？
+Condition: 25% chance (ai:0 rnd:25)
+Lock 10 random orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: SkillSet:
+	[0] ESAttackMultihit(15:12058) -> 覇王閻魔玉
+	Deal 200% damage
+	[1] ESRecoverEnemy86(86:12059) -> 本気を出させてもらおうか…！
+	Enemy recover 50% HP
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:12056) -> ほう　やるじゃないか…
+	Increase damage to 150% for the next 99 turns
+	[1] ESBindRandomSub(65:12057) -> お前もこんなもんじゃないだろ？
+	Bind 4 random subs for 1 turn
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:12058) -> 覇王閻魔玉
+Deal 200% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn

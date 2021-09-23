@@ -1,0 +1,56 @@
+#1762 - Fragrant Bowl Dragon, Happo
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1762
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1773:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+
+level: 5
+ type: PASSIVE
+ | (1773:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (1765:13) Opening Howl
+ | Change 1 random orb type to Jammer orbs
+ group:
+ | group:
+   | condition: 40% chance
+   | (1766:48) Shrimp Horn Charge
+   | Change a random attribute to Water orbs, Deal 75% damage
+   | condition: 70% chance
+   | (1767:15) Cabbage Chase
+   | Deal 90~120% damage (3~4 hits, 30% each)
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (1768:17) Lunch Service
+   | Increase damage to 200% for the next 3 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1769:48) Hot Quail Bomb
+     | Change a random attribute to Fire orbs, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 40% chance
+     | (1766:48) Shrimp Horn Charge
+     | Change a random attribute to Water orbs, Deal 75% damage
+     | condition: 70% chance
+     | (1767:15) Cabbage Chase
+     | Deal 90~120% damage (3~4 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1769:48) Hot Quail Bomb
+     | Change a random attribute to Fire orbs, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1770:15) Water Dragon Chop Suey
+     | Deal 320% damage (8 hits, 40% each)

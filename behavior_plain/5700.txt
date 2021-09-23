@@ -1,0 +1,58 @@
+#5700 - 大門山ツラヌキ＆Ｅ７かがやき
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:15166) -> チェンジ、シンカリオン！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:15167) -> まったくもって問題なしだ！
+	Absorb damage when combos <= 5 for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 13
+
+#9: ESGravity(50:15171) -> 貫けぇ！
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Player -50% HP
+
+#10: ESDebuffMovetime(39:15168) -> 俺の好きな四字熟語は即断即決だぜ！
+Condition: 50% chance (ai:50 rnd:0)
+Movetime -1s for 1 turn, Deal 100% damage
+
+#11: ESAttackMultihit(15:15170) -> シャリンドリル
+Deal 120% damage (3 hits, 40% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESDamageShield(74:15169) -> 俺に任せろおぉ！
+Reduce damage from all sources by 50% for 3 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,27 @@
+#1413 - Happy Forest Maiden, Red Riding Hood
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1413
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10874:75) Substitution
+ | Leader changes to random sub for 1 turn
+ group:
+ | group:
+   | condition: 25% chance
+   | (10876:1) Tame
+   | Bind 1 random card for 3 turns, Deal 100% damage
+   | (10875:15) Bite
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10877:89) Roar
+   | Delay active skills by 3 turns
+ | group:
+ | condition: hp <= 20
+   | (10878:50) Swallowing Whole
+   | Player -100% HP

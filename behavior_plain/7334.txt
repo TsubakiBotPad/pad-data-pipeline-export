@@ -1,0 +1,57 @@
+#7334 - Compassionate Saxifrage Starfairy, Sekka
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:24321) -> Stand and face me.
+	ATK -50% for 5 turns
+	[1] ESGravity(50:24322) -> Here I come!
+	Player -99% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESNoSkyfall(127:24325) -> Sudden Hail Slash
+Condition: 33% chance (ai:0 rnd:33)
+No skyfall for 1 turn
+
+#6: ESColumnSpawnMulti(77:24324) -> Snow Moon Slash
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st and 6th columns to Water orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:24323) -> Rockfoil Blade
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESDebuffRCV(105:24327) -> How interesting...
+	RCV 50% for 5 turns
+	[1] ESDamageShield(74:24328) -> Show me more of your power!
+	Reduce damage from all sources by 75% for 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBoardChangeAttackBits(85:24329) -> Scattering Flower Slash
+Change all orbs to Water and Light, Deal 300% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,68 @@
+#1656 - Armored Blue Blade Knight, Arcline
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:11622) -> Resolute Justice
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:11623) -> Piercing Belief
+	Absorb damage when damage >= 5,000,000 for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 9, target rnd 13
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 12
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 11
+
+#7: ESOrbChangeAttack(48:11633) -> Lame du Tonnerre
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#8: ESRecoverEnemy86(86:11634) -> Épée Consolatrice
+Condition: 33% chance (ai:0 rnd:33)
+Enemy recover 5% HP, Deal 90% damage
+
+#9: ESAttackMultihit(15:11635) -> Atout Durée
+Condition: 34% chance (ai:0 rnd:34)
+Deal 111% damage (3 hits, 37% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbThreshold(87:11625) -> Piercing Belief
+	Absorb damage when damage >= 10,000,000 for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:11626) -> Sharpened Mind
+	Increase damage to 150% for the next 2 turns
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbThreshold(87:11628) -> Piercing Belief
+	Absorb damage when damage >= 15,000,000 for 99 turns
+	[1] ESAttackUPRemainingEnemies(17:11629) -> Sharpened Mind
+	Increase damage to 200% for the next 99 turns
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 6
+
+#14: SkillSet:
+	[0] ESGravity(50:11631) -> Convicting Justice
+	Player -99% HP
+	[1] ESDebuffRCV(105:11632) -> Life Deprivation
+	RCV 50% for 3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

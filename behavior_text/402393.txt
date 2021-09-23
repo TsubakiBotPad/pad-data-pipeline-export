@@ -1,0 +1,78 @@
+#402393 - Alt. Awoken Idunn & Idunna
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 402393
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10828:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (13700:83) Welcome! + We'll give you our hearts! + Lovely Bomb
+ | Voids status ailments for 999 turns + Change all orbs to Heal + Spawn locked Bomb orbs in the specified positions, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 5
+     | condition: 34% chance
+     | (10836:83) Fehde Gandr + Yule Hörgr
+     | Spawn 3 random Water and Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10837:83) Blót Gandr + Yule Hörgr
+     | Change the 1st column to Water orbs and the 6th column to Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10838:83) Symbel Seidzr + Yule Hörgr
+     | Reduce damage from all sources by 50% for 1 turn + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (10840:83) It's pitch black! + Lovely Bomb
+     | Blind all orbs on the board + Spawn Bomb orbs in the specified positions
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (10844:83) Please replenish your strength. + We'll even give you this apple! + Ah, that's...
+     | Player recover 100% HP + Do nothing + Change all orbs to Poison
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 5
+     | condition: 34% chance
+     | (10836:83) Fehde Gandr + Yule Hörgr
+     | Spawn 3 random Water and Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10837:83) Blót Gandr + Yule Hörgr
+     | Change the 1st column to Water orbs and the 6th column to Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10838:83) Symbel Seidzr + Yule Hörgr
+     | Reduce damage from all sources by 50% for 1 turn + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (10840:83) It's pitch black! + Lovely Bomb
+     | Blind all orbs on the board + Spawn Bomb orbs in the specified positions
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | condition: 34% chance
+     | (10836:83) Fehde Gandr + Yule Hörgr
+     | Spawn 3 random Water and Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10837:83) Blót Gandr + Yule Hörgr
+     | Change the 1st column to Water orbs and the 6th column to Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10838:83) Symbel Seidzr + Yule Hörgr
+     | Reduce damage from all sources by 50% for 1 turn + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 14
+   | (10847:83) Yah! + Toh!
+   | Deal 150% damage + Deal 150% damage, Deal 150% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (13703:83) That hurts, you know! + I won't forgive you!
+     | Enemy recover 100% HP + Bind awoken skills for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (13705:83) That hurts, you know! + I'll give you something first-rate!
+     | Enemy recover 100% HP + Change all orbs to Mortal Poison, Deal 150% damage

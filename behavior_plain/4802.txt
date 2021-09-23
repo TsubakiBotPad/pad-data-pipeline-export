@@ -1,0 +1,86 @@
+#4802 - Seething Dragon Caller, Alpha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:11150) -> ESBranchCard
+Branch on player_cards HAS [4796, 4797], target rnd 6
+
+#5: SkillSet:
+	[0] ESOrbSealRow(100:11147) -> Wait! This is off limits!
+	Seal the 1st row for 5 turns
+	[1] ESAbsorbCombo(67:11148) -> I've been entrusted to be on lookout!
+	Absorb damage when combos <= 6 for 999 turns
+
+#6: SkillSet:
+	[0] ESOrbSealRow(100:11147) -> Wait! This is off limits!
+	Seal the 1st row for 5 turns
+	[1] ESAbsorbCombo(67:11149) -> What are you doing, stupid Suou?!
+	Absorb damage when combos <= 6 for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESOrbChangeAttackBits(108:11151) -> Need to burn more!
+Change all Jammer orbs to Fire orbs, Deal 150% damage
+
+#10: ESSkillDelay(89:11152) -> I'll make you suffer!
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~2 turns, Deal 95% damage
+
+#11: ESRandomSpawn(92:11153) -> I'll burn you to ashes!
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Jammer orbs, Deal 100% damage
+
+#12: ESAttackMultihit(15:11154) -> Hey, hey, hey!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 19
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: SkillSet:
+	[0] ESBombFixedSpawn(103:11156) -> Your life is at an end!
+	Spawn Bomb orbs in the specified positions
+	[1] ESDebuffMovetime(39:11157) -> You will regret that
+	Movetime 50% for 5 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESAttackUPRemainingEnemies(17:11158) -> I'll end this for you NOW!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 99 turns
+
+#20: ESBoardChange(84:11159) -> Get out of my sight!
+Change all orbs to Fire, Deal 250% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11160) -> Oh, on an errand? Why didn't you say?
+	Do nothing

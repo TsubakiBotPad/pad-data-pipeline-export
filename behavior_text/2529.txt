@@ -1,0 +1,37 @@
+#2529 - Blue Earth Armor Dragon, Caph
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2529
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (3740:95) Mechanical Toxin
+ | Spawn 6 random Mortal Poison orbs
+
+level: 5
+ type: PREEMPT
+ | (3741:68) Grand Core
+ | Jammer skyfall +15% for 10 turns
+ type: DEATH
+ condition: when defeated
+ | (3740:95) Mechanical Toxin
+ | Spawn 6 random Mortal Poison orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (3743:63) Root Chain
+   | Bind 1 random card for 3 turns, Deal 90% damage
+   | (3742:77) Splash Hell Gale
+   | Change the 3rd and 4th columns to Water and Wood orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)

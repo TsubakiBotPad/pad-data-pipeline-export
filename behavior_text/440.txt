@@ -1,0 +1,39 @@
+#440 - Super Gunma
+monster size: 5
+new AI: False
+start/max counter: 0
+counter increment: 0
+monster_id: 440
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5, hp <= 100
+   | (175:20) Divine Protection of Gunma
+   | Voids status ailments for 5 turns
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (175:20) Divine Protection of Gunma
+     | Voids status ailments for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-5 of 5
+     | condition: 40% chance
+     | (173:15) Super-Gunmaken
+     | Deal 250% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (175:20) Divine Protection of Gunma
+     | Voids status ailments for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-5 of 5
+     | condition: 30% chance
+     | (174:15) Hyper-Gunmaken
+     | Deal 240% damage (4 hits, 60% each)
+     | condition: 40% chance
+     | (173:15) Super-Gunmaken
+     | Deal 250% damage

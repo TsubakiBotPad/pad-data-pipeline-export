@@ -1,0 +1,44 @@
+#3954 - Illuminating Dragon Caller, Myne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3954
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (8316:95) It's dangerous inside so be careful...!
+ | Spawn 1 random Heal orb
+
+level: 4
+ type: PREEMPT
+ | condition: when 3930, 3931, 3942, 3943 on team
+ | (8309:74) W...Welcome home?...
+ | Reduce damage from all sources by 75% for 1 turn
+ | (8307:74) Oh! A visitor?!
+ | Reduce damage from all sources by 75% for 1 turn
+ type: DEATH
+ condition: when defeated
+ | (8316:95) It's dangerous inside so be careful...!
+ | Spawn 1 random Heal orb
+ group:
+ | group:
+   | condition: 34% chance
+   | (8310:104) Sweeping Duster
+   | A 2×2 square of clouds appears for 1 turn at a random location, Deal 120% damage
+   | condition: 33% chance
+   | (8311:79) Neat and Tidy
+   | Change the 1st, 3rd, and 5th rows to Heal orbs, the 2nd row to Fire orbs, and the 4th row to Fire and Jammer orbs, Deal 50% damage
+   | condition: 33% chance
+   | (8312:92) Terrible Tumble
+   | Spawn 5 random Jammer orbs, Deal 130% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (8313:89) Flying Bucket
+   | Delay active skills by 2 turns
+ | group:
+ | condition: hp <= 19
+   | (8314:15) Toppling Bookshelf
+   | Deal 220% damage

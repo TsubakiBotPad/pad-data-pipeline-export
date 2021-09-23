@@ -1,0 +1,39 @@
+#406576 - Dark Heart Dragon Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406576
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21985:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (21986:127) You think you can defeat me?!
+ | No skyfall for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (21987:130) Doomsday Chant
+   | ATK -50% for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (21988:105) Dark Path
+   | RCV 50% for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21989:83) The Dark Heart grows stronger... + Severing Sutra
+     | Increase damage to 150% for the next 999 turns + Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (21992:109) Doomsday Chant
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 120% damage
+     | condition: 50% chance
+     | (21987:130) Doomsday Chant
+     | ATK -50% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (21988:105) Dark Path
+     | RCV 50% for 1 turn, Deal 95% damage

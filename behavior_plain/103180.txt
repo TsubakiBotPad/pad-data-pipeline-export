@@ -1,0 +1,98 @@
+#103180 - Omnipresent Earth Blade, Shintetsu Ryokaku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSpinnersFixed(110:12848) -> Bewitching Forest
+	Specific orbs change every 1.0s for 10 turns
+	[1] ESAbsorbCombo(67:12849) -> Creation of the Universe
+	Absorb damage when combos <= 6 for 20 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 24
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 18
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 14
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 76, target rnd 22
+
+#10: ESGravity(50:12852) -> Hunting Cyclone
+Condition: One-time use (ai:33 rnd:0) (cost: 1)
+Player -99% HP
+
+#11: ESColumnSpawnMulti(77:12850) -> Savage Crunch
+Condition: 50% chance (ai:0 rnd:50)
+Change the 6th column to Wood orbs, Deal 95% damage
+
+#12: ESAttackMultihit(15:12851) -> Wild Flurry
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESStatusShield(20:12853) -> Fighting Spirit Enhancement
+Voids status ailments for 999 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: SkillSet:
+	[0] ESBindAwoken(88:12855) -> Parrying Stance
+	Bind awoken skills for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:12856) -> Double-Edge Stance
+	Increase damage to 150% for the next 999 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:12857) -> Double-Edge of Creation
+Deal 240% damage (6 hits, 40% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESRecoverEnemy86(86:12859) -> Mind Concentration
+	Enemy recover 50% HP
+	[1] ESSkillDelay(89:12860) -> Mighty Roar
+	Delay active skills by 5 turns
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESTurnChangePassive(106:12846) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 75%
+
+#27: ESResolve(73:12861) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,43 @@
+#100014 - Alt. Pteras
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100014
+approved: False
+
+level: 4
+ group:
+ | group:
+ | condition: turn 1
+   | (10421:92) Flash Breath
+   | Spawn 3 random Light orbs, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (10421:92) Flash Breath
+   | Spawn 3 random Light orbs, Deal 100% damage
+   | (10422:89) Dimming Sunlight
+   | Delay active skills by 0~2 turns, Deal 95% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10421:92) Flash Breath
+   | Spawn 3 random Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10423:74) Sunray Protection
+   | Reduce damage from all sources by 50% for 5 turns
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10421:92) Flash Breath
+   | Spawn 3 random Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10424:17) Blessings from Above
+   | Increase damage to 300% for the next 99 turns
+ | group:
+   | (10425:15) Holy Breath
+   | Deal 140% damage (2 hits, 70% each)

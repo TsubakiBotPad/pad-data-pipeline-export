@@ -1,0 +1,38 @@
+#4086 - Assassination Arts Heir, Leona Heidern
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 4086
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8637:102) Fulfilling mission
+ | Spawn 3 random Bomb orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (8640:98) X-Calibur
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 50% chance
+     | (8639:92) Baltic Launcher
+     | Spawn 1 random Wood orb, Deal 90% damage
+     | (8638:15) I-Slasher
+     | Deal 80% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (8641:15) Rebel Spark
+     | Deal 30% damage
+   | group:
+   | condition: turn 2
+     | (8642:103) Goodbye!
+     | Spawn Bomb orbs in the specified positions
+   | group:
+     | (8643:103) V-Slasher
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage

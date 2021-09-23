@@ -1,0 +1,43 @@
+  monster_id: 2307
+  levels {
+    level: 4
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 3436
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 3437
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 2
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 3438
+            }
+          }
+        }
+      }
+    }
+  }

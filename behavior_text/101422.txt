@@ -1,0 +1,40 @@
+#101422 - Alt. Guardian of the Sacred City, Athena
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 0
+monster_id: 101422
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (461:55) You've done well to make it here.
+ | Player recover 100% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (454:48) Shining Spear
+   | Change a random attribute to Light orbs, Deal 80% damage
+   | condition: 60% chance
+   | (456:15) Storm Punisher
+   | Deal 120% damage (6 hits, 20% each)
+   | (1645:50) Siculus Strike
+   | Player -99% HP
+ | group:
+ | condition: turn 1 while HP > 74, hp <= 89
+   | (1644:20) Aegis Defense
+   | Voids status ailments for 999 turns
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (1643:2) Hymn of Nike
+   | Bind Dark cards for 10 turns
+   | (1644:20) Aegis Defense
+   | Voids status ailments for 999 turns
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (1642:7) Resurrection
+   | Enemy recover 100% HP
+ | group:
+ | condition: hp <= 29
+   | (458:15) Starburst
+   | Deal 1,000% damage (10 hits, 100% each)

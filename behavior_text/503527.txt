@@ -1,0 +1,26 @@
+#503527 - Radiant Mechdragon Technician, Julie
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 503527
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16826:83) I'm ready to help! + Ok, now...
+ | Absorb damage when combos <= 5 for 99 turns + Fix orb movement starting point to random position on the board
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 6 combos last turn
+   | (16819:40) P-Perfect!
+   | Reduce self HP to 0
+   | (16823:83) Hmmmm... + Think you're getting the hang of it?
+   | Change all orbs to Fire, Water, and Heal + Fix orb movement starting point to random position on the board
+ | group:
+   | (16818:40) It's finished.
+   | Reduce self HP to 0
+ type: UNKNOWN_USE
+ | (16820:83) It might be better to do it like this... + I'll leave the rest to you!
+ | Change the 1st, 3rd, and 5th rows to Water orbs and the 2nd and 4th rows to Heal orbs + Fix orb movement starting point to random position on the board

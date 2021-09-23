@@ -1,0 +1,29 @@
+#1090 - Hurricane Volcano Dragon
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 1090
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (1163:53) Fire Scales
+ | Absorb Fire damage for 10 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (1162:68) Volcano Dragon's Howl
+   | Fire skyfall +25% for 5 turns
+ | group:
+   | condition: 50% chance
+   | (1164:48) Magma Ball
+   | Change all Wood orbs to Fire orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (1165:15) Hurricane Fang
+   | Deal 90~150% damage (3~5 hits, 30% each)
+   | condition: 50% chance
+   | (1164:48) Magma Ball
+   | Change all Wood orbs to Fire orbs, Deal 80% damage

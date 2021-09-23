@@ -1,0 +1,94 @@
+#103141 - 飛翔・キン肉マンマリポーサ
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbLock(94:5417) -> Senton Quebradora
+Lock all Fire orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:5418) -> Senton Quebradora
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESAttackMultihit(15:5419) -> Muscle Revenger
+Deal 80~120% damage (2~3 hits, 40% each)
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 24
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESAbsorbAttribute(53:5421) -> Moctezuma Defense
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Absorb Fire damage for 3 turns
+
+#16: ESBindAttack(63:5422) -> Secret Art: Steel Domination
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Bind player leader for 4 turns, Deal 50% damage
+
+#17: ESOrbChangeAttack(48:5423) -> Aztec Drop
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Change a random attribute to Fire orbs, Deal 80% damage
+
+#18: ESOrbLock(94:5424) -> Aztec Senton
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Lock all Fire orbs, Deal 100% damage
+
+#19: ESAttackMultihit(15:5425) -> Aztec Senton
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 100% damage
+
+#20: ESRandomSpawn(92:5426) -> Aztec Knee Drop
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 4 random Fire orbs, Deal 80% damage
+
+#21: ESGravity(50:5427) -> Aztec Headbutt
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Player -99% HP
+
+#22: ESAttackMultihit(15:5428) -> Muscle Revenger!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 360% damage (6 hits, 60% each)
+
+#23: ESEndBattle(40:5429) -> Divine Retribution
+Reduce self HP to 0
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#25: ESBranchCard(90:5430) -> ESBranchCard
+Branch on player_cards HAS [3132, 3133], target rnd 27
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#27: ESInactivity66(66:5420) -> Well played, Robin Mask!
+Do nothing

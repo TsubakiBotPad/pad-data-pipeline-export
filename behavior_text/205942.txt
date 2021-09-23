@@ -1,0 +1,36 @@
+#205942 - Reincarnated Neptune Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205942
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16760:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (16734:118) God & Devil Halved
+ | Reduce damage from God and Devil types by 50%
+ type: PREEMPT
+ | (16748:83) Sea God's Divine Protection + Sacred Waters of the Underworld + Guidance to the Ark + Judgement of the Deep Sea
+ | Voids status ailments for 999 turns + Poison and Mortal Poison skyfall +15% for 10 turns + Absorb damage when damage >= 30,000,000 for 999 turns + ATK -50% for 99 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (16756:15) Tri-Burst
+   | Deal 90% damage (3 hits, 30% each)
+   | condition: 33% chance
+   | (16757:92) Abyssal Tentacle
+   | Spawn 5 random Water, Poison, and Mortal Poison orbs, Deal 80% damage
+   | condition: 33% chance
+   | (16758:39) Earthquake
+   | Movetime 50% for 1 turn, Deal 85% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 50
+   | (16753:83) Sea God's Wrath + Whirling Tides on Dark Seas
+   | Increase damage to 200% for the next 999 turns + Change all orbs to Mortal Poison, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (16759:15) Chaos Maelstrom
+   | Deal 3,000% damage (10 hits, 300% each)

@@ -1,0 +1,66 @@
+#2378 - 女型の巨人・戦闘状態
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2378
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (3304:20) Peculiar Stance
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2363, 2364, 2361, 2362 on team
+     | (3312:66) Checks Faces
+     | Do nothing
+     | condition: when 2358, 2359, 2360 on team
+     | (3314:74) Protects Nape
+     | Reduce damage from all sources by 20% for 1 turn
+     | condition: when 2355 on team
+     | (3310:15) Heavy Middle Kick
+     | Deal 110% damage
+   | group:
+     | condition: 40% chance
+     | (3305:89) Quick Low Kick
+     | Delay active skills by 1 turn, Deal 100% damage
+     | condition: 40% chance
+     | (3306:62) Powerful High Kick
+     | Blind all orbs on the board, Deal 150% damage
+     | condition: 20% chance
+     | (1:82) Disable Skill
+     | Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | condition: when 2363, 2364, 2361, 2362 on team
+   | (3312:66) Checks Faces
+   | Do nothing
+   | condition: when 2358, 2359, 2360 on team
+   | (3314:74) Protects Nape
+   | Reduce damage from all sources by 20% for 1 turn
+   | condition: when 2355 on team
+   | (3310:15) Heavy Middle Kick
+   | Deal 110% damage
+   | (3307:74) Hard Form
+   | Reduce damage from all sources by 30% for 2 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | condition: when 2358, 2359, 2360 on team
+     | (3314:74) Protects Nape
+     | Reduce damage from all sources by 20% for 1 turn
+     | condition: when 2355 on team
+     | (3310:15) Heavy Middle Kick
+     | Deal 110% damage
+     | (3308:1) Binding
+     | Bind 6 random cards for 2 turns
+   | group:
+     | (3317:15) Calm and Calculated Finishing Strike
+     | Deal 300% damage
+ type: UNKNOWN_USE
+ | (3316:66) Stops moving about
+ | Do nothing

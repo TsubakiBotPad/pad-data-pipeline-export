@@ -1,0 +1,28 @@
+#105260 - Lyserg Diethel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105260
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17597:94) Yes.
+ | Lock 10 random orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (17598:94) Tsk, tsk.
+   | Lock 3 random orbs, Deal 80% damage
+   | (17600:92) We're just getting started.
+   | Spawn 4 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (17599:99) I'm afraid not.
+     | Seal the 6th column for 4 turns
+   | group:
+     | (17601:15) Sorry.
+     | Deal 120% damage

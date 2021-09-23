@@ -1,0 +1,31 @@
+#6324 - オール・フォー・ワン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6324
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18394:83) Now then...shall we? + Impact Recoil
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 2,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (18398:92) What a bother.
+     | Spawn 5 random Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (18396:130) I won't let you.
+     | ATK -50% for 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18399:17) I will strike you down.
+     | Increase damage to 200% for the next 5 turns
+   | group:
+     | (18400:15) You lose.
+     | Deal 140% damage

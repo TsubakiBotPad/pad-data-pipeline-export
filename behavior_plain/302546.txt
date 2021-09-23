@@ -1,0 +1,49 @@
+#302546 - Un-Gyo
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRowSpawnMulti(78:3698) -> Un!
+Change the 1st, 2nd, 3rd, 4th, and 5th rows to Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:3702) -> Curse you!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESOrbChangeAttack(48:3699) -> Lightning
+Change a random attribute to Light orbs, Deal 70% damage
+
+#12: ESBindSkill(14:3700) -> With Rage
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 1 turn
+
+#13: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#14: ESOrbLock(94:3701) -> Strange
+Lock 3 random Fire, Water, Wood, Light, and Dark orbs, Deal 40% damage

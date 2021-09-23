@@ -1,0 +1,29 @@
+#104576 - Guardian of the Water City, Athena
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104576
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13579:83) Oath of Aegis + Protection of Nike
+ | Delay active skills by 5 turns + Movetime -4s for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (13582:92) Aqua Spear
+   | Spawn 6 random Water orbs, Deal 100% damage
+   | condition: 50% chance
+   | (13583:15) Stream Punisher
+   | Deal 110% damage (5 hits, 22% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (13584:66) I'll finish this...
+     | Do nothing
+   | group:
+     | (13585:15) Aquamarine Burst
+     | Deal 500% damage (10 hits, 50% each)

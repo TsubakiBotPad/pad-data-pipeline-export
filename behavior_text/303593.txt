@@ -1,0 +1,36 @@
+#303593 - Awoken Sarasvati
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 303593
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24604:72) Light & Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (24495:83) Heavenly Virtue's Protection + Disappearing Mist
+ | Void damage >= 1,000,000,000 for 999 turns + Bind awoken skills for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (24499:92) High Water
+     | Spawn 6 random Poison orbs, Deal 100% damage
+     | condition: 50% chance
+     | (24500:15) Overflowing
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (24400:83) Iridescent Shine + Radiant Flash
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (24498:97) Blackwater Pollution
+   | Blind random 20 orbs for 10 turns, Deal 120% damage
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (24501:15) Peacock Dance
+   | Deal 500% damage (5 hits, 100% each)

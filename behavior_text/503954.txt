@@ -1,0 +1,28 @@
+#503954 - Illuminating Dragon Caller, Myne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 503954
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13961:83) Full Speed Ahead! + Little Dragon Attack
+ | Do nothing + Deal 100% damage, Deal 100% damage
+ group:
+ | group:
+   | (13928:15) Huh?
+   | Deal 810% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (13929:86) I can still do it!
+     | Enemy recover 20% HP
+   | group:
+     | condition: 50% chance
+     | (13930:50) Hyaaa!
+     | Player -20% HP
+     | (13928:15) Huh?
+     | Deal 810% damage

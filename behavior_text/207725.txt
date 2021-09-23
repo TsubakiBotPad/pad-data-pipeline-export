@@ -1,0 +1,37 @@
+#207725 - フレイザード
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207725
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26885:129) ＿フレイザード1超根性
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (26886:83) たとえ全てを失ったとしても + オレの勝利だけはのがさねえ…!!
+ | Bind 2 random subs for 2 turns + Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (26889:83) いくぜェッ!!!小僧ッ!!! + 氷炎爆花散!!
+     | Fire and Water skyfall +15% for 10 turns + Locked Fire and Water skyfall +100% for 10 turns, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (26892:83) …一気に焼き殺してやる… + こいつでジ・エンドだ～～～っ!!!!
+     | Do nothing + Change all orbs to Fire, Water, Heal, and Jammer, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (26895:53) 弾岩爆花散!!!
+     | Absorb Fire and Water damage for 1 turn, Deal 125% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (26896:83) この勝負… + オレがもらったぜっ!!!!!
+     | Do nothing + Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (26899:66) ゲッ!!?オ…オレの…核…!!?
+   | Do nothing

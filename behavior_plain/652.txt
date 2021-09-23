@@ -1,0 +1,56 @@
+#652 - Freyr, the Blazing Swordsman
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:3272) -> Froda's Peace
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:3279) -> Volcanic Blade
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 400% damage (4 hits, 100% each)
+
+#7: ESAttackMultihit(15:3275) -> Gullinbursti's Charge
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 160% damage (2 hits, 80% each)
+
+#8: ESBranchCard(90:3273) -> ESBranchCard
+Branch on player_cards HAS [372, 373, 654, 1346], target rnd 13
+
+#9: ESGravity(50:3276) -> Skidbladnir Giant Form
+Condition: 20% chance (ai:0 rnd:20)
+Player -99% HP
+
+#10: ESRowSpawnMulti(79:3277) -> Victory Sword
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Fire orbs, Deal 130% damage
+
+#11: ESOrbLock(94:3278) -> Fairy King Blaze
+Condition: 30% chance (ai:0 rnd:30)
+Lock all Fire orbs, Deal 120% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESRecoverPlayer(55:3274) -> I'm always on your side!
+Player recover 100% HP

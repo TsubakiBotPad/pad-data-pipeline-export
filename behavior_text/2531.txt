@@ -1,0 +1,30 @@
+#2531 - Green Flame Armor Dragon, Shedir
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2531
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3585:15) Fury Horn
+ | Deal 240% damage (2 hits, 120% each)
+ group:
+ | group:
+   | (3587:48) Clean Nap
+   | Change all Poison orbs to Wood orbs, Deal 150% damage
+   | (3586:79) Aero Burn
+   | Change the 1st row to Fire orbs and the 5th row to Wood orbs, Deal 130% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (3592:17) Gear Charge
+ | Increase damage to 200% for the next 999 turns

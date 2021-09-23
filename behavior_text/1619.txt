@@ -1,0 +1,43 @@
+#1619 - Sacred Tree Sorcerer, Leeza
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1619
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4869:83) Magic Circle Tuning + I give you this.
+ | Change all orbs to Water, Wood, Light, and Dark + Spawn 1 random Jammer orb, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4872:83) Sacred Tree's Divine Protection + Tree Spell
+     | Voids status ailments for 999 turns + Change the 5th row to Wood orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4874:83) Windy Trees Barrier + Tree Spell
+     | Absorb damage when combos <= 5 for 1 turn + Change the 5th row to Wood orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4875:83) Tree Spell + Sacred Tree's Tear
+     | Change the 5th row to Wood orbs + Fix orb movement starting point to random position on the board, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | condition: when required attributes on board
+     | (4879:92) Thanks for taking care of it ♪
+     | Change all Jammer orbs to Heal orbs
+     | (4880:86) I told you to take care of it...
+     | Enemy recover 100% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4881:85) Magic Circle Anomaly
+     | Change all orbs to Fire, Heal, Jammer, and Poison, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4871:85) Magic Circle Tuning
+     | Change all orbs to Water, Wood, Light, and Dark, Deal 100% damage

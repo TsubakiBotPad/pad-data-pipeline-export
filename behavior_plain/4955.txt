@@ -1,0 +1,68 @@
+#4955 - ふぶき姫
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESCloud(104:11944) -> 雪あそび　したくない？
+A 2×2 square of clouds appears for 3 turns at a random location
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 16
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 19
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 14
+
+#10: ESOrbLock(94:11954) -> こごえさせてあげるっ！
+Condition: 33% chance (ai:0 rnd:33)
+Lock 8 random orbs
+
+#11: ESOrbChangeAttack(48:11950) -> ひえひえプレゼントっ♪
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Water orbs, Deal 95% damage
+
+#12: ESAttackMultihit(15:11952) -> こおりなさいっ！
+Condition: 34% chance (ai:0 rnd:34)
+Deal 50% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESInactivity66(66:11955) -> 夏バテだわ…
+Do nothing
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: ESCloud(104:11944) -> 雪あそび　したくない？
+A 2×2 square of clouds appears for 3 turns at a random location
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESAttackMultihit(15:11956) -> キラキラ雪化粧
+Deal 120% damage (4 hits, 30% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

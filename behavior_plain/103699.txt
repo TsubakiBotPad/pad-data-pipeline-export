@@ -1,0 +1,97 @@
+#103699 - Alt. Awoken Nohime
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardSizeChange(126:16643) -> I'll do something nice for you.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change board size to 7x6 for 3 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSkillDelay(89:17171) -> That looks like a lot of Orbs.
+	Delay active skills by 15 turns
+	[1] ESBindAwoken(88:17172) -> If that's so easy for you...
+	Bind awoken skills for 5 turns
+	[2] ESOrbSealColumn(99:17199) -> Would you forgive me if I did this?
+	Seal the 1st column for 10 turns
+	[3] ESCloud(104:17021) -> Haven't had enough yet?
+	A 1×6 rectangle of clouds appears for 10 turns at 1st row, 6th column
+	[4] ESBlindStickySkyfall(128:17173) -> Black Death Butterfly
+	For 20 turns, 10% chance for skyfall orbs to be blinded for turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:16648) -> Show me your full power!
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:17023) -> Supreme Attendant's Robes
+	Reduce damage from all sources by 50% for 2 turns
+	[2] ESAbsorbCombo(67:16650) -> Can you overcome this?
+	Absorb damage when combos <= 9 for 2 turns
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 11
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESGravity(50:16652) -> It hurts, doesn't it...
+	Player -75% HP
+	[1] ESAttackMultihit(15:16653) -> Can you withstand this?
+	Deal 50% damage (5 hits, 10% each)
+
+#8: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBindAttack(63:16655) -> I'll make it so you can't move.
+	Bind 1 random sub for 2 turns, Deal 50% damage
+	[1] ESOrbLock(94:16656) -> Still not enough!
+	Lock 21 random orbs, Deal 50% damage
+
+#9: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESBlind62(62:16658) -> It's pitch black!
+	Blind all orbs on the board, Deal 50% damage
+	[1] ESBlindStickyRandom(97:16659) -> There's not even one ray of light.
+	Blind random 21 orbs for 1 turn, Deal 50% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:16661) -> Oh what a shame.
+	Void damage >= 30,000,000 for 999 turns
+	[1] ESSpinnersFixed(110:16662) -> Looks like you're still not ready.
+	Specific orbs change every 1.0s for 10 turns
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:16664) -> You're pretty good aren't you.
+	Enemy recover 100% HP
+	[1] ESAttackUPRemainingEnemies(17:16665) -> Time to go all out!
+	Increase damage to 150% for the next 999 turns
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 7
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:16667) -> I'm impressed you've gotten so far.
+	Bind awoken skills for 1 turn
+	[1] ESBlindStickyFixed(98:16668) -> But how about this?
+	Blind orbs in specific positions for 1 turn
+
+#16: ESAttackMultihit(15:16669) -> You've entertained me.
+Deal 600% damage (4 hits, 150% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

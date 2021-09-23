@@ -1,0 +1,24 @@
+#101521 - Royal Green Hawk
+monster size: 3
+new AI: False
+start/max counter: 0
+counter increment: 0
+monster_id: 101521
+approved: False
+
+level: 5
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 49
+   | (1341:19) *Flapping Wings*
+   | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1341:19) *Flapping Wings*
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1342:15) Swoop
+     | Deal 200% damage

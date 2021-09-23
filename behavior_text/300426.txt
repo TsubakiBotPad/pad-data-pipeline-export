@@ -1,0 +1,27 @@
+#300426 - Kurone
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300426
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24418:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24427:100) Phantom Path
+ | Seal the 5th row for 20 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (24428:48) Blessing of the Moon
+   | Change a random attribute to Dark orbs, Deal 100% damage
+ | group:
+   | (24403:46) Radiant Flash
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 1,000% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (24400:83) Iridescent Shine + Radiant Flash
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)

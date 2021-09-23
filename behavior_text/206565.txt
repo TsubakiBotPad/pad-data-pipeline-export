@@ -1,0 +1,45 @@
+#206565 - Enmu
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 206565
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (20062:83) Oh, you're awake? + You should have stayed asleep.
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (20065:15) Tee hee hee!
+   | Deal 100% damage
+   | (20066:92) Hee hee!
+   | Spawn 4 random Dark orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20067:63) Blood Demon Art: Whispers of Forced Unconscious Hypnosis
+     | Bind player leader for 1 turn, Deal 50% damage
+   | group:
+   | condition: turn 2
+     | (20068:63) Go to sleeeeep...
+     | Bind friend leader for 1 turn, Deal 80% damage
+   | group:
+   | condition: turn 3
+     | (20069:63) Sleeep...
+     | Bind 1 random sub for 1 turn, Deal 90% damage
+   | group:
+   | condition: turn 4
+     | (20070:63) Sleeep!!
+     | Bind 2 random subs for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (20071:88) Can you protect them...by yourself?
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (20072:63) Blood Demon Art: Eyes of Forced Unconscious Hypnosis
+     | Bind both leaders for 1 turn, Deal 120% damage

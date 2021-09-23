@@ -1,0 +1,58 @@
+#1656 - Armored Blue Blade Knight, Arcline
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 1656
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11621:83) Resolute Justice + Piercing Belief
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 5,000,000 for 3 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 33% chance
+   | (11633:48) Lame du Tonnerre
+   | Change a random attribute to Light orbs, Deal 100% damage
+   | condition: 33% chance
+   | (11634:86) Épée Consolatrice
+   | Enemy recover 5% HP, Deal 90% damage
+   | condition: 34% chance
+   | (11635:15) Atout Durée
+   | Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: turn 3
+   | (11624:83) Piercing Belief + Sharpened Mind
+   | Absorb damage when damage >= 10,000,000 for 3 turns + Increase damage to 150% for the next 2 turns
+ | group:
+ | condition: turns 4-5
+   | condition: 33% chance
+   | (11633:48) Lame du Tonnerre
+   | Change a random attribute to Light orbs, Deal 100% damage
+   | condition: 33% chance
+   | (11634:86) Épée Consolatrice
+   | Enemy recover 5% HP, Deal 90% damage
+   | condition: 34% chance
+   | (11635:15) Atout Durée
+   | Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: turn 6
+   | (11627:83) Piercing Belief + Sharpened Mind
+   | Absorb damage when damage >= 15,000,000 for 99 turns + Increase damage to 200% for the next 99 turns
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | condition: 33% chance
+   | (11633:48) Lame du Tonnerre
+   | Change a random attribute to Light orbs, Deal 100% damage
+   | condition: 33% chance
+   | (11634:86) Épée Consolatrice
+   | Enemy recover 5% HP, Deal 90% damage
+   | condition: 34% chance
+   | (11635:15) Atout Durée
+   | Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (11630:83) Convicting Justice + Life Deprivation
+   | Player -99% HP + RCV 50% for 3 turns

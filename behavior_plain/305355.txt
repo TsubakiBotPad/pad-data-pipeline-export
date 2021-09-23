@@ -1,0 +1,78 @@
+#305355 - Draconic Songsters' Vile Conductor, Dioro
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 64)
+	[0] ESStatusShield(20:13424) -> You better listen to my music
+	Voids status ailments for 7 turns
+	[1] ESDebuffMovetime(39:13425) -> Overture
+	Movetime 75% for 7 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESBlind5(5:13427) -> First Movement
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:13428) -> Largo
+	Deal 100% damage
+
+#7: ESBombFixedSpawn(103:13429) -> Attacca
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Spawn Bomb orbs in the specified positions
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSpinnersRandom(109:13431) -> Second Movement
+	Random 2 orbs change every 1.0s for 1 turn
+	[1] ESAttackMultihit(15:13432) -> Feroce
+	Deal 125% damage
+
+#9: ESBindAwoken(88:13433) -> Prelude
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind awoken skills for 1 turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:13435) -> Third Movement
+	Spawn 8 random Jammer orbs
+	[1] ESAttackMultihit(15:13436) -> Andante
+	Deal 150% damage
+
+#11: ESSkyfallLocked(96:13437) -> Coda
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Locked random skyfall +100% for 1 turn
+
+#12: SkillSet:
+	[0] ESBindTarget(54:13439) -> Last Movement
+	Bind both leaders for 1 turn
+	[1] ESAttackMultihit(15:13440) -> Grandioso
+	Deal 300% damage (3 hits, 100% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: ESGravity(50:13441) -> Variation
+Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

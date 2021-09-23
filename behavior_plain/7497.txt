@@ -1,0 +1,74 @@
+#7497 - 虎杖悠仁
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESVoidShield(71:26748) -> Let's win!
+Void damage >= 20,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESOrbChangeAttack(48:26750) -> Divergent Fist
+Condition: 25% chance (ai:25 rnd:0)
+Change a random attribute to Dark orbs, Deal 120% damage
+
+#8: ESGravity(50:26751) -> Vertical Jab
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Player -99% HP
+
+#9: ESAttackMultihit(15:26749) -> Blow
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESFixedStart(101:26753) -> Your face is wide open!
+	Fix orb movement starting point to random position on the board
+	[1] ESOrbLock(94:26754) -> I can hit it!
+	Lock 10 random orbs
+	[2] ESOrbChangeAttack(48:26750) -> Divergent Fist
+	Change a random attribute to Dark orbs, Deal 120% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESFixedStart(101:26753) -> Your face is wide open!
+	Fix orb movement starting point to random position on the board
+	[1] ESOrbLock(94:26754) -> I can hit it!
+	Lock 10 random orbs
+	[2] ESOrbChangeAttack(48:26750) -> Divergent Fist
+	Change a random attribute to Dark orbs, Deal 120% damage
+
+#16: ESGravity(50:26751) -> Vertical Jab
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:26747) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

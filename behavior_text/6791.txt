@@ -1,0 +1,49 @@
+#6791 - Meme Oshino
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6791
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21201:83) You sure are a sassy one. + Did something nice happen to you, or something?
+ | Random 2 orbs change every 1.0s for 5 turns + Voids status ailments for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (21204:83) You'd be wrong. + It's just that your perspective shifted.
+   | RCV 150% for 3 turns + Reduce damage from all sources by 50% for 3 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 25% chance
+     | (21207:130) You have a violent way of thinking.
+     | ATK -50% for 1 turn, Deal 75% damage
+     | condition: 25% chance
+     | (21211:15) Upsy-daisy!
+     | Deal 90% damage
+     | condition: 25% chance
+     | (21213:79) Trample
+     | Change the 2nd row to Light orbs, Deal 70% damage
+     | condition: 25% chance
+     | (21212:94) Slam
+     | Lock 6 random orbs, Deal 80% damage
+   | group:
+     | condition: 25% chance
+     | (21207:130) You have a violent way of thinking.
+     | ATK -50% for 1 turn, Deal 75% damage
+     | condition: 25% chance
+     | (21211:15) Upsy-daisy!
+     | Deal 90% damage
+     | condition: 25% chance
+     | (21213:79) Trample
+     | Change the 2nd row to Light orbs, Deal 70% damage
+     | condition: 25% chance
+     | (21212:94) Slam
+     | Lock 6 random orbs, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (21208:83) Change of plans. + I have no choice.
+   | Movetime -2s for 5 turns + Increase damage to 150% for the next 5 turns

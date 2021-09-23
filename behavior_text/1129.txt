@@ -1,0 +1,26 @@
+#1129 - Dragon Shogun
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1129
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1670:39) Dragon Triton
+ | Movetime -1s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1671:64) Dragon Blade - Poison Attack
+     | Change 5 random orbs to Poison orbs, Deal 40% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1672:50) Dragon Blade - Steel Cutting Strike
+     | Player -99% HP
+ | group:
+ | condition: hp <= 29
+   | (1673:15) Dragon Blade - Wrathful Flurry
+   | Deal 120~240% damage (3~6 hits, 40% each)

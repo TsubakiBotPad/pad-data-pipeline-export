@@ -1,0 +1,28 @@
+#100907 - Alt. Aqua Baron
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100907
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9894:118) Physical Balanced Halved
+ | Reduce damage from Balanced and Physical types by 50%
+ type: PREEMPT
+ | (9890:83) Blizzard + Crystal Force
+ | Water skyfall +20% for 20 turns + Specific orbs change every 1.0s for 10 turns
+ group:
+ | group:
+   | (9892:15) Ice Rush
+   | Deal 300% damage (2 hits, 150% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (9891:110) Crystal Reversal
+     | Specific orbs change every 1.0s for 10 turns, Deal 260% damage
+   | group:
+     | (9893:15) Cold Trident
+     | Deal 360% damage (3 hits, 120% each)

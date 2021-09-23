@@ -1,0 +1,28 @@
+#101545 - Alt. Purple Shieldra
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:19121) -> Dark Shield
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 999 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 5
+
+#4: ESSkillDelay(89:19123) -> Shield Charge
+Delay active skills by 1~3 turns, Deal 100% damage
+
+#5: ESLeaderSwap(75:19122) -> Purple Chain
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 5 turns
+
+#6: ESSkillDelay(89:19123) -> Shield Charge
+Delay active skills by 1~3 turns, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

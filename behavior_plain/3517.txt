@@ -1,0 +1,80 @@
+#3517 - Lightwing Ray Dragon Caller, Navi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:15068) -> Try to solve this tricky puzzle!
+	Change all orbs to Light
+	[1] ESAbsorbCombo(67:15069) -> Let's start with a combo of 7!
+	Absorb damage when combos <= 6 for 1 turn
+	[2] ESInactivity66(66:15070) -> I'll give you a hint!
+	Do nothing
+	[3] ESSpinnersFixed(110:15071) -> Let's move from top to bottom!
+	Specific orbs change every 5.0s for 1 turn
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 7, target rnd 7
+
+#6: ESGravity(50:15124) -> It looks like I've won!
+Player -100% HP
+
+#7: SkillSet:
+	[0] ESBoardChange(84:15073) -> Nice♪Right, on to the next one!
+	Change all orbs to Light
+	[1] ESAbsorbCombo(67:15074) -> Next is a combo of 8!
+	Absorb damage when combos <= 7 for 1 turn
+	[2] ESInactivity66(66:15075) -> My hint this time is....
+	Do nothing
+	[3] ESSpinnersFixed(110:15076) -> Snake from left to right
+	Specific orbs change every 5.0s for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 13
+
+#12: ESGravity(50:15124) -> It looks like I've won!
+Player -100% HP
+
+#13: SkillSet:
+	[0] ESBoardChange(84:15078) -> Great Job!
+	Change all orbs to Light
+	[1] ESAbsorbCombo(67:15079) -> Last is a combo of 9!
+	Absorb damage when combos <= 8 for 1 turn
+	[2] ESInactivity66(66:15080) -> My last hint is...
+	Do nothing
+	[3] ESSpinnersFixed(110:15081) -> Let's rewind time with spinning candy!
+	Specific orbs change every 5.0s for 1 turn
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESGravity(50:15124) -> It looks like I've won!
+Player -100% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:15082) -> Wow! I lost!
+	Do nothing

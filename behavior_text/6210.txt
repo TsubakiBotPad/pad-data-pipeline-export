@@ -1,0 +1,40 @@
+#6210 - D.T. Lucia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6210
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17772:88) Wheel Kick
+ | Bind awoken skills for 1 turn, Deal 95% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (17772:88) Wheel Kick
+   | Bind awoken skills for 1 turn, Deal 95% damage
+   | condition: 33% chance
+   | (17773:83) Sky High + Axe Kick
+   | Deal 70% damage + Player -50% HP, Deal 70% damage
+   | condition: 34% chance
+   | (17777:15) Combo Attack
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (17779:48) Seraphic Soar
+     | Change a random attribute to Dark orbs, Deal 130% damage
+   | group:
+     | condition: 50% chance
+     | (17776:15) Rapid Fire
+     | Deal 120% damage (3 hits, 40% each)
+     | condition: 50% chance
+     | (17778:109) Rush
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (17780:77) Divine Anger
+   | Change the 1st, 3rd, and 5th columns to Fire and Dark orbs, Deal 250% damage

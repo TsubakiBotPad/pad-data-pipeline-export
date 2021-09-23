@@ -1,0 +1,86 @@
+#2787 - Braska's Final Aeon
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESInactivity66(66:3906) -> Arrrgh!
+Do nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttackSinglehit(82:3915) -> Attack
+Deal 100% damage
+
+#11: ESBindAttack(63:3907) -> Jecht Beam
+Condition: 20% chance (ai:20 rnd:0)
+Bind 1 random sub for 2~3 turns, Deal 110% damage
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: SkillSet:
+	[0] ESSkillDelay(89:3912) -> Osmose
+	Delay active skills by 2 turns
+	[1] ESRecoverEnemy86(86:3913) -> Power Wave
+	Enemy recover 10% HP
+
+#15: ESBindAttack(63:3907) -> Jecht Beam
+Condition: 20% chance (ai:20 rnd:0)
+Bind 1 random sub for 2~3 turns, Deal 110% damage
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 19
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESAttackSinglehit(82:3915) -> Attack
+Deal 100% damage
+
+#19: ESBindAttack(63:3907) -> Jecht Beam
+Condition: 20% chance (ai:20 rnd:0)
+Bind 1 random sub for 2~3 turns, Deal 110% damage
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#21: ESBlind62(62:3908) -> Ultimate Jecht Shot
+Condition: When < 40% HP (ai:100 rnd:0)
+Blind all orbs on the board, Deal 300% damage
+
+#22: ESRandomSpawn(92:3911) -> Triumphant Grasp
+Spawn 4 random Water orbs, Deal 200% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESInactivity66(66:3909) -> Ughh...
+	Do nothing

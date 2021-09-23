@@ -1,0 +1,50 @@
+#4765 - Kagura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4765
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (16936:50) Get out of the way.
+   | Player -50% HP
+ | group:
+   | group:
+   | condition: turn 2 while HP > 19
+     | (16937:14) Don't underestimate Odd Jobs.
+     | Bind active skills for 3 turns
+   | group:
+     | condition: 50% chance
+     | (16939:94) I'll stop you every time.
+     | Lock 3 random orbs, Deal 95% damage
+     | (16938:15) Take this! 
+     | Deal 102% damage (2 hits, 51% each)
+ | group:
+ | condition: hp <= 19
+   | (16940:15) I'll crush you all!
+   | Deal 140% damage
+
+level: 4
+ type: PREEMPT
+ | (16936:50) Get out of the way.
+ | Player -50% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (16937:14) Don't underestimate Odd Jobs.
+     | Bind active skills for 3 turns
+   | group:
+     | condition: 50% chance
+     | (16939:94) I'll stop you every time.
+     | Lock 3 random orbs, Deal 95% damage
+     | (16938:15) Take this! 
+     | Deal 102% damage (2 hits, 51% each)
+ | group:
+ | condition: hp <= 19
+   | (16940:15) I'll crush you all!
+   | Deal 140% damage

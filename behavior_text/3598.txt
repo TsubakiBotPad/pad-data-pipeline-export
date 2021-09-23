@@ -1,0 +1,40 @@
+#3598 - Dark Star Crusher Machine, Despharion
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3598
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15288:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (15289:72) Light Halven
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (15290:83) I, Despharion shall be legendary... + Muro dell'Eternità + Ali dell'Inferno
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 99 turns + Absorb damage when damage >= 60,000,000 for 999 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (15294:83) Disperazione + Avidità Vigorosa
+   | Delay active skills by 99 turns + Deal 300% damage (3 hits, 100% each), Deal 300% damage (3 hits, 100% each)
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (15297:88) Niente Spazio
+     | Bind awoken skills for 1 turn, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (15298:97) Oscurità Vivace
+     | Blind random 10 orbs for 2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (15300:102) Tempesta Esplosiva
+     | Spawn 10 random Bomb orbs, Deal 96% damage
+ | group:
+ | condition: hp <= 49
+   | (15301:83) Sangue del Diavolo + Innumerevoli Morti
+   | Voids player buff effects + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)

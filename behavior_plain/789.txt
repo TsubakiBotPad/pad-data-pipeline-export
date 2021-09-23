@@ -1,0 +1,26 @@
+#789 - Cockatrice
+monster size: 2
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESInactivity16(16:511) -> Chirping
+Condition: 25% chance (ai:0 rnd:25)
+Do nothing
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 30, target rnd 6
+
+#5: ESBindRandom(1:502) -> Evil Eye
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 5 turns
+
+#6: ESJammerChangeRandom(13:503) -> Chaos Eye
+Condition: 20% chance (ai:20 rnd:0)
+Change 2 random orb types to Jammer orbs

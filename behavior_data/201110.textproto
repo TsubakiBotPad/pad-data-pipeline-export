@@ -1,0 +1,52 @@
+  monster_id: 201110
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 25439
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+            trigger_turn_end: 3
+          }
+          children {
+            behavior {
+              enemy_skill_id: 25442
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 25444
+            }
+          }
+        }
+      }
+      children {
+        group {
+          children {
+            behavior {
+              enemy_skill_id: 25443
+            }
+          }
+        }
+      }
+    }
+  }

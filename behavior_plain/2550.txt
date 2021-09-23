@@ -1,0 +1,25 @@
+#2550 - Takemikazuchi
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESNoSkyfall(127:16021) -> Oi! Come at me!!
+	No skyfall for 8 turns
+	[1] ESRandomSpawn(92:16022) -> Gimme everything you've got!!
+	Spawn 4 random Fire, Water, Wood, Light, and Dark orbs
+
+#3: ESRandomSpawn(92:16022) -> Gimme everything you've got!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 4 random Fire, Water, Wood, Light, and Dark orbs
+
+#4: ESColumnSpawnMulti(77:16023) -> Itsu-no-Ohabari's Breaking Thunder
+Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs, Deal 1,000% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

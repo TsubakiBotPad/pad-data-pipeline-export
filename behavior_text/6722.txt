@@ -1,0 +1,51 @@
+#6722 - Kamen Rider Saber
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6722
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20915:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (20916:83) I'm the one who decides how this story ends! + Brave Dragon + Rekka, Unsheathed!
+ | Voids status ailments for 999 turns + Void damage >= 12,000,000 for 3 turns + Absorb Fire damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 50% chance
+     | (20923:48) Dragon Wonder
+     | Change a random attribute to Fire orbs, Deal 95% damage
+     | (20921:94) I'll save everything!
+     | Lock 15 random orbs, Deal 100% damage
+   | group:
+   | condition: turn 3
+     | (20924:74) I'll keep my promise.
+     | Reduce damage from all sources by 50% for 5 turns
+   | group:
+     | condition: 50% chance
+     | (20923:48) Dragon Wonder
+     | Change a random attribute to Fire orbs, Deal 95% damage
+     | (20921:94) I'll save everything!
+     | Lock 15 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20917:83) Hissatsu Dokuha! + Rekka, Unsheathed! Dragon Issatsu Giri!
+     | Bind awoken skills for 1 turn + Player -75% HP
+   | group:
+   | condition: turn 2
+     | (20927:103) Kaen Juujizan
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+   | group:
+     | (20927:103) Kaen Juujizan
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (20925:85) Hiryuu Shuugekiha
+   | Change all orbs to Fire, Deal 5,000% damage

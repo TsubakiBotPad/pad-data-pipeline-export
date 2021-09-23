@@ -1,0 +1,28 @@
+#5013 - Servant, Archer
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5013
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19550:53) I'll be your opponent.
+ | Absorb Fire damage for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (19553:110) Caladbolg II
+   | Specific orbs change every 1.5s for 1 turn, Deal 95% damage
+   | (19551:92) Kanshou and Bakuya
+   | Spawn 3 random Fire and Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19552:74) Rho Aias: 7 Rings of Heaven
+     | Reduce damage from all sources by 50% for 4 turns
+   | group:
+     | (19554:15) Unlimited Blade Works
+     | Deal 140% damage (5 hits, 28% each)

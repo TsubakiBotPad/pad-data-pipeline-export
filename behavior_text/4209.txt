@@ -1,0 +1,26 @@
+#4209 - Valentine Cymophane Princess, Sheen
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4209
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21940:83) I have a present for you! + Well, eat! Eat!
+ | Jammer skyfall +15% for 5 turns + Unable to match Jammer orbs for 5 turns
+ group:
+ | group:
+   | (21944:94) Was it good?
+   | Lock all Jammer orbs, Deal 105% damage
+   | condition: 50% chance
+   | (21943:13) How was it?
+   | Change 1 random orb type to Jammer orbs, Deal 100% damage
+   | condition: 50% chance
+   | (21945:92) Have another one
+   | Spawn 3 random Jammer orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | (21946:15) Thanks for trying my sweets!
+   | Deal 200% damage (2 hits, 100% each)

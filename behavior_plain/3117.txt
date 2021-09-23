@@ -1,0 +1,26 @@
+#3117 - Swimming Feline, Kurone
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBindTarget(54:14263) -> Don't paws, I'm feline frisky!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind player leader for 1 turn
+
+#3: ESRowSpawnMulti(79:14266) -> Purrrfect Wave
+Condition: 30% chance when < 30% HP (ai:30 rnd:0)
+Change the 2nd and 3rd rows to Water orbs, Deal 120% damage
+
+#4: ESBlind5(5:14264) -> Looking puuuurfect!
+Condition: 50% chance (ai:50 rnd:0)
+Blind all orbs on the board
+
+#5: ESAttackMultihit(15:14265) -> Kicking up Dust
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

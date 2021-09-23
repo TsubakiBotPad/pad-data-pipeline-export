@@ -1,0 +1,26 @@
+#819 - Hrungnir
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 819
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (529:50) Wave of Cold Air
+ | Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (530:48) Ice Pillar Creation
+     | Change a random attribute to Water orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (531:15) Ice Block Bullets
+     | Deal 120~150% damage (4~5 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | (532:15) Target-Seeking Ice Block Bullets
+   | Deal 200~250% damage (4~5 hits, 50% each)

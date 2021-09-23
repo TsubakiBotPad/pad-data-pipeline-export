@@ -1,0 +1,84 @@
+#1166 - Red Flower Dragon, Barbados
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:205) -> Fertile Guard
+Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 25
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBindRandomSub(65:915) -> Plant Net
+Bind 4 random subs for 3 turns
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESAttackMultihit(15:916) -> Rage of the Earth
+Deal 75% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESAttackMultihit(15:917) -> Rage of the Earth
+Deal 150% damage
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 21
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#20: ESAttackMultihit(15:918) -> Rage of the Earth
+Deal 300% damage
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 23
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b111110
+
+#24: ESAttackMultihit(15:919) -> Rage of the Earth
+Deal 600% damage
+
+#25: ESOrbChangeAttack(48:902) -> Flower Tail
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Heal orbs, Deal 100% damage
+
+#26: ESOrbChangeAttack(48:914) -> Volcano Rally
+Change a random attribute to Fire orbs, Deal 75% damage

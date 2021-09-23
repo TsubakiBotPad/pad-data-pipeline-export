@@ -1,0 +1,106 @@
+#3724 - Light Orb Dragon, Yobi
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESOrbLock(94:7647) -> Radiant Blond Hair
+	Lock all Light and Heal orbs
+	[1] ESBoardChangeAttackBits(85:7648) -> Light Pulse
+	Change all orbs to Jammer, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 26
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESOrbChangeAttack(48:7653) -> Beautiful Nebulous Glow
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Change all Jammer orbs to Heal orbs, Deal 280% damage
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESDamageShield(74:7650) -> Pure White Silk Scales
+	Reduce damage from all sources by 35% for 10 turns
+	[1] ESStatusShield(20:7651) -> Songstress' Divine Protection
+	Voids status ailments for 10 turns
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESDamageShield(74:7650) -> Pure White Silk Scales
+	Reduce damage from all sources by 35% for 10 turns
+	[1] ESStatusShield(20:7651) -> Songstress' Divine Protection
+	Voids status ailments for 10 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPRemainingEnemies(17:7655) -> Resentful Stare
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 3)
+Increase damage to 150% for the next 999 turns
+
+#16: ESAbsorbThreshold(87:7656) -> Pure White Damask Scales
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Absorb damage when damage >= 1,000,000 for 4 turns
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESDebuffRCV(105:7658) -> Chiming Rings
+RCV 50% for 2 turns, Deal 130% damage
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#22: ESRandomSpawn(92:7657) -> Golden Flower Thorns
+Spawn 3 random Mortal Poison orbs, Deal 110% damage
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1100
+
+#24: ESGravity(50:7659) -> Brutal Wisp Fangs
+Player -90% HP
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 29
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#28: ESSkillDelay(89:7660) -> Glazed Dragon Eyes
+Delay active skills by 5 turns
+
+#29: ESBoardChangeAttackBits(85:7661) -> Scattered Gleam of Bewitching Beauty
+Change all orbs to Light and Jammer, Deal 3,000% damage

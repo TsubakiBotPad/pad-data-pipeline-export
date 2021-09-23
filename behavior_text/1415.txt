@@ -1,0 +1,32 @@
+#1415 - Queen of the Dwarfs, Snow White
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1415
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10879:73) Resolve
+ | Survive attacks with 1 HP when HP > 30%
+ type: PREEMPT
+ | (10880:20) Minor Protection
+ | Voids status ailments for 7 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (10881:4) Bitten Fruit
+   | Change all Heal orbs to Poison orbs
+   | condition: 50% chance
+   | (10882:1) Completely Consumed Fruit
+   | Bind 1 random card for 10 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10883:86) Dwarven Rebirth
+     | Enemy recover 100% HP
+   | group:
+     | (10884:15) Raging Dwarf
+     | Deal 350% damage (7 hits, 50% each)

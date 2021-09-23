@@ -1,0 +1,25 @@
+#205016 - Servant, Rider
+monster size: 5
+new AI: True
+start/max counter: 6
+counter increment: 1
+monster_id: 205016
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (19558:83) Let's try a different tactic. + I shall give you a merciful death.
+ | Movetime 50% for 5 turns + Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 7
+   | (12197:92) Blood Fort: Andromeda: Outer-Seal - Blood Temple
+   | Spawn 15 random Fire orbs, Deal 200% damage
+ | group:
+ | condition: execute repeatedly, turn 2-7 of 7
+   | condition: 50% chance
+   | (12235:94) Chain Attack
+   | Lock all orbs, Deal 90% damage
+   | condition: 50% chance
+   | (12196:15) Kick
+   | Deal 100% damage

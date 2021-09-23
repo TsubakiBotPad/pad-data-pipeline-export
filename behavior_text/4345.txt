@@ -1,0 +1,53 @@
+#4345 - Ceramics Club's Goddess, Hestia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4345
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13109:83) Don't get too close! + It's dangerous
+ | Delay active skills by 1~5 turns + Poison skyfall +15% for 10 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (13121:83) Check the way I do it + Turning on the potter's wheel!
+   | Reduce damage from all sources by 50% for 10 turns + Blind orbs in specific positions for 1 turn, Deal 90% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 25% chance
+     | (13110:98) Do it like this here
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (13111:98) Do it like this here
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (13112:98) Do it like this here
+     | Blind orbs in specific positions for 1 turn, Deal 90% damage
+     | condition: 25% chance
+     | (13113:98) Do it like this here
+     | Blind orbs in specific positions for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (13116:79) Like this
+     | Change the 3rd row to Wood and Jammer orbs, Deal 110% damage
+     | condition: 50% chance
+     | (13115:63) Like this
+     | Bind 1 random card for 1 turn, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (13119:15) This way!
+     | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (13117:87) You are too close!
+     | Absorb damage when damage >= 8,000,000 for 10 turns
+   | group:
+     | (13120:98) That's all for today!
+     | Blind orbs in specific positions for 1 turn, Deal 600% damage

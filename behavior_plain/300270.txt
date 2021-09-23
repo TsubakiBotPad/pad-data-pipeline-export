@@ -1,0 +1,29 @@
+#300270 - Alt. Mist Chimera
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbChangeAttackBits(108:19269) -> Chimera Mist
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Poison orbs to Dark orbs, Deal 300% damage
+
+#3: ESAttackMultihit(15:19270) -> Chimera Mist
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 250% damage (5 hits, 50% each)
+
+#4: ESAttackUPRemainingEnemies(17:19409) -> Wave of Carnage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 700% for the next 999 turns
+
+#5: ESRandomSpawn(92:19271) -> Mist Breath
+Spawn 4 random Dark orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSuperResolve(129:19265) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

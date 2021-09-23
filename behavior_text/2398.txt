@@ -1,0 +1,86 @@
+#2398 - Awoken Surtr
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 2398
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3341:72) Fire Halve
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (3330:20) Ragnarok Victor
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | condition: when 368, 369, 652, 1344 on team
+     | (3340:15) You think you can beat me with that?
+     | Deal 130% damage
+     | condition: 50% chance
+     | (3333:48) Black Flame
+     | Change all Fire orbs to Jammer orbs, Deal 120% damage
+     | (3332:92) Lævateinn
+     | Spawn 6 random Fire orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 4
+     | condition: 50% chance
+     | (3333:48) Black Flame
+     | Change all Fire orbs to Jammer orbs, Deal 120% damage
+     | (3332:92) Lævateinn
+     | Spawn 6 random Fire orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (3331:92) Corona
+     | Change all orbs to Fire, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | condition: 50% chance
+     | (3333:48) Black Flame
+     | Change all Fire orbs to Jammer orbs, Deal 120% damage
+     | (3332:92) Lævateinn
+     | Spawn 6 random Fire orbs, Deal 130% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 79
+   | condition: when 368, 369, 652, 1344 on team
+   | (3340:15) You think you can beat me with that?
+   | Deal 130% damage
+   | (3334:89) The Hordes of Muspel
+   | Delay active skills by 0~2 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 19
+     | (3338:83) Overheat + Body burns up even more
+     | Fire skyfall +25% for 99 turns + Change own attribute to Fire
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 50% chance
+     | (3333:48) Black Flame
+     | Change all Fire orbs to Jammer orbs, Deal 120% damage
+     | (3332:92) Lævateinn
+     | Spawn 6 random Fire orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (3331:92) Corona
+     | Change all orbs to Fire, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3-4 of 4
+     | condition: 50% chance
+     | (3333:48) Black Flame
+     | Change all Fire orbs to Jammer orbs, Deal 120% damage
+     | (3332:92) Lævateinn
+     | Spawn 6 random Fire orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | condition: when 368, 369, 652, 1344 on team
+     | (3340:15) You think you can beat me with that?
+     | Deal 130% damage
+   | group:
+     | (3335:15) Last Flame
+     | Deal 280% damage (4 hits, 70% each)

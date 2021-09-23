@@ -1,0 +1,33 @@
+#101465 - Alt. Awoken Thoth
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 101465
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8227:73) Thoth Resolve
+ | Survive attacks with 1 HP when HP > 80%
+ type: PREEMPT
+ | (1986:89) Creation of the Hieroglyphs
+ | Delay active skills by 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (1988:48) Protector of the Night
+     | Change a random attribute to Jammer orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (1989:64) Leaf of the Ished Tree
+     | Change 4 random orbs to Poison orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (1990:63) Time Mastery
+     | Bind 1 random sub for 4 turns, Deal 50% damage
+ | group:
+ | condition: hp <= 19
+   | (1987:15) Creation's Judgement
+   | Deal 200% damage (4 hits, 50% each)

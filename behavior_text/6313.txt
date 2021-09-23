@@ -1,0 +1,31 @@
+#6313 - 死柄木弔
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6313
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18385:83) I've been waiting...Hero. + You're the scum of society!
+ | Blind all orbs on the board + Change 1 random orb type to Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (18388:15) Piss off...
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (18389:88) Quirk: Decay
+     | Bind awoken skills for 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18390:83) Don't mess with me... + I'm just getting started!
+     | Blind random 2~3 orbs for 3 turns + Absorb damage when combos <= 5 for 3 turns
+   | group:
+     | (18393:15) Turn to dust!
+     | Deal 120% damage (2 hits, 60% each)

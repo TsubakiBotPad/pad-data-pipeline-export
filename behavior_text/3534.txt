@@ -1,0 +1,34 @@
+#3534 - Holy War Mediator, Metatron
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3534
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19028:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (19018:83) White Wings of Divine Intervention + Trial of Hallowed Ground + Beginning of the Trial
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 10 for 999 turns + Movetime 25% for 1 turn
+ group:
+ | group:
+   | (19019:15) You've a while to go yet
+   | Deal 2,000% damage (2 hits, 1,000% each)
+ | group:
+ | condition: hp <= 84
+   | condition: 50% chance
+   | (19020:127) Hallowed Authority
+   | No skyfall for 1 turn
+   | (19021:104) Sacred Scripture
+   | A 7×1 rectangle of clouds appears for 1 turn at a random location, Deal 200% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (19024:83) Hallowed Throne + Quick Cure
+   | ATK -50% for 10 turns + Enemy recover 100% HP
+ | group:
+ | condition: hp <= 1
+   | (19025:83) Angel Feather + Meterion Kesh
+   | Voids player buff effects + Deal 5,000% damage (10 hits, 500% each), Deal 5,000% damage (10 hits, 500% each)

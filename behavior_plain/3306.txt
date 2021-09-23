@@ -1,0 +1,41 @@
+#3306 - Glauca
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:6060) -> Here is your peace -  by steel's swift descent!
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Absorb damage when combos <= 5 for 3 turns
+
+#3: ESAttackSinglehit(82:6064) -> Regular Attack
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Deal 100% damage
+
+#4: ESRowSpawnMulti(79:6061) -> Who do you pray to?
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 2nd row to Dark orbs, Deal 150% damage
+
+#5: ESAttackSinglehit(82:6065) -> Regular Attack
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 100% damage
+
+#6: ESColumnSpawnMulti(77:6062) -> Abandon your prayers.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 2nd column to Dark orbs, Deal 150% damage
+
+#7: ESAttackSinglehit(82:6066) -> Regular Attack
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 100% damage
+
+#8: ESAttackMultihit(15:6063) -> You are out of time.
+Deal 600% damage (3 hits, 200% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttributeResist(72:6067) -> Light Att. halved
+Reduce damage from Light attrs by 50%

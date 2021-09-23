@@ -1,0 +1,68 @@
+#2403 - Master of the Masquerade, Pumpkin Joker
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRecoverPlayer(55:3403) -> Happy Halloween!
+Player recover 100% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESOrbLock(94:3405) -> Motley Memory
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 15 random orbs
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#10: ESRandomSpawn(92:3409) -> Halloween's End
+Condition: When < 10% HP (ai:100 rnd:0)
+Spawn 6 random Jammer and Poison orbs, Deal 200% damage
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 17
+
+#12: ESAttackMultihit(15:3408) -> Candy Shot
+Condition: 80% chance (ai:80 rnd:0)
+Deal 120% damage (2 hits, 60% each)
+
+#13: ESBlind62(62:3406) -> Mysterious Night
+Blind all orbs on the board, Deal 100% damage
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 10
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: ESSkillDelay(89:3407) -> Wicked Smile
+Delay active skills by 1~3 turns
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: ESGravity(50:3404) -> Jack-o'-Lantern
+Player -80% HP
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

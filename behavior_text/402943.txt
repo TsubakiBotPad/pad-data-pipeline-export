@@ -1,0 +1,38 @@
+#402943 - Alt. Destroying Wing Dragon Emperor, Sherias Roots
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 402943
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19375:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (21002:72) Light & Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (19376:83) Harmonic Shield + Draconic Aura + Dragon Element
+ | Voids status ailments for 999 turns + Void damage >= 100,000,000 for 999 turns + Reduce damage from all sources by 75% for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (19378:15) Dragon Emperor's Harmonic Blast
+     | Deal 100% damage (2 hits, 50% each)
+     | condition: 50% chance
+     | (19411:48) Dirty Feather
+     | Change a random attribute to Mortal Poison orbs, Deal 95% damage
+   | group:
+     | (20951:83) Magic Tower + Bloody Carnage
+     | Bind awoken skills for 1 turn + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (19367:83) Draconic Force + Elemental Feather
+   | Increase damage to 200% for the next 999 turns + RCV 50% for 99 turns
+ | group:
+ | condition: turns 1-4, hp <= 9
+   | (19379:15) Winged Destroyer's Elemental Blast
+   | Deal 2,500% damage (5 hits, 500% each)

@@ -1,0 +1,43 @@
+#200085 - Machine Golem Mk.II
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200085
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26085:129) ＿Golem Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (26072:20) Give me dark energy.
+ | Voids status ailments for 999 turns
+ type: DEATH
+ condition: when defeated
+ | (26083:95) Charging failed... + Energy Reversal
+ | Change player HP to 20,000 for 99 turns + For 99 turns, 20% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | (26074:62) Dark... Dark...
+   | Blind all orbs on the board, Deal 300% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (26073:53) Charge Mode - Dark
+     | Absorb Dark damage for 99 turns
+   | group:
+     | condition: 50% chance
+     | (26074:62) Dark... Dark...
+     | Blind all orbs on the board, Deal 300% damage
+     | condition: 50% chance
+     | (26075:68) Dark...
+     | Dark skyfall +15% for 1 turn
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (26079:83) Charging failed... + Energy Reversal + Retreat.
+ | Change player HP to 20,000 for 99 turns + For 99 turns, 20% chance for skyfall orbs to be blinded for turn + Reduce self HP to 0
+ type: UNKNOWN_USE
+ | (26086:83) Charging complete. + So much dark energy. + Retreat.
+ | Change board size to 7x6 for 99 turns + Movetime 150% for 99 turns + Reduce self HP to 0

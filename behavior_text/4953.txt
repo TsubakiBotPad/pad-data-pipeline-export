@@ -1,0 +1,37 @@
+#4953 - コマさんＳ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4953
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11972:83) なんかオラ　燃えてきたズラ！ + もんげーーっ！
+ | Absorb damage when combos <= 5 for 5 turns + Locked Fire skyfall +100% for 99 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (11975:15) ズラズラズラ～っ！
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 33% chance
+   | (11976:50) ズラッ！
+   | Player -75% HP
+   | condition: 33% chance
+   | (11977:48) あっちいズラよ～！
+   | Change a random attribute to Fire orbs, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11978:83) Ｓのチカラ　わいてくるズラ… + オラ　止まんないズラ～！！
+   | Increase damage to 150% for the next 5 turns + Bind 4 random subs for 2 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11981:88) いいかげんにするズラ～！
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (11982:15) ひとだま乱舞
+     | Deal 200% damage (5 hits, 40% each)

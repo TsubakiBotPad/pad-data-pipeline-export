@@ -1,0 +1,32 @@
+#104082 - Ryo Sakazaki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104082
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19613:39) Come! Come!
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (19614:92) Kohou
+   | Spawn 4 random Light orbs, Deal 95% damage
+   | condition: 33% chance
+   | (19615:94) Dis Kyokugen Karate, will you?! Now savor the pain it brings.
+   | Lock 3 random orbs, Deal 98% damage
+   | condition: 34% chance
+   | (19616:15) Kyokugenryu Renbu Ken
+   | Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19617:74) Kyokugen Karate is peerless! But you realized that too late!
+     | Reduce damage from all sources by 30% for 4 turns
+   | group:
+     | (19618:15) Ryuuko Ranbu
+     | Deal 120% damage (6 hits, 20% each)

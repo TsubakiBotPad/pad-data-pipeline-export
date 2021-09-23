@@ -1,0 +1,96 @@
+#5363 - ババァーン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 2, target rnd 5
+
+#3: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESAttackUPRemainingEnemies(17:13564) -> いてぇじゃねぇか！！
+	Increase damage to 200% for the next 999 turns
+	[1] ESRecoverEnemy86(86:13565) -> まだ終わんねぇぞコラ！！
+	Enemy recover 100% HP
+	[2] ESAttributeBlock(107:13566) -> 武神裸締め
+	Unable to match Heal orbs for 1 turn
+
+#4: SkillSet:
+	[0] ESAttackMultihit(15:13710) -> 大したことないな
+	Deal 120% damage (2 hits, 60% each)
+	[1] ESSkillDelay(89:13711) -> 戦神の覇気
+	Delay active skills by 6 turns
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESNoSkyfall(127:13552) -> 月の陰り
+No skyfall for 5 turns
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 15
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESRandomSpawn(92:13553) -> 彩星ノ宝珠
+Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#13: ESColumnSpawnMulti(77:13554) -> 夜穿天昇
+Condition: When < 30% HP (ai:100 rnd:0)
+Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 200% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 22
+
+#16: ESVoidShield(71:13561) -> 凡てを焦土せし狂気の輪廻
+Condition: 20% chance (ai:0 rnd:20)
+Void damage >= 40,000,000 for 999 turns
+
+#17: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 2)
+	[0] ESStatusShield(20:13560) -> 無尽蔵な世界の排他的概念
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:13561) -> 凡てを焦土せし狂気の輪廻
+	Void damage >= 40,000,000 for 999 turns
+
+#18: ESResolve(73:13563) -> 根性
+Condition: 20% chance (ai:0 rnd:20)
+Survive attacks with 1 HP when HP > 90%
+
+#19: ESAttackUPRemainingEnemies(17:13564) -> いてぇじゃねぇか！！
+Condition: 20% chance, when <= 1 enemies remain (ai:0 rnd:20)
+Increase damage to 200% for the next 999 turns
+
+#20: ESRecoverEnemy86(86:13565) -> まだ終わんねぇぞコラ！！
+Condition: 20% chance (ai:0 rnd:20)
+Enemy recover 100% HP
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttributeBlock(107:13566) -> 武神裸締め
+Unable to match Heal orbs for 1 turn
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESDeathCry(69:6388) -> ガチャドラ死に演出
+Condition: On death (ai:100 rnd:0)
+Show death effect

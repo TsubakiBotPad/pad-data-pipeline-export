@@ -1,0 +1,30 @@
+#5900 - Pixel Flame Armor Ogre
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5900
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17892:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (17904:106) Stubborn
+ | Enemy turn counter change to 1 when HP <= 1%
+ type: PREEMPT
+ | (17896:71) Pixel Wall
+ | Void damage >= 10,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (17897:1) Pixel Bind
+     | Bind 6 random cards for 10 turns
+   | group:
+     | (17898:15) Flame Strike
+     | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (17905:86) Ogre Dance
+   | Enemy recover 50% HP

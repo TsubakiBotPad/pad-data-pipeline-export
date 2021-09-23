@@ -1,0 +1,76 @@
+#206555 - Twelve Kizuki: Upper Rank 3, Akaza
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:20114) -> Destructive Death: Compass Needle
+	Do nothing
+	[1] ESInactivity66(66:20115) -> If you won't become a demon, I'll have to kill you.
+	Do nothing
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:20082) -> Destructive Death: Compass Needle
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESGravity(50:20083) -> If you won't become a demon, I'll have to kill you.
+	Player -75% HP
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 15
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#8: ESAttackMultihit(15:20084) -> Destructive Death: Air Type
+Deal 102% damage (3 hits, 34% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAbsorbCombo(67:20086) -> You need all your strength for me!
+	Absorb damage when combos <= 5 for 3 turns
+	[1] ESDebuffMovetime(39:20087) -> Concentrate on me!
+	Movetime -3s for 3 turns
+
+#13: ESAttackMultihit(15:20088) -> Destructive Death: Disorder
+Deal 165% damage (5 hits, 33% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:20090) -> Then you could fight me forever!
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:20091) -> Technique Development
+	Increase damage to 150% for the next 999 turns
+
+#16: ESAttackMultihit(15:20092) -> Destructive Death: Annihilation Type
+Deal 200% damage (10 hits, 20% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:20093) -> This is bad!
+	Do nothing

@@ -1,0 +1,133 @@
+#3039 - Demon Who Commands Flames, Shishio Makoto
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 8
+
+#5: ESBranchCard(90:5048) -> ESBranchCard
+Branch on player_cards HAS [3018, 3019, 3553], target rnd 7
+
+#6: SkillSet:
+	[0] ESInactivity66(66:5027) -> Heh
+	Do nothing
+	[1] ESInactivity66(66:5028) -> How this brings me back...
+	Do nothing
+
+#7: SkillSet:
+	[0] ESInactivity66(66:5027) -> Heh
+	Do nothing
+	[1] ESInactivity66(66:5030) -> Ah, how this brings me back...
+	Do nothing
+
+#8: ESBranchCard(90:5048) -> ESBranchCard
+Branch on player_cards HAS [3018, 3019, 3553], target rnd 10
+
+#9: SkillSet:
+	[0] ESStatusShield(20:5033) -> Heh
+	Voids status ailments for 7 turns
+	[1] ESRandomSpawn(92:5034) -> How this brings me back...
+	Spawn 5 random Wood orbs
+
+#10: SkillSet:
+	[0] ESStatusShield(20:5033) -> Heh
+	Voids status ailments for 7 turns
+	[1] ESRandomSpawn(92:5037) -> Ah, how this brings me back...
+	Spawn 5 random Wood orbs
+
+#11: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 13
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 24
+
+#14: SkillSet:
+	Condition: When < 65% HP , one-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRecoverEnemy86(86:5041) -> Is that...
+	Enemy recover 50% HP
+	[1] ESDamageShield(74:5042) -> ..all you have?!
+	Reduce damage from all sources by 50% for 2 turns
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 21
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 19
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESGravity(50:5038) -> Hyaah!
+Condition: 40% chance (ai:40 rnd:0)
+Player -70% HP
+
+#19: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#20: ESColumnSpawnMulti(77:5039) -> Shaaah!!
+Change the 3rd column to Fire orbs, Deal 130% damage
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 28
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: ESBindRandomSub(65:5047) -> Final round. Here comes.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 3 random subs for 1 turn
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESBoardChange(84:5044) -> Hyaaah!!
+	Change all orbs to Fire
+	[1] ESAttackMultihit(15:5045) -> The Final Secret Sword, "Kaguzuchi"!!
+	Deal 280% damage (7 hits, 40% each)
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESBoardChange(84:5044) -> Hyaaah!!
+	Change all orbs to Fire
+	[1] ESAttackMultihit(15:5045) -> The Final Secret Sword, "Kaguzuchi"!!
+	Deal 280% damage (7 hits, 40% each)
+
+#26: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:5044) -> Hyaaah!!
+	Change all orbs to Fire
+	[1] ESAttackMultihit(15:5045) -> The Final Secret Sword, "Kaguzuchi"!!
+	Deal 280% damage (7 hits, 40% each)
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 29
+
+#28: ESAttackMultihit(15:5046) -> Hyaaah!!
+Deal 360% damage (3 hits, 120% each)
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1011
+
+#30: ESGravity(50:5038) -> Hyaah!
+Player -70% HP
+
+#31: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:4972) -> Nyah... Nyah, ha, hah... Nyahh, hah, hah, hah!!
+	Do nothing
+
+#32: ESInactivity66(66:5036) -> Hold
+Do nothing

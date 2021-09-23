@@ -1,0 +1,31 @@
+#200223 - Alt. Highlander
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:19125) -> Warrior's Protection
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 5 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 5
+
+#4: ESAttackMultihit(15:19126) -> Legion Slash
+Deal 100% damage (5 hits, 20% each)
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbThreshold(87:19147) -> Crimson Cape
+	Absorb damage when damage >= 20,000,000 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:19148) -> Oath of the Warrior
+	Increase damage to 600% for the next 999 turns
+
+#6: ESAttackMultihit(15:19126) -> Legion Slash
+Deal 100% damage (5 hits, 20% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

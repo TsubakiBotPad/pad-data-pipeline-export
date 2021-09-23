@@ -1,0 +1,47 @@
+#106412 - Alt. Deadly Sin Dragon King of Greed, Rhamamoa
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 4
+
+#3: ESBindAwoken(88:18886) -> Avaricious Scheme
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Bind awoken skills for 5 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESBindAwoken(88:18932) -> Avaricious Scheme
+	Bind awoken skills for 5 turns
+	[1] ESOrbChangeAttackBits(108:18933) -> Wretched Light
+	Change all Heal orbs to Light orbs, Deal 80% damage
+
+#5: ESRandomSpawn(92:18887) -> Treacherous Trap
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Spawn 10 random Poison orbs
+
+#6: ESBlindStickyRandom(97:18888) -> Treasure Trap
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Blind random 15 orbs for 3 turns
+
+#7: ESRandomSpawn(92:18889) -> Treacherous Trap
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 10 random Mortal Poison orbs
+
+#8: ESCloud(104:18890) -> Treasure Trap
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A row of clouds appears for 1 turn at 1st row, 1st column
+
+#9: ESAttackMultihit(15:18891) -> Unfettered Greed
+Deal 280% damage (4 hits, 70% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:18693) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

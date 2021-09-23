@@ -1,0 +1,98 @@
+#102586 - Alt. Wind Keeper
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDamageShield(74:8927) -> Metal Shield
+Reduce damage from all sources by 75% for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#9: ESBlindStickyRandom(97:8929) -> Exhaust Hit
+Condition: 50% chance (ai:0 rnd:50)
+Blind random 5 orbs for 2 turns, Deal 140% damage
+
+#10: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESSkillDelay(89:8930) -> Warning
+	Delay active skills by 2 turns
+	[1] ESRandomSpawn(92:8931) -> Seven Smog
+	Spawn 7 random Poison orbs
+
+#11: ESOrbLock(94:8933) -> All Alert
+Condition: 30% chance (ai:0 rnd:30)
+Lock all orbs, Deal 160% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	[0] ESBindRandomSub(65:8934) -> Capture Net
+	Bind 2 random subs for 3 turns
+	[1] ESBindSkill(14:8935) -> Hold Wind
+	Bind active skills for 5 turns
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 21
+
+#17: ESBlindStickyRandom(97:8929) -> Exhaust Hit
+Condition: 50% chance (ai:0 rnd:50)
+Blind random 5 orbs for 2 turns, Deal 140% damage
+
+#18: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESSkillDelay(89:8930) -> Warning
+	Delay active skills by 2 turns
+	[1] ESRandomSpawn(92:8931) -> Seven Smog
+	Spawn 7 random Poison orbs
+
+#19: ESOrbLock(94:8933) -> All Alert
+Condition: 30% chance (ai:0 rnd:30)
+Lock all orbs, Deal 160% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 24
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: ESSkyfall(68:8928) -> Acid Rain
+Poison skyfall +15% for 10 turns
+
+#24: ESAttackMultihit(15:8937) -> Killing Code
+Deal 300% damage (6 hits, 50% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESTurnChangePassive(106:8938) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 50%

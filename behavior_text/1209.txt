@@ -1,0 +1,37 @@
+#1209 - Wolf Hero, Ignis Cu Chulainn
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1209
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4524:20) Hero's Armor
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4525:92) Wolf Ash
+     | Spawn 8 random Jammer orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: when required attributes on board
+     | (4526:92) Gáe Bulg
+     | Spawn 8 random Wood orbs, Deal 100% damage
+     | (4527:4) Gáe Bulg
+     | Change all Heal orbs to Wood orbs, Deal 100% damage
+     | (4537:92) Gáe Bulg
+     | Spawn 3 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4528:50) Crimson Imperial Blade
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4529:15) Cut Off the World
+     | Deal 100% damage (2 hits, 50% each)

@@ -1,0 +1,43 @@
+#891 - Hunt God of the Holy Bow, Artemis
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:697) -> ESPreemptive
+Enable preempt if level 3
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkyfall(68:1174) -> Hunting Mastery
+Jammer skyfall +10% for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBindAttack(63:1175) -> Head Snipe
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind player leader for 2 turns, Deal 50% damage
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#10: ESAttackMultihit(15:1176) -> Barrage Shot
+Deal 80~120% damage (4~6 hits, 20% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:1177) -> Arrow of Judgement
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 150% damage

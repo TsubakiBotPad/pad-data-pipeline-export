@@ -1,0 +1,26 @@
+#4208 - Valentine Adamantine Princess, Facet
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4208
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21933:83) I made these all by myself + Would you like to try one?
+ | Bind active skills for 4 turns + Change 1 random orb to Poison orbs, Deal 70% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (21936:64) Do you want to try two more?
+   | Change 2 random orbs to Poison orbs, Deal 80% damage
+ | group:
+   | (21939:108) Why won't you try them?!
+   | Change all Poison orbs to Water orbs, Deal 150% damage
+   | condition: 50% chance
+   | (21937:64) How about a lot more?
+   | Change 4 random orbs to Poison orbs, Deal 90% damage
+   | condition: 50% chance
+   | (21938:15) Delicious, aren't they!
+   | Deal 100% damage

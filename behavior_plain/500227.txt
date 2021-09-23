@@ -1,0 +1,29 @@
+#500227 - Dragon Fruit
+monster size: 2
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDebuffMovetime(39:805) -> Scary Face
+Movetime -2s for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:812) -> Gulp!
+Deal 160% damage (2 hits, 80% each)

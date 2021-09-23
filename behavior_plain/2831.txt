@@ -1,0 +1,51 @@
+#2831 - Genius Scientist, Lex Luthor (Film)
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindSkill(14:4124) -> Cunning Intelligence
+Bind active skills for 2 turns
+
+#7: ESBindAttack(63:4107) -> Hired Mercenary Attack
+Condition: When < 10% HP (ai:100 rnd:0)
+Bind 2 random subs for 2 turns, Deal 150% damage
+
+#8: ESDamageShield(74:4125) -> Power cannot be innocent!
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 50% for 1 turn
+
+#9: ESSkillDelay(89:4126) -> Ruthless Schemer
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 2 turns, Deal 80% damage
+
+#10: ESDispel(6:4128) -> Puppet Master
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids player buff effects
+
+#11: ESOrbChangeAttack(48:4127) -> LexCorp Technology
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Light orbs, Deal 110% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: When < 15% hp, on death (ai:100 rnd:0)
+	[0] ESSkyfall(68:4067) -> Stolen Kryptonian Technology
+	Jammer skyfall +10% for 3 turns

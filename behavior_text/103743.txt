@@ -1,0 +1,34 @@
+#103743 - Alt. Dragonbound Winjé
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 103743
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7445:72) Water damage halved
+ | Reduce damage from Water attrs by 50%
+ | (8199:73) Dragonbound Chibi Resolve
+ | Survive attacks with 1 HP when HP > 80%
+ type: PREEMPT
+ | (7392:14) Aww... Do we really have to fight?
+ | Bind active skills for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (7393:76) Wilgo! Help me!
+   | Change the 3rd and 4th columns to Wood and Jammer orbs
+ | group:
+ | condition: turn 2
+   | (7394:50) Sorry, Wilgo... Again...
+   | Player -90% HP
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (7396:89) Wilgo's creating a gust
+   | Delay active skills by 1 turn, Deal 160% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (7395:86) Twinkle ☆ Wind
+   | Enemy recover 50% HP

@@ -1,0 +1,38 @@
+#655 - Thor, the Wielder of Mjolnir
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 655
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3445:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (3440:89) Warrior God's Ambition
+ | Delay active skills by 2~4 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 376, 377, 656, 1348, 2396 on team
+     | (3457:15) Why!? Loki!!
+     | Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (3442:94) Mjolnir
+     | Lock 5 random Fire, Water, Wood, Light, and Dark orbs, Deal 90% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | condition: 50% chance
+   | (3443:86) Megingjord
+   | Enemy recover 30% HP
+   | condition: 50% chance
+   | (3444:67) Bilskirnir's Divine Protection
+   | Absorb damage when combos <= 5 for 2 turns
+ | group:
+ | condition: hp <= 19
+   | (3441:92) Heaven Lightning
+   | Spawn 15 random Jammer orbs, Deal 200% damage

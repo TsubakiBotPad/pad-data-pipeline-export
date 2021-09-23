@@ -1,0 +1,49 @@
+#3244 - Steel Dragon Emperor, Ninegaruda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:5629) -> Nine Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: It's acting differently...|The restraints fall away
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: SkillSet:
+	[0] ESBombFixedSpawn(103:5621) -> Death Bomb
+	Spawn Bomb orbs in the specified positions
+	[1] ESOrbChangeAttack(48:5622) -> Heart Crush
+	Change all Heal orbs to Jammer orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESDamageShield(74:5625) -> Iron Shackles
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 9 turns
+
+#8: ESAttackMultihit(15:5628) -> Suppressed Torment
+Condition: When < 15% HP (ai:100 rnd:0)
+Deal 1,000% damage (2 hits, 500% each)
+
+#9: ESRandomSpawn(92:5626) -> Heart Smash
+Condition: 50% chance when < 50% HP & when Heal orbs are on the board (ai:50 rnd:0)
+Change all Heal orbs to Jammer orbs, Deal 150% damage
+
+#10: ESBombFixedSpawn(103:5627) -> Burst Bomb
+Condition: When < 50% HP (ai:100 rnd:0)
+Spawn Bomb orbs in the specified positions, Deal 170% damage
+
+#11: ESBombFixedSpawn(103:5624) -> Exploding Fist
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

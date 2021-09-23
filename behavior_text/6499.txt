@@ -1,0 +1,32 @@
+#6499 - Orochi Leona
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6499
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19738:94) Hraaaaah!
+ | Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 20% chance
+   | (19741:86) Storm Bringer
+   | Enemy recover 5% HP, Deal 95% damage
+   | condition: 40% chance
+   | (19740:92) Gliding Buster
+   | Spawn 6 random Dark orbs, Deal 98% damage
+   | condition: 40% chance
+   | (19739:15) Moon Slasher
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19742:17) Raaaauuugh!
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | (19743:15) Gravity Storm
+     | Deal 99% damage (3 hits, 33% each)

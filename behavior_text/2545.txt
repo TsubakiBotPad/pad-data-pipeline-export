@@ -1,0 +1,43 @@
+#2545 - A-Gyo
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2545
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3694:5) A!
+ | Blind all orbs on the board
+ group:
+ | group:
+ | condition: turn 1
+   | (3695:15) Speed of
+   | Deal 70% damage
+ | group:
+ | condition: turn 2
+   | (3696:1) Boiling
+   | Bind 1 random card for 3 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (3697:92) Very
+   | Spawn 5 random Jammer orbs, Deal 40% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (3695:15) Speed of
+   | Deal 70% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (3702:17) Curse you!
+   | Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | (3695:15) Speed of
+   | Deal 70% damage
+ | group:
+ | condition: turn 3
+   | (3696:1) Boiling
+   | Bind 1 random card for 3 turns

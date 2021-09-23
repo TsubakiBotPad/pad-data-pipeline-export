@@ -1,0 +1,88 @@
+#102394 - Alt. Awoken Freyja
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:17142) -> Welcome!
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:17143) -> Please, take it easy.
+	Mortal Poison skyfall +15% for 5 turns
+	[2] ESBindAwoken(88:17144) -> Eaaaasy... Okay?
+	Bind awoken skills for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#9: ESOrbChangeAttackBits(108:9586) -> Beautiful flowers are dangerous.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Mortal Poison orbs to Heal orbs, Deal 150% damage
+
+#10: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 1)
+	[0] ESRowSpawnMulti(79:9579) -> This flower is beautiful, isn't it?
+	Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs, Deal 50% damage
+	[1] ESLeaderSwap(75:9580) -> These ones are also lovely!
+	Leader changes to random sub for 1 turn
+
+#11: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRowSpawnMulti(79:9579) -> This flower is beautiful, isn't it?
+	Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs, Deal 50% damage
+	[1] ESSkillDelay(89:9581) -> This one is cute too.
+	Delay active skills by 1~2 turns, Deal 30% damage
+
+#12: SkillSet:
+	[0] ESRowSpawnMulti(79:9579) -> This flower is beautiful, isn't it?
+	Change the 2nd row to Wood and Dark orbs and the 4th row to Wood and Dark orbs, Deal 50% damage
+	[1] ESAttackMultihit(15:9582) -> Lovely Aroma
+	Deal 45% damage (3 hits, 15% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#15: ESBoardChangeAttackBits(85:9587) -> Flowers in full bloom are splendid!
+Change all orbs to Mortal Poison, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: SkillSet:
+	[0] ESRecoverEnemy86(86:9588) -> I feel so much better when I'm surrounded by flowers.
+	Enemy recover 50% HP
+	[1] ESDebuffMovetime(39:9589) -> Don't get so rowdy.
+	Movetime 50% for 10 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:9575) -> Freyja Resolve
+Survive attacks with 1 HP when HP > 50%

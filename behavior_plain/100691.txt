@@ -1,0 +1,35 @@
+#100691 - Alt. Heavy Infantry Hobgoblin
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 4
+
+#2: ESAttackMultihit(15:1294) -> Big Blade
+Deal 100% damage
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 2
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESRecoverEnemy86(86:11641) -> Pouring Fighting Spirit
+	Enemy recover 100% HP
+	[1] ESDamageShield(74:11642) -> Counterattack
+	Reduce damage from all sources by 75% for 99 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESResolve(73:11638) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#9: ESTurnChangePassive(106:11639) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 50%

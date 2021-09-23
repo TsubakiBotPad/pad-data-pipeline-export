@@ -1,0 +1,60 @@
+#3574 - Fifth Dragon Caller, Skyblazer Diara
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShield(71:6600) -> Blaze Armor
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESDebuffRCV(105:6601) -> Salvation Flame
+	RCV 200% for 9 turns
+	[2] ESAttackMultihit(15:6602) -> Crossdraw Breath
+	Deal 760% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:6613) -> Bonfire
+	Change own attribute to random one of Fire or Light
+	[1] ESAttackMultihit(15:6614) -> Burst End
+	Deal 10,000% damage (5 hits, 2,000% each)
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESChangeAttribute(46:6607) -> Bonfire
+	Change own attribute to random one of Fire or Light
+	[1] ESStatusShield(20:6608) -> Guardian Dragon Formation
+	Voids status ailments for 999 turns
+	[2] ESAttributeBlock(107:6740) -> Pure Blaze
+	Unable to match Dark orbs for 3 turns
+
+#8: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESFixedStart(101:6610) -> First Glisten
+	Fix orb movement starting point to random position on the board
+	[1] ESAttackMultihit(15:6611) -> Fanning Breath
+	Deal 600% damage (6 hits, 100% each)
+
+#9: SkillSet:
+	[0] ESFixedStart(101:6604) -> First Glisten
+	Fix orb movement starting point to random position on the board
+	[1] ESAttackMultihit(15:6605) -> Triple Blaze
+	Deal 450% damage (3 hits, 150% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttributeResist(72:6616) -> Fire Halved damage
+Reduce damage from Fire attrs by 50%

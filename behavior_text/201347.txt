@@ -1,0 +1,45 @@
+#201347 - The Retriever of Mjolnir, Thor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 201347
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26425:83) Hey, is this outfit alright? + Why don't you try too?
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 95% for 3 turns
+ group:
+ | group:
+ | condition: always turns 1-2
+   | condition: 33% chance
+   | (26428:130) Shaking Thunder Attack
+   | ATK -50% for 1 turn, Deal 165% damage
+   | condition: 50% chance
+   | (26429:39) Magic Needle's Spark
+   | Movetime 50% for 1 turn, Deal 180% damage
+   | (26430:85) Crackling Lightning Formation
+   | Change all orbs to Water, Wood, Light, and Dark, Deal 175% damage
+ | group:
+ | condition: always turns 4-7
+   | condition: 33% chance
+   | (26428:130) Shaking Thunder Attack
+   | ATK -50% for 1 turn, Deal 165% damage
+   | condition: 50% chance
+   | (26429:39) Magic Needle's Spark
+   | Movetime 50% for 1 turn, Deal 180% damage
+   | (26430:85) Crackling Lightning Formation
+   | Change all orbs to Water, Wood, Light, and Dark, Deal 175% damage
+ | group:
+   | group:
+   | condition: turn 3 while HP > 74
+     | (26431:83) Come on, just go with it. + Lightning Armor
+     | Bind awoken skills for 5 turns + Reduce damage from all sources by 75% for 5 turns
+   | group:
+     | (26467:15) Brightstreak Hammer - Mjolnir
+     | Deal 1,000% damage
+ | group:
+ | condition: turn 3, hp <= 74
+   | (26434:83) Heh, keep that energy up! + Lightning Veil
+   | Void damage >= 10 for 500,000,000 turns + Reduce damage from all sources by 50% for 5 turns

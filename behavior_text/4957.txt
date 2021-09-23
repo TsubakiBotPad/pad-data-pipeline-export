@@ -1,0 +1,62 @@
+#4957 - エンマ大王
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4957
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12046:83) お前のチカラ　見せてもらおう！ + さあ　かかってこい！
+ | Reduce damage from all sources by 50% for 3 turns + Absorb Dark damage for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (12049:15) お前にたえられるか！？
+   | Deal 105% damage (3 hits, 35% each)
+   | condition: 25% chance
+   | (12050:48) 燃えろ！　れんごくの炎！！
+   | Change a random attribute to Fire orbs, Deal 95% damage
+   | condition: 25% chance
+   | (12051:39) させるかっ！
+   | Movetime -2s for 1 turn, Deal 95% damage
+   | condition: 25% chance
+   | (12052:94) スキだらけだぜ？
+   | Lock 10 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (12053:104) これが大王の力だ！
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 90% damage
+     | (12054:100) ハハッ　動けるか？
+     | Seal the 1st row for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 25% chance
+     | (12049:15) お前にたえられるか！？
+     | Deal 105% damage (3 hits, 35% each)
+     | condition: 25% chance
+     | (12050:48) 燃えろ！　れんごくの炎！！
+     | Change a random attribute to Fire orbs, Deal 95% damage
+     | condition: 25% chance
+     | (12051:39) させるかっ！
+     | Movetime -2s for 1 turn, Deal 95% damage
+     | condition: 25% chance
+     | (12052:94) スキだらけだぜ？
+     | Lock 10 random orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (12055:83) 覇王閻魔玉 + 本気を出させてもらおうか…！
+   | Deal 200% damage + Enemy recover 50% HP, Deal 200% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (12075:83) ほう　やるじゃないか… + お前もこんなもんじゃないだろ？
+     | Increase damage to 150% for the next 99 turns + Bind 4 random subs for 1 turn
+   | group:
+     | (12058:15) 覇王閻魔玉
+     | Deal 200% damage

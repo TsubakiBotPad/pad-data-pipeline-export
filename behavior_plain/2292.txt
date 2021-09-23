@@ -1,0 +1,105 @@
+#2292 - Bleak Night Daughter, Pandora
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:25921) -> I Love the Ocean...
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:25922) -> Secret Box
+	Void damage >= 50,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 18
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESPoisonChangeRandomAttack(64:25938) -> Here...
+	Change 7 random orbs to Poison orbs, Deal 10% damage
+	[1] ESDebuffATK(130:25939) -> Strange Box
+	ATK -75% for 1 turn, Deal 100% damage
+
+#9: SkillSet:
+	[0] ESBindAttack(63:25941) -> Quiet now...
+	Bind 3 random subs for 3 turns, Deal 110% damage
+	[1] ESRandomSpawn(92:25942) -> I can hear the sound of the waves...
+	Spawn 8 random Jammer orbs
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESBlindStickySkyfall(128:25928) -> Summer Box
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESPoisonChangeRandomAttack(64:25929) -> These are for you...
+	Change 10 random orbs to Poison orbs, Deal 10% damage
+	[2] ESDamageShield(74:25930) -> Could we rest for a bit...?
+	Reduce damage from all sources by 50% for 99 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:25932) -> I want to make some memories...
+	Dark skyfall +35% for 1 turn
+	[1] ESAttackMultihit(15:25933) -> Stay with me...
+	Deal 120% damage (3 hits, 40% each)
+
+#16: SkillSet:
+	[0] ESRandomSpawn(92:25935) -> Bleak Night Goddess' Feelings
+	Spawn 7 random Heal orbs
+	[1] ESDebuffRCV(105:25936) -> Eerie Box
+	RCV 25% for 1 turn, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: SkillSet:
+	[0] ESDebuffMovetime(39:25924) -> The ocean...
+	Movetime 25% for 1 turn
+	[1] ESDebuffATK(130:25925) -> It's so beautiful...
+	ATK -75% for 1 turn
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:25926) -> I should leave now...
+Deal 1,050% damage (7 hits, 150% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttributeResist(72:25943) -> Light halved
+Reduce damage from Light attrs by 50%
+
+#25: ESSuperResolve(129:25944) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

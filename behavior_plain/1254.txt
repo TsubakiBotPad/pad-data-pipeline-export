@@ -1,0 +1,30 @@
+#1254 - Guiding Archangel, Gabriel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:16027) -> Show me your full power
+	Movetime 200% for 2 turns
+	[1] ESRowSpawnMulti(78:16003) -> You only get two chances
+	Change the 1st and 5th rows to Fire orbs and the 3rd row to Wood orbs
+	[2] ESRandomSpawn(92:16004) -> Can you keep up this fire power?
+	Spawn 9 random Water orbs
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRowSpawnMulti(78:16006) -> This is your last chance
+	Change the 1st and 5th rows to Fire orbs and the 3rd row to Wood orbs
+	[1] ESRandomSpawn(92:16007) -> Show me your judgement
+	Spawn 9 random Water orbs
+
+#4: ESAttackMultihit(15:16019) -> Do your best next time
+Deal 1,000% damage (10 hits, 100% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

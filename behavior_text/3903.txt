@@ -1,0 +1,68 @@
+#3903 - Devil Star Divine Queen, Hera-Nyx
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 3903
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8125:73) Hera Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (8104:83) Here at last... Shall we begin? + Demon Star Crest + See how you handle my fist!!
+ | Voids status ailments for 999 turns + Void damage >= 30,000,000 for 999 turns + Deal 700% damage, Deal 700% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (8108:83) Splendid♪ Not over yet though... + Graviton Fist + High Kick
+     | Do nothing + Player -99% HP + Blind all orbs on the board, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (8109:15) Spin Kick
+     | Deal 330% damage (3 hits, 110% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (8110:89) Body Blow
+     | Delay active skills by 0~3 turns, Deal 280% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (8111:15) Combo Rush
+     | Deal 400% damage (5 hits, 80% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (8112:110) Axe Kick
+     | Specific orbs change every 1.0s for 1 turn, Deal 300% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (8115:83) I'll have to get serious soon! + Come on! Faster!
+     | Absorb damage when combos <= 7 for 999 turns + Movetime -1s for 10 turns
+   | group:
+   | condition: turn 3 while HP > 9
+     | (8116:97) Black Screw Blow
+     | Blind random 6 orbs for 2 turns, Deal 350% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | (8117:15) Full Spin Kick
+     | Deal 480% damage (6 hits, 80% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (8118:15) Hell Shot Punch
+     | Deal 700% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 3
+     | (8121:83) It's been fun, but let's end this. + This is my full power!!!
+     | Change own attribute to random one of Fire, Water, or Wood + Deal 60,000% damage (10 hits, 6,000% each), Deal 60,000% damage (10 hits, 6,000% each)
+   | group:
+     | (8126:15) Whirling Magical Power
+     | Deal 50,000% damage (10 hits, 5,000% each)
+ | group:
+ | condition: hp <= 1
+   | (8124:83) Demon Star's Radiance + I won't let you do that!
+   | Enemy recover 100% HP + Increase damage to 150% for the next 999 turns

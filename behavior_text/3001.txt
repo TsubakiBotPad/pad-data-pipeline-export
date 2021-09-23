@@ -1,0 +1,54 @@
+#3001 - Indigo Ocean Ruler, Wadatsumi Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3001
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4906:83) Which one of you will be my opponent? + Dimension - Curse of the Sea God
+ | Delay active skills by 0~2 turns + Change 3 random orb types to Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2143, 2144, 2971 on team
+     | (4909:83) It's time you stop acting so crazy! + Dimension - Curse of the Sacred Waters
+     | Voids status ailments for 999 turns + Change a random attribute to Heal orbs, Deal 140% damage
+     | (4907:48) Sea Punishment
+     | Change all Jammer orbs to Poison orbs, Deal 140% damage
+     | (4908:83) Sea Dragon God's Protection + Dimension - Curse of the Sacred Waters
+     | Voids status ailments for 999 turns + Change a random attribute to Heal orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4907:48) Sea Punishment
+     | Change all Jammer orbs to Poison orbs, Deal 140% damage
+     | (4916:92) Blue Life Calm Wave
+     | Spawn 3 random Water and Heal orbs, Deal 30% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4907:48) Sea Punishment
+     | Change all Jammer orbs to Poison orbs, Deal 140% damage
+     | (4917:92) Blue Dust Raging Wave
+     | Spawn 3 random Water and Jammer orbs, Deal 160% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | condition: when 2143, 2144, 2971 on team
+   | (4911:83) It's time you stop acting so crazy! + Dimension - Curse of the Sacred Waters + Indigo Ocean Whirlpool
+   | Voids status ailments for 999 turns + Change a random attribute to Heal orbs + Change all orbs to Fire, Water, Wood, Light, Dark, and Jammer, Deal 140% damage
+   | (4907:48) Sea Punishment
+   | Change all Jammer orbs to Poison orbs, Deal 140% damage
+   | (4910:83) Sea Dragon God's Protection + Dimension - Curse of the Sacred Waters + Indigo Ocean Whirlpool
+   | Voids status ailments for 999 turns + Change a random attribute to Heal orbs + Change all orbs to Fire, Water, Wood, Light, Dark, and Jammer, Deal 140% damage
+ | group:
+ | condition: hp <= 19
+   | (4907:48) Sea Punishment
+   | Change all Jammer orbs to Poison orbs, Deal 140% damage
+   | (4918:15) Sea Dragon God's Strike
+   | Deal 400% damage
+ type: UNKNOWN_USE
+ | condition: one time only
+ | (4915:85) Indigo Ocean Whirlpool
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Jammer, Deal 50% damage

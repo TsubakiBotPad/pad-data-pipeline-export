@@ -1,0 +1,171 @@
+#6474 - Scathach
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:19063) -> Shadowland Armor
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:19064) -> Phantom Wind Pressure
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESAbsorbAttribute(53:19065) -> Time for some special training!
+	Absorb Fire, Water, and Wood damage for 1 turn
+	[3] ESSkyfall(68:19066) -> Try to chip away at my stamina
+	Fire, Water, Wood, and Heal skyfall +100% for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 27
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 16
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESBlindStickySkyfall(128:19068) -> Your training is lacking
+	For 99 turns, 20% chance for skyfall orbs to be blinded for turn
+	[1] ESAbsorbAttribute(53:19069) -> I'll make a fighter out of you!
+	Absorb Light and Dark damage for 1 turn
+	[2] ESDamageShield(74:19070) -> Come at me!
+	Reduce damage from all sources by 75% for 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19079) -> Shadow Queen's Ingenuity
+	Absorb Fire and Water damage for 1 turn
+	[1] ESDebuffRCV(105:19084) -> Gáe Bulg
+	RCV 25% for 1 turn, Deal 90% damage
+
+#11: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19080) -> Shadow Queen's Ingenuity
+	Absorb Wood and Light damage for 1 turn
+	[1] ESSkillDelay(89:19085) -> Dún Scáith
+	Delay active skills by 2~3 turns, Deal 100% damage
+
+#12: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19081) -> Shadow Queen's Ingenuity
+	Absorb Fire and Light damage for 1 turn
+	[1] ESSkillDelay(89:19085) -> Dún Scáith
+	Delay active skills by 2~3 turns, Deal 100% damage
+
+#13: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19082) -> Shadow Queen's Ingenuity
+	Absorb Water and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:19086) -> Gáe Bulg
+	Change a random attribute to Dark orbs, Deal 95% damage
+
+#14: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19083) -> Shadow Queen's Ingenuity
+	Absorb Wood and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:19086) -> Gáe Bulg
+	Change a random attribute to Dark orbs, Deal 95% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: SkillSet:
+	[0] ESInactivity66(66:19060) -> Not too shabby...
+	Do nothing
+	[1] ESAbsorbAttribute(53:19072) -> Now the fight really begins!
+	Absorb Light and Dark damage for 1 turn
+	[2] ESDamageShield(74:19073) -> Come at me!
+	Reduce damage from all sources by 75% for 999 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:19088) -> No holding back!
+	Increase damage to 250% for the next 999 turns
+	[1] ESAbsorbAttribute(53:19083) -> Shadow Queen's Ingenuity
+	Absorb Wood and Dark damage for 1 turn
+	[2] ESSpinnersFixed(110:19089) -> Storm of Spears
+	Specific orbs change every 1.0s for 10 turns
+
+#21: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19079) -> Shadow Queen's Ingenuity
+	Absorb Fire and Water damage for 1 turn
+	[1] ESSkillDelay(89:19096) -> Dún Scáith
+	Delay active skills by 3~4 turns, Deal 100% damage
+
+#22: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19080) -> Shadow Queen's Ingenuity
+	Absorb Wood and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:19097) -> Gáe Bulg
+	Change all Heal orbs to Wood orbs, Deal 95% damage
+
+#23: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19081) -> Shadow Queen's Ingenuity
+	Absorb Fire and Light damage for 1 turn
+	[1] ESRecoverEnemy86(86:19095) -> Gáe Bulg
+	Enemy recover 10% HP, Deal 90% damage
+
+#24: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19082) -> Shadow Queen's Ingenuity
+	Absorb Water and Dark damage for 1 turn
+	[1] ESSkillDelay(89:19096) -> Dún Scáith
+	Delay active skills by 3~4 turns, Deal 100% damage
+
+#25: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:19083) -> Shadow Queen's Ingenuity
+	Absorb Wood and Dark damage for 1 turn
+	[1] ESOrbChangeAttack(48:19097) -> Gáe Bulg
+	Change all Heal orbs to Wood orbs, Deal 95% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 31
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#29: ESBindAwoken(88:19099) -> This is the end for you
+Bind awoken skills for 5 turns
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: SkillSet:
+	[0] ESChangeAttribute(46:19100) -> Here I come!
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:19101) -> Deadly Magic Spear - Gáe Bulg
+	Deal 6,000% damage (3 hits, 2,000% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: ESSuperResolve(129:19061) -> Super Resolve
+Damage which would reduce HP from above 90% to below 90% is nullified

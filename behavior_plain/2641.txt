@@ -1,0 +1,42 @@
+#2641 - Gods' Enemy Monstrous Wolf, Fenrir
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAttributeBlock(107:10541) -> World-Wrecking Rumble
+	Unable to match Heal orbs for 3 turns
+	[1] ESAbsorbCombo(67:10542) -> Demon Wolf Fur
+	Absorb damage when combos <= 7 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESGravity(50:10544) -> Pitch Black Aura
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Player -99% HP
+
+#7: ESAttackUPRemainingEnemies(17:10545) -> Unbinding
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#8: ESOrbChangeAttackBits(108:10546) -> Call of a Jealous God
+Condition: 50% chance (ai:0 rnd:50)
+Change all Heal orbs to Jammer orbs, Deal 100% damage
+
+#9: ESAttackMultihit(15:10547) -> Crunch
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

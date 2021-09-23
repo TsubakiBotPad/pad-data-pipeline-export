@@ -1,0 +1,28 @@
+#101185 - Alt. Light Sprite, Sunrich
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101185
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (4920:101) Educated Brush Strokes
+ | Fix orb movement starting point to random position on the board
+ group:
+ | group:
+   | (4921:48) Light Spirit's Writing
+   | Change all Heal orbs to Light orbs, Deal 60% damage
+   | (4922:48) Creative Writing
+   | Change a random attribute to Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4923:88) Magical Book ♪
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4924:15) The Compliant Rod
+     | Deal 280% damage (2 hits, 140% each)

@@ -1,0 +1,79 @@
+#5623 - Strolling Dragon Callers, Alpha & Omega
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:14814) -> I'll give you candy for a combo of 6♪
+	Absorb damage when combos <= 5 for 999 turns
+	[1] ESNoSkyfall(127:14815) -> I'm counting on you for a good combo!
+	No skyfall for 5 turns
+	[2] ESRandomSpawn(92:14816) -> Cheery Candy!
+	Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 14
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 16
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 5, target rnd 12
+
+#10: SkillSet:
+	[0] ESInactivity66(66:14820) -> Make 1 combo with each color♪
+	Do nothing
+	[1] ESRandomSpawn(92:14821) -> Take your time!
+	Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESInactivity66(66:14818) -> Unlucky, just a bit more♪
+	Do nothing
+	[1] ESRandomSpawn(92:14819) -> You'll show me your worth now, right!
+	Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESInactivity66(66:14822) -> Great! You did it!♪
+	Do nothing
+	[1] ESEndBattle(40:14823) -> Here's the candy, like I promised!
+	Reduce self HP to 0
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: SkillSet:
+	[0] ESDebuffMovetime(39:14827) -> Fight♪
+	Movetime 500% for 99 turns
+	[1] ESRandomSpawn(92:14828) -> Don't give up!
+	Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

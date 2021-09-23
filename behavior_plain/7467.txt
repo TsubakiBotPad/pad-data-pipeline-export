@@ -1,0 +1,65 @@
+#7467 - Clioth
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:25707) -> Forbidden Guidance
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESStatusShield(20:25708) -> Mystic Barrier
+	Voids status ailments for 999 turns
+	[2] ESTargetedSkillHaste(139:25709) -> Mystic Power
+	Haste all cards' skills by 15 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 6
+
+#4: SkillSet:
+	[0] ESDebuffRCV(105:25719) -> Life Deprivation
+	RCV 25% for 1 turn
+	[1] ESOrbChangeAttackBits(108:25716) -> Water Arrow
+	Change all Fire orbs to Water orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESAttackUPCooldown(19:25712) -> Complete Focus
+	Increase damage to 300% for the next 999 turns
+	[1] ESSpinnersFixed(110:25713) -> Chaotic World
+	Specific orbs change every 1.0s for 15 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#11: SkillSet:
+	[0] ESOrbLock(94:25717) -> Devil's Grasp
+	Lock all Water orbs
+	[1] ESAttackMultihit(15:25720) -> Ice Arrow
+	Deal 99% damage (3 hits, 33% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:25810) -> Shock Wave
+Deal 180% damage (3 hits, 60% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:25723) -> Super Resolve
+Damage which would reduce HP from above 70% to below 70% is nullified

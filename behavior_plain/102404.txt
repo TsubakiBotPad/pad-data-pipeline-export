@@ -1,0 +1,31 @@
+#102404 - Alt. Bewitching Demon Bird, Cockatrice
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBombRandomSpawn(102:11399) -> True Face
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 5 random Bomb orbs
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 7
+
+#4: ESOrbChangeAttack(48:11400) -> Evil Eye Trick
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#5: ESOrbLock(94:11401) -> Wonder Feather
+Lock 10 random orbs, Deal 105% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESRandomSpawn(92:11402) -> Sweet Magic
+Spawn 3 random Jammer, Poison, and Mortal Poison orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

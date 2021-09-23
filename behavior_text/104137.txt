@@ -1,0 +1,44 @@
+#104137 - Legiana
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 104137
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18779:94) Gnashing Stomp
+ | Lock 15 random orbs, Deal 100% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (18781:39) Chilling Discharge
+   | Movetime 50% for 10 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18782:104) Mid-Air Frost Scythe
+     | A 7×1 rectangle of clouds appears for 2 turns at a random location, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8822:15) Mid-Air Claw Attack
+     | Deal 130% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 14
+     | (18780:83) Roar + Frost Pillar
+     | Absorb Water damage for 10 turns + Change the 3rd column to Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (18831:50) Dash Attack
+     | Player -70% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18783:15) Mid-Air Strike Attack
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 14
+   | (18832:104) Mid-Air Spinning Tail Attack
+   | A 1×7 rectangle of clouds appears for 1 turn at a random location, Deal 110% damage

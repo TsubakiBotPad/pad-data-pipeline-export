@@ -1,0 +1,28 @@
+#3870 - Pixel Messenger of God, Archangel
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3870
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16337:39) Cold Gaze
+ | Movetime 50% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance, when required attributes on board
+   | (16340:92) Heart Break
+   | Spawn 4 random Jammer orbs, Deal 95% damage
+   | condition: 50% chance
+   | (16341:48) Shining Ray
+   | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (16342:15) Grand Judgement
+   | Deal 300% damage (3 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (16338:83) Healing Prayer + Divine Revelation
+ | Enemy ally recover 50% HP + Bind awoken skills for 2 turns

@@ -1,0 +1,36 @@
+#6718 - Jurock & Madron
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6718
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20314:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (20315:83) Let's go, partner! + GRRRGRGRGRGR!
+ | Reduce damage from all sources by 90% for 10 turns + Absorb Fire damage for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (20318:83) Forest Blow + Vine Whip
+     | Change the 3rd row to Wood orbs + Lock all Wood orbs, Deal 50% damage
+   | group:
+   | condition: turn 5 while HP > 49
+     | (20592:83) Tremble before our power! + Fortress Scales
+     | Increase damage to 150% for the next 999 turns + Absorb damage when damage >= 40,000,000 for 999 turns
+   | group:
+     | (20321:83) Stone Press + Earth Fist
+     | Player -75% HP + Deal 80% damage, Deal 80% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (20592:83) Tremble before our power! + Fortress Scales
+   | Increase damage to 150% for the next 999 turns + Absorb damage when damage >= 40,000,000 for 999 turns
+ | group:
+ | condition: hp <= 9
+   | (20325:15) Gaia Impact
+   | Deal 500% damage

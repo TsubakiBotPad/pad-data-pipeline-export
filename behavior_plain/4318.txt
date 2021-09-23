@@ -1,0 +1,108 @@
+#4318 - Karasu
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 3, target rnd 25
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: SkillSet:
+	[0] ESStatusShield(20:9414) -> Bang!
+	Voids status ailments for 5 turns
+	[1] ESInactivity66(66:9415) -> I am curious as to why...
+	Do nothing
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: SkillSet:
+	[0] ESInactivity66(66:9417) -> Like they say,
+	Do nothing
+	[1] ESInactivity66(66:9418) -> I wouldn't want you to miss a single beat.
+	Do nothing
+	[2] ESBombRandomSpawn(102:9419) -> Deleterious bomb!
+	Spawn 1 random Bomb orb
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 23
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#15: ESBombRandomSpawn(102:9421) -> Trace Eyes
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Bomb orbs, Deal 100% damage
+
+#16: ESBombFixedSpawn(103:9422) -> That's what I call my Mad Bomb.
+Condition: 26% chance (ai:0 rnd:26)
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#17: ESBombFixedSpawn(103:9423) -> That's what I call my Mad Bomb.
+Condition: 25% chance (ai:0 rnd:25)
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#21: ESBombFixedSpawn(103:9424) -> My my, looks like you're surrounded.
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBombFixedSpawn(103:9425) -> Hahahahahaha!
+Spawn Bomb orbs in the specified positions, Deal 100% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 28
+
+#26: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#27: SkillSet:
+	[0] ESInactivity66(66:9428) -> Bang!
+	Do nothing
+	[1] ESInactivity66(66:9415) -> I am curious as to why...
+	Do nothing
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:9426) -> It can't be...
+	Do nothing

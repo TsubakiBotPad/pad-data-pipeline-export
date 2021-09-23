@@ -1,0 +1,58 @@
+#7331 - Dazzling Dahlia Starfairy, Phyllis
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESAbsorbCombo(67:24332) -> Tee hee hee♪
+	Absorb damage when combos <= 6 for 5 turns
+	[1] ESOrbSealRow(100:24333) -> I'll show you my Flower Sword Dance♪
+	Seal the 1st row for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#4: ESSpinnersFixed(110:24334) -> Round Cut
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Specific orbs change every 1.0s for 4 turns, Deal 100% damage
+
+#5: ESBoardChangeAttackBits(85:24335) -> Decorative Cut
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 120% damage
+
+#6: ESDebuffMovetime(39:24336) -> Orchid Cut
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime 25% for 2 turns, Deal 140% damage
+
+#7: ESDamageShield(74:24337) -> Collarette Cut
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 1 turn, Deal 150% damage
+
+#8: ESAttackMultihit(15:24338) -> Cactus Cut
+Deal 320% damage (4 hits, 80% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESRecoverEnemy86(86:24340) -> Oww! That hurt!
+	Enemy recover 50% HP
+	[1] ESNoSkyfall(127:24341) -> You'll pay for that!
+	No skyfall for 4 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:24330) -> Resolve
+Survive attacks with 1 HP when HP > 50%

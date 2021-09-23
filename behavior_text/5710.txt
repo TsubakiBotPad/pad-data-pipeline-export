@@ -1,0 +1,31 @@
+#5710 - セイリュウ＆ブラックシンカリオン 紅
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5710
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15286:73) セイリュウ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (15267:83) お前は俺が倒す！ + ついてこれるか
+ | No skyfall for 6 turns + Absorb damage when combos <= 5 for 6 turns
+ group:
+ | group:
+   | condition: 90% chance
+   | (15204:85) はぁぁっ！
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 90% damage
+   | condition: 10% chance
+   | (15208:77) 超ダークカイサツソード
+   | Change the 3rd column to Dark orbs and the 4th column to Fire orbs, Deal 130% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (15207:71) やってやる！
+   | Void damage >= 5,000,000 for 6 turns
+ | group:
+ | condition: turn 1, hp <= 14
+   | (15269:83) させるか！ + まだだ！
+   | Enemy recover 100% HP + Movetime 50% for 1 turn

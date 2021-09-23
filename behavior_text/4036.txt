@@ -1,0 +1,34 @@
+#4036 - Gluttony
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4036
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8491:67) I'm hungry.
+ | Absorb damage when combos <= 4 for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (8492:15) Go away.
+   | Deal 110% damage
+ | group:
+ | condition: always turn 2
+   | (8495:83) Smells I don't know... + Can I eat him?
+   | Do nothing + Movetime -1s for 3 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (8496:50) Swallow
+   | Player -70% HP
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 3
+     | (8497:17) I'm just gonna swallow you whole!
+     | Increase damage to 150% for the next 999 turns
+   | group:
+     | (8498:62) Artificial Portal of Truth
+     | Blind all orbs on the board, Deal 200% damage

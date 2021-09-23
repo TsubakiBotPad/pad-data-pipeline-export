@@ -1,0 +1,42 @@
+#1378 - フリーザ・第3形態
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESDeathCry(69:1063) -> My true form!!!
+Condition: On death (ai:0 rnd:0)
+Show message: Feast your eyes while you can!!
+On my final transformation!!|I'll show you a nightmare beyond the horrors of hell...
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBindSkill(14:1132) -> 1匹たりとも生かしてはおきませんよ…
+Bind active skills for 3 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 9
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:1112) -> ひゃひゃひゃひゃひゃ…!!!!
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 180% damage (6 hits, 30% each)
+
+#10: ESOrbChangeAttack(48:1111) -> ひゃあ!!!!
+Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change all Heal orbs to Jammer orbs, Deal 50% damage
+
+#11: ESAttackMultihit(15:1110) -> どぉれちょっと拝見…
+Deal 120% damage (4 hits, 30% each)

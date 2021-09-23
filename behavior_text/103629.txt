@@ -1,0 +1,36 @@
+#103629 - 時代の終わりを告げる黒き竜・アクノロギア
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 103629
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6725:83) I am the true Dragon King! + Acnologia Transformation
+ | Blind orbs in specific positions for 1 turn + Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (6736:83) I recognize you as my enemy + GWAAAH-
+   | Fix orb movement starting point to random position on the board + Deal 150% damage (3 hits, 50% each), Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: always turn 2
+   | (6728:39) You can't escape
+   | Movetime -1s for 3 turns
+ | group:
+   | condition: 50% chance
+   | (6727:15) GWAAAH-
+   | Deal 150% damage (3 hits, 50% each)
+   | (6730:15) DESTROY!!! DESTROY!!!
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 34
+   | group:
+   | condition: turn 3
+     | (6729:17) Total Annihilation is what I seek!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (6731:85) Howl
+     | Change all orbs to Fire, Deal 500% damage

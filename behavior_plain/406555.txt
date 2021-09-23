@@ -1,0 +1,127 @@
+#406555 - Twelve Kizuki: Upper Rank 3, Akaza
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardChange(84:20105) -> Destructive Death: Compass Needle
+	Change all orbs to Water
+	[1] ESDamageShield(74:20106) -> If you won't become a demon,  I'll have to kill you.
+	Reduce damage from all sources by 50% for 2 turns
+
+#3: ESBindAttack(63:20174) -> Don't waste your thoughts on that weakling!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random sub for 1 turn, Deal 1,000% damage
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAbsorbCombo(67:20108) -> You need all your strength for me!
+Absorb damage when combos <= 4 for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBlind62(62:20109) -> Concentrate on me!
+Blind all orbs on the board, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESAttackMultihit(15:20088) -> Destructive Death: Disorder
+Deal 165% damage (5 hits, 33% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 20
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: ESSpinnersRandom(109:20175) -> No matter how hard they struggle,
+Random 1 orbs change every 1.0s for 2 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 24
+
+#21: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#22: ESFixedStart(101:20176) -> You really should become a demon.
+Fix orb movement starting point to random position on the board
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 28
+
+#25: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#26: ESNoSkyfall(127:20111) -> Then you could fight me forever!
+No skyfall for 2 turns
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 32
+
+#29: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#30: ESAttackUPRemainingEnemies(17:20112) -> Technique Development
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 120% for the next 999 turns
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 36
+
+#33: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#34: ESAttackMultihit(15:20092) -> Destructive Death: Annihilation Type
+Deal 200% damage (10 hits, 20% each)
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESEndBattle(40:20194) -> This is bad!
+Reduce self HP to 0
+
+#37: ESSuperResolve(129:20118) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#38: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:20093) -> This is bad!
+	Do nothing

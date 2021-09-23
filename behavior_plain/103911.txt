@@ -1,0 +1,45 @@
+#103911 - Jewel of Creation
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:9306) -> Healing Radiance
+Spawn 6 random Heal orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 12
+
+#9: ESDispel(6:9305) -> The jewel's light shined
+Voids player buff effects
+
+#10: ESRandomSpawn(92:9303) -> Bizarre Radiance
+Spawn 6 random Poison orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRecoverEnemyAlly(52:9304) -> Shining Life
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 50% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,41 @@
+#400064 - Alt. Blue Ogre
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardSizeChange(126:19248) -> Handicap
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change board size to 7x6 for 1 turn
+
+#3: ESCloud(104:19249) -> Handicap
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A 1×1 square of clouds appears for 99 turns at a random location
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAttackMultihit(15:19425) -> Muscled Fist
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 40% damage
+
+#7: ESAttackMultihit(15:19250) -> Muscled Fist
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESChangeAttribute(46:20950) -> Indiscriminate Carnage
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:21018) -> Alt. Super Resolve
+Damage which would reduce HP from above 75% to below 75% is nullified

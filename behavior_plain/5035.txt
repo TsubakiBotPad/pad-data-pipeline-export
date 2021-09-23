@@ -1,0 +1,194 @@
+#5035 - Magic Dracosnake of the Evilfangs, Zahhak
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 46
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:11841) -> Overflowing Bloodlust
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:11842) -> Serpent Barrier
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:11645) -> Sky-High Jump
+	Absorb damage when combos <= 7 for 1 turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSetCounter(25:15) -> ESSetCounter
+counter = 5
+
+#7: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 9
+
+#8: ESAttackMultihit(15:11844) -> Snake Fist Drive Strike
+Deal 180% damage
+
+#9: ESAttackMultihit(15:11845) -> Fall from the sky
+Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 38
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 30
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 24
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 21
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESRandomSpawn(92:11846) -> Snake Venom Breath
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 7 random Poison orbs, Deal 90% damage
+
+#17: ESBindRandom(1:11847) -> Twin Snake Bite
+Condition: 25% chance (ai:0 rnd:25)
+Bind 2 random cards for 1~3 turns, Deal 100% damage
+
+#18: ESAttackMultihit(15:11848) -> Very Strong Charge
+Condition: 25% chance (ai:0 rnd:25)
+Deal 105% damage
+
+#19: ESAttackMultihit(15:11849) -> Rising Fist
+Condition: 25% chance (ai:0 rnd:25)
+Deal 112% damage (4 hits, 28% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#22: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:11851) -> Raging Roar
+	Increase damage to 150% for the next 5 turns
+	[1] ESOrbSealRow(100:11852) -> Hitting the ground
+	Seal the 5th row for 5 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:11854) -> Wearing Miasma
+	Do nothing
+	[1] ESSkyfall(68:11855) -> Surrounded by Miasma
+	Poison skyfall +20% for 99 turns
+
+#25: ESRandomSpawn(92:11856) -> Snake Venom Breath
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 7 random Mortal Poison orbs, Deal 90% damage
+
+#26: ESBindRandom(1:11857) -> Twin Snake Bite
+Condition: 25% chance (ai:0 rnd:25)
+Bind 3 random cards for 2~4 turns, Deal 100% damage
+
+#27: ESRandomSpawn(92:11858) -> Very Strong Charge
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 4 random Poison orbs, Deal 105% damage
+
+#28: ESAttackMultihit(15:11859) -> Rising Fist
+Condition: 25% chance (ai:0 rnd:25)
+Deal 115% damage (5 hits, 23% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#31: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#32: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#33: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#34: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#35: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#36: ESAbsorbCombo(67:11860) -> Heaven-High Jump
+Absorb damage when combos <= 9 for 1 turn
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#38: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#39: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#40: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#41: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#42: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#43: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#44: ESAttackMultihit(15:11861) -> Double Snake Fist Drive Impact
+Deal 500% damage
+
+#45: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#46: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:11841) -> Overflowing Bloodlust
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:11842) -> Serpent Barrier
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:11843) -> Sky-High Jump
+	Absorb damage when combos <= 8 for 1 turn
+
+#47: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#48: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#49: ESSetCounter(25:15) -> ESSetCounter
+counter = 5
+
+#50: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 9, target rnd 52
+
+#51: ESAttackMultihit(15:11844) -> Snake Fist Drive Strike
+Deal 180% damage
+
+#52: ESAttackMultihit(15:11845) -> Fall from the sky
+Deal 100% damage
+
+#53: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#54: ESTypeResist(118:11643) -> God Halved
+Reduce damage from God types by 50%

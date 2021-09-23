@@ -1,0 +1,36 @@
+#4808 - Vortex Dragon Caller, Vigo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4808
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4806, 4807 on team
+ | (11137:67) Let's practice together once in a while
+ | Absorb damage when combos <= 10 for 999 turns
+ | (11136:67) I hope you're a good training partner
+ | Absorb damage when combos <= 10 for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | (11139:110) Show me what you've got
+   | Specific orbs change every 1.0s for 4 turns
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (11140:102) How about...this!
+   | Spawn 3 random Bomb orbs
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | (11141:77) Let's see how you handle this!
+   | Change the 1st column to Water and Light orbs and the 6th column to Water and Light orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (11142:88) Let's end it now...
+   | Bind awoken skills for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (11143:15) I look forward to next time
+   | Deal 3,000% damage (6 hits, 500% each)

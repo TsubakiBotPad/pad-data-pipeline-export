@@ -1,0 +1,31 @@
+#7340 - Malevolent Aconite Darkfairy, Dino
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7340
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 2560, 2561, 3590, 3591, 6476 on team
+ | (24052:70) That infuriating honey-thief...
+ | Do nothing
+ | (24050:68) Let us begin the experiment...
+ | Poison skyfall +10% for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (24066:1) Paralytic Poison
+   | Bind 2 random cards for 3 turns, Deal 80% damage
+   | condition: 50% chance
+   | (24067:97) Dizzying Poison
+   | Blind random 2~4 orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24051:110) This is why research is worth doing.
+   | Specific orbs change every 1.0s for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (24068:64) Alkaloid Arrow
+   | Change 3 random orbs to Poison orbs, Deal 150% damage

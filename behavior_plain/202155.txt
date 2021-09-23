@@ -1,0 +1,25 @@
+#202155 - Aqua Surfer
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESDispel(6:2483) -> The waves are coming to me♪
+Voids player buff effects
+
+#4: ESSkillDelay(89:2481) -> Mysterious Surfboard
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 0~1 turns
+
+#5: ESColumnSpawnMulti(77:2482) -> Aqua 360°
+Condition: 50% chance when < 80% HP (ai:50 rnd:0)
+Change the 2nd and 3rd columns to Water orbs, Deal 120% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

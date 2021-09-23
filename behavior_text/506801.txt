@@ -1,0 +1,45 @@
+#506801 - Nefarious Nine-Tailed Fox, Shikokuen
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506801
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22140:129) Super resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22141:83) I shall destroy you all... + And then, the world!
+ | Poison skyfall +10% for 10 turns + No skyfall for 10 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (22133:130) Devastating Darkness
+   | ATK -50% for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (22134:105) Nine Grudge Curse
+   | RCV 50% for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (22135:109) Pitch Black Grudge
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22144:83) Nine Tails Wreathed in Flame + Smoke of Resentment
+     | Reduce damage from all sources by 90% for 5 turns + A column of clouds appears for 5 turns at a random location
+   | group:
+     | condition: 70% chance
+     | (22147:15) Shadow Strikes
+     | Deal 105% damage (3 hits, 35% each)
+     | condition: 34% chance
+     | (22133:130) Devastating Darkness
+     | ATK -50% for 1 turn, Deal 100% damage
+     | condition: 33% chance
+     | (22134:105) Nine Grudge Curse
+     | RCV 50% for 1 turn, Deal 100% damage
+     | condition: 33% chance
+     | (22135:109) Pitch Black Grudge
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage

@@ -1,0 +1,24 @@
+#204790 - Alt. Witch of Escaping the Summer, Werewolfie
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204790
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14275:101) Take your time!
+ | Fix orb movement starting point to random position on the board
+ group:
+ | group:
+ | condition: always turn 1
+   | (10865:92) I'll give you only one!
+   | Spawn 1 random Heal orb, Deal 100% damage
+ | group:
+   | (10866:92) I said only one!
+   | Spawn 3 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (10867:15) Coconut Slash
+   | Deal 120% damage (3 hits, 40% each)

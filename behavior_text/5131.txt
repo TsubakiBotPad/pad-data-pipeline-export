@@ -1,0 +1,40 @@
+#5131 - Crimson Lotus Warrior, Echidna - Sara
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 5131
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13401:83) Crimson Fire Dance + Menace + Glamorous Boasting
+ | Voids status ailments for 999 turns + Delay active skills by 1~10 turns + Reduce damage from all sources by 75% for 1 turn
+ group:
+ | group:
+   | condition: when 8 combos last turn
+   | (13415:127) Clear Sky Dance
+   | No skyfall for 5 turns
+   | (13406:83) Crimson Lotus Dance + Final Blow
+   | Player -50% HP + Deal 50% damage, Deal 50% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (13405:87) Heroine Spear Dance
+     | Absorb damage when damage >= 20,000,000 for 3 turns, Deal 250% damage
+   | group:
+     | condition: when 8 combos last turn
+     | (13415:127) Clear Sky Dance
+     | No skyfall for 5 turns
+     | (13409:83) Crimson Lotus Flower Dance + Final Blow
+     | Player -75% HP + Deal 50% damage, Deal 50% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (13411:83) Crimson Fire Menace + Purgatory Black Smoke
+     | Bind 6 random cards for 5 turns + Blind all orbs on the board
+   | group:
+     | (13414:15) Flare Rouge
+     | Deal 800% damage (8 hits, 100% each)

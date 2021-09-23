@@ -1,0 +1,70 @@
+#506801 - Nefarious Nine-Tailed Fox, Shikokuen
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:22142) -> I shall destroy you all...
+	Poison skyfall +10% for 10 turns
+	[1] ESNoSkyfall(127:22143) -> And then, the world!
+	No skyfall for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESDebuffATK(130:22133) -> Devastating Darkness
+Condition: 34% chance (ai:0 rnd:34)
+ATK -50% for 1 turn, Deal 100% damage
+
+#5: ESDebuffRCV(105:22134) -> Nine Grudge Curse
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 100% damage
+
+#6: ESSpinnersRandom(109:22135) -> Pitch Black Grudge
+Condition: 33% chance (ai:0 rnd:33)
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDamageShield(74:22145) -> Nine Tails Wreathed in Flame
+	Reduce damage from all sources by 90% for 5 turns
+	[1] ESCloud(104:22146) -> Smoke of Resentment
+	A column of clouds appears for 5 turns at a random location
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:22147) -> Shadow Strikes
+Condition: 70% chance (ai:70 rnd:0)
+Deal 105% damage (3 hits, 35% each)
+
+#13: ESDebuffATK(130:22133) -> Devastating Darkness
+Condition: 34% chance (ai:0 rnd:34)
+ATK -50% for 1 turn, Deal 100% damage
+
+#14: ESDebuffRCV(105:22134) -> Nine Grudge Curse
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 100% damage
+
+#15: ESSpinnersRandom(109:22135) -> Pitch Black Grudge
+Condition: 33% chance (ai:0 rnd:33)
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:22140) -> Super resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

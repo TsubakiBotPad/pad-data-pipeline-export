@@ -1,0 +1,27 @@
+#102128 - Alt. Dark Mech General, Hysferzen
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 102128
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20373:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 99%
+ type: PREEMPT
+ | (20374:83) Invincible Body + Barrier Generator + Emergency Alarm
+ | Reduce damage from all sources by 90% for 6 turns + Delay active skills by 10 turns + For 1 turn, 100% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+ | condition: turn 1
+   | (3589:48) Ignis Saw
+   | Change a random attribute to Fire orbs, Deal 150% damage
+ | group:
+ | condition: turn 2
+   | (3590:65) Destroying Arm
+   | Bind 2 random subs for 5 turns, Deal 180% damage
+ | group:
+   | (3591:77) Desperia Ray
+   | Change the 3rd column to Mortal Poison orbs and the 4th column to Poison orbs, Deal 500% damage

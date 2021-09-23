@@ -1,0 +1,31 @@
+#820 - Absolute Zero Hrungnir
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESGravity(50:529) -> Wave of Cold Air
+Player -99% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:532) -> Target-Seeking Ice Block Bullets
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 200~250% damage (4~5 hits, 50% each)
+
+#7: ESOrbChangeAttack(48:530) -> Ice Pillar Creation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Water orbs, Deal 80% damage
+
+#8: ESAttackMultihit(15:531) -> Ice Block Bullets
+Deal 120~150% damage (4~5 hits, 30% each)

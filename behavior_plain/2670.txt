@@ -1,0 +1,89 @@
+#2670 - Jade Jewel Princess, Cameo
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:12743) -> Shell Shield
+Reduce damage from all sources by 75% for 6 turns
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#7: ESOrbLock(94:12744) -> Metal Tackle
+Lock all orbs, Deal 100% damage
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#10: ESAttackUPRemainingEnemies(17:12745) -> Lava Breeze
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 250% for the next 3 turns
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#13: ESAttackMultihit(15:12746) -> Intaglio Punch
+Deal 100% damage
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#16: ESAttackMultihit(15:12746) -> Intaglio Punch
+Deal 100% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#19: ESAttackMultihit(15:12746) -> Intaglio Punch
+Deal 100% damage
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 64, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111111
+
+#22: SkillSet:
+	[0] ESAbsorbCombo(67:12747) -> Acrylic Absorption
+	Absorb damage when combos <= 7 for 99 turns
+	[1] ESAttackUPRemainingEnemies(17:12748) -> Stoneware
+	Increase damage to 150% for the next 99 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESOrbLock(94:12744) -> Metal Tackle
+Condition: 50% chance (ai:0 rnd:50)
+Lock all orbs, Deal 100% damage
+
+#25: ESAttackMultihit(15:12746) -> Intaglio Punch
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn

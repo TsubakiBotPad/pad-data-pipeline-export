@@ -1,0 +1,46 @@
+#4123 - Red Stone Pillar
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4123
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8698:20) Hellish Flame
+ | Voids status ailments for 99 turns
+ group:
+ | group:
+   | (8699:15) Burn
+   | Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (8700:102) Incandescent Surge
+     | Spawn 6 random locked Bomb orbs
+   | group:
+   | condition: turn 2
+     | condition: when 8 combos last turn
+     | (8701:39) Guardian Flame
+     | Movetime 150% for 5 turns
+     | condition: 20% chance
+     | (8702:53) Anti-Fire
+     | Absorb Fire damage for 3 turns
+     | condition: 20% chance
+     | (8703:53) Anti-Fire
+     | Absorb Water damage for 3 turns
+     | condition: 20% chance
+     | (8704:53) Anti-Fire
+     | Absorb Wood damage for 3 turns
+     | condition: 20% chance
+     | (8705:53) Anti-Fire
+     | Absorb Light damage for 3 turns
+     | condition: 20% chance
+     | (8706:53) Anti-Fire
+     | Absorb Dark damage for 3 turns
+ type: REMAINING
+ condition: when 2 enemies remain, turn 1, hp <= 100
+ | (8707:19) Crimson
+ | Increase damage to 250% for the next 99 turns

@@ -1,0 +1,51 @@
+#1167 - Blue Flower Dragon, Starling
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:205) -> Fertile Guard
+Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 14
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBindAttack(63:943) -> Thorn Cage
+Bind 4 random cards for 2~4 turns, Deal 50% damage
+
+#12: ESOrbChangeAttack(48:944) -> Rose Ocean
+Change all Heal orbs to Water orbs, Deal 300% damage
+
+#13: ESOrbChangeAttack(48:942) -> Beautiful Rose
+Change a random attribute to Heal orbs, Deal 125% damage
+
+#14: ESOrbChangeAttack(48:902) -> Flower Tail
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Heal orbs, Deal 100% damage
+
+#15: ESBindAttack(63:941) -> Thorn Whip
+Bind 1 random sub for 2 turns, Deal 75% damage

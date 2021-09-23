@@ -1,0 +1,79 @@
+#5266 - Mikihisa Asakura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESGravity(50:13248) -> Hello
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Player -99% HP
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESSkillDelay(89:13249) -> Shall we give it a try?
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESRandomSpawn(92:13250) -> Well? Don't be shy! Come at me!!
+Spawn 5 random Wood orbs, Deal 90% damage
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESAttackMultihit(15:13251) -> Make your move.
+Deal 110% damage (2 hits, 55% each)
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#16: ESOrbChangeAttack(48:13252) -> Brat.
+Change a random attribute to Wood orbs, Deal 95% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:13254) -> Accept your defeat!
+	Bind awoken skills for 1 turn
+	[1] ESAbsorbCombo(67:13255) -> Shamanic Oracle
+	Absorb damage when combos <= 5 for 10 turns
+
+#20: ESBindAwoken(88:13254) -> Accept your defeat!
+Bind awoken skills for 1 turn
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#22: ESRandomSpawn(92:13256) -> Power crushes everything.
+Spawn 10 random Wood orbs, Deal 250% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

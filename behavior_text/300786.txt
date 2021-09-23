@@ -1,0 +1,21 @@
+#300786 - Alt. Mystic Astro Dragon, Nebradisk
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300786
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25502:83) Nebulous Bronze Disk + Astronomy of the Ancients
+ | Absorb damage when damage >= 100 for 5 turns + Voids status ailments for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-4 of 5
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (518:15) Annihilating Light of the Pleiades
+   | Deal 1,400% damage (7 hits, 200% each)

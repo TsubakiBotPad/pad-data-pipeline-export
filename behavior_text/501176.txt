@@ -1,0 +1,24 @@
+#501176 - Keeper of Gold
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 501176
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23408:74) Defeat me if you wish to pass.
+ | Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (23410:94) Goldfinger
+   | Lock 5 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (23411:109) TAMADRA Bash
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 95% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (23409:50) There's more where that came from!
+   | Player -100% HP

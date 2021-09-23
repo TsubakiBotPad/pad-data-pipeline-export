@@ -1,0 +1,76 @@
+#3832 - Alluring Wise Demon, Ibaraki-doji
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 3832
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7810:83) Look alive! + Mount Ooe's Soul Guardian
+ | Change the 1st, 2nd, 4th, and 5th rows to Fire, Water, Wood, Light, Dark, and Heal orbs and the 3rd row to Mortal Poison orbs + Voids status ailments for 5 turns, Deal 200% damage
+ group:
+ | group:
+ | condition: always turn 5
+   | (7815:83) How about that, eh? Still wanna fight? + War Cycle
+   | Void damage >= 10,000,000 for 99 turns + Enemy recover 15% HP
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 32
+     | condition: 50% chance
+     | (7811:15) Wham! Bam!
+     | Deal 240% damage (2 hits, 120% each)
+     | (7812:15) Take that and that and that!
+     | Deal 260% damage (4 hits, 65% each)
+   | group:
+     | condition: 50% chance
+     | (7811:15) Wham! Bam!
+     | Deal 240% damage (2 hits, 120% each)
+     | (7812:15) Take that and that and that!
+     | Deal 260% damage (4 hits, 65% each)
+ | group:
+ | condition: hp <= 32
+   | group:
+   | condition: turn 1 while HP > 4
+     | condition: 30% chance
+     | (7816:97) Steely Gaze
+     | Blind random 1~4 orbs for 1 turn, Deal 220% damage
+     | (7817:8) Here I go!!
+     | Increase damage to 450% for the next attack
+   | group:
+   | condition: turns 2-4 while HP > 4
+     | condition: 30% chance
+     | (7816:97) Steely Gaze
+     | Blind random 1~4 orbs for 1 turn, Deal 220% damage
+     | condition: 50% chance
+     | (7811:15) Wham! Bam!
+     | Deal 240% damage (2 hits, 120% each)
+     | (7812:15) Take that and that and that!
+     | Deal 260% damage (4 hits, 65% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 30% chance
+     | (7816:97) Steely Gaze
+     | Blind random 1~4 orbs for 1 turn, Deal 220% damage
+     | (7817:8) Here I go!!
+     | Increase damage to 450% for the next attack
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 30% chance
+     | (7816:97) Steely Gaze
+     | Blind random 1~4 orbs for 1 turn, Deal 220% damage
+     | condition: 50% chance
+     | (7811:15) Wham! Bam!
+     | Deal 240% damage (2 hits, 120% each)
+     | (7812:15) Take that and that and that!
+     | Deal 260% damage (4 hits, 65% each)
+ | group:
+ | condition: hp <= 4
+   | group:
+   | condition: turns 1-4
+     | (7818:15) Matchless Vajra Barrage
+     | Deal 1,000% damage (10 hits, 100% each)
+   | group:
+     | (7818:15) Matchless Vajra Barrage
+     | Deal 1,000% damage (10 hits, 100% each)

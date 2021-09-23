@@ -1,0 +1,32 @@
+#100908 - Alt. Earth Baron
+monster size: 3
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 100908
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10511:118) Physical Attacker Halved
+ | Reduce damage from Physical and Attacker types by 50%
+ type: PREEMPT
+ | (10506:83) Over Slap + Grand Shield
+ | Bind awoken skills for 3 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (10507:65) There's no escape
+   | Bind 1 random sub for 5 turns
+ | group:
+   | (10508:15) Wind Slash
+   | Deal 300% damage (2 hits, 150% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (10509:14) Earth Cage
+     | Bind active skills for 5 turns
+   | group:
+     | (10510:15) Gigas Break
+     | Deal 360% damage (3 hits, 120% each)

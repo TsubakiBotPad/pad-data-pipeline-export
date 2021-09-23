@@ -1,0 +1,28 @@
+#2694 - Kenpachi Zaraki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2694
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17498:89) Now we can finally fight.
+ | Delay active skills by 3~5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (17500:109) Stop yapping...
+   | Random 4 orbs change every 1.0s for 2 turns, Deal 120% damage
+   | (17499:13) ...and fight!
+   | Change 2 random orb types to Jammer orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17501:17) Not bad.
+     | Increase damage to 150% for the next 99 turns
+   | group:
+     | (17502:15) I'm gonna end this now.
+     | Deal 150% damage

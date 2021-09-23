@@ -1,0 +1,72 @@
+#5995 - Green Clablin
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbLock(94:16984) -> Chain Lock
+Lock 6 random orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESRecoverEnemyAlly(52:17013) -> Revive
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 50% HP
+
+#10: ESDebuffMovetime(39:16986) -> Reverse Time
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime -2s for 4 turns
+
+#11: ESCloud(104:16985) -> Gusty Cloud
+Condition: 50% chance (ai:50 rnd:0)
+A 1×7 rectangle of clouds appears for 1 turn at a random location, Deal 95% damage
+
+#12: ESRowSpawnMulti(79:16987) -> Wind Edge
+Change the 2nd row to Wood orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 19
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESAttackUPRemainingEnemies(17:16988) -> Chanting a magic spell...
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 1 turn
+
+#17: ESBlind62(62:16989) -> Black Cyclone
+Blind all orbs on the board, Deal 140% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: ESBlind62(62:16989) -> Black Cyclone
+Blind all orbs on the board, Deal 140% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,37 @@
+#2828 - Charging Superman Soldier (Film)
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:4266) -> Elite Training
+Voids status ailments for 1 turn
+
+#7: ESAttackUPRemainingEnemies(17:4117) -> Advance
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 120% for the next 999 turns
+
+#8: ESBindAttack(63:4116) -> Restraints
+Condition: When < 20% HP (ai:100 rnd:0)
+Bind 1 random sub for 1 turn, Deal 120% damage
+
+#9: ESAttackMultihit(15:4114) -> Full Auto
+Deal 100% damage (2 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

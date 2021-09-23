@@ -1,0 +1,26 @@
+#462 - アパンダ
+monster size: 5
+new AI: False
+start/max counter: 0
+counter increment: 0
+monster_id: 462
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (1930:50) ふいうち
+ | Player -99% HP
+ group:
+ | group:
+ | condition: hp <= 74
+   | condition: 40% chance
+   | (186:15) Heave
+   | Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 40% chance
+   | (183:15) Continuous Punch
+   | Deal 135~180% damage (3~4 hits, 45% each)
+   | condition: 40% chance
+   | (186:15) Heave
+   | Deal 150% damage

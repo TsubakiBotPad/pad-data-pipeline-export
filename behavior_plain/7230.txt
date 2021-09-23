@@ -1,0 +1,134 @@
+#7230 - Pixel Kuroko
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 2, target rnd 11
+
+#3: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 3, target rnd 16
+
+#4: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 4, target rnd 19
+
+#5: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 5, target rnd 24
+
+#6: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 6, target rnd 27
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:23824) -> Congratulations!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESRandomSpawn(92:23825) -> Well, well. Very strong you are!
+	Spawn 4 random Jammer orbs
+	[2] ESBlind5(5:23826) -> Do fight with me.
+	Blind all orbs on the board
+
+#8: ESOrbChangeAttackBits(108:23828) -> Satanic Saturnalia
+Change all Jammer orbs to Dark orbs, Deal 100% damage
+
+#9: ESRandomSpawn(92:23827) -> Let us begin the surgery.
+Spawn 4 random Jammer orbs, Deal 50% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:23830) -> Congratulations!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESAbsorbCombo(67:23831) -> Well, well. Very strong you are!
+	Absorb damage when combos <= 4 for 999 turns
+	[2] ESCloud(104:23832) -> Do fight with me.
+	A 2×1 rectangle of clouds appears for 99 turns at 3rd row, 3rd column
+
+#12: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 5, target rnd 14
+
+#13: ESBoardChangeAttackBits(85:23834) -> Ohh!
+Change all orbs to Fire, Light, Dark, and Heal, Deal 100% damage
+
+#14: ESBoardChangeAttackBits(85:23833) -> Let us begin the surgery.
+Change all orbs to Fire, Light, Dark, and Heal, Deal 50% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:23836) -> Congratulations!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESBoardChange(84:23837) -> Well, well. Very strong you are!
+	Change all orbs to Fire and Heal
+	[2] ESBombRandomSpawn(102:23838) -> Do fight with me.
+	Spawn 1 random Bomb orb
+
+#17: SkillSet:
+	[0] ESBoardChange(84:23839) -> Let us begin the surgery.
+	Change all orbs to Fire and Heal
+	[1] ESBombRandomSpawn(102:23840) -> Exploding Dance Kickfest
+	Spawn 1 random Bomb orb
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:23843) -> Congratulations!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESSkyfall(68:23844) -> Well, well. Very strong you are!
+	Dark skyfall +100% for 99 turns
+	[2] ESBoardChange(84:23845) -> Do fight with me.
+	Change all orbs to Fire, Light, and Heal
+
+#20: ESSkyfall(68:23844) -> Well, well. Very strong you are!
+Dark skyfall +100% for 99 turns
+
+#21: ESOrbChangeAttackBits(108:23847) -> Satanic Saturnalia
+Change all Fire, Water, Wood, Light, and Heal orbs to Dark orbs, Deal 120% damage
+
+#22: ESBoardChangeAttackBits(85:23846) -> Let us begin the surgery.
+Change all orbs to Fire, Light, and Heal, Deal 50% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:23849) -> Congratulations!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESAbsorbCombo(67:23850) -> Well, well. Very strong you are!
+	Absorb damage when combos <= 8 for 999 turns
+	[2] ESBoardChange(84:23851) -> Do fight with me.
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#25: ESBoardChangeAttackBits(85:23852) -> Let us begin the surgery.
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedTarget(112:23854) -> Congratulations!
+	Forces attacks to hit this enemy for 99 turns
+	[1] ESBoardChange(84:23855) -> Well, well. Very strong you are!
+	Change all orbs to Heal and Jammer
+	[2] ESSpinnersFixed(110:23856) -> Do fight with me.
+	Specific orbs change every 1.0s for 1 turn
+
+#28: SkillSet:
+	[0] ESSpinnersFixed(110:23858) -> Let us begin the surgery.
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESBoardChangeAttackBits(85:23859) -> Ohh!
+	Change all orbs to Heal and Jammer, Deal 100% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn

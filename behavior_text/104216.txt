@@ -1,0 +1,65 @@
+#104216 - Valentine Queen, Hera-Sowilo
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104216
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8996:55) Happy Valentine's Day! ♪
+ | Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: when 7 combos last turn
+     | (8995:15) Sweet Combo
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 20% chance
+     | (8997:99) Wrapping Arrow
+     | Seal the 1st column for 1 turn, Deal 130% damage
+     | condition: 20% chance
+     | (8998:99) Wrapping Arrow
+     | Seal the 6th column for 1 turn, Deal 130% damage
+     | condition: 20% chance
+     | (8999:100) Wrapping Arrow
+     | Seal the 1st row for 1 turn, Deal 130% damage
+     | condition: 20% chance
+     | (9000:100) Wrapping Arrow
+     | Seal the 5th row for 1 turn, Deal 130% damage
+     | condition: 20% chance
+     | (9002:109) Bitter Spot
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 130% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | condition: when 7 combos last turn
+   | (9001:39) Devil's Devotion
+   | Movetime 150% for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (9003:67) Test of One's True Feelings
+     | Absorb damage when combos <= 6 for 1 turn
+   | group:
+   | condition: turn 2
+     | condition: when 7 combos last turn
+     | (9001:39) Devil's Devotion
+     | Movetime 150% for 3 turns
+     | (9004:85) Chocolate Smothering
+     | Change all orbs to Heal, Jammer, and Poison, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (9003:67) Test of One's True Feelings
+     | Absorb damage when combos <= 6 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: when 7 combos last turn
+     | (8995:15) Sweet Combo
+     | Deal 100% damage (2 hits, 50% each)
+     | (9004:85) Chocolate Smothering
+     | Change all orbs to Heal, Jammer, and Poison, Deal 200% damage

@@ -1,0 +1,32 @@
+#1961 - Dark Cat Dragon, Black Nyadra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1961
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2438:92) Meow Tackle
+ | Spawn 3 random Jammer orbs, Deal 80% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (2442:15) Meow Dark Horn
+   | Deal 120% damage (2 hits, 60% each)
+   | condition: 50% chance
+   | (2443:48) Trophy
+   | Change all Dark orbs to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 89
+   | (2441:14) Menacing Glare
+   | Bind active skills for 3 turns
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2439:63) Meow Grapple
+   | Bind 3 random cards for 2 turns, Deal 60% damage
+ | group:
+ | condition: hp <= 19
+   | (2440:15) Angry Meow Bite
+   | Deal 300% damage (2 hits, 150% each)

@@ -1,0 +1,42 @@
+#3493 - Reincarnated Hermes
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3493
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21740:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (21741:83) Knowledge Barrier + Magic Wall + Lost Chemical
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 3 turns + Unable to match Fire orbs for 3 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 6
+     | (21749:83) Dream Water + Lock Alchemy
+     | Change a random attribute to Water orbs + Lock 15 random orbs, Deal 45% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (21746:83) Magic Absorbing Wall + Lost Chemical
+     | Absorb damage when combos <= 7 for 3 turns + Unable to match Wood orbs for 3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4-5 of 6
+     | (21749:83) Dream Water + Lock Alchemy
+     | Change a random attribute to Water orbs + Lock 15 random orbs, Deal 45% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (21745:83) Magic Wall + Lost Chemical
+     | Reduce damage from all sources by 75% for 3 turns + Unable to match Fire orbs for 3 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (21752:83) Divine Blessing + Spirit of the Commerce Deity
+     | ATK -99% for 1 turn + Movetime 25% for 1 turn
+   | group:
+     | (21755:15) End of Alchemy
+     | Deal 500% damage (5 hits, 100% each)

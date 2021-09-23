@@ -1,0 +1,113 @@
+#201843 - Crystal Wind Dragon Queen, Linthia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:11285) -> ESBranchCard
+Branch on player_cards HAS [2508, 2509, 3770, 3771, 4813], target rnd 6
+
+#5: SkillSet:
+	[0] ESDebuffMovetime(39:11279) -> Is it fine to leave it with you?
+	Movetime -2s for 10 turns
+	[1] ESBindAwoken(88:11280) -> Let's play as I check your skills ♪
+	Bind awoken skills for 5 turns
+
+#6: SkillSet:
+	[0] ESDebuffMovetime(39:11279) -> Is it fine to leave it with you?
+	Movetime -2s for 10 turns
+	[1] ESBindAwoken(88:11282) -> Play with me, little bird ♪
+	Bind awoken skills for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 24
+
+#9: ESBindRandom(1:3549) -> Petal Chain
+Condition: When < 90% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 3 random cards for 3 turns
+
+#10: ESColumnSpawnMulti(77:3547) -> Gale Impact
+Condition: 50% chance when < 50% HP (ai:50 rnd:0)
+Change the 3rd and 4th columns to Wood orbs, Deal 150% damage
+
+#11: ESBlind62(62:3546) -> Floral Mist
+Condition: When < 50% HP (ai:100 rnd:0)
+Blind all orbs on the board, Deal 140% damage
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESBranchCard(90:3551) -> ESBranchCard
+Branch on player_cards HAS [2508, 2509], target rnd 16
+
+#15: ESColumnSpawnMulti(77:3544) -> Vanir Rose
+Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 140% damage
+
+#16: ESColumnSpawnMulti(77:3544) -> Vanir Rose
+Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 140% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESBranchCard(90:3553) -> ESBranchCard
+Branch on player_cards HAS [1950, 1951], target rnd 21
+
+#20: ESAttackMultihit(15:3545) -> Glass Storm
+Deal 150% damage (3 hits, 50% each)
+
+#21: ESAttackMultihit(15:3545) -> Glass Storm
+Deal 150% damage (3 hits, 50% each)
+
+#22: ESAttackMultihit(15:3545) -> Glass Storm
+Condition: 50% chance (ai:50 rnd:0)
+Deal 150% damage (3 hits, 50% each)
+
+#23: ESColumnSpawnMulti(77:3544) -> Vanir Rose
+Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 140% damage
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 27
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#26: ESBindSkill(14:3550) -> No way! I won't let you end this yet!
+Bind active skills for 10 turns
+
+#27: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 30
+
+#28: ESColumnSpawnMulti(77:3547) -> Gale Impact
+Condition: 50% chance when < 50% HP (ai:50 rnd:0)
+Change the 3rd and 4th columns to Wood orbs, Deal 150% damage
+
+#29: ESBlind62(62:3546) -> Floral Mist
+Condition: When < 50% HP (ai:100 rnd:0)
+Blind all orbs on the board, Deal 140% damage
+
+#30: ESAttackMultihit(15:3548) -> Ventus Anima
+Deal 600% damage (2 hits, 300% each)
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: SkillSet:
+	Condition: On death (ai:0 rnd:0)

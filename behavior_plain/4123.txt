@@ -1,0 +1,80 @@
+#4123 - Red Stone Pillar
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:8698) -> Hellish Flame
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids status ailments for 99 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 21
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#5: ESAttackMultihit(15:8699) -> Burn
+Deal 90% damage (3 hits, 30% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESBombRandomSpawn(102:8700) -> Incandescent Surge
+Spawn 6 random locked Bomb orbs
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 19
+
+#13: ESAbsorbAttribute(53:8702) -> Anti-Fire
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire damage for 3 turns
+
+#14: ESAbsorbAttribute(53:8703) -> Anti-Fire
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water damage for 3 turns
+
+#15: ESAbsorbAttribute(53:8704) -> Anti-Fire
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood damage for 3 turns
+
+#16: ESAbsorbAttribute(53:8705) -> Anti-Fire
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light damage for 3 turns
+
+#17: ESAbsorbAttribute(53:8706) -> Anti-Fire
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Dark damage for 3 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESDebuffMovetime(39:8701) -> Guardian Flame
+Movetime 150% for 5 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESAttackUPCooldown(19:8707) -> Crimson
+Increase damage to 250% for the next 99 turns
+
+#22: ESAttackMultihit(15:8699) -> Burn
+Deal 90% damage (3 hits, 30% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

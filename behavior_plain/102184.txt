@@ -1,0 +1,75 @@
+#102184 - Alt. Gluttonous Mystic, Zhu Bajie
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESGravity(50:2533) -> Charge!!
+Player -99% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#7: ESColumnSpawnMulti(77:2541) -> Bursting Milky Way!
+Condition: When < 30% HP (ai:100 rnd:0)
+Change the 1st, 3rd, and 5th columns to Fire orbs and the 2nd, 4th, and 6th columns to Light orbs, Deal 200% damage
+
+#8: ESColumnSpawnMulti(77:2538) -> Smack
+Condition: 20% chance (ai:0 rnd:20)
+Change the 1st, 3rd, and 5th columns to Fire orbs, Deal 120% damage
+
+#9: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 20% chance (ai:0 rnd:20)
+Deal 100% damage
+
+#10: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRecoverEnemy86(86:2536) -> Dim Sum Snack
+	Enemy recover 10% HP
+	[1] ESRowSpawnMulti(79:2539) -> Burning Hoof
+	Change the 5th row to Fire orbs, Deal 50% damage
+
+#11: ESBindAttribute(2:2537) -> Water Battle Strategy
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Bind Water cards for 2 turns, Deal 75% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESDamageShield(74:2543) -> Marshal Canopy's Secret Plan
+Condition: When < 50% HP (ai:100 rnd:0)
+Reduce damage from all sources by 75% for 1 turn
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 7
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESGravity(50:2540) -> Wild Boar Charge
+Condition: When < 50% HP (ai:100 rnd:0)
+Player -100% HP
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

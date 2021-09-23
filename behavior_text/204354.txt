@@ -1,0 +1,93 @@
+#204354 - Spirit Numen of Wood, Byuto
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 204354
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9770:72) Wood Att. Halved
+ | Reduce damage from Wood attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (9770:72) Wood Att. Halved
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (9775:83) Great Protection + Defense of Mother Nature + Grace of Mother Nature + Spirit Mischief
+ | Voids status ailments for 999 turns + Void damage >= 15,000,000 for 999 turns + Absorb damage when combos <= 6 for 999 turns + Locked Poison skyfall +100% for 20 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (9778:83) Sullied Fruit + Pure Lands
+   | Spawn 3 random Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (9801:83) Fallen Fruit + Spoiled
+     | Poison skyfall +20% for 3 turns + Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 19% chance, when 3 combos last turn
+     | (9800:83) Cataclysm + Spoiled
+     | Spawn 6 random Fire, Wood, Light, Dark, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 19% chance, when 3 combos last turn
+     | (9799:83) Cataclysm + Spoiled
+     | Spawn 6 random Water, Wood, Light, Dark, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 19% chance, when 3 combos last turn
+     | (9798:83) Cataclysm + Spoiled
+     | Spawn 6 random Fire, Water, Wood, Dark, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 19% chance, when 3 combos last turn
+     | (9797:83) Cataclysm + Spoiled
+     | Spawn 6 random Fire, Water, Wood, Light, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 4% chance, when 3 combos last turn
+     | (9796:83) Cataclysm + Spoiled
+     | Spawn 6 random Wood, Light, Dark, Heal, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 4% chance, when 3 combos last turn
+     | (9795:83) Cataclysm + Spoiled
+     | Spawn 6 random Fire, Wood, Dark, Heal, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 4% chance, when 3 combos last turn
+     | (9794:83) Cataclysm + Spoiled
+     | Spawn 6 random Fire, Wood, Light, Heal, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 4% chance, when 3 combos last turn
+     | (9793:83) Cataclysm + Spoiled
+     | Spawn 6 random Water, Wood, Dark, Heal, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 4% chance, when 3 combos last turn
+     | (9792:83) Cataclysm + Spoiled
+     | Spawn 6 random Water, Wood, Light, Heal, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 4% chance, when 3 combos last turn
+     | (9791:83) Cataclysm + Spoiled
+     | Spawn 6 random Fire, Water, Wood, Heal, Poison, and Mortal Poison orbs + Player -99% HP
+     | condition: 16% chance
+     | (9802:83) Cataclysm + Pure Lands
+     | Spawn 6 random Fire, Water, Wood, Heal, Poison, and Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+     | condition: 16% chance
+     | (9803:83) Cataclysm + Pure Lands
+     | Spawn 6 random Water, Wood, Light, Heal, Poison, and Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+     | condition: 17% chance
+     | (9804:83) Cataclysm + Pure Lands
+     | Spawn 6 random Water, Wood, Dark, Heal, Poison, and Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+     | condition: 17% chance
+     | (9805:83) Cataclysm + Pure Lands
+     | Spawn 6 random Fire, Wood, Light, Heal, Poison, and Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+     | condition: 17% chance
+     | (9806:83) Cataclysm + Pure Lands
+     | Spawn 6 random Fire, Wood, Dark, Heal, Poison, and Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+     | condition: 17% chance
+     | (9807:83) Cataclysm + Pure Lands
+     | Spawn 6 random Wood, Light, Dark, Heal, Poison, and Mortal Poison orbs + Lock all Poison and Mortal Poison orbs
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (9810:83) Wrath of the Great Tree + Great Path of Destruction
+   | Change the 1st, 3rd, and 5th columns to Wood orbs and the 2nd, 4th, and 6th columns to Poison orbs + Movetime -3s for 99 turns
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (9813:83) Defenders of the Sacred Tree + Wrath of the Great Tree
+   | Reduce damage from all sources by 50% for 99 turns + Change the 1st, 3rd, and 5th rows to Poison orbs and the 2nd and 4th rows to Wood orbs
+ | group:
+ | condition: hp <= 9
+   | (9816:83) Forest of the Decaying Sea + Ruining Grounds
+   | Bind awoken skills for 1 turn + Change all orbs to Mortal Poison

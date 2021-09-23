@@ -1,0 +1,33 @@
+#4206 - Sweet Dianthus, Kushinadahime
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:20570) -> Come, have a seat.
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:20571) -> Would you like a cup of tea?
+	Bind awoken skills for 5 turns
+
+#3: ESRowSpawnMulti(79:20572) -> Do you like bean jam pancakes?
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change the 2nd and 4th rows to Light orbs and the 3rd row to Dark orbs, Deal 80% damage
+
+#4: ESBlind62(62:20573) -> Do you like sweet bean parfait?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board, Deal 90% damage
+
+#5: ESRandomSpawn(92:20574) -> Do you like strawberry mochi?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 5 random Fire orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:20575) -> I even brought you a present!
+Deal 200% damage (2 hits, 100% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

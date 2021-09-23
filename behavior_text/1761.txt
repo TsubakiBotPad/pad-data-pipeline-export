@@ -1,0 +1,48 @@
+#1761 - Burning Bowl Dragon, Gyundo
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1761
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1772:72) Halve Water
+ | Reduce damage from Water attrs by 50%
+
+level: 5
+ type: PASSIVE
+ | (1772:72) Halve Water
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (1802:20) Beef Scale
+ | Voids status ailments for 4 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (1803:17) Lunchtime Discount
+   | Increase damage to 200% for the next 3 turns
+ | group:
+   | condition: 40% chance
+   | (1805:79) Extra Onion Shot
+   | Change the 2nd row to Wood orbs and the 4th row to Wood orbs, Deal 75% damage
+   | (1804:79) Extra Juice
+   | Change the 1st row to Water orbs and the 2nd row to Heal orbs, Deal 125% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1806:50) Big Helping Punch
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 40% chance
+     | (1805:79) Extra Onion Shot
+     | Change the 2nd row to Wood orbs and the 4th row to Wood orbs, Deal 75% damage
+     | (1804:79) Extra Juice
+     | Change the 1st row to Water orbs and the 2nd row to Heal orbs, Deal 125% damage
+ | group:
+ | condition: hp <= 29
+   | (1807:48) Forbidden Mega Helping Press
+   | Change a random attribute to Fire orbs, Deal 500% damage

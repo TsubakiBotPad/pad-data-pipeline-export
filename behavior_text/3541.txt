@@ -1,0 +1,49 @@
+#3541 - Ocean Horn Wisedragon, Mercuria
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 3541
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (6741:72) Water halved
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (6619:83) Wings of the Ice Wolf + Divine Name's Protection
+ | Locked random skyfall +20% for 10 turns + Voids status ailments for 4 turns
+ group:
+ | type: MONSTER_STATUS
+   | (6628:18) Pulsating Rage
+   | Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: always turn 1
+   | (6620:98) Black Cut
+   | Blind orbs in specific positions for 1 turn, Deal 300% damage
+ | group:
+ | condition: always turn 2
+   | (6621:98) Black Cut
+   | Blind orbs in specific positions for 1 turn, Deal 300% damage
+ | group:
+ | condition: always turn 3
+   | (6624:83) Freeze Breath + Ocean Roar
+   | Bind 2 random subs for 3 turns + Increase damage to 300% for the next 1 turn, Deal 300% damage
+ | group:
+ | condition: always turn 4
+   | (6627:83) Frozen Fur + Cold Impact
+   | Reduce damage from all sources by 50% for 3 turns + Deal 450% damage (3 hits, 150% each), Deal 450% damage (3 hits, 150% each)
+ | group:
+   | condition: 20% chance
+   | (6629:98) Black Cut
+   | Blind orbs in specific positions for 1 turn, Deal 300% damage
+   | condition: 20% chance
+   | (6630:98) Black Cut
+   | Blind orbs in specific positions for 1 turn, Deal 300% damage
+   | condition: 60% chance
+   | (6631:15) Cold Fang
+   | Deal 320% damage (2 hits, 160% each)
+ | group:
+ | condition: hp <= 14
+   | (6634:83) Its body is glowing + Absolute Blue
+   | Change own attribute to random one of Water or Dark + Deal 1,800% damage (6 hits, 300% each), Deal 1,800% damage (6 hits, 300% each)

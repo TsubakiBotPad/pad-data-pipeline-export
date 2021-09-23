@@ -1,0 +1,30 @@
+#406740 - Super Purple Carbuncle
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406740
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22267:73) Resolve
+ | Survive attacks with 1 HP when HP > 35%
+ | condition: when 1 enemies remain
+ | (22206:122) Enemy's next turn changed
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (22442:68) Power of the Purple Jewel
+ | Poison skyfall +20% for 10 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | (22207:15) Carbuncle Rush
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+   | (20950:46) Indiscriminate Carnage
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (22200:83) Transformation of Carnage + Bloody Carnage
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)

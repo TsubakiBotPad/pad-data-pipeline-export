@@ -1,0 +1,235 @@
+#7791 - 昂陽の炎柱神・アメン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:27452) -> 炎柱神の加護
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:27453) -> 立ち込める黒煙
+	Void damage >= 900,000,000 for 5 turns
+	[2] ESSkyfall(68:27454) -> 炎柱神の恵み
+	Fire skyfall +35% for 5 turns
+	[3] ESRowSpawnMulti(79:27455) -> 双炎
+	Change the 2nd and 4th rows to Fire orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 36
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 42
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 34
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 32
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 30
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 28
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 26
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#12: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESBindRandomSub(65:27491) -> 縛炎
+	Bind 3 random subs for 3 turns
+	[1] ESDebuffRCV(105:27492) -> 奪炎
+	RCV 25% for 1 turn
+	[2] ESAttackMultihit(15:27493) -> ファイアースパーク
+	Deal 99% damage (3 hits, 33% each)
+
+#13: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESDebuffRCV(105:27492) -> 奪炎
+	RCV 25% for 1 turn
+	[1] ESDebuffATK(130:27495) -> 失炎
+	ATK -75% for 1 turn
+	[2] ESAttackMultihit(15:27493) -> ファイアースパーク
+	Deal 99% damage (3 hits, 33% each)
+
+#14: SkillSet:
+	[0] ESBindRandomSub(65:27491) -> 縛炎
+	Bind 3 random subs for 3 turns
+	[1] ESDebuffATK(130:27495) -> 失炎
+	ATK -75% for 1 turn
+	[2] ESAttackMultihit(15:27493) -> ファイアースパーク
+	Deal 99% damage (3 hits, 33% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: SkillSet:
+	[0] ESDamageShield(74:27469) -> 超炎壁
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESAbsorbCombo(67:27477) -> 舞い上がる炎
+	Absorb damage when combos <= 9 for 1 turn, Deal 108% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	Condition: 20% chance (ai:20 rnd:0)
+	[0] ESRandomSpawn(92:27475) -> ミラクルクロー・火
+	Spawn 7 random Fire orbs
+	[1] ESAttributeBlock(107:27476) -> 炎柱神の念力
+	Unable to match Fire orbs for 1 turn
+	[2] ESAbsorbCombo(67:27477) -> 舞い上がる炎
+	Absorb damage when combos <= 9 for 1 turn, Deal 108% damage
+
+#21: SkillSet:
+	Condition: 25% chance (ai:25 rnd:0)
+	[0] ESRandomSpawn(92:27479) -> ミラクルクロー・水
+	Spawn 7 random Water orbs
+	[1] ESAttributeBlock(107:27480) -> 炎柱神の念力
+	Unable to match Water orbs for 1 turn
+	[2] ESAbsorbCombo(67:27477) -> 舞い上がる炎
+	Absorb damage when combos <= 9 for 1 turn, Deal 108% damage
+
+#22: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESRandomSpawn(92:27482) -> ミラクルクロー・木
+	Spawn 7 random Wood orbs
+	[1] ESAttributeBlock(107:27483) -> 炎柱神の念力
+	Unable to match Wood orbs for 1 turn
+	[2] ESAbsorbCombo(67:27477) -> 舞い上がる炎
+	Absorb damage when combos <= 9 for 1 turn, Deal 108% damage
+
+#23: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:27485) -> ミラクルクロー・光
+	Spawn 7 random Light orbs
+	[1] ESAttributeBlock(107:27486) -> 炎柱神の念力
+	Unable to match Light orbs for 1 turn
+	[2] ESAbsorbCombo(67:27477) -> 舞い上がる炎
+	Absorb damage when combos <= 9 for 1 turn, Deal 108% damage
+
+#24: SkillSet:
+	[0] ESRandomSpawn(92:27488) -> ミラクルクロー・闇
+	Spawn 7 random Dark orbs
+	[1] ESAttributeBlock(107:27489) -> 炎柱神の念力
+	Unable to match Dark orbs for 1 turn
+	[2] ESAbsorbCombo(67:27477) -> 舞い上がる炎
+	Absorb damage when combos <= 9 for 1 turn, Deal 108% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	[0] ESRecoverEnemy86(86:27471) -> 癒しの炎
+	Enemy recover 15% HP
+	[1] ESOrbLock(94:27472) -> 炎柱神の眼光
+	Lock 15 random orbs
+	[2] ESAttackMultihit(15:27473) -> 廻転炎玉
+	Deal 111% damage (3 hits, 37% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: SkillSet:
+	[0] ESRecoverEnemy86(86:27505) -> 癒しの炎
+	Enemy recover 10% HP
+	[1] ESOrbLock(94:27472) -> 炎柱神の眼光
+	Lock 15 random orbs
+	[2] ESAttackMultihit(15:27473) -> 廻転炎玉
+	Deal 111% damage (3 hits, 37% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: SkillSet:
+	[0] ESRecoverEnemy86(86:27501) -> 癒しの炎
+	Enemy recover 8% HP
+	[1] ESOrbLock(94:27472) -> 炎柱神の眼光
+	Lock 15 random orbs
+	[2] ESAttackMultihit(15:27473) -> 廻転炎玉
+	Deal 111% damage (3 hits, 37% each)
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: SkillSet:
+	[0] ESRecoverEnemy86(86:27507) -> 癒しの炎
+	Enemy recover 6% HP
+	[1] ESOrbLock(94:27472) -> 炎柱神の眼光
+	Lock 15 random orbs
+	[2] ESAttackMultihit(15:27473) -> 廻転炎玉
+	Deal 111% damage (3 hits, 37% each)
+
+#33: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#34: SkillSet:
+	[0] ESRecoverEnemy86(86:27503) -> 癒しの炎
+	Enemy recover 3% HP
+	[1] ESOrbLock(94:27472) -> 炎柱神の眼光
+	Lock 15 random orbs
+	[2] ESAttackMultihit(15:27473) -> 廻転炎玉
+	Deal 111% damage (3 hits, 37% each)
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 40
+
+#37: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#38: SkillSet:
+	[0] ESSkillDelay(89:27457) -> 炎柱神の悪巧み
+	Delay active skills by 10 turns
+	[1] ESBoardChange(84:27458) -> 絶望の火海
+	Change all orbs to Fire
+	[2] ESOrbLock(94:27459) -> 無慈悲な追撃
+	Lock all Fire orbs
+
+#39: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#40: SkillSet:
+	[0] ESChangeAttribute(46:27461) -> 炎色反応
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:27462) -> プロミネンススパーク
+	Deal 1,200% damage (8 hits, 150% each)
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: SkillSet:
+	[0] ESSkyfallLocked(96:27464) -> 炎柱神の祈り
+	Locked random skyfall +30% for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:27465) -> 炎柱神の怒気
+	Increase damage to 150% for the next 999 turns
+	[2] ESSkillDelay(89:27466) -> 炎魔力
+	Delay active skills by 6 turns
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#44: ESTypeResist(118:27498) -> 悪魔体力半減
+Reduce damage from Physical and Devil types by 50%
+
+#45: ESSuperResolve(129:27499) -> 超根性50%
+Damage which would reduce HP from above 50% to below 50% is nullified

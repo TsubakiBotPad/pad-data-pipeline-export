@@ -1,0 +1,184 @@
+#101461 - Alt. Awoken Noah
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5522) -> Truth Gate
+	Absorb Fire and Water damage for 2 turns
+
+#5: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5523) -> Truth Gate
+	Absorb Fire and Wood damage for 2 turns
+
+#6: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5524) -> Truth Gate
+	Absorb Fire and Light damage for 2 turns
+
+#7: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5525) -> Truth Gate
+	Absorb Fire and Dark damage for 2 turns
+
+#8: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5526) -> Truth Gate
+	Absorb Water and Wood damage for 2 turns
+
+#9: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5527) -> Truth Gate
+	Absorb Water and Light damage for 2 turns
+
+#10: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5528) -> Truth Gate
+	Absorb Water and Dark damage for 2 turns
+
+#11: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5529) -> Truth Gate
+	Absorb Wood and Light damage for 2 turns
+
+#12: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5530) -> Truth Gate
+	Absorb Wood and Dark damage for 2 turns
+
+#13: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESRecoverPlayer(55:5521) -> Are you worth saving?
+	Player recover 100% HP
+	[1] ESAbsorbAttribute(53:5531) -> Truth Gate
+	Absorb Light and Dark damage for 2 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:5520) -> Punishment Thunder
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 2,000% damage (2 hits, 1,000% each)
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESBindAttack(63:5516) -> Sacred Sacrifice
+Condition: 30% chance (ai:30 rnd:0)
+Bind 1 random sub for 2 turns, Deal 50% damage
+
+#19: ESOrbChangeAttack(48:5517) -> Rainbow Contract
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to a random attribute, Deal 75% damage
+
+#20: ESOrbChangeAttack(48:5518) -> Twinkle Hope
+Change a random attribute to Heal orbs, Deal 100% damage
+
+#21: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#22: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5522) -> Truth Gate
+	Absorb Fire and Water damage for 2 turns
+
+#23: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5523) -> Truth Gate
+	Absorb Fire and Wood damage for 2 turns
+
+#24: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5524) -> Truth Gate
+	Absorb Fire and Light damage for 2 turns
+
+#25: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5525) -> Truth Gate
+	Absorb Fire and Dark damage for 2 turns
+
+#26: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5526) -> Truth Gate
+	Absorb Water and Wood damage for 2 turns
+
+#27: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5527) -> Truth Gate
+	Absorb Water and Light damage for 2 turns
+
+#28: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5528) -> Truth Gate
+	Absorb Water and Dark damage for 2 turns
+
+#29: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5529) -> Truth Gate
+	Absorb Wood and Light damage for 2 turns
+
+#30: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5530) -> Truth Gate
+	Absorb Wood and Dark damage for 2 turns
+
+#31: SkillSet:
+	Condition: 10% chance (ai:0 rnd:10)
+	[0] ESGravity(50:5515) -> Ark Impact
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:5531) -> Truth Gate
+	Absorb Light and Dark damage for 2 turns
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,82 @@
+#2941 - Green Hell Dragon, Raguel
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESBindSkill(14:5188) -> Hell Gate
+	Bind active skills for 5 turns
+	[1] ESBindAwoken(88:5189) -> Oblio
+	Bind awoken skills for 3 turns
+
+#3: ESAttackMultihit(15:5196) -> The Last Circle, Cocytus
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 750% damage (5 hits, 150% each)
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 17
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#6: SkillSet:
+	Condition: When < 40% HP , one-time use (ai:100 rnd:0) (cost: 7)
+	[0] ESBlind62(62:5199) -> The First Circle, Limbo
+	Blind all orbs on the board, Deal 100% damage
+	[1] ESPoisonChangeRandomAttack(64:5200) -> The Fourth Circle, Greed
+	Change 5 random orbs to Poison orbs, Deal 100% damage
+	[2] ESBindAttack(63:5201) -> The Eighth Circle, Fraud
+	Bind 3 random cards for 3 turns, Deal 100% damage
+
+#7: SkillSet:
+	Condition: When < 60% HP , one-time use (ai:100 rnd:0) (cost: 6)
+	[0] ESBlind62(62:5199) -> The First Circle, Limbo
+	Blind all orbs on the board, Deal 100% damage
+	[1] ESPoisonChangeRandomAttack(64:5200) -> The Fourth Circle, Greed
+	Change 5 random orbs to Poison orbs, Deal 100% damage
+
+#8: ESBlind62(62:5193) -> The First Circle, Limbo
+Condition: When < 80% HP , one-time use (ai:100 rnd:0) (cost: 4)
+Blind all orbs on the board, Deal 140% damage
+
+#9: SkillSet:
+	Condition: When < 40% HP , one-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESPoisonChangeRandomAttack(64:5200) -> The Fourth Circle, Greed
+	Change 5 random orbs to Poison orbs, Deal 100% damage
+	[1] ESBindAttack(63:5201) -> The Eighth Circle, Fraud
+	Bind 3 random cards for 3 turns, Deal 100% damage
+
+#10: ESPoisonChangeRandomAttack(64:5194) -> The Fourth Circle, Greed
+Condition: When < 60% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Change 5 random orbs to Poison orbs, Deal 150% damage
+
+#11: ESBindAttack(63:5195) -> The Eighth Circle, Fraud
+Condition: When < 40% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 3 random cards for 3 turns, Deal 160% damage
+
+#12: ESColumnSpawnMulti(77:5197) -> Ondulazione
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st column to Water orbs, Deal 140% damage
+
+#13: ESColumnSpawnMulti(77:5198) -> Bufera
+Change the 6th column to Wood orbs, Deal 140% damage
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESChangeAttribute(46:5192) -> Devil's Half Divinity
+	Change own attribute to Dark
+	[1] ESDamageShield(74:5205) -> Dephaser
+	Reduce damage from all sources by 99% for 1 turn
+
+#17: ESSkillDelay(89:5191) -> Acheron River of Woe
+Delay active skills by 2 turns

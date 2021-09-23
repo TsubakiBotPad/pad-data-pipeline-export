@@ -1,0 +1,46 @@
+#3364 - Gin Ichimaru
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDebuffMovetime(39:6140) -> Not good.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Movetime -1s for 2 turns
+
+#5: ESAttackMultihit(15:6141) -> Unacceptable
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 100% damage
+
+#6: ESBranchCard(90:6146) -> ESBranchCard
+Branch on player_cards HAS [2675, 2676, 2677, 3353, 3354], target rnd 8
+
+#7: ESDamageShield(74:6142) -> All the more reason... why I can't let you pass...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 1 turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:6143) -> You're sure a funny kid.
+	Do nothing
+	[1] ESDamageShield(74:6144) -> And you're not scared of me?
+	Reduce damage from all sources by 50% for 1 turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:6147) -> This is my Zanpakuto.
+	Do nothing
+	[1] ESGravity(50:6148) -> Shoot 'em Dead! Shinso.
+	Player -99% HP
+
+#10: ESEndBattle(40:6150) -> Bye-bye, now!
+Reduce self HP to 0

@@ -1,0 +1,26 @@
+#100400 - Alt. Kraken
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 100400
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (9114:62) Black Bullet
+ | Blind all orbs on the board, Deal 60% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (9115:1) Holding Tentacle
+     | Bind 2 random cards for 3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (9114:62) Black Bullet
+     | Blind all orbs on the board, Deal 60% damage
+ | group:
+ | condition: hp <= 19
+   | (9116:15) Hard Tentacle
+   | Deal 200% damage (2 hits, 100% each)

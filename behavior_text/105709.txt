@@ -1,0 +1,35 @@
+#105709 - セイリュウ＆ブラックシンカリオン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105709
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15277:53) チェンジ、ブラックシンカリオン！
+ | Absorb Light damage for 10 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (15179:77) ダークフミキリシュリケン
+   | Change the 1st column to Dark orbs and the 6th column to Fire orbs, Deal 90% damage
+   | condition: 25% chance
+   | (15180:108) ダークフミキリガン
+   | Change all Light orbs to Dark orbs, Deal 100% damage
+   | condition: 25% chance
+   | (15181:15) ダークシャリンドリル
+   | Deal 135% damage (3 hits, 45% each)
+   | condition: 25% chance
+   | (15182:77) ダークカイサツソード
+   | Change the 3rd column to Dark orbs and the 4th column to Dark orbs, Deal 125% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (15278:88) 無駄だ！
+     | Bind awoken skills for 4 turns
+   | group:
+     | (15184:79) デスグランクロス！
+     | Change the 2nd row to Dark orbs, the 3rd row to Dark orbs, and the 4th row to Dark orbs, Deal 150% damage

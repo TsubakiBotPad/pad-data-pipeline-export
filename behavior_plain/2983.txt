@@ -1,0 +1,73 @@
+#2983 - Awoken Kushinadahime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:6372) -> ESBranchCard
+Branch on player_cards HAS [2323], target rnd 7
+
+#5: ESBranchCard(90:6375) -> ESBranchCard
+Branch on player_cards HAS [2322], target rnd 8
+
+#6: SkillSet:
+	[0] ESAbsorbCombo(67:6370) -> Let's take it nice and slow
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESStatusShield(20:6379) -> Blessed Harvest
+	Voids status ailments for 999 turns
+	[2] ESDebuffMovetime(39:6371) -> Vines get in the way of the puzzle!
+	Movetime 25% for 6 turns
+
+#7: SkillSet:
+	[0] ESAbsorbCombo(67:6374) -> You ate my dango, didn't you!
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESStatusShield(20:6379) -> Blessed Harvest
+	Voids status ailments for 999 turns
+	[2] ESDebuffMovetime(39:6371) -> Vines get in the way of the puzzle!
+	Movetime 25% for 6 turns
+
+#8: SkillSet:
+	[0] ESAbsorbCombo(67:6377) -> Frightened and on the verge of tears
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESStatusShield(20:6379) -> Blessed Harvest
+	Voids status ailments for 999 turns
+	[2] ESDebuffMovetime(39:6371) -> Vines get in the way of the puzzle!
+	Movetime 25% for 6 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESLeaderSwap(75:6386) -> It's time for your punishment!
+Condition: When < 25% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 1 turn
+
+#11: ESGravity(50:6387) -> Judgment Slash
+Condition: When < 25% HP (ai:100 rnd:0)
+Player -300% HP
+
+#12: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESRowSpawnMulti(79:6382) -> Lifespan Diminisher
+	Change the 3rd row to Heal orbs, Deal 100% damage
+	[1] ESOrbChangeAttack(48:6385) -> Insidious Impurity
+	Change all Heal orbs to Poison orbs, Deal 100% damage
+
+#13: SkillSet:
+	[0] ESDamageShield(74:6380) -> Benevolent Protection
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESRowSpawnMulti(79:6382) -> Lifespan Diminisher
+	Change the 3rd row to Heal orbs, Deal 100% damage
+	[2] ESOrbChangeAttack(48:6383) -> Ruined Harvest Mudslide
+	Change all Heal orbs to Jammer orbs, Deal 100% damage
+
+#14: ESTurnChangePassive(106:6378) -> Enemy's next turn changed in anger
+Enemy turn counter change to 1 when HP <= 50%

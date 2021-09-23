@@ -1,0 +1,31 @@
+#1918 - Battle Flower Spirit, Mandrake
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkillDelay(89:2373) -> Strange Scream
+Delay active skills by 0~3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRowSpawnMulti(79:2376) -> Mandrake Beam
+Condition: When < 30% HP (ai:100 rnd:0)
+Change the 3rd row to Wood orbs, Deal 200% damage
+
+#7: ESAttackMultihit(15:2374) -> Rock of Mandragora
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 150% damage (5 hits, 30% each)
+
+#8: ESInactivity66(66:2375) -> Gets excited
+Do nothing

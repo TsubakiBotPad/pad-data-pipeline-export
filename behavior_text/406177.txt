@@ -1,0 +1,32 @@
+#406177 - Seven-Star Beast, Qilin Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 406177
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17693:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (17700:83) Seven-Star Protection + Black Rain
+ | Reduce damage from all sources by 90% for 999 turns + Jammer skyfall +20% for 15 turns
+ group:
+ | group:
+   | (17692:15) Light Sword Chaos Strike
+   | Deal 100% damage (5 hits, 20% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17699:83) Seven-Star Guidance + Bladewings opened
+     | Voids status ailments for 999 turns + Do nothing
+   | group:
+   | condition: turns 2-6
+     | (-1:-1) Countdown Message
+     | Display '0' and skip turn
+   | group:
+     | (17696:83) Seven-Star Radiance + Strong Blade Chaos Strike
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,100% damage (7 hits, 300% each), Deal 2,100% damage (7 hits, 300% each)

@@ -1,0 +1,80 @@
+#5624 - Old Castle Watchcat, Bastet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19865) -> You're not gonna give me any candy?
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:19866) -> I'll have to cause some meowschief!
+	Movetime 50% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 18
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 15
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 8, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 13
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 12
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 11
+
+#10: ESAttackMultihit(15:19867) -> Treat Cat
+Deal 100% damage (4 hits, 25% each)
+
+#11: ESAttackUPRemainingEnemies(17:19868) -> Feline Enhancement
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#12: ESAttackUPRemainingEnemies(17:19869) -> Feline Enhancement
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#13: ESAttackUPRemainingEnemies(17:19870) -> Feline Enhancement
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 1 turn
+
+#14: ESAttackUPRemainingEnemies(17:19871) -> Feline Enhancement
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 400% for the next 1 turn
+
+#15: ESAttackUPRemainingEnemies(17:19872) -> Feline Enhancement
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 500% for the next 999 turns
+
+#16: ESAttackMultihit(15:19867) -> Treat Cat
+Deal 100% damage (4 hits, 25% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: ESAbsorbCombo(67:19873) -> I'll treat you purfectly
+Absorb damage when combos <= 6 for 999 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESResolve(73:19863) -> Resolve
+Survive attacks with 1 HP when HP > 50%

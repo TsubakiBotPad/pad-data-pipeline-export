@@ -1,0 +1,28 @@
+#6185 - Bushin Yu-Chi, Tao Ren
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6185
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17644:50) We'll take them all down right here and now.
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (17647:1) ...Time for a little shock.
+   | Bind 2 random cards for 10 turns, Deal 80% damage
+   | (17645:77) Léi-fá!
+   | Change the 4th column to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (17646:105) Why throw your lives away?
+     | RCV 25% for 7 turns
+   | group:
+     | (17648:77) Heaven-Shaking Thunder!!
+     | Change the 3rd column to Light orbs and the 4th column to Light orbs, Deal 150% damage

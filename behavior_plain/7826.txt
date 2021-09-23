@@ -1,0 +1,70 @@
+#7826 - アソーカ・タノ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:27810) -> お遊び中、邪魔して悪いね
+	Absorb Water and Wood damage for 5 turns
+	[1] ESColumnSpawnMulti(77:27811) -> フォース・プッシュ
+	Change the 1st column to Water orbs and the 6th column to Wood orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:27812) -> ちょうどいいところに来たみたい
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 3 turns, Deal 105% damage
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESOrbChangeAttackBits(108:27814) -> 楽に死なせてあげる
+	Change all Fire and Light orbs to Water and Wood orbs, Deal 55% damage
+	[1] ESOrbLock(94:27815) -> 切りつける
+	Lock 10 random orbs, Deal 65% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESBindAwoken(88:27816) -> 私みたいなもっと手強い相手でどう？
+Bind awoken skills for 1 turn, Deal 80% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPRemainingEnemies(17:27817) -> ごめんなさいマスター、もう戻らない
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:27819) -> ＿アソーカ根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

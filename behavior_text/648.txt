@@ -1,0 +1,35 @@
+#648 - Athena
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 648
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (461:55) You've done well to make it here.
+ | Player recover 100% HP
+ group:
+ | group:
+ | condition: always turn 1
+   | (453:20) Aegis Shield
+   | Voids status ailments for 999 turns
+ | group:
+   | condition: 60% chance
+   | (454:48) Shining Spear
+   | Change a random attribute to Light orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 70% chance
+   | (456:15) Storm Punisher
+   | Deal 120% damage (6 hits, 20% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 2
+     | (457:16) The end is nigh!
+     | Do nothing
+   | group:
+     | (458:15) Starburst
+     | Deal 1,000% damage (10 hits, 100% each)

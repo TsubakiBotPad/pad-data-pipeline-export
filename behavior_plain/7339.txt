@@ -1,0 +1,43 @@
+#7339 - Aconite Darkshade Flower
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:24384) -> Hood of Revenge
+Reduce damage from all sources by 50% for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#7: ESAbsorbCombo(67:24386) -> Percutaneous Absorption
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 4 for 3 turns
+
+#8: ESBoardChangeAttackBits(85:24387) -> Poison Mist
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:24385) -> Devil's Helmet
+Deal 130% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESDeathCry(69:24388) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: The flower opens into full bloom|It reveals its true form

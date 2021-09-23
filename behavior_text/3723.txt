@@ -1,0 +1,88 @@
+#3723 - Wood Orb Dragon, Fukin
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 3723
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7545:83) Samsara Arabesque + Wind Jewel
+ | Random 2 orbs change every 1.0s for 3 turns + Absorb damage when combos <= 6 for 1 turn
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1
+     | (7548:83) Scaly Stronghold + Mithril Dragon's Divine Protection
+     | Reduce damage from all sources by 75% for 4 turns + Absorb Light and Dark damage for 4 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (7553:94) Tree Tusk Incarceration
+     | Lock 9 random orbs, Deal 120% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (7554:48) Hushed Windweaver
+     | Change all Heal orbs to Wood orbs, Deal 130% damage
+     | (7555:50) Splintering Windblast
+     | Player -90% HP
+   | group:
+   | condition: turn 4 while HP > 19
+     | (7553:94) Tree Tusk Incarceration
+     | Lock 9 random orbs, Deal 120% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (7551:17) Resentful Stare
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 8
+     | (7554:48) Hushed Windweaver
+     | Change all Heal orbs to Wood orbs, Deal 130% damage
+     | (7555:50) Splintering Windblast
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 8
+     | (7553:94) Tree Tusk Incarceration
+     | Lock 9 random orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 8
+     | (7554:48) Hushed Windweaver
+     | Change all Heal orbs to Wood orbs, Deal 130% damage
+     | (7555:50) Splintering Windblast
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 8
+     | (7552:74) Scaly Stronghold
+     | Reduce damage from all sources by 75% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 5 of 8
+     | (7553:94) Tree Tusk Incarceration
+     | Lock 9 random orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 8
+     | (7554:48) Hushed Windweaver
+     | Change all Heal orbs to Wood orbs, Deal 130% damage
+     | (7555:50) Splintering Windblast
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 7 of 8
+     | (7553:94) Tree Tusk Incarceration
+     | Lock 9 random orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 8 of 8
+     | (7552:74) Scaly Stronghold
+     | Reduce damage from all sources by 75% for 4 turns
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 99
+   | (7550:83) Scaly Stronghold + Lush Green
+   | Reduce damage from all sources by 75% for 4 turns + Wood skyfall +25% for 99 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (7556:39) Eye of the Storm Dragon
+     | Movetime 50% for 5 turns
+   | group:
+     | (7557:85) Valiant Gale
+     | Change all orbs to Wood and Jammer, Deal 3,000% damage

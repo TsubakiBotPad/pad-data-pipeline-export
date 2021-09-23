@@ -1,0 +1,23 @@
+#2195 - Flame Gear
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2195
+approved: False
+
+level: 2
+ group:
+ | group:
+ | condition: when hp is full
+   | (3001:89) Sleep Mode
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turn 1
+     | (3002:19) Activated
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (3003:92) Flame Pulse
+     | Spawn 3 random Fire orbs, Deal 280% damage

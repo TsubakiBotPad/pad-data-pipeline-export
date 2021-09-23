@@ -1,0 +1,40 @@
+#400365 - Alt. Awoken Deity Odin
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 400365
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13667:83) Grace of Mimir + Diabolic Lance Gungnir
+ | Absorb Water and Dark damage for 5 turns + Lock all Water and Dark orbs, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (6197:83) Double Slash + Skill Resistance
+     | Deal 160% damage (2 hits, 80% each) + Delay active skills by 1 turn, Deal 160% damage (2 hits, 80% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6204:79) Divide Icicle
+     | Change the 3rd row to Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (13670:83) Vidur + Hnikar
+     | Mortal Poison skyfall +20% for 2 turns + Player -100% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (6203:83) Triple Slash + Skill Resistance
+     | Deal 180% damage (3 hits, 60% each) + Delay active skills by 1 turn, Deal 180% damage (3 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (6205:79) Divide Poison
+     | Change the 3rd row to Water and Poison orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 14
+   | (6206:15) Vak Sigfodr
+   | Deal 500% damage (5 hits, 100% each)

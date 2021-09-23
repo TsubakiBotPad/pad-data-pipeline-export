@@ -1,0 +1,21 @@
+#500261 - Super King Metal Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:13970) -> I'm in a bad mood now!
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:13971) -> This isn't over!
+	Increase damage to 200% for the next 999 turns
+
+#3: ESAttackMultihit(15:13973) -> Extreme Metal Claw
+Deal 120% damage (3 hits, 40% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn

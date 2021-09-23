@@ -1,0 +1,25 @@
+#402758 - Blue Bamboo Virtue, You Yu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:20436) -> Spirit Bamboo's Protection
+	Reduce damage from all sources by 90% for 2 turns
+	[1] ESCloud(104:20447) -> Entertain me.
+	A 2×1 rectangle of clouds appears for 3 turns at a random location
+
+#3: ESRandomSpawn(92:20440) -> Blue Season
+Condition: 40% chance (ai:40 rnd:0)
+Spawn 3 random Water orbs, Deal 100% damage
+
+#4: ESAttackMultihit(15:20439) -> Bladed Fan Dance
+Deal 100% damage (4 hits, 25% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,40 @@
+#4110 - Billy Kane
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:19707) -> Hey, hey, HEY!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 0~3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESOrbChangeAttack(48:19711) -> FIRE!
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Fire orbs, Deal 98% damage
+
+#5: ESOrbLock(94:19710) -> Kyoushuu Hishou Kon
+Condition: 33% chance (ai:0 rnd:33)
+Lock 4 random orbs, Deal 95% damage
+
+#6: ESAttackMultihit(15:19708) -> Sansetsu Kon Chuudan Uchi
+Condition: 34% chance (ai:0 rnd:34)
+Deal 99% damage (3 hits, 33% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDebuffRCV(105:19709) -> Heeeheeheehee!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 4 turns
+
+#9: ESRandomSpawn(92:19712) -> Chou Kaen Senpuu Kon
+Spawn 6 random Fire orbs, Deal 120% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

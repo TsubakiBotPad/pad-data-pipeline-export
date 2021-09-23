@@ -1,0 +1,60 @@
+#307340 - Malevolent Aconite Darkfairy, Dino
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSkyfall(68:24249) -> Let us begin the experiment...
+	Poison skyfall +15% for 5 turns
+	[1] ESBoardChangeAttackBits(85:24250) -> Can you withstand my poisons?
+	Change all orbs to Heal and Poison, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESBindRandom(1:24251) -> Paralytic Poison
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind 2 random cards for 4 turns, Deal 50% damage
+
+#6: ESBlindStickyRandom(97:24252) -> Dizzying Poison
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind random 10~15 orbs for 3 turns, Deal 100% damage
+
+#7: ESSkillDelay(89:24253) -> Convulsive Poison
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 2~5 turns, Deal 120% damage
+
+#8: ESPoisonChangeRandomAttack(64:24254) -> Acute Poisoning
+Change 6 random orbs to Poison orbs, Deal 150% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESSpinnersFixed(110:24256) -> This is why research is worth doing.
+	Specific orbs change every 1.0s for 3 turns
+	[1] ESAttributeBlock(107:24257) -> Witness the fruits of my research.
+	Unable to match Poison orbs for 3 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESPoisonChangeRandomAttack(64:24258) -> Alkaloid Arrow
+Change 3 random orbs to Poison orbs, Deal 200% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

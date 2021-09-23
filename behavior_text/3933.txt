@@ -1,0 +1,39 @@
+#3933 - Shield Drifting Dragon Caller, Enra
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3933
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 3944, 3945 on team
+ | (13868:83) You do not get along well with that child + You will not hurt my cute disciple
+ | Change all orbs to Fire + Lock all orbs, Deal 60% damage
+ | (13867:83) What do you want with my disciple? + You will not hurt my cute disciple
+ | Change all orbs to Fire + Lock all orbs, Deal 60% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (13872:92) Guidance of Love
+   | Spawn 1 random Heal orb, Deal 100% damage
+   | condition: 33% chance
+   | (13873:48) Hardening of Spirit
+   | Change a random attribute to Fire orbs, Deal 95% damage
+   | condition: 34% chance
+   | (13874:15) Scolding Slap
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 50
+   | (13875:68) Crimson Lotus Shower
+   | Fire and Jammer skyfall +10% for 10 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (13876:88) Light Rain of Purification
+     | Bind awoken skills for 2 turns
+   | group:
+     | (13877:77) Torrent of Ash Flames
+     | Change the 1st, 3rd, and 5th columns to Fire orbs, Deal 300% damage

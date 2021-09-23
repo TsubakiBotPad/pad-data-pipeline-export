@@ -1,0 +1,30 @@
+#100546 - Alt. Mid Fire Ninja
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESCloud(104:5495) -> Giant Smoke Bomb
+A row of clouds appears for 1 turn at a random location
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPCooldown(19:5497) -> Medicine of Strength
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 5 turns
+
+#7: ESColumnSpawnMulti(77:5496) -> Fire Flight
+Change the 3rd and 4th columns to Fire orbs, Deal 120% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

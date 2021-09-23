@@ -1,0 +1,47 @@
+#2387 - Sacred Life Goddess of the Colored Sky, Hathor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2387
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19187:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19188:83) Sacred Life Goddess' Prayer + Protection of the Ether and the Sun
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (19191:94) Guiding Embrace
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (19192:15) Eternity's Judgment
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 5 while HP > 49
+     | (19194:83) Life's Joys + Life's Aspirations
+     | Increase damage to 150% for the next 999 turns + RCV 50% for 5 turns
+   | group:
+     | condition: 50% chance
+     | (19193:105) Life's Cravings
+     | RCV 25% for 1 turn, Deal 95% damage
+     | condition: 50% chance
+     | (19191:94) Guiding Embrace
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (19192:15) Eternity's Judgment
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (19197:83) Tenacious Life Force + Life's Joys
+   | Void damage >= 10,000,000 for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (19199:15) Guidance to the Underworld
+   | Deal 500% damage (5 hits, 100% each)

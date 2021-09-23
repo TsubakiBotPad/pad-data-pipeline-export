@@ -1,0 +1,47 @@
+#987 - Warded Storm God, Susano no Mikoto
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:18642) -> Iron Wall Stance
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESSkillDelay(89:18643) -> Celestial Current
+	Delay active skills by 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESOrbLock(94:18644) -> Celestial Blossom
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 120% damage
+
+#5: ESDamageShield(74:18645) -> Sealing Sword
+Condition: 50% chance (ai:0 rnd:50)
+Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESAbsorbCombo(67:18647) -> Warding Wind Wall
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:18648) -> Unleash Sacred Treasure
+	Increase damage to 300% for the next 999 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:18640) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

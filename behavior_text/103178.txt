@@ -1,0 +1,45 @@
+#103178 - Yomitsukami-no-miko, Kuninue
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 103178
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12797:83) Protecting Trees + Earth Mischief
+ | Reduce damage from all sources by 50% for 10 turns + Change the 1st and 5th rows to Mortal Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (12800:48) Tree of Life Transforms
+     | Change all Heal orbs to Wood orbs, Deal 110% damage
+     | condition: 50% chance
+     | (12801:68) Tree of Life's Deadly Bite
+     | Poison skyfall +15% for 1 turn, Deal 95% damage
+     | condition: 50% chance
+     | (12802:15) Moonlight Claws
+     | Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (12801:68) Tree of Life's Deadly Bite
+     | Poison skyfall +15% for 1 turn, Deal 95% damage
+     | condition: 50% chance
+     | (12802:15) Moonlight Claws
+     | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (12803:83) Decaying Life + Fading Scenery
+   | RCV 50% for 10 turns + Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (12806:89) Overgrowing Nature
+     | Delay active skills by 6~10 turns
+   | group:
+     | (12807:15) Claw & Fang Double Strike
+     | Deal 600% damage (6 hits, 100% each)

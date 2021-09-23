@@ -1,0 +1,38 @@
+#104882 - Eiji
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 104882
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11447:66) Tonight, you're the prey!
+ | Do nothing
+
+level: 4
+ type: PREEMPT
+ | (11469:39) Tonight, you're the prey!
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (11450:68) Come on, don't be like that.
+   | Jammer skyfall +15% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 99
+   | condition: 50% chance
+   | (11470:94) Now let's have some fun.
+   | Lock 20 random orbs, Deal 110% damage
+   | condition: 50% chance
+   | (11452:48) I'm impressed.
+   | Change a random attribute to Dark orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (11412:67) The next one will be even bigger.
+   | Absorb damage when combos <= 6 for 5 turns
+ | group:
+ | condition: hp <= 20
+   | (11453:15) VR never hurt like that, did it?
+   | Deal 150% damage

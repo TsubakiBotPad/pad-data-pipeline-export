@@ -1,0 +1,31 @@
+#7721 - クロコダイン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7721
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (28058:130) この獣王が倒せるかあっ!!!!
+ | ATK -75% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (28059:74) ぬおおおお――っ!!!
+     | Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (28060:79) くらえいっ!!!!
+     | Change the 4th row to Wood orbs, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (28061:17) むううううっ!!!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (28062:85) うなれッ！真空の斧よ!!
+     | Change all orbs to Wood, Heal, and Jammer, Deal 85% damage

@@ -1,0 +1,43 @@
+#100006 - Alt. Plesiel
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100006
+approved: False
+
+level: 4
+ group:
+ | group:
+ | condition: turn 1
+   | (10371:92) Cold Breath
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (10371:92) Cold Breath
+   | Spawn 3 random Water orbs, Deal 100% damage
+   | (10372:89) Expelling Hydrogen
+   | Delay active skills by 0~2 turns, Deal 95% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10371:92) Cold Breath
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10373:74) Wave Protection
+   | Reduce damage from all sources by 50% for 5 turns
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10371:92) Cold Breath
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10374:17) Waking from the Abyss
+   | Increase damage to 300% for the next 99 turns
+ | group:
+   | (10375:15) Blizzard Breath
+   | Deal 140% damage (2 hits, 70% each)

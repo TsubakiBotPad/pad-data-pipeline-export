@@ -1,0 +1,48 @@
+#1371 - Crazed King of Purgatory, Beelzebub
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRandomSpawn(92:1394) -> You get no mercy!!
+Change all orbs to Poison, Deal 10% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESOrbChangeAttack(48:1396) -> Hell's Charge
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:1395) -> Ora ora ora oraah!!
+Deal 150% damage (5 hits, 30% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESRandomSpawn(92:1397) -> You're going down!!
+Change all orbs to Poison, Deal 10% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESPoisonChangeRandomAttack(64:1398) -> Infernal Drive
+Change 6 random orbs to Poison orbs, Deal 125% damage

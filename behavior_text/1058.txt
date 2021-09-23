@@ -1,0 +1,31 @@
+#1058 - Deathstroke + B. Staff
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1058
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (823:5) Silent Approach
+ | Blind all orbs on the board
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (825:48) Precision Strike
+   | Change a random attribute to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 70% chance
+     | (824:15) Promethium Sword
+     | Deal 160% damage (4 hits, 40% each)
+     | (825:48) Precision Strike
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 70% chance
+     | (824:15) Promethium Sword
+     | Deal 160% damage (4 hits, 40% each)

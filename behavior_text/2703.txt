@@ -1,0 +1,46 @@
+#2703 - Squad 6 Captain, Byakuya Kuchiki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2703
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2804:83) This is the true form of Senbonzakura. + Senkei... Senbonzakura Kageyoshi.
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (2793:83) Then feast your eyes... + Senbonzakura Kageyoshi
+ | Voids status ailments for 999 turns + Deal 110% damage (10 hits, 11% each), Deal 110% damage (10 hits, 11% each)
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2794:77) Hado Number 33: Sokatsui
+     | Change the 3rd column to Water orbs and the 4th column to Fire orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (2795:15) Infinite blades attack
+     | Deal 110% damage (10 hits, 11% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | condition: when 2675, 2676, 2677, 3353, 3354 on team
+     | (2825:83) This is the true form of Senbonzakura. + Senkei Senbonzakura Kageyoshi + You are only the second to ever see it.
+     | Do nothing + Increase damage to 200% for the next 999 turns + Do nothing
+     | (2861:83) This is the true form of Senbonzakura. + Senkei Senbonzakura Kageyoshi
+     | Do nothing + Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 30% chance
+     | (2797:50) Hado Number 4: Byakurai
+     | Player -99% HP
+     | (2805:15) Slash
+     | Deal 110% damage
+ | group:
+ | condition: hp <= 14
+   | (2798:15) Senbonzakura Kageyoshi... Shukei Hakuteiken
+   | Deal 600% damage

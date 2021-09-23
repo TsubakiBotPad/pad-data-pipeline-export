@@ -1,0 +1,45 @@
+#404009 - Summer Bamboo Virtue, You Yu
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 404009
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18102:83) Overlapping Seasons + Devotion to Moderation
+ | Change board size to 7x6 for 1 turn + Reduce damage from all sources by 90% for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (18081:46) Blue Bamboo
+   | Change own attribute to Water, Deal 150% damage
+   | (18084:83) Coming of the Seasons + Noble One's Mastery
+   | Absorb damage when combos <= 7 for 999 turns + Increase damage to 1,000% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (18081:46) Blue Bamboo
+     | Change own attribute to Water, Deal 150% damage
+     | condition: 50% chance
+     | (18105:15) Season of Change
+     | Deal 110% damage (2 hits, 55% each)
+     | condition: 50% chance
+     | (18106:68) Season of Resentment
+     | Poison skyfall +20% for 1 turn, Deal 100% damage
+   | group:
+     | (18081:46) Blue Bamboo
+     | Change own attribute to Water, Deal 150% damage
+     | condition: 50% chance
+     | (18105:15) Season of Change
+     | Deal 110% damage (2 hits, 55% each)
+     | condition: 50% chance
+     | (18106:68) Season of Resentment
+     | Poison skyfall +20% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18081:46) Blue Bamboo
+   | Change own attribute to Water, Deal 150% damage
+   | (18085:67) Coming of the Seasons
+   | Absorb damage when combos <= 7 for 999 turns

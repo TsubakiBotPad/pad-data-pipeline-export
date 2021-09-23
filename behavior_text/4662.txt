@@ -1,0 +1,41 @@
+#4662 - 紅のドラゴンスラッガー・ソニア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4662
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10624:92) Let's guide them man to man.
+ | Spawn 6 random Poison orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (10628:108) I'll do it one way or another.
+   | Change all Poison orbs to Fire and Dark orbs, Deal 200% damage
+   | (10627:83) Alright, great! + Don't forget this sensation now.
+   | Spawn 6 random Heal orbs + Movetime 200% for 1 turn
+ | group:
+   | group:
+   | condition: turn 2 while HP > 49
+     | (10629:17) Dauntless Courage
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | (10630:94) Evasive Ball
+     | Lock 5 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 2
+     | (10631:84) Try saying that again!...
+     | Change all orbs to Fire and Dark, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (10629:17) Dauntless Courage
+     | Increase damage to 150% for the next 5 turns
+ | group:
+ | condition: hp <= 19
+   | (10632:15) Draco Summoning Throwing Law
+   | Deal 200% damage (4 hits, 50% each)

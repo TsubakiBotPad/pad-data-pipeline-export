@@ -1,0 +1,62 @@
+#102400 - Alt. Awoken Heimdallr
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 102400
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3456:72) 闇木半減
+ | Reduce damage from Wood and Dark attrs by 50%
+ type: PREEMPT
+ | (3448:53) Gjallarhorn Horn
+ | Absorb Dark damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | condition: when 376, 377, 656, 1348, 2396 on team
+     | (3455:2) I'll stop you
+     | Bind Dark cards for 1 turn
+     | condition: when 376, 377, 656, 1348, 2396 on team
+     | (3446:20) Guardian God's Five Senses
+     | Voids status ailments for 999 turns
+   | group:
+     | condition: 30% chance
+     | (3451:89) Headbutt
+     | Delay active skills by 1 turn, Deal 80% damage
+     | condition: 70% chance
+     | (3450:15) Horn Axe
+     | Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 69
+   | condition: when 376, 377, 656, 1348, 2396 on team
+   | (3446:20) Guardian God's Five Senses
+   | Voids status ailments for 999 turns
+   | condition: when 376, 377, 656, 1348, 2396 on team
+   | (3455:2) I'll stop you
+   | Bind Dark cards for 1 turn
+   | (3452:62) Not quite yet!!
+   | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | condition: when 376, 377, 656, 1348, 2396 on team
+     | (3446:20) Guardian God's Five Senses
+     | Voids status ailments for 999 turns
+     | condition: when 376, 377, 656, 1348, 2396 on team
+     | (3455:2) I'll stop you
+     | Bind Dark cards for 1 turn
+     | (3447:74) Shield of First Light
+     | Reduce damage from all sources by 50% for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (3453:77) Slam
+     | Change the 3rd column to Light orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (3449:15) Holy
+     | Deal 480% damage (4 hits, 120% each)

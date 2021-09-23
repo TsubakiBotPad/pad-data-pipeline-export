@@ -1,0 +1,181 @@
+  monster_id: 303595
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 19324
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          condition {
+            use_chance: 20
+          }
+          enemy_skill_id: 19325
+        }
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 25
+          }
+          enemy_skill_id: 19326
+        }
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 33
+          }
+          enemy_skill_id: 19327
+        }
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 50
+          }
+          enemy_skill_id: 19328
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 19329
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                trigger_turn_end: 4
+                always_trigger_above: 9
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 19337
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 19407
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 5
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 19338
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 19337
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 19407
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+            trigger_turn: 5
+            always_trigger_above: 9
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 20
+              }
+              enemy_skill_id: 19341
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 25
+              }
+              enemy_skill_id: 19342
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 33
+              }
+              enemy_skill_id: 19343
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 50
+              }
+              enemy_skill_id: 19344
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 19345
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 9
+          }
+          children {
+            behavior {
+              enemy_skill_id: 19346
+            }
+          }
+        }
+      }
+    }
+  }

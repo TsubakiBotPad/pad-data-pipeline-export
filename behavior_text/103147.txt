@@ -1,0 +1,76 @@
+#103147 - 知性・キン肉マンスーパー・フェニックス
+monster size: 5
+new AI: True
+start/max counter: 511
+counter increment: 0
+monster_id: 103147
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7942:83) Watch and learn! + Psycho Phoenix Wave
+ | Voids status ailments for 999 turns + Leader changes to random sub for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | condition: when 3124, 3125, 3850 on team
+     | (5455:83) Yo, Kinnikuman! + Face Flash
+     | Do nothing + Change a random attribute to Light orbs, Deal 100% damage
+   | group:
+     | condition: 20% chance
+     | (5452:48) Face Flash
+     | Change a random attribute to Light orbs, Deal 100% damage
+     | condition: 50% chance
+     | (5453:48) Face Flash
+     | Change a random attribute to Light orbs, Deal 100% damage
+     | (5454:48) Face Flash
+     | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: turn 1 while HP > 9
+     | (7944:71) God of Flight's Power
+     | Void damage >= 5,000,000 for 1 turn
+   | group:
+   | condition: turn 2 while HP > 9
+     | (5457:63) Phoenix Stretch
+     | Bind 3 random cards for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 3 while HP > 9
+     | (5458:67) God of Technique's Power
+     | Absorb damage when combos <= 6 for 1 turn
+   | group:
+   | condition: turn 4 while HP > 9
+     | (5459:79) Muscle Inferno
+     | Change the 3rd row to Fire orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 5 while HP > 9
+     | (5460:17) God of Brute Strength's Power
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: turn 6 while HP > 9
+     | (5461:89) Pendulum Backbreaker
+     | Delay active skills by 2 turns, Deal 80% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 7 while HP > 9
+     | (5462:54) God of Brutality's Power
+     | Bind both leaders for 1 turn
+   | group:
+   | condition: turn 8 while HP > 9
+     | (5463:14) Choujin Raging Ox Execution
+     | Bind active skills for 3 turns, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (5464:15) Muscle Revenger
+   | Deal 360% damage (6 hits, 60% each)
+ type: UNKNOWN_USE
+ | condition: at most 3 times
+ | (7943:71) God of Flight's Power
+ | Void damage >= 5,000,000 for 1 turn

@@ -1,0 +1,32 @@
+#3968 - Pixel Firedragon Tyrannos
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3968
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16297:67) Pixel Body
+ | Absorb damage when combos <= 7 for 5 turns
+ group:
+ | condition: 34% chance
+ | (16298:15) Claw Rush
+ | Deal 105% damage (3 hits, 35% each)
+ | condition: 33% chance
+ | (16299:92) Pixel Flame
+ | Spawn 10 random Fire orbs, Deal 100% damage
+ | condition: 33% chance
+ | (16300:103) Line Bomb
+ | Spawn Bomb orbs in the specified positions, Deal 95% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (16294:83) Pixel Power + Pixel Barrier
+   | Increase damage to 200% for the next 999 turns + Reduce damage from all sources by 75% for 10 turns
+ | group:
+ | condition: hp <= 10
+   | (16301:15) Pixel Rush
+   | Deal 500% damage (5 hits, 100% each)

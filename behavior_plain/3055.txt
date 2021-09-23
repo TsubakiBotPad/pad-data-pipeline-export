@@ -1,0 +1,115 @@
+#3055 - Clear River Mechanical Star God, Alrescha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESOrbLock(94:26123) -> The stars are really beautiful!
+	Lock all orbs
+	[1] ESSkyfallLocked(96:26124) -> Did you make a wish?
+	Locked random skyfall +100% for 7 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 7, target rnd 26
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#10: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESOrbLock(94:26135) -> Mechanical Star God's Wish
+	Lock all Fire, Water, and Wood orbs
+	[1] ESAttackMultihit(15:26130) -> Astrocharge - Aqua
+	Deal 120% damage (3 hits, 40% each)
+
+#11: SkillSet:
+	[0] ESOrbLock(94:26137) -> Mechanical Star God's Idea
+	Lock all Light and Dark orbs
+	[1] ESAttackMultihit(15:26130) -> Astrocharge - Aqua
+	Deal 120% damage (3 hits, 40% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	[0] ESDebuffMovetime(39:26127) -> Mechanical Flow Star of Pisces
+	Movetime 50% for 7 turns
+	[1] ESAttackUPRemainingEnemies(17:26110) -> Milky Way's Miracle
+	Increase damage to 150% for the next 999 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:26129) -> Mechanical Star God's Blessing
+	Spawn 10 random Water orbs
+	[1] ESAttackMultihit(15:26130) -> Astrocharge - Aqua
+	Deal 120% damage (3 hits, 40% each)
+
+#18: SkillSet:
+	[0] ESOrbLock(94:26132) -> Mechanical River Star of Pisces
+	Lock all Water orbs
+	[1] ESDebuffRCV(105:26133) -> Mechanical Water Star of Pisces
+	RCV 50% for 1 turn, Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: ESInactivity66(66:26103) -> They gaze at the stars
+Do nothing
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:26125) -> Cosmic Charge - Aqua
+Deal 2,100% damage (7 hits, 300% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	[0] ESNoSkyfall(127:26106) -> Sudden Change of Weather
+	No skyfall for 7 turns
+	[1] ESBlindStickySkyfall(128:26107) -> Tearful Rain of Sadness
+	For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttributeResist(72:26138) -> Wood Halved
+Reduce damage from Wood attrs by 50%
+
+#29: ESSuperResolve(129:26121) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

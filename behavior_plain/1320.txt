@@ -1,0 +1,69 @@
+#1320 - Forest Dragon War Princess, Saint Plan
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:2242) -> Let's do this, Brood!
+Voids status ailments for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESRowSpawnMulti(79:2253) -> Dance of the Dragon War Princess
+Condition: When < 30% HP (ai:100 rnd:0)
+Change the 1st row to Water orbs, the 3rd row to Wood orbs, and the 5th row to Water orbs, Deal 200% damage
+
+#8: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESAttackMultihit(15:2246) -> Hyaaa!
+	Deal 40~60% damage (2~3 hits, 20% each)
+	[1] ESColumnSpawnMulti(77:2247) -> Blizzard Breath
+	Change the 6th column to Water orbs, Deal 50% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:0 rnd:30) (cost: 1)
+	[0] ESRowSpawnMulti(79:2248) -> Heeeey!!
+	Change the 3rd row to Wood orbs, Deal 40% damage
+	[1] ESBindAttack(63:2249) -> Freeze Breath
+	Bind 1 random sub for 1~2 turns, Deal 40% damage
+
+#10: SkillSet:
+	Condition: 30% chance (ai:0 rnd:30)
+	[0] ESRowSpawnMulti(79:2248) -> Heeeey!!
+	Change the 3rd row to Wood orbs, Deal 40% damage
+	[1] ESColumnSpawnMulti(77:2247) -> Blizzard Breath
+	Change the 6th column to Water orbs, Deal 50% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESRecoverEnemy86(86:2251) -> Brood, are you ok?
+	Enemy recover 40% HP
+	[1] ESAttackUPRemainingEnemies(17:2252) -> Dragon Howling
+	Increase damage to 200% for the next 999 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:2254) -> プランパッシブ
+Reduce damage from Fire attrs by 50%

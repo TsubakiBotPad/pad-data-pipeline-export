@@ -1,0 +1,33 @@
+#101194 - Alt. Thunder Horn Master, Fuma Kotaro
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101194
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12105:118) Kotarou God Machine Halved
+ | Reduce damage from God and Machine types by 50%
+
+level: 4
+ type: PASSIVE
+ | (12105:118) Kotarou God Machine Halved
+ | Reduce damage from God and Machine types by 50%
+ type: PREEMPT
+ | (9233:83) Who?! + Ninja Flash: Thunderbind
+ | Bind awoken skills for 3 turns + Bind both leaders for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (9236:83) I won't let you do that! + Now is the time for endurance
+   | Voids status ailments for 2 turns + Reduce damage from all sources by 50% for 2 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (9237:17) The Purpose of Physical Training
+   | Increase damage to 500% for the next 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (9238:15) Thunderblade Dominance
+   | Deal 84% damage (4 hits, 21% each)

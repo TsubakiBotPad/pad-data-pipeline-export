@@ -1,0 +1,59 @@
+#103983 - Parademon Brawler (Film)
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103983
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8447:72) Halve Water
+ | Reduce damage from Water attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (8447:72) Halve Water
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (8442:74) Flight
+ | Reduce damage from all sources by 75% for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | (8443:50) Swooping Attack
+   | Player -80% HP
+ | group:
+ | condition: turns 2-4
+   | condition: 50% chance
+   | (8437:15) Swarm Tactics
+   | Deal 120% damage (2 hits, 60% each)
+   | (8438:15) Vicious Attack
+   | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: turn 5
+   | (8445:15) All-Out Attack
+   | Deal 195% damage (3 hits, 65% each)
+ | group:
+   | condition: 50% chance
+   | (8437:15) Swarm Tactics
+   | Deal 120% damage (2 hits, 60% each)
+   | (8438:15) Vicious Attack
+   | Deal 150% damage (5 hits, 30% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (8443:50) Swooping Attack
+   | Player -80% HP
+ | group:
+ | condition: turns 2-4
+   | condition: 50% chance
+   | (8437:15) Swarm Tactics
+   | Deal 120% damage (2 hits, 60% each)
+   | (8438:15) Vicious Attack
+   | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: turn 5
+   | (8444:17) Mindless Loyalty
+   | Increase damage to 300% for the next 999 turns

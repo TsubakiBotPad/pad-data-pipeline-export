@@ -1,0 +1,38 @@
+#6792 - Deishu Kaiki
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 6792
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21214:89) I see, very clever.
+ | Delay active skills by 0~3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21215:20) I don't want to be punched.
+     | Voids status ailments for 5 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | (21216:14) Nor do I want to be kicked.
+     | Bind active skills for 4 turns
+   | group:
+   | condition: turn 3 while HP > 49
+     | (21217:74) I dislike pain.
+     | Reduce damage from all sources by 50% for 3 turns, Deal 80% damage
+   | group:
+     | (21218:64) Here is a present for you; a bee.
+     | Change 3 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21219:88) An excellent lesson...
+     | Bind awoken skills for 1 turn
+   | group:
+     | (21220:15) Farewell.
+     | Deal 120% damage (2 hits, 60% each)

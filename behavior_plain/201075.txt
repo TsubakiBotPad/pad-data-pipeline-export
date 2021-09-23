@@ -1,0 +1,54 @@
+#201075 - Strawberry Dragon
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:697) -> ESPreemptive
+Enable preempt if level 3
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:4263) -> I leave you some strawberries
+Spawn 3 random Fire orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#9: ESOrbChangeAttack(48:4260) -> Clean when you're done!
+Change all Jammer orbs to Heal orbs, Deal 150% damage
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESRandomSpawn(92:4259) -> Let's eat one!
+Condition: When fire orbs are on the board (ai:100 rnd:0)
+Spawn 1 random Jammer orb, Deal 100% damage
+
+#12: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#13: ESBindAttack(63:4261) -> Food bitterness is scary right?
+Bind 6 random cards for 1 turn, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#16: ESDamageShield(74:4262) -> Strawberries are the best!!!
+Reduce damage from all sources by 75% for 1 turn

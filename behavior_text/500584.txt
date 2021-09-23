@@ -1,0 +1,25 @@
+#500584 - Wood Sage Treant
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500584
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15409:74) Treant Chief
+ | Reduce damage from all sources by 50% for 2 turns
+ group:
+ | (15410:13) Evil Tree's Falling Seeds
+ | Change 1 random orb type to Jammer orbs
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: execute repeatedly, turn 1 of 6
+   | (15408:17) Enraged Tree
+   | Increase damage to 200% for the next 5 turns
+ | group:
+ | condition: execute repeatedly, turn 2-6 of 6
+   | (15407:15) Forest Dance
+   | Deal 120% damage (4 hits, 30% each)

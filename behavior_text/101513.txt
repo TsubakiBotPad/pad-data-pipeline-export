@@ -1,0 +1,51 @@
+#101513 - Alt. Shrine Priestess, Kano
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 101513
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12128:74) Dance of the Shrine Maiden
+ | Reduce damage from all sources by 75% for 5 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turns 1-4
+     | (8536:66) Smiling joyfully
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 5
+     | (8536:66) Smiling joyfully
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (12128:74) Dance of the Shrine Maiden
+     | Reduce damage from all sources by 75% for 5 turns
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: always turn 1
+     | (8539:83) Awful! Now I'm mad! + Cheeks puffing up in anger
+     | Increase damage to 1,000% for the next 999 turns + Voids status ailments for 999 turns
+   | group:
+   | condition: always turn 2
+     | (8541:104) I'm hiding them, okay?
+     | A 2×2 square of clouds appears for 5 turns at a random location
+   | group:
+   | condition: always turn 3
+     | (12129:89) Ritual Chimes
+     | Delay active skills by 0~7 turns
+   | group:
+     | (8540:15) Ailanthus Umbrella
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 29
+   | condition: 40% chance
+   | (8543:85) Maple Leaf Revolt Dance
+   | Change all orbs to Fire and Wood, Deal 150% damage
+   | (8540:15) Ailanthus Umbrella
+   | Deal 100% damage (2 hits, 50% each)

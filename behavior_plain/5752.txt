@@ -1,0 +1,175 @@
+#5752 - Swift Striking Hero, Achilles
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSetCounter(25:15) -> ESSetCounter
+counter = 2
+
+#5: SkillSet:
+	[0] ESBoardChangeAttackBits(85:15589) -> Heyyy!
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 200% damage
+	[1] ESSkillDelay(89:15590) -> Hmm, not too bad...
+	Delay active skills by 10 turns
+	[2] ESStatusShield(20:15591) -> Immortal Body
+	Voids status ailments for 999 turns
+	[3] ESDamageShield(74:15592) -> Hero's Shield
+	Reduce damage from all sources by 75% for 5 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 31
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 29
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:15606) -> Rain of Colors
+	Spawn 2 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
+	[1] ESOrbLock(94:15607) -> Restraint Attack
+	Lock 15 random orbs, Deal 105% damage
+
+#12: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBlindStickyRandom(97:15609) -> Blind Out
+	Blind random 5~10 orbs for 2 turns
+	[1] ESSkillDelay(89:15610) -> Shield Blow
+	Delay active skills by 1~2 turns, Deal 100% damage
+
+#13: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESGravity(50:15612) -> Swift Strike
+	Player -25% HP
+	[1] ESAttackMultihit(15:15613) -> Wind Edge
+	Deal 100% damage (5 hits, 20% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 23
+
+#17: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 21
+
+#18: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 20
+
+#19: SkillSet:
+	[0] ESDebuffRCV(105:15594) -> Have you prepared yourself?
+	RCV 50% for 3 turns
+	[1] ESAbsorbCombo(67:15599) -> Follow my moves
+	Absorb damage when combos <= 6 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15596) -> I'm gonna beat you up!
+	Increase damage to 120% for the next 2 turns, Deal 100% damage
+
+#20: SkillSet:
+	[0] ESNoSkyfall(127:15598) -> Have you prepared yourself?
+	No skyfall for 3 turns
+	[1] ESAbsorbCombo(67:15603) -> Follow my moves
+	Absorb damage when combos <= 5 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15600) -> I'm gonna beat you up!
+	Increase damage to 150% for the next 2 turns, Deal 100% damage
+
+#21: SkillSet:
+	[0] ESDebuffMovetime(39:15602) -> Have you prepared yourself?
+	Movetime 50% for 3 turns
+	[1] ESAbsorbCombo(67:15624) -> Follow my moves
+	Absorb damage when combos <= 4 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15604) -> I'm gonna beat you up!
+	Increase damage to 200% for the next 2 turns, Deal 100% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 27
+
+#24: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 26
+
+#25: SkillSet:
+	[0] ESDebuffRCV(105:15594) -> Have you prepared yourself?
+	RCV 50% for 3 turns
+	[1] ESAbsorbCombo(67:15595) -> Follow my moves
+	Absorb damage when combos <= 7 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15596) -> I'm gonna beat you up!
+	Increase damage to 120% for the next 2 turns, Deal 100% damage
+
+#26: SkillSet:
+	[0] ESNoSkyfall(127:15598) -> Have you prepared yourself?
+	No skyfall for 3 turns
+	[1] ESAbsorbCombo(67:15599) -> Follow my moves
+	Absorb damage when combos <= 6 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15600) -> I'm gonna beat you up!
+	Increase damage to 150% for the next 2 turns, Deal 100% damage
+
+#27: SkillSet:
+	[0] ESDebuffMovetime(39:15602) -> Have you prepared yourself?
+	Movetime 50% for 3 turns
+	[1] ESAbsorbCombo(67:15603) -> Follow my moves
+	Absorb damage when combos <= 5 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15604) -> I'm gonna beat you up!
+	Increase damage to 200% for the next 2 turns, Deal 100% damage
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	[0] ESChangeAttribute(46:15615) -> The Wind's Direction Changed
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:15616) -> Destructive Function
+	Deal 1,000% damage (10 hits, 100% each)
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#32: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 34
+
+#33: SkillSet:
+	[0] ESRecoverEnemy86(86:15618) -> That worked!
+	Enemy recover 75% HP
+	[1] ESAbsorbCombo(67:15626) -> Are you ready?
+	Absorb damage when combos <= 6 for 999 turns
+	[2] ESAttackUPRemainingEnemies(17:15620) -> I'm going to give it my all!
+	Increase damage to 200% for the next 2 turns, Deal 100% damage
+
+#34: SkillSet:
+	[0] ESRecoverEnemy86(86:15618) -> That worked!
+	Enemy recover 75% HP
+	[1] ESAbsorbCombo(67:15619) -> Are you ready?
+	Absorb damage when combos <= 7 for 3 turns
+	[2] ESAttackUPRemainingEnemies(17:15620) -> I'm going to give it my all!
+	Increase damage to 200% for the next 2 turns, Deal 100% damage
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESResolve(73:15587) -> Resolve
+Survive attacks with 1 HP when HP > 50%

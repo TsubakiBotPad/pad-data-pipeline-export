@@ -1,0 +1,40 @@
+#1461 - Awoken Noah
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1461
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1224:55) Are you worth saving?
+ | Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (1218:50) Ark Impact
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (1219:63) Sacred Sacrifice
+     | Bind 1 random sub for 2 turns, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (1220:48) Rainbow Contract
+     | Change a random attribute to a random attribute, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (1221:48) Twinkle Hope
+     | Change a random attribute to Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1222:13) Ark Judgement
+     | Change 2 random orb types to Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1223:15) Punishment Thunder
+     | Deal 1,000% damage

@@ -1,0 +1,49 @@
+#6184 - White Swan, Yoh Asakura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:17649) -> Over Soul, White Swan
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire and Wood damage for 5 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 8
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 12
+
+#6: ESRowSpawnMulti(79:17651) -> Amida-ryu Halo Blade!!!!!
+Change the 1st row to Light orbs and the 5th row to Wood orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 5
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESVoidShield(71:17650) -> I'll take you on.
+Void damage >= 3,000,000 for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBindAwoken(88:17652) -> Mana Nullification
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 5 turns
+
+#13: ESBoardChangeAttackBits(85:17653) -> Amida-Style Na-Avidya
+Change all orbs to Wood and Light, Deal 150% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

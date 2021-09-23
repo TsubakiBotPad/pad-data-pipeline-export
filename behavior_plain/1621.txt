@@ -1,0 +1,92 @@
+#1621 - Flash Sorcerer, Rei Sirius
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffRCV(105:7461) -> Give me a hand, Baby Genie!
+	RCV 50% for 10 turns
+	[1] ESCloud(104:7462) -> You got it! Time to rub this lamp!
+	A column of clouds appears for 4 turns at 1st row, 3rd column
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESColumnSpawnMulti(77:7465) -> Light Spell!
+	Change the 1st column to Light orbs, Deal 100% damage
+	[1] ESGravity(50:7463) -> Genie Punch☆
+	Player -99% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: SkillSet:
+	[0] ESColumnSpawnMulti(77:7467) -> Light Spell!!
+	Change the 1st column to Light orbs, Deal 125% damage
+	[1] ESGravity(50:7463) -> Genie Punch☆
+	Player -99% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#16: SkillSet:
+	[0] ESColumnSpawnMulti(77:7469) -> Light Spell!!!
+	Change the 1st column to Light orbs, Deal 150% damage
+	[1] ESGravity(50:7463) -> Genie Punch☆
+	Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#20: SkillSet:
+	[0] ESColumnSpawnMulti(77:7471) -> Light Spell!!!!
+	Change the 1st column to Light orbs, Deal 175% damage
+	[1] ESGravity(50:7463) -> Genie Punch☆
+	Player -99% HP
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11110
+
+#23: SkillSet:
+	[0] ESColumnSpawnMulti(77:7473) -> The grand finale! Light Spell!!!!!
+	Change the 1st column to Light orbs, Deal 200% damage
+	[1] ESCloud(104:7474) -> We need more smoke!
+	A column of clouds appears for 4 turns at 1st row, 3rd column

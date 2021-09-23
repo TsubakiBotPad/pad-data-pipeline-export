@@ -1,0 +1,83 @@
+#6341 - Trapthorn Dragon, Zelenbus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:18161) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Zelenbus emerged from its shell
+and revealed its true form!
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:18152) -> Hard Shell
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESSpinnersFixed(110:18153) -> Mischievous Vines
+	Specific orbs change every 1.0s for 10 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESSkillDelay(89:18158) -> Acidic Sap
+Condition: 50% chance (ai:0 rnd:50)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#8: ESAttackMultihit(15:18159) -> Vine Thorn Whip
+Condition: 50% chance (ai:0 rnd:50)
+Deal 112% damage (4 hits, 28% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESRecoverEnemy86(86:18155) -> Healing Nectar
+Enemy recover 50% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBindAwoken(88:18156) -> Power-Dissolving Fluids
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 5 turns
+
+#15: ESAttackMultihit(15:18160) -> Thorn Whip Assault
+Deal 600% damage (6 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESRecoverEnemy86(86:18155) -> Healing Nectar
+	Enemy recover 50% HP
+	[1] ESBindAwoken(88:18156) -> Power-Dissolving Fluids
+	Bind awoken skills for 5 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:18150) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#22: ESTurnChangePassive(106:18149) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 50%

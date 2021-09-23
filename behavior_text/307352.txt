@@ -1,0 +1,26 @@
+#307352 - Eccentric Daffodil Darkfairy, Narcis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 307352
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24228:83) I am a paragon of beauty! + I'm overcome by my own beauty...
+ | Bind awoken skills for 3 turns + A 2×2 square of clouds appears for 3 turns at a random location
+ group:
+ | group:
+   | (24232:108) Beauty is a sin.
+   | Change all Poison orbs to Water and Light orbs, Deal 120% damage
+   | (24231:64) Beautiful things are always poisonous.
+   | Change 5 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24233:83) How dare you mar my beautiful face! + I won't forgive you!
+   | Reduce damage from all sources by 50% for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (24236:104) Narcissus Mirage
+   | A row of clouds appears for 1 turn at a random location, Deal 200% damage

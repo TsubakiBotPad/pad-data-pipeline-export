@@ -1,0 +1,28 @@
+#106320 - トゥワイス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106320
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18421:83) How sad... + I'm getting pumped!
+ | RCV 50% for 5 turns + Deal 80% damage, Deal 80% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (18422:62) I'm just doing what I want.
+   | Blind all orbs on the board, Deal 80% damage
+   | (18425:15) I'll destroy anyone I don't like.
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18426:83) I'll never forgive you! + It's a pleasure to meet you.
+     | Increase damage to 150% for the next 5 turns + Voids status ailments for 999 turns
+   | group:
+     | (18429:92) I'll kill you.
+     | Spawn 3 random Wood and Dark orbs, Deal 80% damage

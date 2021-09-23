@@ -1,0 +1,37 @@
+#1836 - Medjedra
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1836
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5481:94) Medjetic Eye
+ | Lock all Poison and Mortal Poison orbs
+ | (5482:88) Medjetic Eye
+ | Bind awoken skills for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5486:94) Medje Kick
+     | Lock 1 random orb, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5487:89) Medje Tackle
+     | Delay active skills by 1 turn, Deal 80% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (5484:75) Medjellusion
+   | Leader changes to random sub for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 2
+     | (5483:14) Maga Maga
+     | Bind active skills for 5 turns
+   | group:
+     | (5485:15) Medje The End
+     | Deal 240% damage (3 hits, 80% each)

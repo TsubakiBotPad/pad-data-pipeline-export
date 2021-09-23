@@ -1,0 +1,37 @@
+#202622 - スネイク・ヘッズ副頭・陣内公平
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 202622
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2689:83) もういい… + 最後はオレがきっちりカタをつける
+ | Do nothing + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2617, 2618 on team
+     | (2687:92) 久しぶりだなパルコ
+     | Spawn 8 random Wood orbs
+     | (2675:89) おまえらとりあえずワビを入れろや
+     | Delay active skills by 2~5 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | (2676:79) ここに頭をこすりつけてな！
+     | Change the 5th row to Poison orbs, Deal 100% damage
+   | group:
+     | (2677:48) あんまり調子にのんなよてめー
+     | Change all Heal orbs to Fire orbs, Deal 100% damage
+     | (2678:92) あんまり調子にのんなよてめー
+     | Spawn 6 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: when 2617, 2618 on team
+   | (2687:92) 久しぶりだなパルコ
+   | Spawn 8 random Wood orbs
+   | (2681:83) タイマンか それとも全員でふくろか… + 今日のオレはそう簡単にくたばんねーぞ
+   | Increase damage to 200% for the next 99 turns + Reduce damage from all sources by 50% for 1 turn

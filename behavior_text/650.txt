@@ -1,0 +1,42 @@
+#650 - Zeus-Dios
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 650
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (325:47) Heavenly Awakening
+ | Deal 75% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (90:20) Protection of the Gods
+   | Voids status ailments for 999 turns
+ | group:
+ | condition: hp <= 69
+   | condition: 75% chance
+   | (326:15) Dios Blade
+   | Deal 120~180% damage (4~6 hits, 30% each)
+ | group:
+ | condition: turn 2 while HP > 29, hp <= 49
+   | (328:3) Glare of Zeus
+   | Bind God cards for 2~4 turns
+   | condition: 75% chance
+   | (326:15) Dios Blade
+   | Deal 120~180% damage (4~6 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (328:3) Glare of Zeus
+     | Bind God cards for 2~4 turns
+   | group:
+     | condition: 75% chance
+     | (327:15) Jupiter Genesis
+     | Deal 200% damage
+     | condition: 75% chance
+     | (326:15) Dios Blade
+     | Deal 120~180% damage (4~6 hits, 30% each)

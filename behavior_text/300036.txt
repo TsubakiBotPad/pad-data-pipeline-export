@@ -1,0 +1,22 @@
+#300036 - Alt. Flamie
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300036
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19206:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19207:92) Orb Transformation - Fire
+ | Spawn 6 random Fire orbs
+ group:
+ | (19208:48) flamie pulse
+ | Change a random attribute to Fire orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (19409:17) Wave of Carnage
+ | Increase damage to 700% for the next 999 turns

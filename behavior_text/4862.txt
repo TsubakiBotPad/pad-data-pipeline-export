@@ -1,0 +1,30 @@
+#4862 - Speed Holic, Leafa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4862
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11474:83) Prepare for battle! + I might not look like it, but I know a lot about this game.
+ | Absorb damage when combos <= 5 for 5 turns + Wood skyfall +20% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11477:83) We can win this! + Haa!
+     | Change a random attribute to Wood orbs + Deal 50% damage, Deal 40% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (11480:83) Next time you're going down. + Errgh Yaa!
+     | Change the 3rd column to Wood and Light orbs + Deal 60% damage, Deal 50% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (11483:92) Oh no... Now what?
+   | Spawn 8 random Poison orbs
+ | group:
+ | condition: turn 2, hp <= 29
+   | (11484:17) I'll cut you in half.
+   | Increase damage to 150% for the next 99 turns

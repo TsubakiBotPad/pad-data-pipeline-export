@@ -1,0 +1,31 @@
+#501096 - Wind Twin Star Fafnir
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 501096
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21091:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20521:67) GRAAAAAARGH!
+ | Absorb damage when combos <= 6 for 3 turns
+ group:
+ | group:
+   | (20522:15) Dragon Star
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20525:83) Hardened Body + Thunderous Roar
+     | Reduce damage from all sources by 75% for 3 turns + No skyfall for 5 turns
+   | group:
+     | condition: 50% chance
+     | (20526:77) Twin Wind Breath
+     | Change the 1st and 6th columns to Wood orbs, Deal 110% damage
+     | (20522:15) Dragon Star
+     | Deal 100% damage (2 hits, 50% each)

@@ -1,0 +1,29 @@
+#2405 - Master Candy Collector, Wicked Lady
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2405
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3381:5) Halloween World
+ | Blind all orbs on the board
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 788, 790, 792, 794 on team
+     | (3385:55) Hello! Want some candy?
+     | Player recover 100% HP
+   | group:
+     | (3383:15) Candle Nail
+     | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: when 788, 790, 792, 794 on team
+   | (3385:55) Hello! Want some candy?
+   | Player recover 100% HP
+   | (3382:65) Pumpkin Charm
+   | Bind 3 random subs for 1~2 turns

@@ -1,0 +1,54 @@
+#206582 - Diamond REMDra (10 Pulls)
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206582
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22241:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22242:75) Egg Ma-change
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | condition: 33% chance
+   | (22455:83) Ka-Chak... + Whirl-Pull
+   | Spawn 1 random Heal orb + Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (22458:83) Ka-Chak... + Krick-Crack
+   | Spawn 2 random Heal orbs + Unable to match Heal orbs for 1 turn, Deal 95% damage
+   | condition: 34% chance
+   | (22461:83) Ka-Chak... + Egg Ma-change
+   | Spawn 3 random Heal orbs + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (22261:83) Egg Machine Dragon Barrier + Egg Machine Fever + Egg Ma-CHARGE
+     | Voids status ailments for 999 turns + Reduce damage from all sources by 99% for 999 turns + Deal 129% damage (3 hits, 43% each), Deal 129% damage (3 hits, 43% each)
+   | group:
+   | condition: turns 2-14 while HP > 14
+     | condition: 33% chance
+     | (22455:83) Ka-Chak... + Whirl-Pull
+     | Spawn 1 random Heal orb + Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+     | condition: 33% chance
+     | (22458:83) Ka-Chak... + Krick-Crack
+     | Spawn 2 random Heal orbs + Unable to match Heal orbs for 1 turn, Deal 95% damage
+     | condition: 34% chance
+     | (22461:83) Ka-Chak... + Egg Ma-change
+     | Spawn 3 random Heal orbs + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 105% damage
+   | group:
+     | (22200:83) Transformation of Carnage + Bloody Carnage
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 14
+   | (22264:83) Ka-Chak... + Pop! Pop! Pop! Pop!
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)
+ type: UNKNOWN_USE
+ | (22249:83) Diamond REM Wall + Egg Ma-change
+ | Void damage >= 100,000,000 for 999 turns + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 150% damage

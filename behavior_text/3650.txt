@@ -1,0 +1,59 @@
+#3650 - Cooking Club's Ace Chef, Hathor
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 3650
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13122:83) I'm done! + I'll put it in the lunch box
+ | Delay active skills by 5 turns + Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (13125:48) I'll remake this one
+     | Change all Poison orbs to Heal orbs, Deal 500% damage
+     | (13126:48) It's all burned...
+     | Change all Jammer orbs to Poison orbs, Deal 75% damage
+     | (13127:74) I'm not done cooking yet♪
+     | Reduce damage from all sources by 75% for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (13125:48) I'll remake this one
+     | Change all Poison orbs to Heal orbs, Deal 500% damage
+     | (13126:48) It's all burned...
+     | Change all Jammer orbs to Poison orbs, Deal 75% damage
+     | condition: 20% chance
+     | (13128:68) Here come the octopus shaped wieners♪
+     | Fire skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (13129:68) Don't forget to clean the ingredients
+     | Water skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (13130:68) Eat your veggies!
+     | Wood skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (13131:68) There are a lot of rolled eggs
+     | Light skyfall +15% for 10 turns, Deal 150% damage
+     | condition: 20% chance
+     | (13132:68) A lil' bit burnt, but is it any good?
+     | Dark skyfall +15% for 10 turns, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (13125:48) I'll remake this one
+     | Change all Poison orbs to Heal orbs, Deal 500% damage
+     | (13126:48) It's all burned...
+     | Change all Jammer orbs to Poison orbs, Deal 75% damage
+     | (13133:83) I'm done! + I cooked too much!
+     | Delay active skills by 5 turns + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 150% damage
+ | group:
+ | condition: hp <= 29
+   | (13125:48) I'll remake this one
+   | Change all Poison orbs to Heal orbs, Deal 500% damage
+   | (13126:48) It's all burned...
+   | Change all Jammer orbs to Poison orbs, Deal 75% damage
+   | (13133:83) I'm done! + I cooked too much!
+   | Delay active skills by 5 turns + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 150% damage

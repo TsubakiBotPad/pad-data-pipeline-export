@@ -1,0 +1,33 @@
+#102762 - Purple Plum Virtue, Xin Hua
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 102762
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8783:84) Beautiful Plum Blossoms
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+ group:
+ | group:
+   | condition: 25% chance
+   | (8784:77) Dark Art of Calligraphy
+   | Change the 6th column to Dark orbs, Deal 100% damage
+   | condition: 25% chance
+   | (8785:94) Plum Scent's Allure
+   | Lock 6 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (8786:15) Black Branch Onslaught
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8787:84) Colorful Requiem's Malodor
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8788:15) Black Branch Onslaught - 10,000 Buds
+     | Deal 200% damage (5 hits, 40% each)

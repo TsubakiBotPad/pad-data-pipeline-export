@@ -1,0 +1,26 @@
+#105361 - Little White Note
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackUPRemainingEnemies(17:13462) -> Musician's Bonds
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#4: ESOrbLock(94:13458) -> Resonating Sound
+Condition: 50% chance (ai:0 rnd:50)
+Lock 7 random orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:13459) -> Fluttering Drum
+Condition: 50% chance (ai:0 rnd:50)
+Deal 104% damage (2 hits, 52% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

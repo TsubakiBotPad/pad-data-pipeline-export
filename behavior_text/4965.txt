@@ -1,0 +1,47 @@
+#4965 - フユニャン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4965
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11964:88) ガッツで乗り越えてみせろ！
+ | Bind awoken skills for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (11965:15) ガッツ！！
+   | Deal 110% damage (2 hits, 55% each)
+   | condition: 50% chance
+   | (11966:48) そこは飲み込んでくれ！
+   | Change a random attribute to Wood orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (11967:86) ガッツをチャージしないとな…！
+     | Enemy recover 30% HP
+   | group:
+     | condition: 25% chance
+     | (11968:77) ど根性…　左肉球！
+     | Change the 1st column to Water orbs, Deal 100% damage
+     | condition: 25% chance
+     | (11969:77) ど根性…　右肉球！
+     | Change the 6th column to Dark orbs, Deal 100% damage
+     | condition: 25% chance
+     | (11965:15) ガッツ！！
+     | Deal 110% damage (2 hits, 55% each)
+     | condition: 25% chance
+     | (11966:48) そこは飲み込んでくれ！
+     | Change a random attribute to Wood orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | (11971:15) ど根性ストレート肉球
+   | Deal 105% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 19
+ | (11970:17) 世界はトモダチ！　全部守るぜ！
+ | Increase damage to 150% for the next 3 turns

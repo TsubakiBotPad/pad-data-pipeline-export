@@ -1,0 +1,32 @@
+#502756 - Crimson Orchid Virtue, Xiang Mei
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:21078) -> Crimson Orchid's Time
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESAttributeBlock(107:21079) -> Season of Decay
+	Unable to match Heal orbs for 1 turn
+	[2] ESSkyfall(68:21080) -> Let me see you suffer.
+	Poison skyfall +10% for 5 turns
+
+#3: ESOrbChangeAttackBits(108:21081) -> Love of Fair Crimson
+Condition: 33% chance (ai:0 rnd:33)
+Change all Heal orbs to Fire orbs, Deal 20% damage
+
+#4: ESRandomSpawn(92:21082) -> Flame Bloom
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Fire orbs, Deal 95% damage
+
+#5: ESAttackMultihit(15:21083) -> Crimson Wing Dance
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (4 hits, 30% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

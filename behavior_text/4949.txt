@@ -1,0 +1,33 @@
+#4949 - ジバニャン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4949
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16467:68) だるいニャ～ン…
+ | Jammer skyfall +15% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (16470:1) しびれるお札
+     | Bind 1 random card for 3 turns
+   | group:
+     | condition: 50% chance
+     | (16469:92) 火花の術
+     | Spawn 3 random Fire orbs, Deal 80% damage
+     | (16472:15) ニャッ！
+     | Deal 90% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (16473:94) ニャーン！
+     | Lock 6 random orbs
+   | group:
+     | (16471:15) ひゃくれつ肉球
+     | Deal 110% damage (10 hits, 11% each)

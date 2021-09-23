@@ -1,0 +1,84 @@
+#5766 - Kamen Rider Zero-One Shining Hopper
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffRCV(105:20901) -> Zero-One.
+	RCV 25% for 3 turns
+	[1] ESDebuffMovetime(39:20902) -> That's my name!
+	Movetime -4s for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESDamageShield(74:20903) -> Authorize Buster
+Reduce damage from all sources by 50% for 5 turns
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESRandomSpawn(92:20906) -> Zero-One Dust
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Light and Jammer orbs, Deal 90% damage
+
+#10: ESRandomSpawn(92:20908) -> Progrise Dust
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Dark and Jammer orbs, Deal 80% damage
+
+#11: ESBombRandomSpawn(102:20910) -> Zero-One Bomber
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Bomb orbs, Deal 90% damage
+
+#12: ESBombFixedSpawn(103:20912) -> Progrise Bomber
+Condition: 25% chance (ai:0 rnd:25)
+Spawn Bomb orbs in the specified positions, Deal 80% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:20904) -> There's only one person who can rise above me.
+	Increase damage to 150% for the next 5 turns
+	[1] ESSpinnersRandom(109:20905) -> Me!
+	Random 3 orbs change every 1.0s for 5 turns
+
+#15: ESRandomSpawn(92:20907) -> Zero-One Buster Dust
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 4 random Light and Jammer orbs, Deal 100% damage
+
+#16: ESRandomSpawn(92:20909) -> Progrise Buster Dust
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 4 random Dark and Jammer orbs, Deal 95% damage
+
+#17: ESBombRandomSpawn(102:20911) -> Zero-One Buster Bomber
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 5 random Bomb orbs, Deal 100% damage
+
+#18: ESBombFixedSpawn(103:20913) -> Progrise Buster Bomber
+Condition: 25% chance (ai:0 rnd:25)
+Spawn Bomb orbs in the specified positions, Deal 95% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBoardChangeAttackBits(85:20914) -> Shining Impact
+Change all orbs to Light and Jammer, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

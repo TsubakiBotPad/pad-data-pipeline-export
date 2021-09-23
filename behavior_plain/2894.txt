@@ -1,0 +1,95 @@
+#2894 - Loyal Demon Prince, Cauchemar
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:10984) -> Cauchemar Zone
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:10985) -> Cauchemar Liberation
+	Absorb damage when combos <= 6 for 999 turns
+	[2] ESSpinnersFixed(110:10986) -> Cauchemar Despair
+	Specific orbs change every 1.0s for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#8: ESOrbChangeAttack(48:10998) -> Cauchemar Infinity
+Change all Jammer orbs to Wood orbs, Deal 240% damage
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 14
+
+#10: ESRandomSpawn(92:10987) -> Cauchemar Fragment
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 2 random Jammer and Poison orbs, Deal 100% damage
+
+#11: ESOrbChangeAttack(48:10988) -> Cauchemar Tempest
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#12: ESAttackMultihit(15:10989) -> Cauchemar Impact
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: SkillSet:
+	[0] ESSpinnersRandom(109:10991) -> Cauchemar Despair
+	Random 4 orbs change every 1.5s for 4 turns
+	[1] ESRowSpawnMulti(79:10992) -> Cauchemar Catastrophe
+	Change the 1st, 3rd, and 5th rows to Jammer orbs, Deal 110% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 22
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#20: SkillSet:
+	[0] ESBindRandomSub(65:10994) -> Cauchemar Mind
+	Bind 3 random subs for 4 turns
+	[1] ESDebuffMovetime(39:10995) -> Astaroth's Murmurs
+	Movetime 50% for 5 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersRandom(109:10991) -> Cauchemar Despair
+	Random 4 orbs change every 1.5s for 4 turns
+	[1] ESBlind5(5:10997) -> Astaroth's Judgment
+	Blind all orbs on the board
+
+#23: ESBoardChangeAttackBits(85:10999) -> Cauchemar Destruction
+Change all orbs to Jammer, Deal 500% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

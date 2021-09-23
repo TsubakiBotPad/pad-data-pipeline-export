@@ -1,0 +1,37 @@
+#7525 - 禪院真依
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7525
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (26582:83) There are many ways... + ...to enjoy this, right?
+ | Do nothing + Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (26585:15) What are you smiling about?!
+   | Deal 100% damage
+   | condition: 50% chance
+   | (26586:68) Tsk!
+   | Jammer skyfall +15% for 1 turn, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (26587:83) So what... + ...if you hide out of sight?
+   | Spawn 4 random Poison orbs + Deal 100% damage, Deal 100% damage
+   | condition: 50% chance
+   | (26590:83) Are you an idiot... + ...trying to gain distance from me?
+   | Spawn 3 random Fire orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26593:83) Construction Jujutsu Technique + I win.
+     | Spawn 5 random Fire and Wood orbs + Lock all Fire and Wood orbs
+   | group:
+     | (26596:15) I hate you!
+     | Deal 300% damage

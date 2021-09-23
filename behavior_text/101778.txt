@@ -1,0 +1,34 @@
+#101778 - Alt. Gold Bowl Demon, Chickenbowl
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 101778
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8898:108) Pecking
+ | Change all Jammer orbs to Light orbs, Deal 70% damage
+ | (8899:92) Pecking
+ | Spawn 6 random Light orbs, Deal 50% damage
+ group:
+ | group:
+   | (8898:108) Pecking
+   | Change all Jammer orbs to Light orbs, Deal 70% damage
+   | (1755:48) Chicken Smash
+   | Change all Light orbs to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8898:108) Pecking
+     | Change all Jammer orbs to Light orbs, Deal 70% damage
+     | (1757:15) Taste Stinger
+     | Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8898:108) Pecking
+     | Change all Jammer orbs to Light orbs, Deal 70% damage
+     | (1758:7) Munching Time
+     | Enemy recover 50% HP

@@ -1,0 +1,43 @@
+#205995 - Green Clablin
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205995
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (16984:94) Chain Lock
+ | Lock 6 random orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (16986:39) Reverse Time
+     | Movetime -2s for 4 turns
+   | group:
+     | condition: 50% chance
+     | (16985:104) Gusty Cloud
+     | A 1×7 rectangle of clouds appears for 1 turn at a random location, Deal 95% damage
+     | (16987:79) Wind Edge
+     | Change the 2nd row to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (16989:62) Black Cyclone
+   | Blind all orbs on the board, Deal 140% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+   | (17013:52) Revive
+   | Enemy ally recover 50% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16988:17) Chanting a magic spell...
+     | Increase damage to 300% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16989:62) Black Cyclone
+     | Blind all orbs on the board, Deal 140% damage

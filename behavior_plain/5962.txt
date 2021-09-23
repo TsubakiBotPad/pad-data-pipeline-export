@@ -1,0 +1,113 @@
+#5962 - Archangel of Knowledge, Raziel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:17041) -> Secret Domain
+	Absorb damage when combos <= 18 for 999 turns
+	[1] ESSkyfall(68:17042) -> Supreme Mystery
+	Heal skyfall +5% for 4 turns
+	[2] ESBoardChange(84:17043) -> The Watcher Over All
+	Change all orbs to Wood, Light, Dark, and Heal
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 25
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 13
+
+#9: ESAttackMultihit(15:17046) -> Void of Eternity
+Condition: 33% chance (ai:0 rnd:33)
+Deal 140% damage (10 hits, 14% each)
+
+#10: ESAbsorbCombo(67:17049) -> Secret Domain
+Condition: 33% chance (ai:0 rnd:33)
+Absorb damage when combos <= 16 for 999 turns
+
+#11: ESVoidShield(71:17052) -> Mystic Wings
+Condition: 34% chance (ai:0 rnd:34)
+Void damage >= 15,000,000 for 999 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESTypeResist(118:17064) -> God & Devil Halved
+Reduce damage from God and Devil types by 50%
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: SkillSet:
+	[0] ESAttackMultihit(15:17059) -> Sword of Justice
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESColumnSpawnMulti(77:17058) -> Meddling Judgment
+	Change the 4th column to Water and Jammer orbs, Deal 55% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#23: ESAttackMultihit(15:17059) -> Sword of Justice
+Deal 60% damage (3 hits, 20% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 13
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 30
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#28: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESJammerChangeRandom(13:17061) -> Vanishing Protection
+	Change 2 random orb types to Jammer orbs
+	[1] ESAttackUPRemainingEnemies(17:17062) -> Eternal Radiance
+	Increase damage to 150% for the next 999 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESAttackMultihit(15:17063) -> End of Days
+Deal 600% damage (6 hits, 100% each)
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn

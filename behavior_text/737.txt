@@ -1,0 +1,31 @@
+#737 - Scarlet Stone Dragon, Vermilionyt
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 737
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (406:20) Mystic Armor
+ | Voids status ailments for 20 turns
+ group:
+ | group:
+   | condition: 70% chance
+   | (408:15) Red Tail
+   | Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (377:2) Dark Bind
+     | Bind Dark cards for 2~4 turns
+   | group:
+     | condition: 70% chance
+     | (411:15) Yellow Horn
+     | Deal 175% damage
+ | group:
+ | condition: hp <= 9
+   | (413:15) Metal Burst
+   | Deal 250% damage (5 hits, 50% each)

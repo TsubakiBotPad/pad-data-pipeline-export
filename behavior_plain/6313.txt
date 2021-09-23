@@ -1,0 +1,58 @@
+#6313 - 死柄木弔
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlind5(5:18386) -> I've been waiting...Hero.
+	Blind all orbs on the board
+	[1] ESJammerChangeRandom(13:18387) -> You're the scum of society!
+	Change 1 random orb type to Jammer orbs
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESAttackMultihit(15:18388) -> Piss off...
+Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESBindAwoken(88:18389) -> Quirk: Decay
+Bind awoken skills for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlindStickyRandom(97:18391) -> Don't mess with me...
+	Blind random 2~3 orbs for 3 turns
+	[1] ESAbsorbCombo(67:18392) -> I'm just getting started!
+	Absorb damage when combos <= 5 for 3 turns
+
+#14: ESAttackMultihit(15:18393) -> Turn to dust!
+Deal 120% damage (2 hits, 60% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

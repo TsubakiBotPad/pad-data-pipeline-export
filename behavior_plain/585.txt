@@ -1,0 +1,22 @@
+#585 - Pixie
+monster size: 1
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESOrbChangeAttack(48:599) -> Fairies' Mischief
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Jammer orbs, Deal 80% damage
+
+#5: ESBindRandom(1:598) -> Charm of Sleep
+Condition: When < 25% HP (ai:100 rnd:0)
+Bind 2 random cards for 2 turns

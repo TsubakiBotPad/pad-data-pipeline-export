@@ -1,0 +1,47 @@
+#4077 - Scion of the Flame, Kyo Kusanagi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4077
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 4094, 4095 on team
+ | (8610:68) Shall we fight, Benimaru?
+ | Jammer skyfall +15% for 3 turns
+ | condition: when 4091, 4092, 4093 on team
+ | (8609:68) The flames are calling you!
+ | Jammer skyfall +15% for 3 turns
+ | (8608:68) Let's go!
+ | Jammer skyfall +15% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | condition: 33% chance
+     | (8617:83) 114 Shiki: Aragami + 128 Shiki: Konokizu
+     | Change the 2nd row to Fire orbs + Change the 4th column to Fire orbs, Deal 30% damage
+     | condition: 50% chance
+     | (8618:83) 114 Shiki: Aragami + 127 Shiki: Yanosabi
+     | Change the 2nd row to Fire orbs + Change the 3rd row to Fire orbs, Deal 30% damage
+     | (8619:83) 114 Shiki: Aragami + 125 Shiki: Nanase
+     | Change the 2nd row to Fire orbs + Deal 60% damage, Deal 30% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (8620:15) R.E.D. Kick
+     | Deal 60% damage
+     | (8621:15) 75 Shiki: Kai
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8622:17) Haaaa...
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8623:79) Ura 108 Shiki: Orochinagi
+     | Change the 2nd row to Fire orbs, the 3rd row to Fire orbs, and the 4th row to Fire orbs, Deal 100% damage

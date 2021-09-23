@@ -1,0 +1,63 @@
+#2430 - Water Dog Dragon, Tosabowdra
+monster size: 4
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindRandom(1:3464) -> Evil Eye
+Bind 1 random card for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:3430) -> Battle Soul
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#10: ESAttackMultihit(15:3431) -> Fierce Charge
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 300% damage (3 hits, 100% each)
+
+#11: ESAttackMultihit(15:3434) -> Paw Shake
+Condition: One-time use (ai:50 rnd:0) (cost: 2)
+Deal 70% damage
+
+#12: ESRandomSpawn(92:3465) -> Cold Horn
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 4 random Water orbs, Deal 100% damage
+
+#13: ESAttackMultihit(15:3435) -> Other Hand
+Deal 140% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESSkillDelay(89:3433) -> Big Howl
+Delay active skills by 1~2 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

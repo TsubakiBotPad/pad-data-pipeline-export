@@ -1,0 +1,43 @@
+#203244 - Alt. Steel Dragon Emperor, Ninegaruda
+monster size: 5
+new AI: True
+start/max counter: 8
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:26090) -> Ninth Code
+	Voids status ailments for 9 turns
+	[1] ESDamageShield(74:26091) -> Hellblaze Shield
+	Reduce damage from all sources by 90% for 9 turns
+	[2] ESVoidShield(71:26094) -> Reflex Neun
+	Void damage >= 90,000,000 for 9 turns
+	[3] ESAttackMultihit(15:26093) -> Steel Tornado
+	Deal 2,070% damage (9 hits, 230% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:26096) -> Corroded Iron Ingots
+	Spawn 3 random Jammer and Poison orbs
+	[1] ESAttackMultihit(15:26093) -> Steel Tornado
+	Deal 2,070% damage (9 hits, 230% each)
+
+#7: SkillSet:
+	[0] ESBindAwoken(88:26098) -> Pyrotechnics
+	Bind awoken skills for 9 turns
+	[1] ESAttackMultihit(15:26099) -> Suppressed Madness
+	Deal 13,500% damage (9 hits, 1,500% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

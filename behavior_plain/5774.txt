@@ -1,0 +1,29 @@
+#5774 - Holy Light Flame Angel, Uriel
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSkyfall(68:21399) -> The star!!
+	Light skyfall +15% for 5 turns
+	[1] ESDebuffMovetime(39:21400) -> Waaait!
+	Movetime 50% for 5 turns
+
+#3: ESSpinnersRandom(109:21401) -> Rolling Star
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#4: ESGravity(50:21402) -> I tripped!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#5: ESAttackMultihit(15:21403) -> Shooting Star
+Deal 300% damage (3 hits, 100% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

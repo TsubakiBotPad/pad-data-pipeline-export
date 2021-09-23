@@ -1,0 +1,36 @@
+#305380 - Beast-Taming Newlywed, Panera
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305380
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24838:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (24830:83) Let's live happily! + Pledging Hoop
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 20,000,000 for 6 turns
+ group:
+ | group:
+   | (24831:92) Today is the best day ever!
+   | Spawn 6 random Light and Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (24832:92) Let's liven things up!
+   | Spawn 6 random Fire and Light orbs, Deal 105% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (24833:89) Starbreeze Hoop
+     | Delay active skills by 10 turns
+   | group:
+     | (24834:15) Panera's Grand Show
+     | Deal 1,000% damage (10 hits, 100% each)
+ | group:
+ | condition: hp <= 1
+   | (24837:83) It's not over yet! + Let's enjoy ourselves even more!
+   | Enemy recover 100% HP + Lock all orbs

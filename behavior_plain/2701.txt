@@ -1,0 +1,77 @@
+#2701 - Squad 12 Captain, Mayuri Kurotsuchi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESInactivity66(66:2778) -> I'm the Captain of Squad 12, Mayuri Kurotsuchi.
+	Do nothing
+	[1] ESSkillDelay(89:2779) -> because soon you will no longer know anything.
+	Delay active skills by 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESBindAttack(63:2781) -> Tear him up! Ashisogi Jizo.
+Bind 1 random sub for 3 turns, Deal 90% damage
+
+#10: ESAttackMultihit(15:2782) -> Here!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 90% damage
+
+#11: ESAttackMultihit(15:2783) -> And here! And here!
+Deal 100% damage (2 hits, 50% each)
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESBranchCard(90:2790) -> ESBranchCard
+Branch on player_cards HAS [2682, 2683], target rnd 16
+
+#15: SkillSet:
+	[0] ESInactivity66(66:2862) -> Bankai
+	Do nothing
+	[1] ESRandomSpawn(92:2784) -> Konjiki Ashisogijizo
+	Spawn 6 random Poison orbs
+
+#16: SkillSet:
+	[0] ESInactivity66(66:2789) -> Don't get carried away!!!!
+	Do nothing
+	[1] ESInactivity66(66:2862) -> Bankai
+	Do nothing
+	[2] ESRandomSpawn(92:2784) -> Konjiki Ashisogijizo
+	Spawn 6 random Poison orbs
+
+#17: ESAttackMultihit(15:2786) -> Aaarrgghh!
+Condition: When < 15% HP (ai:100 rnd:0)
+Deal 200% damage (2 hits, 100% each)
+
+#18: ESRandomSpawn(92:2785) -> Hya Ha!!
+Spawn 1 random Poison orb, Deal 120% damage
+
+#19: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESRowSpawnMulti(78:2787) -> That was a close one... Goodbye.
+	Change the 5th row to Water orbs

@@ -1,0 +1,135 @@
+#3658 - Glavenus
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 1
+monster_id: 3658
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (7205:83) Roar + Fireball Charge
+ | Bind 1 random sub for 1 turn + Do nothing
+ group:
+ | group:
+ | condition: always turn 4
+   | (7211:17) Scalding Tail
+   | Increase damage to 150% for the next 10 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 39
+     | condition: 20% chance
+     | (7208:92) Fire Wave
+     | Spawn 6 random Fire orbs, Deal 110% damage
+     | condition: 20% chance
+     | (7209:15) Tail Slam
+     | Deal 120% damage
+     | condition: 20% chance
+     | (7210:50) Jumping Tail Strike
+     | Player -70% HP
+   | group:
+   | condition: turns 2-3 while HP > 39
+     | condition: 20% chance
+     | (7206:92) Bite
+     | Spawn 3 random Fire orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7207:102) Fireball Breath
+     | Spawn 3 random Bomb orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7208:92) Fire Wave
+     | Spawn 6 random Fire orbs, Deal 110% damage
+     | condition: 20% chance
+     | (7209:15) Tail Slam
+     | Deal 120% damage
+     | condition: 20% chance
+     | (7210:50) Jumping Tail Strike
+     | Player -70% HP
+   | group:
+   | condition: turns 5-6 while HP > 39
+     | condition: 20% chance
+     | (7206:92) Bite
+     | Spawn 3 random Fire orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7207:102) Fireball Breath
+     | Spawn 3 random Bomb orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7208:92) Fire Wave
+     | Spawn 6 random Fire orbs, Deal 110% damage
+     | condition: 20% chance
+     | (7209:15) Tail Slam
+     | Deal 120% damage
+     | condition: 20% chance
+     | (7210:50) Jumping Tail Strike
+     | Player -70% HP
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 5
+     | condition: 20% chance
+     | (7206:92) Bite
+     | Spawn 3 random Fire orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7207:102) Fireball Breath
+     | Spawn 3 random Bomb orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7208:92) Fire Wave
+     | Spawn 6 random Fire orbs, Deal 110% damage
+     | condition: 20% chance
+     | (7209:15) Tail Slam
+     | Deal 120% damage
+     | condition: 20% chance
+     | (7210:50) Jumping Tail Strike
+     | Player -70% HP
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (7212:8) Great Tailspin Stance
+     | Increase damage to 4,100% for the next attack
+   | group:
+   | condition: execute repeatedly, turn 4-5 of 5
+     | condition: 20% chance
+     | (7206:92) Bite
+     | Spawn 3 random Fire orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7207:102) Fireball Breath
+     | Spawn 3 random Bomb orbs, Deal 100% damage
+     | condition: 20% chance
+     | (7208:92) Fire Wave
+     | Spawn 6 random Fire orbs, Deal 110% damage
+     | condition: 20% chance
+     | (7209:15) Tail Slam
+     | Deal 120% damage
+     | condition: 20% chance
+     | (7210:50) Jumping Tail Strike
+     | Player -70% HP
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turns 1-3
+     | condition: 50% chance
+     | (7213:102) Three-hit Fireball Breath
+     | Spawn 6 random Bomb orbs, Deal 100% damage
+     | (7214:15) Combo Jumping Tail Strike
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: turns 5-6
+     | condition: 50% chance
+     | (7213:102) Three-hit Fireball Breath
+     | Spawn 6 random Bomb orbs, Deal 100% damage
+     | (7214:15) Combo Jumping Tail Strike
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 5
+     | condition: 50% chance
+     | (7213:102) Three-hit Fireball Breath
+     | Spawn 6 random Bomb orbs, Deal 100% damage
+     | (7214:15) Combo Jumping Tail Strike
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (7212:8) Great Tailspin Stance
+     | Increase damage to 4,100% for the next attack
+   | group:
+   | condition: execute repeatedly, turn 4-5 of 5
+     | condition: 50% chance
+     | (7213:102) Three-hit Fireball Breath
+     | Spawn 6 random Bomb orbs, Deal 100% damage
+     | (7214:15) Combo Jumping Tail Strike
+     | Deal 140% damage (2 hits, 70% each)

@@ -1,0 +1,33 @@
+#201324 - Alt. Extreme King Metal Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 201324
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25230:83) Grazy! + Slurp!
+ | Specific orbs change every 1.0s for 6 turns + Change all orbs to Jammer, Deal 150% damage
+ group:
+ | group:
+ | condition: always turn 6
+   | (25236:17) Hangry!
+   | Increase damage to 500% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 9
+     | condition: 50% chance
+     | (25233:13) Lick!
+     | Change 2 random orb types to Jammer orbs, Deal 80% damage
+     | condition: 50% chance
+     | (25234:15) Munch!
+     | Deal 100% damage
+   | group:
+     | (25235:15) Chomp!
+     | Deal 300% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (25235:15) Chomp!
+   | Deal 300% damage

@@ -1,0 +1,29 @@
+#4083 - Invincible Iron Arm, Ryo Sakazaki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 4083
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8629:39) Come! Come!
+ | Movetime -1s for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (8631:74) Mouko Raijin Gou
+     | Reduce damage from all sources by 50% for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 30% chance
+     | (8630:79) Ko-Ou Ken
+     | Change the 3rd row to Light orbs, Deal 100% damage
+     | (8632:15) Hien Shippuu Kyaku
+     | Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 14
+   | (8633:15) Haoh Shoukou Ken
+   | Deal 150% damage

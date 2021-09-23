@@ -1,0 +1,36 @@
+#102866 - 狂犬・相良猛
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 102866
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 2859, 2860 on team
+ | (4397:20) You know, I don't mind going 1 vs 2 guys!
+ | Voids status ailments for 3 turns
+ | (4390:20) This kid!
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (4391:50) Soryaaa!!
+     | Player -40% HP
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 40% chance
+     | (4394:15) Uryaaa!!
+     | Deal 120% damage
+     | condition: 40% chance
+     | (4395:92) Oraaa!!
+     | Spawn 3 random Jammer orbs, Deal 100% damage
+     | condition: 20% chance
+     | (4392:63) Don't run away.
+     | Bind 1 random sub for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (4393:8) Alright, let's be serious.
+   | Increase damage to 200% for the next attack

@@ -1,0 +1,39 @@
+#1899 - Shadow Dragon Knight
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlindStickyFixed(98:13381) -> Glare of the Shadow Dragon
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind orbs in specific positions for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 9
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 6
+
+#5: ESBlind62(62:13384) -> Remnant Sword
+Condition: 50% chance (ai:50 rnd:0)
+Blind all orbs on the board, Deal 100% damage
+
+#6: ESColumnSpawnMulti(77:13382) -> Godspeed Sword Slice
+Condition: 50% chance (ai:0 rnd:50)
+Change the 5th column to Dark orbs, Deal 95% damage
+
+#7: ESBombRandomSpawn(102:13383) -> False Shadow
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Bomb orbs, Deal 90% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:13385) -> Shadow Dragon Slash
+Deal 300% damage (6 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

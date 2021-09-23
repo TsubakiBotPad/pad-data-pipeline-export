@@ -1,0 +1,39 @@
+#693 - Noble Wolf King Hero, Cu Chulainn
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRecoverPlayer(55:460) -> Fight me with all your strength!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player recover 100% HP
+
+#5: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 9
+
+#6: ESGravity(50:449) -> Pitch Black Assassin's Dagger
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#7: ESAttackMultihit(15:450) -> Finale
+Deal 125% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESOrbChangeAttack(48:447) -> Wolf Attack
+Condition: One-time use (ai:30 rnd:0) (cost: 1)
+Change a random attribute to Jammer orbs, Deal 70% damage
+
+#10: ESAttackMultihit(15:448) -> Whirlwind Barrage
+Condition: 70% chance (ai:70 rnd:0)
+Deal 100~150% damage (4~6 hits, 25% each)

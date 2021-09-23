@@ -1,0 +1,55 @@
+#206222 - Nefarious Usurper Urizen
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206222
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (17756:83) That is nothing but the pitiful cries... + ...of those without strength.
+ | Delay active skills by 2~5 turns + Void damage >= 1,000,000 for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (17759:15) Hatred
+   | Deal 100% damage
+   | condition: 25% chance
+   | (17760:92) Acid Rain
+   | Spawn 7 random Dark orbs, Deal 105% damage
+   | condition: 25% chance
+   | (17761:77) Judgement
+   | Change the 2nd and 5th columns to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 74
+   | condition: 30% chance
+   | (17763:15) Mirage Sword
+   | Deal 110% damage (5 hits, 22% each)
+   | condition: 30% chance
+   | (17762:39) Goliath
+   | Movetime 50% for 1 turn, Deal 95% damage
+   | condition: 20% chance
+   | (17760:92) Acid Rain
+   | Spawn 7 random Dark orbs, Deal 105% damage
+   | condition: 20% chance
+   | (17761:77) Judgement
+   | Change the 2nd and 5th columns to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (17764:79) Artemis
+     | Change the 2nd and 4th rows to Dark orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (17765:15) Wrath
+     | Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (17766:83) Sacrifice + Hatred
+     | Player -50% HP + Deal 100% damage, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (17768:83) Eternal Pain + Hammer of Betrayal + River of Wailing
+     | Change 10 random orbs to Poison orbs + Player -50% HP + Deal 150% damage, Deal 100% damage

@@ -1,0 +1,36 @@
+#300209 - Alt. Sunlight Carbuncle
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:24404) -> Sunlight Aura
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids status ailments for 999 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESChangeAttribute(46:24406) -> Carbuncle Strike
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESAttackUPCooldown(19:24639) -> Jewelry Force
+Increase damage to 300% for the next 999 turns, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,31 @@
+#401176 - Alt. Keeper of Gold
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 401176
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25258:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25249:83) Golden Cloak + Solid Gold Armor
+ | Absorb Fire and Light damage for 8 turns + Change all orbs to Light, Deal 100% damage
+ group:
+ | group:
+ | condition: always turns 1-7
+   | condition: 50% chance
+   | (25256:92) Golden Hand
+   | Spawn 3 random Light and Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (25255:109) Red Orb
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 90% damage
+ | group:
+   | (25257:15) Hand of Destruction
+   | Deal 1,400% damage (2 hits, 700% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (25252:83) TAMADRA Guard + Brilliant Bullion
+   | Voids status ailments for 999 turns + Enemy recover 50% HP

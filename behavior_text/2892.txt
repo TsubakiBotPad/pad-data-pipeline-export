@@ -1,0 +1,56 @@
+#2892 - Enlightened Meditating God, Sandalphon
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 2892
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7693:72) Dark damage halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (7679:83) Eyes of Truth + Wings of Infinity + Cage of Eternity
+ | Random 30 orbs change every 1.0s for 1 turn + Voids status ailments for 999 turns + Absorb damage when combos <= 5 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (7683:83) Keshuon Ring + Painful Retribution
+     | Void damage >= 10,000,000 for 999 turns + Change all Dark and Heal orbs to Jammer and Poison orbs, Deal 290% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (7686:88) Unyielding Chains
+     | Bind awoken skills for 2 turns, Deal 270% damage
+     | (7685:15) Barches Voltro
+     | Deal 300% damage (5 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | (7685:15) Barches Voltro
+     | Deal 300% damage (5 hits, 60% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (7684:83) Keshuon Ring + Angelus + Painful Retribution
+   | Void damage >= 10,000,000 for 999 turns + Reduce damage from all sources by 50% for 10 turns + Change all Dark and Heal orbs to Jammer and Poison orbs, Deal 290% damage
+ | group:
+ | condition: always turn 1, hp <= 19
+   | condition: 20% chance
+   | (7687:53) Margoshie
+   | Absorb Fire damage for 10 turns
+   | condition: 20% chance
+   | (7688:53) Margoshie
+   | Absorb Water damage for 10 turns
+   | condition: 20% chance
+   | (7689:53) Margoshie
+   | Absorb Wood damage for 10 turns
+   | condition: 20% chance
+   | (7690:53) Margoshie
+   | Absorb Light damage for 10 turns
+   | condition: 20% chance
+   | (7691:53) Margoshie
+   | Absorb Dark damage for 10 turns
+ | group:
+ | condition: hp <= 4
+   | (7692:15) Seth Velkshell
+   | Deal 10,000% damage (10 hits, 1,000% each)

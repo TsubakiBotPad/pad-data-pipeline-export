@@ -1,0 +1,115 @@
+#200825 - Alt. Godly Knight of the Sky, Verche
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESStatusShield(20:24793) -> Sky Knight's Armor
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:24794) -> Arc Horizon
+	Fire, Water, Wood, and Light skyfall +100% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 12
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	[0] ESOrbChangeAttack(48:24778) -> Piercing Ray
+	Change a random attribute to Light orbs, Deal 100% damage
+	[1] ESSkyfallLocked(96:24779) -> Thunderbond
+	Locked Light skyfall +100% for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESOrbChangeAttack(48:24778) -> Piercing Ray
+	Change a random attribute to Light orbs, Deal 100% damage
+	[1] ESOrbLock(94:24781) -> Soulclutch
+	Lock all Light orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: SkillSet:
+	[0] ESOrbChangeAttack(48:24778) -> Piercing Ray
+	Change a random attribute to Light orbs, Deal 100% damage
+	[1] ESAttributeBlock(107:24783) -> Hopeless
+	Unable to match Light orbs for 1 turn
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESVoidShield(71:24784) -> Virtuous Wing
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 10,000,000 for 5 turns
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 24
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESOrbChangeAttack(48:24786) -> Merciful Ray
+	Change a random attribute to Heal orbs, Deal 100% damage
+	[1] ESDebuffRCV(105:24787) -> Benevolent Compensation
+	RCV 25% for 1 turn
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b10
+
+#22: SkillSet:
+	[0] ESOrbChangeAttack(48:24786) -> Merciful Ray
+	Change a random attribute to Heal orbs, Deal 100% damage
+	[1] ESOrbLock(94:24789) -> Treachery's Repentance
+	Lock all Heal orbs
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#25: SkillSet:
+	[0] ESOrbChangeAttack(48:24786) -> Merciful Ray
+	Change a random attribute to Heal orbs, Deal 100% damage
+	[1] ESAttributeBlock(107:24791) -> Divine Revelation
+	Unable to match Heal orbs for 1 turn
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESSuperResolve(129:24775) -> ＿Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#28: ESTypeResist(118:24776) -> ＿God halved
+Reduce damage from God types by 50%
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,118 @@
+#7122 - Sacred Sinful Demon Summoner, Irene
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:23118) -> Demonic Barrier
+	Voids status ailments for 999 turns
+	[1] ESNoSkyfall(127:23119) -> Demonic Howl
+	No skyfall for 10 turns
+	[2] ESAbsorbThreshold(87:23120) -> Power Plunder
+	Absorb damage when damage >= 500,000,000 for 1 turn
+	[3] ESAttackMultihit(15:23121) -> Little Devil Fang
+	Deal 105% damage (3 hits, 35% each)
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 18
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESRandomSpawn(92:23123) -> Wonder Claw
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESAbsorbCombo(67:23124) -> Power Plunder
+	Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:23126) -> Wonder Claw
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs
+	[1] ESAbsorbCombo(67:23127) -> Power Plunder
+	Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+
+#9: SkillSet:
+	[0] ESRandomSpawn(92:23129) -> Wonder Claw
+	Spawn 6 random Heal, Jammer, Poison, and Mortal Poison orbs
+	[1] ESAbsorbCombo(67:23130) -> Power Plunder
+	Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: SkillSet:
+	[0] ESAbsorbThreshold(87:23120) -> Power Plunder
+	Absorb damage when damage >= 500,000,000 for 1 turn
+	[1] ESAttackMultihit(15:23121) -> Little Devil Fang
+	Deal 105% damage (3 hits, 35% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:23133) -> Power Plunder
+	Void damage >= 500,000,000 for 999 turns
+	[1] ESDamageShield(74:23134) -> Soul's Howl
+	Reduce damage from all sources by 50% for 99 turns
+
+#14: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESGravity(50:23136) -> Guilty Claw
+	Player -75% HP
+	[1] ESAttackMultihit(15:23121) -> Little Devil Fang
+	Deal 105% damage (3 hits, 35% each)
+
+#15: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESGravity(50:23136) -> Guilty Claw
+	Player -75% HP
+	[1] ESDebuffATK(130:23138) -> Wonder Potion
+	ATK -50% for 1 turn, Deal 100% damage
+
+#16: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESGravity(50:23136) -> Guilty Claw
+	Player -75% HP
+	[1] ESDebuffRCV(105:23140) -> Wonder Potion
+	RCV 50% for 1 turn, Deal 95% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: SkillSet:
+	[0] ESBindAwoken(88:23142) -> Wonder Potion
+	Bind awoken skills for 1 turn
+	[1] ESBoardChange(84:23143) -> Final Mercy
+	Change all orbs to Heal
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:23218) -> Deadly Claw
+Deal 1,500% damage (5 hits, 300% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESSuperResolve(129:23116) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

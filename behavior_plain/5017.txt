@@ -1,0 +1,71 @@
+#5017 - Servant, Caster
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:12198) -> Do you honestly think you can defeat me?
+Voids status ailments for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 11
+
+#10: ESGravity(50:12201) -> You are a nuisance, so die!
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Player -75% HP
+
+#11: ESOrbChangeAttack(48:12199) -> How does that feel?
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 95% damage
+
+#12: ESAttackMultihit(15:12200) -> I have no use for you.
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESBindAwoken(88:12202) -> Rule Breaker
+Bind awoken skills for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESInactivity66(66:12203) -> Are you surprised?
+	Do nothing
+	[1] ESAttackMultihit(15:12204) -> This is my Noble Phantasm, Rule Breaker.
+	Deal 200% damage (2 hits, 100% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

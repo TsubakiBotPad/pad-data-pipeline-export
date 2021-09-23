@@ -1,0 +1,33 @@
+#2102 - Cerberus Rider, Jize
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2102
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4466:83) Hell Howl + Earth Circle's Construction
+ | Change 2 random orb types to Jammer orbs + Void damage >= 1,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4467:94) Fire Full Smash
+     | Lock all Jammer orbs, Deal 200% damage
+     | (4468:8) Feeding some meat to Cerberus
+     | Increase damage to 300% for the next attack
+   | group:
+     | (4471:83) Death Smash + Death Bite
+     | Change a random attribute to Jammer orbs + Change 3 random orbs to Poison orbs, Deal 75% damage
+ | group:
+ | condition: turn 2 while HP > 19, hp <= 49
+   | (4472:94) Fire Full Smash
+   | Lock all Jammer orbs, Deal 200% damage
+   | (4473:8) Feeding some meat to Cerberus
+   | Increase damage to 300% for the next attack
+ | group:
+ | condition: hp <= 19
+   | (4476:83) Bone Crush + Trinity Fang
+   | Player -70% HP + Deal 150% damage (3 hits, 50% each), Deal 150% damage (3 hits, 50% each)

@@ -1,0 +1,37 @@
+#2073 - Awoken Leilan
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2073
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5827:72) Fire Wood Light Reduced Damage
+ | Reduce damage from Fire, Wood, and Light attrs by 30%
+ type: PREEMPT
+ | (5820:67) Okay! Here I go♪
+ | Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (5823:85) Southern Seven-Star Formation
+     | Change all orbs to Fire, Wood, and Light, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (5821:102) Blazing Bullet
+     | Spawn 1 random Bomb orb, Deal 80% damage
+     | (5822:48) Massive Crimson Iron Spear
+     | Change a random attribute to Fire orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5823:85) Southern Seven-Star Formation
+     | Change all orbs to Fire, Wood, and Light, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5826:83) Here, take this♪ + Suzaku Seven-Star Formation
+     | Delay active skills by 1 turn + Change all orbs to Fire, Wood, and Light, Deal 300% damage

@@ -1,0 +1,34 @@
+#403971 - Alt. Diamond Dragon Fruit
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 403971
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25366:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (25361:74) Glaring Guard
+ | Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | (25345:15) Gulp!
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 1
+   | (25360:88) Dazzling Aroma
+   | Bind awoken skills for 3 turns
+   | (25347:15) Ultimate Gulp!!!
+   | Deal 300% damage (2 hits, 150% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (25363:83) Dazzling Power + Dazzling Aura
+   | Increase damage to 1,000% for the next 999 turns + ATK -99% for 1 turn
+ | group:
+   | (25347:15) Ultimate Gulp!!!
+   | Deal 300% damage (2 hits, 150% each)

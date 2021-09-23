@@ -1,0 +1,28 @@
+#1482 - クロスサクヤ
+monster size: 3
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1482
+approved: False
+
+level: 5
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1351:48) 真白まじめ光線
+   | Change a random attribute to Light orbs, Deal 75% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 70% chance
+     | (1352:15) 黄金クロス砲
+     | Deal 150% damage (2 hits, 75% each)
+     | (1351:48) 真白まじめ光線
+     | Change a random attribute to Light orbs, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 70% chance
+     | (1352:15) 黄金クロス砲
+     | Deal 150% damage (2 hits, 75% each)

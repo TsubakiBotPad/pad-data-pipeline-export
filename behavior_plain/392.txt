@@ -1,0 +1,37 @@
+#392 - Fertility Deity, Holy Ceres
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 5
+
+#2: ESOrbChangeAttack(48:965) -> Signs of Blooming
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Heal orbs, Deal 75% damage
+
+#3: ESOrbChangeAttack(48:966) -> Flower World
+Change all Heal orbs to Wood orbs, Deal 150% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESBindAttribute(2:967) -> Extinguishing Prayer
+Bind Fire cards for 3~5 turns
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESInactivity16(16:968) -> Charging Magical Power
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#10: ESAttackMultihit(15:969) -> Shining Storm
+Deal 160~200% damage (4~5 hits, 40% each)

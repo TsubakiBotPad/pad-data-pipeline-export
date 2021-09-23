@@ -1,0 +1,105 @@
+#3147 - 知性・キン肉マンスーパー・フェニックス
+monster size: 5
+new AI: True
+start/max counter: 511
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESInactivity66(66:5448) -> Watch and learn!
+	Do nothing
+	[1] ESLeaderSwap(75:5449) -> Psycho Phoenix Wave
+	Leader changes to random sub for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:5464) -> Muscle Revenger
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 360% damage (6 hits, 60% each)
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESVoidShield(71:5466) -> God of Flight's Power
+Condition: When < 90% HP , one-time use (ai:100 rnd:0) (cost: 384)
+Void damage >= 500,000 for 1 turn
+
+#12: ESVoidShield(71:5456) -> God of Flight's Power
+Condition: When < 90% HP , one-time use (ai:100 rnd:0) (cost: 128)
+Void damage >= 500,000 for 1 turn
+
+#13: ESAbsorbCombo(67:5458) -> God of Technique's Power
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 32)
+Absorb damage when combos <= 6 for 1 turn
+
+#14: ESAttackUPRemainingEnemies(17:5460) -> God of Brute Strength's Power
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 8)
+Increase damage to 200% for the next 1 turn
+
+#15: ESBindTarget(54:5462) -> God of Brutality's Power
+Condition: When < 30% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Bind both leaders for 1 turn
+
+#16: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#17: ESBranchCard(90:5465) -> ESBranchCard
+Branch on player_cards HAS [3124, 3125, 3850], target rnd 26
+
+#18: ESOrbChangeAttack(48:5452) -> Face Flash
+Condition: 20% chance (ai:20 rnd:0)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#19: ESOrbChangeAttack(48:5453) -> Face Flash
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#20: ESOrbChangeAttack(48:5454) -> Face Flash
+Change a random attribute to Light orbs, Deal 100% damage
+
+#21: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#22: ESBindAttack(63:5457) -> Phoenix Stretch
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Bind 3 random cards for 1 turn, Deal 100% damage
+
+#23: ESRowSpawnMulti(79:5459) -> Muscle Inferno
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Change the 3rd row to Fire orbs, Deal 150% damage
+
+#24: ESSkillDelay(89:5461) -> Pendulum Backbreaker
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Delay active skills by 2 turns, Deal 80% damage
+
+#25: ESBindSkill(14:5463) -> Choujin Raging Ox Execution
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 3 turns, Deal 150% damage
+
+#26: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 256)
+	[0] ESInactivity66(66:5451) -> Yo, Kinnikuman!
+	Do nothing
+	[1] ESOrbChangeAttack(48:5454) -> Face Flash
+	Change a random attribute to Light orbs, Deal 100% damage
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18

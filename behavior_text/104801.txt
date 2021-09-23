@@ -1,0 +1,27 @@
+#104801 - Ambush Master Dragon Caller, Valeria
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104801
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10758:20) Great Tactics
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (10760:102) Burst of Dust
+   | Spawn 3 random Bomb orbs, Deal 100% damage
+   | (10759:15) Double-Edged Sword Technique
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (10763:83) Toughen Up + Flare Slash
+   | Reduce damage from all sources by 75% for 1 turn + Change the 3rd and 4th columns to Fire orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 9
+   | (10764:15) Special Move
+   | Deal 240% damage (6 hits, 40% each)

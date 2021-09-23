@@ -1,0 +1,43 @@
+#7043 - Cody
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7043
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22935:109) Looks like I can have a little fun now!
+ | Random 2 orbs change every 1.0s for 4 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (22939:15) Double Kick
+   | Deal 100% damage (2 hits, 50% each)
+   | condition: 33% chance
+   | (22938:48) Slip Jab
+   | Change a random attribute to Water orbs, Deal 80% damage
+   | condition: 34% chance
+   | (22937:92) Axel Knuckle
+   | Spawn 4 random Water orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22942:83) C'mon! Stand up! Don't let me down! + Side Arm
+     | Reduce damage from all sources by 50% for 4 turns + Increase damage to 150% for the next 4 turns
+   | group:
+     | condition: 33% chance
+     | (22945:92) Zonk Knuckle
+     | Spawn 5 random Dark orbs, Deal 90% damage
+     | condition: 33% chance
+     | (22940:89) Crime Sway
+     | Delay active skills by 0~2 turns, Deal 80% damage
+     | condition: 34% chance
+     | (22936:15) Trash Out
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (22946:15) Criminal Punisher
+   | Deal 210% damage (6 hits, 35% each)

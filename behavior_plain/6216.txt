@@ -1,0 +1,43 @@
+#6216 - Nico
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:17813) -> Need assistance?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 4 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESAttackMultihit(15:17814) -> Hey, psycho!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#5: ESOrbChangeAttack(48:17815) -> My brilliant, badass work is worth every dime.
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Jammer orbs, Deal 95% damage
+
+#6: ESRandomSpawn(92:17816) -> Everything I create is art.
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Poison orbs, Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbSealColumn(99:17818) -> Behold my genius!
+	Seal the 6th column for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:17819) -> It's a prototype.
+	Increase damage to 150% for the next 999 turns
+
+#9: ESRandomSpawn(92:17820) -> You'll get fixed as soon as we get back!
+Spawn 10 random Poison orbs, Deal 200% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

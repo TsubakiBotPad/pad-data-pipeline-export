@@ -1,0 +1,35 @@
+#4881 - Heathcliff
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4881
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4855, 4856 on team
+ | (11429:66) I always thought you'd be the one standing before me at the very end.
+ | Do nothing
+ | (11427:66) Actually, I kind of like that angle.
+ | Do nothing
+
+level: 4
+ type: PREEMPT
+ | condition: when 4855, 4856 on team
+ | (11430:65) I always thought you'd be the one standing before me at the very end.
+ | Bind 1 random sub for 3 turns
+ | (11428:65) Actually, I kind of like that angle.
+ | Bind 1 random sub for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (11432:74) I'll consider this as your first mission.
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (11433:109) Your reaction time is very impressive.
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 90% damage
+ | group:
+ | condition: hp <= 14
+   | (11434:77) Game over.
+   | Change the 3rd column to Light orbs, Deal 150% damage

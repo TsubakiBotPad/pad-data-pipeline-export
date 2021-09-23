@@ -1,0 +1,40 @@
+#307524 - 究極メカ丸
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 307524
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26771:94) Can't you keep still?
+ | Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26563:83) Sword Option + Boost On + Ultraspin
+     | Spawn 3 random Wood and Dark orbs + Random 1 orbs change every 1.0s for 1 turn + Deal 150% damage (3 hits, 50% each), Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (26568:83) Sword Option + Ultra Shield
+     | Spawn 3 random Wood and Dark orbs + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (26567:79) Ultra Cannon
+     | Change the 3rd row to Wood and Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (26570:83) I just... + ...cannot stand it! + Mechamaru Ultimate, Mode: Albatross
+     | Do nothing + Spawn 5 random Wood and Dark orbs + Lock all Wood and Dark orbs
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26574:79) Ultimate Cannon
+     | Change the 2nd and 3rd rows to Jammer orbs, Deal 300% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26772:105) You did well.
+     | RCV 50% for 1 turn

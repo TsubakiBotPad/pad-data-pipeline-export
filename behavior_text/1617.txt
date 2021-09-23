@@ -1,0 +1,55 @@
+#1617 - Pure Water Sorcerer, Sharon
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 1617
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5779:83) Undine, here I go... + Okay! Here's my Water Barrier!
+ | Voids status ailments for 999 turns + Void damage >= 500,000 for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (5798:83) No! The barrier's gonna break! + Let's get serious...!
+   | Bind awoken skills for 2 turns + Increase damage to 200% for the next 1 turn
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (5782:79) Elemental Stream
+     | Change the 1st, 2nd, 3rd, and 4th rows to Fire, Wood, Light, and Dark orbs and the 5th row to Water orbs, Deal 200% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (5783:50) Marine Pressure
+     | Player -99% HP
+   | group:
+   | condition: turn 3 while HP > 49
+     | (5784:77) Abyssal Stream
+     | Change the 1st column to Water orbs, the 2nd, 3rd, 4th, and 5th columns to Fire, Wood, Light, and Dark orbs, and the 6th column to Mortal Poison orbs, Deal 200% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (5785:50) Abyss Pressure
+     | Player -100% HP
+   | group:
+     | (5801:83) Elemental Splash! + Voice of Innocence
+     | Change all orbs to Fire, Water, Wood, Light, and Dark + Delay active skills by 1~3 turns, Deal 500% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (5786:83) Sharon! Take this potion! + Thanks Undine!
+     | Enemy recover 50% HP + Do nothing
+   | group:
+   | condition: turn 2
+     | (5789:83) Drink some more potion! + I can't drink this much...
+     | Enemy recover 30% HP + Change 6 random orbs to Mortal Poison orbs
+   | group:
+   | condition: turn 3
+     | (5792:83) If you don't drink it, you'll lose! + I can't...take any more...
+     | Enemy recover 10% HP + Change 18 random orbs to Mortal Poison orbs
+   | group:
+   | condition: turn 4
+     | (5795:83) Come on, open wide... + Aaaaahhhh!
+     | Do nothing + Change all orbs to Mortal Poison

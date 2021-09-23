@@ -1,0 +1,60 @@
+#1345 - Eternal Twin Stars, Idunn & Idunna
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1345
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3367:55) Golden Apple of Immortality
+ | Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | condition: when 376, 377, 656, 1348 on team
+     | (3374:20) Don't come any closer!
+     | Voids status ailments for 999 turns
+   | group:
+     | condition: 33% chance
+     | (3372:15) Walnut Shot
+     | Deal 150% damage (3 hits, 50% each)
+     | condition: 34% chance
+     | (3371:92) Arrow Rain
+     | Spawn 5 random Water orbs, Deal 130% damage
+     | condition: 33% chance
+     | (3370:77) Twin Aqua Feather
+     | Change the 1st and 6th columns to Water orbs, Deal 140% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 69
+   | condition: when 376, 377, 656, 1348 on team
+   | (3374:20) Don't come any closer!
+   | Voids status ailments for 999 turns
+   | (3368:14) Angel Kiss
+   | Bind active skills for 3 turns
+ | group:
+ | condition: always turn 1, hp <= 29
+   | condition: when 376, 377, 656, 1348 on team
+   | (3374:20) Don't come any closer!
+   | Voids status ailments for 999 turns
+   | (3369:86) Twinkle Apple
+   | Enemy recover 100% HP
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3376:50) End of Eternity
+     | Player -100% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 33% chance
+     | (3372:15) Walnut Shot
+     | Deal 150% damage (3 hits, 50% each)
+     | condition: 34% chance
+     | (3371:92) Arrow Rain
+     | Spawn 5 random Water orbs, Deal 130% damage
+     | condition: 33% chance
+     | (3370:77) Twin Aqua Feather
+     | Change the 1st and 6th columns to Water orbs, Deal 140% damage

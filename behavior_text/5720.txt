@@ -1,0 +1,28 @@
+#5720 - 五ツ橋ジョウ＆７００のぞみ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5720
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15260:83) ワシらも行くっちゃ！ + こいつを食らうっちゃ！
+ | Voids status ailments for 999 turns + Movetime -2s for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (15256:108) やるしかねぇっちゃ
+   | Change all Light orbs to Water orbs, Deal 50% damage
+   | (15257:15) 今っちゃ！
+   | Deal 60% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15258:17) 勝負っちゃ！
+     | Increase damage to 150% for the next 1 turn
+   | group:
+     | (15259:77) シンカブレード
+     | Change the 3rd column to Water orbs, Deal 80% damage

@@ -1,0 +1,46 @@
+#4694 - Iceblade Divine Beast, Shust
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESOrbLock(94:10716) -> Wisdom of the Freezing Divine Beast
+Lock all orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRowSpawnMulti(79:10717) -> Blue Origin
+Condition: When < 20% HP (ai:100 rnd:0)
+Change the 5th row to Water orbs, Deal 300% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 10
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESAttackUPRemainingEnemies(17:10732) -> I can't go easy on you
+Condition: 50% chance, when <= 2 enemies remain (ai:50 rnd:0)
+Increase damage to 150% for the next 2 turns
+
+#12: ESColumnSpawnMulti(77:10733) -> What now, then?!
+Change the 3rd and 4th columns to Water orbs, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

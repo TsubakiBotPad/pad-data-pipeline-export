@@ -1,0 +1,39 @@
+#5890 - Cardinal
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5890
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16454:74) I will return everything to nothingness.
+ | Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (16464:83) System Call! + Generate Luminous Element!
+     | Do nothing + Absorb Light damage for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (16465:83) Lightning Shape! + Discharge!
+     | Change the 1st row to Light orbs + Deal 100% damage, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (16466:83) System Call! + Generate Aerial Element!
+     | Do nothing + Absorb Wood damage for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (16461:92) Stream Shape!
+     | Spawn 6 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (16463:17) I'll shear off at least half of your life. 
+     | Increase damage to 200% for the next 1 turn
+   | group:
+     | (16462:15) You're so stubborn!
+     | Deal 200% damage

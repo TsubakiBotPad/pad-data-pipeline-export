@@ -1,0 +1,32 @@
+#1842 - Wind Dragon Queen, Linthia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1842
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3535:68) Did you come to see me?
+ | Wood skyfall +15% for 99 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (3536:71) Floral Mirror
+   | Void damage >= 400,000 for 5 turns
+ | group:
+   | (3537:15) Aero Ball
+   | Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (3538:67) I'm having so much fun!♪
+     | Absorb damage when combos <= 4 for 3 turns
+   | group:
+     | condition: 50% chance
+     | (3539:79) Blossom Wind
+     | Change the 1st row to Wood orbs, Deal 170% damage
+     | (3540:92) Rose Cyclone
+     | Spawn 5 random Fire orbs, Deal 170% damage

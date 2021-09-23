@@ -1,0 +1,22 @@
+#4875 - Information Broker, Argo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:16448) -> Are you thinking of going solo?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 5 turns
+
+#3: ESNoSkyfall(127:16449) -> There's no way to get information.
+Condition: 50% chance (ai:50 rnd:0)
+No skyfall for 1 turn
+
+#4: ESBlindStickyRandom(97:16450) -> You wouldn't happen to know where it is, would you?
+Blind random 1 orbs for 1 turn, Deal 105% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

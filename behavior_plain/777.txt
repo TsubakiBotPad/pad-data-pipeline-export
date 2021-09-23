@@ -1,0 +1,51 @@
+#777 - Great Tengu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:12330) -> Absorb!
+	Absorb damage when combos <= 4 for 5 turns
+	[1] ESOrbSealRow(100:12331) -> Seal!
+	Seal the 1st and 5th rows for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 11
+
+#7: ESBindRandomSub(65:12332) -> Bind!
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random sub for 1 turn
+
+#8: ESAttackMultihit(15:12333) -> Destroy!
+Condition: 33% chance (ai:0 rnd:33)
+Deal 150% damage
+
+#9: ESOrbChangeAttack(48:12334) -> Terminate!
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Jammer orbs, Deal 70% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESInactivity66(66:12335) -> Focusing his mind
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#12: ESAttackMultihit(15:12336) -> All is impermanent...
+Deal 800% damage (4 hits, 200% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

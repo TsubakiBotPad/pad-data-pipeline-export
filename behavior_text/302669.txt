@@ -1,0 +1,32 @@
+#302669 - Cameo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 302669
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24453:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24465:83) Jewel Rain + Emerald Circle
+ | Locked random skyfall +50% for 99 turns + Change all orbs to Wood, Deal 120% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 4
+     | condition: 50% chance
+     | (24467:92) Frog Charm
+     | Spawn 3 random Wood orbs, Deal 100% damage
+     | condition: 50% chance
+     | (24468:15) Intaglio Punch
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (24400:83) Iridescent Shine + Radiant Flash
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (24469:15) Emerald Tempest
+   | Deal 600% damage (4 hits, 150% each)

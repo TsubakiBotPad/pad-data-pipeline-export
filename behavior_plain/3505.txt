@@ -1,0 +1,63 @@
+#3505 - Reincarnated Okuninushi
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:19982) -> Divine Connection
+	Bind awoken skills for 1 turn
+	[1] ESBoardChange(84:19983) -> Relinquish Rule of the Land
+	Change all orbs to Poison
+	[2] ESSpinnersRandom(109:19984) -> Masterful Foundation
+	Random 3 orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 9
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	[0] ESAttackMultihit(15:19986) -> Masterful Slash
+	Deal 100% damage
+	[1] ESAttackUPRemainingEnemies(17:19987) -> Inaba's Protection
+	Increase damage to 150% for the next 1 turn, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:19988) -> Relinquish Rule of the Eternal Land
+Deal 1,600% damage (4 hits, 400% each)
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19990) -> Protection of the Earthly Deities
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:19991) -> Building a Nation
+	Jammer and Poison skyfall +10% for 5 turns
+
+#12: SkillSet:
+	[0] ESAttackMultihit(15:19986) -> Masterful Slash
+	Deal 100% damage
+	[1] ESAttackUPRemainingEnemies(17:19987) -> Inaba's Protection
+	Increase damage to 150% for the next 1 turn, Deal 50% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSuperResolve(129:19980) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,48 @@
+#5661 - Amelia = Wil = Tesla = Saillune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAttackMultihit(15:14918) -> Feel the hammer of justice!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 9
+
+#5: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRowSpawnMulti(79:14920) -> Elmekia Lance
+	Change the 3rd row to Light orbs, Deal 25% damage
+	[1] ESAttackMultihit(15:14921) -> Break!
+	Deal 35% damage
+
+#6: ESAttackMultihit(15:14922) -> Visfan Rank
+Condition: 50% chance (ai:0 rnd:50)
+Deal 70% damage (2 hits, 35% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRecoverEnemy86(86:14923) -> Resurrection
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 100% HP
+
+#9: ESColumnSpawnMulti(77:14924) -> Ra Tilt
+Change the 3rd and 4th columns to Light orbs, Deal 200% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:14917) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#12: ESTypeResist(118:14964) -> Devil Attack Halved
+Reduce damage from Attacker and Devil types by 50%

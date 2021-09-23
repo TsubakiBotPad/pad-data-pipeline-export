@@ -1,0 +1,38 @@
+#6775 - The Lost Snail Girl, Mayoi Hachikuji
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:21263) -> Because I'm...
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:21264) -> I'm a lost snail.
+	Specific orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESAttackMultihit(15:21266) -> Rawr!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 90% damage
+
+#5: ESAttackMultihit(15:21267) -> Grrrr...
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESAttackMultihit(15:21268) -> Rawr rawr rawr!
+Deal 120% damage (3 hits, 40% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESOrbLock(94:21265) -> You're so cruel!
+Lock 10 random orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

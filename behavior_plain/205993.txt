@@ -1,0 +1,57 @@
+#205993 - Yellow Jellime
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESChangeAttribute(46:17018) -> Mutation
+Condition: 25% chance (ai:25 rnd:0)
+Change own attribute to random one of Fire, Wood, or Dark
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#9: ESRecoverEnemy7(7:16967) -> Absorb
+Condition: 10% chance (ai:10 rnd:0)
+Enemy recover 10% HP, Deal 100% damage
+
+#10: ESOrbLock(94:16968) -> Flash Needle
+Condition: 40% chance (ai:40 rnd:0)
+Lock 2 random orbs, Deal 100% damage
+
+#11: ESRandomSpawn(92:16965) -> Jellime Attack
+Spawn 1 random Light orb, Deal 98% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESRandomSpawn(92:16966) -> Melt
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 2 random Light orbs
+
+#14: ESAttackMultihit(15:16969) -> Jellime Crush
+Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESTypeResist(118:17014) -> Balanced & God Halved
+Reduce damage from Balanced and God types by 50%

@@ -1,0 +1,33 @@
+#201090 - Alt. Hurricane Volcano Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:25576) -> Volcano Dragon's Igneous Rock
+	Void damage >= 10,000,000 for 999 turns
+	[1] ESAbsorbAttribute(53:25577) -> Fire Hurricane
+	Absorb Fire damage for 10 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 7
+
+#5: ESOrbChangeAttack(48:25578) -> Magma Breath
+Change a random attribute to Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESRandomSpawn(92:25579) -> Hurricane Volcano
+Spawn 8 random Fire and Wood orbs, Deal 600% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

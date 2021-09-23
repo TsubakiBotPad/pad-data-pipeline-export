@@ -1,0 +1,43 @@
+#3047 - Juppongatana "Sword Hunter", Sawagejo Cho
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3047
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4974:68) A fair fight, huh?
+ | Wood skyfall +20% for 1 turn
+ group:
+ | group:
+ | condition: turn 1 while HP > 69, hp <= 100
+   | (4975:14) Gotcha!
+   | Bind active skills for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: always turn 1
+     | (4977:20) They call me "Sword Hunter" Cho. Now see my true skill.
+     | Voids status ailments for 999 turns
+   | group:
+     | condition: 70% chance
+     | (4978:94) "Hakujin" - The Thin One
+     | Lock 2 random orbs, Deal 125% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 2 while HP > 19
+     | (4979:94) "Orochi" Pose. Take this.
+     | Lock 3 random orbs, Deal 125% damage
+   | group:
+     | (4980:94) "Orochi" Pose
+     | Lock 3 random orbs, Deal 150% damage
+ | group:
+ | condition: turn 2, hp <= 19
+   | (4981:17) You're all... annoying!!
+   | Increase damage to 200% for the next 999 turns
+ type: UNKNOWN_USE
+ | (4976:15) Gotcha!
+ | Deal 100% damage

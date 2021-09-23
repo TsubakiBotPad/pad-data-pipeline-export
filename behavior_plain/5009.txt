@@ -1,0 +1,46 @@
+#5009 - Gilgamesh (Fate/stay night [HF])
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindSkill(14:19524) -> You're working hard, aren't you?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESDebuffRCV(105:19526) -> This is my mercy to you.
+RCV 200% for 1 turn, Deal 80% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESDebuffMovetime(39:19525) -> The grace period is now over.
+Movetime -3s for 1 turn, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESOrbLock(94:19527) -> To think you'd attempt to make me kneel!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 15 random orbs
+
+#12: ESAttackMultihit(15:19528) -> What? You're still breathing?
+Deal 120% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

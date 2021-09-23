@@ -1,0 +1,50 @@
+#100414 - Mitsuki
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:25700) -> Heavenly Fox's Protection
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Void damage >= 50,000,000 for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 10
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#6: ESSkyfall(68:25701) -> Heavenly Fox's Wish
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Fire skyfall +20% for 99 turns
+
+#7: ESAbsorbCombo(67:25702) -> Heavenly Fox's Vitality
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 6 for 999 turns
+
+#8: ESRandomSpawn(92:25703) -> Yip! Yip! Yip!
+Spawn 8 random Fire orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:25704) -> Heavenly Fox's Wrath
+Deal 450% damage (3 hits, 150% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRecoverEnemy86(86:25711) -> Heavenly Fox's Prayer
+Enemy recover 100% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:25705) -> Resolve
+Survive attacks with 1 HP when HP > 50%

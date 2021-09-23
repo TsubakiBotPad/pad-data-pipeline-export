@@ -1,0 +1,159 @@
+#304794 - Awoken Machine Noah
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:10932) -> I wonder if your life means anything
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:10933) -> Defense of the Twin Ships
+	Void damage >= 40,000,000 for 99 turns
+	[2] ESMaxHPChange(111:10934) -> Ark Contract
+	Change player HP to 500,000 for 99 turns
+	[3] ESDispel(6:10955) -> Requiem
+	Voids player buff effects
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 31
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESMaxHPChange(111:10934) -> Ark Contract
+Change player HP to 500,000 for 99 turns
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 28
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 26
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 25
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 24
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 23
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 22
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 21
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 19
+
+#18: SkillSet:
+	[0] ESDebuffRCV(105:10936) -> Salvation of the Holy Ship
+	RCV 300% for 9 turns
+	[1] ESOrbChangeAttackBits(108:10940) -> Charity from Heaven
+	Change all Wood orbs to Heal orbs, Deal 500% damage
+
+#19: ESAttackMultihit(15:10937) -> Strike from the Heavens
+Deal 4,999% damage
+
+#20: SkillSet:
+	[0] ESBlind5(5:10941) -> Veil of Darkness
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:10942) -> Tempest Rain
+	Deal 2,700% damage (3 hits, 900% each)
+
+#21: SkillSet:
+	[0] ESCloud(104:10944) -> Shrouding Mist
+	A 2×3 rectangle of clouds appears for 1 turn at 2nd row, 3rd column
+	[1] ESAttackMultihit(15:10945) -> Wave Pulse
+	Deal 2,900% damage (4 hits, 725% each)
+
+#22: SkillSet:
+	[0] ESBlindStickyRandom(97:10947) -> Darkness of the Lingering Night
+	Blind random 15 orbs for 1 turn
+	[1] ESAttackMultihit(15:10948) -> Wave Pulse
+	Deal 3,100% damage (5 hits, 620% each)
+
+#23: SkillSet:
+	[0] ESSpinnersFixed(110:10950) -> Whirlpool
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESAttackMultihit(15:10951) -> Wave Pulse
+	Deal 3,300% damage (6 hits, 550% each)
+
+#24: SkillSet:
+	[0] ESBlind5(5:10941) -> Veil of Darkness
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:10942) -> Tempest Rain
+	Deal 2,700% damage (3 hits, 900% each)
+
+#25: SkillSet:
+	[0] ESCloud(104:10944) -> Shrouding Mist
+	A 2×3 rectangle of clouds appears for 1 turn at 2nd row, 3rd column
+	[1] ESAttackMultihit(15:10945) -> Wave Pulse
+	Deal 2,900% damage (4 hits, 725% each)
+
+#26: SkillSet:
+	[0] ESBlindStickyRandom(97:10947) -> Darkness of the Lingering Night
+	Blind random 15 orbs for 1 turn
+	[1] ESAttackMultihit(15:10948) -> Wave Pulse
+	Deal 3,100% damage (5 hits, 620% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#29: SkillSet:
+	[0] ESDebuffRCV(105:10936) -> Salvation of the Holy Ship
+	RCV 300% for 9 turns
+	[1] ESOrbChangeAttackBits(108:10940) -> Charity from Heaven
+	Change all Wood orbs to Heal orbs, Deal 500% damage
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 36
+
+#32: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#33: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#34: SkillSet:
+	[0] ESBindAwoken(88:10791) -> Diminishing Fighting Spirit
+	Bind awoken skills for 5 turns
+	[1] ESGravity(50:10792) -> Vanishing Judgment
+	Player -99% HP
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: SkillSet:
+	[0] ESChangeAttribute(46:10953) -> Gear Shift
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:10954) -> Banishing Lightning
+	Deal 50,000% damage (4 hits, 12,500% each)
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#38: ESResolve(73:10956) -> Resolve
+Survive attacks with 1 HP when HP > 50%

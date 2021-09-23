@@ -1,0 +1,21 @@
+#6356 - Bewitching Chthonic Goddess, Allatu
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 6356
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (29248:83) 冥底神の魂 + 突破できるかしら + 冥域の炎海 + 冥域の炎霧
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Seal the 1st row for 99 turns + Absorb damage when combos <= 13 for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-3 of 4
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (29253:15) ダークリベレーション
+   | Deal 2,100% damage (7 hits, 300% each)

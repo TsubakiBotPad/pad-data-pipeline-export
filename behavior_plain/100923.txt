@@ -1,0 +1,32 @@
+#100923 - Alt. Elemental of True Death, Thanatos
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:17154) -> Announcement of Fate
+	Lock all orbs
+	[1] ESSkyfallLocked(96:17155) -> Omen of the End
+	Locked random skyfall +100% for 10 turns
+	[2] ESDamageShield(74:17156) -> Path to Nothingness
+	Reduce damage from all sources by 90% for 4 turns
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESAttackMultihit(15:10241) -> Sound of Death
+Deal 2,000% damage (10 hits, 200% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESTypeResist(118:10237) -> Balanced Halved
+Reduce damage from Balanced types by 50%

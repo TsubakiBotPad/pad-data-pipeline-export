@@ -1,0 +1,36 @@
+#207501 - 伏黒恵
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 207501
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (26664:14) We'll just have to curse each other.
+ | Bind active skills for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (26665:79) Nue
+   | Change the 3rd row to Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (26666:83) Take her down. + Electrified Wings
+   | Change the 3rd column to Dark orbs + Bind 1 random sub for 2 turns, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (26670:83) I'll wring out that cursed energy... + ...even if it rips my stomach open!
+     | Do nothing + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (26669:50) Don't worry! Just go!
+     | Player -75% HP
+     | condition: 50% chance
+     | (26665:79) Nue
+     | Change the 3rd row to Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (26666:83) Take her down. + Electrified Wings
+     | Change the 3rd column to Dark orbs + Bind 1 random sub for 2 turns, Deal 95% damage

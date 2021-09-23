@@ -1,0 +1,51 @@
+#202744 - Enthusiast Red Dragonbound, Gadius
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:25391) -> Sun Zone
+	Absorb damage when combos <= 7 for 5 turns
+	[1] ESAbsorbAttribute(53:25392) -> Twin-Headed Red Dragon
+	Absorb Fire and Light damage for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#6: ESRandomSpawn(92:25393) -> Sun Burn
+Spawn 4 random Fire orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDamageShield(74:25395) -> Eternal Dragon Descent - Sedin
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:25396) -> Burn!
+	Increase damage to 300% for the next 999 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRandomSpawn(92:25397) -> Sunrise Breath
+Spawn 5 random Fire and Light orbs, Deal 400% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

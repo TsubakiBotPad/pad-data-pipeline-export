@@ -1,0 +1,36 @@
+#300221 - Alt. Berserk
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300221
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25544:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25533:67) Berserker's Protection
+ | Absorb damage when combos <= 7 for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9
+     | (25540:15) Buster Sword
+     | Deal 100% damage
+   | group:
+   | condition: turn 10
+     | (25535:86) Tenacious Fighting Spirit
+     | Enemy recover 100% HP
+   | group:
+     | (25627:15) Grand Buster Sword
+     | Deal 250% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (25535:86) Tenacious Fighting Spirit
+   | Enemy recover 100% HP
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (25537:83) Oath of the Warrior + Trancelike Frenzy
+ | Increase damage to 1,000% for the next 999 turns + Lock all orbs

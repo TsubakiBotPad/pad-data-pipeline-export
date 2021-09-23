@@ -1,0 +1,43 @@
+#3591 - Dream Shredder Mechanical Star God, Hamal
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:16024) -> Star Poetry Countdown
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 11
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 9
+
+#6: ESRandomSpawn(92:16028) -> Dream Eater
+Condition: When dark, jammer, poison, or mortal poison orbs are on the board (ai:100 rnd:0)
+Spawn 3 random Light orbs
+
+#7: ESRandomSpawn(92:16025) -> Splitting Stars
+Spawn 3 random Dark orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESInactivity66(66:16029) -> Snip Snip
+Do nothing
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:16030) -> Cutting the Thread of Life
+Deal 1,000% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

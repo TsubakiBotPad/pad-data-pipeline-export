@@ -1,0 +1,36 @@
+#207726 - 鎧武装フレイザード
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207726
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26902:72) ＿鎧ザード火半減
+ | Reduce damage from Fire attrs by 50%
+ | (26901:129) ＿鎧ザード超根性
+ | Damage which would reduce HP from above 20% to below 20% is nullified
+ type: PREEMPT
+ | (26903:83) 力が…力がみなぎってくる… + すさまじい力だ…！ + こいつあすごいぜェェェッ!!!
+ | Reduce damage from all sources by 90% for 4 turns + Unable to match Fire, Water, Wood, and Dark orbs for 1 turn + Player -70% HP
+ group:
+ | group:
+   | condition: 33% chance, when required attributes on board
+   | (26907:92) ウヒャハハハ!!
+   | Spawn 5 random Fire, Dark, Heal, and Jammer orbs, Deal 90% damage
+   | condition: 33% chance
+   | (26908:101) そらよおッ!!
+   | Fix orb movement starting point to random position on the board, Deal 95% damage
+   | condition: 34% chance
+   | (26909:94) ギャハハハハッ!!
+   | Lock all orbs, Deal 105% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (26910:83) いい度胸だぜ!!小僧っ!!! + 一発であの世へ送ってやらあッ!!!
+   | ATK -50% for 1 turn + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | (26913:83) このクソガキがああ――ッ!! + うがあああああッ!!!
+   | Deal 60% damage (4 hits, 15% each) + Blind random 5 orbs for 1 turn, Deal 60% damage (4 hits, 15% each)

@@ -1,0 +1,39 @@
+#3245 - Wrathful Steel Dragon Emperor, Ninegaruda
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+monster_id: 3245
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5674:73) Nine Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (5633:83) Misfortune Unleashed + Full Energy Field + Storing up energy...
+ | Lock all orbs + Voids status ailments for 999 turns + Increase damage to 900% for the next 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (5636:83) Raging Fire + Orb Flash
+     | Blind all orbs on the board + Lock all orbs, Deal 50% damage
+   | group:
+     | condition: 50% chance
+     | (5638:103) Zelvarn
+     | Spawn Bomb orbs in the specified positions, Deal 120% damage
+     | (5637:77) Cruel Flare
+     | Change the 2nd and 5th columns to Jammer orbs, Deal 150% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (5639:67) Nine Seek
+   | Absorb damage when combos <= 8 for 9 turns, Deal 20% damage
+ | group:
+ | condition: hp <= 19
+   | (5641:103) Void Burn
+   | Spawn Bomb orbs in the specified positions, Deal 5,000% damage
+ | group:
+ | condition: turns 1-2, hp <= 1
+   | (5676:83) Death Avoidance + Nampulse
+   | Enemy recover 100% HP + Bind 1 random card for 9 turns, Deal 200% damage

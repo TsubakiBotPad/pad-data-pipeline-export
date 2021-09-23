@@ -1,0 +1,32 @@
+#5666 - Greater Beast Priest, Xellos
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 5666
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21800:39) We have no choice!
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (21801:77) Black Gimlet
+   | Change the 1st column to Dark orbs, Deal 80% damage
+ | group:
+ | condition: turn 2
+   | (21802:77) Second Black Gimlet
+   | Change the 3rd column to Dark orbs, Deal 90% damage
+ | group:
+ | condition: turn 3
+   | (21803:77) Third Black Gimlet
+   | Change the 6th column to Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (21804:17) Finish 'em off there!
+   | Increase damage to 150% for the next 3 turns
+ | group:
+   | (21805:92) Blast Bomb!
+   | Spawn 5 random Fire orbs, Deal 80% damage

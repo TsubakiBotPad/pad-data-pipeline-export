@@ -1,0 +1,40 @@
+#105103 - Ken
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 105103
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12386:96) Come on! I'll turn up the heat!
+ | Locked Fire skyfall +100% for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (12387:83) Thunder Kick + Disable Skill + Hadoken
+   | Bind 1 random sub for 1~2 turns + Deal 100% damage + Deal 45% damage, Deal 45% damage
+   | condition: 33% chance
+   | (12388:83) Inazuma Kick + Disable Skill + Shoryuken
+   | Player -25% HP + Deal 100% damage + Deal 50% damage, Deal 100% damage
+   | condition: 34% chance
+   | (12462:83) Lion Breaker + Disable Skill + Tatsumaki Senpukyaku
+   | Deal 50% damage (2 hits, 25% each) + Deal 100% damage + Absorb damage when combos <= 5 for 1 turn, Deal 50% damage (2 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (12632:83) Heat Rush + I hit my boiling point!
+     | Increase damage to 200% for the next 10 turns + Do nothing
+   | group:
+     | condition: 50% chance
+     | (12397:83) Thunder Kick + Disable Skill + Hadoken
+     | Bind 1 random sub for 1~2 turns + Deal 100% damage + Change the 3rd row to Fire orbs, Deal 45% damage
+     | condition: 50% chance
+     | (12398:83) Inazuma Kick + Disable Skill + Shoryuken
+     | Player -25% HP + Deal 100% damage + Change the 4th column to Fire orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | (12401:77) Guren Enjinkyaku
+   | Change the 4th and 5th columns to Fire orbs, Deal 400% damage

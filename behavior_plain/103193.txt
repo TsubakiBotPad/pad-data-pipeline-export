@@ -1,0 +1,37 @@
+#103193 - Guardian of the Imperial Capital, Athena
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBindSkill(14:12344) -> Gorgon's Curse
+	Bind active skills for 5 turns
+	[1] ESBindRandomSub(65:12345) -> Dark Binding Chain
+	Bind 2 random subs for 3 turns
+
+#3: ESStatusShield(20:12347) -> Aegis Black Shield
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 999 turns
+
+#4: ESInactivity66(66:12350) -> I'll finish this...
+Condition: When < 15% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#5: ESAttackMultihit(15:12351) -> Terror Burst
+Condition: When < 15% HP (ai:100 rnd:0)
+Deal 30% damage (10 hits, 3% each)
+
+#6: ESOrbChangeAttack(48:12348) -> Darkness Spear
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Dark orbs, Deal 6% damage
+
+#7: ESAttackMultihit(15:12349) -> Punishing Mist
+Deal 7% damage (7 hits, 1% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

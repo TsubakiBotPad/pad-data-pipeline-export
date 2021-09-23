@@ -1,0 +1,35 @@
+#102403 - Alt. Master of the Masquerade, Pumpkin Joker
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 102403
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11336:83) Bad Halloween! + Trick or Treat
+ | RCV 50% for 10 turns + Void damage >= 10,000,000 for 99 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (11339:83) Jack-o'-Lantern + Medje Trick or Treat
+   | Player -99% HP + Leader changes to random sub for 3 turns
+ | group:
+   | condition: 33% chance
+   | (11342:94) Patched Sweet Memories
+   | Lock 15 random orbs, Deal 100% damage
+   | condition: 33% chance
+   | (11343:15) Candy Shot
+   | Deal 111% damage (3 hits, 37% each)
+   | condition: 34% chance
+   | (11344:62) Mysterious Night
+   | Blind all orbs on the board, Deal 105% damage
+ | group:
+ | condition: turn 2 while HP > 19, hp <= 49
+   | (11345:83) Wicked Smile + Cauchemar Pumpkin
+   | Delay active skills by 2~5 turns + Change all Heal orbs to Jammer orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 19
+   | (11348:92) The End of Halloween
+   | Spawn 6 random Jammer and Mortal Poison orbs, Deal 150% damage

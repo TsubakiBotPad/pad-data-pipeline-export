@@ -1,0 +1,89 @@
+#100409 - Alt. Glacialdragon Niflheim
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 100409
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5113:83) Protective Ice Wall + Cold Space
+ | Absorb damage when damage >= 1,000,000 for 3 turns + Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (5119:87) Reinforced Protective Wall
+   | Absorb damage when damage >= 800,000 for 3 turns
+ | group:
+ | condition: always turn 4
+   | (5120:87) Reinforced Protective Wall
+   | Absorb damage when damage >= 500,000 for 3 turns
+ | group:
+ | condition: always turn 7
+   | (5121:87) Reinforced Protective Wall
+   | Absorb damage when damage >= 300,000 for 99 turns
+ | group:
+   | group:
+   | condition: turns 2-3 while HP > 69
+     | (5114:77) Blizzard Ray
+     | Change the 3rd column to Water orbs, Deal 100% damage
+   | group:
+   | condition: turns 5-6 while HP > 69
+     | (5114:77) Blizzard Ray
+     | Change the 3rd column to Water orbs, Deal 100% damage
+   | group:
+     | (5114:77) Blizzard Ray
+     | Change the 3rd column to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turns 2-3 while HP > 49
+     | (5115:77) Blizzard Ray
+     | Change the 4th column to Water orbs, Deal 120% damage
+   | group:
+   | condition: turns 5-6 while HP > 49
+     | (5115:77) Blizzard Ray
+     | Change the 4th column to Water orbs, Deal 120% damage
+   | group:
+     | (5115:77) Blizzard Ray
+     | Change the 4th column to Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turns 2-3 while HP > 29
+     | (5116:77) Blizzard Ray
+     | Change the 3rd column to Water orbs, Deal 150% damage
+   | group:
+   | condition: turns 5-6 while HP > 29
+     | (5116:77) Blizzard Ray
+     | Change the 3rd column to Water orbs, Deal 150% damage
+   | group:
+     | (5116:77) Blizzard Ray
+     | Change the 3rd column to Water orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turns 2-3 while HP > 14
+     | (5117:77) Blizzard Ray
+     | Change the 4th column to Water orbs, Deal 180% damage
+   | group:
+   | condition: turns 5-6 while HP > 14
+     | (5117:77) Blizzard Ray
+     | Change the 4th column to Water orbs, Deal 180% damage
+   | group:
+     | (5117:77) Blizzard Ray
+     | Change the 4th column to Water orbs, Deal 180% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turns 2-3
+     | (5118:15) Icicle Torture
+     | Deal 1,000% damage (10 hits, 100% each)
+   | group:
+   | condition: turns 5-6
+     | (5118:15) Icicle Torture
+     | Deal 1,000% damage (10 hits, 100% each)
+   | group:
+     | (5118:15) Icicle Torture
+     | Deal 1,000% damage (10 hits, 100% each)

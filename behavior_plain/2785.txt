@@ -1,0 +1,84 @@
+#2785 - Ultimecia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:3884) -> Insolent fools!
+Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 19
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 60, target rnd 16
+
+#10: ESDispel(6:3889) -> Dispel
+Condition: 50% chance (ai:50 rnd:0)
+Voids player buff effects
+
+#11: ESOrbChangeAttack(48:3886) -> Tornado
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Wood orbs, Deal 150% damage
+
+#12: ESPoisonChangeRandomAttack(64:3885) -> Bio
+Condition: 25% chance (ai:0 rnd:25)
+Change 5 random orbs to Poison orbs, Deal 80% damage
+
+#13: ESJammerChangeRandom(13:3887) -> Meltdown
+Condition: 50% chance (ai:0 rnd:50)
+Change 2 random orb types to Jammer orbs, Deal 100% damage
+
+#14: ESBindRandom(1:3888) -> Stop
+Condition: 25% chance (ai:0 rnd:25)
+Bind 1 random card for 1~3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESGravity(50:3891) -> Maelstrom
+Player -60% HP
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#21: ESInactivity66(66:3890) -> Double
+Do nothing
+
+#22: SkillSet:
+	[0] ESOrbChangeAttack(48:3886) -> Tornado
+	Change a random attribute to Wood orbs, Deal 150% damage
+	[1] ESOrbChangeAttack(48:3886) -> Tornado
+	Change a random attribute to Wood orbs, Deal 150% damage
+
+#23: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESInactivity66(66:3892) -> HAHAHA...
+	Do nothing

@@ -1,0 +1,41 @@
+#5470 - 島田亜輝
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealRow(100:14105) -> はしゃぎすぎじゃねェか？
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Seal the 1st row for 5 turns
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 50, target rnd 7
+
+#4: ESDamageShield(74:14107) -> まだまだこれからだぜ
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 3 turns
+
+#5: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 7
+
+#6: ESBindAwoken(88:14108) -> おまえは俺に勝てねェよ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#7: ESRandomSpawn(92:14106) -> いじめるゾこのヤロォ！
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Water orbs, Deal 95% damage
+
+#8: ESAttackMultihit(15:14109) -> このくそっ！
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#9: ESOrbChangeAttack(48:14110) -> ウダウダやってるヒマはねェぞ！
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Dark orbs, Deal 90% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

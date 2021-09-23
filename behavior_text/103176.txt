@@ -1,0 +1,63 @@
+#103176 - Yamitsukami-no-miko, Kaminue
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 103176
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12979:83) Ripening of the Land + Second Hand's Limited Time
+ | Absorb Fire, Water, and Wood damage for 5 turns + Movetime 50% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 33% chance
+     | (12982:83) Landing Ground + Freedom Exploitation
+     | Fire skyfall +20% for 1 turn + Lock all Fire orbs, Deal 130% damage
+     | condition: 50% chance
+     | (12983:83) Landing Ground + Freedom Exploitation
+     | Water skyfall +20% for 1 turn + Lock all Water orbs, Deal 130% damage
+     | (12984:83) Landing Ground + Freedom Exploitation
+     | Wood skyfall +20% for 1 turn + Lock all Wood orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (12982:83) Landing Ground + Freedom Exploitation
+     | Fire skyfall +20% for 1 turn + Lock all Fire orbs, Deal 130% damage
+     | (12983:83) Landing Ground + Freedom Exploitation
+     | Water skyfall +20% for 1 turn + Lock all Water orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (12982:83) Landing Ground + Freedom Exploitation
+     | Fire skyfall +20% for 1 turn + Lock all Fire orbs, Deal 130% damage
+     | (12984:83) Landing Ground + Freedom Exploitation
+     | Wood skyfall +20% for 1 turn + Lock all Wood orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (12991:83) Settling Down + World-Wrecking Rumble
+     | Reduce damage from all sources by 75% for 20 turns + Locked Light and Dark skyfall +100% for 20 turns
+   | group:
+   | condition: turn 2 while HP > 14
+     | condition: 33% chance
+     | (12982:83) Landing Ground + Freedom Exploitation
+     | Fire skyfall +20% for 1 turn + Lock all Fire orbs, Deal 130% damage
+     | condition: 50% chance
+     | (12983:83) Landing Ground + Freedom Exploitation
+     | Water skyfall +20% for 1 turn + Lock all Water orbs, Deal 130% damage
+     | (12984:83) Landing Ground + Freedom Exploitation
+     | Wood skyfall +20% for 1 turn + Lock all Wood orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (12994:88) Tiger Snake Roar
+     | Bind awoken skills for 1 turn
+   | group:
+     | (12995:15) Claw & Fang Double Strike
+     | Deal 600% damage (6 hits, 100% each)

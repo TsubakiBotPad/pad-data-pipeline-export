@@ -1,0 +1,29 @@
+#505982 - Fiendish Assassin, Shivnia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 505982
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23346:83) Eliminate anyone who gets in our way. + Let's see how ya do with no powers!
+ | Spawn 30 random Heal orbs + No skyfall for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (23351:83) Mmnmm... + Hey! Wake up!
+     | Enemy recover 5% HP + Player -30% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (23354:83) What're ya doing Shivy?! + Oh! We're in the middle of a mission...
+     | Deal 100% damage + Jammer skyfall +10% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: 50% chance
+   | (23349:89) How dull.
+   | Delay active skills by 2 turns, Deal 100% damage
+   | (23350:99) You can't run!
+   | Seal the 6th column for 1 turn

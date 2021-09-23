@@ -1,0 +1,96 @@
+#7121 - Demon Summoner, Irene
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:23102) -> Demonic Barrier
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:23103) -> Spinning Smoke Panel
+	Specific orbs change every 1.0s for 10 turns
+	[2] ESSkillDelay(89:23104) -> Chains of Submission
+	Delay active skills by 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 21
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 17
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESSpinnersFixed(110:23216) -> Spinning Smoke Panel
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 9 turns, Deal 100% damage
+
+#7: ESAttackMultihit(15:23217) -> Little Devil Fang
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 150% damage (3 hits, 50% each)
+
+#8: ESAttributeBlock(107:23105) -> Wonder Potion
+Condition: 5% chance (ai:5 rnd:0)
+Unable to match Fire orbs for 1 turn, Deal 95% damage
+
+#9: ESAttributeBlock(107:23106) -> Wonder Potion
+Condition: 5% chance (ai:5 rnd:0)
+Unable to match Water orbs for 1 turn, Deal 95% damage
+
+#10: ESAttributeBlock(107:23107) -> Wonder Potion
+Condition: 5% chance (ai:5 rnd:0)
+Unable to match Wood orbs for 1 turn, Deal 95% damage
+
+#11: ESAttributeBlock(107:23108) -> Wonder Potion
+Condition: 5% chance (ai:5 rnd:0)
+Unable to match Light orbs for 1 turn, Deal 95% damage
+
+#12: ESAttributeBlock(107:23109) -> Wonder Potion
+Condition: 5% chance (ai:5 rnd:0)
+Unable to match Dark orbs for 1 turn, Deal 95% damage
+
+#13: ESDebuffATK(130:23110) -> Wonder Potion
+Condition: 25% chance (ai:25 rnd:0)
+ATK -50% for 1 turn, Deal 100% damage
+
+#14: ESDebuffRCV(105:23111) -> Wonder Potion
+Condition: 50% chance (ai:50 rnd:0)
+RCV 50% for 1 turn, Deal 100% damage
+
+#15: ESAttackMultihit(15:23112) -> Little Devil Fang
+Deal 105% damage (3 hits, 35% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:23210) -> Seal Release
+	Increase damage to 200% for the next 999 turns
+	[1] ESDebuffMovetime(39:23211) -> Wonder Potion
+	Movetime 50% for 99 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESAttackMultihit(15:23114) -> Dark Shadow Fang
+Deal 1,500% damage (5 hits, 300% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESDeathCry(69:23115) -> On death
+Condition: On death (ai:0 rnd:0)
+Show message: I'll show you this guy's power...|A demon appears behind her!
+
+#24: ESResolve(73:23100) -> Resolve
+Survive attacks with 1 HP when HP > 50%

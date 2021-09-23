@@ -1,0 +1,120 @@
+#4353 - Spirit Numen of Water, Zapan
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4353
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9710:72) Water Att. Half Reduced
+ | Reduce damage from Water attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (9710:72) Water Att. Half Reduced
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (9715:83) Overcoat of Grand Style + Explosive Wave + Blowing Dirty Water + Surging Waves
+ | Voids status ailments for 999 turns + Player -99% HP + Change the 1st column to Water, Jammer, and Poison orbs and the 3rd and 4th columns to Water, Jammer, and Poison orbs + Void damage >= 15,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 25% chance
+     | (9716:92) Water Hazard
+     | Spawn 8 random Water orbs, Deal 100% damage
+     | condition: 25% chance
+     | (9717:94) Blizzard Wave
+     | Lock 14 random orbs, Deal 110% damage
+     | condition: 25% chance
+     | (9718:1) Frozen Tentacle
+     | Bind 2 random cards for 1 turn, Deal 105% damage
+     | condition: 25% chance
+     | (9719:15) Frost Hurricane
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+   | condition: turn 5 while HP > 49
+     | (9722:83) Rough Seas + Land Subsidence
+     | Bind active skills for 3 turns + Seal the 5th row for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 5
+     | condition: 25% chance
+     | (9716:92) Water Hazard
+     | Spawn 8 random Water orbs, Deal 100% damage
+     | condition: 25% chance
+     | (9717:94) Blizzard Wave
+     | Lock 14 random orbs, Deal 110% damage
+     | condition: 25% chance
+     | (9718:1) Frozen Tentacle
+     | Bind 2 random cards for 1 turn, Deal 105% damage
+     | condition: 25% chance
+     | (9719:15) Frost Hurricane
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (9737:8) Unleashing the Great Sea
+     | Increase damage to 230% for the next attack
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (9726:83) Untamable Raging Waves + Ocean Current Mayhem + Freeze Wave
+     | Change all orbs to Heal and Poison + RCV 50% for 99 turns + Bind 6 random cards for 10 turns
+   | group:
+   | condition: turn 2 while HP > 9
+     | condition: 50% chance
+     | (9731:83) Heavy Rain + Tidal Wave
+     | Water skyfall +25% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+     | (9732:83) Misery Water + Tidal Wave
+     | Absorb Water damage for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: turn 3 while HP > 9
+     | (9733:83) Wave of Disaster + Tidal Wave
+     | Movetime 50% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: turn 4 while HP > 9
+     | condition: 50% chance
+     | (9731:83) Heavy Rain + Tidal Wave
+     | Water skyfall +25% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+     | (9732:83) Misery Water + Tidal Wave
+     | Absorb Water damage for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (9733:83) Wave of Disaster + Tidal Wave
+     | Movetime 50% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: turn 6 while HP > 9
+     | (9736:83) Ocean Ripple + Depths of the Abyss
+     | Bind awoken skills for 3 turns + Blind all orbs for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | condition: 50% chance
+     | (9731:83) Heavy Rain + Tidal Wave
+     | Water skyfall +25% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+     | (9732:83) Misery Water + Tidal Wave
+     | Absorb Water damage for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | (9733:83) Wave of Disaster + Tidal Wave
+     | Movetime 50% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | condition: 50% chance
+     | (9731:83) Heavy Rain + Tidal Wave
+     | Water skyfall +25% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+     | (9732:83) Misery Water + Tidal Wave
+     | Absorb Water damage for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (9733:83) Wave of Disaster + Tidal Wave
+     | Movetime 50% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (9737:8) Unleashing the Great Sea
+     | Increase damage to 230% for the next attack
+ | group:
+ | condition: hp <= 9
+   | (9738:15) Neo Tidal Wave
+   | Deal 2,400% damage (6 hits, 400% each)

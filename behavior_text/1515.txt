@@ -1,0 +1,40 @@
+#1515 - Cryptic Feline, Kurone
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1515
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16074:83) I wanna play with you. + Oh, don't hurt me!
+ | Reduce damage from all sources by 80% for 5 turns + Bind awoken skills for 1 turn
+ group:
+ | group:
+ | condition: always turn 2
+   | (16081:14) I wanna play more!
+   | Bind active skills for 5 turns, Deal 150% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (16077:109) Here, have this.
+     | Random 3 orbs change every 2.0s for 5 turns
+   | group:
+     | condition: 33% chance
+     | (16082:50) Squeeze!
+     | Player -99% HP
+     | condition: 33% chance
+     | (16083:102) Boom!
+     | Spawn 7 random locked Bomb orbs, Deal 100% damage
+     | condition: 34% chance
+     | (16084:97) Get lost.
+     | Blind random 5~10 orbs for 2 turns, Deal 110% damage
+ | group:
+ | condition: always turn 1, hp <= 79
+   | (16078:83) Hey! That hurt! + Bad children get punished.
+   | Bind awoken skills for 1 turn + Bind 4 random subs for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (16085:15) Ah, that was fun!
+   | Deal 400% damage

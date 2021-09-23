@@ -1,0 +1,41 @@
+#1726 - Awoken Hino Kagutsuchi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 1726
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (2165:73) パッシブ・覚醒カグツチ
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (2166:89) Yomi Wave
+ | Delay active skills by 0~4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2167:92) Divine Hellfire
+     | Spawn 4 random Fire and Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (2169:48) Hell Bolt
+     | Change all Fire orbs to Jammer orbs, Deal 75% damage
+     | condition: 50% chance
+     | (2168:56) Snake God's Venomous Fangs
+     | Change all Dark orbs to Poison orbs, Deal 50% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (2170:1) Snake Eye Curse
+   | Bind 6 random cards for 2 turns
+ | group:
+ | condition: hp <= 29
+   | (2171:15) Serpent King's Annihilating Strike
+   | Deal 4,000% damage (4 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (2172:89) Grudge Howl
+   | Delay active skills by 99 turns

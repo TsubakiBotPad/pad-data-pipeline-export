@@ -1,0 +1,62 @@
+#100205 - Alt. Witch of the Night, Lilith
+monster size: 5
+new AI: True
+start/max counter: 6
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkyfall(68:9120) -> Oh ♪ Welcome
+Heal skyfall +25% for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 17
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESOrbChangeAttack(48:9121) -> I don't need this!
+Change all Light orbs to Jammer orbs, Deal 80% damage
+
+#12: ESOrbChangeAttack(48:9224) -> Don't need this!
+Change all Heal orbs to Poison orbs, Deal 80% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESBoardChangeAttackBits(85:9122) -> Dye it!
+Change all orbs to Dark, Deal 60% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: ESAttackMultihit(15:9123) -> I'm bored of this now
+Deal 180% damage (3 hits, 60% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

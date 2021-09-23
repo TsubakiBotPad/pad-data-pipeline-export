@@ -1,0 +1,43 @@
+#100018 - Alt. Spinas
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100018
+approved: False
+
+level: 4
+ group:
+ | group:
+ | condition: turn 1
+   | (10396:92) Dark Breath
+   | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (10396:92) Dark Breath
+   | Spawn 3 random Dark orbs, Deal 100% damage
+   | (10397:89) Fading Shadow
+   | Delay active skills by 0~2 turns, Deal 95% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10396:92) Dark Breath
+   | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10398:74) Moonlight Protection
+   | Reduce damage from all sources by 50% for 5 turns
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10396:92) Dark Breath
+   | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10399:17) Hidden Ambition
+   | Increase damage to 300% for the next 99 turns
+ | group:
+   | (10400:15) Hell Breath
+   | Deal 140% damage (2 hits, 70% each)

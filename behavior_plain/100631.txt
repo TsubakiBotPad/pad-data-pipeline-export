@@ -1,0 +1,70 @@
+#100631 - Alt. Flame Archdemon Belial
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:9478) -> I'll play around for 3 turns
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Voids status ailments for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAbsorbCombo(67:9479) -> Take this!
+Condition: One-time use (ai:33 rnd:0) (cost: 8)
+Absorb damage when combos <= 7 for 1 turn
+
+#7: ESDebuffMovetime(39:9480) -> Take this!
+Condition: One-time use (ai:50 rnd:0) (cost: 8)
+Movetime 50% for 1 turn
+
+#8: ESSpinnersRandom(109:9481) -> Take this!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Random 3 orbs change every 1.0s for 1 turn
+
+#9: ESAbsorbCombo(67:9482) -> How about this?!
+Condition: One-time use (ai:33 rnd:0) (cost: 4)
+Absorb damage when combos <= 7 for 1 turn
+
+#10: ESDebuffMovetime(39:9483) -> How about this?!
+Condition: One-time use (ai:50 rnd:0) (cost: 4)
+Movetime 50% for 1 turn
+
+#11: ESSpinnersRandom(109:9484) -> How about this?!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Random 3 orbs change every 1.0s for 1 turn
+
+#12: ESAbsorbCombo(67:9485) -> I'll end this now!
+Condition: One-time use (ai:33 rnd:0) (cost: 2)
+Absorb damage when combos <= 7 for 1 turn
+
+#13: ESDebuffMovetime(39:9486) -> I'll end this now!
+Condition: One-time use (ai:50 rnd:0) (cost: 2)
+Movetime 50% for 1 turn
+
+#14: ESSpinnersRandom(109:9487) -> I'll end this now!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Random 3 orbs change every 1.0s for 1 turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:9488) -> Damn, time's up
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:9489) -> Devil Chariot's Fearsome Volley
+	Deal 400% damage (4 hits, 100% each)
+
+#16: ESAttackMultihit(15:9489) -> Devil Chariot's Fearsome Volley
+Deal 400% damage (4 hits, 100% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

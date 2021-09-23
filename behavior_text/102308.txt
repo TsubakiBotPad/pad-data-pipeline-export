@@ -1,0 +1,28 @@
+#102308 - Alt. Furi
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 102308
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14494:20) I'm scared...
+ | Voids status ailments for 999 turns
+ group:
+ | (14495:74) I'm frightened....
+ | Reduce damage from all sources by 50% for 1 turn
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | (14496:101) A helpful gust of wind
+ | Fix orb movement starting point to random position on the board, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (14497:67) You angered me!
+   | Absorb damage when combos <= 9 for 10 turns
+ | group:
+   | (14498:15) Windmill
+   | Deal 240% damage (4 hits, 60% each)

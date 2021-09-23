@@ -1,0 +1,33 @@
+#5458 - 天性のクライマー・小野田坂道
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 5458
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14118:39) 競争しよう
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (14119:109) 回転数30上げます!!
+   | Random 2 orbs change every 1.0s for 1 turn
+ | group:
+ | condition: turn 2
+   | (14120:110) 回れぇぇぇ!!
+   | Specific orbs change every 0.5s for 2 turns
+ | group:
+ | condition: turn 3
+   | (14121:92) ラブリーチャンスペタンコチャン♪
+   | Spawn 6 random Wood orbs
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (14122:17) ヒメはヒメなの ハイ!!
+   | Increase damage to 150% for the next 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (14123:15) ヒメなのだ!!
+   | Deal 80% damage

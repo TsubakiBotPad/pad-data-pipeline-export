@@ -1,0 +1,36 @@
+#106206 - V + Shadow + Griffon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106206
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (17704:130) Little wanderer, hie thee home.
+ | ATK -50% for 10 turns, Deal 90% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (17729:83) Shadow Combo + Blockade
+     | Deal 60% damage (3 hits, 20% each) + Change the 2nd and 5th columns to Dark orbs, Deal 60% damage (3 hits, 20% each)
+     | (17730:83) Arbiter + Double Check
+     | Deal 40% damage + Change the 2nd and 4th rows to Dark orbs, Deal 40% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (17731:83) Hedgehog + Round Robin
+     | Blind all orbs on the board + Change a random attribute to Dark orbs, Deal 50% damage
+     | (17732:83) Bayonet + Bullet
+     | Change a random attribute to Jammer orbs + Deal 60% damage (4 hits, 15% each), Deal 45% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (17741:15) Royal Fork
+   | Deal 160% damage (4 hits, 40% each)
+ | group:
+ | condition: hp <= 9
+   | (17742:15) Checkmate
+   | Deal 250% damage

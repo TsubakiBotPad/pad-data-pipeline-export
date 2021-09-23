@@ -1,0 +1,72 @@
+#6474 - Scathach
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6474
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19061:129) Super Resolve
+ | Damage which would reduce HP from above 90% to below 90% is nullified
+ type: PREEMPT
+ | (19062:83) Shadowland Armor + Phantom Wind Pressure + Time for some special training! + Try to chip away at my stamina
+ | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns + Absorb Fire, Water, and Wood damage for 1 turn + Fire, Water, Wood, and Heal skyfall +100% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | (19067:83) Your training is lacking + I'll make a fighter out of you! + Come at me!
+     | For 99 turns, 20% chance for skyfall orbs to be blinded for turn + Absorb Light and Dark damage for 1 turn + Reduce damage from all sources by 75% for 999 turns
+   | group:
+     | condition: 20% chance
+     | (19074:83) Shadow Queen's Ingenuity + Gáe Bulg
+     | Absorb Fire and Water damage for 1 turn + RCV 25% for 1 turn, Deal 90% damage
+     | condition: 20% chance
+     | (19075:83) Shadow Queen's Ingenuity + Dún Scáith
+     | Absorb Wood and Light damage for 1 turn + Delay active skills by 2~3 turns, Deal 100% damage
+     | condition: 20% chance
+     | (19076:83) Shadow Queen's Ingenuity + Dún Scáith
+     | Absorb Fire and Light damage for 1 turn + Delay active skills by 2~3 turns, Deal 100% damage
+     | condition: 20% chance
+     | (19077:83) Shadow Queen's Ingenuity + Gáe Bulg
+     | Absorb Water and Dark damage for 1 turn + Change a random attribute to Dark orbs, Deal 95% damage
+     | condition: 20% chance
+     | (19078:83) Shadow Queen's Ingenuity + Gáe Bulg
+     | Absorb Wood and Dark damage for 1 turn + Change a random attribute to Dark orbs, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 89
+   | (19071:83) Not too shabby... + Now the fight really begins! + Come at me!
+   | Do nothing + Absorb Light and Dark damage for 1 turn + Reduce damage from all sources by 75% for 999 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (19087:83) No holding back! + Shadow Queen's Ingenuity + Storm of Spears
+     | Increase damage to 250% for the next 999 turns + Absorb Wood and Dark damage for 1 turn + Specific orbs change every 1.0s for 10 turns
+   | group:
+     | condition: 20% chance
+     | (19090:83) Shadow Queen's Ingenuity + Dún Scáith
+     | Absorb Fire and Water damage for 1 turn + Delay active skills by 3~4 turns, Deal 100% damage
+     | condition: 20% chance
+     | (19091:83) Shadow Queen's Ingenuity + Gáe Bulg
+     | Absorb Wood and Light damage for 1 turn + Change all Heal orbs to Wood orbs, Deal 95% damage
+     | condition: 20% chance
+     | (19092:83) Shadow Queen's Ingenuity + Gáe Bulg
+     | Absorb Fire and Light damage for 1 turn + Enemy recover 10% HP, Deal 90% damage
+     | condition: 20% chance
+     | (19093:83) Shadow Queen's Ingenuity + Dún Scáith
+     | Absorb Water and Dark damage for 1 turn + Delay active skills by 3~4 turns, Deal 100% damage
+     | condition: 20% chance
+     | (19094:83) Shadow Queen's Ingenuity + Gáe Bulg
+     | Absorb Wood and Dark damage for 1 turn + Change all Heal orbs to Wood orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (19099:88) This is the end for you
+     | Bind awoken skills for 5 turns
+   | group:
+     | (19098:83) Here I come! + Deadly Magic Spear - Gáe Bulg
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 6,000% damage (3 hits, 2,000% each), Deal 6,000% damage (3 hits, 2,000% each)

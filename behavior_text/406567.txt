@@ -1,0 +1,60 @@
+#406567 - Yahaba & Susamaru
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 406567
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20118:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (20119:83) See anything? + I can see them.
+ | Player -5% HP + Change the 5th row to Fire orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (20177:83) How will we kill them? + Brutally of course!
+     | Blind random 1 orbs for 1 turn + Player -5% HP
+   | group:
+   | condition: turn 2 while HP > 49
+     | (20042:50) So the demon slayer with the earrings...
+     | Player -10% HP
+   | group:
+   | condition: turn 3 while HP > 49
+     | (20110:83) Kya haha! + Isn't this fun? + What fun this is!
+     | Do nothing + Change the 1st column to Fire orbs + Change the 6th column to Dark orbs
+   | group:
+     | condition: 50% chance
+     | (20127:50) It's dirty play!
+     | Player -5% HP
+     | (20030:15) You stay away from me!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20180:83) Now then, let's keep playing. + Until morning comes! + Until you die!
+     | Random 1 orbs change every 1.0s for 1 turn + Do nothing + Player -5% HP
+   | group:
+   | condition: turn 2
+     | (20124:99) It's all going the way I want it to!
+     | Seal the 1st column for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 3
+     | (20125:100) You got dirt on my face!
+     | Seal the 1st row for 1 turn, Deal 110% damage
+   | group:
+   | condition: turn 4
+     | (20131:50) You sure are interesting...little girl!
+     | Player -5% HP
+   | group:
+   | condition: turn 5
+     | (20132:17) This time, I'll throw the mari with my full strength!
+     | Increase damage to 110% for the next 999 turns
+   | group:
+     | (20126:15) Kya haha!
+     | Deal 100% damage (2 hits, 50% each)

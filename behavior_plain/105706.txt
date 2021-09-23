@@ -1,0 +1,47 @@
+#105706 - 清洲リュウジ＆Ｎ７００Ａのぞみ アドバンスドモード
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:15172) -> チェンジ、シンカリオン！
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:15274) -> いくぞ！
+	A 6×2 rectangle of clouds appears for 4 turns at a random location
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESOrbSealColumn(99:15275) -> まだまだだ！
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Seal the 1st column for 3 turns
+
+#9: ESAttackUPRemainingEnemies(17:15276) -> 勝つためには俺は命を賭す
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 300% for the next 5 turns
+
+#10: ESInactivity66(66:15176) -> それが俺の流儀だ！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#11: ESOrbChangeAttackBits(108:15177) -> ドラゴンナックル
+Change all Fire, Water, and Wood orbs to Water orbs, Deal 90% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,49 @@
+#302283 - Paradise Celeb, Hera-Is
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 302283
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3142:20) You're on vacation, take a rest.
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | condition: when 1531, 1532 on team
+   | (3149:55) I'm so happy you came!
+   | Player recover 100% HP
+   | (3143:14) It's a bit cold, but do you want a drink?
+   | Bind active skills for 2~3 turns
+ | group:
+   | condition: 90% chance
+   | (3144:92) A cold wave washes over you
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 19
+     | (3145:1) You'll freeze this close to me.
+     | Bind 3 random cards for 2 turns
+   | group:
+     | condition: 70% chance
+     | (3146:92) A cold wind blows
+     | Spawn 4 random Water orbs, Deal 120% damage
+     | condition: 90% chance
+     | (3144:92) A cold wave washes over you
+     | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (3147:50) Absolute Zero Summer
+     | Player -100% HP
+   | group:
+     | (3170:15) A blizzard rages
+     | Deal 210% damage (3 hits, 70% each)
+ type: UNKNOWN_USE
+ | (3151:89) Hey, who's that girl?
+ | Delay active skills by 99 turns

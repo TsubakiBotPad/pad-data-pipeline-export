@@ -1,0 +1,30 @@
+#104760 - Kamui
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 104760
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 4765 on team
+ | (11019:89) You're acting too arrogant towards me!
+ | Delay active skills by 0~2 turns
+ | (11066:75) Stand down. I'm enjoying myself right now.
+ | Leader changes to random sub for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (11020:15) You're in the way. Move.
+   | Deal 120% damage (2 hits, 60% each)
+   | condition: 33% chance
+   | (11021:68) I'll kill you.
+   | Fire and Dark skyfall +20% for 3 turns
+   | condition: 34% chance
+   | (11022:63) Sorry, but I won't let anyone ruin my fun.
+   | Bind 1 random sub for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (11023:15) I want nothing to do with weaklings.
+   | Deal 240% damage (4 hits, 60% each)

@@ -1,0 +1,92 @@
+#6578 - Monstrous Mystic, Bull Demon King
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:19913) -> Mystic Armor
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:19914) -> Tempered Armor
+	Absorb damage when damage >= 200,000,000 for 999 turns
+	[2] ESAttributeBlock(107:19915) -> Eternal Flame
+	Unable to match Jammer orbs for 99 turns
+	[3] ESDamageShield(74:19916) -> Ashen Flame-Wreathed Armor
+	Reduce damage from all sources by 75% for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 16
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSpinnersFixed(110:19918) -> Revolving Rotation
+	Specific orbs change every 1.0s for 5 turns
+	[1] ESAttributeBlock(107:19969) -> Eternal Flame
+	Unable to match Jammer orbs for 5 turns
+	[2] ESSkyfall(68:19919) -> Blazing Ashes
+	Jammer skyfall +25% for 4 turns
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESGravity(50:19924) -> Blazing Onslaught
+	Player -75% HP
+	[1] ESAttackMultihit(15:19925) -> Twin Clubs' Barrage
+	Deal 80% damage (4 hits, 20% each)
+
+#10: ESSkillDelay(89:19926) -> Iron Clubs of Ice and Fire
+Condition: 50% chance (ai:0 rnd:50)
+Delay active skills by 1~2 turns, Deal 160% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:19921) -> Monstrous Strength
+	Increase damage to 150% for the next 999 turns
+	[1] ESAbsorbCombo(67:19922) -> Aura of the Strong
+	Absorb damage when combos <= 5 for 999 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 19
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: SkillSet:
+	[0] ESBindAwoken(88:19928) -> Power Decay
+	Bind awoken skills for 3 turns
+	[1] ESDebuffMovetime(39:19929) -> Stolen Light
+	Movetime 25% for 3 turns
+
+#19: SkillSet:
+	[0] ESChangeAttribute(46:19931) -> Fluctuating Flame Armor
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:19932) -> Twin Clubs' Blazing Onslaught
+	Deal 4,000% damage (8 hits, 500% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

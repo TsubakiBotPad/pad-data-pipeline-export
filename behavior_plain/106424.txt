@@ -1,0 +1,82 @@
+#106424 - Alt. Deadly Sin Dragon King of Gluttony, Majeh
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 4
+
+#3: ESDebuffMovetime(39:18873) -> Tainted Indulgence
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -2s for 5 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:18927) -> Tainted Indulgence
+	Movetime 50% for 5 turns
+	[1] ESRandomSpawn(92:18879) -> Bad Manners
+	Spawn 15 random Jammer orbs
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 17
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESOrbChangeAttack(48:18854) -> Stale Breath
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:18855) -> Wild Bite
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESGravity(50:18875) -> Devouring Inhalation
+	Player -99% HP
+	[1] ESOrbLock(94:18876) -> Belch Blast
+	Lock all orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 26, target rnd 7
+
+#15: ESBoardChangeAttackBits(85:18880) -> Unfettered Gluttony
+Change all orbs to Jammer, Deal 300% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 15
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:18878) -> Voracity
+	Enemy recover 10% HP
+	[1] ESRandomSpawn(92:18879) -> Bad Manners
+	Spawn 15 random Jammer orbs
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSuperResolve(129:18693) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

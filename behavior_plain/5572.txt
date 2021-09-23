@@ -1,0 +1,40 @@
+#5572 - Misfortunate Handsome Swordsman, Ukyo Tachibana
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:23933) -> ......Forgive me.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 7 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 8
+
+#4: ESAttackMultihit(15:14631) -> Concealed Sabre Snowfall Slash
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (5 hits, 21% each)
+
+#5: ESColumnSpawnMulti(77:14632) -> Concealed Sabre Swallow Swipe
+Condition: 33% chance (ai:0 rnd:33)
+Change the 5th column to Fire and Water orbs, Deal 100% damage
+
+#6: ESSpinnersRandom(109:14633) -> Concealed Sabre Phantom Strike
+Condition: 33% chance (ai:0 rnd:33)
+Random 1 orbs change every 1.0s for 1 turn, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:14635) -> Eightfold Path of Gloom
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Deal 250% damage (10 hits, 25% each)
+
+#9: ESRandomSpawn(92:14634) -> 6 Swallow Flash
+Spawn 3 random Fire and Water orbs, Deal 220% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

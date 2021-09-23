@@ -1,0 +1,52 @@
+#7811 - ジェダイ・マスター・オビ＝ワン・ケノービ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESColumnSpawnMulti(76:27833) -> もう終わりだ、私が有利な地を抑えた
+	Change the 1st column to Fire orbs and the 6th column to Fire orbs
+	[1] ESRowSpawnMulti(78:27834) -> 暗黒卿に心をゆがめる隙を与え…
+	Change the 1st row to Fire orbs and the 5th row to Fire orbs
+	[2] ESAbsorbAttribute(53:27835) -> 倒す筈だった存在そのものになり果てた
+	Absorb Fire and Light damage for 3 turns, Deal 50% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	[0] ESDebuffRCV(105:27837) -> 弟だと思っていたのに！
+	RCV 25% for 1 turn
+	[1] ESGravity(50:27838) -> フォース・プッシュ
+	Player -99% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: SkillSet:
+	[0] ESOrbChangeAttackBits(108:27840) -> 愛していたのに！
+	Change all Heal orbs to Light orbs, Deal 20% damage
+	[1] ESAttackMultihit(15:27841) -> 切りつける
+	Deal 105% damage (3 hits, 35% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

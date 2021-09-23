@@ -1,0 +1,40 @@
+#101195 - Alt. Moonlit Shadow, Hattori Hanzo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 101195
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1774:72) Halve Light
+ | Reduce damage from Light attrs by 50%
+ | (19451:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (19452:83) Intruder... + ...Destroy
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1966:79) Slash
+     | Change the 3rd row to Dark orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1967:84) Shadow Concealment Technique
+     | Change all orbs to Jammer
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (1968:17) Blood of Iga
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (1966:79) Slash
+     | Change the 3rd row to Dark orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | (1969:79) Moon Cutting Circle
+   | Change the 2nd row to Dark orbs and the 4th row to Dark orbs, Deal 300% damage

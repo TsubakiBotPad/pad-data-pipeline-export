@@ -1,0 +1,21 @@
+#500585 - Pixie
+monster size: 1
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESEndBattle(40:23336) -> They wander off somewhere...
+Condition: When < 50% HP (ai:100 rnd:0)
+Reduce self HP to 0
+
+#2: ESRandomSpawn(92:23266) -> Fairies' Mischief
+Spawn 3 random Jammer orbs, Deal 100% damage
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSuperResolve(129:23335) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#5: ESTurnChangePassive(106:23341) -> !
+Enemy turn counter change to 1 when HP <= 50%

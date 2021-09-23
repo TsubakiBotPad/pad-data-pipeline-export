@@ -1,0 +1,68 @@
+#407527 - 花御
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESInactivity66(66:26789) -> Please die and become sages.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Do nothing
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESRowSpawnMulti(79:26760) -> Roots
+Condition: 25% chance (ai:0 rnd:25)
+Change the 5th row to Wood orbs, Deal 100% damage
+
+#6: ESColumnSpawnMulti(77:26761) -> Wooden Ball
+Condition: 25% chance (ai:0 rnd:25)
+Change the 3rd and 4th columns to Wood orbs, Deal 95% damage
+
+#7: ESOrbLock(94:26762) -> Cursed Bud
+Condition: 25% chance (ai:0 rnd:25)
+Lock all Wood orbs, Deal 110% damage
+
+#8: ESBoardChangeAttackBits(85:26763) -> Flower Field
+Condition: 25% chance (ai:0 rnd:25)
+Change all orbs to Fire, Light, Dark, and Heal, Deal 120% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:26626) -> I should take you...
+	Increase damage to 150% for the next 999 turns
+	[1] ESDamageShield(74:26627) -> ...somewhat seriously.
+	Reduce damage from all sources by 50% for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESRandomSpawn(92:26632) -> My delight in this battle...
+	Spawn 5 random Wood, Dark, and Jammer orbs
+	[1] ESAttackMultihit(15:26633) -> ...isn't waning!
+	Deal 300% damage (3 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:26788) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#17: ESDeathCry(69:26634) -> I'm withdrawing.
+Condition: On death (ai:0 rnd:0)
+Show death effect

@@ -1,0 +1,34 @@
+#402896 - Alt. Infernal Ice Demon's Frozen Horn, Agni
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 402896
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4545:72) Wood & Light Halven
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (13685:83) Clash + Viparyaya
+ | Player -100% HP + Leader changes to random sub for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (4541:15) Rampage
+     | Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (4542:77) Wild Frozen Poison
+     | Change the 2nd and 5th columns to Water, Dark, and Poison orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 34
+   | group:
+   | condition: turn 1
+     | (4543:89) Roar
+     | Delay active skills by 2~4 turns
+   | group:
+     | (4544:15) Paryavasaanam
+     | Deal 1,800% damage (6 hits, 300% each)

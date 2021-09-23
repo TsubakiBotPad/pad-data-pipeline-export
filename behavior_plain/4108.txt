@@ -1,0 +1,47 @@
+#4108 - Takuma Sakazaki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:19701) -> I won't let myself lose to anyone.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 30% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 8
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAbsorbCombo(67:19703) -> I see you!
+Absorb damage when combos <= 5 for 4 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESColumnSpawnMulti(77:19702) -> Shourankyaku
+Condition: 50% chance (ai:50 rnd:0)
+Change the 4th column to Light orbs, Deal 90% damage
+
+#9: ESAttackMultihit(15:19704) -> Mouko Burai Gan
+Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPRemainingEnemies(17:19705) -> It's over!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#12: ESAttackMultihit(15:19706) -> Ryuuko Ranbu
+Deal 80% damage (8 hits, 10% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

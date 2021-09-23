@@ -1,0 +1,39 @@
+#3867 - Pixel Empress of Serpents, Echidna
+monster size: 4
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 3867
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16313:89) Menace
+ | Delay active skills by 3~6 turns
+ group:
+ | condition: 50% chance
+ | (16321:50) Crimson Dance
+ | Player -75% HP
+ | (16317:15) Final Blow
+ | Deal 80% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (16314:83) Healing Prayer + Menace
+   | Enemy ally recover 50% HP + Delay active skills by 3~6 turns
+ | group:
+ | condition: turn 2
+   | (16315:83) Crimson Dance + Final Blow
+   | Player -25% HP + Deal 80% damage, Deal 80% damage
+ | group:
+ | condition: turn 3
+   | (16318:83) Crimson Dance + Final Blow
+   | Player -50% HP + Deal 80% damage, Deal 80% damage
+ | group:
+ | condition: turn 4
+   | (16320:83) Crimson Dance + Final Blow
+   | Player -75% HP + Deal 80% damage, Deal 80% damage
+ | group:
+   | (16322:83) Crimson Dance + Final Blow
+   | Player -99% HP + Deal 80% damage, Deal 80% damage

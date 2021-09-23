@@ -1,0 +1,37 @@
+#204790 - Alt. Witch of Escaping the Summer, Werewolfie
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESFixedStart(101:14275) -> Take your time!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Fix orb movement starting point to random position on the board
+
+#5: ESRandomSpawn(92:10865) -> I'll give you only one!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 1 random Heal orb, Deal 100% damage
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 9
+
+#7: ESRandomSpawn(92:10866) -> I said only one!
+Spawn 3 random Jammer orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:10867) -> Coconut Slash
+Deal 120% damage (3 hits, 40% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

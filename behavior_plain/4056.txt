@@ -1,0 +1,88 @@
+#4056 - Black Calamity Goddess of Power, Kali
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:19001) -> Dance of the Goddess
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:19002) -> Mahavidya
+	Reduce damage from all sources by 99% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 17
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:19011) -> Dark Sky's Destructive Dance
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESAttackMultihit(15:19015) -> Mahasukha-Kamala
+	Deal 6,000% damage (6 hits, 1,000% each)
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 80, target rnd 15
+
+#10: ESAttackUPRemainingEnemies(17:19014) -> Released Chakra
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#11: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:19011) -> Dark Sky's Destructive Dance
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESDebuffRCV(105:19007) -> Nirmanakaya
+	RCV 50% for 1 turn, Deal 90% damage
+
+#12: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:19011) -> Dark Sky's Destructive Dance
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESOrbLock(94:19008) -> Dharmakaya
+	Lock all orbs, Deal 100% damage
+
+#13: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESChangeAttribute(46:19011) -> Dark Sky's Destructive Dance
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESSkillDelay(89:19009) -> Sambhogakaya
+	Delay active skills by 2~3 turns, Deal 95% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:19003) -> Muladhara
+Deal 6,000% damage (6 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: ESAbsorbThreshold(87:19013) -> Demonic Ethereal Dance
+Absorb damage when damage >= 3,000,000 for 999 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSuperResolve(129:19010) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

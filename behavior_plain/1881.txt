@@ -1,0 +1,60 @@
+#1881 - Twin Blade Brave, Shotel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:9519) -> Dance of the Stronghold
+	Reduce damage from all sources by 90% for 1 turn
+	[1] ESStatusShield(20:9520) -> Hero's Pride
+	Voids status ailments for 6 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESChangeAttribute(46:9522) -> Style Change
+	Change own attribute to Wood
+	[1] ESAttributeBlock(107:9523) -> Fire Chain
+	Unable to match Fire orbs for 2 turns
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESColumnSpawnMulti(77:9530) -> Twin Blade Dance
+Condition: 70% chance when < 40% HP (ai:70 rnd:0)
+Change the 1st, 2nd, and 3rd columns to Fire orbs and the 4th, 5th, and 6th columns to Wood orbs, Deal 180% damage
+
+#7: ESColumnSpawnMulti(77:9525) -> Flame Sword
+Condition: 50% chance (ai:50 rnd:0)
+Change the 1st column to Fire orbs, Deal 130% damage
+
+#8: ESRandomSpawn(92:9526) -> Wind Sword
+Spawn 5 random Wood orbs, Deal 130% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAbsorbThreshold(87:9527) -> Dance of Aggression
+	Absorb damage when damage >= 4,000,000 for 5 turns
+	[1] ESGravity(50:9528) -> Axe Kick
+	Player -99% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTypeResist(118:9531) -> Heal Half Reduced
+Reduce damage from Healer types by 50%

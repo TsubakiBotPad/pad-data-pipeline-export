@@ -1,0 +1,70 @@
+#2191 - Frost-Fanged CyberBeast, Alfecca
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:3705) -> Arctic Coating
+	Voids status ailments for 5 turns
+	[1] ESBoardChange(84:3704) -> Frozen Ground
+	Change all orbs to Water, Wood, Light, and Dark
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESOrbChangeAttack(48:3710) -> Auto Sweeper
+Change all Jammer orbs to Water orbs, Deal 300% damage
+
+#7: ESOrbChangeAttack(48:3711) -> Auto Freezer
+Change all Poison orbs to Water orbs, Deal 250% damage
+
+#8: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRowSpawnMulti(79:3715) -> Blizzard All Signal
+	Change the 1st, 2nd, 3rd, 4th, 5th, and 6th rows to Water orbs, Deal 600% damage
+	[1] ESRecoverEnemy7(7:3714) -> Metal Repair
+	Enemy recover 76% HP
+
+#9: ESRowSpawnMulti(79:3715) -> Blizzard All Signal
+Condition: When < 20% HP (ai:100 rnd:0)
+Change the 1st, 2nd, 3rd, 4th, 5th, and 6th rows to Water orbs, Deal 600% damage
+
+#10: SkillSet:
+	Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:3712) -> Sapphire Drive
+	Absorb Water damage for 3 turns
+	[1] ESColumnSpawnMulti(77:3713) -> Blizzard Double Signal
+	Change the 5th and 6th columns to Water orbs, Deal 160% damage
+
+#11: SkillSet:
+	Condition: 20% chance (ai:20 rnd:0)
+	[0] ESColumnSpawnMulti(77:3706) -> Blizzard Signal
+	Change the 6th column to Water orbs, Deal 100% damage
+	[1] ESBlind5(5:3709) -> Steam Release
+	Blind all orbs on the board
+
+#12: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESColumnSpawnMulti(77:3706) -> Blizzard Signal
+	Change the 6th column to Water orbs, Deal 100% damage
+	[1] ESPoisonChangeRandomCount(60:3708) -> Toxic Gas Cloud
+	Change 3 random orbs (excluding hearts) to Poison orbs
+
+#13: SkillSet:
+	[0] ESColumnSpawnMulti(77:3706) -> Blizzard Signal
+	Change the 6th column to Water orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:3707) -> Scattered Clump of Earth
+	Spawn 3 random Jammer orbs
+
+#14: ESResolve(73:3703) -> Alfecca Resolve
+Survive attacks with 1 HP when HP > 76%

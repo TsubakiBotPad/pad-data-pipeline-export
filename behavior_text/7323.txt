@@ -1,0 +1,39 @@
+#7323 - Commanding Hibiscus Starfairy, Rosalyn
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7323
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24353:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24354:83) En garde! + Ready yourself! + Take my crimson flame!
+ | Voids status ailments for 999 turns + Void damage >= 20,000,000 for 999 turns + Change all orbs to Fire, Deal 150% damage
+ group:
+ | group:
+   | (24358:94) Summer Red Riposte
+   | Lock all orbs, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24361:83) Kyaah! + I won't forgive you for this!
+   | Movetime 20% for 5 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (24364:83) Are you ready? + This is the end for you!
+     | Reduce damage from all sources by 75% for 999 turns + Bind awoken skills for 5 turns
+   | group:
+     | (24367:92) Red Star Fleuret
+     | Spawn 20 random Fire orbs, Deal 600% damage
+ type: UNKNOWN_USE
+ | condition: 50% chance
+ | (24360:89) Flaming En Rompant
+ | Delay active skills by 4~6 turns, Deal 105% damage
+ | condition: 50% chance
+ | (24359:15) Brilliant Flèche
+ | Deal 110% damage (2 hits, 55% each)

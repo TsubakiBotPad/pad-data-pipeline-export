@@ -1,0 +1,27 @@
+#401087 - Alt. Green Dragon Fruit
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 5
+
+#3: ESAttackUPCooldown(19:25353) -> Looks like it's awake
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#4: ESBoardChangeAttackBits(85:25354) -> Green Strike
+Change all orbs to Wood, Deal 100% damage
+
+#5: ESInactivity66(66:25358) -> It's snoring peacefully
+Do nothing
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESResolve(73:25359) -> Resolve
+Survive attacks with 1 HP when HP > 50%

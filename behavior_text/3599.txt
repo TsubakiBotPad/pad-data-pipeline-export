@@ -1,0 +1,25 @@
+#3599 - Enoch
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3599
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14477:83) Saint's Robe + Heaven's Will + Staff of Destiny
+ | Voids status ailments for 999 turns + Change leader to [4264] for 1 turn + Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Mortal Poison orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (14480:74) Sanctuary
+   | Reduce damage from all sources by 75% for 99 turns
+ | group:
+ | condition: execute repeatedly, turn 1-5 of 6
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 6 of 6
+   | (14481:15) Rizentbard
+   | Deal 100,000% damage (10 hits, 10,000% each)

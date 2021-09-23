@@ -1,0 +1,35 @@
+#106319 - 切島鋭児郎
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 106319
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18510:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18445:74) I'm a hard man!!
+ | Reduce damage from all sources by 50% for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18447:15) RAARGH!!!
+   | Deal 100% damage
+   | (18448:92) You'll never beat me!!
+   | Spawn 5 random Wood orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18446:71) Red Riot Unbreakable
+     | Void damage >= 1,000,000 for 3 turns
+   | group:
+     | (18449:92) Red Gauntlet
+     | Spawn 6 random Fire orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 1
+   | (18511:92) Red Gauntlet
+   | Spawn 10 random Fire orbs, Deal 160% damage

@@ -1,0 +1,41 @@
+#106320 - トゥワイス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffRCV(105:18423) -> How sad...
+	RCV 50% for 5 turns
+	[1] ESAttackMultihit(15:18424) -> I'm getting pumped!
+	Deal 80% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESBlind62(62:18422) -> I'm just doing what I want.
+Condition: 50% chance (ai:50 rnd:0)
+Blind all orbs on the board, Deal 80% damage
+
+#5: ESAttackMultihit(15:18425) -> I'll destroy anyone I don't like.
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:18427) -> I'll never forgive you!
+	Increase damage to 150% for the next 5 turns
+	[1] ESStatusShield(20:18428) -> It's a pleasure to meet you.
+	Voids status ailments for 999 turns
+
+#8: ESRandomSpawn(92:18429) -> I'll kill you.
+Spawn 3 random Wood and Dark orbs, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

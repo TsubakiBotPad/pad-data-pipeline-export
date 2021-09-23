@@ -1,0 +1,32 @@
+#7730 - ヒム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7730
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28092:129) ＿ヒム超根性
+ | Damage which would reduce HP from above 20% to below 20% is nullified
+ type: PREEMPT
+ | (28093:74) オレは誇り高きハドラー様の配下！
+ | Reduce damage from all sources by 95% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (28094:71) 我が身を傷つけるには至らん
+     | Void damage >= 5,000,000 for 1 turn
+   | group:
+     | condition: 50% chance
+     | (28095:15) ファッハッハッハッ…！
+     | Deal 140% damage (4 hits, 35% each)
+     | condition: 50% chance
+     | (28096:77) 真っ向から受けて立つわ!!
+     | Change the 1st column to Light orbs and the 6th column to Dark orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 19
+   | (28097:40) ハッハッハッハッ…!!
+   | Reduce self HP to 0

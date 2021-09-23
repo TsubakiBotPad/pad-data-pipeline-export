@@ -1,0 +1,47 @@
+#4068 - Patissiere of the Sanctuary, Cockatrice
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchCard(90:8601) -> ESBranchCard
+Branch on player_cards HAS [789, 790, 2404, 3122], target rnd 8
+
+#7: ESInactivity66(66:8598) -> ♪
+Do nothing
+
+#8: ESDebuffRCV(105:8597) -> Resonance of Cockatrice
+RCV 200% for 5 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 80% chance (ai:80 rnd:0)
+Deal 100% damage
+
+#11: ESBindRandomSub(65:8599) -> Whip Bind
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 1 random sub for 2 turns
+
+#12: ESCloud(104:8600) -> Sweet Temptation
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+A 2×1 rectangle of clouds appears for 1 turn at a random location
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,53 @@
+#2575 - Ancient Fire Dragon, Anomalocaris
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSkyfall(68:3614) -> Crimson Cambria
+Fire skyfall +15% for 99 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:3613) -> Wind-Up Full Throttle
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#9: ESDamageShield(74:3619) -> Sensing Danger
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 1 turn
+
+#10: ESAttackMultihit(15:3615) -> Enraged Tentacles Annihilation
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 300% damage
+
+#11: ESOrbChangeAttack(48:3616) -> Target Predation - Water
+Condition: 50% chance (ai:0 rnd:50)
+Change all Water orbs to Jammer orbs, Deal 100% damage
+
+#12: ESOrbChangeAttack(48:3618) -> Target Predation - Heal
+Condition: 20% chance (ai:0 rnd:20)
+Change all Heal orbs to Jammer orbs, Deal 120% damage
+
+#13: ESRandomSpawn(92:3617) -> Red Whip
+Condition: 30% chance (ai:0 rnd:30)
+Spawn 4 random Fire orbs, Deal 120% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

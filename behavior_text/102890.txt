@@ -1,0 +1,90 @@
+#102890 - Alt. Heaven Winged Machine, Seraphis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 102890
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4477:72) Robot Dark Halven
+ | Reduce damage from Dark attrs by 50%
+ | (4480:73) Robot Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (4283:83) Heaven's Armor + Limited Barrier + Electromagnetic Field
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 5 turns + Locked random skyfall +15% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 25% chance
+     | (4284:94) Shock Ray
+     | Lock 3 random orbs, Deal 120% damage
+     | condition: 25% chance
+     | (4285:92) Flash Bomb
+     | Spawn 3 random Light orbs, Deal 120% damage
+     | condition: 25% chance
+     | (4286:39) Machine Glare
+     | Movetime -1s for 1 turn, Deal 120% damage
+     | condition: 25% chance
+     | (4287:66) Gathering magical power
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 25% chance
+     | (4291:66) Full Charge
+     | Do nothing
+     | condition: 25% chance
+     | (4288:89) Suppressive Wave
+     | Delay active skills by 0~3 turns, Deal 140% damage
+     | condition: 25% chance
+     | (4289:67) Ordeal Section
+     | Absorb damage when combos <= 6 for 1 turn, Deal 140% damage
+     | condition: 25% chance
+     | (4290:68) Jamming
+     | Jammer skyfall +20% for 1 turn, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 60% chance
+     | (4292:15) Steel Wing
+     | Deal 180% damage (3 hits, 60% each)
+     | (4293:63) Paralysis Sight
+     | Bind 1 random card for 3 turns, Deal 170% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 25% chance
+     | (4287:66) Gathering magical power
+     | Do nothing
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (4295:17) Awaken Force
+     | Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | condition: 25% chance
+     | (4284:94) Shock Ray
+     | Lock 3 random orbs, Deal 120% damage
+     | condition: 25% chance
+     | (4285:92) Flash Bomb
+     | Spawn 3 random Light orbs, Deal 120% damage
+     | condition: 25% chance
+     | (4286:39) Machine Glare
+     | Movetime -1s for 1 turn, Deal 120% damage
+     | condition: 25% chance
+     | (4287:66) Gathering magical power
+     | Do nothing
+ | group:
+ | condition: hp <= 19
+   | (4296:15) Limit Break
+   | Deal 800% damage (2 hits, 400% each)
+ | group:
+ | condition: hp <= 1
+   | (4479:83) Holy Repair + Limit Break
+   | Enemy recover 19% HP + Deal 800% damage (2 hits, 400% each), Deal 800% damage (2 hits, 400% each)
+ type: UNKNOWN_USE
+ | (4294:15) Core Full Burst
+ | Deal 520% damage (4 hits, 130% each)

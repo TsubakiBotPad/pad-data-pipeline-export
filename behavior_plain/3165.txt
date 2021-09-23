@@ -1,0 +1,39 @@
+#3165 - Evil Eyed the Great Last Romanov
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlindStickySkyfall(128:24932) -> Spell Cast from the Graveyard
+	For 2 turns, 20% chance for skyfall orbs to be blinded for turn
+	[1] ESNoSkyfall(127:24931) -> Miraculous Plague
+	No skyfall for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 7
+
+#5: ESAttackMultihit(15:24934) -> Double Breaker
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#8: SkillSet:
+	[0] ESBlindStickySkyfall(128:24932) -> Spell Cast from the Graveyard
+	For 2 turns, 20% chance for skyfall orbs to be blinded for turn
+	[1] ESDebuffATK(130:24935) -> Magic Shot - Romanov Strike
+	ATK -50% for 3 turns, Deal 200% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

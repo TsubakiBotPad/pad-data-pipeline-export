@@ -1,0 +1,36 @@
+#1307 - Awoken Wadatsumi
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:1081) -> Ocean Vestments
+Absorb damage when combos <= 4 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESJammerChangeRandom(13:1084) -> Father Sea's Curse
+Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change 3 random orb types to Jammer orbs
+
+#7: ESAttackMultihit(15:1085) -> Sea God's Strike
+Condition: When < 25% HP (ai:100 rnd:0)
+Deal 400% damage
+
+#8: ESOrbChangeAttack(48:1082) -> Ocean Blade
+Condition: 50% chance (ai:50 rnd:0)
+Change all Wood orbs to Water orbs, Deal 100% damage
+
+#9: ESOrbChangeAttack(48:1083) -> Blessing & Curse of the Sacred Waters
+Condition: 70% chance (ai:70 rnd:0)
+Change all Water orbs to Heal orbs, Deal 150% damage

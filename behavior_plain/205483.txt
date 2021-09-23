@@ -1,0 +1,226 @@
+#205483 - Golden Gauntleted Destructor, Brahma
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSetCounter(25:15) -> ESSetCounter
+counter = 10
+
+#5: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESStatusShield(20:14197) -> Kakup Ahvaani Sarga
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:14200) -> Purusha's Intent
+	Reduce damage from all sources by 50% for 4 turns
+	[2] ESSpinnersFixed(110:14202) -> Paruri Uarteen
+	Specific orbs change every 2.0s for 4 turns
+	[3] ESDispel(6:14198) -> Right hand illuminates in brilliant blue
+	Voids player buff effects
+
+#6: ESSetCounter(25:15) -> ESSetCounter
+counter = 20
+
+#7: SkillSet:
+	[0] ESStatusShield(20:14197) -> Kakup Ahvaani Sarga
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:14201) -> Tolar Pulari
+	Void damage >= 30,000,000 for 4 turns
+	[2] ESSpinnersFixed(110:14203) -> Paruri Uarteen
+	Specific orbs change every 2.0s for 4 turns
+	[3] ESGravity(50:14199) -> Left hand illuminates in radiant red
+	Player -99% HP
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 49
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 44
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 24, target rnd 31
+
+#13: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 14, target rnd 31
+
+#14: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 35
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 40
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 20, target rnd 26
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 21
+
+#18: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESBindSkill(14:14209) -> Asu Barjana
+	Bind active skills for 3 turns, Deal 40% damage
+
+#19: SkillSet:
+	[0] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESBindAttack(63:14211) -> Sanskarla Suruchi
+	Bind 2 random cards for 3 turns, Deal 50% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESDebuffRCV(105:14213) -> Pululatiyaahol Appanee
+Condition: One-time use (ai:25 rnd:0) (cost: 1)
+RCV 50% for 1 turn, Deal 100% damage
+
+#22: ESDebuffMovetime(39:14214) -> Kaala Appanee
+Condition: One-time use (ai:33 rnd:0) (cost: 1)
+Movetime 50% for 1 turn, Deal 100% damage
+
+#23: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESOrbChangeAttack(48:14208) -> Apu Tara
+	Change a random attribute to Fire orbs, Deal 45% damage
+
+#24: SkillSet:
+	[0] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESBindSkill(14:14209) -> Asu Barjana
+	Bind active skills for 3 turns, Deal 40% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESDebuffRCV(105:14213) -> Pululatiyaahol Appanee
+Condition: One-time use (ai:25 rnd:0) (cost: 1)
+RCV 50% for 1 turn, Deal 100% damage
+
+#27: ESDebuffMovetime(39:14214) -> Kaala Appanee
+Condition: One-time use (ai:33 rnd:0) (cost: 1)
+Movetime 50% for 1 turn, Deal 100% damage
+
+#28: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESOrbChangeAttack(48:14210) -> Agni Taara
+	Change a random attribute to Fire orbs, Deal 45% damage
+
+#29: SkillSet:
+	[0] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESBindAttack(63:14211) -> Sanskarla Suruchi
+	Bind 2 random cards for 3 turns, Deal 50% damage
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#32: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 34
+
+#33: SkillSet:
+	[0] ESAbsorbCombo(67:14256) -> Lost 5th Face
+	Absorb damage when combos <= 6 for 4 turns
+	[1] ESNoSkyfall(127:14217) -> Earth Shattering Roar
+	No skyfall for 4 turns
+
+#34: SkillSet:
+	[0] ESAbsorbCombo(67:14216) -> Lost 5th Face
+	Absorb damage when combos <= 7 for 4 turns
+	[1] ESNoSkyfall(127:14217) -> Earth Shattering Roar
+	No skyfall for 4 turns
+
+#35: ESSetCounter(25:15) -> ESSetCounter
+counter = 10
+
+#36: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESDamageShield(74:14200) -> Purusha's Intent
+	Reduce damage from all sources by 50% for 4 turns
+	[1] ESSpinnersFixed(110:14202) -> Paruri Uarteen
+	Specific orbs change every 2.0s for 4 turns
+	[2] ESDispel(6:14198) -> Right hand illuminates in brilliant blue
+	Voids player buff effects
+
+#37: ESSetCounter(25:15) -> ESSetCounter
+counter = 20
+
+#38: SkillSet:
+	[0] ESVoidShield(71:14201) -> Tolar Pulari
+	Void damage >= 30,000,000 for 4 turns
+	[1] ESSpinnersFixed(110:14203) -> Paruri Uarteen
+	Specific orbs change every 2.0s for 4 turns
+	[2] ESGravity(50:14199) -> Left hand illuminates in radiant red
+	Player -99% HP
+
+#39: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#40: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#41: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#42: SkillSet:
+	[0] ESBindAwoken(88:14221) -> Samasta Aavok Akshaan
+	Bind awoken skills for 7 turns
+	[1] ESSkyfallLocked(96:14222) -> Paraag Bhakti
+	Locked random skyfall +50% for 99 turns
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#44: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 47
+
+#45: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#46: SkillSet:
+	[0] ESAttributeBlock(107:14225) -> Exemplar
+	Unable to match Heal orbs for 1 turn
+	[1] ESSkillDelay(89:14224) -> Prajnaparamita
+	Delay active skills by 6 turns
+
+#47: ESAttackMultihit(15:14226) -> Santaana Dorilita Muushti
+Deal 4,000% damage (8 hits, 500% each)
+
+#48: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#49: SkillSet:
+	[0] ESRecoverEnemy86(86:14228) -> Kanaka Anda
+	Enemy recover 50% HP
+	[1] ESAttackUPRemainingEnemies(17:14229) -> Jargal Ojas
+	Increase damage to 200% for the next 999 turns
+	[2] ESAttackMultihit(15:14212) -> Uttarlotaarla Abeebhan
+	Deal 60% damage (4 hits, 15% each)
+
+#50: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#51: ESResolve(73:14194) -> Resolve
+Survive attacks with 1 HP when HP > 50%

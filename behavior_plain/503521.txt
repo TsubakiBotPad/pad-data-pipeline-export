@@ -1,0 +1,39 @@
+#503521 - Holy War Chronicler, Mito
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESNoSkyfall(127:16838) -> Let's begin the search!
+	No skyfall for 99 turns
+	[1] ESSkyfall(68:16837) -> Take care of anything that gets in my way!
+	Light and Heal skyfall +100% for 99 turns
+	[2] ESRandomSpawn(92:16836) -> We'll start here first!
+	Spawn 12 random Light, Heal, and Jammer orbs
+
+#3: ESOrbChangeAttack(48:16834) -> There're still some left!
+Change all Jammer orbs to Light orbs, Deal 100% damage
+
+#4: ESRandomSpawn(92:16833) -> Okaaay! Keep it up!
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Spawn 12 random Light, Heal, and Jammer orbs
+
+#5: ESRandomSpawn(92:16832) -> Here's next!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 12 random Light, Heal, and Jammer orbs
+
+#6: ESRandomSpawn(92:16831) -> Is this where it was?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 11 random Light, Heal, and Jammer orbs
+
+#7: ESRandomSpawn(92:16830) -> This is the last place it could be...
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 11 random Light, Heal, and Jammer orbs
+
+#8: ESEndBattle(40:16829) -> Thanks for your help!
+Reduce self HP to 0

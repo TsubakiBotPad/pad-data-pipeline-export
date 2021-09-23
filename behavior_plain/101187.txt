@@ -1,0 +1,57 @@
+#101187 - Alt. Dark Sprite, Cattleya
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBlindStickyFixed(98:5474) -> Affectionate Brush Strokes
+Blind orbs in specific positions for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSkyfall(68:5477) -> Book of Wonders♪
+Condition: When < 25% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Poison skyfall +20% for 1 turn
+
+#9: ESRandomSpawn(92:5478) -> Secret Chest
+Condition: When < 25% HP (ai:100 rnd:0)
+Spawn 6 random Poison orbs, Deal 200% damage
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESGravity(50:5476) -> Destructive Writing
+Player -99% HP
+
+#13: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#14: ESOrbChangeAttack(48:5475) -> Dark Spirit's Writing
+Change a random attribute to Dark orbs, Deal 80% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESRandomSpawn(92:5479) -> Tee-hee!
+	Spawn 3 random Mortal Poison orbs

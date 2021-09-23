@@ -1,0 +1,29 @@
+#7804 - ルーク・スカイウォーカー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7804
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27750:83) 準備はできています + ぼくは恐れません
+ | Reduce damage from all sources by 90% for 2 turns + Absorb damage when combos <= 7 for 2 turns, Deal 75% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (27753:83) やってみます + 信じられません
+   | Random 1 orbs change every 1.0s for 1 turn + Lock 15 random orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (27756:92) フォース・プッシュ
+   | Spawn 5 random Light orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (27757:107) テレパシー
+   | Unable to match Light orbs for 1 turn, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (27758:77) 切りつける
+   | Change the 6th column to Light orbs, Deal 110% damage

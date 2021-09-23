@@ -1,0 +1,46 @@
+#3154 - Cosmo Crusader
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3154
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5374:72) Robot Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (5353:55) Heilung Licht
+ | Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5354:92) Angriff
+     | Spawn 3 random Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 20% chance
+     | (5355:53) Verteidigung
+     | Absorb Fire damage for 2 turns
+     | condition: 20% chance
+     | (5356:53) Verteidigung
+     | Absorb Water damage for 2 turns
+     | condition: 20% chance
+     | (5357:53) Verteidigung
+     | Absorb Wood damage for 2 turns
+     | condition: 20% chance
+     | (5358:53) Verteidigung
+     | Absorb Light damage for 2 turns
+     | condition: 20% chance
+     | (5359:53) Verteidigung
+     | Absorb Dark damage for 2 turns
+ | group:
+ | condition: always turn 1, hp <= 69
+   | (5360:97) Beleuchten
+   | Blind random 8 orbs for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (5361:77) Sieg Speer
+   | Change the 3rd and 4th columns to Light orbs, Deal 300% damage

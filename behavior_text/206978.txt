@@ -1,0 +1,70 @@
+#206978 - 全知全能・サノス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206978
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22571:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22660:83) I am Thanos, the Almighty! + The answer is simple...
+ | Do nothing + Do nothing
+
+level: 4
+ type: PASSIVE
+ | (22571:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22648:83) I am Thanos, the Almighty! + What do I do with all of this power? + The answer is simple... + Whatever I want!
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 3 turns + Absorb damage when combos <= 7 for 3 turns + Deal 150% damage, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (22559:126) The Universe will now be set right.
+     | Change board size to 7x6 for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (22558:94) Made over to fit my unique view of what should be.
+     | Lock all orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (22561:62) Let Nihilism reign supreme!
+     | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22656:83) My divinity is absolute! + Come and fight me!
+     | Reduce damage from all sources by 75% for 5 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 20% chance
+     | (22565:107) I shall exterminate all who annoy me!
+     | Unable to match Fire orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22566:107) I shall exterminate all who annoy me!
+     | Unable to match Water orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22567:107) I shall exterminate all who annoy me!
+     | Unable to match Wood orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22568:107) I shall exterminate all who annoy me!
+     | Unable to match Light orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22569:107) I shall exterminate all who annoy me!
+     | Unable to match Dark orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (22653:83) I am incapable of failure. + I fear nothing.
+     | Bind awoken skills for 3 turns + Delay active skills by 3 turns
+   | group:
+     | (22560:6) *Snap*
+     | Voids player buff effects
+     | (22659:15) HA HA HA HA HA!!
+     | Deal 3,000% damage (3 hits, 1,000% each)

@@ -1,0 +1,49 @@
+#5099 - Karin Kanzuki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5099
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22900:105) I'll show you the divide in our class!
+ | RCV 50% for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (22901:50) Hajotsui
+   | Player -30% HP
+   | condition: 25% chance
+   | (22904:92) Fudo Sosho
+   | Spawn 2 random Fire and Light orbs, Deal 80% damage
+   | condition: 25% chance
+   | (22902:15) Ku-Renge
+   | Deal 110% damage (2 hits, 55% each)
+   | condition: 25% chance
+   | (22903:15) Meioken
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22906:67) Oh-hohohoho!
+     | Absorb damage when combos <= 5 for 5 turns, Deal 90% damage
+   | group:
+     | condition: 25% chance
+     | (22905:75) Yasha Gaeshi
+     | Leader changes to random sub for 1 turn
+     | condition: 25% chance
+     | (22907:92) Kanzuki-Ryu Guren No Kata
+     | Spawn 4 random Fire orbs, Deal 100% damage
+     | condition: 25% chance
+     | (22908:92) Kanzuki-Ryu Tenha No Kata
+     | Spawn 5 random Light orbs, Deal 100% damage
+     | condition: 25% chance
+     | (22909:15) Mujinkyaku
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | (22910:15) Kanzuki-Ryu Hadorokushiki Hasha No Kata
+   | Deal 200% damage (5 hits, 40% each)

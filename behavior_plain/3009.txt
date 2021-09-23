@@ -1,0 +1,34 @@
+#3009 - Giselle and Giant Dokuro
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:5050) -> Dokuro's Divine Protection
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRandomSpawn(92:5052) -> Dokuro Crisis
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Spawn 3 random Poison orbs, Deal 80% damage
+
+#9: ESAttackMultihit(15:5051) -> Dokuro Attack
+Deal 100% damage (2 hits, 50% each)

@@ -1,0 +1,52 @@
+#4804 - Rising Dragon Caller, Omega
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4804
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4796, 4797 on team
+ | (11163:97) Huh, oh, Suou?!...
+ | Blind all orbs for 10 turns
+ | (11162:97) W-Well, you can't get through!...
+ | Blind all orbs for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 24
+     | (11164:83) G-Go back! + It's d-d-dangerous!
+     | Poison skyfall +15% for 10 turns + RCV 50% for 10 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11168:108) P-Please be patient!
+     | Change all Poison orbs to Heal orbs, Deal 150% damage
+     | condition: 50% chance
+     | (11167:92) B-Be careful!
+     | Spawn 3 random Heal and Mortal Poison orbs
+     | condition: 50% chance
+     | (11123:15) S-Sorry!
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (11167:92) B-Be careful!
+     | Spawn 3 random Heal and Mortal Poison orbs
+     | condition: 50% chance
+     | (11123:15) S-Sorry!
+     | Deal 100% damage
+ | group:
+ | condition: turn 2 while HP > 24, hp <= 49
+   | (11169:83) Go away! + I hate p-pain...
+   | Change the 1st column to Mortal Poison orbs and the 6th column to Heal orbs + Reduce damage from all sources by 50% for 99 turns
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (11172:84) Any more of it and...
+     | Change all orbs to Heal
+   | group:
+     | (11173:85) Oh stop it already!
+     | Change all orbs to Mortal Poison, Deal 100% damage

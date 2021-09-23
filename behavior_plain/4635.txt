@@ -1,0 +1,285 @@
+#4635 - Healing Goddess of the Dark Blades, Eir
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESInvulnerableOn(119:10450) -> Let's start the medical examination
+	Immune to damage from all sources for 999 turns
+	[1] ESStatusShield(20:10451) -> First, do 3 puzzles for me, will you?
+	Voids status ailments for 999 turns
+	[2] ESRandomSpawn(92:10452) -> Aim for at least 8 combos!
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[3] ESBlindStickyRandom(97:10453) -> Darkness...
+	Blind random 4 orbs for 1 turn
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 8
+
+#6: ESSetCounter(25:15) -> ESSetCounter
+counter = 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRandomSpawn(92:10455) -> The second one...
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESCloud(104:10456) -> Some Clouds...
+	A 1×3 rectangle of clouds appears for 1 turn at a random location
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 2
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRandomSpawn(92:10455) -> The second one...
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESCloud(104:10456) -> Some Clouds...
+	A 1×3 rectangle of clouds appears for 1 turn at a random location
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 16
+
+#14: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRandomSpawn(92:10458) -> Aaaand the third one...
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESSpinnersRandom(109:10459) -> Orb change!
+	Random 2 orbs change every 1.0s for 1 turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRandomSpawn(92:10458) -> Aaaand the third one...
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[1] ESSpinnersRandom(109:10459) -> Orb change!
+	Random 2 orbs change every 1.0s for 1 turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 22
+
+#21: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#22: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 33
+
+#23: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 34
+
+#24: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 35
+
+#25: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 48
+
+#26: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 42
+
+#27: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 30
+
+#28: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 31
+
+#29: ESBranchCounter(30:20) -> ESBranchCounter
+Branch on counter <= 0, target rnd 32
+
+#30: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESSpinnersRandom(109:10463) -> You seem to hate changing Orbs
+	Random 4 orbs change every 1.0s for 15 turns
+	[2] ESVoidShield(71:10471) -> Let's overcome this!
+	Void damage >= 20,000,000 for 30 turns
+
+#31: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESCloud(104:10464) -> You seem to hate Clouds
+	A 2×3 rectangle of clouds appears for 15 turns at a random location
+	[2] ESVoidShield(71:10472) -> Let's overcome this!
+	Void damage >= 20,000,000 for 30 turns
+
+#32: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESCloud(104:10465) -> You seem to hate changing Orbs & Clouds
+	A 1×2 rectangle of clouds appears for 15 turns at 3rd row, 2nd column
+	[2] ESSpinnersFixed(110:10473) -> Bring it together
+	Specific orbs change every 1.0s for 15 turns
+	[3] ESVoidShield(71:10479) -> Let's overcome this!
+	Void damage >= 20,000,000 for 30 turns
+
+#33: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESBlindStickyRandom(97:10466) -> You seem to hate Darkness
+	Blind random 8 orbs for 15 turns
+	[2] ESVoidShield(71:10474) -> Let's overcome this!
+	Void damage >= 20,000,000 for 30 turns
+
+#34: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESBlindStickyFixed(98:10467) -> You seem to hate Dark & changing Orbs
+	Blind orbs in specific positions for 15 turns
+	[2] ESSpinnersFixed(110:10475) -> Bring it together
+	Specific orbs change every 1.0s for 15 turns
+	[3] ESVoidShield(71:10479) -> Let's overcome this!
+	Void damage >= 20,000,000 for 30 turns
+
+#35: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESBlindStickyFixed(98:10468) -> You seem to hate Darkness & Clouds
+	Blind orbs in specific positions for 15 turns
+	[2] ESCloud(104:10476) -> Bring it together
+	A 2×1 rectangle of clouds appears for 15 turns at 2nd row, 2nd column
+	[3] ESVoidShield(71:10479) -> Let's overcome this!
+	Void damage >= 20,000,000 for 30 turns
+
+#36: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:10496) -> That's all for now!
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:10497) -> Please come again!
+	Deal 12,000% damage (2 hits, 6,000% each)
+
+#37: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:10493) -> You're in great condition!
+	Do nothing
+	[1] ESDebuffMovetime(39:10494) -> I'm going to mess with you a little
+	Movetime -2s for 5 turns
+
+#38: ESBindAttack(63:10488) -> Anesthetic Injection
+Condition: 20% chance (ai:20 rnd:0)
+Bind 1 random sub for 3 turns, Deal 320% damage
+
+#39: ESOrbLock(94:10490) -> Stitches
+Condition: 50% chance (ai:50 rnd:0)
+Lock 3 random orbs, Deal 330% damage
+
+#40: ESAttackMultihit(15:10489) -> Seven Scalpel Cuts
+Deal 340% damage (2 hits, 170% each)
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESAbsorbCombo(67:10462) -> That is excellent!
+	Absorb damage when combos <= 7 for 30 turns
+	[2] ESSkillDelay(89:10470) -> You look fine even without skills
+	Delay active skills by 99 turns
+
+#43: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:10496) -> That's all for now!
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:10497) -> Please come again!
+	Deal 12,000% damage (2 hits, 6,000% each)
+
+#44: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:10493) -> You're in great condition!
+	Do nothing
+	[1] ESDebuffMovetime(39:10494) -> I'm going to mess with you a little
+	Movetime -2s for 5 turns
+
+#45: ESRandomSpawn(92:10491) -> Eir Effect
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 6 random Fire, Water, Wood, Light, Heal, Jammer, and Mortal Poison orbs, Deal 340% damage
+
+#46: ESRandomSpawn(92:10492) -> Eir Effect
+Spawn 6 random Fire, Water, Wood, Dark, Heal, Jammer, and Mortal Poison orbs, Deal 340% damage
+
+#47: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#48: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:10461) -> The examination is over!
+	Remove damage immunity effect
+	[1] ESDamageShield(74:10500) -> My goodness!
+	Reduce damage from all sources by 75% for 5 turns
+	[2] ESVoidShield(71:10469) -> You need a little checkup
+	Void damage >= 20,000,000 for 30 turns
+	[3] ESSkillDelay(89:10477) -> Lay down over there please!
+	Delay active skills by 99 turns
+
+#49: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:10496) -> That's all for now!
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:10497) -> Please come again!
+	Deal 12,000% damage (2 hits, 6,000% each)
+
+#50: ESOrbSealRow(100:10499) -> Time to sleep!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Seal the 1st and 5th rows for 5 turns
+
+#51: ESBlindStickyRandom(97:10501) -> Get used to the dark!
+Condition: 20% chance (ai:0 rnd:20)
+Blind random 5 orbs for 1 turn, Deal 330% damage
+
+#52: ESCloud(104:10502) -> Get used to the Clouds!
+Condition: 20% chance (ai:0 rnd:20)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 330% damage
+
+#53: ESSpinnersRandom(109:10503) -> Get used to the changing Orbs!
+Condition: 20% chance (ai:0 rnd:20)
+Random 3 orbs change every 1.0s for 1 turn, Deal 330% damage
+
+#54: ESOrbLock(94:10490) -> Stitches
+Condition: 20% chance (ai:0 rnd:20)
+Lock 3 random orbs, Deal 330% damage
+
+#55: ESAttackMultihit(15:10489) -> Seven Scalpel Cuts
+Condition: 20% chance (ai:0 rnd:20)
+Deal 340% damage (2 hits, 170% each)
+
+#56: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#57: ESResolve(73:10478) -> Eir Resolve
+Survive attacks with 1 HP when HP > 50%

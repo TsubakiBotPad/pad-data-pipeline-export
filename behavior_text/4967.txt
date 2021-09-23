@@ -1,0 +1,29 @@
+#4967 - ムリカベ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4967
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11918:83) がっちりガード + オレを越えるのは　ムーリー！
+ | Reduce damage from all sources by 50% for 5 turns + Bind 2 random subs for 2 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (11921:15) ムリッ！
+   | Deal 110% damage
+   | condition: 40% chance
+   | (11922:48) その効果は　ム～リィ～ッ！
+   | Change a random attribute to Wood orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (11923:100) 動かすのは　ム～リ～！
+     | Seal the 1st row for 2 turns
+   | group:
+     | (11924:15) ムゥ～リィ～！！
+     | Deal 150% damage

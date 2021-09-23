@@ -1,0 +1,34 @@
+#207723 - ザボエラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207723
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26859:129) ＿ザボエラ超根性
+ | Damage which would reduce HP from above 20% to below 20% is nullified
+ type: PREEMPT
+ | (26860:100) キィ～ッヒッヒッヒッヒ～ッ!!
+ | Seal the 5th row for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (26861:108) 死ねいっ!!
+   | Change all Heal orbs to Dark orbs, Deal 100% damage
+   | condition: 33% chance
+   | (26862:94) キヒッ！
+   | Lock all Dark and Jammer orbs
+   | condition: 34% chance
+   | (26863:68) 目ざわりじゃっ！
+   | Jammer skyfall +15% for 1 turn
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (26864:83) 永遠の眠りにつくがいい…！ + ザラキ!!!
+   | Do nothing + RCV 25% for 5 turns
+ | group:
+ | condition: hp <= 19
+   | (26867:40) モシャス
+   | Reduce self HP to 0

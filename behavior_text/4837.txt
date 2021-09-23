@@ -1,0 +1,33 @@
+#4837 - Heavenly Sky Almighty God, Zeus - Giga
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 4837
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20013:83) Protection of the Gods + Raging Thunder's Might + Divine King's Intimidating Air + Almighty God's Majesty
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 20 for 10 turns + ATK -50% for 10 turns + Voids player buff effects
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (20020:15) Divine King's Imperial Lightning
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (20018:83) Divine King's Changing Cloak + Divine King's Imperial Lightning
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 120% damage (2 hits, 60% each), Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: turns 6-9 while HP > 9
+     | (20020:15) Divine King's Imperial Lightning
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+     | (20024:83) Divine King's Wave + Divine King's Imperial Lightning
+     | Bind awoken skills for 1 turn + Deal 10,000% damage (2 hits, 5,000% each), Deal 10,000% damage (2 hits, 5,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (20021:83) Almighty God's Fighting Spirit + Divine King's Lightning Cloak
+   | Increase damage to 150% for the next 99 turns + Reduce damage from all sources by 75% for 999 turns

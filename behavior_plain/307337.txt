@@ -1,0 +1,54 @@
+#307337 - Vacuous Dionaea Darkfairy, Ornaea
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:24221) -> Watch yourself around me!
+	Locked random skyfall +25% for 5 turns
+	[1] ESOrbLock(94:24222) -> I'm going to trap you!
+	Lock all orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbLock(94:24225) -> Stinging Hair Shears
+Condition: 33% chance (ai:0 rnd:33)
+Lock 10 random orbs, Deal 80% damage
+
+#6: ESBindRandom(1:24223) -> Ensnare
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random card for 2 turns, Deal 70% damage
+
+#7: ESAttackMultihit(15:24224) -> Snaring Thorn Shears
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (2 hits, 50% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESJammerChangeRandom(13:24226) -> I'm going to dissolve you!
+Change 2 random orb types to Jammer orbs
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:24227) -> Plant Needles
+Deal 200% damage (4 hits, 50% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

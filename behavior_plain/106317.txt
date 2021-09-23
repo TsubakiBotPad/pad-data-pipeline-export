@@ -1,0 +1,30 @@
+#106317 - 飯田天哉
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:18455) -> I will walk the path of a hero.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Lock all orbs
+
+#3: ESDebuffMovetime(39:18456) -> Fight!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Movetime 50% for 3 turns, Deal 80% damage
+
+#4: ESColumnSpawnMulti(77:18457) -> Recipro Burst
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 1st column to Fire orbs, Deal 80% damage
+
+#5: ESGravity(50:18458) -> I'll defeat you!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -75% HP
+
+#6: ESColumnSpawnMulti(77:18459) -> Recipro Extend
+Change the 4th column to Wood orbs and the 5th column to Fire orbs, Deal 115% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

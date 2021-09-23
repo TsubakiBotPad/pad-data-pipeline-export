@@ -1,0 +1,31 @@
+#2010 - Awoken Isis
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2010
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23759:83) Holy Ocean's Guidance + Abyss of the Nile + Quick Guard
+ | Voids status ailments for 999 turns + Void damage >= 20,000,000 for 999 turns + Reduce damage from all sources by 75% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (23763:83) Holy Ocean's Awakening + Rapids of the Nile
+     | Jammer skyfall +20% for 20 turns + RCV 25% for 5 turns
+   | group:
+   | condition: turns 2-5 while HP > 9
+     | (23768:108) Burning Life Wave
+     | Change all Jammer orbs to Poison orbs, Deal 190% damage
+     | (23769:83) Drifting Impurities + Congelation
+     | Change a random attribute to Jammer orbs + Lock all Jammer orbs, Deal 30% damage
+   | group:
+     | (23772:85) Overflowing Abyss
+     | Change all orbs to Water, Deal 400% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (23766:83) Holy Ocean's Awakening + Rapids of the Nile
+   | Jammer skyfall +20% for 20 turns + ATK -75% for 5 turns

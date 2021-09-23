@@ -1,0 +1,34 @@
+#1309 - Golden Fox Spirit, Wolyafa
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESNone(0:0) -> ESNone
+nothing
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindSkill(14:1051) -> Wide Silence
+Bind active skills for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESGravity(50:1050) -> Hammerfall
+Condition: When < 25% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#9: ESAttackMultihit(15:1049) -> Rush Attack
+Condition: 70% chance when < 75% HP (ai:70 rnd:0)
+Deal 120% damage (3 hits, 40% each)

@@ -1,0 +1,41 @@
+#2577 - Ancient Flame Dragon, Ammonite
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2577
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (3658:74) Shell Seclusion
+ | Reduce damage from all sources by 50% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 34% chance
+     | (3659:92) Three Hearts Clutch
+     | Spawn 3 random Heal orbs, Deal 130% damage
+     | condition: 33% chance
+     | (3660:94) Seven Ties Tentacle
+     | Lock 7 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+     | condition: 33% chance
+     | (3760:92) Nine Flames Breath
+     | Spawn 9 random Fire orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (3658:74) Shell Seclusion
+     | Reduce damage from all sources by 50% for 1 turn
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (3761:92) Incandescent Ocean
+   | Change all orbs to Fire
+ | group:
+ | condition: hp <= 9
+   | (3663:50) Full Spiral
+   | Player -100% HP
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (3613:17) Wind-Up Full Throttle
+ | Increase damage to 200% for the next 999 turns

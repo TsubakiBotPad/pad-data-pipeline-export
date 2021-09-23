@@ -1,0 +1,61 @@
+#304358 - Firespike Hell Beast, Manticore
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 304358
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9517:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (9518:106) Enemy's next turn changed in anger
+ | Enemy turn counter change to 1 when HP <= 20%
+ type: PREEMPT
+ | (9502:83) Crimson Giant + Underworld Charity + Swirling Fire
+ | Absorb damage when combos <= 7 for 10 turns + Movetime 150% for 10 turns + Random 1 orbs change every 1.5s for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (9508:83) Excited State + Thornwing Attack
+     | Voids status ailments for 4 turns + Blind all orbs on the board, Deal 210% damage
+   | group:
+   | condition: turns 2-4 while HP > 49
+     | condition: 50% chance
+     | (9509:92) Poison Spear
+     | Spawn 3 random Poison orbs, Deal 220% damage
+     | (9510:15) Green Thrashing Claws
+     | Deal 240% damage (4 hits, 60% each)
+   | group:
+   | condition: turn 5
+     | (9505:83) Swoop Shot + Hardened Wings
+     | Leader changes to random sub for 10 turns + Void damage >= 5,000,000 for 10 turns
+   | group:
+     | condition: 50% chance
+     | (9509:92) Poison Spear
+     | Spawn 3 random Poison orbs, Deal 220% damage
+     | (9510:15) Green Thrashing Claws
+     | Deal 240% damage (4 hits, 60% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (9511:104) Eruption
+   | A 2×3 rectangle of clouds appears for 4 turns at 2nd row, 3rd column, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 3
+     | (9512:100) Heat Wave
+     | Seal the 1st and 5th rows for 2 turns
+   | group:
+   | condition: turn 4
+     | (9513:15) Demon Fury Attack
+     | Deal 1,200% damage (10 hits, 120% each)
+   | group:
+     | (9513:15) Demon Fury Attack
+     | Deal 1,200% damage (10 hits, 120% each)
+ | group:
+ | condition: hp <= 1
+   | (9516:83) Self Healing + Flare up
+   | Enemy recover 50% HP + Increase damage to 120% for the next 99 turns

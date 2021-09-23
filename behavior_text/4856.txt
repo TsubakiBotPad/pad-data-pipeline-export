@@ -1,0 +1,37 @@
+#4856 - Black Swordsman, Kirito
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4856
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11501:83) Ok, who's next? + Ok then. Let's finish it.
+ | Absorb damage when combos <= 5 for 5 turns + Movetime -3s for 5 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (11504:15) Move!
+   | Deal 120% damage (2 hits, 60% each)
+   | condition: 33% chance
+   | (11505:77) Haaaaaaaa!
+   | Change the 1st column to Water orbs and the 6th column to Dark orbs, Deal 100% damage
+   | condition: 33% chance
+   | (11506:79) Haaargh!
+   | Change the 1st row to Water orbs and the 5th row to Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11507:88) This isn't some in-game duel.
+   | Bind awoken skills for 2 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (11508:83) Oh, crap! + This will take forever...
+     | Blind all orbs on the board + Lock all orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (11511:83) Not yet... + Starburst...Stream!
+     | Increase damage to 150% for the next 1 turn + Deal 200% damage (8 hits, 25% each), Deal 200% damage (8 hits, 25% each)

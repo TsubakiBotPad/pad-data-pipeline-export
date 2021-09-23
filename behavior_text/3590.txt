@@ -1,0 +1,79 @@
+#3590 - Illusion Reaper Mechanical Star God, Hamal
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3590
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26188:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ | (26220:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (26204:83) The stars look so beautiful! + Let's make a wish...
+ | Voids status ailments for 999 turns + Absorb Water and Dark damage for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (26216:83) Mechanical Star God's Caprice + Meteor Charge - Dark
+     | Absorb damage when combos <= 6 for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26218:83) Mechanical Star God's Vitality + Meteor Charge - Dark
+     | Spawn 10 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 7 while HP > 19
+     | (26105:83) Sudden Change of Weather + Tearful Rain of Sadness
+     | No skyfall for 7 turns + For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+   | group:
+     | condition: 50% chance
+     | (26216:83) Mechanical Star God's Caprice + Meteor Charge - Dark
+     | Absorb damage when combos <= 6 for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26218:83) Mechanical Star God's Vitality + Meteor Charge - Dark
+     | Spawn 10 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (26208:83) Aries' Splitting Mechanical Star + Mechanical Star God's Mischief + Milky Way's Miracle
+     | Bind awoken skills for 1 turn + Change the 1st row to Poison orbs and the 5th row to Poison orbs + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (26211:83) Aries' Starbreak + Meteor Charge - Dark
+     | Change all Heal orbs to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (26214:83) Aries' Lunar Mechanical Star + Meteor Charge - Dark
+     | Jammer and Poison skyfall +20% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (26211:83) Aries' Starbreak + Meteor Charge - Dark
+     | Change all Heal orbs to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (26214:83) Aries' Lunar Mechanical Star + Meteor Charge - Dark
+     | Jammer and Poison skyfall +20% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 6 while HP > 19
+     | (26211:83) Aries' Starbreak + Meteor Charge - Dark
+     | Change all Heal orbs to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26211:83) Aries' Starbreak + Meteor Charge - Dark
+     | Change all Heal orbs to Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26214:83) Aries' Lunar Mechanical Star + Meteor Charge - Dark
+     | Jammer and Poison skyfall +20% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26223:86) The stars are shining
+     | Enemy recover 19% HP
+   | group:
+     | (26207:15) Meteor Dream - Dark
+     | Deal 2,100% damage (7 hits, 300% each)

@@ -1,0 +1,22 @@
+#300038 - Alt. Bubblie
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300038
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19206:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19209:92) Orb Transformation - Water
+ | Spawn 6 random Water orbs
+ group:
+ | (19210:48) bubblie pulse
+ | Change a random attribute to Water orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (19409:17) Wave of Carnage
+ | Increase damage to 700% for the next 999 turns

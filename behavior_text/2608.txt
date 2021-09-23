@@ -1,0 +1,39 @@
+#2608 - 四代目武装戦線頭・九能龍信
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 2608
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24708:14) 武装戦線の九能龍信だ！
+ | Bind active skills for 8 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (24710:50) 立て
+     | Player -75% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (24714:92) 殺してやるぜ
+     | Spawn 5 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (24709:94) そーはうまくいかねーぜ！
+   | Lock all orbs
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (24711:50) い　いいかげんにくたばれ
+     | Player -99% HP
+   | group:
+   | condition: turn 2
+     | (24712:15) このっ
+     | Deal 100% damage
+   | group:
+     | (24713:15) このばけもんが
+     | Deal 264% damage (2 hits, 132% each)

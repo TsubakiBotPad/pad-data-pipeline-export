@@ -1,0 +1,77 @@
+#101726 - Alt. Awoken Hino Kagutsuchi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkillDelay(89:8234) -> Drumming of the Underworld
+Delay active skills by 0~7 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 19
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 17
+
+#9: ESRandomSpawn(92:2167) -> Divine Hellfire
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 4 random Fire and Dark orbs, Deal 100% damage
+
+#10: ESOrbChangeAttack(48:2169) -> Hell Bolt
+Condition: 50% chance (ai:0 rnd:50)
+Change all Fire orbs to Jammer orbs, Deal 75% damage
+
+#11: ESPoisonChangeSingle(56:2168) -> Snake God's Venomous Fangs
+Condition: 50% chance (ai:0 rnd:50)
+Change all Dark orbs to Poison orbs, Deal 50% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESBindRandom(1:2170) -> Snake Eye Curse
+Bind 6 random cards for 2 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttackMultihit(15:2171) -> Serpent King's Annihilating Strike
+Deal 4,000% damage (4 hits, 1,000% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: ESSkillDelay(89:2172) -> Grudge Howl
+Delay active skills by 99 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESResolve(73:2165) -> パッシブ・覚醒カグツチ
+Survive attacks with 1 HP when HP > 50%

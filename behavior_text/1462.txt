@@ -1,0 +1,32 @@
+#1462 - Sopdet
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1462
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1258:67) Grace of the Nile
+ | Absorb damage when combos <= 4 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1259:48) Yaah!!
+     | Change all Dark orbs to Heal orbs, Deal 100% damage
+     | (1267:48) Take that!
+     | Change all Light orbs to Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1267:48) Take that!
+     | Change all Light orbs to Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (1260:15) Heliacal Rising
+   | Deal 150% damage (3 hits, 50% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (1261:52) Ceremony of Rebirth
+ | Enemy ally recover 50% HP

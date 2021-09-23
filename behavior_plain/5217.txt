@@ -1,0 +1,60 @@
+#5217 - Hidden Gamer Goddess, Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBindAwoken(88:21413) -> Debuff Cheat Code
+	Bind awoken skills for 1 turn
+	[1] ESBindSkill(14:21418) -> Super Debuff Cheat Code
+	Bind active skills for 3 turns
+	[2] ESDebuffMovetime(39:21411) -> Extension Cheat Code
+	Movetime 220% for 1 turn
+	[3] ESRandomSpawn(92:21417) -> Wave of Games
+	Spawn 10 random Fire, Water, Light, Dark, and Heal orbs
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 11
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 8
+
+#6: ESRandomSpawn(92:21410) -> Wave of Games
+Spawn 10 random Fire, Water, Light, Dark, and Heal orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardSizeChange(126:21419) -> Special Cheat Code
+	Change board size to 6x5 for 99 turns
+	[1] ESRandomSpawn(92:21417) -> Wave of Games
+	Spawn 10 random Fire, Water, Light, Dark, and Heal orbs
+
+#9: ESRandomSpawn(92:21410) -> Wave of Games
+Spawn 10 random Fire, Water, Light, Dark, and Heal orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:21412) -> Super Extension Cheat Code
+	Movetime 1000% for 99 turns
+	[1] ESRandomSpawn(92:21417) -> Wave of Games
+	Spawn 10 random Fire, Water, Light, Dark, and Heal orbs
+
+#12: ESRandomSpawn(92:21410) -> Wave of Games
+Spawn 10 random Fire, Water, Light, Dark, and Heal orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

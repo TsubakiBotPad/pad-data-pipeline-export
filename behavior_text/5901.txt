@@ -1,0 +1,30 @@
+#5901 - Pixel Ice Samurai Ogre
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5901
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17892:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (17904:106) Stubborn
+ | Enemy turn counter change to 1 when HP <= 1%
+ type: PREEMPT
+ | (17893:15) Quick Strike
+ | Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (17894:19) Pixel Cheer
+     | Increase damage to 500% for the next 999 turns
+   | group:
+     | (17895:15) Freeze Strike
+     | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (17905:86) Ogre Dance
+   | Enemy recover 50% HP

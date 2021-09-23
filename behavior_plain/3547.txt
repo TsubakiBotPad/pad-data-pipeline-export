@@ -1,0 +1,103 @@
+#3547 - Crescent Moon Wisedragon, Diena
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:6965) -> Abnormal Dimension
+	Voids status ailments for 10 turns
+	[1] ESBombRandomSpawn(102:6966) -> Terror
+	Spawn 3 random locked Bomb orbs
+	[2] ESRandomSpawn(92:6967) -> Impurity
+	Spawn 3 random Jammer and Mortal Poison orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSkyfall(68:6984) -> Curse Invasion
+Condition: When < 5% HP (ai:100 rnd:0)
+Mortal Poison skyfall +25% for 1 turn, Deal 2,400% damage
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESRandomSpawn(92:6969) -> Arced Horn of Truth
+Condition: One-time use & when Jammer or Mortal Poison orbs are on the board (ai:100 rnd:0) (cost: 4)
+Change all Jammer and Mortal Poison orbs to Dark orbs, Deal 1,200% damage
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESOrbSealColumn(99:6970) -> Orb Rust
+	Seal the 6th column for 5 turns
+	[1] ESAbsorbCombo(67:6971) -> Distortion Field
+	Absorb damage when combos <= 5 for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 23
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:6981) -> Shadow Wall
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:6982) -> Wicked
+	Increase damage to 150% for the next 4 turns
+
+#14: ESBlindStickyFixed(98:6973) -> Eclipse Touch
+Condition: 20% chance (ai:0 rnd:20)
+Blind orbs in specific positions for 1 turn, Deal 300% damage
+
+#15: ESBlindStickyFixed(98:6974) -> Eclipse Touch
+Condition: 20% chance (ai:0 rnd:20)
+Blind orbs in specific positions for 1 turn, Deal 300% damage
+
+#16: ESDebuffMovetime(39:6975) -> Time Mixup
+Condition: 6% chance (ai:0 rnd:6)
+Movetime -1s for 1 turn, Deal 300% damage
+
+#17: ESDebuffMovetime(39:6976) -> Time Mixup
+Condition: 6% chance (ai:0 rnd:6)
+Movetime -2s for 1 turn, Deal 300% damage
+
+#18: ESDebuffMovetime(39:6977) -> Time Mixup
+Condition: 6% chance (ai:0 rnd:6)
+Movetime -3s for 1 turn, Deal 300% damage
+
+#19: ESDebuffMovetime(39:6978) -> Time Mixup
+Condition: 6% chance (ai:0 rnd:6)
+Movetime 50% for 1 turn, Deal 300% damage
+
+#20: ESDebuffMovetime(39:6979) -> Time Mixup
+Condition: 6% chance (ai:0 rnd:6)
+Movetime 150% for 1 turn, Deal 300% damage
+
+#21: ESAttackMultihit(15:6980) -> Wonder Bolt
+Condition: 30% chance (ai:0 rnd:30)
+Deal 350% damage (7 hits, 50% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSkyfall(68:7024) -> Curse Invasion
+Mortal Poison skyfall +25% for 1 turn, Deal 2,400% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttributeResist(72:6985) -> Dark damage halved
+Reduce damage from Dark attrs by 50%

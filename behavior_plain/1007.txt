@@ -1,0 +1,39 @@
+#1007 - Gold Pirate
+monster size: 3
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbChangeSingle(4:854) -> Light Orb change
+Change all Dark orbs to Light orbs
+
+#7: ESOrbChangeSingle(4:855) -> Light Orb change
+Change all Fire orbs to Light orbs
+
+#8: ESOrbChangeSingle(4:861) -> Light Orb change
+Change all Water orbs to Light orbs
+
+#9: ESOrbChangeSingle(4:862) -> Light Orb change
+Change all Wood orbs to Light orbs
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESOrbChangeAttack(48:856) -> Flash Edge
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Light orbs, Deal 80% damage

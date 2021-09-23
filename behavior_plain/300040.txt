@@ -1,0 +1,25 @@
+#300040 - Alt. Woodsie
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:19211) -> Orb Transformation - Wood
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 6 random Wood orbs
+
+#3: ESAttackUPRemainingEnemies(17:19409) -> Wave of Carnage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 700% for the next 999 turns
+
+#4: ESOrbChangeAttack(48:19212) -> woodsie pulse
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSuperResolve(129:19206) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

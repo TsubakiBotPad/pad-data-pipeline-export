@@ -1,0 +1,28 @@
+#7813 - ヨーダ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7813
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27707:83) 人探しか？では見つけた訳だ + こらこら、なぜ？はなしだ
+ | Fix orb movement starting point to random position on the board + Locked random skyfall +100% for 2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (27710:104) わしを大きさで判断するのか？
+   | A row of clouds appears for 2 turns at 1st row, 1st column, Deal 80% damage
+ | group:
+ | condition: turn 2
+   | (27711:83) フォースを使え、感じるのだ + 輝く存在なのだ、わしらの本質は
+   | Random 3 orbs change every 1.0s for 2 turns + Heal skyfall +15% for 5 turns, Deal 90% damage
+ | group:
+   | condition: 50% chance
+   | (27714:130) サイコキネシス
+   | ATK -50% for 1 turn, Deal 95% damage
+   | condition: 50% chance
+   | (27715:39) テレパシー
+   | Movetime 50% for 1 turn, Deal 100% damage

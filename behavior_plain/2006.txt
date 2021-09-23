@@ -1,0 +1,64 @@
+#2006 - Avowed Thief, Ishikawa Goemon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:2237) -> Tenka Gomen
+	Voids status ailments for 999 turns
+	[1] ESAttackMultihit(15:2256) -> Ninja Art Fireworks
+	Deal 200% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRecoverEnemy86(86:2241) -> Golden Pipe
+Condition: When < 1% HP (ai:100 rnd:0)
+Enemy recover 100% HP
+
+#9: ESAttackMultihit(15:2238) -> True Ninja Art Fireworks
+Condition: When < 30% HP (ai:100 rnd:5)
+Deal 300% damage
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 80, target rnd 15
+
+#11: ESBlind62(62:2239) -> Grand Smokescreen
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 130% damage
+
+#12: ESAttackMultihit(15:2240) -> Coin Barrage
+Condition: 33% chance (ai:0 rnd:33)
+Deal 60~180% damage (2~6 hits, 30% each)
+
+#13: ESBindRandom(1:218) -> What a Great View!
+Condition: One-time use (ai:0 rnd:33) (cost: 1)
+Bind 3 random cards for 2~3 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:217) -> Ninja Art Fireworks
+Deal 200% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:1596) -> 五右衛門・パッシブ
+Survive attacks with 1 HP when HP > 50%

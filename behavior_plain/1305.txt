@@ -1,0 +1,32 @@
+#1305 - Gryps Rider, Vector Finn
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttackMultihit(15:1609) -> Wings of Fianna
+Deal 50% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindAttack(63:1610) -> King's Claws
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Bind 1 random sub for 3 turns, Deal 80% damage
+
+#7: ESOrbChangeAttack(48:1611) -> Magic Blood Spear Mac an Luin
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Jammer orbs, Deal 125% damage
+
+#8: ESBlind62(62:1612) -> Dark Turbulence
+Condition: 70% chance (ai:70 rnd:0)
+Blind all orbs on the board, Deal 100% damage

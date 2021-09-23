@@ -1,0 +1,44 @@
+#4708 - Joker, Devil's Adviser
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:10718) -> The Joker's Secret
+	Voids status ailments for 999 turns
+	[1] ESBlind5(5:10719) -> Jeering Darkness
+	Blind all orbs on the board
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESLeaderSwap(75:10722) -> Demonic Magic
+Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Leader changes to random sub for 2 turns
+
+#7: ESAttackUPRemainingEnemies(17:10724) -> Level Up
+Condition: When < 30% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#8: ESOrbChangeAttackBits(108:10721) -> Draw Attack - Demon
+Condition: 30% chance (ai:30 rnd:0)
+Change all Heal orbs to Dark orbs, Deal 90% damage
+
+#9: ESAttackMultihit(15:10723) -> Attack
+Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttributeResist(72:10725) -> Dark Halved
+Reduce damage from Dark attrs by 50%

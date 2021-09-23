@@ -1,0 +1,41 @@
+#400294 - Alt. Toytops
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESLeaderSwap(75:19263) -> Toy Change
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 2 turns
+
+#3: ESGravity(50:19408) -> Toy Crush
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -400% HP
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 19, target rnd 9
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAttackUPRemainingEnemies(17:19409) -> Wave of Carnage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 700% for the next 999 turns
+
+#7: ESAttackMultihit(15:19264) -> Falling Tackle
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESChangeAttribute(46:20950) -> Indiscriminate Carnage
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:21018) -> Alt. Super Resolve
+Damage which would reduce HP from above 75% to below 75% is nullified

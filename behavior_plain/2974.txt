@@ -1,0 +1,30 @@
+#2974 - 正義の弁護士・成歩堂 龍一
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESColumnSpawnMulti(77:4750) -> Ideas Turn Around
+	Change the 4th column to Jammer orbs, Deal 60% damage
+	[1] ESFixedStart(101:4751) -> Confrontation
+	Fix orb movement starting point to random position on the board
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSkyfall(68:4752) -> I request a cross examination!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Light skyfall +15% for 3 turns
+
+#7: ESFixedStart(101:4754) -> Confrontation
+Fix orb movement starting point to random position on the board

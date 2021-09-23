@@ -1,0 +1,124 @@
+#103578 - Alt. Ninth Dragon Caller, Firestorm Ena
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAttributeBlock(107:7063) -> Battle Preparations
+	Unable to match Fire, Water, Wood, Light, and Dark orbs for 1 turn
+	[1] ESStatusShield(20:7064) -> Guardian Dragon Formation
+	Voids status ailments for 999 turns
+	[2] ESVoidShield(71:7065) -> Armored Defense
+	Void damage >= 10,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESAbsorbCombo(67:7067) -> Simple Nine Seek
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESAttackUPCooldown(19:7068) -> Storing energy...
+	Increase damage to 900% for the next 1 turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#11: SkillSet:
+	Condition: When < 99% HP (ai:100 rnd:0)
+	[0] ESOrbChangeAttack(48:7073) -> Elemental Purge
+	Change a random attribute to Jammer orbs, Deal 50% damage
+	[1] ESOrbLock(94:7074) -> Orb Flash
+	Lock all orbs
+
+#12: SkillSet:
+	[0] ESDispel(6:7070) -> Passive Weakness
+	Voids player buff effects
+	[1] ESAttackMultihit(15:7071) -> Deton Rhadiem
+	Deal 4,500% damage (9 hits, 500% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBombFixedSpawn(103:7086) -> Void Burn
+Condition: When < 9% HP (ai:100 rnd:0)
+Spawn Bomb orbs in the specified positions, Deal 5,000% damage
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 26
+
+#17: ESBlindStickyRandom(97:7076) -> Orb Veil
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Blind random 3~5 orbs for 2 turns, Deal 400% damage
+
+#18: ESBombFixedSpawn(103:7077) -> Zelvarun Plus
+Condition: 33% chance (ai:0 rnd:33)
+Spawn locked Bomb orbs in the specified positions, Deal 380% damage
+
+#19: ESBombRandomSpawn(102:7078) -> Zelvarun
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Bomb orbs, Deal 390% damage
+
+#20: ESOrbLock(94:7079) -> Little Flash
+Condition: 34% chance (ai:0 rnd:34)
+Lock 9 random orbs
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 16
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#24: SkillSet:
+	[0] ESOrbLock(94:7080) -> Orb Flash
+	Lock all orbs
+	[1] ESGravity(50:7081) -> Rubilushent
+	Player -115% HP
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 17
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#28: SkillSet:
+	[0] ESAbsorbCombo(67:7083) -> Nine Seek
+	Absorb damage when combos <= 8 for 9 turns
+	[1] ESDamageShield(74:7084) -> Metal Armor
+	Reduce damage from all sources by 50% for 9 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESAttributeResist(72:7087) -> Dark damage halved
+Reduce damage from Dark attrs by 50%
+
+#31: ESResolve(73:12175) -> Dragonbound Soul Spirit
+Survive attacks with 1 HP when HP > 99%

@@ -1,0 +1,33 @@
+#204993 - Aubade Breeze Feline Deity, Bastet
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204993
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21778:83) Mew mew meowww! + Let's have a nice fur fight!
+ | Absorb damage when combos <= 8 for 3 turns + No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (21781:1) Divine Claw
+   | Bind 2 random cards for 3 turns, Deal 80% damage
+   | condition: 50% chance
+   | (21782:92) Flash Cats
+   | Spawn 5 random Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21784:83) Purretty good... + You're in for it nyow!
+     | Random 2 orbs change every 1.0s for 4 turns + Increase damage to 150% for the next 4 turns
+   | group:
+     | condition: 50% chance
+     | (21787:85) Cat's Sunshine
+     | Change all orbs to Wood and Light, Deal 100% damage
+     | condition: 50% chance
+     | (21783:15) Mew mew mew meowww!
+     | Deal 140% damage (4 hits, 35% each)

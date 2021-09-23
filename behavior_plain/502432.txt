@@ -1,0 +1,66 @@
+#502432 - Shadow Dog Dragon, Shibabowdra
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:3421) -> Round Pupil
+Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRecoverEnemyAlly(52:3422) -> Friendly Thought
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 45% HP
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 16
+
+#10: ESGravity(50:3428) -> Wonder Bark
+Condition: When < 10% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Player -100% HP
+
+#11: ESBindAttack(63:3423) -> Play-Bite
+Condition: 20% chance (ai:0 rnd:20)
+Bind 1 random sub for 2 turns, Deal 50% damage
+
+#12: ESAttackMultihit(15:3426) -> Slash Woof
+Condition: 35% chance (ai:0 rnd:35)
+Deal 110% damage
+
+#13: ESRowSpawnMulti(79:3427) -> Present Bone
+Condition: 35% chance (ai:0 rnd:35)
+Change the 3rd row to Dark orbs, Deal 100% damage
+
+#14: ESBlind5(5:3424) -> Dig a Hole
+Condition: 10% chance (ai:0 rnd:10)
+Blind all orbs on the board
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESDamageShield(74:3425) -> Stay
+Condition: When < 70% HP (ai:100 rnd:0)
+Reduce damage from all sources by 30% for 5 turns

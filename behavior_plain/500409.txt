@@ -1,0 +1,30 @@
+#500409 - Glacialdragon Niflheim
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:15378) -> Ice Barrier
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 3 turns
+
+#3: ESOrbLock(94:15382) -> Freeze Wave
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs
+
+#4: ESAttackMultihit(15:15379) -> God Blizzard Breath
+Condition: 10% chance when < 50% HP (ai:10 rnd:0)
+Deal 150% damage (2 hits, 75% each)
+
+#5: ESBindAttack(63:15381) -> Blizzard Breath
+Condition: 30% chance (ai:30 rnd:0)
+Bind 1 random sub for 1 turn, Deal 90% damage
+
+#6: ESAttackMultihit(15:15380) -> Hailstones
+Deal 77~110% damage (7~10 hits, 11% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

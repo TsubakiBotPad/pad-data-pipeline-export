@@ -1,0 +1,55 @@
+#3239 - Reincarnated Neptune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3239
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11658:106) Enemy's next turn changed
+ | Enemy turn counter change to 3 when HP <= 50%
+ | (11657:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (11659:83) You look like you're ready. + Try to beat me! + Darkstrom
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 999 turns + Delay active skills by 3 turns, Deal 125% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | (11663:108) Chaostrom
+     | Change all Poison orbs to Mortal Poison orbs, Deal 150% damage
+     | condition: 50% chance
+     | (11664:92) Abysstrom
+     | Spawn 8 random Poison orbs, Deal 100% damage
+     | condition: 50% chance
+     | (11665:15) Double Scissors
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: turn 3 while HP > 49
+     | (11673:67) You damn brat.
+     | Absorb damage when combos <= 7 for 99 turns
+   | group:
+     | (11663:108) Chaostrom
+     | Change all Poison orbs to Mortal Poison orbs, Deal 150% damage
+     | condition: 50% chance
+     | (11664:92) Abysstrom
+     | Spawn 8 random Poison orbs, Deal 100% damage
+     | condition: 50% chance
+     | (11665:15) Double Scissors
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (11666:83) Struggle in your final moments. + Prepare yourself!
+     | Reduce damage from all sources by 50% for 99 turns + Movetime 50% for 10 turns
+   | group:
+     | (11672:15) Abyss Maelstrom
+     | Deal 1,000% damage (5 hits, 200% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (11669:83) So close... + Struggle in your final moments.
+   | Enemy recover 50% HP + Reduce damage from all sources by 75% for 99 turns

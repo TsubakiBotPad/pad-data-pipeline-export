@@ -1,0 +1,31 @@
+#739 - Green Stone Dragon, Adamant
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 739
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (406:20) Mystic Armor
+ | Voids status ailments for 20 turns
+ group:
+ | group:
+   | condition: 70% chance
+   | (410:15) Green Wing
+   | Deal 150% damage (2 hits, 75% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (357:2) Flash Bind
+     | Bind Light cards for 2~4 turns
+   | group:
+     | condition: 70% chance
+     | (412:15) Black Claw
+     | Deal 160% damage (4 hits, 40% each)
+ | group:
+ | condition: hp <= 9
+   | (413:15) Metal Burst
+   | Deal 250% damage (5 hits, 50% each)

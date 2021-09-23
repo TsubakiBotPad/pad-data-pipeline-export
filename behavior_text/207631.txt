@@ -1,0 +1,59 @@
+#207631 - 無天の幻龍王・ゼローグ∞ -CORE-
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207631
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25126:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25146:83) Phantom Dragon King's Protection + Boundless Roar + Thunderclouds
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + A 2×3 rectangle of clouds appears for 10 turns at a random location
+ group:
+ | group:
+ | condition: always turn 10
+   | (25139:83) Thunder Charge + Zero Blast
+   | Increase damage to 200% for the next 999 turns + Voids player buff effects
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 33% chance
+     | (25136:94) Rising Chains
+     | Lock 15 random orbs, Deal 90% damage
+     | condition: 33% chance
+     | (25137:65) Paralyzing Thunder
+     | Bind 1 random sub for 10 turns, Deal 100% damage
+     | condition: 34% chance
+     | (25138:15) Rising Cannon
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+     | condition: 33% chance
+     | (25136:94) Rising Chains
+     | Lock 15 random orbs, Deal 90% damage
+     | condition: 33% chance
+     | (25137:65) Paralyzing Thunder
+     | Bind 1 random sub for 10 turns, Deal 100% damage
+     | condition: 34% chance
+     | (25138:15) Rising Cannon
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (25150:83) Dragon King's Barrier + Infinite Fall
+   | Void damage >= 1,000,000,000 for 999 turns + No skyfall for 10 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (25125:89) Rising Thunder
+     | Delay active skills by 99 turns
+   | group:
+   | condition: turns 2-9
+     | (25131:83) Dragon King's Phantom Scales + Infinite Burst
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,000% damage (10 hits, 300% each), Deal 3,000% damage (10 hits, 300% each)
+   | group:
+     | (25131:83) Dragon King's Phantom Scales + Infinite Burst
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,000% damage (10 hits, 300% each), Deal 3,000% damage (10 hits, 300% each)

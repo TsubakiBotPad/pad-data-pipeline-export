@@ -1,0 +1,33 @@
+#4212 - North Loving Goddess, Meimei
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4212
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8980:5) Don't look!!
+ | Blind all orbs on the board
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 4
+     | condition: 15% chance
+     | (8982:74) Eternal Love Letter
+     | Reduce damage from all sources by 75% for 1 turn
+     | (8995:15) Sweet Combo
+     | Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (8983:39) Don't laugh!
+     | Movetime -2s for 2 turns, Deal 120% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (8981:53) Genbu's Perception
+   | Absorb Wood damage for 2 turns
+ | group:
+ | condition: hp <= 9
+   | (8984:85) Genbu Seven-Star Perception
+   | Change all orbs to Wood, Light, and Dark, Deal 180% damage

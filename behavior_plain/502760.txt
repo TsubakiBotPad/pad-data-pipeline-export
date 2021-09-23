@@ -1,0 +1,64 @@
+#502760 - Yellow Chrysanthemum Virtue, Xiu Min
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:21069) -> Chill-Flower's Rising
+	Specific orbs change every 1.0s for 2 turns
+	[1] ESBoardChange(84:21070) -> Come at me with your all.
+	Change all orbs to Light
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#7: ESSpinnersFixed(110:21071) -> Chill-Flower's Rising
+Condition: One-time use (ai:33 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+
+#8: ESSpinnersFixed(110:21072) -> Chill-Flower's Rising
+Condition: One-time use (ai:50 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+
+#9: ESSpinnersFixed(110:21073) -> Chill-Flower's Rising
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+
+#10: ESAttackMultihit(15:21074) -> Eternal Chrysanthemum
+Deal 120% damage (3 hits, 40% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSuperResolve(129:21091) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESDamageShield(74:21068) -> Bright Armor Barrier
+	Reduce damage from all sources by 90% for 2 turns
+	[1] ESBoardChangeAttackBits(85:21098) -> Green-White
+	Change all orbs to Fire, Water, Light, Dark, and Heal, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

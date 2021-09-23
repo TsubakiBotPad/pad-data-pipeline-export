@@ -1,0 +1,65 @@
+#102186 - Alt. Abyssal CyberDragon, Sadalmelik
+monster size: 5
+new AI: True
+start/max counter: 50
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbThreshold(87:12142) -> Hydro Charger
+Absorb damage when damage >= 3,000,000 for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESOrbLock(94:3009) -> Ultra Sonic
+Condition: One-time use (ai:100 rnd:0) (cost: 50)
+Lock 15 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs, Deal 100% damage
+
+#9: ESRowSpawnMulti(79:3008) -> Hydro Cyclone Beam
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 1st, 2nd, 3rd, 4th, and 5th rows to Water, Jammer, and Poison orbs, Deal 360% damage
+
+#10: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDamageShield(74:12138) -> Stabilizer
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESAttackMultihit(15:3015) -> Shark Bit Attack
+	Deal 60% damage (2 hits, 30% each)
+
+#11: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESSkillDelay(89:12136) -> Water Dragon Armor Piercing Bullet
+	Delay active skills by 2~7 turns
+	[1] ESAttackMultihit(15:3015) -> Shark Bit Attack
+	Deal 60% damage (2 hits, 30% each)
+
+#12: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESGravity(50:12137) -> Full Ahead
+	Player -99% HP
+	[1] ESAttackMultihit(15:3015) -> Shark Bit Attack
+	Deal 60% damage (2 hits, 30% each)
+
+#13: SkillSet:
+	Condition: 40% chance (ai:0 rnd:40)
+	[0] ESAttackMultihit(15:3013) -> 114 Type Torpedo
+	Deal 140% damage (2 hits, 70% each)
+	[1] ESAttackMultihit(15:3015) -> Shark Bit Attack
+	Deal 60% damage (2 hits, 30% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

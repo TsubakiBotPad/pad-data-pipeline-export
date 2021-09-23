@@ -1,0 +1,78 @@
+#4662 - 紅のドラゴンスラッガー・ソニア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:10624) -> Let's guide them man to man.
+Spawn 6 random Poison orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESOrbChangeAttackBits(108:10628) -> I'll do it one way or another.
+Change all Poison orbs to Fire and Dark orbs, Deal 200% damage
+
+#11: SkillSet:
+	[0] ESRandomSpawn(92:10625) -> Alright, great!
+	Spawn 6 random Heal orbs
+	[1] ESDebuffMovetime(39:10626) -> Don't forget this sensation now.
+	Movetime 200% for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 22
+
+#15: ESAttackUPRemainingEnemies(17:10629) -> Dauntless Courage
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#16: ESOrbLock(94:10630) -> Evasive Ball
+Lock 5 random orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: ESBoardChange(84:10631) -> Try saying that again!...
+Change all orbs to Fire and Dark, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:10632) -> Draco Summoning Throwing Law
+Deal 200% damage (4 hits, 50% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

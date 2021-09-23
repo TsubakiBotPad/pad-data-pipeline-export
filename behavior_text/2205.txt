@@ -1,0 +1,48 @@
+#2205 - Hell Demon, Scarlet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2205
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3021:71) Oh! Raiders?
+ | Void damage >= 100,000 for 2 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1
+     | (3022:89) What Happened?
+     | Delay active skills by 2 turns
+   | group:
+   | condition: turn 2
+     | (3023:19) Let's Go!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (3024:48) Rose Flare
+     | Change all Jammer orbs to Fire orbs, Deal 70% damage
+     | condition: 60% chance
+     | (3025:92) Snake Bite
+     | Spawn 5 random Jammer orbs, Deal 50% damage
+     | (3026:62) Shadow Tail
+     | Blind all orbs on the board, Deal 40% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 99
+   | (3023:19) Let's Go!
+   | Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (3027:1) Black Magic Charge
+     | Bind 1 random card for 1 turn
+   | group:
+     | (3028:92) Violet Flaaa!
+     | Spawn 11 random Jammer orbs
+ | group:
+ | condition: hp <= 44
+   | (3029:15) Violet Flame
+   | Deal 160% damage (2 hits, 80% each)

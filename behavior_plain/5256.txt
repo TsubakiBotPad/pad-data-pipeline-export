@@ -1,0 +1,68 @@
+#5256 - Horohoro
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRowSpawnMulti(79:13220) -> Mososo Kruppe
+Change the 5th row to Water orbs, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 11
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESColumnSpawnMulti(77:13223) -> You're in my world now,
+	Change the 1st, 3rd, and 5th columns to Water orbs, Deal 55% damage
+	[1] ESOrbLock(94:13224) -> and here I'm the fittest.
+	Lock all Water orbs, Deal 55% damage
+
+#11: ESRowSpawnMulti(79:13220) -> Mososo Kruppe
+Condition: 50% chance (ai:0 rnd:50)
+Change the 5th row to Water orbs, Deal 95% damage
+
+#12: ESRandomSpawn(92:13221) -> Kawkaw Puri-Wenpe
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Water orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: ESOrbLock(94:13225) -> This is my last offerring.
+Lock all orbs
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESRowSpawnMulti(79:13226) -> Neike Fuike Kiroro
+Change the 3rd row to Water orbs, Deal 250% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

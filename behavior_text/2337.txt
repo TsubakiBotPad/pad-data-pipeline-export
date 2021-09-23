@@ -1,0 +1,35 @@
+#2337 - Light Armor Dragon, Acrux
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2337
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3236:20) Flash Barrier
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 20% chance
+   | (3237:62) Light Beam
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 40% chance
+   | (3238:63) Holy Bind
+   | Bind 1 random card for 4 turns, Deal 100% damage
+   | condition: 40% chance
+   | (3239:48) Energy Ball
+   | Change all Light orbs to Jammer orbs, Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (3235:52) Follow Repair
+ | Enemy ally recover 45% HP

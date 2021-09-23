@@ -1,0 +1,43 @@
+#5105 - R. Mika
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5105
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22911:94) I'll totally make this look cool!
+ | Lock 15 random orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (22912:94) Daydream Headlock
+   | Lock 10 random orbs, Deal 80% damage
+   | condition: 33% chance
+   | (22915:92) Peach Gator
+   | Spawn 3 random Water orbs, Deal 90% damage
+   | condition: 34% chance
+   | (22913:15) Passion Press
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22916:83) Pumped up! + All right! Let's begin!
+     | Increase damage to 150% for the next 3 turns + Voids status ailments for 3 turns
+   | group:
+     | condition: 33% chance
+     | (22920:92) Steel Chair
+     | Spawn 4 random Water and Wood orbs, Deal 90% damage
+     | condition: 33% chance
+     | (22921:85) Rainbow Typhoon
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 80% damage
+     | condition: 34% chance
+     | (22919:15) Nadeshiko (Front)
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (22922:15) Peach Assault
+   | Deal 195% damage (3 hits, 65% each)

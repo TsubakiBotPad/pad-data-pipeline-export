@@ -1,0 +1,31 @@
+#792 - Hominal Beast, Centaur
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 792
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (534:15) Gale Thrust
+ | Deal 60% damage
+ group:
+ | group:
+   | condition: 70% chance
+   | (535:15) Rainfall Thrust
+   | Deal 105~140% damage (3~4 hits, 35% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (536:15) A little closer...
+     | Deal 10% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (537:15) Critical Charge
+     | Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (270:17) Lone Force
+ | Increase damage to 300% for the next 999 turns

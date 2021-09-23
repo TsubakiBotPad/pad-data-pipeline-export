@@ -1,0 +1,22 @@
+#793 - Cyclops
+monster size: 2
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 30, target rnd 5
+
+#4: ESAttackMultihit(15:594) -> Mega Impact
+Condition: 70% chance (ai:70 rnd:0)
+Deal 150% damage
+
+#5: ESGravity(50:595) -> Heavy Blow
+Condition: 50% chance (ai:50 rnd:0)
+Player -75% HP

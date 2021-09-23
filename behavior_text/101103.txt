@@ -1,0 +1,40 @@
+#101103 - Alt. Heavenly Herald, Archangel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 101103
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9532:118) Angel Devil Half Reduced
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (9533:39) Cold Gaze
+ | Movetime -3s for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (9536:83) Judgment from Heaven + Divine Protection
+   | Bind 1 random sub for 20 turns + Increase damage to 150% for the next 99 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 74
+     | condition: 33% chance
+     | (874:48) Shining Ray
+     | Change a random attribute to Light orbs, Deal 75% damage
+     | condition: 50% chance
+     | (9537:48) Heart Break
+     | Change all Heal orbs to Jammer orbs, Deal 50% damage
+   | group:
+     | condition: 33% chance
+     | (874:48) Shining Ray
+     | Change a random attribute to Light orbs, Deal 75% damage
+     | condition: 50% chance
+     | (9537:48) Heart Break
+     | Change all Heal orbs to Jammer orbs, Deal 50% damage
+ | group:
+ | condition: turn 1, hp <= 74
+   | (876:7) Resurrection
+   | Enemy recover 100% HP

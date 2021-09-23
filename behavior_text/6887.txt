@@ -1,0 +1,38 @@
+#6887 - Moffgron
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6887
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21705:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (21706:20) Spinning Edge
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (21707:110) Rolling Tackle
+   | Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 34% chance
+   | (21708:110) Rolling Tackle
+   | Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (21709:110) Rolling Tackle
+   | Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (21713:15) Rapid Tackle
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (21712:39) Over Crush
+   | Movetime 25% for 10 turns, Deal 150% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 1
+ | (21710:83) Turbo Spin + Over Crush
+ | Increase damage to 200% for the next 999 turns + Movetime 25% for 10 turns, Deal 150% damage

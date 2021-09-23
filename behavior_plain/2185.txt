@@ -1,0 +1,57 @@
+#2185 - Blazing CyberDragon, Thuban
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESBoardChangeAttackBits(85:21684) -> Ruby Coating
+	Change all orbs to Fire, Deal 80% damage
+	[1] ESOrbLock(94:21714) -> Flare Chain
+	Lock all orbs
+	[2] ESSkyfall(68:21685) -> Blessing of Extinguished Flames
+	Water, Wood, Light, and Dark skyfall +100% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSpinnersRandom(109:21687) -> Revolving Flames
+	Random 1 orbs change every 1.0s for 4 turns
+	[1] ESGravity(50:21688) -> Flare Impact
+	Player -99% HP
+
+#5: ESAttackMultihit(15:21689) -> Flame Charge
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 100% damage (4 hits, 25% each)
+
+#6: ESAttackMultihit(15:21690) -> Blazing Force
+Deal 500% damage (5 hits, 100% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESBoardChangeAttackBits(85:21692) -> Ruby Coating
+	Change all orbs to Fire, Deal 150% damage
+	[1] ESOrbLock(94:21714) -> Flare Chain
+	Lock all orbs
+	[2] ESRecoverEnemy86(86:21693) -> Flame Repair
+	Enemy recover 75% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:21682) -> Resolve
+Survive attacks with 1 HP when HP > 50%

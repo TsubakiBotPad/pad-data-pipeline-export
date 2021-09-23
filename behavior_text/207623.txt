@@ -1,0 +1,42 @@
+#207623 - 冥極の黄龍帝・ファガン -RAI-
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207623
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25674:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25691:83) Barrier of the 5 Gods + Zeroth Strike: Foresight + Earth-Shaking Dragon Rumble
+ | Voids status ailments for 10 turns + Absorb damage when combos <= 10 for 1 turn + Change board size to 6x5 for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 25% chance
+     | (25682:83) Zeroth Strike: Foresight + Dragon God's Palm Wave
+     | Absorb damage when combos <= 6 for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+     | condition: 25% chance
+     | (25683:83) Zeroth Strike: Foresight + Dragon God's Palm Wave
+     | Absorb damage when combos <= 7 for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+     | condition: 25% chance
+     | (25684:83) Zeroth Strike: Foresight + Dragon God's Palm Wave
+     | Absorb damage when combos <= 8 for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+     | condition: 25% chance
+     | (25685:83) Zeroth Strike: Foresight + Dragon God's Palm Wave
+     | Absorb damage when combos <= 9 for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+   | group:
+     | (25679:83) Armament of the 5 Gods + Final Strike: Heaven's Zenith
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,500% damage (5 hits, 500% each), Deal 2,500% damage (5 hits, 500% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (25698:83) Release of the 5 Gods + Zeroth Strike: Foresight + True Strike: Heavenfall Blade
+   | Increase damage to 200% for the next 999 turns + Absorb damage when combos <= 10 for 1 turn + No skyfall for 99 turns
+ | group:
+ | condition: turn 1, hp <= 9
+   | (25362:88) Dragon Destructive Palm
+   | Bind awoken skills for 1 turn

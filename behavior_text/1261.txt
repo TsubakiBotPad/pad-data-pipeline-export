@@ -1,0 +1,45 @@
+#1261 - Haughty Demon Lord, Baal
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 1261
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9051:83) Show me your highest combo! + Let's have a trial first + You can do it, right?!
+ | Movetime 150% for 4 turns + Fix orb movement starting point to random position on the board + Absorb damage when combos <= 5 for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 6 combos last turn
+   | (9055:83) It's only natural to get this far + In that case... + ...how about this?
+   | Change the 1st, 3rd, and 5th rows to Light orbs and the 2nd and 4th rows to Dark orbs + Change the 3rd and 4th columns to Heal orbs + Absorb damage when combos <= 6 for 1 turn
+   | (9064:15) Too bad
+   | Deal 40,000% damage (4 hits, 10,000% each)
+ | group:
+ | condition: turn 2
+   | condition: when 7 combos last turn
+   | (9059:83) You can do it, right? + Next...this... + Can you do it?
+   | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Blind orbs in specific positions for 1 turn + Absorb damage when combos <= 7 for 1 turn
+   | (9064:15) Too bad
+   | Deal 40,000% damage (4 hits, 10,000% each)
+ | group:
+ | condition: turn 3
+   | condition: when 8 combos last turn
+   | (9063:83) I didn't think you'd do it + This is the end + Decide and show me!
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison + Blind all orbs on the board + Absorb damage when combos <= 8 for 1 turn
+   | (9064:15) Too bad
+   | Deal 40,000% damage (4 hits, 10,000% each)
+ | group:
+ | condition: turn 4
+   | condition: when 9 combos last turn
+   | (9065:40) Nice combo
+   | Reduce self HP to 0
+   | (9064:15) Too bad
+   | Deal 40,000% damage (4 hits, 10,000% each)
+ | group:
+   | condition: when 9 combos last turn
+   | (9065:40) Nice combo
+   | Reduce self HP to 0

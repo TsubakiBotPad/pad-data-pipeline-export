@@ -1,0 +1,38 @@
+#2739 - Reincarnated Burning Phoenix Knight, Homura
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2739
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4798:73) Resolve Homura
+ | Survive attacks with 1 HP when HP > 76%
+ type: PREEMPT
+ | (4801:83) Phoenix Knight's Soul + Blazing Armor
+ | Absorb damage when combos <= 4 for 99 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | (4802:15) Blazing Cutting Dance
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 74
+   | (4805:83) Flame Eating Net + Scold
+   | Enemy recover 10% HP + Player -99% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (4806:74) High Temperature
+     | Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | (4807:92) Flame-Accompanying Ash
+     | Spawn 5 random Jammer orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 1
+   | (4808:88) Suppression Flames
+   | Bind awoken skills for 3 turns
+   | (4809:50) Burnout
+   | Player -300% HP

@@ -1,0 +1,32 @@
+#5884 - Alice Synthesis Thirty
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 5884
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16422:83) Could it be you're mocking me? + Show me the full extent of your power.
+ | Reduce damage from all sources by 30% for 5 turns + Blind random 4~6 orbs for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (16424:89) Stay there and wait your turn.
+     | Delay active skills by 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | (16425:15) Haa!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (16427:17) You have no hope of stopping my flowers.
+     | Increase damage to 200% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (16428:15) Prepare yourself.
+     | Deal 196% damage (4 hits, 49% each)

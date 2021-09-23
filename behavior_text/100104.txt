@@ -1,0 +1,31 @@
+#100104 - Alt. Mystic Light Knight
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 100104
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: turn 1
+   | (4784:4) Light Orb change
+   | Change all Dark orbs to Light orbs
+   | (4789:2) Holy Grudge
+   | Bind Dark cards for 2~4 turns
+ | group:
+ | condition: turn 2
+   | (4789:2) Holy Grudge
+   | Bind Dark cards for 2~4 turns
+
+level: 5
+ type: PREEMPT
+ | (4784:4) Light Orb change
+ | Change all Dark orbs to Light orbs
+ | (4789:2) Holy Grudge
+ | Bind Dark cards for 2~4 turns
+ group:
+ condition: turn 1, hp <= 100
+ | (4789:2) Holy Grudge
+ | Bind Dark cards for 2~4 turns

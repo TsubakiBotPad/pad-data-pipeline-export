@@ -1,0 +1,38 @@
+#6622 - Masquerade Dancer, Durga
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6622
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20253:83) You did well to make it this far... + But can you defeat me?
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 20,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | (20259:83) You're still standing after that? + Well then, here I come!
+     | Player -50% HP + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: turn 3 while HP > 49
+     | (20256:83) Protect me! + It's show time!
+     | Reduce damage from all sources by 75% for 99 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | (20259:83) You're still standing after that? + Well then, here I come!
+     | Player -50% HP + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (20256:83) Protect me! + It's show time!
+   | Reduce damage from all sources by 75% for 99 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 2
+     | (20262:83) Prepare yourself + This is it for you
+     | Bind awoken skills for 1 turn + Delay active skills by 5 turns
+   | group:
+     | (20265:15) Is that all you've got?
+     | Deal 750% damage (5 hits, 150% each)

@@ -1,0 +1,69 @@
+#103724 - Alt. Light Orb Dragon, Yobi
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 103724
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8210:72) Light Jewel Halved
+ | Reduce damage from Light attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (8210:72) Light Jewel Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (7649:83) Radiant Blond Hair + Light Pulse
+ | Lock all Light and Heal orbs + Change all orbs to Jammer, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (7653:48) Beautiful Nebulous Glow
+     | Change all Jammer orbs to Heal orbs, Deal 280% damage
+     | (7652:83) Pure White Silk Scales + Songstress' Divine Protection
+     | Reduce damage from all sources by 35% for 10 turns + Voids status ailments for 10 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (7658:105) Chiming Rings
+     | RCV 50% for 2 turns, Deal 130% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (7657:92) Golden Flower Thorns
+     | Spawn 3 random Mortal Poison orbs, Deal 110% damage
+   | group:
+   | condition: turn 4 while HP > 19
+     | (7659:50) Brutal Wisp Fangs
+     | Player -90% HP
+   | group:
+   | condition: turn 5 while HP > 19
+     | (7655:17) Resentful Stare
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (7658:105) Chiming Rings
+     | RCV 50% for 2 turns, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (7657:92) Golden Flower Thorns
+     | Spawn 3 random Mortal Poison orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (7659:50) Brutal Wisp Fangs
+     | Player -90% HP
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (7656:87) Pure White Damask Scales
+     | Absorb damage when damage >= 1,000,000 for 4 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (7660:89) Glazed Dragon Eyes
+     | Delay active skills by 5 turns
+   | group:
+     | (7661:85) Scattered Gleam of Bewitching Beauty
+     | Change all orbs to Light and Jammer, Deal 3,000% damage

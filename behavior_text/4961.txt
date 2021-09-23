@@ -1,0 +1,36 @@
+#4961 - コマじろう
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4961
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (11957:5) もんげーーっ！
+ | Blind all orbs on the board
+ group:
+ | group:
+   | condition: 33% chance
+   | (11958:105) オラ　負けないズラよ！
+   | RCV 50% for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (11959:15) ズラッ！
+   | Deal 100% damage
+   | condition: 34% chance
+   | (11960:48) いかずちの術ズラ！
+   | Change a random attribute to Light orbs, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11961:96) 手かげん　してほしいズラ～
+   | Locked random skyfall +100% for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11962:39) 兄ちゃん…　オラがんばるズラ！
+     | Movetime -2s for 5 turns
+   | group:
+     | (11963:15) 風来サンダー
+     | Deal 105% damage (3 hits, 35% each)

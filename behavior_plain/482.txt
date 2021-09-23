@@ -1,0 +1,31 @@
+#482 - Flowerdragon Gaia Brachys
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBindRandom(1:694) -> Sleeping Powder
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 6 random cards for 1~4 turns
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 25, target rnd 7
+
+#5: ESAttackMultihit(15:231) -> God Gaia Breath
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 150% damage (2 hits, 75% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESNone(0:0) -> ESNone
+nothing
+
+#8: ESAttackMultihit(15:250) -> Gaia Breath
+Deal 100% damage (2 hits, 50% each)

@@ -1,0 +1,68 @@
+#5060 - Earth Ruler Sylvan God, Cronus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:26058) -> Ha, take this!
+	Player -150% HP
+	[1] ESAttackMultihit(15:26059) -> Earth King's Sickle Attack
+	Deal 2,800% damage (8 hits, 350% each)
+	[2] ESVoidShield(71:26060) -> You can still keep going, can't you?
+	Void damage >= 5,000,000 for 999 turns
+
+#3: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 15
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 12
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: SkillSet:
+	[0] ESSkillDelay(89:26064) -> Golden Wood Chalice
+	Delay active skills by 1 turn
+	[1] ESDebuffRCV(105:26065) -> Intoxication
+	RCV 25% for 1 turn, Deal 150% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESGravity(50:26062) -> Earth King's Sickle Swipe
+Player -99% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESSkillDelay(89:26064) -> Golden Wood Chalice
+	Delay active skills by 1 turn
+	[1] ESAttributeBlock(107:26066) -> Soul Harvest
+	Unable to match Heal orbs for 1 turn, Deal 150% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESAttackMultihit(15:26067) -> Earth King's Judging Thorns
+Deal 750% damage (3 hits, 250% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

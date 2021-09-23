@@ -1,0 +1,28 @@
+#5007 - Rin Tohsaka
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5007
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19534:99) That's far enough!
+ | Seal the 6th column for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (19536:94) Never!
+   | Lock 5 random orbs, Deal 95% damage
+   | (19535:15) Don't underestimate me.
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19537:101) I'll finish you off for good this time.
+     | Fix orb movement starting point to random position on the board
+   | group:
+     | (19538:48) Gotcha!
+     | Change a random attribute to Fire orbs, Deal 135% damage

@@ -1,0 +1,38 @@
+#1378 - フリーザ・第3形態
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1378
+approved: False
+
+level: 1
+ group:
+ condition: turn 1, hp <= 100
+ | (1132:14) 1匹たりとも生かしてはおきませんよ…
+ | Bind active skills for 3 turns
+
+level: 5
+ type: PREEMPT
+ | (1132:14) 1匹たりとも生かしてはおきませんよ…
+ | Bind active skills for 3 turns
+ group:
+ | group:
+   | (1110:15) どぉれちょっと拝見…
+   | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1111:48) ひゃあ!!!!
+     | Change all Heal orbs to Jammer orbs, Deal 50% damage
+     | (1110:15) どぉれちょっと拝見…
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1110:15) どぉれちょっと拝見…
+     | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 29
+   | (1112:15) ひゃひゃひゃひゃひゃ…!!!!
+   | Deal 180% damage (6 hits, 30% each)

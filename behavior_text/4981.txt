@@ -1,0 +1,38 @@
+#4981 - キュウビ【妖怪ウォッチ】
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4981
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12005:104) ふぅん…　キミが遊び相手かい
+ | A 4×1 rectangle of clouds appears for 3 turns at 3rd row, 2nd column
+ group:
+ | group:
+   | condition: 50% chance
+   | (12006:83) キュンキュンさせてあげるよ… + ヤケドしても　知らないけどね！
+   | Change a random attribute to Fire orbs + Locked Fire skyfall +100% for 10 turns, Deal 95% damage
+   | condition: 50% chance
+   | (12007:83) ほら　こっちだよ！ + だらしがないねえ！
+   | Player -30% HP + Deal 120% damage (2 hits, 60% each), Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (12012:83) へぇ　少しは遊べるじゃないか… + それじゃ　こんなのはどうだい？ + さあ　もっと楽しませてよ！
+     | Deal 90% damage + Increase damage to 150% for the next 1 turn + RCV 50% for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (12006:83) キュンキュンさせてあげるよ… + ヤケドしても　知らないけどね！
+     | Change a random attribute to Fire orbs + Locked Fire skyfall +100% for 10 turns, Deal 95% damage
+     | condition: 50% chance
+     | (12007:83) ほら　こっちだよ！ + だらしがないねえ！
+     | Player -30% HP + Deal 120% damage (2 hits, 60% each), Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 14
+   | (12016:15) 紅蓮地獄
+   | Deal 250% damage

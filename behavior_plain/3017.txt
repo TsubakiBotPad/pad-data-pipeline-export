@@ -1,0 +1,107 @@
+#3017 - War Machine Emperor, Another Geist
+monster size: 5
+new AI: True
+start/max counter: 11
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 7, target rnd 4
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 6)
+	[0] ESAbsorbCombo(67:5080) -> Darkness Flame
+	Absorb damage when combos <= 5 for 99 turns
+	[1] ESOrbLock(94:5081) -> Power Claw
+	Lock all Light and Dark orbs
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 6)
+	[0] ESAbsorbCombo(67:5080) -> Darkness Flame
+	Absorb damage when combos <= 5 for 99 turns
+	[1] ESOrbLock(94:5081) -> Power Claw
+	Lock all Light and Dark orbs
+
+#5: SkillSet:
+	Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESAbsorbThreshold(87:5085) -> Power Eater
+	Absorb damage when damage >= 500,000 for 3 turns
+	[1] ESGravity(50:5086) -> Metal Slicer
+	Player -99% HP
+
+#6: ESDamageShield(74:5084) -> Gun Metallic Armor
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 75% for 3 turns
+
+#7: ESOrbLock(94:5096) -> Ultimate Skewer
+Condition: When < 15% HP (ai:100 rnd:0)
+Lock all orbs, Deal 1,000% damage
+
+#8: ESOrbLock(94:5089) -> Power Claw
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Lock 8 random orbs, Deal 100% damage
+
+#9: ESBlind62(62:5088) -> Dark Bolt
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board, Deal 200% damage
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESAttackUPRemainingEnemies(17:5097) -> Increase
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#13: ESRandomSpawn(92:5098) -> Destruction Claw
+Condition: When < 30% HP (ai:100 rnd:0)
+Spawn 4 random Jammer and Poison orbs, Deal 130% damage
+
+#14: ESOrbChangeAttack(48:5090) -> Nemesis Claw
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Poison orbs, Deal 130% damage
+
+#15: ESOrbChangeAttack(48:5091) -> Break Claw
+Change a random attribute to Jammer orbs, Deal 130% damage
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESAttackUPRemainingEnemies(17:5097) -> Increase
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#19: ESOrbLock(94:5093) -> Evil Grab
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Jammer and Poison orbs, Deal 140% damage
+
+#20: ESOrbLock(94:5092) -> Element Grab
+Lock 10 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 140% damage
+
+#21: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11
+
+#22: ESAttackUPRemainingEnemies(17:5097) -> Increase
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#23: ESAttackMultihit(15:5099) -> Raiden Claw
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 200% damage (4 hits, 50% each)
+
+#24: ESBindSkill(14:5094) -> High Metal Chain
+Condition: 50% chance (ai:50 rnd:0)
+Bind active skills for 5 turns, Deal 140% damage
+
+#25: ESAttackMultihit(15:5095) -> Cleave Combo
+Deal 160% damage (4 hits, 40% each)
+
+#26: ESAttributeResist(72:4928) -> Halves Light-Dark
+Reduce damage from Light and Dark attrs by 50%

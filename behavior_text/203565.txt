@@ -1,0 +1,41 @@
+#203565 - Alt. Mountain God's Wind Dragon Caller, Kaede
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203565
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25381:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25373:83) Divine Wind's Mountain Road + Juniper Whirlwind
+ | Seal the 5th row for 5 turns + Absorb damage when combos <= 6 for 999 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (25374:71) Holy Mountain's Sacred Talisman
+   | Void damage >= 10,000,000 for 999 turns
+ | group:
+   | group:
+   | condition: turns 1-4
+     | (25376:92) Wind Fang Slash
+     | Spawn 6 random Wood orbs, Deal 100% damage
+   | group:
+     | (25376:92) Wind Fang Slash
+     | Spawn 6 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25377:83) Willow Blossom Protection + Windmill of a Thousand Birds
+     | Enemy recover 50% HP + Movetime 25% for 3 turns
+   | group:
+   | condition: turns 2-4
+     | (25380:15) Holy Wind's Endless Blades
+     | Deal 1,000% damage (4 hits, 250% each)
+   | group:
+     | (25380:15) Holy Wind's Endless Blades
+     | Deal 1,000% damage (4 hits, 250% each)

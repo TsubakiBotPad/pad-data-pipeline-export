@@ -1,0 +1,30 @@
+#828 - Protection Demon of Light, Shouki
+monster size: 4
+new AI: False
+start/max counter: 0
+counter increment: 0
+monster_id: 828
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (646:15) From this point...
+ | Deal 50% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (648:50) Sucker Punch
+   | Player -99% HP
+ | group:
+   | (650:15) Iron Fist of Anger
+   | Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (648:50) Sucker Punch
+   | Player -99% HP
+ | group:
+ | condition: turn 2
+   | (270:17) Lone Force
+   | Increase damage to 300% for the next 999 turns

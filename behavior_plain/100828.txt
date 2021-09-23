@@ -1,0 +1,42 @@
+#100828 - Alt. Protection Demon of Light, Shouki
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESOrbLock(94:9333) -> From this point...
+Lock 8 random orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESGravity(50:648) -> Sucker Punch
+Player -99% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackUPRemainingEnemies(17:270) -> Lone Force
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#11: ESAttackMultihit(15:650) -> Iron Fist of Anger
+Deal 200% damage
+
+#12: ESAttributeResist(72:9335) -> Light Half Reduced
+Reduce damage from Light attrs by 50%

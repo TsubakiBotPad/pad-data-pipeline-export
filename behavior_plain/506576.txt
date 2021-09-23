@@ -1,0 +1,42 @@
+#506576 - Dark Heart Dragon Monk, Xuanzang
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESNoSkyfall(127:20488) -> Everything... I will destroy...everything!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No skyfall for 10 turns
+
+#3: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:20492) -> The Dark Heart grows stronger...
+	Increase damage to 150% for the next 999 turns
+	[1] ESBlindStickySkyfall(128:20493) -> Clouded Enlightenment
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+	[2] ESDamageShield(74:20501) -> Severing Sutra
+	Reduce damage from all sources by 75% for 5 turns
+
+#4: ESDebuffATK(130:20495) -> Looming Dark Waves
+Condition: 50% chance when < 50% HP (ai:50 rnd:0)
+ATK -75% for 1 turn, Deal 100% damage
+
+#5: ESSpinnersRandom(109:20491) -> Doomsday Chant
+Condition: 30% chance (ai:30 rnd:0)
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#6: ESDebuffRCV(105:20489) -> Dark Path
+Condition: 50% chance (ai:50 rnd:0)
+RCV 50% for 1 turn, Deal 100% damage
+
+#7: ESAttackMultihit(15:20490) -> Destroy...
+Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSuperResolve(129:20463) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,34 @@
+#104751 - Toushirou Hijikata
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 104751
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 4754, 4755 on team
+ | (11011:67) Were you trying to kill me?! 
+ | Absorb damage when combos <= 3 for 3 turns
+ | (11065:67) Come. I'll show you what real fighting is.
+ | Absorb damage when combos <= 6 for 4 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (11013:15) I fight to kill my enemy!
+   | Deal 120% damage
+   | condition: 33% chance
+   | (11014:77) I won't...retreat anymore!
+   | Change the 3rd column to Wood orbs, Deal 100% damage
+   | condition: 34% chance
+   | (11015:94) I won't let anyone shame our Shinsengumi.
+   | Lock 6 random orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 69
+   | (11012:74) I'm looking forward to this fight.
+   | Reduce damage from all sources by 50% for 2 turns
+ | group:
+ | condition: turn 2, hp <= 29
+   | (11016:17) Your life or mine!
+   | Increase damage to 300% for the next 99 turns

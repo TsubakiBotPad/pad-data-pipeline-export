@@ -1,0 +1,41 @@
+#4802 - Seething Dragon Caller, Alpha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4802
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 4796, 4797 on team
+ | (11146:83) Wait! This is off limits! + What are you doing, stupid Suou?!
+ | Seal the 1st row for 5 turns + Absorb damage when combos <= 6 for 999 turns
+ | (11145:83) Wait! This is off limits! + I've been entrusted to be on lookout!
+ | Seal the 1st row for 5 turns + Absorb damage when combos <= 6 for 999 turns
+ group:
+ | group:
+   | (11151:108) Need to burn more!
+   | Change all Jammer orbs to Fire orbs, Deal 150% damage
+   | condition: 33% chance
+   | (11152:89) I'll make you suffer!
+   | Delay active skills by 0~2 turns, Deal 95% damage
+   | condition: 33% chance
+   | (11153:92) I'll burn you to ashes!
+   | Spawn 5 random Jammer orbs, Deal 100% damage
+   | condition: 34% chance
+   | (11154:15) Hey, hey, hey!
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (11155:83) Your life is at an end! + You will regret that
+   | Spawn Bomb orbs in the specified positions + Movetime 50% for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11158:17) I'll end this for you NOW!
+     | Increase damage to 200% for the next 99 turns
+   | group:
+     | (11159:84) Get out of my sight!
+     | Change all orbs to Fire, Deal 250% damage

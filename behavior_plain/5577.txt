@@ -1,0 +1,68 @@
+#5577 - Shiki
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersFixed(110:23864) -> I'll play with you.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 17
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbChangeAttack(48:23866) -> Cloudburst
+Change all Dark orbs to Jammer orbs, Deal 105% damage
+
+#6: ESRandomSpawn(92:23865) -> Exodus Stream
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Dark orbs, Deal 100% damage
+
+#7: ESRowSpawnMulti(79:23867) -> Elysium Halo
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Dark orbs, Deal 90% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESBlind5(5:23869) -> Setsuna
+	Blind all orbs on the board
+	[1] ESGravity(50:23868) -> Tartarus Drop
+	Player -50% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESNoSkyfall(127:23871) -> Lotus Dance of Sublimation
+Condition: 33% chance (ai:0 rnd:33)
+No skyfall for 1 turn
+
+#14: ESSkillDelay(89:23872) -> Lotus Dance of Oblivion
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 1~2 turns, Deal 90% damage
+
+#15: ESAttackMultihit(15:23873) -> Tenma Wave Cyclone
+Condition: 34% chance (ai:0 rnd:34)
+Deal 150% damage (5 hits, 30% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBoardChangeAttackBits(85:23874) -> Skandha Avidya
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 250% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

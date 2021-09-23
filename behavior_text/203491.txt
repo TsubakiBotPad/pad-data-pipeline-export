@@ -1,0 +1,39 @@
+#203491 - Reincarnated Haku
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 203491
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5843:72) Fire Water Dark Reduced Damage
+ | Reduce damage from Fire, Water, and Dark attrs by 30%
+ type: PREEMPT
+ | (14465:87) What did you come here for?
+ | Absorb damage when damage >= 10,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (5839:85) Western Seven-Star Formation
+     | Change all orbs to Fire, Water, and Dark, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5838:50) Unbreakable Fangs
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5837:98) Dark Tiger Claw
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (5839:85) Western Seven-Star Formation
+     | Change all orbs to Fire, Water, and Dark, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (5842:83) I'm sorry... + Byakko Seven-Star Formation
+     | Delay active skills by 1 turn + Change all orbs to Fire, Water, and Dark, Deal 300% damage

@@ -1,0 +1,29 @@
+#2806 - War God of Protection, Takeminakata
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2806
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7475:73) Takeminakata Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (7476:106) Next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (7477:83) Celestial Art Stance + Unforgivable Revision
+ | Absorb damage when combos <= 4 for 999 turns + Increase damage to 200% for the next 3 turns
+ group:
+ | group:
+   | (7483:102) Firetrap Whirlwind
+   | Spawn 8 random locked Bomb orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (7480:83) Divine Wind of Suwa + Terra Firma Stance + Minakata Fog
+   | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 99 turns + A 6×3 rectangle of clouds appears for 1 turn at 2nd row, 1st column
+ | group:
+ | condition: hp <= 9
+   | (7484:15) Divine Katana of Yasaka
+   | Deal 800% damage (8 hits, 100% each)

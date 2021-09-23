@@ -1,0 +1,25 @@
+#1616 - Water Wizard, Sharon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1616
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14285:14) Undine, go......
+ | Bind active skills for 50 turns
+ type: DEATH
+ condition: when defeated
+ | (14288:95) Next is my last
+ | Bind awoken skills for 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-4 of 5
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (14286:85) Elemental Splash!
+   | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 10,000% damage

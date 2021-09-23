@@ -1,0 +1,103 @@
+  monster_id: 201945
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 1959
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 1972
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 60
+              }
+              enemy_skill_id: 1956
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 20
+              }
+              enemy_skill_id: 1955
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 10
+              }
+              enemy_skill_id: 1952
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 10
+              }
+              enemy_skill_id: 1953
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 74
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 1954
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 29
+          }
+          children {
+            behavior {
+              enemy_skill_id: 1958
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 1957
+            }
+          }
+        }
+      }
+    }
+  }

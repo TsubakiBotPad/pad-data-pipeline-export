@@ -1,0 +1,42 @@
+#105357 - Darkflute Dragon
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESRandomSpawn(92:13447) -> Magic Dragon Melody
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 10 random Poison orbs
+
+#5: ESAbsorbCombo(67:13448) -> Cadenza Groovy
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 3 turns
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 10
+
+#7: ESAttackMultihit(15:13449) -> Molto Crescendo
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#8: ESBombRandomSpawn(102:13450) -> Beat Rock
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random locked Bomb orbs, Deal 95% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESRandomSpawn(92:13451) -> Allargando Marcato
+Spawn 5 random Poison orbs, Deal 150% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

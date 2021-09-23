@@ -1,0 +1,76 @@
+#4419 - Monstrous Cetacean of the Clouds, Moby Dick
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 4419
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9942:73) 50% Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (9910:83) Cloud Cluster + Protective Cloud Formation + Rainbow Fog
+ | A 6×2 rectangle of clouds appears for 1 turn at 4th row, 1st column + Voids status ailments for 99 turns + Absorb damage when combos <= 7 for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (9914:83) Cloud Cluster + Prism Fog + Lightning Ball Strike
+     | A 6×2 rectangle of clouds appears for 1 turn at 1st row, 1st column + Absorb damage when combos <= 4 for 5 turns + Deal 270% damage (9 hits, 30% each), Deal 270% damage (9 hits, 30% each)
+   | group:
+   | condition: turn 2 while HP > 49
+     | (9918:83) Cloud Cluster + Moby Dick's Mighty Roar + Rising Flip
+     | A 6×2 rectangle of clouds appears for 1 turn at 3rd row, 1st column + Delay active skills by 1~3 turns + Leader changes to random sub for 1 turn
+   | group:
+   | condition: turn 3 while HP > 49
+     | (9922:83) Cloud Cluster + Storm Blow
+     | A 3×3 square of clouds appears for 1 turn at 2nd row, 3rd column + Deal 240% damage (2 hits, 120% each), Deal 240% damage (2 hits, 120% each)
+   | group:
+   | condition: turn 4 while HP > 49
+     | (9925:83) Cloud Cluster + Divine Cloud + Flash Storm
+     | A 3×3 square of clouds appears for 1 turn at 3rd row, 2nd column + Absorb Light damage for 5 turns + Change all orbs to Light
+   | group:
+   | condition: turn 5 while HP > 49
+     | (9929:83) Cloud Cluster + Plasma Breath
+     | A 3×3 square of clouds appears for 1 turn at 2nd row, 4th column + Change a random attribute to Light orbs, Deal 250% damage
+   | group:
+   | condition: turn 6 while HP > 49
+     | (9932:88) Micro Burst
+     | Bind awoken skills for 5 turns
+     | (9933:108) Heaven's Breaching
+     | Change all Jammer orbs to Light orbs, Deal 260% damage
+     | (9934:108) Dirty Cloud
+     | Change all Light and Heal orbs to Jammer orbs, Deal 210% damage
+     | (9935:48) Dirty Cloud
+     | Change a random attribute to Jammer orbs, Deal 210% damage
+   | group:
+     | (9933:108) Heaven's Breaching
+     | Change all Jammer orbs to Light orbs, Deal 260% damage
+     | (9934:108) Dirty Cloud
+     | Change all Light and Heal orbs to Jammer orbs, Deal 210% damage
+     | (9935:48) Dirty Cloud
+     | Change a random attribute to Jammer orbs, Deal 210% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (9936:83) Colossal Cumulonimbus Cloud + Plasma Chain
+     | Reduce damage from all sources by 75% for 10 turns + Bind both leaders for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (9939:84) Grimy Cloud
+     | Change all orbs to Fire, Light, Heal, Jammer, and Poison, Deal 246% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (9940:65) Lightning Chain
+     | Bind 2 random subs for 1~2 turns, Deal 220% damage
+ | group:
+ | condition: hp <= 9
+   | (9941:15) Mesocyclone
+   | Deal 1,300% damage (10 hits, 130% each)
+ | group:
+ | condition: hp <= 1
+   | (9943:83) Updraft + Swelling Clouds + Disastrous Cloud
+   | Enemy recover 75% HP + Increase damage to 150% for the next 99 turns + A 2×5 rectangle of clouds appears for 1 turn at 1st row, 3rd column

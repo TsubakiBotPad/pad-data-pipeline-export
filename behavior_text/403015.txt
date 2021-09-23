@@ -1,0 +1,104 @@
+#403015 - War Machine King, Liberty Geist
+monster size: 5
+new AI: True
+start/max counter: 11
+counter increment: 0
+monster_id: 403015
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4928:72) Halves Light-Dark
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (4927:83) Burning Flame + Power Claw
+ | Absorb damage when combos <= 5 for 99 turns + Lock all Fire and Wood orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | (4930:74) Flare Armor
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: turn 2 while HP > 69
+     | (4934:62) Dark Flare
+     | Blind all orbs on the board, Deal 170% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (4936:48) Death Claw
+     | Change a random attribute to Poison orbs, Deal 110% damage
+     | (4937:48) Crushing Claw
+     | Change a random attribute to Jammer orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (4939:94) Evil Hold
+     | Lock all Jammer and Poison orbs, Deal 120% damage
+     | (4938:94) Element Hold
+     | Lock 7 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (4940:14) Heat Chain
+     | Bind active skills for 3 turns, Deal 130% damage
+     | (4941:15) Cleave Rush
+     | Deal 140% damage (4 hits, 35% each)
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: always turn 1
+     | (4933:83) Power Erase + Metal Slicer
+     | Void damage >= 500,000 for 3 turns + Player -99% HP
+   | group:
+   | condition: turn 2 while HP > 14
+     | (4935:94) Power Claw
+     | Lock 8 random orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 3 while HP > 14
+     | (4943:17) Heat Up
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (4939:94) Evil Hold
+     | Lock all Jammer and Poison orbs, Deal 120% damage
+     | (4938:94) Element Hold
+     | Lock 7 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (4940:14) Heat Chain
+     | Bind active skills for 3 turns, Deal 130% damage
+     | (4941:15) Cleave Rush
+     | Deal 140% damage (4 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (4936:48) Death Claw
+     | Change a random attribute to Poison orbs, Deal 110% damage
+     | (4937:48) Crushing Claw
+     | Change a random attribute to Jammer orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (4939:94) Evil Hold
+     | Lock all Jammer and Poison orbs, Deal 120% damage
+     | (4938:94) Element Hold
+     | Lock 7 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (4945:15) Melting Claw
+     | Deal 160% damage (4 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (4944:92) Destroying Claw
+     | Spawn 4 random Jammer and Poison orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 14
+   | (4942:94) Explosive Skewer
+   | Lock all orbs, Deal 750% damage

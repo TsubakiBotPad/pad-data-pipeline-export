@@ -1,0 +1,33 @@
+#5238 - Spirit of the Sword, Yoh Asakura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5238
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13304:110) Let's do it, Amidamaru.
+ | Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (13305:15) If you hurt people, they'll hurt you back.
+   | Deal 110% damage (2 hits, 55% each)
+   | condition: 50% chance
+   | (13306:92) I can't lose anymore.
+   | Spawn 4 random Wood and Light orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (13307:83) I'm gonna use force. + Shamanic Oracle
+   | Increase damage to 150% for the next 5 turns + Absorb damage when combos <= 5 for 5 turns
+ | group:
+ | condition: hp <= 20
+   | group:
+   | condition: turn 2
+     | (13312:74) All right. One more try.
+     | Reduce damage from all sources by 50% for 1 turn
+   | group:
+     | (13303:83) Here I go. + Amida-Style Halo Giant Blade
+     | Blind all orbs on the board + Deal 200% damage (5 hits, 40% each), Deal 200% damage (5 hits, 40% each)

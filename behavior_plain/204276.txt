@@ -1,0 +1,41 @@
+#204276 - Reincarnated Perseus
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardSizeChange(126:20841) -> Prepare the field for battle!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change board size to 7x6 for 99 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:20843) -> Seems like you have Orbs to spare.
+	Absorb damage when combos <= 12 for 999 turns
+	[1] ESBlindStickySkyfall(128:20844) -> Drown in the rain!
+	For 99 turns, 20% chance for skyfall orbs to be blinded for turn
+	[2] ESDamageShield(74:20848) -> Sacred Treasures' Protection
+	Reduce damage from all sources by 75% for 999 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 8
+
+#5: ESBombRandomSpawn(102:20845) -> Explosive Charge
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 8 random Bomb orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:20846) -> Rapid Charge
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (2 hits, 60% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:20847) -> Godspeed Charge
+Deal 2,000% damage (4 hits, 500% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

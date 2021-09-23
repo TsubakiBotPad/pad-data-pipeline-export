@@ -1,0 +1,121 @@
+#406566 - Rui
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESSkyfallLocked(96:20147) -> Don't disturb...
+	Locked random skyfall +30% for 5 turns
+	[1] ESInactivity66(66:20148) -> ...my family's peaceful life.
+	Do nothing
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#4: ESNoSkyfall(127:20149) -> No one will ever
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+No skyfall for 1 turn
+
+#5: ESOrbLock(94:20151) -> We are family.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Lock 6 random orbs, Deal 100% damage
+
+#6: ESDebuffATK(130:20150) -> You!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+ATK -50% for 2 turns
+
+#7: ESOrbChangeSingle(4:20153) -> That's a genuine bond!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change a random attribute to Wood orbs
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffRCV(105:20154) -> Give me your sister.
+	RCV 50% for 1 turn
+	[1] ESGravity(50:20155) -> If you hand her over quietly,
+	Player -5% HP
+
+#9: ESGravity(50:20178) -> How unpleasant...
+Condition: 50% chance (ai:50 rnd:0)
+Player -5% HP
+
+#10: ESAttackMultihit(15:20058) -> What an unpleasant feeling!
+Deal 100% damage (2 hits, 50% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESDamageShield(74:20156) -> Did you think...
+Reduce damage from all sources by 30% for 1 turn
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 20
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: SkillSet:
+	[0] ESOrbLock(94:20057) -> Blood Demon Art: Cutting Thread Cage
+	Lock 5 random orbs
+	[1] ESInactivity66(66:20055) -> I have no more use for you.
+	Do nothing
+	[2] ESGravity(50:20056) -> Goodbye.
+	Player -5% HP
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 24
+
+#21: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#22: ESBindAttack(63:20059) -> Blood Demon Art: Murderous Eye Basket
+Bind 1 random sub for 2 turns, Deal 90% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 28
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#26: ESSkyfall(68:20179) -> It's like these scum exist just to interfere with me!
+Jammer skyfall +5% for 1 turn
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#29: ESOrbLock(94:20152) -> Blood Demon Art: Cutting Thread Rotation
+Lock 5 random orbs, Deal 120% damage
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESSuperResolve(129:20118) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#32: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:20157) -> I'm sorry! I'm sorry!
+	Do nothing

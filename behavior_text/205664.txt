@@ -1,0 +1,35 @@
+#205664 - Melissa Mao
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205664
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21879:14) Looks like our turn's up!
+ | Bind active skills for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (21881:101) Activate EHF radar!
+     | Fix orb movement starting point to random position on the board
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (21880:77) Cut the ECS!
+     | Change the 6th column to Fire orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21882:105) Why, you...
+     | RCV 50% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (21883:92) Ultrafast Missile
+     | Spawn 5 random Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (21884:15) Fire!
+     | Deal 120% damage

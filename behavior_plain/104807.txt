@@ -1,0 +1,30 @@
+#104807 - Newcomer Sword Dragon Caller, Lieto
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlind62(62:10743) -> Dim Mist
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board, Deal 50% damage
+
+#3: ESSkillDelay(89:10746) -> Dark Shine
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 0~3 turns
+
+#4: ESBlindStickyRandom(97:10747) -> Anghel Feldamis
+Condition: When < 10% HP (ai:100 rnd:0)
+Blind random 4~8 orbs for 1 turn, Deal 180% damage
+
+#5: ESBlindStickyRandom(97:10744) -> Fading Shape
+Condition: 50% chance (ai:50 rnd:0)
+Blind random 1~2 orbs for 3 turns, Deal 100% damage
+
+#6: ESAttackMultihit(15:10745) -> Deltmis
+Deal 120% damage (3 hits, 40% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

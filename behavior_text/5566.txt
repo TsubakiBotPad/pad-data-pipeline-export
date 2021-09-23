@@ -1,0 +1,51 @@
+#5566 - Wandering Great Swordsman, Haohmaru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5566
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23930:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23929:83) You're my opponent? + Here I come!
+ | Voids status ailments for 999 turns + Void damage >= 5,000,000 for 5 turns
+ group:
+ | group:
+   | condition: 34% chance
+   | (14593:92) Crescent Moon Slash
+   | Spawn 4 random Light orbs, Deal 95% damage
+   | condition: 33% chance
+   | (14595:77) Cyclone Slash
+   | Change the 5th column to Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (14596:15) Earthquake Slice
+   | Deal 105% damage
+ | group:
+ | condition: hp <= 50
+   | condition: 25% chance
+   | (14594:92) Renting Tremor Slash
+   | Spawn 7 random Light orbs, Deal 95% damage
+   | condition: 25% chance
+   | (23925:74) Rice Wine Whack
+   | Reduce damage from all sources by 75% for 1 turn, Deal 90% damage
+   | condition: 34% chance
+   | (14593:92) Crescent Moon Slash
+   | Spawn 4 random Light orbs, Deal 95% damage
+   | condition: 33% chance
+   | (14595:77) Cyclone Slash
+   | Change the 5th column to Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (14596:15) Earthquake Slice
+   | Deal 105% damage
+ | group:
+ | condition: hp <= 14
+   | (23926:85) Flame of the Conqueror
+   | Change all orbs to Fire, Light, and Heal, Deal 300% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (23927:15) Judgement Blast Slash
+   | Deal 5,600% damage (7 hits, 800% each)

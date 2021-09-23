@@ -1,0 +1,117 @@
+#3740 - Placid Boneclad Dragonbound, Hermé-Ku
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:7416) -> You're not going anywhere!
+	Voids status ailments for 999 turns
+	[1] ESRandomSpawn(92:7417) -> Have a taste of true fear!
+	Spawn 13 random Poison orbs
+	[2] ESOrbLock(94:7418) -> World Grudge
+	Lock 13 random orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 21
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESOrbChangeAttack(48:7420) -> Agonizing Sacrifice
+Change all Poison orbs to Mortal Poison orbs, Deal 200% damage
+
+#10: SkillSet:
+	[0] ESRecoverPlayer(55:7421) -> A Reward For Your Agony
+	Player recover 100% HP
+	[1] ESBindAwoken(88:7422) -> Ominous Sorcery
+	Bind awoken skills for 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:7424) -> Desperation
+	Absorb Fire damage for 3 turns
+	[1] ESOrbChangeAttack(48:7429) -> Acid Breath
+	Change a random attribute to Jammer orbs, Deal 170% damage
+
+#13: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:7425) -> Desperation
+	Absorb Water damage for 3 turns
+	[1] ESOrbChangeAttack(48:7429) -> Acid Breath
+	Change a random attribute to Jammer orbs, Deal 170% damage
+
+#14: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:7426) -> Desperation
+	Absorb Wood damage for 3 turns
+	[1] ESOrbChangeAttack(48:7429) -> Acid Breath
+	Change a random attribute to Jammer orbs, Deal 170% damage
+
+#15: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:7427) -> Desperation
+	Absorb Light damage for 3 turns
+	[1] ESOrbChangeAttack(48:7429) -> Acid Breath
+	Change a random attribute to Jammer orbs, Deal 170% damage
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:7428) -> Desperation
+	Absorb Dark damage for 3 turns
+	[1] ESOrbChangeAttack(48:7429) -> Acid Breath
+	Change a random attribute to Jammer orbs, Deal 170% damage
+
+#17: ESColumnSpawnMulti(77:7436) -> Blue Dragon Liquid
+Condition: 40% chance (ai:0 rnd:40)
+Change the 1st column to Water orbs, Deal 130% damage
+
+#18: ESSkyfall(68:7438) -> Corpse Dragon's Curse
+Condition: 20% chance (ai:0 rnd:20)
+Poison skyfall +10% for 10 turns
+
+#19: ESAttackMultihit(15:7439) -> Abyssal Pain
+Condition: 40% chance (ai:0 rnd:40)
+Deal 150% damage (3 hits, 50% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 25
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: ESBlindStickyRandom(97:7440) -> Accursed Eclipse
+Blind random 13 orbs for 13 turns, Deal 100% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESBindAwoken(88:7441) -> Virulent Sorcery
+	Bind awoken skills for 10 turns
+	[1] ESOrbChangeAttack(48:7442) -> Deadly Poison
+	Change a random attribute to Mortal Poison orbs, Deal 1,200% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn

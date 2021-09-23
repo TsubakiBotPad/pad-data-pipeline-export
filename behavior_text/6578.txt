@@ -1,0 +1,65 @@
+#6578 - Monstrous Mystic, Bull Demon King
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 6578
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19912:83) Mystic Armor + Tempered Armor + Eternal Flame + Ashen Flame-Wreathed Armor
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 200,000,000 for 999 turns + Unable to match Jammer orbs for 99 turns + Reduce damage from all sources by 75% for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (19917:83) Revolving Rotation + Eternal Flame + Blazing Ashes
+     | Specific orbs change every 1.0s for 5 turns + Unable to match Jammer orbs for 5 turns + Jammer skyfall +25% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 2-5 of 5
+     | condition: 50% chance
+     | (19923:83) Blazing Onslaught + Twin Clubs' Barrage
+     | Player -75% HP + Deal 80% damage (4 hits, 20% each), Deal 80% damage (4 hits, 20% each)
+     | condition: 50% chance
+     | (19926:89) Iron Clubs of Ice and Fire
+     | Delay active skills by 1~2 turns, Deal 160% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (19917:83) Revolving Rotation + Eternal Flame + Blazing Ashes
+     | Specific orbs change every 1.0s for 5 turns + Unable to match Jammer orbs for 5 turns + Jammer skyfall +25% for 4 turns
+   | group:
+   | condition: turn 2 while HP > 9
+     | (19920:83) Monstrous Strength + Aura of the Strong
+     | Increase damage to 150% for the next 999 turns + Absorb damage when combos <= 5 for 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 5
+     | condition: 50% chance
+     | (19923:83) Blazing Onslaught + Twin Clubs' Barrage
+     | Player -75% HP + Deal 80% damage (4 hits, 20% each), Deal 80% damage (4 hits, 20% each)
+     | condition: 50% chance
+     | (19926:89) Iron Clubs of Ice and Fire
+     | Delay active skills by 1~2 turns, Deal 160% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (19917:83) Revolving Rotation + Eternal Flame + Blazing Ashes
+     | Specific orbs change every 1.0s for 5 turns + Unable to match Jammer orbs for 5 turns + Jammer skyfall +25% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | condition: 50% chance
+     | (19923:83) Blazing Onslaught + Twin Clubs' Barrage
+     | Player -75% HP + Deal 80% damage (4 hits, 20% each), Deal 80% damage (4 hits, 20% each)
+     | condition: 50% chance
+     | (19926:89) Iron Clubs of Ice and Fire
+     | Delay active skills by 1~2 turns, Deal 160% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (19927:83) Power Decay + Stolen Light
+     | Bind awoken skills for 3 turns + Movetime 25% for 3 turns
+   | group:
+     | (19930:83) Fluctuating Flame Armor + Twin Clubs' Blazing Onslaught
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 4,000% damage (8 hits, 500% each), Deal 4,000% damage (8 hits, 500% each)

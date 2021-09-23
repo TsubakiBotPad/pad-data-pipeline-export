@@ -1,0 +1,64 @@
+#6784 - The Girl Bewitched by a Cat, Tsubasa Hanekawa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindSkill(14:21109) -> Meow!
+	Bind active skills for 4 turns
+	[1] ESAttackMultihit(15:21110) -> Nyahaha!
+	Deal 68~102% damage (2~3 hits, 34% each)
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBindRandom(1:21113) -> You're not needed anymore, meow.
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random card for 3 turns, Deal 80% damage
+
+#8: ESOrbLock(94:21112) -> Don't scream.
+Condition: 33% chance (ai:0 rnd:33)
+Lock 6 random orbs, Deal 90% damage
+
+#9: ESOrbChangeAttack(48:21111) -> That's perfect then, meow.
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESStatusShield(20:21114) -> You scare me...
+Voids status ailments for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPRemainingEnemies(17:21115) -> Nyahahahaha!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#16: ESRecoverEnemy86(86:21116) -> Energy Drain
+Enemy recover 5% HP, Deal 80% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

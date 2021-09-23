@@ -1,0 +1,42 @@
+#5664 - Melissa Mao
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5664
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14961:118) Balance Machine Halved
+ | Reduce damage from Balanced and Machine types by 50%
+ type: PREEMPT
+ | (14898:127) Here we are to start the battle!
+ | No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (14899:15) Damn!
+   | Deal 70% damage
+   | condition: 50% chance
+   | (14900:92) ...This sucks.
+   | Spawn 4 random Poison orbs, Deal 60% damage
+ | group:
+ | condition: hp <= 50
+   | condition: 30% chance
+   | (14901:50) All right. Initiate counterattack.
+   | Player -99% HP
+   | condition: 50% chance
+   | (14899:15) Damn!
+   | Deal 70% damage
+   | condition: 50% chance
+   | (14900:92) ...This sucks.
+   | Spawn 4 random Poison orbs, Deal 60% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (14902:96) You ready, crew?!
+   | Locked random skyfall +50% for 6 turns
+ | group:
+ | condition: hp <= 20
+   | (14903:15) Rock 'n' roll!
+   | Deal 150% damage (5 hits, 30% each)

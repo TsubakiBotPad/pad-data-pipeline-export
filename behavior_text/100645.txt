@@ -1,0 +1,45 @@
+#100645 - Alt. Archdemon Beelzebub
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100645
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9493:83) Move, move, move---!! + Demon Wheelie
+ | Deal 180% damage + Absorb damage when damage >= 6,000,000 for 5 turns, Deal 180% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (9498:60) Take this!
+   | Change 7 random orbs (excluding hearts) to Poison orbs
+ | group:
+ | condition: hp <= 74
+   | condition: 50% chance
+   | (9496:15) Deadly Drive!
+   | Deal 150% damage (3 hits, 50% each)
+   | condition: 50% chance
+   | (9498:60) Take this!
+   | Change 7 random orbs (excluding hearts) to Poison orbs
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (9495:48) Not going easy anymore!
+     | Change all Poison orbs to Mortal Poison orbs, Deal 100% damage
+     | (9494:17) Not going easy anymore!
+     | Increase damage to 150% for the next 99 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (9497:84) Sink into a sea of poison!!
+     | Change all orbs to Mortal Poison
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 4
+     | (9496:15) Deadly Drive!
+     | Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (9497:84) Sink into a sea of poison!!
+     | Change all orbs to Mortal Poison

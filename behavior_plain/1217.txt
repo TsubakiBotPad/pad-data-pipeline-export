@@ -1,0 +1,56 @@
+#1217 - Keeper of the Sacred Texts, Metatron
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffRCV(105:6844) -> White Wings of Divine Intervention
+	RCV 50% for 10 turns
+	[1] ESAbsorbCombo(67:6845) -> Trials of Heaven
+	Absorb damage when combos <= 5 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 71, target rnd 12
+
+#7: ESAttackMultihit(15:6854) -> Meterion Kesh
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 30,000% damage (10 hits, 3,000% each)
+
+#8: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:6850) -> Holy Throne
+	Increase damage to 150% for the next 999 turns
+	[1] ESBindAwoken(88:6851) -> Prediction
+	Bind awoken skills for 3 turns
+
+#9: ESCloud(104:6848) -> Divine One's Writing
+Condition: 50% chance (ai:50 rnd:0)
+A column of clouds appears for 1 turn at a random location, Deal 200% damage
+
+#10: ESCloud(104:6849) -> Divine One's Writing
+A row of clouds appears for 1 turn at a random location, Deal 200% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:6847) -> You've a while to go yet
+Deal 1,000% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTurnChangePassive(106:6853) -> Turn changed through divine intervention
+Enemy turn counter change to 1 when HP <= 70%

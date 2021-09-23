@@ -1,0 +1,62 @@
+#406521 - Quiet Night Beast, Scheherazade Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19177) -> A Spun Story
+	Voids status ailments for 999 turns
+	[1] ESSpinnersRandom(109:19178) -> Invitation into Mystery
+	Random 3 orbs change every 1.0s for 15 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 11
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#5: ESAttackMultihit(15:20949) -> A Tale of Beginnings and Endings
+Deal 200% damage (4 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESDamageShield(74:19181) -> A True Story
+	Reduce damage from all sources by 90% for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:20946) -> A Prologue of the End
+	Increase damage to 500% for the next 999 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESBindAwoken(88:19184) -> Dark Dawn
+	Bind awoken skills for 1 turn
+	[1] ESChangeAttribute(46:19185) -> Dawn Light
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[2] ESAttackMultihit(15:19186) -> A Poem of the End
+	Deal 3,000% damage (10 hits, 300% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:20949) -> A Tale of Beginnings and Endings
+Deal 200% damage (4 hits, 50% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:19175) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

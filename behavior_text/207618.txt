@@ -1,0 +1,61 @@
+#207618 - 紅晶の氷雪王・ミアーダ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207618
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25159:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25160:83) Grateful Scarlet Snow + Poison Rain + Lock Hail
+ | Voids status ailments for 999 turns + Poison skyfall +15% for 7 turns + Locked Poison skyfall +100% for 7 turns
+ group:
+ | group:
+ | condition: always turn 7
+   | (25155:83) Snow Soul + Poison Snow
+   | Increase damage to 150% for the next 999 turns + Change all orbs to Poison, Deal 100% damage
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 25% chance
+     | (25173:107) Natural Disaster
+     | Unable to match Poison orbs for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (25174:130) Natural Disaster
+     | ATK -75% for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (25176:39) Natural Disaster
+     | Movetime 25% for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (25182:15) Snowstorm
+     | Deal 150% damage (5 hits, 30% each)
+   | group:
+     | condition: 25% chance
+     | (25173:107) Natural Disaster
+     | Unable to match Poison orbs for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (25174:130) Natural Disaster
+     | ATK -75% for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (25176:39) Natural Disaster
+     | Movetime 25% for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (25182:15) Snowstorm
+     | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (25183:83) Snow Barrier + Dark Stormy Weather
+   | Void damage >= 700,000,000 for 7 turns + RCV 50% for 7 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turns 1-6
+     | (25190:83) Atmospheric Change + Snow Hurricane
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,000% damage (6 hits, 500% each), Deal 3,000% damage (6 hits, 500% each)
+   | group:
+     | (25190:83) Atmospheric Change + Snow Hurricane
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,000% damage (6 hits, 500% each), Deal 3,000% damage (6 hits, 500% each)

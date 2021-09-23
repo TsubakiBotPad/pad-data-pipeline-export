@@ -1,0 +1,30 @@
+#4229 - Purple Augite, Mirror of Eternal Darkness
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESFixedTarget(112:9175) -> Shield Expansion
+Forces attacks to hit this enemy for 66 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:9178) -> The Purple Augite is pulsating
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 35% for 6 turns
+
+#7: ESSkillDelay(89:9176) -> Shield Bash
+Delay active skills by 0~1 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

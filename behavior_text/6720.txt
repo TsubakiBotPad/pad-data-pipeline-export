@@ -1,0 +1,33 @@
+#6720 - Enceras
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6720
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20600:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (20601:20) Flame of Determination
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | (20602:46) Shifting Flare
+   | Change own attribute to random one of Water, Wood, Light, Dark, or Heal, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (20606:15) Tri-Flare Burst
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (20605:88) Purifying Flame
+   | Bind awoken skills for 3 turns, Deal 150% damage
+   | (20603:83) Undying Blaze + Purifying Flame
+   | Increase damage to 200% for the next 999 turns + Bind awoken skills for 3 turns, Deal 150% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 1
+ | (20603:83) Undying Blaze + Purifying Flame
+ | Increase damage to 200% for the next 999 turns + Bind awoken skills for 3 turns, Deal 150% damage

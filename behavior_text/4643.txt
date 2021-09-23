@@ -1,0 +1,32 @@
+#4643 - Light Companion Dragon, Goteene
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4643
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10376:14) Holy Sealing Technique
+ | Bind active skills for 1 turn
+ group:
+ | group:
+   | condition: 33% chance
+   | (10377:48) Light Pillar
+   | Change a random attribute to Light orbs, Deal 110% damage
+   | condition: 33% chance
+   | (10378:89) Diminishing Rush
+   | Delay active skills by 1~2 turns, Deal 100% damage
+   | condition: 34% chance
+   | (10379:15) Tradition
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10381:83) Holy Sealing Technique + Behavior Shield
+     | Bind active skills for 1 turn + Seal the 5th row for 1 turn
+   | group:
+     | (10382:15) Last Decision
+     | Deal 165% damage (3 hits, 55% each)

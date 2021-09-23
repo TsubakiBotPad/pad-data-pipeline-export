@@ -1,0 +1,40 @@
+#7017 - Super Reincarnated Yamato Takeru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7017
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23681:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (23682:83) True Spirit of the God-Emperor + Noble Spirit of Kusanagi + Grip of the Blue Right Hand
+ | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns + ATK -75% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (23686:83) Halo Sword + Blazing Meteor Blade
+   | Deal 60% damage (4 hits, 15% each) + Change the 1st column to Fire orbs, the 3rd column to Fire orbs, and the 5th column to Fire orbs, Deal 60% damage (4 hits, 15% each)
+   | condition: 50% chance
+   | (23687:83) Halo Sword + Nimbus Cloud
+   | Deal 60% damage (4 hits, 15% each) + Lock 20 random orbs, Deal 60% damage (4 hits, 15% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (23691:83) Unleashed Sword of the Right Hand + Incinerating Blue Flame
+     | No skyfall for 99 turns + RCV 25% for 5 turns
+   | group:
+     | condition: 50% chance
+     | (23694:83) Halo Sword + Blazing Meteor Blade
+     | Deal 100% damage (4 hits, 25% each) + Change the 1st column to Water orbs, the 3rd column to Water orbs, and the 5th column to Water orbs, Deal 100% damage (4 hits, 25% each)
+     | condition: 50% chance
+     | (23695:83) Halo Sword + Nimbus Cloud
+     | Deal 100% damage (4 hits, 25% each) + Lock 20 random orbs, Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: hp <= 9
+   | (23699:15) The Divine Sword Kusanagi
+   | Deal 1,000% damage (10 hits, 100% each)

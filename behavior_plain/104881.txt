@@ -1,0 +1,69 @@
+#104881 - Heathcliff
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 7
+
+#3: ESBranchCard(90:11431) -> ESBranchCard
+Branch on player_cards HAS [4855, 4856], target rnd 5
+
+#4: ESInactivity66(66:11427) -> Actually, I kind of like that angle.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#5: ESInactivity66(66:11429) -> I always thought you'd be the one standing before me at the very end.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESBranchCard(90:11431) -> ESBranchCard
+Branch on player_cards HAS [4855, 4856], target rnd 11
+
+#10: ESBindRandomSub(65:11467) -> Actually, I kind of like that angle.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 3 random subs for 3 turns
+
+#11: ESBindRandomSub(65:11468) -> I always thought you'd be the one standing before me at the very end.
+Bind 3 random subs for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 17
+
+#14: ESDamageShield(74:11432) -> I'll consider this as your first mission.
+Condition: 50% chance (ai:0 rnd:50)
+Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+
+#15: ESSpinnersRandom(109:11433) -> Your reaction time is very impressive.
+Condition: 50% chance (ai:0 rnd:50)
+Random 1 orbs change every 1.0s for 1 turn, Deal 90% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESColumnSpawnMulti(77:11434) -> Game over.
+Change the 3rd column to Light orbs, Deal 150% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11653) -> I guess sometimes these things just happen.
+	Do nothing

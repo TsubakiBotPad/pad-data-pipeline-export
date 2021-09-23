@@ -1,0 +1,69 @@
+#2206 - Broad-Minded Hell Demon, Scarlet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:3030) -> OK! I'm ready now
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:3031) -> The Beast is checking...
+	Movetime -1s for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESOrbChangeAttack(48:3034) -> Rose Burst
+Change all Jammer orbs to Fire orbs, Deal 150% damage
+
+#8: SkillSet:
+	Condition: 60% chance when < 80% HP (ai:60 rnd:0)
+	[0] ESRowSpawnMulti(79:3036) -> Dark Color Fire
+	Change the 1st, 3rd, and 5th rows to Fire, Dark, and Jammer orbs, Deal 100% damage
+	[1] ESSkillDelay(89:3037) -> Beast's Ambition
+	Delay active skills by 0~2 turns
+
+#9: SkillSet:
+	[0] ESPoisonChangeRandomCount(60:3047) -> Serpent Poison
+	Change 5 random orbs to Poison orbs
+	[1] ESAttackMultihit(15:3033) -> Beast Attack
+	Deal 100% damage
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESBindTarget(54:3039) -> Can you wait a little bit please?
+	Bind both leaders for 1 turn
+	[1] ESAttackUPRemainingEnemies(17:3040) -> Grrrrr...
+	Increase damage to 200% for the next 999 turns
+
+#13: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESRowSpawnMulti(79:3044) -> Crows of Sorrow
+	Change the 1st, 2nd, 3rd, 4th, and 5th rows to Fire, Dark, Jammer, and Poison orbs, Deal 20% damage
+	[1] ESAttackMultihit(15:3045) -> Beast Last Attack
+	Deal 360% damage (6 hits, 60% each)
+
+#14: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESDamageShield(74:3042) -> Dark Heat Bulwark
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESAttackMultihit(15:3033) -> Beast Attack
+	Deal 100% damage

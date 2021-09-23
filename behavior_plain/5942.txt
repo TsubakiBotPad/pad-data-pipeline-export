@@ -1,0 +1,59 @@
+#5942 - Reincarnated Neptune Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:16749) -> Sea God's Divine Protection
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:16750) -> Sacred Waters of the Underworld
+	Poison and Mortal Poison skyfall +15% for 10 turns
+	[2] ESAbsorbThreshold(87:16751) -> Guidance to the Ark
+	Absorb damage when damage >= 30,000,000 for 999 turns
+	[3] ESDebuffATK(130:16752) -> Judgement of the Deep Sea
+	ATK -50% for 99 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 6
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:16754) -> Sea God's Wrath
+	Increase damage to 200% for the next 999 turns
+	[1] ESBoardChangeAttackBits(85:16755) -> Whirling Tides on Dark Seas
+	Change all orbs to Mortal Poison, Deal 100% damage
+
+#6: ESAttackMultihit(15:16756) -> Tri-Burst
+Condition: 34% chance (ai:0 rnd:34)
+Deal 90% damage (3 hits, 30% each)
+
+#7: ESRandomSpawn(92:16757) -> Abyssal Tentacle
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Water, Poison, and Mortal Poison orbs, Deal 80% damage
+
+#8: ESDebuffMovetime(39:16758) -> Earthquake
+Condition: 33% chance (ai:0 rnd:33)
+Movetime 50% for 1 turn, Deal 85% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:16759) -> Chaos Maelstrom
+Deal 3,000% damage (10 hits, 300% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:16760) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESTypeResist(118:16734) -> God & Devil Halved
+Reduce damage from God and Devil types by 50%

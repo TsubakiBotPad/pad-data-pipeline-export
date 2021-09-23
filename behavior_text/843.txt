@@ -1,0 +1,40 @@
+#843 - DD・ドラゴン
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+monster_id: 843
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (570:13) Howl
+ | Change 2 random orb types to Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (569:1) Eagle Grip
+     | Bind 1 random card for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 5
+     | (593:48) Breath of Flames
+     | Change a random attribute to Fire orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 5
+     | (571:15) Tail Attack
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 5
+     | (592:48) Wing Fluttering
+     | Change a random attribute to Jammer orbs, Deal 70% damage
+ | group:
+ | condition: hp <= 39
+   | condition: 50% chance
+   | (572:48) Fierce Fire Breath
+   | Change a random attribute to Fire orbs, Deal 135% damage
+   | condition: 50% chance
+   | (569:1) Eagle Grip
+   | Bind 1 random card for 5 turns
+   | (590:15) Claw Strike of Anger
+   | Deal 130% damage (2 hits, 65% each)

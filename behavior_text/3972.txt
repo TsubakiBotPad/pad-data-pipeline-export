@@ -1,0 +1,50 @@
+#3972 - Ney REMDra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3972
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8358:74) I love dragons!
+ | Reduce damage from all sources by 50% for 99 turns
+ group:
+ | (8359:15) Dragon REM Punch!
+ | Deal 130% damage
+
+level: 2
+ type: PREEMPT
+ | (8343:83) I love dragons! + Dragon Caller's Aura + Pull!
+ | Blind orbs in specific positions for 1 turn + Voids status ailments for 5 turns + Reduce damage from all sources by 75% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (8344:74) Pull it!
+     | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | group:
+     | (8345:74) Come on! Pull!
+     | Reduce damage from all sources by 50% for 1 turn, Deal 120% damage
+ | group:
+ | condition: hp <= 79
+   | condition: 20% chance
+   | (8352:83) It's putting some back into it + Draco Nesting Circle - Dk, Fr & Life
+   | Do nothing + Change all orbs to Fire, Dark, and Heal, Deal 150% damage
+   | condition: 20% chance
+   | (8353:83) It's putting some back into it + Draco Nesting Circle - Dk, Wt & Life
+   | Do nothing + Change all orbs to Water, Dark, and Heal, Deal 150% damage
+   | condition: 20% chance
+   | (8354:83) It's putting some back into it + Draco Nesting Circle - Dk, Wd & Life
+   | Do nothing + Change all orbs to Wood, Dark, and Heal, Deal 150% damage
+   | condition: 20% chance
+   | (8355:83) It's putting some back into it + Draco Nesting Circle - Dk, Lt & Life
+   | Do nothing + Change all orbs to Light, Dark, and Heal, Deal 150% damage
+   | condition: 20% chance
+   | (8356:83) It's putting some back into it + Draco Nesting Circle - Dk, Demon & Life
+   | Do nothing + Change all orbs to Dark, Heal, and Jammer, Deal 150% damage
+ | group:
+ | condition: hp <= 14
+   | (8357:15) Throw me some more Magic Stones!
+   | Deal 900% damage (3 hits, 300% each)

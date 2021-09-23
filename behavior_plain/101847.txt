@@ -1,0 +1,92 @@
+#101847 - Alt. Maleficent Phantom Dragon King, Zaerog∞
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:2332) -> Let's continue!
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:2346) -> King of Zero
+	Reduce damage from all sources by 75% for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESDispel(6:2333) -> Return to Zero
+Voids player buff effects
+
+#11: ESBindRandom(1:2334) -> Sacrifice
+Bind 3 random cards for 2 turns
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#13: ESGravity(50:2344) -> End of Pain
+Condition: When < 30% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Player -100% HP
+
+#14: ESAttackMultihit(15:2345) -> Beyond the Pain
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 3,000% damage (3 hits, 1,000% each)
+
+#15: ESOrbChangeAttack(48:2338) -> King Cannon Type Zero
+Change all Poison orbs to Mortal Poison orbs, Deal 200% damage
+
+#16: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRecoverEnemy86(86:2335) -> Blue Sphere
+	Enemy recover 10% HP
+	[1] ESRandomSpawn(92:2336) -> Chaos Bolt
+	Spawn 4 random Poison orbs
+
+#17: ESBlind62(62:2339) -> Dark Pulse
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 120% damage
+
+#18: ESAttackMultihit(15:2340) -> Dragon King Cannon
+Condition: 33% chance (ai:0 rnd:33)
+Deal 150% damage (3 hits, 50% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 13
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESBindSkill(14:2341) -> King's Gaze
+	Bind active skills for 5 turns
+	[1] ESRecoverEnemy86(86:2342) -> Re-Zero
+	Enemy recover 100% HP
+
+#23: ESAttributeResist(72:8794) -> Zaerog Dark Water Halved
+Reduce damage from Water and Dark attrs by 50%
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

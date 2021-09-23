@@ -1,0 +1,123 @@
+#4644 - Gleaming Star Companion Dragon, Goteene
+monster size: 4
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESLeaderSwap(75:10385) -> Holy Judgment
+Leader changes to random sub for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttributeBlock(107:10384) -> Purple Exception
+Unable to match Dark orbs for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 30
+
+#13: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 21
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 32
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 25
+
+#17: ESOrbChangeAttack(48:10388) -> Flash Pillar
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#18: ESRandomSpawn(92:10389) -> Subjective Heart
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 1 random Heal orb, Deal 110% damage
+
+#19: ESAttackMultihit(15:10390) -> Judging Rush
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (2 hits, 60% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: SkillSet:
+	[0] ESBindSkill(14:10392) -> Trial of Judgment
+	Bind active skills for 1 turn
+	[1] ESAttackUPRemainingEnemies(17:10393) -> Conviction
+	Increase damage to 200% for the next 99 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESOrbChangeAttack(48:10391) -> Trial Sin
+Condition: One-time use (ai:0 rnd:100) (cost: 2)
+Change a random attribute to Jammer orbs, Deal 105% damage
+
+#26: ESOrbChangeAttack(48:10388) -> Flash Pillar
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Light orbs, Deal 100% damage
+
+#27: ESRandomSpawn(92:10389) -> Subjective Heart
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 1 random Heal orb, Deal 110% damage
+
+#28: ESAttackMultihit(15:10390) -> Judging Rush
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (2 hits, 60% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESAttackMultihit(15:10395) -> Final Judgment
+Deal 180% damage (3 hits, 60% each)
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#33: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 35
+
+#34: ESBoardChangeAttackBits(85:10387) -> Lightning Enclosure
+Change all orbs to Fire, Water, Light, and Heal, Deal 120% damage
+
+#35: ESOrbSealRow(100:10386) -> Liberty Shackles
+Seal the 5th row for 2 turns
+
+#36: ESEndPath(36:26) -> ESEndPath
+end_turn

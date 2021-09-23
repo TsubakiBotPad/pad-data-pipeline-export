@@ -1,0 +1,49 @@
+#203337 - Flame Pillar God of the Scorching Sun, Amen
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203337
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22163:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22148:83) Flame Pillar God's Protection + Scorching Sun's Atmosphere + Flare Spark
+ | Voids status ailments for 999 turns + Fire skyfall +20% for 5 turns + Random 3 orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (22152:94) Flame Chain
+   | Lock all Fire orbs, Deal 80% damage
+   | condition: 33% chance
+   | (22154:92) Blazing Claw
+   | Spawn 6 random Fire orbs, Deal 90% damage
+   | condition: 34% chance
+   | (22153:15) Heat Fist
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22155:83) Atmospheric Guard + Flame Pillar of the Sun
+     | Reduce damage from all sources by 75% for 4 turns + Absorb Fire damage for 4 turns
+   | group:
+     | condition: 25% chance
+     | (22159:107) Hidden Sun
+     | Unable to match Water orbs for 1 turn, Deal 200% damage
+     | condition: 25% chance
+     | (22160:107) Hidden Sun
+     | Unable to match Wood orbs for 1 turn, Deal 200% damage
+     | condition: 25% chance
+     | (22161:107) Hidden Sun
+     | Unable to match Light orbs for 1 turn, Deal 200% damage
+     | condition: 25% chance
+     | (22162:107) Hidden Sun
+     | Unable to match Dark orbs for 1 turn, Deal 200% damage
+ | group:
+ | condition: hp <= 19
+   | (22158:15) Prominence Burst
+   | Deal 3,500% damage (5 hits, 700% each)

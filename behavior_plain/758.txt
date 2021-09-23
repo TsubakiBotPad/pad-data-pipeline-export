@@ -1,0 +1,48 @@
+#758 - Drilling Shark Dragon, Megalodran
+monster size: 2
+new AI: True
+start/max counter: 5
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:3097) -> Burning Shield
+Condition: One-time use (ai:100 rnd:0) (cost: 5)
+Absorb Wood damage for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindAttack(63:3101) -> Shark Horn Blade
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind 1 random card for 2 turns, Deal 320% damage
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 60, target rnd 11
+
+#8: ESOrbChangeAttack(48:3098) -> Aqua Jet
+Condition: 70% chance (ai:70 rnd:0)
+Change a random attribute to Water orbs, Deal 120% damage
+
+#9: ESAttackMultihit(15:3100) -> Crunch Fang
+Condition: 70% chance (ai:70 rnd:0)
+Deal 140% damage (2 hits, 70% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESOrbLock(94:3099) -> Vortex Cage
+Lock all Fire and Water orbs, Deal 80% damage

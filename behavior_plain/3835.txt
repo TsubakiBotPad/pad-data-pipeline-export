@@ -1,0 +1,71 @@
+#3835 - Fire Warchief Dragon, Goura
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESAbsorbAttribute(53:7793) -> War Scales
+	Absorb Fire damage for 5 turns
+	[1] ESOrbChangeAttackBits(108:7794) -> Raging Blaze
+	Change all Water, Light, and Dark orbs to Fire orbs, Deal 180% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:7798) -> Flame Spiral
+	Specific orbs change every 1.0s for 10 turns
+	[1] ESAbsorbCombo(67:7799) -> Hellfire Rope
+	Absorb damage when combos <= 6 for 10 turns
+
+#9: ESOrbLock(94:7807) -> Roaring Destruction
+Condition: When < 15% HP (ai:100 rnd:0)
+Lock all orbs, Deal 500% damage
+
+#10: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESOrbLock(94:7803) -> Incineration
+	Lock 12 random Fire, Water, Wood, Light, Dark, and Heal orbs
+	[1] ESAttackMultihit(15:7796) -> Brutal Inferno Fangs
+	Deal 165% damage (3 hits, 55% each)
+
+#11: SkillSet:
+	Condition: When < 30% HP (ai:100 rnd:0)
+	[0] ESOrbLock(94:7802) -> Incineration
+	Lock 8 random Fire, Water, Wood, Light, Dark, and Heal orbs
+	[1] ESAttackMultihit(15:7796) -> Brutal Inferno Fangs
+	Deal 165% damage (3 hits, 55% each)
+
+#12: SkillSet:
+	Condition: When < 40% HP (ai:100 rnd:0)
+	[0] ESOrbLock(94:7801) -> Incineration
+	Lock 4 random Fire, Water, Wood, Light, Dark, and Heal orbs
+	[1] ESAttackMultihit(15:7796) -> Brutal Inferno Fangs
+	Deal 165% damage (3 hits, 55% each)
+
+#13: ESOrbChangeAttackBits(108:7797) -> Sublimation
+Condition: 50% chance (ai:50 rnd:0)
+Change all Water orbs to Fire orbs, Deal 140% damage
+
+#14: ESAttackMultihit(15:7796) -> Brutal Inferno Fangs
+Deal 165% damage (3 hits, 55% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

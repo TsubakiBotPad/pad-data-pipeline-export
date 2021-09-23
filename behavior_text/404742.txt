@@ -1,0 +1,44 @@
+#404742 - Alt. Cthugha, the Bizarre Flame
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 404742
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11527:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (13768:72) Fire & Water damage halved
+ | Reduce damage from Fire and Water attrs by 50%
+ type: PREEMPT
+ | (13562:83) Concept of Boundless Worlds + Cycle of Scorched-Earth Madness
+ | Voids status ailments for 999 turns + Void damage >= 40,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 10% chance
+     | (11541:6) Death of Sudden Help
+     | Voids player buff effects
+     | (11535:50) Reminiscence of Universe's Last Flame
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 10% chance
+     | (11541:6) Death of Sudden Help
+     | Voids player buff effects
+     | condition: 50% chance
+     | (13769:97) Scraping Jet-Black Flames
+     | Blind random 3~5 orbs for 4 turns, Deal 70% damage
+     | (11536:15) Annihilation of a Straitened Existence
+     | Deal 75% damage (5 hits, 15% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (11534:85) Spreading Dark God's Blazing Forest
+   | Change all orbs to Fire, Deal 140% damage
+ | group:
+ | condition: hp <= 9
+   | (11533:83) Eternally Burning Wails of Calamity + King of the Fire Subduing Flame
+   | Enemy recover 50% HP + Increase damage to 200% for the next 99 turns

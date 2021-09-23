@@ -1,0 +1,65 @@
+#302902 - Awoken Sun Quan
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:19316) -> Discerning Majesty
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:19317) -> Boldness
+	Reduce damage from all sources by 90% for 3 turns
+	[2] ESBoardSizeChange(126:19318) -> Young Tiger's Noble Path
+	Change board size to 7x6 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 10
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESAttackMultihit(15:19413) -> Pinning Arrows
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 330% damage (3 hits, 110% each)
+
+#7: ESAttackMultihit(15:19319) -> Blue-Eyed Archer
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage (4 hits, 25% each)
+
+#8: ESRandomSpawn(92:19406) -> Prismatic Rain
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#13: ESAttackMultihit(15:19323) -> Blue Streak in the Empty Sky
+Deal 1,200% damage (6 hits, 200% each)
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:19321) -> Garyou Tensei Expertise
+	Increase damage to 200% for the next 999 turns
+	[1] ESDebuffATK(130:19322) -> Honest Insight
+	ATK -75% for 10 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:19314) -> Resolve
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,44 @@
+#1447 - 黄金聖闘士・獅子座のアイオリア
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 1447
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (1183:15) おまえごとき雑兵に用はない
+   | Deal 50% damage
+ | group:
+   | (1184:48) ライトニングボルト!!
+   | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (1185:66) もはや手加減はいらんな
+     | Do nothing
+   | group:
+     | (1186:15) ライトニングプラズマ!!
+     | Deal 200% damage (5 hits, 40% each)
+
+level: 5
+ type: PREEMPT
+ | (1183:15) おまえごとき雑兵に用はない
+ | Deal 50% damage
+ group:
+ | group:
+   | (1184:48) ライトニングボルト!!
+   | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1185:66) もはや手加減はいらんな
+     | Do nothing
+   | group:
+     | (1186:15) ライトニングプラズマ!!
+     | Deal 200% damage (5 hits, 40% each)

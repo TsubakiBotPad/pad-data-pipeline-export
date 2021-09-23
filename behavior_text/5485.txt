@@ -1,0 +1,66 @@
+#5485 - Super Reincarnated Lakshmi
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 5485
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25004:83) Play with me! + I challenge you to a puzzle! + Here's what you have to do...
+ | Bind awoken skills for 6 turns + Delay active skills by 99 turns + Spawn 10 random Heal, Jammer, Poison, and Mortal Poison orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (25024:108) Bad luck! I win♪
+   | Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+   | (25009:83) On to the next one! + How about... + ...THIS? + Here's a little bonus for you♪
+   | Blind all orbs on the board + Bind active skills for 5 turns + Spawn 6 random Jammer and Poison orbs + Bind both leaders for 5 turns
+ | group:
+ | condition: turn 2
+   | (25024:108) Bad luck! I win♪
+   | Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+   | (25018:83) Let's keep going♪ + Are you ready?! + Next up! + Try to only make one combo♪
+   | Blind all orbs on the board + Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + No skyfall for 1 turn + Spawn 15 random Jammer orbs
+ | group:
+ | condition: turn 3
+   | condition: when 1 combos last turn
+   | (25014:83) Now, can you make 5 combos?! + Don't forget to erase all the Jammers... + Go! + Oh! I'll add this too!
+   | Absorb damage when combos <= 4 for 1 turn + Movetime -1s for 1 turn + Spawn 10 random Jammer orbs + Random 1 orbs change every 0.5s for 1 turn
+   | (25024:108) Bad luck! I win♪
+   | Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+   | (25026:15) Bad luck! I win♪
+   | Deal 10,000% damage (10 hits, 1,000% each)
+ | group:
+ | condition: turn 4
+   | condition: when 1 combos last turn
+   | (25014:83) Now, can you make 5 combos?! + Don't forget to erase all the Jammers... + Go! + Oh! I'll add this too!
+   | Absorb damage when combos <= 4 for 1 turn + Movetime -1s for 1 turn + Spawn 10 random Jammer orbs + Random 1 orbs change every 0.5s for 1 turn
+ | group:
+ | condition: turn 5
+   | condition: when 5 combos last turn
+   | (25023:83) This is the last puzzle! + I want you to make 6 combos♪ + And of course, don't forget... + Annnd... Go!
+   | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Absorb damage when combos <= 5 for 1 turn + Spawn 12 random Jammer orbs + A 2×2 square of clouds appears for 1 turn at 2nd row, 2nd column
+   | (25024:108) Bad luck! I win♪
+   | Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+   | (25026:15) Bad luck! I win♪
+   | Deal 10,000% damage (10 hits, 1,000% each)
+ | group:
+ | condition: turn 6
+   | condition: when 5 combos last turn
+   | (25023:83) This is the last puzzle! + I want you to make 6 combos♪ + And of course, don't forget... + Annnd... Go!
+   | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Absorb damage when combos <= 5 for 1 turn + Spawn 12 random Jammer orbs + A 2×2 square of clouds appears for 1 turn at 2nd row, 2nd column
+ | group:
+ | condition: turn 7
+   | condition: when 6 combos last turn
+   | (25029:83) That's it! I had a blast♪ + Splaaaaaash☆ + Let's meet again!
+   | Do nothing + Change all orbs to Water + Reduce self HP to 0
+   | (25024:108) Bad luck! I win♪
+   | Change all Jammer and Poison orbs to Water orbs, Deal 10,000% damage
+   | (25026:15) Bad luck! I win♪
+   | Deal 10,000% damage (10 hits, 1,000% each)
+ | group:
+   | condition: when 6 combos last turn
+   | (25029:83) That's it! I had a blast♪ + Splaaaaaash☆ + Let's meet again!
+   | Do nothing + Change all orbs to Water + Reduce self HP to 0

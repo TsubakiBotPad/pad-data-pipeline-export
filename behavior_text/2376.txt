@@ -1,0 +1,28 @@
+#2376 - 超大型巨人・戦闘状態
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2376
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (3294:15) Desperate Assault
+ | Deal 60% damage
+ group:
+ | group:
+ | condition: turn 1
+   | condition: 50% chance
+   | (3297:79) Mow-Down
+   | Change the 1st row to Fire orbs, Deal 180% damage
+   | (3295:92) Pyro-Vapor
+   | Spawn 5 random Fire orbs, Deal 180% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (3298:66) Raised Hand
+   | Do nothing
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (3296:15) Severe Blow
+   | Deal 500% damage

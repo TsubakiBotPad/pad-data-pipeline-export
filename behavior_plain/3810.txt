@@ -1,0 +1,98 @@
+#3810 - Pixel Squall
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:7415) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Ooohh, you're strong!|Ha... Hahaha... Ahahahaha!
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESAbsorbCombo(67:7407) -> You dare set foot in this castle?! Hmph. How brave of you.
+Absorb damage when combos <= 6 for 999 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#8: ESAttackMultihit(15:7408) -> Clear Stream
+Deal 180% damage (3 hits, 60% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:7410) -> Intriguing...
+	Voids status ailments for 999 turns
+	[1] ESDebuffRCV(105:7411) -> Let's have a little more fun
+	RCV 50% for 3 turns
+
+#11: ESDebuffMovetime(39:7413) -> Icicle Sting
+Condition: 50% chance (ai:50 rnd:0)
+Movetime 50% for 1 turn, Deal 150% damage
+
+#12: ESBombRandomSpawn(102:7414) -> Bubble Bomb
+Spawn 5 random Bomb orbs, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTurnChangePassive(106:7409) -> Next turn changed
+Enemy turn counter change to 1 when HP <= 50%
+
+#15: ESNone(0:0) -> ESNone
+nothing
+
+#16: ESNone(0:0) -> ESNone
+nothing
+
+#17: ESNone(0:0) -> ESNone
+nothing
+
+#18: ESNone(0:0) -> ESNone
+nothing
+
+#19: ESNone(0:0) -> ESNone
+nothing
+
+#20: ESNone(0:0) -> ESNone
+nothing
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#22: ESOrbChangeAttack(48:7554) -> Hushed Windweaver
+Change all Heal orbs to Wood orbs, Deal 130% damage
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1100
+
+#24: ESGravity(50:7555) -> Splintering Windblast
+Player -90% HP
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 29
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#28: ESDebuffMovetime(39:7556) -> Eye of the Storm Dragon
+Movetime 50% for 5 turns
+
+#29: ESBoardChangeAttackBits(85:7557) -> Valiant Gale
+Change all orbs to Wood and Jammer, Deal 3,000% damage

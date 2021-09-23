@@ -1,0 +1,58 @@
+#7331 - Dazzling Dahlia Starfairy, Phyllis
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 7331
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24330:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (24331:83) Tee hee hee♪ + I'll show you my Flower Sword Dance♪
+ | Absorb damage when combos <= 6 for 5 turns + Seal the 1st row for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (24334:110) Round Cut
+     | Specific orbs change every 1.0s for 4 turns, Deal 100% damage
+   | group:
+   | condition: turn 2
+     | (24335:85) Decorative Cut
+     | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 120% damage
+   | group:
+   | condition: turn 3
+     | (24336:39) Orchid Cut
+     | Movetime 25% for 2 turns, Deal 140% damage
+   | group:
+   | condition: turn 4
+     | (24337:74) Collarette Cut
+     | Reduce damage from all sources by 75% for 1 turn, Deal 150% damage
+   | group:
+     | (24338:15) Cactus Cut
+     | Deal 320% damage (4 hits, 80% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (24339:83) Oww! That hurt! + You'll pay for that!
+     | Enemy recover 50% HP + No skyfall for 4 turns
+   | group:
+   | condition: turn 2
+     | (24334:110) Round Cut
+     | Specific orbs change every 1.0s for 4 turns, Deal 100% damage
+   | group:
+   | condition: turn 3
+     | (24335:85) Decorative Cut
+     | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 120% damage
+   | group:
+   | condition: turn 4
+     | (24336:39) Orchid Cut
+     | Movetime 25% for 2 turns, Deal 140% damage
+   | group:
+   | condition: turn 5
+     | (24337:74) Collarette Cut
+     | Reduce damage from all sources by 75% for 1 turn, Deal 150% damage

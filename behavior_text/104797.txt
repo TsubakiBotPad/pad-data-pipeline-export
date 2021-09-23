@@ -1,0 +1,31 @@
+#104797 - Creeping Mist Devil Dragonbound, Suou
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 104797
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (10774:83) Cup of Soaring Frenzy + Dragon's Spirit
+ | Random 2 orbs change every 1.0s for 3 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (10776:63) Fire Chain of Jasmin
+   | Bind 1 random sub for 1 turn, Deal 100% damage
+   | (10777:15) Dividing Thorn Strike
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (10775:67) Burning Feather
+   | Absorb damage when combos <= 6 for 3 turns
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (10780:83) Fire Knot + Devil Judgment
+   | Specific orbs change every 1.0s for 3 turns + Spawn Bomb orbs in the specified positions
+ | group:
+ | condition: hp <= 4
+   | (10781:77) Crimson & Blue Flames
+   | Change the 1st, 3rd, and 5th columns to Fire orbs and the 2nd, 4th, and 6th columns to Water orbs, Deal 250% damage

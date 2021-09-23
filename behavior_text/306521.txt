@@ -1,0 +1,27 @@
+#306521 - Quiet Night Beast, Scheherazade Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306521
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19175:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19176:83) A Spun Story + Invitation into Mystery
+ | Voids status ailments for 999 turns + Random 3 orbs change every 1.0s for 15 turns
+ group:
+ | group:
+   | (19179:15) A Tale of Beginnings and Endings
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (19180:83) A True Story + A Prologue of the End
+   | Reduce damage from all sources by 90% for 999 turns + Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (19183:83) Dark Dawn + Dawn Light + A Poem of the End
+   | Bind awoken skills for 1 turn + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,000% damage (10 hits, 300% each), Deal 3,000% damage (10 hits, 300% each)

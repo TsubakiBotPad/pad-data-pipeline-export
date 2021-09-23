@@ -1,0 +1,32 @@
+#4130 - Blue Sky Goddess of Daybreak, Khepri
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4130
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16147:108) First sunrise of the year!
+ | Change all Jammer, Poison, and Mortal Poison orbs to Light orbs, Deal 200% damage
+ | (16148:88) Have you seen the sunrise?
+ | Bind awoken skills for 5 turns
+ | (16149:83) It's gotten so cold + I just want to sit by my heater
+ | A 4×1 rectangle of clouds appears for 3 turns at 3rd row, 2nd column + Seal the 5th row for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (16149:83) It's gotten so cold + I just want to sit by my heater
+   | A 4×1 rectangle of clouds appears for 3 turns at 3rd row, 2nd column + Seal the 5th row for 3 turns
+ | group:
+   | condition: 50% chance
+   | (16152:102) This should warm you up
+   | Spawn 5 random Bomb orbs
+   | condition: 50% chance
+   | (16153:103) Are you still cold?
+   | Spawn Bomb orbs in the specified positions
+ | group:
+ | condition: turn 2, hp <= 50
+   | (16154:75) You should see the sunrise
+   | Leader changes to random sub for 3 turns

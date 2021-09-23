@@ -1,0 +1,86 @@
+#5093 - Sakura Kasugano
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfallLocked(96:12510) -> Uh-oh! Pleased to meet you!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Locked random skyfall +10% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbLock(94:12514) -> Haru Kaze
+	Lock 1 random orb
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESAttackMultihit(15:12515) -> Sakura Otoshi
+	Deal 105% damage (3 hits, 35% each)
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbLock(94:12514) -> Haru Kaze
+	Lock 1 random orb
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESOrbChangeAttack(48:12516) -> Oukakyaku
+	Change a random attribute to Fire orbs, Deal 100% damage
+
+#6: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESOrbLock(94:12514) -> Haru Kaze
+	Lock 1 random orb
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESBindAttack(63:12517) -> Kashinfu
+	Bind 1 random sub for 1 turn, Deal 95% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:12523) -> Haru Arashi
+	Fire skyfall +15% for 3 turns
+	[1] ESInactivity66(66:12624) -> You're gonna get it now!
+	Do nothing
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#10: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12520) -> Hadoken
+	Deal 55% damage
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESAbsorbCombo(67:12521) -> Shunpukyaku
+	Absorb damage when combos <= 5 for 1 turn, Deal 50% damage
+
+#11: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAttackMultihit(15:12522) -> Shouoken
+	Deal 60% damage
+	[1] ESAttackSinglehit(82:1) -> Disable Skill
+	Deal 100% damage
+	[2] ESAbsorbCombo(67:12521) -> Shunpukyaku
+	Absorb damage when combos <= 5 for 1 turn, Deal 50% damage
+
+#12: ESSkillDelay(89:12524) -> Hogasho
+Condition: 34% chance (ai:0 rnd:34)
+Delay active skills by 0~2 turns, Deal 130% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:12525) -> Sakura Rain
+Deal 210% damage (7 hits, 30% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

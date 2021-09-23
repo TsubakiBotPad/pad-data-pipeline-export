@@ -1,0 +1,39 @@
+#5891 - Devoted Red Dragon Caller, Sonia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:20551) -> I baked some cakes!
+	Absorb Fire damage for 5 turns
+	[1] ESRowSpawnMulti(79:20552) -> Would you like to taste them?
+	Change the 1st and 3rd rows to Fire orbs and the 2nd row to Dark orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 8
+
+#4: ESRowSpawnMulti(79:20553) -> Drachertorte
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st row to Fire and Dark orbs, Deal 100% damage
+
+#5: ESBlindStickyRandom(97:20555) -> Chocolagon
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 4~6 orbs for 1 turn, Deal 80% damage
+
+#6: ESRandomSpawn(92:20554) -> Dracopera Cake
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random Fire and Dark orbs, Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBoardChangeAttackBits(85:20556) -> Did you like my dragon sweets?
+Change all orbs to Fire, Dark, and Heal, Deal 200% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

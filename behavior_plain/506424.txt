@@ -1,0 +1,33 @@
+#506424 - Deadly Sin Dragon King of Gluttony, Majeh
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:24144) -> Rotten Food
+	Jammer and Poison skyfall +15% for 5 turns
+	[1] ESRandomSpawn(92:24145) -> Bad Manners
+	Spawn 15 random Jammer orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 7
+
+#4: ESOrbChangeAttackBits(108:24147) -> Glutton
+Change all Jammer and Poison orbs to Light and Dark orbs, Deal 100% damage
+
+#5: ESRandomSpawn(92:24146) -> Leftovers
+Spawn 3 random Dark and Jammer orbs, Deal 50% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBoardChangeAttackBits(85:24148) -> Unfettered Gluttony
+Change all orbs to Jammer, Deal 150% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,55 @@
+#5260 - Lyserg Diethel
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:17662) -> I'm pleased to make your acquaintance.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 30% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESFixedStart(101:13275) -> Homing Pendulum
+Condition: 33% chance (ai:0 rnd:33)
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#5: ESSpinnersRandom(109:13276) -> I have to put them to the test.
+Condition: 33% chance (ai:0 rnd:33)
+Random 1 orbs change every 2.0s for 1 turn, Deal 90% damage
+
+#6: ESAttackMultihit(15:13278) -> You'll have to fight me whether you want to or not!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESAttackUPRemainingEnemies(17:13277) -> Now I'm going to get serious!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 16, target rnd 4
+
+#13: SkillSet:
+	[0] ESOrbLock(94:17671) -> Take this!!
+	Lock 5 random orbs
+	[1] ESAttackMultihit(15:17672) -> Big Ben Wire Frame!!!
+	Deal 75% damage (5 hits, 15% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

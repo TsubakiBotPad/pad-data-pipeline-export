@@ -1,0 +1,79 @@
+#207716 - 魔軍司令ハドラー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAttributeBlock(107:26876) -> 裏切り者には死あるのみ！
+	Unable to match Heal orbs for 3 turns
+	[1] ESDamageShield(74:26877) -> いたぶりながら殺してやる…!!
+	Reduce damage from all sources by 50% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESRowSpawnMulti(79:26878) -> ヘルズクロー
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st and 5th rows to Dark orbs, Deal 110% damage
+
+#8: ESRandomSpawn(92:26879) -> オオオオオオ…!!
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Light, Dark, and Jammer orbs, Deal 110% damage
+
+#9: ESColumnSpawnMulti(77:26880) -> メラゾーマ!!!!
+Condition: 34% chance (ai:0 rnd:34)
+Change the 1st and 6th columns to Fire and Jammer orbs, Deal 125% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 15
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESInactivity66(66:26881) -> 今こそ全力ではなってやろう！
+	Do nothing
+	[1] ESSpinnersFixed(110:26882) -> 我が最強の呪文を!!
+	Specific orbs change every 2.0s for 1 turn
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESAttackMultihit(15:26883) -> ベギラゴン――ッ!!!!!
+Deal 200% damage (8 hits, 25% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:26874) -> ＿魔ハドラー超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESInactivity66(66:26982) -> み…見事だヒュンケル…
+	Do nothing
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

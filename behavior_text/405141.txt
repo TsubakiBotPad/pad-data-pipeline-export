@@ -1,0 +1,40 @@
+#405141 - Mega Awoken God Binding Wolf, Fenrir Viz
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 405141
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22359:73) Resolve
+ | Survive attacks with 1 HP when HP > 14%
+ type: PREEMPT
+ | (22360:83) Bounds of Carnage + Apocalyptic Cleanup + Rising Sun's Evil Light
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 2 turns + ATK -75% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 13
+     | (22369:15) Crunch
+     | Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: turn 2 while HP > 74
+     | (22363:83) Wings of the God Binding Wolf + Rising Sun's Evil Light
+     | Absorb damage when combos <= 9 for 999 turns + RCV 25% for 10 turns
+   | group:
+   | condition: turns 3-14 while HP > 13
+     | (22369:15) Crunch
+     | Deal 100% damage (4 hits, 25% each)
+   | group:
+     | (22200:83) Transformation of Carnage + Bloody Carnage
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: turn 2 while HP > 13, hp <= 74
+   | (22366:83) Godbeast's Release + Apocalyptic Annihilation
+   | Increase damage to 150% for the next 999 turns + Void damage >= 1,000,000,000 for 999 turns
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 13
+   | (22370:15) Godbeast's Skystrike
+   | Deal 500% damage (5 hits, 100% each)

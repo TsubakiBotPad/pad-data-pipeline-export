@@ -1,0 +1,41 @@
+#4380 - One Who Presides Over Power, Elizabeth
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4380
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18757:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18746:83) Prepare + I have chosen. + Mahamaon
+ | Void damage >= 10,000,000 for 5 turns + Absorb damage when combos <= 6 for 999 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18752:48) Mamudoon
+   | Change a random attribute to Dark orbs, Deal 90% damage
+   | (18749:79) Maragidyne
+   | Change the 1st and 2nd rows to Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (18753:83) Diarahan + Can you withstand this? 
+     | Enemy recover 100% HP + ATK -75% for 4 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (18754:88) Evil Smile
+     | Bind awoken skills for 3 turns
+     | condition: 50% chance
+     | (18752:48) Mamudoon
+     | Change a random attribute to Dark orbs, Deal 90% damage
+     | (18749:79) Maragidyne
+     | Change the 1st and 2nd rows to Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | (18756:15) I bring you Megidolaon.
+   | Deal 10,000% damage

@@ -1,0 +1,53 @@
+#1783 - Holy Night Kirin Princess, Sakuya
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:15901) -> Have you been good this year?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESBombRandomSpawn(102:15902) -> Here! A present just for you!
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Bomb orbs, Deal 90% damage
+
+#6: ESFixedStart(101:15903) -> You're next!
+Fix orb movement starting point to random position on the board, Deal 90% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 5
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAbsorbAttribute(53:15904) -> Ah, let me rest for a bit...
+Absorb Water and Dark damage for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackUPRemainingEnemies(17:15905) -> Dance of the Holy Night
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 1 turn
+
+#13: ESAttackMultihit(15:15906) -> Dance of the Four Gods
+Deal 140% damage (4 hits, 35% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESTypeResist(118:15952) -> Heal God Halved
+Reduce damage from Healer and God types by 50%

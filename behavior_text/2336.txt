@@ -1,0 +1,35 @@
+#2336 - Wood Armor Dragon, Becrux
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2336
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3353:53) Plant Core
+ | Absorb Wood damage for 5 turns
+ group:
+ | group:
+   | condition: 20% chance
+   | (3354:68) Green Energy
+   | Wood skyfall +20% for 99 turns
+   | condition: 40% chance
+   | (3355:79) Leaf Wind
+   | Change the 5th row to Wood orbs, Deal 100% damage
+   | condition: 40% chance
+   | (3356:15) Aero Blast
+   | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (3240:89) Absorption
+   | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 9
+   | (3241:15) Limit Burst
+   | Deal 1,000% damage (2 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (3235:52) Follow Repair
+ | Enemy ally recover 45% HP

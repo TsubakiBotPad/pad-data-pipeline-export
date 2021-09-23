@@ -1,0 +1,86 @@
+#202704 - Zangetsu
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchCard(90:2757) -> ESBranchCard
+Branch on player_cards HAS [2675, 2676, 2677, 3353, 3354], target rnd 8
+
+#7: ESRecoverPlayer(55:2770) -> Try to defeat me if you can!!
+Player recover 100% HP
+
+#8: SkillSet:
+	[0] ESInactivity66(66:2776) -> Amongst these swords, there is one... that is the true me.
+	Do nothing
+	[1] ESRecoverPlayer(55:2770) -> Try to defeat me if you can!!
+	Player recover 100% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESDamageShield(74:2771) -> Too weak.
+Reduce damage from all sources by 50% for 1 turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESAttackSinglehit(82:1) -> Disable Skill
+Deal 100% damage
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESDispel(6:2773) -> You haven't the time to be crawling around!!
+Voids player buff effects
+
+#19: ESStatusShield(20:2801) -> You don't have time to be kneeling!
+Voids status ailments for 3 turns
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 23
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#22: ESOrbLock(94:2772) -> Move on to the next one!
+Lock all Dark orbs, Deal 100% damage
+
+#23: ESAttackUPRemainingEnemies(17:2774) -> Never take your eyes off the enemy.
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 1 turn
+
+#24: ESAttackSinglehit(82:1) -> Disable Skill
+Deal 100% damage
+
+#25: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESRandomSpawn(92:2824) -> Can you still stand and continue?
+	Spawn 3 random Heal orbs

@@ -1,0 +1,47 @@
+#105247 - Holy Girl Iron Maiden, Jeanne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 105247
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (13259:39) Why must you continue to sin?!
+ | Movetime -3s for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (13235:94) Over Soul Instruments of Torture: Interrogation Chair
+   | Lock all orbs, Deal 100% damage
+ | group:
+   | condition: 33% chance
+   | (13236:63) Shamash make them tighter.
+   | Bind 1 random sub for 2 turns, Deal 95% damage
+   | condition: 33% chance
+   | (13237:92) Now beg forgiveness.
+   | Spawn 6 random Light orbs, Deal 90% damage
+   | condition: 34% chance
+   | (13238:15) You must repent.
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 19
+     | (13239:88) I am saddened and disappointed.
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 3 while HP > 19
+     | (13241:92) Over Soul Instruments of Torture: Statue of Apega
+     | Spawn 10 random Fire orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (13239:88) I am saddened and disappointed.
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (13240:15) Over Soul Instruments of Torture: Guillotine
+     | Deal 250% damage

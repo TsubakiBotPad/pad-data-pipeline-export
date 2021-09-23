@@ -1,0 +1,36 @@
+#100648 - Alt. Athena
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100648
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5587:83) You've done well to make it here. + See if you can get through me!
+ | Player recover 100% HP + Delay active skills by 3~5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (5588:20) Aegis Shield
+   | Voids status ailments for 999 turns
+ | group:
+   | (5589:48) Shining Spear
+   | Change a random attribute to Light orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 59
+   | condition: 50% chance
+   | (5590:15) Storm Punisher
+   | Deal 120% damage (6 hits, 20% each)
+   | (5589:48) Shining Spear
+   | Change a random attribute to Light orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 34
+   | group:
+   | condition: turn 2
+     | (5591:104) End of the line!
+     | A 2×5 rectangle of clouds appears for 2 turns at 1st row, 3rd column
+   | group:
+     | (5592:15) Lightning Starburst
+     | Deal 2,000% damage (10 hits, 200% each)

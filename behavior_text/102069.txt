@@ -1,0 +1,32 @@
+#102069 - Alt. Black Beast Demon's Servant, Aamir
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 102069
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2069:83) Hello and welcome! + What are you doing to Aamir?! + Who are YOU?
+ | Player recover 100% HP + Absorb damage when damage >= 500,000 for 2 turns + Voids status ailments for 2 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (2077:83) You come over here, too + Don't waste your time with them! + You're an eyesore!
+   | Change the 1st column to Wood orbs and the 6th column to Dark orbs + Bind 1 random sub for 2 turns + Deal 20% damage (2 hits, 10% each), Deal 150% damage
+   | (2073:83) How about THIS? + Aamir, you're so cool! + Let me help!
+   | Deal 200% damage (2 hits, 100% each) + Enemy recover 10% HP + Change 1 random orb (excluding hearts) to Poison orbs, Deal 200% damage (2 hits, 100% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (2081:83) What did you do to my face? + What do you think you're doing?! + Oh no! Aamir's precious face!
+     | Increase damage to 200% for the next 2 turns + Change 6 random orbs (excluding hearts) to Poison orbs + Bind active skills for 2 turns
+   | group:
+     | (2085:83) I'd rather play with them... + Heheh! + Could you quit gawking?
+     | Deal 140% damage (2 hits, 70% each) + Enemy recover 1% HP + Blind all orbs on the board, Deal 140% damage (2 hits, 70% each)
+ | group:
+ | condition: hp <= 19
+   | (2089:83) Nobody likes a pest! + Shoo! + Time for you to go home
+   | Deal 400% damage + Deal 40% damage (2 hits, 20% each) + Deal 35% damage, Deal 400% damage

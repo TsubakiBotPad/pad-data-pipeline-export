@@ -1,0 +1,32 @@
+#1192 - Blue Wind Ninja Princess, Hatsume
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1192
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15310:83) Dance with me. + Gecko Clone
+ | Specific orbs change every 1.0s for 2 turns + Absorb damage when combos <= 7 for 10 turns
+ group:
+ | group:
+ | condition: turns 1-9
+   | condition: 50% chance
+   | (15313:110) Folding Fan Dance
+   | Specific orbs change every 2.0s for 2 turns, Deal 100% damage
+   | condition: 50% chance
+   | (15314:110) Folding Fan Dance
+   | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+ | group:
+ | condition: turn 10
+   | (15315:83) Are you tired? + I want to keep on dancing!
+   | Void damage >= 10,000,000 for 999 turns + RCV 25% for 10 turns
+ | group:
+   | condition: 50% chance
+   | (15313:110) Folding Fan Dance
+   | Specific orbs change every 2.0s for 2 turns, Deal 100% damage
+   | condition: 50% chance
+   | (15314:110) Folding Fan Dance
+   | Specific orbs change every 1.0s for 2 turns, Deal 100% damage

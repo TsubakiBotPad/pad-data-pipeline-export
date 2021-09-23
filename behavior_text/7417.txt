@@ -1,0 +1,80 @@
+#7417 - Spectral Sakura Spirit, Nilaukm
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7417
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24273:129) Super Resolve
+ | Damage which would reduce HP from above 70% to below 70% is nullified
+ type: PREEMPT
+ | (24274:83) Mana's Blessing + Tree of the Elements + Dark Cherry Blossom Queen
+ | Voids status ailments for 5 turns + Absorb damage when combos <= 8 for 5 turns + Absorb damage when damage >= 200,000,000 for 8 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | condition: 50% chance
+     | (24291:94) Elemental Plant
+     | Lock all orbs, Deal 70% damage
+     | condition: 50% chance
+     | (24296:62) Elemental Taint
+     | Blind all orbs on the board, Deal 75% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | condition: 50% chance
+     | (24277:130) Elemental Reduction
+     | ATK -90% for 1 turn, Deal 85% damage
+     | condition: 50% chance
+     | (24292:105) Elemental Mirror
+     | RCV 0% for 1 turn, Deal 80% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | condition: 50% chance
+     | (24276:111) Elemental Drain
+     | Change player HP to 50% for 1 turn, Deal 50% damage
+     | condition: 50% chance
+     | (24293:74) Elemental Shield
+     | Reduce damage from all sources by 90% for 1 turn, Deal 90% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | condition: 50% chance
+     | (24281:103) Elemental Bomb
+     | Spawn Bomb orbs in the specified positions, Deal 105% damage
+     | condition: 50% chance
+     | (24294:68) Elemental Arrow
+     | Mortal Poison skyfall +25% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | condition: 50% chance
+     | (24295:110) Elemental Perfume
+     | Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+     | condition: 50% chance
+     | (24282:100) Elemental Road
+     | Seal the 1st and 5th rows for 1 turn, Deal 115% damage
+   | group:
+   | condition: turn 6 while HP > 9
+     | condition: 50% chance
+     | (24298:50) Elemental Sword
+     | Player -150% HP
+     | condition: 50% chance
+     | (24284:75) Elemental Change
+     | Leader changes to random sub for 1 turn, Deal 130% damage
+   | group:
+   | condition: turn 7 while HP > 9
+     | condition: 50% chance
+     | (24299:88) Elemental Light
+     | Bind awoken skills for 1 turn, Deal 150% damage
+     | condition: 50% chance
+     | (24297:107) Elemental Hiding
+     | Unable to match Fire, Water, Wood, Light, and Dark orbs for 1 turn, Deal 145% damage
+   | group:
+     | (24300:15) Elemental Vine Explosion
+     | Deal 6,000% damage (3 hits, 2,000% each)
+ | group:
+ | condition: turn 1, hp <= 69
+   | (24285:83) Elemental Flurry + Vine Aura
+   | No skyfall for 99 turns + ATK -75% for 4 turns

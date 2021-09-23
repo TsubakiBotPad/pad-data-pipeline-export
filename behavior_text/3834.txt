@@ -1,0 +1,116 @@
+#3834 - Guardian Deity of the Sky City, Athena Helios
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+monster_id: 3834
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (7877:83) Wonderful! I've been waiting for you! + Just a warning: I won't hold back!
+ | Voids status ailments for 999 turns + Void damage >= 35,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (7881:50) Have at you!
+     | Player -99% HP
+   | group:
+   | condition: turn 2 while HP > 49
+     | (7882:15) Think again!
+     | Deal 200% damage (2 hits, 100% each)
+   | group:
+   | condition: turn 3 while HP > 49
+     | (7883:63) How's this?
+     | Bind 2 random subs for 3 turns, Deal 180% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (7884:74) Barrier!
+     | Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: turn 5 while HP > 49
+     | (7885:109) Hah!
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 180% damage
+   | group:
+   | condition: turn 6 while HP > 49
+     | (7886:104) Hmph!
+     | A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 190% damage
+   | group:
+   | condition: turn 7 while HP > 49
+     | (7890:83) Whoa... + Tough guy, huh! + Now we're getting somewhere!
+     | Do nothing + Player recover 100% HP + Increase damage to 150% for the next 999 turns
+   | group:
+     | (7891:94) Left yourself wide open!
+     | Lock all Jammer orbs, Deal 250% damage
+     | condition: 50% chance
+     | (7892:92) Burn!
+     | Spawn 5 random Jammer orbs, Deal 200% damage
+     | condition: 25% chance
+     | (7893:50) Once again!
+     | Player -99% HP
+     | condition: 33% chance
+     | (7894:74) Barrier!
+     | Reduce damage from all sources by 75% for 1 turn
+     | condition: 50% chance
+     | (7895:109) Hyah!
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 180% damage
+     | (7896:104) I don't think so!
+     | A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 190% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 39
+     | (7890:83) Whoa... + Tough guy, huh! + Now we're getting somewhere!
+     | Do nothing + Player recover 100% HP + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 39
+     | (7881:50) Have at you!
+     | Player -99% HP
+   | group:
+   | condition: turn 3 while HP > 39
+     | (7882:15) Think again!
+     | Deal 200% damage (2 hits, 100% each)
+   | group:
+   | condition: turn 4 while HP > 39
+     | (7883:63) How's this?
+     | Bind 2 random subs for 3 turns, Deal 180% damage
+   | group:
+   | condition: turn 5 while HP > 39
+     | (7884:74) Barrier!
+     | Reduce damage from all sources by 75% for 1 turn
+   | group:
+   | condition: turn 6 while HP > 39
+     | (7885:109) Hah!
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 180% damage
+   | group:
+   | condition: turn 7 while HP > 39
+     | (7886:104) Hmph!
+     | A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 190% damage
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: always turn 1
+     | (7880:83) I'm no pushover, you know. Scared yet? + Well, let's continue!
+     | Enemy recover 30% HP + Lock all orbs
+   | group:
+   | condition: turn 2 while HP > 4
+     | (7890:83) Whoa... + Tough guy, huh! + Now we're getting somewhere!
+     | Do nothing + Player recover 100% HP + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 3 while HP > 4
+     | (7885:109) Hah!
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 180% damage
+   | group:
+   | condition: turn 4 while HP > 4
+     | (7886:104) Hmph!
+     | A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 190% damage
+ | group:
+ | condition: hp <= 4
+   | group:
+   | condition: turn 2
+     | (7899:83) Uh-oh... Not good... + Let's end this!
+     | Do nothing + Bind awoken skills for 2 turns
+   | group:
+     | (7900:15) Pyro Starburst!!
+     | Deal 20,000% damage (10 hits, 2,000% each)

@@ -1,0 +1,33 @@
+#4104 - King
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4104
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19689:5) I'll take you on...
+ | Blind all orbs on the board
+ group:
+ | group:
+   | condition: 33% chance
+   | (19690:92) Venom Strike
+   | Spawn 4 random Water orbs, Deal 98% damage
+   | condition: 33% chance
+   | (19692:39) Mirage Kick
+   | Movetime -2s for 1 turn, Deal 95% damage
+   | condition: 34% chance
+   | (19691:15) Here I go!
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (19693:17) This clinches it.
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (19694:15) Illusion Dance
+     | Deal 90% damage (6 hits, 15% each)

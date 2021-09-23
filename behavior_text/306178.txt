@@ -1,0 +1,27 @@
+#306178 - Alt. Seven-Star Beast, Qilin Dragon's Gem
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306178
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18367:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18369:89) Mystic Gem
+ | Delay active skills by 3 turns
+ group:
+ | group:
+   | (18348:46) Aurora Flash
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18366:92) Chaos Flash
+   | Spawn 19 random Poison orbs
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (18349:17) Gem's Miracle
+ | Increase damage to 1,000% for the next 999 turns

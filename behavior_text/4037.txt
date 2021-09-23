@@ -1,0 +1,36 @@
+#4037 - Envy
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4037
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8501:68) Who should I take care of first?
+ | Jammer skyfall +15% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8502:46) Transform
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8507:15) Ha hah!!
+     | Deal 140% damage (2 hits, 70% each)
+ | group:
+ | condition: always turn 1, hp <= 79
+   | (8503:15) That hurt!
+   | Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (8506:83) As a sign of my respect, I'll fight you using my true strength. + Don't say I didn't warn you!
+     | Voids status ailments for 3 turns + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 3
+     | (8508:15) I'll beat you like a rag doll and throw you!
+     | Deal 120% damage (3 hits, 40% each)

@@ -1,0 +1,29 @@
+#501504 - Water Dragon Swordsman
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAttackUPRemainingEnemies(17:20471) -> Let's finish this!
+Condition: One-time use, when <= 2 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 150% for the next 3 turns
+
+#3: ESSkillDelay(89:20473) -> Freezing Thrust
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 3 turns, Deal 50% damage
+
+#4: ESSpinnersRandom(109:20474) -> Whirling Slash
+Condition: 30% chance when < 50% HP (ai:30 rnd:0)
+Random 2 orbs change every 1.0s for 1 turn, Deal 120% damage
+
+#5: ESRowSpawnMulti(79:20472) -> Flashing Waterblade
+Change the 2nd row to Water orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSuperResolve(129:20475) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

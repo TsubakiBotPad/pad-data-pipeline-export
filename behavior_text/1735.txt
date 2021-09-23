@@ -1,0 +1,33 @@
+#1735 - Revered Monkey King, Sun Wukong
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 1735
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3048:20) Let's fight!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | (3051:83) Golden Scepter + Up we get!
+   | Change the 2nd and 4th rows to Light and Jammer orbs + Change the 3rd and 5th columns to Light and Jammer orbs, Deal 50% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (3052:48) Supersonic Cloud
+   | Change all Light orbs to Poison orbs, Deal 10% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | (3055:83) Alter Ego! + Alter Ego Attack
+   | Reduce damage from all sources by 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (3067:66) Alter ego disappeared
+   | Do nothing
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (3056:15) Golden Staff Monkey Dance
+   | Deal 240% damage (6 hits, 40% each)

@@ -1,0 +1,57 @@
+#7609 - Fiendish Messenger, Ratatoskr
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7609
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26437:129) ＿Rata Before Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (26438:72) ＿Rata Before Fire & Light halved
+ | Reduce damage from Fire and Light attrs by 50%
+ type: PREEMPT
+ | (26439:83) Camouflaging Stripes + Sway of the World Tree
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 80,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (26447:83) Oooh! You got somethin' good! + Just this one time!
+     | Change all Jammer orbs to Heal orbs + Haste all cards' skills by 5 turns, Deal 40% damage
+     | (26450:83) Beguilement + Blazehorn Illusion
+     | Haste all cards' skills by 1 turn + Change leader to [4652] for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (26451:83) Beguilement + Deception
+     | Haste all cards' skills by 1 turn + Bind awoken skills for 1 turn, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (26452:83) Beguilement + Seed's Magical Fragrance
+     | Haste all cards' skills by 1 turn + A row of clouds appears for 2 turns at 5th row, 1st column, Deal 135% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (26450:83) Beguilement + Blazehorn Illusion
+     | Haste all cards' skills by 1 turn + Change leader to [4652] for 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (26447:83) Oooh! You got somethin' good! + Just this one time!
+     | Change all Jammer orbs to Heal orbs + Haste all cards' skills by 5 turns, Deal 40% damage
+     | (26446:83) His fur stands on end + Squirrel Trick
+     | Increase damage to 300% for the next 999 turns + ATK -75% for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (26450:83) Beguilement + Blazehorn Illusion
+     | Haste all cards' skills by 1 turn + Change leader to [4652] for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (26451:83) Beguilement + Deception
+     | Haste all cards' skills by 1 turn + Bind awoken skills for 1 turn, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (26452:83) Beguilement + Seed's Magical Fragrance
+     | Haste all cards' skills by 1 turn + A row of clouds appears for 2 turns at 5th row, 1st column, Deal 135% damage

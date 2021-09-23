@@ -1,0 +1,27 @@
+#1578 - 魔導師バビディ
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 1578
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (1481:67) バッ バリヤーッ!!!
+ | Absorb damage when combos <= 3 for 5 turns
+ group:
+ | group:
+ | condition: hp <= 74
+   | condition: 50% chance
+   | (1482:48) パッパラパーー!!
+   | Change a random attribute to Jammer orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1484:65) はああああ…!!!
+     | Bind 1 random sub for 3 turns
+   | group:
+     | (1483:15) もうおまえたちは御用済みだよ
+     | Deal 200% damage

@@ -1,0 +1,26 @@
+#3215 - Thunder Imp
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3215
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5690:89) Don't tremble!
+ | Delay active skills by 0~2 turns
+ group:
+ condition: execute repeatedly, turn 1 of 2, hp <= 100
+ | (5693:50) Heavens-Shaking Drums
+ | Player -70% HP
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (5691:17) Demon Solo
+   | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | (5692:68) Resonating Light
+   | Light skyfall +15% for 10 turns, Deal 50% damage

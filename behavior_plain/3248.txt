@@ -1,0 +1,27 @@
+#3248 - Archdemon Beelzebub TAMADRA
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBoardChangeAttackBits(85:5721) -> You get no mercy TAMA-!!
+Change all orbs to Jammer and Poison, Deal 20% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRandomSpawn(92:5723) -> Infernal TAMA Drive
+Condition: When < 30% HP (ai:100 rnd:0)
+Spawn 6 random Poison orbs, Deal 300% damage
+
+#7: ESAttackMultihit(15:5722) -> TAMA TAMA TAMA-!!
+Deal 250% damage (5 hits, 50% each)

@@ -1,0 +1,39 @@
+#306771 - Hitagi Senjyogahara
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 306771
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21279:83) Let's go to war. + Safety Pin
+ | Absorb damage when combos <= 6 for 4 turns + Seal the 5th row for 4 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (21281:92) Rubber Band
+   | Spawn 4 random Water and Dark orbs, Deal 80% damage
+   | condition: 33% chance
+   | (21282:79) Permanent Marker
+   | Change the 3rd row to Water orbs, Deal 90% damage
+   | condition: 34% chance
+   | (21284:15) Scissors
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21285:127) Sewing Kit
+     | No skyfall for 3 turns
+   | group:
+     | condition: 10% chance
+     | (21286:50) An Assortment of Chisels
+     | Player -75% HP
+     | condition: 45% chance
+     | (21287:94) Paperweight
+     | Lock 5 random orbs, Deal 80% damage
+     | condition: 45% chance
+     | (21284:15) Scissors
+     | Deal 100% damage (2 hits, 50% each)

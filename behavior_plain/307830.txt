@@ -1,0 +1,56 @@
+#307830 - ダース・モール
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESNoSkyfall(127:27669) -> ついに我々はジェダイの前に姿を現し…
+	No skyfall for 10 turns
+	[1] ESBindSkill(14:27670) -> 復讐を果たす時がきたのだ
+	Bind active skills for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:27672) -> 俺を邪悪と思っているな
+	Poison skyfall +15% for 5 turns
+	[1] ESAbsorbCombo(67:27673) -> 違う、ただ効率的なだけだ
+	Absorb damage when combos <= 6 for 5 turns, Deal 115% damage
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbSealRow(100:27675) -> キック
+	Seal the 5th row for 1 turn, Deal 50% damage
+	[1] ESDebuffATK(130:27676) -> フォース・プッシュ
+	ATK -50% for 1 turn, Deal 60% damage
+
+#10: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBlind5(5:27678) -> 恐怖こそ俺の味方だ
+	Blind all orbs on the board
+	[1] ESGravity(50:27679) -> 切りつける
+	Player -99% HP
+
+#11: ESResolve(73:27667) -> ＿モール根性
+Survive attacks with 1 HP when HP > 50%
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

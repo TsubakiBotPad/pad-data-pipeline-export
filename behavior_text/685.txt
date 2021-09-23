@@ -1,0 +1,40 @@
+#685 - King Bubblie
+monster size: 2
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 685
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: when hp is full
+   | (389:16) Snoring Peacefully
+   | Do nothing
+ | group:
+ | condition: always turn 1, hp <= 99
+   | (390:15) Good Morning Attack!
+   | Deal 300% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (388:2) All Washed-up
+   | Bind Fire cards for 2~4 turns
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: always turn 1
+     | (390:15) Good Morning Attack!
+     | Deal 300% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (270:17) Lone Force
+     | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: turn 2, hp <= 49
+   | (388:2) All Washed-up
+   | Bind Fire cards for 2~4 turns
+   | (270:17) Lone Force
+   | Increase damage to 300% for the next 999 turns

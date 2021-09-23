@@ -1,0 +1,51 @@
+#1626 - Jester Wizard, Chester
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:14417) -> Can't you hang out for a while?
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:14407) -> Can you breakthrough this wall?
+	Absorb damage when combos <= 14 for 999 turns
+	[2] ESVoidShield(71:14408) -> Try to overthrow me
+	Void damage >= 999 for 999 turns
+
+#3: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 15, target rnd 10
+
+#4: ESInactivity66(66:14409) -> Let's start the countdown
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Do nothing
+
+#5: ESInactivity66(66:14410) -> You still have time
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Do nothing
+
+#6: ESInactivity66(66:14411) -> You should probably hurry up
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Do nothing
+
+#7: ESInactivity66(66:14412) -> You're on the edge now
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#8: SkillSet:
+	[0] ESChangeAttribute(46:14415) -> You're out of time
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESGravity(50:14416) -> Let's meet again♪
+	Player -2,000% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESEndBattle(40:14413) -> Wow, amazing!
+Reduce self HP to 0
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,43 @@
+#2190 - Flame-Winged CyberBeast, Markab
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2190
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20352:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (20353:83) Accelerator Boost + Ruby Converter
+ | Absorb damage when combos <= 8 for 5 turns + Movetime 25% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 33% chance
+     | (20359:104) Blast Signal
+     | A row of clouds appears for 1 turn at a random location, Deal 95% damage
+     | condition: 33% chance
+     | (20360:99) Blast Signal
+     | Seal the 1st column for 1 turn, Deal 95% damage
+     | condition: 34% chance
+     | (20361:15) Blast Rush
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: turn 5 while HP > 49
+     | (20356:83) Accelerator Boost + Flare Converter
+     | Absorb damage when combos <= 7 for 999 turns + Unable to match Heal orbs for 1 turn
+   | group:
+     | (20362:15) Burst Rush
+     | Deal 400% damage (4 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (20356:83) Accelerator Boost + Flare Converter
+   | Absorb damage when combos <= 7 for 999 turns + Unable to match Heal orbs for 1 turn
+ | group:
+ | condition: hp <= 1
+   | (20599:15) Burst Rush
+   | Deal 4,000% damage (4 hits, 1,000% each)

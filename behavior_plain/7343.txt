@@ -1,0 +1,55 @@
+#7343 - Mystic Amanita Darkfairy, Shuri
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCard(90:24219) -> ESBranchCard
+Branch on player_cards HAS [2556, 2557, 3586, 3587], target rnd 4
+
+#3: ESAbsorbCombo(67:24055) -> I shall be your opponent.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 4 for 4 turns
+
+#4: ESInactivity70(70:24057) -> Great horns and honeyed needles are drawn to green...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Do nothing
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESDebuffATK(130:24264) -> Captivating Fragrance
+Condition: 50% chance (ai:0 rnd:50)
+ATK -50% for 1 turn, Deal 90% damage
+
+#8: ESBoardChangeAttackBits(85:24263) -> Enticing Spores
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Light, Heal, and Poison, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESAttackUPRemainingEnemies(17:24056) -> Can you truly escape from me?
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSpinnersRandom(109:24069) -> Muscimol Perfume
+Random 1 orbs change every 0.5s for 1 turn, Deal 150% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,133 @@
+#4121 - Gilles Legato
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInvulnerableOn(119:8713) -> Overcoat of Immortality
+Immune to damage from all sources for 999 turns
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 17
+
+#6: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 12
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 3, target rnd 8
+
+#8: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#9: ESColumnSpawnMulti(77:8714) -> Vampire Blade
+Condition: 30% chance (ai:30 rnd:0)
+Change the 2nd column to Dark orbs, Deal 160% damage
+
+#10: ESAttackMultihit(15:8715) -> Blood Needle
+Deal 180% damage (2 hits, 90% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#14: ESLeaderSwap(75:8716) -> Dance!
+Leader changes to random sub for 1 turn
+
+#15: ESBlind5(5:8721) -> Dark World
+Condition: 60% chance (ai:60 rnd:0)
+Blind all orbs on the board
+
+#16: ESGravity(50:8722) -> Pain
+Player -99% HP
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 19
+
+#18: ESRecoverEnemyAlly(52:8723) -> Futile...
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInvulnerableOff(121:8724) -> Cunning...
+	Remove damage immunity effect
+	[1] ESAttackUPCooldown(19:8725) -> I'll end you!
+	Increase damage to 150% for the next 999 turns
+	[2] ESStatusShield(20:8726) -> War Demon's Armor
+	Voids status ailments for 99 turns
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 36
+
+#21: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 25
+
+#22: ESBlind62(62:8729) -> Darkness Pulse
+Condition: 50% chance (ai:50 rnd:0)
+Blind all orbs on the board, Deal 220% damage
+
+#23: ESAttackMultihit(15:8728) -> Blood Bullet
+Deal 250% damage (5 hits, 50% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 33
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 30
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#28: SkillSet:
+	[0] ESChangeAttribute(46:8730) -> Magic Garment
+	Change own attribute to random one of Fire or Water
+	[1] ESAbsorbCombo(67:8731) -> Your skills are quite good
+	Absorb damage when combos <= 6 for 20 turns
+	[2] ESCloud(104:8732) -> Show me what you've got
+	A 1×1 square of clouds appears for 20 turns at a random location
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESOrbChangeAttackBits(108:8720) -> Despair
+Condition: 20% chance (ai:20 rnd:0)
+Change all Heal orbs to Dark orbs, Deal 150% damage
+
+#31: ESOrbLock(94:8719) -> Shadow Fangs
+Condition: 30% chance (ai:30 rnd:0)
+Lock 10 random orbs, Deal 200% damage
+
+#32: ESAttackMultihit(15:8734) -> Chase into the Abyss
+Deal 240% damage (3 hits, 80% each)
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 36
+
+#34: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#35: ESBindAwoken(88:8735) -> Descend into Darkness
+Bind awoken skills for 3 turns
+
+#36: ESAttackMultihit(15:8736) -> Chaos Flame
+Deal 3,000% damage (10 hits, 300% each)
+
+#37: ESEndPath(36:26) -> ESEndPath
+end_turn

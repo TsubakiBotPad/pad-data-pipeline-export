@@ -1,0 +1,33 @@
+#100075 - Alt. White Knight
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 100075
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16537:83) Trial of the White Knight + Here I come! + Paladin Shield
+ | No skyfall for 99 turns + Specific orbs change every 1.0s for 99 turns + Absorb damage when combos <= 6 for 99 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (16535:50) Guard Break
+   | Player -99% HP
+ | group:
+ | condition: turn 2
+   | (16536:15) White Blade
+   | Deal 400~600% damage (4~6 hits, 100% each)
+ | group:
+ | condition: turn 3
+   | (16513:5) I'm only just getting started!
+   | Blind all orbs on the board
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (16535:50) Guard Break
+   | Player -99% HP
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (16536:15) White Blade
+   | Deal 400~600% damage (4~6 hits, 100% each)

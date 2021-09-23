@@ -1,0 +1,57 @@
+#206453 - Violet Hellstone Pillar
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:19395) -> Demonic Flame Wall
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 99% for 99 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 8
+
+#4: ESDebuffMovetime(39:19396) -> Crushing Flame
+Condition: 33% chance (ai:0 rnd:33)
+Movetime -4s for 1 turn
+
+#5: ESDebuffATK(130:19397) -> Crippling Flame
+Condition: 33% chance (ai:0 rnd:33)
+ATK -50% for 1 turn
+
+#6: ESDebuffRCV(105:19398) -> Paralyzing Flame
+Condition: 34% chance (ai:0 rnd:34)
+RCV 50% for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESDebuffMovetime(39:19396) -> Crushing Flame
+Condition: 33% chance (ai:0 rnd:33)
+Movetime -4s for 1 turn
+
+#11: ESDebuffATK(130:19397) -> Crippling Flame
+Condition: 33% chance (ai:0 rnd:33)
+ATK -50% for 1 turn
+
+#12: ESDebuffRCV(105:19398) -> Paralyzing Flame
+Condition: 34% chance (ai:0 rnd:34)
+RCV 50% for 1 turn
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESEndBattle(40:19403) -> Magical power depleted
+Reduce self HP to 0
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

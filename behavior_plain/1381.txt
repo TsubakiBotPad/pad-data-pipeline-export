@@ -1,0 +1,38 @@
+#1381 - フリーザの側近・ザーボン
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInactivity66(66:1131) -> なぜフリーザさまにさからおうとする…
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 8
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBlind62(62:1122) -> 笑わせるんじゃない!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board, Deal 125% damage
+
+#9: ESAttackMultihit(15:1123) -> うぁがーーっ!!!!
+Condition: When < 25% HP (ai:100 rnd:0)
+Deal 140% damage (2 hits, 70% each)
+
+#10: ESStorePower(8:1121) -> うぬぼれやがって…！
+Condition: 30% chance when < 75% HP (ai:30 rnd:0)
+Increase damage to 175% for the next attack

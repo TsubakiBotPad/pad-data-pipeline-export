@@ -1,0 +1,85 @@
+#102294 - Alt. Red Puppet Master of Destruction, Pure Machina
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:3811) -> Sangen Mechanism
+	Absorb Light and Dark damage for 5 turns
+	[1] ESOrbChangeAttack(48:3821) -> Heal-to-Red Twist Puppetry
+	Change all Heal orbs to Fire orbs, Deal 90% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: SkillSet:
+	Condition: 40% chance (ai:0 rnd:40)
+	[0] ESChangeAttribute(46:3812) -> Elemental Flip
+	Change own attribute to random one of Fire or Wood
+	[1] ESOrbChangeAttack(48:3816) -> Blue-to-Green Twist Puppetry
+	Change all Water orbs to Wood orbs, Deal 110% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESChangeAttribute(46:3812) -> Elemental Flip
+	Change own attribute to random one of Fire or Wood
+	[1] ESOrbChangeAttack(48:3821) -> Heal-to-Red Twist Puppetry
+	Change all Heal orbs to Fire orbs, Deal 90% damage
+
+#9: SkillSet:
+	Condition: 35% chance (ai:0 rnd:35)
+	[0] ESChangeAttribute(46:3812) -> Elemental Flip
+	Change own attribute to random one of Fire or Wood
+	[1] ESRowSpawnMulti(79:3824) -> Green Line Stitch Puppetry
+	Change the 3rd row to Wood orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:3815) -> Impassive
+	Voids status ailments for 1 turn
+	[1] ESRandomSpawn(92:3829) -> Orb Destruction
+	Spawn 15 random Jammer orbs
+
+#12: ESRowSpawnMulti(79:3831) -> Red-Green Stitch Puppetry
+Change the 1st, 3rd, and 5th rows to Fire orbs and the 2nd and 4th rows to Wood orbs, Deal 220% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttributeResist(72:12172) -> Pure Fr Wd Halved
+Reduce damage from Fire and Wood attrs by 50%
+
+#15: ESNone(0:0) -> ESNone
+nothing
+
+#16: ESNone(0:0) -> ESNone
+nothing
+
+#17: ESNone(0:0) -> ESNone
+nothing
+
+#18: ESNone(0:0) -> ESNone
+nothing
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:3815) -> Impassive
+	Voids status ailments for 1 turn
+	[1] ESBindTarget(54:3836) -> Twin Hold
+	Bind both leaders for 1 turn

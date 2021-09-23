@@ -1,0 +1,31 @@
+#5009 - Gilgamesh (Fate/stay night [HF])
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5009
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19524:14) You're working hard, aren't you?
+ | Bind active skills for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (19526:105) This is my mercy to you.
+     | RCV 200% for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (19525:39) The grace period is now over.
+     | Movetime -3s for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19527:94) To think you'd attempt to make me kneel!
+     | Lock 15 random orbs
+   | group:
+     | (19528:15) What? You're still breathing?
+     | Deal 120% damage

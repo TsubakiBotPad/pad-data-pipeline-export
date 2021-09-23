@@ -1,0 +1,22 @@
+#300148 - Keeper of Water
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300148
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24032:83) Trial Wall + GO!
+ | Spawn 6 random Fire, Water, Light, Dark, and Heal orbs + Do nothing
+ | (24033:83) Chance to Attack + GO!
+ | Spawn 9 random Fire, Water, and Light orbs + Do nothing
+ group:
+ | group:
+ | condition: turn 1
+   | (24028:83) Chance to Attack + Time-Out Whistle
+   | Spawn 9 random Fire, Water, and Light orbs + Movetime 500% for 99 turns
+ | group:
+   | (24029:92) Chance to Attack
+   | Spawn 9 random Fire, Water, and Light orbs, Deal 100% damage

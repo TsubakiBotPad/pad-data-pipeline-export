@@ -1,0 +1,38 @@
+#758 - Drilling Shark Dragon, Megalodran
+monster size: 2
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 758
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3097:53) Burning Shield
+ | Absorb Wood damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 59
+     | condition: 70% chance
+     | (3098:48) Aqua Jet
+     | Change a random attribute to Water orbs, Deal 120% damage
+     | condition: 70% chance
+     | (3100:15) Crunch Fang
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 4
+     | condition: 70% chance
+     | (3098:48) Aqua Jet
+     | Change a random attribute to Water orbs, Deal 120% damage
+     | condition: 70% chance
+     | (3100:15) Crunch Fang
+     | Deal 140% damage (2 hits, 70% each)
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (3101:63) Shark Horn Blade
+     | Bind 1 random card for 2 turns, Deal 320% damage
+ | group:
+ | condition: turn 1, hp <= 59
+   | (3099:94) Vortex Cage
+   | Lock all Fire and Water orbs, Deal 80% damage

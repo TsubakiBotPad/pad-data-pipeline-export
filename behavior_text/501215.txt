@@ -1,0 +1,62 @@
+#501215 - Maleficent Dragon Lord Zaerog
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 501215
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (14550:106) Dragon King's Wrath
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (14549:83) Let's wipe the slate clean + Maleficence
+ | Reduce damage from all sources by 50% for 3 turns + Jammer skyfall +10% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (14551:15) Huh, is that it?
+     | Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (14552:15) Feeble for a Dragon Caller!
+     | Deal 120% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (14553:15) You're still not done?
+     | Deal 150% damage
+   | group:
+     | (14554:15) Darkness Breath
+     | Deal 200% damage (2 hits, 100% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (14555:94) Hmmm, not bad
+     | Lock all orbs
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (14557:50) Gravity Breath
+     | Player -70% HP
+     | (14556:15) Mighty Winged Hilt
+     | Deal 120% damage (2 hits, 60% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (14558:39) Dragon King's Eyes
+     | Movetime 50% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (14554:15) Darkness Breath
+     | Deal 200% damage (2 hits, 100% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 2
+     | (14559:5) Shall we end this?
+     | Blind all orbs on the board
+   | group:
+     | (14560:50) Zero
+     | Player -1,000% HP

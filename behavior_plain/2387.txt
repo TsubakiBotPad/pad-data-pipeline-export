@@ -1,0 +1,92 @@
+#2387 - Sacred Life Goddess of the Colored Sky, Hathor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:19189) -> Sacred Life Goddess' Prayer
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:19190) -> Protection of the Ether and the Sun
+	Reduce damage from all sources by 75% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 22
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 10
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESOrbLock(94:19191) -> Guiding Embrace
+Condition: 50% chance (ai:0 rnd:50)
+Lock 15 random orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:19192) -> Eternity's Judgment
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:19198) -> Life's Joys
+	Increase damage to 150% for the next 999 turns
+	[1] ESDebuffRCV(105:19196) -> Life's Aspirations
+	RCV 50% for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESVoidShield(71:19195) -> Tenacious Life Force
+	Void damage >= 10,000,000 for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:19198) -> Life's Joys
+	Increase damage to 150% for the next 999 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESDebuffRCV(105:19193) -> Life's Cravings
+Condition: 50% chance (ai:50 rnd:0)
+RCV 25% for 1 turn, Deal 95% damage
+
+#19: ESOrbLock(94:19191) -> Guiding Embrace
+Condition: 50% chance (ai:0 rnd:50)
+Lock 15 random orbs, Deal 100% damage
+
+#20: ESAttackMultihit(15:19192) -> Eternity's Judgment
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:19199) -> Guidance to the Underworld
+Deal 500% damage (5 hits, 100% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESSuperResolve(129:19187) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

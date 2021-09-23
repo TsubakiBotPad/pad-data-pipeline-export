@@ -1,0 +1,92 @@
+#204939 - Kamen Rider Genm
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:11804) -> I am Kamen Rider Genm... I am God here! 
+	Voids status ailments for 10 turns
+	[1] ESDamageShield(74:11777) -> Multi Unbreaker
+	Reduce damage from all sources by 50% for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDebuffMovetime(39:11806) -> Anti-Bugster Area
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Movetime -1s for 5 turns
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 15
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESAttackMultihit(15:11807) -> GM Growth Arm
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#13: ESRandomSpawn(92:11808) -> All-Fight Shoes
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Dark orbs, Deal 95% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESCloud(104:11778) -> Hover
+Condition: 50% chance (ai:0 rnd:50)
+A 2×1 rectangle of clouds appears for 5 turns at a random location
+
+#17: ESAbsorbCombo(67:11779) -> Double Jump
+Condition: 50% chance (ai:0 rnd:50)
+Absorb damage when combos <= 4 for 5 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESAttackUPRemainingEnemies(17:11789) -> Gain Riser
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 150% for the next 3 turns, Deal 100% damage
+
+#20: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 10
+
+#21: ESAbsorbAttribute(53:11790) -> Mech Build Guard
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Fire damage for 3 turns
+
+#22: SkillSet:
+	[0] ESRandomSpawn(92:11810) -> Gashat! Finishing Move! 
+	Spawn 6 random Dark orbs
+	[1] ESAttackMultihit(15:11811) -> Mighty Critical Strike
+	Deal 160% damage (8 hits, 20% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11812) -> I... shall never perish!
+	Do nothing

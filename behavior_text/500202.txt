@@ -1,0 +1,21 @@
+#500202 - Enchantress of the Sea, Siren
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 500202
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27125:127) What type of music do you like?
+ | No skyfall for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (27126:50) Saddening Song
+   | Player -50% HP
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (27127:92) Healing Song
+   | Spawn 2 random Heal orbs, Deal 100% damage

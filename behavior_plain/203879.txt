@@ -1,0 +1,46 @@
+#203879 - Joyful Eye's Evil Duchess, Gremory
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:23008) -> Evil Duchess' Barrier
+	Voids status ailments for 999 turns
+	[1] ESMaxHPChange(111:23009) -> Demonic Game
+	Change player HP to 50,000 for 1 turn
+	[2] ESGravity(50:23010) -> Deadly Words
+	Player -150% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 7
+
+#4: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESMaxHPChange(111:23012) -> Demonic Game
+	Change player HP to 100,000 for 1 turn
+	[1] ESDebuffATK(130:23013) -> Alluring Treasure Hunt
+	ATK -50% for 4 turns, Deal 50% damage
+
+#5: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESMaxHPChange(111:23009) -> Demonic Game
+	Change player HP to 50,000 for 1 turn
+	[1] ESDebuffRCV(105:23015) -> Alluring Treasure Hunt
+	RCV 50% for 4 turns, Deal 50% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackMultihit(15:23016) -> Dire Catastrophe
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESResolve(73:23006) -> Resolve
+Survive attacks with 1 HP when HP > 15%

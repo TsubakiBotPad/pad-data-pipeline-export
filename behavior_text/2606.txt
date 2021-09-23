@@ -1,0 +1,34 @@
+#2606 - 黒焚連合初代総長・古川修
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2606
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24700:39) よーしいったろかい!!
+ | Movetime 50% for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (24705:127) かかってきなさい！
+   | No skyfall for 1 turn
+   | condition: 50% chance
+   | (24704:15) おらっ
+   | Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (24701:83) ふー + ぶっ殺す！
+   | Voids status ailments for 999 turns + Increase damage to 150% for the next 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (24706:5) ちくしょう
+     | Blind all orbs on the board
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (24707:15) クソッタレが!!
+     | Deal 190% damage (2 hits, 95% each)

@@ -1,0 +1,33 @@
+#500599 - Awoken Hera-Ur
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindRandom(1:24104) -> Kiss of the Demonic Fire Queen
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind 1 random card for 2 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESAttackMultihit(15:24105) -> High Kick
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#8: ESSkillDelay(89:24169) -> Wave of Deadly Sin
+Delay active skills by 5 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

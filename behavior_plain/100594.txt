@@ -1,0 +1,23 @@
+#100594 - Archangeling
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersFixed(110:10705) -> Angel's Halo
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 1 turn
+
+#3: ESAttackUPRemainingEnemies(17:270) -> Lone Force
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#4: ESAttackMultihit(15:101) -> Double Strike
+Condition: 40% chance when < 75% HP (ai:40 rnd:0)
+Deal 140% damage (2 hits, 70% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,71 @@
+#4862 - Speed Holic, Leafa
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:11475) -> Prepare for battle!
+	Absorb damage when combos <= 5 for 5 turns
+	[1] ESSkyfall(68:11476) -> I might not look like it, but I know a lot about this game.
+	Wood skyfall +20% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESOrbChangeAttack(48:11478) -> We can win this!
+	Change a random attribute to Wood orbs, Deal 40% damage
+	[1] ESAttackMultihit(15:11479) -> Haa!
+	Deal 50% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#9: SkillSet:
+	[0] ESColumnSpawnMulti(77:11481) -> Next time you're going down.
+	Change the 3rd column to Wood and Light orbs, Deal 50% damage
+	[1] ESAttackMultihit(15:11482) -> Errgh Yaa!
+	Deal 60% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESRandomSpawn(92:11483) -> Oh no... Now what?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 8 random Poison orbs
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 15
+
+#13: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 1, target rnd 4
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 4
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESAttackUPRemainingEnemies(17:11484) -> I'll cut you in half.
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 99 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

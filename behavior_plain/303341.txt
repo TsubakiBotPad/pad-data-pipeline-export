@@ -1,0 +1,131 @@
+#303341 - 進月の地柱神・コンス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:29156) -> さぁ、戦おうよ！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:29157) -> 進月の緑光
+	Absorb Wood and Light damage for 5 turns
+	[2] ESRowSpawnMulti(79:29158) -> ムーンリーフ
+	Change the 1st row to Wood orbs, Deal 30% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 23
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 17
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 25
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:29181) -> 地柱神の祈り
+	Wood skyfall +25% for 1 turn
+	[1] ESOrbLock(94:29182) -> 照葉
+	Lock 10 random orbs
+	[2] ESAttackMultihit(15:29183) -> スピードリーフ
+	Deal 100% damage (4 hits, 25% each)
+
+#12: SkillSet:
+	[0] ESOrbChangeAttackBits(108:29185) -> 生命の樹葉
+	Change all Wood orbs to Heal orbs, Deal 10% damage
+	[1] ESDebuffRCV(105:29186) -> 生命奪取
+	RCV 25% for 1 turn
+	[2] ESAttackMultihit(15:29187) -> スピードリーフ
+	Deal 96% damage (4 hits, 24% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAbsorbCombo(67:29174) -> 深緑のオーラ
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESFixedStart(101:29175) -> 地柱神の導き
+	Fix orb movement starting point to random position on the board
+	[2] ESAttackMultihit(15:29176) -> スピードリーフ
+	Deal 105% damage (3 hits, 35% each)
+
+#15: SkillSet:
+	[0] ESRandomSpawn(92:29179) -> ポイズンリーフ
+	Spawn 9 random Mortal Poison orbs
+	[1] ESOrbChangeAttackBits(108:29178) -> 深緑増加
+	Change all Fire orbs to Wood orbs, Deal 106% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: SkillSet:
+	[0] ESVoidShield(71:29164) -> リーフガード
+	Void damage >= 10,000,000 for 1 turn
+	[1] ESBindAwoken(88:29161) -> 煌めく月
+	Bind awoken skills for 1 turn
+	[2] ESBoardChange(84:29165) -> 嵐葉
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	[0] ESChangeAttribute(46:29167) -> 大気光象
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:29168) -> リーフブラスト
+	Deal 2,100% damage (7 hits, 300% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: SkillSet:
+	[0] ESRecoverEnemy86(86:29160) -> 地柱神の光
+	Enemy recover 100% HP
+	[1] ESBindAwoken(88:29161) -> 煌めく月
+	Bind awoken skills for 1 turn
+	[2] ESBindRandomSub(65:29162) -> 鮮やかな緑光
+	Bind 2 random subs for 3 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:29171) -> リーフエンハンス
+	Increase damage to 150% for the next 999 turns
+	[1] ESDamageShield(74:29170) -> ムーンガード
+	Reduce damage from all sources by 50% for 99 turns, Deal 100% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESResolve(73:29188) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#28: ESDeathCry(69:29189) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: 月光が差しこんでいく…|力がみなぎってきたよ！

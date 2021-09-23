@@ -1,0 +1,22 @@
+#400147 - Alt. Keeper of Flame
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:25237) -> Red Protector
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Fire damage for 5 turns
+
+#3: ESAttackUPRemainingEnemies(17:25243) -> Keeper's Determination
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#4: ESAttackMultihit(15:25242) -> Lance Thrust
+Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

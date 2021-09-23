@@ -1,0 +1,49 @@
+#104393 - Mocking Snowman, Jack Frost
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 104393
+approved: False
+
+level: 4
+ group:
+ | group:
+   | (9953:94) Bufu
+   | Lock 10 random orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (9953:94) Bufu
+     | Lock 10 random orbs, Deal 110% damage
+   | group:
+   | condition: turn 2
+     | (9954:48) Hee-ho!
+     | Change a random attribute to Water orbs, Deal 115% damage
+   | group:
+     | condition: 30% chance
+     | (9957:94) Mabufu
+     | Lock all orbs, Deal 130% damage
+     | condition: 30% chance
+     | (9954:48) Hee-ho!
+     | Change a random attribute to Water orbs, Deal 115% damage
+     | condition: 40% chance
+     | (9953:94) Bufu
+     | Lock 10 random orbs, Deal 110% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (9956:83) Hee-ho! + Rakunda
+   | Change a random attribute to Water orbs + RCV 50% for 3 turns, Deal 115% damage
+ | group:
+   | condition: 30% chance
+   | (9957:94) Mabufu
+   | Lock all orbs, Deal 130% damage
+   | condition: 30% chance
+   | (9954:48) Hee-ho!
+   | Change a random attribute to Water orbs, Deal 115% damage
+   | condition: 40% chance
+   | (9953:94) Bufu
+   | Lock 10 random orbs, Deal 110% damage

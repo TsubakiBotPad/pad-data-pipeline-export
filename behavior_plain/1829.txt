@@ -1,0 +1,50 @@
+#1829 - Blue-Winged Star Angel, Famiel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfallLocked(96:18626) -> The stars are so pretty!
+	Locked random skyfall +25% for 10 turns
+	[1] ESSpinnersFixed(110:18627) -> Why don't we wander around a bit?
+	Specific orbs change every 1.0s for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESSpinnersRandom(109:18628) -> Round and round!
+Condition: 50% chance (ai:0 rnd:50)
+Random 1 orbs change every 1.0s for 10 turns, Deal 100% damage
+
+#5: ESSpinnersRandom(109:18629) -> Round and round!
+Condition: 50% chance (ai:0 rnd:50)
+Random 2 orbs change every 2.0s for 10 turns, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:18631) -> Oww!
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:18632) -> I won't lose!
+	Increase damage to 200% for the next 999 turns
+
+#8: ESSpinnersRandom(109:18628) -> Round and round!
+Condition: 50% chance (ai:0 rnd:50)
+Random 1 orbs change every 1.0s for 10 turns, Deal 100% damage
+
+#9: ESSpinnersRandom(109:18629) -> Round and round!
+Condition: 50% chance (ai:0 rnd:50)
+Random 2 orbs change every 2.0s for 10 turns, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:18624) -> Resolve
+Survive attacks with 1 HP when HP > 50%

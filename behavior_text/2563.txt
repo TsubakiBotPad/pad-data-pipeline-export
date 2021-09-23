@@ -1,0 +1,37 @@
+#2563 - Destroying Bow Steel Star God, Australis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2563
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26480:73) ＿根性75%
+ | Survive attacks with 1 HP when HP > 75%
+ type: PREEMPT
+ | (26481:83) A Pure and Youthful Heart + Spectrum Shield + Dyeing Night
+ | Voids status ailments for 5 turns + Void damage >= 5 for 500,000,000 turns + Change all orbs to Wood, Deal 175% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (26485:83) Dust Rain + Stardust rains down
+     | Jammer and Poison skyfall +20% for 1 turn + Spawn 2 random Jammer, Poison, and Mortal Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (26488:83) Star Wake - Land + Glitter of the Green Sky
+     | Change all Light, Heal, Jammer, Poison, and Mortal Poison orbs to Wood orbs + Wood skyfall +20% for 2 turns, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (26491:83) Destroying Bow Shot + Aiming
+     | Unable to match Wood orbs for 1 turn + Lock all orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (26494:83) Spectrum Smog + Guarding Steel Star
+     | Movetime 25% for 1 turn + Reduce damage from all sources by 75% for 3 turns, Deal 135% damage
+ | group:
+ | condition: hp <= 1
+   | (26497:83) Eternal Green Night + Meteor Destroying Bow
+   | Enemy recover 100% HP + Change all orbs to Wood and Heal, Deal 250% damage

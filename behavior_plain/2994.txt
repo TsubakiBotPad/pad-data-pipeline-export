@@ -1,0 +1,35 @@
+#2994 - Great Earl of Hell, Ronove
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBoardChange(84:16618) -> Roaring Melody
+	Change all orbs to Wood, Heal, and Poison
+	[1] ESOrbLock(94:16619) -> Demonic Contract
+	Lock all orbs
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:16621) -> Granted Fame and Fortune
+	Movetime 150% for 2 turns
+	[1] ESSkyfallLocked(96:16622) -> Glorious Life
+	Locked random skyfall +100% for 2 turns
+
+#4: ESDebuffRCV(105:16623) -> Lost Years
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 0% for 1 turn
+
+#5: ESAttackMultihit(15:16624) -> Contract's End
+Deal 800% damage (8 hits, 100% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESTypeResist(118:16633) -> Devil Halved
+Reduce damage from Devil types by 50%

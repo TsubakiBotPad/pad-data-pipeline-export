@@ -1,0 +1,46 @@
+#206566 - Rui
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESOrbLock(94:20050) -> I won't let anyone get in our way.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock 8 random orbs
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESOrbLock(94:20052) -> Steel Threads
+Condition: 33% chance (ai:0 rnd:33)
+Lock 5 random orbs, Deal 80% damage
+
+#7: ESBindAttack(63:20059) -> Blood Demon Art: Murderous Eye Basket
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random sub for 2 turns, Deal 90% damage
+
+#8: ESAttackMultihit(15:20058) -> What an unpleasant feeling!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (2 hits, 50% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSkyfall(68:20060) -> It's like these scum exist just to interfere with me!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Jammer skyfall +10% for 5 turns
+
+#11: ESOrbLock(94:20061) -> Blood Demon Art: Cutting Thread Rotation
+Lock 12 random orbs, Deal 120% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

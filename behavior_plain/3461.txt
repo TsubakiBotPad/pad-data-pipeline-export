@@ -1,0 +1,53 @@
+#3461 - 伝説の男・林田恵
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:24725) -> おもしれー
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:24726) -> 相手になってやろーじゃねーか
+	Absorb damage when combos <= 6 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 7
+
+#4: ESSkillDelay(89:24730) -> クッ
+Condition: 50% chance (ai:0 rnd:50)
+Delay active skills by 2~4 turns, Deal 80% damage
+
+#5: ESBoardChangeAttackBits(85:24731) -> このっ
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Dark, and Heal, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESRecoverEnemy86(86:24728) -> どうした
+	Enemy recover 50% HP
+	[1] ESDamageShield(74:24729) -> もう終わりか
+	Reduce damage from all sources by 75% for 3 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:24732) -> オリャ～～ッ!!
+Deal 450% damage (3 hits, 150% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:24723) -> 根性
+Survive attacks with 1 HP when HP > 50%

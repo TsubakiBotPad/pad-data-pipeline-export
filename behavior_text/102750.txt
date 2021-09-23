@@ -1,0 +1,57 @@
+#102750 - Alt. Awoken Apollo
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 102750
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4137:73) Apollo Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12171:83) Celestial Prelude + I'd be glad if you could listen quietly
+ | Absorb damage when combos <= 8 for 3 turns + Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (4092:79) Holy Tree's Staff
+     | Change the 1st, 3rd, and 5th rows to Light orbs and the 2nd and 4th rows to Wood orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | (4093:85) Six Strings' Timbre
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 200% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | (4096:83) Last Movement - Flash + The show is over...
+     | Change a random attribute to Light orbs + Reduce damage from all sources by 50% for 3 turns, Deal 300% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | (4098:3) Blinding Chain of God's Ruin
+     | Bind God cards for 5 turns
+     | (4099:2) Blinding Chain of Devil's Ruin
+     | Bind Dark cards for 5 turns
+     | (4100:54) Blinding Chain of Good & Evil's Ruin
+     | Bind both leaders for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4101:85) Hyacinth's Lamentation
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4102:48) Sunlight Gift
+     | Change all Jammer orbs to Heal orbs, Deal 300% damage
+     | (4103:48) Sunlight Glow
+     | Change all Wood orbs to Fire orbs, Deal 200% damage
+     | (4104:48) Sunlight Tears
+     | Change all Fire orbs to Water orbs, Deal 200% damage
+     | (4105:94) Sunlight Flash
+     | Lock all Light orbs, Deal 200% damage
+     | (4101:85) Hyacinth's Lamentation
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | (4106:50) Glorious Postlude
+   | Player -500% HP

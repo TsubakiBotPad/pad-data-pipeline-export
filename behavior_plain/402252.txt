@@ -1,0 +1,71 @@
+#402252 - Shiva Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:20961) -> Destroyer God's Barrier
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:20962) -> Third Eye Beam
+	Delay active skills by 6 turns
+	[2] ESDamageShield(74:20958) -> Divine Dragon Miasma
+	Reduce damage from all sources by 75% for 10 turns
+	[3] ESDebuffATK(130:20959) -> Countdown to Death
+	ATK -75% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 14
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBombRandomSpawn(102:20966) -> Satsang
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 9 random locked Bomb orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:20967) -> Pinaka
+Deal 114% damage (3 hits, 38% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESVoidShield(71:20964) -> Underworld's Divine Blaze
+	Void damage >= 100,000,000 for 999 turns
+	[1] ESNoSkyfall(127:20965) -> Celestial Destruction
+	No skyfall for 10 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:21003) -> God Dragon's Shining Eyes
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:20968) -> Ananda
+	Deal 1,000% damage (10 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:20956) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#17: ESAttributeResist(72:20957) -> Light/Dark Halved
+Reduce damage from Light and Dark attrs by 50%

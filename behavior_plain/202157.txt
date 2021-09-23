@@ -1,0 +1,29 @@
+#202157 - Factory Shell Q
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESDamageShield(74:2487) -> Survivor Multiplication
+Reduce damage from all sources by 50% for 2 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11111
+
+#8: ESAttackMultihit(15:2488) -> Survivor All-Out Attack
+Deal 500% damage (5 hits, 100% each)

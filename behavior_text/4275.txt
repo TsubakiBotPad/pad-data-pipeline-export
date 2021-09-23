@@ -1,0 +1,64 @@
+#4275 - Reincarnated Andromeda
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4275
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23664:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (23665:83) Starsea Chains + Are you ready for this? + Here I come!
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 6 turns + Unable to match Wood orbs for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | condition: 50% chance
+     | (23678:94) Blue Chain Flash
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23679:92) Starsea Glimmer
+     | Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | (23669:83) Are you ready for this? + Here I come!
+     | Absorb Wood damage for 2 turns + Unable to match Fire orbs for 2 turns
+   | group:
+   | condition: turn 3 while HP > 9
+     | condition: 50% chance
+     | (23678:94) Blue Chain Flash
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23679:92) Starsea Glimmer
+     | Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | (23672:83) Are you ready for this? + Here I come!
+     | Void damage >= 30,000,000 for 999 turns + Unable to match Water orbs for 2 turns
+   | group:
+   | condition: turn 5 while HP > 9
+     | condition: 50% chance
+     | (23678:94) Blue Chain Flash
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23679:92) Starsea Glimmer
+     | Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+   | group:
+   | condition: turn 6 while HP > 9
+     | (23675:83) Not bad! + I'm going to end this now.
+     | Increase damage to 200% for the next 999 turns + ATK -75% for 99 turns
+   | group:
+     | condition: 50% chance
+     | (23678:94) Blue Chain Flash
+     | Lock 10 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (23679:92) Starsea Glimmer
+     | Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+ | group:
+ | condition: hp <= 9
+   | (23680:85) The Turquoise Star Chains
+   | Change all orbs to Heal, Jammer, Poison, and Mortal Poison, Deal 300% damage

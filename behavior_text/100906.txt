@@ -1,0 +1,34 @@
+#100906 - Alt. Flame Baron
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 100906
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17389:67) Barrier Flame
+ | Absorb damage when combos <= 7 for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (17391:19) Flame Evocation
+   | Increase damage to 300% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-4
+     | (17390:105) Spirit Break
+     | RCV 50% for 1 turn, Deal 300% damage
+   | group:
+     | (17390:105) Spirit Break
+     | RCV 50% for 1 turn, Deal 300% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turns 1-4
+     | (17392:15) Burning Sword
+     | Deal 240% damage (2 hits, 120% each)
+   | group:
+     | (17392:15) Burning Sword
+     | Deal 240% damage (2 hits, 120% each)

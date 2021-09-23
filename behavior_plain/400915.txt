@@ -1,0 +1,57 @@
+#400915 - Alt. Angelit
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbChangeAttackBits(108:25422) -> Heart Attack
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Jammer and Poison orbs to Heal orbs, Deal 250% damage
+
+#3: ESRandomSpawn(92:25423) -> Angelit Heart
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 8 random Heal orbs, Deal 150% damage
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#5: ESAttackUPRemainingEnemies(17:25424) -> Angrilit!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#6: ESOrbChangeAttackBits(108:25425) -> Heart Attack
+Change all Jammer and Poison orbs to Heal orbs, Deal 120% damage
+
+#7: ESRandomSpawn(92:25426) -> Angelit Heart
+Spawn 8 random Heal orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESRecoverEnemy86(86:25428) -> Healit!
+Enemy recover 100% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackUPRemainingEnemies(17:25424) -> Angrilit!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#14: ESAttackMultihit(15:25427) -> Angelit Heaven Attack
+Deal 200% damage (2 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:25438) -> Resolve
+Survive attacks with 1 HP when HP > 50%

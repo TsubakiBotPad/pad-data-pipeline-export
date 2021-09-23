@@ -1,0 +1,131 @@
+#206455 - Green Augite, Mirror of Lush Verdure
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESVoidShield(71:22430) -> Shield Expansion
+Condition: 33% chance (ai:33 rnd:0)
+Void damage >= 1,000,000,000 for 2 turns
+
+#5: ESAbsorbThreshold(87:22431) -> Shield Expansion
+Condition: 33% chance (ai:33 rnd:0)
+Absorb damage when damage >= 1,000,000,000 for 2 turns
+
+#6: ESAbsorbAttribute(53:22432) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire damage for 2 turns
+
+#7: ESAbsorbAttribute(53:22433) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water damage for 2 turns
+
+#8: ESAbsorbAttribute(53:22434) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood damage for 2 turns
+
+#9: ESAbsorbAttribute(53:22435) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light damage for 2 turns
+
+#10: ESAbsorbAttribute(53:22436) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Dark damage for 2 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 3, target rnd 21
+
+#13: ESVoidShield(71:22430) -> Shield Expansion
+Condition: 33% chance (ai:33 rnd:0)
+Void damage >= 1,000,000,000 for 2 turns
+
+#14: ESAbsorbThreshold(87:22431) -> Shield Expansion
+Condition: 33% chance (ai:33 rnd:0)
+Absorb damage when damage >= 1,000,000,000 for 2 turns
+
+#15: ESAbsorbAttribute(53:22432) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Fire damage for 2 turns
+
+#16: ESAbsorbAttribute(53:22433) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Water damage for 2 turns
+
+#17: ESAbsorbAttribute(53:22434) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Wood damage for 2 turns
+
+#18: ESAbsorbAttribute(53:22435) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Light damage for 2 turns
+
+#19: ESAbsorbAttribute(53:22436) -> Shield Expansion
+Condition: 20% chance (ai:0 rnd:20)
+Absorb Dark damage for 2 turns
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESVoidShield(71:22430) -> Shield Expansion
+	Void damage >= 1,000,000,000 for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#22: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESAbsorbThreshold(87:22431) -> Shield Expansion
+	Absorb damage when damage >= 1,000,000,000 for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#23: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:22432) -> Shield Expansion
+	Absorb Fire damage for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#24: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:22433) -> Shield Expansion
+	Absorb Water damage for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#25: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:22434) -> Shield Expansion
+	Absorb Wood damage for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#26: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:22435) -> Shield Expansion
+	Absorb Light damage for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#27: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:22436) -> Shield Expansion
+	Absorb Dark damage for 2 turns
+	[1] ESSkillDelay(89:22676) -> Shield Stab
+	Delay active skills by 2 turns, Deal 100% damage
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

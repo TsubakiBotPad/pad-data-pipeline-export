@@ -1,0 +1,90 @@
+#4344 - Campus Idol, Uruka
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4344
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (13062:72) Wood Halved
+ | Reduce damage from Wood attrs by 50%
+ | (13065:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (13048:83) Thank you all for coming! + I hope you enjoy yourselves!♪ + The arena resounds with cheers
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 5 turns + Locked random skyfall +15% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 25% chance
+     | (13049:94) Fans' Cheering Voices
+     | Lock 3 random orbs, Deal 120% damage
+     | condition: 25% chance
+     | (13050:92) Glowsticks' Light
+     | Spawn 3 random Water orbs, Deal 120% damage
+     | condition: 25% chance
+     | (13051:39) Swinging Towel
+     | Movetime -1s for 1 turn, Deal 120% damage
+     | condition: 25% chance
+     | (13052:66) The energy in the arena is building
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 25% chance
+     | (13056:66) The atmosphere is electric
+     | Do nothing
+     | condition: 25% chance
+     | (13053:89) Equipment Trouble
+     | Delay active skills by 0~3 turns, Deal 140% damage
+     | condition: 25% chance
+     | (13054:67) Raise the Roof
+     | Absorb damage when combos <= 6 for 1 turn, Deal 140% damage
+     | condition: 25% chance
+     | (13055:68) Fans are going wild
+     | Jammer skyfall +20% for 1 turn, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 60% chance
+     | (13057:15) Triple Glowsticks
+     | Deal 180% damage (3 hits, 60% each)
+     | (13058:63) Overhead Clap
+     | Bind 1 random card for 3 turns, Deal 170% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 25% chance
+     | (13052:66) The energy in the arena is building
+     | Do nothing
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (13060:17) Let's kick things up a notch!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | condition: 25% chance
+     | (13049:94) Fans' Cheering Voices
+     | Lock 3 random orbs, Deal 120% damage
+     | condition: 25% chance
+     | (13050:92) Glowsticks' Light
+     | Spawn 3 random Water orbs, Deal 120% damage
+     | condition: 25% chance
+     | (13051:39) Swinging Towel
+     | Movetime -1s for 1 turn, Deal 120% damage
+     | condition: 25% chance
+     | (13052:66) The energy in the arena is building
+     | Do nothing
+ | group:
+ | condition: hp <= 19
+   | (13061:15) Last Song
+   | Deal 600% damage (2 hits, 300% each)
+ | group:
+ | condition: hp <= 1
+   | (13063:86) I'll show you what I can really do!
+   | Enemy recover 19% HP
+ type: UNKNOWN_USE
+ | (13059:15) Rousing Cheer
+ | Deal 480% damage (4 hits, 120% each)

@@ -1,0 +1,39 @@
+#101365 - Alt. Shadow Moon Dragon Knight, Mulan
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 101365
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8475:83) Soon, I shall... + ...test your abilities!
+ | Reduce damage from all sources by 75% for 5 turns + Voids status ailments for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (8476:39) Violet Moonflower Eyes
+   | Movetime -2s for 5 turns
+ | group:
+ | condition: turn 2
+   | condition: when required attributes on board
+   | (8477:92) Lunar Sky Cataclysm
+   | Spawn 16 random Dark orbs, Deal 170% damage
+   | (8478:15) Nine Dragon Claws - Leilei
+   | Deal 198% damage (9 hits, 22% each)
+ | group:
+ | condition: turn 3
+   | (8478:15) Nine Dragon Claws - Leilei
+   | Deal 198% damage (9 hits, 22% each)
+ | group:
+ | condition: turn 4
+   | (8479:15) Moonlight Sword Dance
+   | Deal 255% damage (3 hits, 85% each)
+ | group:
+ | condition: turn 5
+   | (8480:67) The end is nigh
+   | Absorb damage when combos <= 7 for 1 turn
+ | group:
+   | (8481:50) Moon's Falling Petals
+   | Player -1,000% HP

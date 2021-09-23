@@ -1,0 +1,56 @@
+#3992 - Halloween REMDra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3992
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8382:74) Happy Halloween!
+ | Reduce damage from all sources by 50% for 99 turns
+ group:
+ | (8383:15) Halloween REMDra Punch!
+ | Deal 130% damage
+
+level: 2
+ type: PREEMPT
+ | (8363:83) Happy Halloween! + Suspicious Aura + Pull!
+ | Blind orbs in specific positions for 1 turn + Voids status ailments for 5 turns + Reduce damage from all sources by 75% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (8364:74) Pull it!
+     | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | group:
+     | (8365:74) Come on! Pull!
+     | Reduce damage from all sources by 50% for 1 turn, Deal 120% damage
+ | group:
+ | condition: hp <= 79
+   | condition: 5% chance
+   | (8374:83) It's putting some back into it + Jack-o'-Lantern
+   | Do nothing + Bind 1 random sub for 4 turns, Deal 150% damage
+   | condition: 16% chance
+   | (8375:83) It's putting some back into it + Holiday Tuning Circle - Water & Dark
+   | Do nothing + Change all orbs to Water and Dark, Deal 150% damage
+   | condition: 16% chance
+   | (8376:83) It's putting some back into it + Midnight Spell
+   | Do nothing + Change the 5th row to Dark orbs, Deal 150% damage
+   | condition: 16% chance
+   | (8377:83) It's putting some back into it + Pumpkin Season
+   | Do nothing + Change a random attribute to Heal orbs, Deal 150% damage
+   | condition: 16% chance
+   | (8378:83) It's putting some back into it + Costume Changing Technique - Dark
+   | Do nothing + Change all Wood orbs to Dark orbs, Deal 150% damage
+   | condition: 16% chance
+   | (8379:83) It's putting some back into it + Holiday Tuning Circle - Wood, Dark & Life
+   | Do nothing + Change all orbs to Wood, Dark, and Heal, Deal 150% damage
+   | condition: 15% chance
+   | (8380:83) It's putting some back into it + Nene's Seal of Approval
+   | Do nothing + Change all orbs to Water, Dark, and Heal, Deal 150% damage
+ | group:
+ | condition: hp <= 14
+   | (8357:15) Throw me some more Magic Stones!
+   | Deal 900% damage (3 hits, 300% each)

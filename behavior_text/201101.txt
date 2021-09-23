@@ -1,0 +1,37 @@
+#201101 - Alt. World Tree Sprite, Alraune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201101
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25465:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25457:83) Fragrance of the World Tree + Flower Lock
+ | Bind awoken skills for 5 turns + Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4
+     | (25463:85) Flower Garden
+     | Change all orbs to Wood and Jammer, Deal 100% damage
+   | group:
+   | condition: turn 5
+     | (25460:83) Protection of the World Tree + Flower Guard
+     | Voids status ailments for 999 turns + Absorb Fire and Wood damage for 10 turns
+   | group:
+     | (25463:85) Flower Garden
+     | Change all orbs to Wood and Jammer, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25460:83) Protection of the World Tree + Flower Guard
+     | Voids status ailments for 999 turns + Absorb Fire and Wood damage for 10 turns
+   | group:
+     | (25464:85) Flower Gardening
+     | Change all orbs to Wood, Jammer, and Poison, Deal 1,000% damage

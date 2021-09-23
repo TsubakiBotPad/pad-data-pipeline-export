@@ -1,0 +1,83 @@
+#1509 - Mephistopheles
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:15034) -> Wake Up!
+	Water, Wood, Light, and Dark skyfall +100% for 1 turn
+	[1] ESBlind5(5:15036) -> Into Darkness
+	Blind all orbs on the board
+	[2] ESRandomSpawn(92:15035) -> Fire Orbs...
+	Spawn 3 random Fire orbs
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESOrbChangeAttackBits(108:15046) -> Too bad
+Change all Fire orbs to Light orbs, Deal 1,000% damage
+
+#6: SkillSet:
+	[0] ESSkyfall(68:15038) -> Wake Up!
+	Fire, Wood, Light, and Dark skyfall +100% for 1 turn
+	[1] ESBlind5(5:15036) -> Into Darkness
+	Blind all orbs on the board
+	[2] ESRandomSpawn(92:15039) -> Water Orbs...
+	Spawn 3 random Water orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESOrbChangeAttackBits(108:15047) -> Too bad
+Change all Water orbs to Light orbs, Deal 1,000% damage
+
+#11: SkillSet:
+	[0] ESSkyfall(68:15041) -> Wake Up!
+	Fire, Water, Light, and Dark skyfall +100% for 1 turn
+	[1] ESBlind5(5:15036) -> Into Darkness
+	Blind all orbs on the board
+	[2] ESRandomSpawn(92:15042) -> Wood Orbs...
+	Spawn 3 random Wood orbs
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESOrbChangeAttackBits(108:15048) -> Too bad
+Change all Wood orbs to Light orbs, Deal 1,000% damage
+
+#16: SkillSet:
+	[0] ESSkyfall(68:15044) -> Wake Up!
+	Fire, Water, Wood, and Light skyfall +100% for 1 turn
+	[1] ESBlind5(5:15036) -> Into Darkness
+	Blind all orbs on the board
+	[2] ESRandomSpawn(92:15045) -> Dark Orbs...
+	Spawn 3 random Dark orbs
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESOrbChangeAttackBits(108:15049) -> Too bad
+Change all Dark orbs to Light orbs, Deal 1,000% damage
+
+#19: ESEndBattle(40:15050) -> Good Job...
+Reduce self HP to 0

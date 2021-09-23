@@ -1,0 +1,48 @@
+#6794 - Yotsugi Ononoki
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSpinnersFixed(110:21117) -> Hello.
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Specific orbs change every 1.0s for 4 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#6: ESDebuffRCV(105:21118) -> You make me laugh.
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+RCV 50% for 3 turns
+
+#7: ESGravity(50:21119) -> Sure, that's fine.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Player -50% HP
+
+#8: ESNoSkyfall(127:21120) -> Don't fool yourself.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No skyfall for 1 turn
+
+#9: ESRandomSpawn(92:21121) -> You're still weaker than I am.
+Spawn 4 random Wood orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESRandomSpawn(92:21123) -> Unlimited Rule Book
+	Spawn 4 random Dark orbs
+	[1] ESOrbLock(94:21124) -> I said, with a posed look.
+	Lock all Dark orbs, Deal 120% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

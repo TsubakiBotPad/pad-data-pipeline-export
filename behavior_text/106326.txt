@@ -1,0 +1,41 @@
+#106326 - オーバーホール
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 106326
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18509:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18497:83) I shall become the new ruler of the underworld. + I have a plan. + You fired the first shot!
+ | Bind awoken skills for 1 turn + Bind active skills for 5 turns + Jammer and Poison skyfall +15% for 5 turns
+ group:
+ | group:
+   | condition: 20% chance
+   | (18507:109) Don't touch me!
+   | Random 2 orbs change every 1.0s for 2 turns, Deal 90% damage
+   | (18501:48) Disassemble
+   | Change a random attribute to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (18504:83) Reassemble + Fuse
+     | Enemy recover 100% HP + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (18505:74) How filthy...!!
+     | Reduce damage from all sources by 75% for 4 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (18506:88) That's why I hate this.
+     | Bind awoken skills for 1 turn
+   | group:
+     | (18508:15) All your efforts are worthless!!
+     | Deal 10,000% damage (10 hits, 1,000% each)

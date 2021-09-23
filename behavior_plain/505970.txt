@@ -1,0 +1,54 @@
+#505970 - Elven Emissary, Alynna
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRandomSpawn(92:23290) -> Could you help me clean up?
+	Spawn 4 random Jammer orbs
+	[1] ESInactivity66(66:23291) -> Let's get rid of all these Jammers!
+	Do nothing
+
+#3: ESOrbChangeAttackBits(108:23272) -> I'll help as well!
+Change all Jammer orbs to Heal orbs, Deal 40% damage
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:23274) -> Over here!
+	Do nothing
+	[1] ESRandomSpawn(92:23275) -> Oh my!
+	Spawn 6 random Jammer orbs
+	[2] ESCloud(104:23276) -> She falls amidst a cloud of dust
+	A 2×1 rectangle of clouds appears for 1 turn at 3rd row, 3rd column
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:23278) -> Now where did I put it...
+	Do nothing
+	[1] ESRandomSpawn(92:23279) -> Dear me!
+	Spawn 12 random Jammer orbs
+	[2] ESOrbSealRow(100:23280) -> A tower of books topples over
+	Seal the 5th row for 1 turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:23282) -> Just a bit more!
+	Do nothing
+	[1] ESRandomSpawn(92:23283) -> A... Achoo!
+	Spawn 6 random Jammer orbs
+	[2] ESBlind5(5:23284) -> Loose paper flies everywhere
+	Blind all orbs on the board
+
+#7: SkillSet:
+	[0] ESInactivity66(66:23286) -> All done!
+	Do nothing
+	[1] ESEndBattle(40:23287) -> Thanks for helping!
+	Reduce self HP to 0
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,33 @@
+#3599 - Enoch
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:14478) -> Saint's Robe
+	Voids status ailments for 999 turns
+	[1] ESLeaderAlter(125:14479) -> Heaven's Will
+	Change leader to [4264] for 1 turn
+	[2] ESRandomSpawn(92:14493) -> Staff of Destiny
+	Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Mortal Poison orbs
+
+#3: ESDamageShield(74:14480) -> Sanctuary
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 99 turns
+
+#4: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 6 if counter == 0
+
+#5: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#6: ESAttackMultihit(15:14481) -> Rizentbard
+Deal 100,000% damage (10 hits, 10,000% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,48 @@
+#6852 - Burton
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6852
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21472:94) Hey!
+ | Lock 15 random orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21476:13) Gum Kunai
+     | Change 1 random orb type to Jammer orbs, Deal 90% damage
+   | group:
+     | condition: 50% chance
+     | (21475:92) Oh yeah!
+     | Spawn 3 random Light orbs, Deal 80% damage
+     | (21474:15) Ha!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (21479:17) Up Tempo
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | condition: 50% chance
+     | (21478:92) Yeehaw!
+     | Spawn 4 random Dark orbs, Deal 60% damage
+     | (21477:15) Hiyah!
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21481:94) Here we go!
+     | Lock all orbs
+   | group:
+     | condition: 50% chance
+     | (21482:1) Echoing Scream
+     | Bind 2 random cards for 3 turns, Deal 80% damage
+     | (21480:85) Fujiyama Rocket
+     | Change all orbs to Light, Dark, and Heal, Deal 70% damage

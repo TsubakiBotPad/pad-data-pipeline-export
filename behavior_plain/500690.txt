@@ -1,0 +1,31 @@
+#500690 - Marine Spec Ops Goblin
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:21086) -> Wild Strikes
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 5 random Water orbs, Deal 80% damage
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 6
+
+#4: ESAttackMultihit(15:21087) -> Charge
+Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:21099) -> Defensive Stance
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 2 turns
+
+#7: ESAttackMultihit(15:20586) -> Super Charge
+Deal 200% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

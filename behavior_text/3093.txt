@@ -1,0 +1,38 @@
+#3093 - Green Whirlwind, Adekazakiri
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 3093
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5223:83) Green Whirlwind's Dance + Feather Rain
+ | Absorb damage when combos <= 6 for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, and Jammer, Deal 80% damage
+ group:
+ | group:
+ | condition: when hp is full
+   | (5225:85) Feather Rain
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Jammer, Deal 80% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: always turn 1
+     | (5226:79) Wind Spiral
+     | Change the 1st row to Wood orbs, Deal 100% damage
+   | group:
+   | condition: always turn 2
+     | (5227:53) Fire-Extinguishing Wind
+     | Absorb Fire damage for 3 turns
+   | group:
+     | (5228:48) Lightning
+     | Change all Jammer orbs to Light orbs, Deal 150% damage
+     | (5229:48) Gale
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | (5228:48) Lightning
+   | Change all Jammer orbs to Light orbs, Deal 150% damage
+   | (5225:85) Feather Rain
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Jammer, Deal 80% damage

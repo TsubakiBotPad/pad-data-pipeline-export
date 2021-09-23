@@ -1,0 +1,51 @@
+#7436 - Seto Kaiba & Blue-Eyes Ultimate Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:25110) -> Duel!
+Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttributeBlock(107:25112) -> Trap Card "Final Attack Orders"
+Unable to match Heal orbs for 3 turns, Deal 100% damage
+
+#10: ESRandomSpawn(92:25111) -> Ultimate Dragon attacks!
+Spawn 3 random Water, Light, and Heal orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:25114) -> I'll bury you!
+	Delay active skills by 5 turns
+	[1] ESAttackUPRemainingEnemies(17:25115) -> Get ready!
+	Increase damage to 200% for the next 999 turns
+
+#13: ESAttackMultihit(15:25116) -> Neutron Blast Attack
+Deal 1,350% damage (3 hits, 450% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

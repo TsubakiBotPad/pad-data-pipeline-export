@@ -1,0 +1,24 @@
+#501211 - Devil of the Depths, Kraken
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 501211
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27020:83) Blub blub! + I won't let you pass!
+ | Blind all orbs on the board + Absorb Water damage for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (27026:92) Kraken Anchor
+   | Spawn 3 random Water orbs, Deal 80% damage
+   | condition: 50% chance
+   | (27027:15) Deep Sea Whip
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (27023:83) Blub-uh!? + I'm mad now!
+   | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Increase damage to 150% for the next 999 turns

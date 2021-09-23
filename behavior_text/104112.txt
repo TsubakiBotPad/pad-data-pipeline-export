@@ -1,0 +1,50 @@
+#104112 - Omega Rugal
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 104112
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8693:83) Ooowah! + Let's go!
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (19796:83) Ooowah! + Let's go!
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 5 turns, Deal 200% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (8682:71) Gravity Smash
+     | Void damage >= 1,000,000 for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (8683:92) Genocide Cutter
+     | Spawn 3 random Dark orbs, Deal 100% damage
+     | (8684:15) Vanishing Rush
+     | Deal 90% damage (6 hits, 15% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (8682:71) Gravity Smash
+     | Void damage >= 1,000,000 for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 20% chance
+     | (8685:15) Destruction Omega
+     | Deal 130% damage
+     | condition: 50% chance
+     | (8683:92) Genocide Cutter
+     | Spawn 3 random Dark orbs, Deal 100% damage
+     | (8684:15) Vanishing Rush
+     | Deal 90% damage (6 hits, 15% each)
+ | group:
+ | condition: hp <= 19
+   | (8688:83) Gigantic Pressure + Die!
+   | Change the 6th column to Dark orbs + Change the 1st column to Dark orbs, Deal 100% damage

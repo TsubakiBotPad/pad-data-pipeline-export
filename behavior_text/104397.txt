@@ -1,0 +1,39 @@
+#104397 - Monarch of Snow, King Frost
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 104397
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (9966:83) Matarukaja + Null Despair
+ | Increase damage to 150% for the next 3 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (9968:15) Megaton Raid
+   | Deal 120% damage
+ | group:
+   | condition: 50% chance
+   | (9968:15) Megaton Raid
+   | Deal 120% damage
+   | (9967:94) Bufudyne
+   | Lock 10 random orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (9949:94) Mabufudyne
+     | Lock all orbs, Deal 150% damage
+   | group:
+     | condition: 40% chance
+     | (9949:94) Mabufudyne
+     | Lock all orbs, Deal 150% damage
+     | condition: 30% chance
+     | (9968:15) Megaton Raid
+     | Deal 120% damage
+     | condition: 30% chance
+     | (9967:94) Bufudyne
+     | Lock 10 random orbs, Deal 110% damage

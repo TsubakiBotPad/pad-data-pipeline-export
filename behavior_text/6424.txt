@@ -1,0 +1,63 @@
+#6424 - Deadly Sin Dragon King of Gluttony, Majeh
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6424
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18872:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18873:39) Tainted Indulgence
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18854:48) Stale Breath
+   | Change a random attribute to Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (18855:15) Wild Bite
+   | Deal 120% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18874:83) Devouring Inhalation + Belch Blast
+   | Player -99% HP + Lock all orbs
+ | group:
+ | condition: hp <= 10
+   | (18880:85) Unfettered Gluttony
+   | Change all orbs to Jammer, Deal 300% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18877:83) Voracity + Bad Manners
+   | Enemy recover 10% HP + Spawn 15 random Jammer orbs
+
+level: 6
+ type: PASSIVE
+ | (18872:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18926:83) Tainted Indulgence + Bad Manners
+ | Movetime 50% for 5 turns + Spawn 15 random Jammer orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (18854:48) Stale Breath
+   | Change a random attribute to Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (18855:15) Wild Bite
+   | Deal 120% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18874:83) Devouring Inhalation + Belch Blast
+   | Player -99% HP + Lock all orbs
+ | group:
+ | condition: hp <= 10
+   | (18880:85) Unfettered Gluttony
+   | Change all orbs to Jammer, Deal 300% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (18877:83) Voracity + Bad Manners
+   | Enemy recover 10% HP + Spawn 15 random Jammer orbs

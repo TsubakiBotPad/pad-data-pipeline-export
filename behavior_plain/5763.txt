@@ -1,0 +1,58 @@
+#5763 - Masked Rider Faiz Accel Form
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESNoSkyfall(127:20871) -> If fighting's a sin, then I'll be a sinner!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No skyfall for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:20877) -> Faiz Shot
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Fire orbs, Deal 90% damage
+
+#6: ESFixedStart(101:20878) -> Faiz Pointer
+Condition: 33% chance (ai:0 rnd:33)
+Fix orb movement starting point to random position on the board, Deal 80% damage
+
+#7: ESAttackMultihit(15:20872) -> Grand Impact
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 5
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESStatusShield(20:20875) -> I'll carry on your ideals as my own!
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:20876) -> Accel Mode, activate!
+	Movetime -3s for 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackUPRemainingEnemies(17:20874) -> Exceed Charge
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 5 turns
+
+#14: ESRandomSpawn(92:20879) -> Enhanced Crimson Smash
+Spawn 10 random Fire orbs, Deal 80% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

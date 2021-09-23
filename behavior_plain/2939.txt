@@ -1,0 +1,72 @@
+#2939 - Treasure Blade Dragon, Drahklist
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:5177) -> Antifield
+	Absorb Fire and Wood damage for 5 turns
+	[1] ESStatusShield(20:5178) -> Hundred Sword Armor
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESColumnSpawnMulti(77:5183) -> Sky Dashing Hundred Dragon Blades
+Condition: When < 15% HP (ai:100 rnd:0)
+Change the 1st, 3rd, and 5th columns to Fire orbs and the 2nd, 4th, and 6th columns to Wood orbs, Deal 750% damage
+
+#7: ESDamageShield(74:5186) -> Parade
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 75% for 3 turns
+
+#8: ESDamageShield(74:5185) -> Parade
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 3 turns
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESGravity(50:5184) -> Fresh
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESBlindStickyFixed(98:5180) -> Shadow Rapier
+Blind orbs in specific positions for 3 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESSkillDelay(89:5181) -> Bone Breaker
+Delay active skills by 1 turn, Deal 150% damage
+
+#18: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1100
+
+#19: ESAttackMultihit(15:5182) -> Asura Slash
+Deal 175% damage (5 hits, 35% each)
+
+#20: ESResolve(73:5187) -> Drahklist Resolve
+Survive attacks with 1 HP when HP > 50%

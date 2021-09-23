@@ -1,0 +1,42 @@
+#202991 - Confusing Face Great Duke of Hell, Dantalion
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202991
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25296:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25325:83) Evil's Confusing Face + Book of Change
+ | Absorb damage when damage >= 10,000,000 for 3 turns + Leader changes to random sub for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 6
+     | (25331:92) Melting Masks
+     | Spawn 5 random Fire and Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (25328:83) Evil's Confusing Face + Book of Darkness
+     | Void damage >= 10,000,000 for 3 turns + Blind all orbs for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 4-5 of 6
+     | (25331:92) Melting Masks
+     | Spawn 5 random Fire and Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (25325:83) Evil's Confusing Face + Book of Change
+     | Absorb damage when damage >= 10,000,000 for 3 turns + Leader changes to random sub for 3 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25297:83) Masks of Madness + Meltdown
+     | Increase damage to 250% for the next 999 turns + Bind awoken skills for 1 turn
+   | group:
+     | (25332:85) Melting Abyssal Flames
+     | Change all orbs to Fire and Dark, Deal 500% damage

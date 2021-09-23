@@ -1,0 +1,82 @@
+#4664 - 静かなる白虎・ハク
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:10613) -> Byakko lives in isolation.
+	Voids status ailments for 5 turns
+	[1] ESBindRandom(1:10614) -> Something that won't swarm.
+	Bind 1 random card for 3 turns
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 21
+
+#8: SkillSet:
+	[0] ESFixedStart(101:10616) -> I always seized any opportunities.
+	Fix orb movement starting point to random position on the board
+	[1] ESOrbLock(94:10617) -> I'm a predator stalking its prey.
+	Lock 10 random orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: SkillSet:
+	[0] ESBoardChangeAttackBits(85:10619) -> Cute is an insult...for Byakko...
+	Change all orbs to Fire, Water, and Dark, Deal 100% damage
+	[1] ESRowSpawnMulti(78:10620) -> ...
+	Change the 3rd row to Heal orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#16: ESAttackUPRemainingEnemies(17:10622) -> Are you...ready?
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#19: ESSkillDelay(89:10587) -> Wild Ball
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESRecoverEnemy86(86:10623) -> Swelling Energy
+Enemy recover 50% HP
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn

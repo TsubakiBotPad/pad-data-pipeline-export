@@ -1,0 +1,35 @@
+  monster_id: 501295
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 60
+          }
+          enemy_skill_id: 15374
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 15375
+        }
+      }
+    }
+    groups {
+      group_type: REMAINING
+      condition {
+        hp_threshold: 100
+        trigger_enemies_remaining: 1
+      }
+      children {
+        behavior {
+          enemy_skill_id: 15373
+        }
+      }
+    }
+  }

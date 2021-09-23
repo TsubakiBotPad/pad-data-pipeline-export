@@ -1,0 +1,32 @@
+#3969 - Pixel Icedragon Plesios
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3969
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16302:96) Pixel Temptation
+ | Locked random skyfall +75% for 5 turns, Deal 120% damage
+ group:
+ | condition: 34% chance
+ | (16303:15) Frost Fang
+ | Deal 105% damage (3 hits, 35% each)
+ | condition: 33% chance
+ | (16304:92) Ice Tornado
+ | Spawn 10 random Water orbs, Deal 100% damage
+ | condition: 33% chance
+ | (16305:62) Blizzard Storm
+ | Blind all orbs on the board, Deal 95% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (16294:83) Pixel Power + Pixel Barrier
+   | Increase damage to 200% for the next 999 turns + Reduce damage from all sources by 75% for 10 turns
+ | group:
+ | condition: hp <= 10
+   | (16306:15) Pixel Freeze Breath
+   | Deal 500% damage (5 hits, 100% each)

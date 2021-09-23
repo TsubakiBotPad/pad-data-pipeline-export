@@ -1,0 +1,58 @@
+#4999 - Scholarly God of Treasure, Ganesha
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 4999
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (16175:83) Just try a 10x combo + I'll even pay you to try it
+ | Do nothing + Absorb damage when combos <= 9 for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | (16178:83) Was that a bit too hard? + How about an 8x combo?
+   | Do nothing + Absorb damage when combos <= 7 for 1 turn
+ | group:
+ | condition: turn 2
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | (16181:83) Hmm, still too difficult... + Alright, give me a 6x combo!
+   | Do nothing + Absorb damage when combos <= 5 for 1 turn
+ | group:
+ | condition: turn 3
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | (16184:83) Oh come on! I can't go any lower! + Surely you can do a 4x combo!
+   | Do nothing + Absorb damage when combos <= 3 for 99 turns
+ | group:
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | condition: when 10 combos last turn
+   | (16188:40) Well done!
+   | Reduce self HP to 0
+   | (16187:84) They're pulling out all the stops!
+   | Change all orbs to Fire, Water, Wood, and Light

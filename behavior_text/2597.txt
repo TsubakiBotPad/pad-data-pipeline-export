@@ -1,0 +1,24 @@
+#2597 - Alphadios, Lord of Spirits
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2597
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24917:83) Only able to summon Light creatures + Only able to cast Light spells
+ | Absorb Fire, Water, Wood, and Dark damage for 1 turn + Unable to match Fire, Water, Wood, and Dark orbs for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | (24918:67) Melody of the Shining Spirits
+   | Absorb damage when combos <= 7 for 5 turns
+ | group:
+ | condition: turns 2-5
+   | (24921:15) Triple Breaker
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+   | (24922:85) Spirit Light
+   | Change all orbs to Light, Deal 300% damage

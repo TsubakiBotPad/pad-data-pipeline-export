@@ -1,0 +1,134 @@
+#3088 - Valkyrie Rose Armor X Dragon Caller, Ana
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:5253) -> Cross On!
+	Voids status ailments for 3 turns
+	[1] ESOrbChangeAttack(48:5254) -> Mercy Flash
+	Change a random attribute to Heal orbs, Deal 130% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRecoverEnemy86(86:5255) -> Resurrection
+Condition: When < 35% HP , one-time use (ai:100 rnd:0) (cost: 8)
+Enemy recover 100% HP
+
+#7: SkillSet:
+	Condition: When < 35% HP , one-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRecoverEnemy86(86:5278) -> Resurrection
+	Enemy recover 79% HP
+	[1] ESOrbChangeAttack(48:5266) -> Life Cutting Flash
+	Change all Heal orbs to Light orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: When < 35% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:5280) -> Resurrection
+	Enemy recover 59% HP
+	[1] ESOrbChangeAttack(48:5254) -> Mercy Flash
+	Change a random attribute to Heal orbs, Deal 130% damage
+
+#9: SkillSet:
+	Condition: When < 35% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:5257) -> Resurrection
+	Enemy recover 19% HP
+	[1] ESDamageShield(74:5258) -> Pure Plumage
+	Reduce damage from all sources by 75% for 3 turns
+
+#10: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESAttackMultihit(15:5260) -> 10 combos!!
+	Deal 200% damage (10 hits, 20% each)
+	[1] ESOrbChangeAttack(48:5266) -> Life Cutting Flash
+	Change all Heal orbs to Light orbs, Deal 100% damage
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESAttackUPRemainingEnemies(17:5265) -> Innocent Bravery
+Condition: When < 40% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 400% for the next 1 turn
+
+#14: ESAttackUPRemainingEnemies(17:5264) -> Innocent Soul
+Condition: When < 60% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 1 turn
+
+#15: ESAttackUPRemainingEnemies(17:5263) -> Innocent Will
+Condition: When < 80% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#16: ESAttackUPRemainingEnemies(17:5262) -> Innocent Mind
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 1 turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 24
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESOrbChangeAttack(48:5266) -> Life Cutting Flash
+Change all Heal orbs to Light orbs, Deal 100% damage
+
+#20: ESBindAttack(63:5270) -> Deadly Thorn Shackles
+Condition: When < 40% HP (ai:100 rnd:0)
+Bind 4 random subs for 3 turns, Deal 50% damage
+
+#21: ESBindAttack(63:5269) -> Scattering Thorn Shackles
+Condition: When < 60% HP (ai:100 rnd:0)
+Bind 3 random subs for 3 turns, Deal 50% damage
+
+#22: ESBindAttack(63:5268) -> Double Thorn Shackles
+Condition: When < 80% HP (ai:100 rnd:0)
+Bind 2 random subs for 3 turns, Deal 50% damage
+
+#23: ESBindAttack(63:5267) -> Thorn Shackles
+Bind 1 random sub for 3 turns, Deal 50% damage
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 30
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#26: ESSkillDelay(89:5274) -> Divine Law's Aura
+Condition: When < 40% HP (ai:100 rnd:0)
+Delay active skills by 0~4 turns
+
+#27: ESSkillDelay(89:5273) -> Fighting Maiden's Aura
+Condition: When < 60% HP (ai:100 rnd:0)
+Delay active skills by 0~3 turns
+
+#28: ESSkillDelay(89:5272) -> Goddess' Aura
+Condition: When < 80% HP (ai:100 rnd:0)
+Delay active skills by 0~2 turns
+
+#29: ESSkillDelay(89:5271) -> Maiden's Aura
+Delay active skills by 0~1 turns
+
+#30: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#31: SkillSet:
+	[0] ESStatusShield(20:5276) -> White Shield Protection
+	Voids status ailments for 3 turns
+	[1] ESOrbChangeAttack(48:5254) -> Mercy Flash
+	Change a random attribute to Heal orbs, Deal 130% damage
+
+#32: ESResolve(73:5261) -> Ana resolve
+Survive attacks with 1 HP when HP > 50%

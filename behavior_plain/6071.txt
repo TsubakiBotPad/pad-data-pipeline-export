@@ -1,0 +1,42 @@
+#6071 - Tsukuyo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:16915) -> The sun's guardian, Tsukuyo...
+	Reduce damage from all sources by 30% for 5 turns
+	[1] ESAttackMultihit(15:16916) -> is your opponent!
+	Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 10
+
+#7: ESFixedStart(101:16917) -> You best be prepared.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Fix orb movement starting point to random position on the board
+
+#8: ESAttackMultihit(15:16918) -> The law in Yoshiwara, Lady Death, won't forgive you.
+Deal 102% damage (2 hits, 51% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESRandomSpawn(92:16919) -> This moon will never fall.
+Spawn 3 random Light and Dark orbs, Deal 150% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

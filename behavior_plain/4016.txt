@@ -1,0 +1,129 @@
+#4016 - Calm Observer Dragonbound, Rikuu
+monster size: 5
+new AI: True
+start/max counter: 4095
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchCard(90:8590) -> ESBranchCard
+Branch on player_cards HAS [3940, 3941], target rnd 5
+
+#3: ESBranchCard(90:8591) -> ESBranchCard
+Branch on player_cards HAS [2442, 2443, 3768, 3769, 1948, 1949, 2745, 3908], target rnd 6
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2048)
+	[0] ESDamageShield(74:8557) -> You leave me no choice...
+	Reduce damage from all sources by 75% for 20 turns
+	[1] ESStatusShield(20:8560) -> Quarryla
+	Voids status ailments for 999 turns
+	[2] ESVoidShield(71:8561) -> Fervor Flame Wings
+	Void damage >= 30,000,000 for 999 turns
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2048)
+	[0] ESDamageShield(74:8558) -> ...I loathe Dragon Callers!
+	Reduce damage from all sources by 75% for 20 turns
+	[1] ESStatusShield(20:8560) -> Quarryla
+	Voids status ailments for 999 turns
+	[2] ESVoidShield(71:8561) -> Fervor Flame Wings
+	Void damage >= 30,000,000 for 999 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2048)
+	[0] ESDamageShield(74:8559) -> You remind me of the past
+	Reduce damage from all sources by 75% for 20 turns
+	[1] ESStatusShield(20:8560) -> Quarryla
+	Voids status ailments for 999 turns
+	[2] ESVoidShield(71:8561) -> Fervor Flame Wings
+	Void damage >= 30,000,000 for 999 turns
+
+#7: ESInactivity66(66:8565) -> Shall I show a little dragon power?
+Condition: One-time use (ai:100 rnd:0) (cost: 1024)
+Do nothing
+
+#8: ESBombRandomSpawn(102:8566) -> Rhuentel
+Condition: One-time use (ai:100 rnd:0) (cost: 512)
+Spawn 12 random locked Bomb orbs, Deal 300% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 256)
+	[0] ESInactivity66(66:8567) -> Not bad, but get ready for...
+	Do nothing
+	[1] ESBindRandomSub(65:8568) -> Draaagon Eyes!!
+	Bind 1 random sub for 10 turns
+
+#10: ESAbsorbCombo(67:8570) -> Brace yourself for my attack!
+Condition: One-time use (ai:100 rnd:0) (cost: 128)
+Absorb damage when combos <= 6 for 5 turns
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 18
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESGravity(50:8574) -> Vrusilla
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Player -99% HP
+
+#14: ESRowSpawnMulti(79:8572) -> Larskerk
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Poison orbs, Deal 150% damage
+
+#15: ESOrbLock(94:8573) -> Fescas
+Condition: 33% chance (ai:0 rnd:33)
+Lock 10 random orbs, Deal 160% damage
+
+#16: ESAttackMultihit(15:8571) -> Squilla
+Condition: 34% chance (ai:0 rnd:34)
+Deal 180% damage (3 hits, 60% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESBlind5(5:8575) -> I'm tired of concentrating
+	Blind all orbs on the board
+	[1] ESRecoverEnemy7(7:8576) -> Let's take a break!
+	Enemy recover 40% HP
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESAttackUPRemainingEnemies(17:8578) -> Sorry, but I want to return soon
+	Increase damage to 1,000% for the next 999 turns
+	[1] ESColumnSpawnMulti(76:8579) -> Ancient firedrake, your power unto me!
+	Change the 1st column to Fire orbs
+
+#20: ESRowSpawnMulti(78:8580) -> Embrace and watch over me...
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Change the 1st row to Fire orbs
+
+#21: ESColumnSpawnMulti(76:8581) -> 1,000 flames of roaring power...
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change the 6th column to Fire orbs
+
+#22: ESRowSpawnMulti(78:8582) -> Engulf this adversary...
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change the 5th row to Fire orbs
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:8583) -> Until only ash remains!
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:8584) -> Relentless Flames - Galvana
+	Deal 20,000% damage (10 hits, 2,000% each)
+
+#24: ESAttackMultihit(15:8586) -> Please take over!
+Deal 100% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:8587) -> I u-u-u-understand...
+	Do nothing

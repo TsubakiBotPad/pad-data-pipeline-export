@@ -1,0 +1,28 @@
+#303588 - Slumbering Mechanical Star God, Alcyone
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303588
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17972:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (17973:20) *Nodding off*
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | (17974:15) Alcyone slumped to the ground
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (17975:83) *Yaaawn* + I'm sleepy...
+     | Reduce damage from all sources by 99% for 1 turn + ATK -99% for 1 turn
+   | group:
+     | (17978:15) Night night...
+     | Deal 1,000% damage (5 hits, 200% each)

@@ -1,0 +1,32 @@
+#3461 - 伝説の男・林田恵
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3461
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24723:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (24724:83) おもしれー + 相手になってやろーじゃねーか
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (24730:89) クッ
+   | Delay active skills by 2~4 turns, Deal 80% damage
+   | condition: 50% chance
+   | (24731:85) このっ
+   | Change all orbs to Fire, Dark, and Heal, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (24727:83) どうした + もう終わりか
+     | Enemy recover 50% HP + Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | (24732:15) オリャ～～ッ!!
+     | Deal 450% damage (3 hits, 150% each)

@@ -1,0 +1,68 @@
+#4138 - Nergigante
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 4138
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8829:72) ネルギガンテ・パッシブ
+ | Reduce damage from Fire and Water attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (8829:72) ネルギガンテ・パッシブ
+ | Reduce damage from Fire and Water attrs by 50%
+ type: PREEMPT
+ | (8832:83) Extinction Dragon's Force + Roar
+ | Reduce damage from all sources by 50% for 5 turns + Bind 6 random cards for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (8835:78) Spread Wing Attack
+     | Change the 3rd row to Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (8833:15) Heavy Slam
+     | Deal 70% damage
+     | (8834:15) Headbutt
+     | Deal 90% damage
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (8836:17) Destruction Impulse
+     | Increase damage to 150% for the next 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (8839:83) Tail Scythe + Annihilation Spike Whirl
+     | Deal 70% damage + Seal the 1st row for 4 turns, Deal 70% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (8840:89) Foreleg Uppercut
+     | Delay active skills by 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (8843:83) Head Strike + Spike Shot
+     | Player -50% HP + Deal 60% damage (2 hits, 30% each), Deal 60% damage (2 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (8846:83) Roar + Pounce Attack
+     | Bind awoken skills for 1 turn + Change all Light orbs to Jammer orbs, Deal 110% damage
+     | (8849:83) Tail Strike + Binding Attack
+     | Change all Fire orbs to Jammer orbs + Bind player leader for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (8852:83) Spike Regeneration + Annihilation Fist
+     | Enemy recover 10% HP + Deal 130% damage, Deal 130% damage
+ | group:
+ | condition: hp <= 9
+   | (8853:15) Heaven's Ruin
+   | Deal 600% damage (3 hits, 200% each)

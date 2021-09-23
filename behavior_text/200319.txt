@@ -1,0 +1,27 @@
+#200319 - Alt. Machine Golem Mk.III
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200319
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25563:83) Lightning Counter + Lock Shock Gun
+ | Unable to match Light orbs for 5 turns + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+ | condition: turns 1-4
+   | (25565:94) Lock Shock Gun
+   | Lock all orbs, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (25566:83) Emergency Booster + Flash Counter
+   | Increase damage to 500% for the next 999 turns + Absorb damage when combos <= 7 for 10 turns
+ | group:
+   | (25565:94) Lock Shock Gun
+   | Lock all orbs, Deal 100% damage
+ type: UNKNOWN_USE
+ | (25562:15) Flash Ray
+ | Deal 120% damage

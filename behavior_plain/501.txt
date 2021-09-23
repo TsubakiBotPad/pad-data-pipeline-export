@@ -1,0 +1,33 @@
+#501 - Anne Punt Quettebuss
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInactivity66(66:1680) -> Where are all the hunks?
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 8
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPCooldown(19:1681) -> Watch me score!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 5 turns
+
+#9: ESOrbChangeAttack(48:1682) -> Sweet Shoot!
+Change a random attribute to Heal orbs, Deal 100% damage

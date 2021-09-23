@@ -1,0 +1,50 @@
+#4937 - Shadow Moon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4937
+approved: False
+
+level: 4
+ type: PREEMPT
+ | condition: when 4910 on team
+ | (11738:20) This time I'll send you straight to hell!
+ | Voids status ailments for 5 turns
+ | (11728:20) This is war.
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (11729:15) Shadow Punch
+   | Deal 100% damage
+   | condition: 33% chance
+   | (11730:15) Shadow Kick
+   | Deal 120% damage
+   | condition: 34% chance
+   | (11731:48) Shadow Beam
+   | Change a random attribute to Wood orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (11735:86) Stone of the Moon, King Stone
+   | Enemy recover 100% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 24
+     | (11736:67) Stone of the Moon, King Stone
+     | Absorb damage when combos <= 4 for 5 turns
+   | group:
+     | condition: 33% chance, at most 3 times
+     | (11732:50) Satan Sabre
+     | Player -99% HP
+     | condition: 33% chance
+     | (11733:48) Destruction Ray 
+     | Change a random attribute to Dark orbs, Deal 120% damage
+     | condition: 34% chance
+     | (11734:92) Harsh Yellow Flare
+     | Spawn 5 random Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 24
+   | (11737:17) Stone of the Moon, King Stone
+   | Increase damage to 150% for the next 5 turns

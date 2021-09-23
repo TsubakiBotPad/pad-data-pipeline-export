@@ -1,0 +1,33 @@
+#402252 - Shiva Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 402252
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20956:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (20957:72) Light/Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (20960:83) Destroyer God's Barrier + Third Eye Beam + Divine Dragon Miasma + Countdown to Death
+ | Voids status ailments for 999 turns + Delay active skills by 6 turns + Reduce damage from all sources by 75% for 10 turns + ATK -75% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 50% chance
+     | (20966:102) Satsang
+     | Spawn 9 random locked Bomb orbs, Deal 100% damage
+     | (20967:15) Pinaka
+     | Deal 114% damage (3 hits, 38% each)
+   | group:
+     | (21004:83) God Dragon's Shining Eyes + Ananda
+     | Bind awoken skills for 1 turn + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (20963:83) Underworld's Divine Blaze + Celestial Destruction
+   | Void damage >= 100,000,000 for 999 turns + No skyfall for 10 turns

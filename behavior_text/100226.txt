@@ -1,0 +1,31 @@
+#100226 - Alt. Great Valkyrie
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100226
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9358:83) White Valkyrie Shield + Valkyrie Dance
+ | Voids status ailments for 10 turns + Leader changes to random sub for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (9361:83) Gleipnir + Fylgja's Protection
+     | Bind 2 random cards for 5 turns + Absorb damage when combos <= 6 for 10 turns
+   | group:
+     | condition: 50% chance
+     | (9362:15) Double Slash
+     | Deal 200% damage (2 hits, 100% each)
+     | (9365:101) Sword of Fate
+     | Fix orb movement starting point to random position on the board, Deal 150% damage
+ | group:
+ | condition: hp <= 49
+   | (9363:86) Resurrection
+   | Enemy recover 100% HP
+ type: UNKNOWN_USE
+ | (9364:15) Valkyrie Blade
+ | Deal 360~450% damage (4~5 hits, 90% each)

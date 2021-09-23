@@ -1,0 +1,25 @@
+#100429 - Queen Metal Dragon
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100429
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15024:97) Black Metal
+ | Blind random 2 orbs for 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (15026:39) Time Eater
+   | Movetime -1s for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (15024:97) Black Metal
+   | Blind random 2 orbs for 1 turn
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (15027:52) Queen's Will
+ | Enemy ally recover 100% HP

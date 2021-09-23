@@ -1,0 +1,51 @@
+#2058 - Kefka
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:2042) -> ケフカ→ケフカ進化
+Condition: On death (ai:0 rnd:0)
+Show message: 命…　夢…　希望…
+どこから来て　どこへ行く？|そんなものは…
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESNone(93:2057) -> ESNone
+nothing
+
+#6: ESInactivity66(66:2153) -> Now I won't have to hunt you down!
+Do nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 4, target rnd 7
+
+#9: ESPoisonChangeRandomCount(60:2144) -> Poison
+Condition: 20% chance (ai:0 rnd:20)
+Change 8 random orbs to Poison orbs
+
+#10: ESRowSpawnMulti(79:2145) -> Blizzara
+Condition: 30% chance (ai:0 rnd:30)
+Change the 3rd row to Water orbs, Deal 100% damage
+
+#11: ESBindAttack(63:2195) -> Thunder
+Condition: 10% chance (ai:0 rnd:10)
+Bind 1 random card for 2 turns, Deal 80% damage
+
+#12: ESRandomSpawn(92:2196) -> Blizzard
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 4 random Water orbs, Deal 80% damage
+
+#13: ESAttackSinglehit(82:1) -> Disable Skill
+Condition: 20% chance (ai:0 rnd:20)
+Deal 100% damage

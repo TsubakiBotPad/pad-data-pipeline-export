@@ -1,0 +1,45 @@
+#3400 - Rei Ayanami (temp. name) & Awoken Mark.09
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:18299) -> What should I do?
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 4~6 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESAbsorbCombo(67:18300) -> Why?
+Absorb damage when combos <= 6 for 3 turns
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESDebuffRCV(105:18301) -> Control system infiltration
+RCV 25% for 1 turn, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESLeaderSwap(75:18302) -> I'll take back control.
+Leader changes to random sub for 1 turn, Deal 130% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

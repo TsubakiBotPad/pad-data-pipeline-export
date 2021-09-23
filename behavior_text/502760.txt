@@ -1,0 +1,55 @@
+#502760 - Yellow Chrysanthemum Virtue, Xiu Min
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 502760
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21091:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (21067:83) Chill-Flower's Rising + Come at me with your all.
+ | Specific orbs change every 1.0s for 2 turns + Change all orbs to Light
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (21074:15) Eternal Chrysanthemum
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 33% chance
+     | (21071:110) Chill-Flower's Rising
+     | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (21072:110) Chill-Flower's Rising
+     | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+     | (21073:110) Chill-Flower's Rising
+     | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (21074:15) Eternal Chrysanthemum
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21097:83) Bright Armor Barrier + Green-White
+     | Reduce damage from all sources by 90% for 2 turns + Change all orbs to Fire, Water, Light, Dark, and Heal, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 33% chance
+     | (21071:110) Chill-Flower's Rising
+     | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (21072:110) Chill-Flower's Rising
+     | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+     | (21073:110) Chill-Flower's Rising
+     | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (21074:15) Eternal Chrysanthemum
+     | Deal 120% damage (3 hits, 40% each)

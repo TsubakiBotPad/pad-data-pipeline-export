@@ -1,0 +1,31 @@
+#7343 - Mystic Amanita Darkfairy, Shuri
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7343
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 2556, 2557, 3586, 3587 on team
+ | (24057:70) Great horns and honeyed needles are drawn to green...
+ | Do nothing
+ | (24055:67) I shall be your opponent.
+ | Absorb damage when combos <= 4 for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (24264:130) Captivating Fragrance
+   | ATK -50% for 1 turn, Deal 90% damage
+   | condition: 50% chance
+   | (24263:85) Enticing Spores
+   | Change all orbs to Fire, Light, Heal, and Poison, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (24056:17) Can you truly escape from me?
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (24069:109) Muscimol Perfume
+   | Random 1 orbs change every 0.5s for 1 turn, Deal 150% damage

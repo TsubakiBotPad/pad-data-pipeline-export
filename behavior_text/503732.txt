@@ -1,0 +1,65 @@
+#503732 - Violent Dragon Lord of Tyranny, Valten
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 503732
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14575:83) I am truly legendary + Right, show me what you've got! + Confusion
+ | Reduce damage from all sources by 80% for 5 turns + Absorb damage when combos <= 4 for 10 turns + Random 1 orbs change every 1.0s for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 20% chance
+     | (14576:102) Ignited
+     | Spawn 3 random Bomb orbs, Deal 98% damage
+     | condition: 20% chance
+     | (14577:48) Flare Breath
+     | Change a random attribute to Fire orbs, Deal 100% damage
+     | condition: 20% chance
+     | (14578:94) Nova
+     | Lock 4 random orbs, Deal 103% damage
+     | condition: 20% chance
+     | (14579:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 101% damage
+     | condition: 20% chance
+     | (14580:15) Meteor
+     | Deal 108% damage (3 hits, 36% each)
+   | group:
+   | condition: turn 10 while HP > 49
+     | (14584:83) You put up a good fight + Now let's finish it
+     | Increase damage to 1,000% for the next 1 turn + Seal the 1st and 6th columns for 1 turn
+   | group:
+     | (14585:15) X Burst
+     | Deal 1,500% damage (10 hits, 150% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (14581:96) Indelible Flare
+     | Locked random skyfall +20% for 5 turns
+   | group:
+   | condition: turn 10
+     | condition: 20% chance
+     | (14576:102) Ignited
+     | Spawn 3 random Bomb orbs, Deal 98% damage
+     | condition: 20% chance
+     | (14577:48) Flare Breath
+     | Change a random attribute to Fire orbs, Deal 100% damage
+     | condition: 20% chance
+     | (14578:94) Nova
+     | Lock 4 random orbs, Deal 103% damage
+     | condition: 20% chance
+     | (14579:104) Heat Haze
+     | A 1×1 square of clouds appears for 1 turn at a random location, Deal 101% damage
+     | condition: 20% chance
+     | (14580:15) Meteor
+     | Deal 108% damage (3 hits, 36% each)
+   | group:
+   | condition: turn 11
+     | (14584:83) You put up a good fight + Now let's finish it
+     | Increase damage to 1,000% for the next 1 turn + Seal the 1st and 6th columns for 1 turn

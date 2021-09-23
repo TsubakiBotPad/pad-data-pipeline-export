@@ -1,0 +1,27 @@
+#100205 - Alt. Witch of the Night, Lilith
+monster size: 5
+new AI: True
+start/max counter: 6
+counter increment: 0
+monster_id: 100205
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (9120:68) Oh ♪ Welcome
+ | Heal skyfall +25% for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (9121:48) I don't need this!
+   | Change all Light orbs to Jammer orbs, Deal 80% damage
+   | (9224:48) Don't need this!
+   | Change all Heal orbs to Poison orbs, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (9122:85) Dye it!
+   | Change all orbs to Dark, Deal 60% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (9123:15) I'm bored of this now
+   | Deal 180% damage (3 hits, 60% each)

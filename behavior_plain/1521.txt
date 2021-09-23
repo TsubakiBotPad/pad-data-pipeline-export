@@ -1,0 +1,19 @@
+#1521 - Royal Green Hawk
+monster size: 3
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackUPCooldown(19:1341) -> *Flapping Wings*
+Condition: When < 50% HP (ai:100 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#4: ESAttackMultihit(15:1342) -> Swoop
+Condition: When < 30% HP (ai:100 rnd:0)
+Deal 200% damage

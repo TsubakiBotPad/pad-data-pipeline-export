@@ -1,0 +1,45 @@
+#4725 - Blue Sprite
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESColumnSpawnMulti(76:10646) -> Spade Rewrite
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Change the 3rd column to Water orbs
+
+#7: ESColumnSpawnMulti(76:10647) -> Spade Rewrite
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Change the 4th column to Water orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESColumnSpawnMulti(76:10646) -> Spade Rewrite
+Condition: One-time use (ai:10 rnd:0) (cost: 1)
+Change the 3rd column to Water orbs
+
+#10: ESColumnSpawnMulti(76:10647) -> Spade Rewrite
+Condition: One-time use (ai:10 rnd:0) (cost: 1)
+Change the 4th column to Water orbs
+
+#11: ESAttackMultihit(15:10693) -> Strike
+Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

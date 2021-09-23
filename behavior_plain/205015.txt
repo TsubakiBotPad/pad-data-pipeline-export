@@ -1,0 +1,66 @@
+#205015 - Servant, Berserker
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESDamageShield(74:19556) -> GROOOO!!
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESSkyfallLocked(96:19557) -> GAAAAAAAA!!!
+	Locked random skyfall +50% for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:12190) -> ...GRUAAA!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 3)
+Increase damage to 150% for the next 3 turns
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESAttackMultihit(15:12191) -> GRAAAAAA!!!
+Deal 110% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESAttackMultihit(15:12192) -> GAAA!
+Deal 120% damage (2 hits, 60% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: ESAttackMultihit(15:12193) -> Guguhh... Guah... GAAAA!!!
+Deal 135% damage (3 hits, 45% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,26 @@
+#105358 - Little Red Note
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackUPRemainingEnemies(17:13462) -> Musician's Bonds
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#4: ESBindAttack(63:13452) -> Beginning of the Beat
+Condition: 50% chance (ai:0 rnd:50)
+Bind 1 random sub for 2 turns, Deal 95% damage
+
+#5: ESGravity(50:13453) -> Reverberating Drum Roll
+Condition: 50% chance (ai:0 rnd:50)
+Player -35% HP
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

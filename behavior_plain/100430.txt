@@ -1,0 +1,39 @@
+#100430 - Queen Gold Dragon
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 10
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBoardChange(84:15023) -> Gold Change
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#8: ESRandomSpawn(92:15025) -> Color Drop
+Spawn 5 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESRecoverEnemyAlly(52:15027) -> Queen's Will
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

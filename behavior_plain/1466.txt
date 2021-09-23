@@ -1,0 +1,32 @@
+#1466 - Ra TAMADRA
+monster size: 3
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:697) -> ESPreemptive
+Enable preempt if level 3
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindSkill(14:1608) -> Silent Smile
+Bind active skills for 5 turns
+
+#7: ESInactivity66(66:1799) -> Go Away-TAMA!
+Do nothing
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:1250) -> Soler Lazer
+Deal 100% damage

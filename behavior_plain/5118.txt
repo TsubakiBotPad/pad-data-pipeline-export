@@ -1,0 +1,35 @@
+#5118 - Qilin
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESColumnSpawnMulti(76:12763) -> Great!
+	Change the 1st column to Fire orbs and the 2nd column to Water orbs
+	[1] ESRandomSpawn(92:12764) -> Sorry to keep you waiting!
+	Spawn 3 random Fire, Dark, Heal, and Jammer orbs
+	[2] ESCloud(104:12765) -> Have some piping hot food!
+	A 6×5 rectangle of clouds appears for 1 turn at a random location
+
+#3: ESAttackUPRemainingEnemies(17:12770) -> Cooking is the firepower of life!
+Condition: When < 20% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 99 turns
+
+#4: ESCloud(104:12769) -> Zheng
+Condition: 20% chance (ai:20 rnd:0)
+A 1×1 square of clouds appears for 1 turn at a random location, Deal 90% damage
+
+#5: ESOrbLock(94:12768) -> Chao
+Condition: 25% chance (ai:25 rnd:0)
+Lock 5 random orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:12767) -> Su
+Deal 100% damage (4 hits, 25% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

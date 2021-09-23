@@ -1,0 +1,30 @@
+#200402 - Alt. Griffin
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200402
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26380:129) ＿Griffin 1 Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (26381:20) Ithavoll Wind
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | (26386:50) Down Burst - Ur
+   | Player -75% HP
+ | group:
+ | condition: hp <= 1
+   | (26389:88) Gloomy Turbulence
+   | Bind awoken skills for 1 turn
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (26387:79) Air Cleave
+ | Change the 1st row to Wood orbs and the 5th row to Wood orbs, Deal 150% damage
+ type: UNKNOWN_USE
+ | (26390:77) Niflstormur
+ | Change the 1st and 2nd columns to Wood and Jammer orbs and the 5th and 6th columns to Wood and Jammer orbs, Deal 170% damage

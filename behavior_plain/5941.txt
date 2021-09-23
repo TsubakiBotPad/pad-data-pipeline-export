@@ -1,0 +1,59 @@
+#5941 - Reincarnated Shiva Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:16736) -> Destroyer God's Barrier
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:16737) -> Underworld's Divine Blaze
+	Void damage >= 50,000,000 for 999 turns
+	[2] ESDamageShield(74:16738) -> Resurrection Lost
+	Reduce damage from all sources by 75% for 5 turns
+	[3] ESDebuffATK(130:16739) -> Underworld's Purification
+	ATK -50% for 99 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#4: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 6
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:16741) -> Destruction for Rebirth's Sake
+	Increase damage to 200% for the next 999 turns
+	[1] ESSkillDelay(89:16742) -> Third Eye Beam
+	Delay active skills by 10 turns
+
+#6: ESAttackMultihit(15:16743) -> Pinaka
+Condition: 34% chance (ai:0 rnd:34)
+Deal 90% damage (3 hits, 30% each)
+
+#7: ESRandomSpawn(92:16744) -> Ausnyam
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Fire, Water, Wood, Light, and Dark orbs, Deal 85% damage
+
+#8: ESOrbLock(94:16745) -> Akasha
+Condition: 33% chance (ai:0 rnd:33)
+Lock all orbs, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:16746) -> Ananda
+Deal 3,000% damage (10 hits, 300% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:16747) -> Resolve
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESTypeResist(118:16734) -> God & Devil Halved
+Reduce damage from God and Devil types by 50%

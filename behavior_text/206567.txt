@@ -1,0 +1,36 @@
+#206567 - Yahaba & Susamaru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206567
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (20028:39) How will we kill them?
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (20032:99) Blood Demon Art: Koketsu Arrow
+     | Seal the 1st column for 3 turns
+   | group:
+     | condition: 50% chance
+     | (20029:92) Brutally of course!
+     | Spawn 3 random Fire orbs, Deal 80% damage
+     | (20030:15) You stay away from me!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (20033:83) Kya haha! + Isn't this fun? + What fun this is!
+     | Voids status ailments for 999 turns + Change the 1st column to Fire orbs + Change the 6th column to Dark orbs
+   | group:
+     | condition: 50% chance
+     | (20036:92) Mari Balls
+     | Spawn 2 random Fire and Dark orbs, Deal 100% damage
+     | (20038:15) Now then, let's keep playing.
+     | Deal 110% damage

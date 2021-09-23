@@ -1,0 +1,47 @@
+#1958 - Water Cat Dragon, Russian Nyadra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1958
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2099:15) Preemptive Swat
+ | Deal 100% damage
+ group:
+ | group:
+   | (2094:64) Poison Claws
+   | Change 4 random orbs to Poison orbs, Deal 110% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 79
+   | (2096:20) Emerald Eye
+   | Voids status ailments for 3 turns
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (2095:15) Triple Swat
+   | Deal 180% damage (3 hits, 60% each)
+   | (2094:64) Poison Claws
+   | Change 4 random orbs to Poison orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 29
+   | condition: 50% chance
+   | (2100:79) Poison-Dripping Claws
+   | Change the 2nd and 4th rows to Water and Poison orbs, Deal 200% damage
+   | condition: 50% chance
+   | (2095:15) Triple Swat
+   | Deal 180% damage (3 hits, 60% each)
+   | (2097:79) Watery Claws
+   | Change the 2nd and 4th rows to Water orbs, Deal 200% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (2098:1) Blue-Eyed Grudge
+     | Bind 6 random cards for 10 turns
+   | group:
+   | condition: turn 2
+     | (2096:20) Emerald Eye
+     | Voids status ailments for 3 turns

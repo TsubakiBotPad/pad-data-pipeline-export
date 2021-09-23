@@ -1,0 +1,40 @@
+#5916 - 大ガマ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 6
+
+#3: ESGravity(50:16483) -> Skull Splitter
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -50% HP
+
+#4: ESColumnSpawnMulti(76:16484) -> Waterfall
+Change the 4th column to Water orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESAttackUPRemainingEnemies(17:16485) -> Unforgivable
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 3 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESRandomSpawn(92:16486) -> Toadal Dude Transformation
+Spawn 4 random Water orbs, Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

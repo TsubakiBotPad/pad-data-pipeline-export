@@ -1,0 +1,76 @@
+#5110 - Alex
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:22923) -> Okay. Let's rumble.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 3 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 18
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 16
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESRandomSpawn(92:22924) -> Leg Tomahawk
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 5 random Light orbs, Deal 95% damage
+
+#8: ESLeaderSwap(75:22925) -> Lariat
+Condition: 25% chance (ai:0 rnd:25)
+Leader changes to random sub for 1 turn, Deal 80% damage
+
+#9: ESBombRandomSpawn(102:22933) -> Power Bomb
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Bomb orbs, Deal 90% damage
+
+#10: ESAttackMultihit(15:22929) -> Big Boot
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22927) -> Overhaul
+	Increase damage to 150% for the next 5 turns
+	[1] ESStatusShield(20:22928) -> Overchain
+	Voids status ailments for 999 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:22934) -> Heavy Hammer
+Deal 200% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 5
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: ESDamageShield(74:22930) -> This'll be perfect for a warm up.
+Reduce damage from all sources by 50% for 4 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

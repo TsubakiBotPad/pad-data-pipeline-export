@@ -1,0 +1,28 @@
+#6097 - Shinji Hirako
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6097
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17462:75) Collapse, Sakanade
+ | Leader changes to random sub for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (17463:110) Welcome to the upside down world.
+     | Specific orbs change every 1.0s for 1 turn
+   | group:
+     | condition: 50% chance
+     | (17465:77) You fiend!!
+     | Change the 2nd column to Light orbs, Deal 80% damage
+     | (17464:77) The direction of your  wounds are reversed.
+     | Change the 5th column to Light orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 19
+   | (17466:15) Let's end this.
+   | Deal 105% damage (3 hits, 35% each)

@@ -1,0 +1,82 @@
+#103329 - Alt. Serpent Steel Star Healer, Ras
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:6088) -> Antibodies
+	Voids status ailments for 999 turns
+	[1] ESLeaderSwap(75:6089) -> Hypnotism
+	Leader changes to random sub for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 25% HP , one-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESAttackUPRemainingEnemies(17:6108) -> Glitter Force
+	Increase damage to 200% for the next 999 turns
+	[1] ESRecoverEnemy86(86:6109) -> Remedy
+	Enemy recover 20% HP
+
+#7: SkillSet:
+	Condition: When < 25% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:6108) -> Glitter Force
+	Increase damage to 200% for the next 999 turns
+	[1] ESRecoverEnemy86(86:6109) -> Remedy
+	Enemy recover 20% HP
+
+#8: ESAttackMultihit(15:6112) -> Stardust Comet
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 900% damage (9 hits, 100% each)
+
+#9: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:6105) -> Mournful Meteor
+	Poison skyfall +30% for 1 turn
+	[1] ESOrbSealRow(100:6106) -> Forbidden Area
+	Seal the 1st and 5th rows for 1 turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAbsorbCombo(67:6091) -> Multiple Walls
+	Absorb damage when combos <= 6 for 1 turn
+	[1] ESChangeAttribute(46:6097) -> Elemental Purée
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 135% damage
+
+#13: SkillSet:
+	[0] ESDamageShield(74:6096) -> Reflescale
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESChangeAttribute(46:6097) -> Elemental Purée
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 135% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#16: ESLeaderSwap(75:6104) -> Hypno Pursuit
+Leader changes to random sub for 1 turn, Deal 90% damage
+
+#17: ESBindAwoken(88:6092) -> Helpless Suggestion
+Bind awoken skills for 1 turn, Deal 90% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

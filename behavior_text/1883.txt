@@ -1,0 +1,52 @@
+#1883 - Nameless Blade Brave, Masamune
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1883
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8556:73) Masamune Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (8544:67) Tamahagane Iron Skin
+ | Absorb damage when combos <= 7 for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (8545:46) Hollow Slice like Flowing Water
+     | Change own attribute to Water
+   | group:
+     | condition: 25% chance
+     | (8546:77) Piercing Wind
+     | Change the 3rd column to Wood orbs, Deal 250% damage
+     | condition: 25% chance
+     | (8547:105) Flower Cutter
+     | RCV 50% for 1 turn, Deal 220% damage
+     | condition: 25% chance
+     | (8548:109) Uzu Tomoe
+     | Random 3 orbs change every 1.0s for 1 turn, Deal 230% damage
+     | condition: 25% chance
+     | (8549:15) 1,000 Cuts
+     | Deal 280% damage (10 hits, 28% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (8552:83) Kaleidoscope + Unbind
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison + Bind 1 random card for 5 turns, Deal 280% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (8554:74) Forge Folding
+     | Reduce damage from all sources by 75% for 3 turns
+ | group:
+ | condition: hp <= 14
+   | (8555:7) Reforge
+   | Enemy recover 60% HP
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (8553:17) Sharpening
+ | Increase damage to 150% for the next 999 turns

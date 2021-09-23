@@ -1,0 +1,56 @@
+#4134 - Brachydios
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 4134
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (8913:103) Jumping Strike Attack
+ | Spawn Bomb orbs in the specified positions, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-5 of 6
+     | condition: 30% chance
+     | (8914:102) Foreleg Slam
+     | Spawn 3 random Bomb orbs, Deal 95% damage
+     | condition: 15% chance
+     | (8915:103) Charge
+     | Spawn Bomb orbs in the specified positions, Deal 90% damage
+     | condition: 15% chance
+     | (8916:103) Slime-Coated Headbutt
+     | Spawn Bomb orbs in the specified positions, Deal 80% damage
+     | condition: 40% chance
+     | (8917:15) Spinning Tail Attack
+     | Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (8918:66) Spreading Slime
+     | Do nothing
+ | group:
+ | condition: hp <= 39
+   | group:
+   | condition: turn 1
+     | (8921:83) Roar + Anger
+     | Bind 1 random sub for 1 turn + Increase damage to 126% for the next 10 turns
+   | group:
+   | condition: execute repeatedly, turn 1-5 of 6
+     | condition: 30% chance
+     | (8922:92) Foreleg Slam
+     | Spawn 4 random Fire orbs, Deal 105% damage
+     | condition: 20% chance
+     | (8923:98) Charge
+     | Blind orbs in specific positions for 1 turn, Deal 105% damage
+     | condition: 20% chance
+     | (8924:77) Jumping Strike Attack
+     | Change the 2nd and 5th columns to Fire orbs, Deal 105% damage
+     | condition: 30% chance
+     | (8925:15) Spinning Tail Attack
+     | Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (8926:85) Slime Mold Explosion
+     | Change all orbs to Fire and Jammer, Deal 180% damage

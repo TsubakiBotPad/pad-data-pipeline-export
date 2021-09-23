@@ -1,0 +1,116 @@
+#6885 - Ice Sprite King, Hoppo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInvulnerableOn(119:21607) -> Could you melt this ice for me?
+	Immune to damage from all sources for 999 turns
+	[1] ESSkyfallLocked(96:21608) -> Hurry, or I'll freeze solid!
+	Locked random skyfall +100% for 99 turns
+	[2] ESInactivity66(66:21609) -> I need you to link Fire Orbs!
+	Do nothing
+
+#3: ESBranchEraseAttr(117:21626) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 11
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 9
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 8
+
+#7: SkillSet:
+	[0] ESInactivity66(66:21622) -> Oh no! The ice is getting stronger!
+	Do nothing
+	[1] ESDebuffRCV(105:21618) -> The ice grew stronger
+	RCV 25% for 99 turns
+
+#8: SkillSet:
+	[0] ESInactivity66(66:21622) -> Oh no! The ice is getting stronger!
+	Do nothing
+	[1] ESDebuffMovetime(39:21619) -> The ice grew stronger
+	Movetime 25% for 99 turns
+
+#9: ESGravity(50:21623) -> You were swallowed by the ice
+Player -5,000% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 16
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 9
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 25
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 24
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 19
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: SkillSet:
+	[0] ESInactivity66(66:21612) -> Just like that!
+	Do nothing
+	[1] ESAttributeBlock(107:21613) -> The ice crept further
+	Unable to match Water and Wood orbs for 1 turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 22
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: SkillSet:
+	[0] ESInactivity66(66:21612) -> Just like that!
+	Do nothing
+	[1] ESAttributeBlock(107:21614) -> The ice crept further
+	Unable to match Light and Dark orbs for 1 turn
+
+#22: SkillSet:
+	[0] ESInactivity66(66:21624) -> Yay! The ice melted away!
+	Do nothing
+	[1] ESEndBattle(40:21605) -> Thanks for the help!
+	Reduce self HP to 0
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	Condition: Fire are erased (ai:100 rnd:0)
+	[0] ESInactivity66(66:21617) -> The fire isn't strong enough!
+	Do nothing
+	[1] ESDebuffRCV(105:21618) -> The ice grew stronger
+	RCV 25% for 99 turns
+
+#25: SkillSet:
+	Condition: Fire are erased (ai:100 rnd:0)
+	[0] ESInactivity66(66:21617) -> The fire isn't strong enough!
+	Do nothing
+	[1] ESDebuffMovetime(39:21619) -> The ice grew stronger
+	Movetime 25% for 99 turns
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESDeathCry(69:21625) -> Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: I really can't believe...|...you fell for it!

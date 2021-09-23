@@ -1,0 +1,26 @@
+#3995 - Masquerade Patron, Nene
+monster size: 5
+new AI: True
+start/max counter: 19
+counter increment: 0
+monster_id: 3995
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19856:83) So much tasty candy! + Will you give me some sweets too?
+ | Absorb damage when damage >= 15,000,000 for 10 turns + RCV 50% for 10 turns
+ group:
+ | group:
+ | condition: turns 1-9
+   | condition: 33% chance
+   | (19859:94) Crunchy Rice Crackers
+   | Lock 15 random orbs, Deal 105% damage
+   | condition: 50% chance
+   | (19861:104) Sweet Steamed Buns
+   | A 2×2 square of clouds appears for 1 turn at a random location, Deal 100% damage
+   | (19860:97) Bean Jam Pancakes
+   | Blind random 10 orbs for 1 turn, Deal 95% damage
+ | group:
+   | (19862:15) Harmony of Japanese Sweets
+   | Deal 400% damage (4 hits, 100% each)

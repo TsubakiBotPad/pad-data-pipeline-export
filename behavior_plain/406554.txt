@@ -1,0 +1,93 @@
+#406554 - Akaza
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:20080) -> Azaka Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Technique Development
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:20102) -> I hate weak humans.
+	Reduce damage from all sources by 99% for 6 turns
+	[1] ESDebuffATK(130:20103) -> When I see weakness, my skin crawls.
+	ATK -50% for 6 turns
+	[2] ESFixedStart(101:20195) -> Why don't you become a demon?
+	Fix orb movement starting point to random position on the board
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfallLocked(96:20167) -> It's because you're human.
+	Locked random skyfall +30% for 2 turns
+	[1] ESInactivity66(66:20168) -> Because you age.
+	Do nothing
+	[2] ESGravity(50:20169) -> Because eventually you'll die.
+	Player -10% HP
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESFixedStart(101:20098) -> Become a demon.
+	Fix orb movement starting point to random position on the board
+	[1] ESInactivity66(66:20099) -> If you do...you can train for hundreds of years.
+	Do nothing
+	[2] ESOrbLock(94:20100) -> You can train and keep getting stronger.
+	Lock 10 random orbs
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESGravity(50:20170) -> You worked so hard to build such magnificent talent...
+Player -10% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESDebuffRCV(105:20182) -> It's hard for me to accept.
+RCV 50% for 2 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 18
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESNoSkyfall(127:20183) -> I can't stand it.
+No skyfall for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 22
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: ESGravity(50:20171) -> Die for me.
+Player -10% HP
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:20172) -> Destructive Death: Air Type
+Deal 2,250% damage (3 hits, 750% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

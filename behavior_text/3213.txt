@@ -1,0 +1,26 @@
+#3213 - Water Imp
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3213
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (5694:65) Quiet down, please...
+ | Bind 1 random sub for 4 turns
+ group:
+ condition: execute repeatedly, turn 1 of 2, hp <= 100
+ | (5697:48) Enchanted Flute
+ | Change a random attribute to Heal orbs, Deal 75% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (5695:17) Demon Solo
+   | Increase damage to 300% for the next 999 turns
+ | group:
+ | condition: turn 2
+   | (5696:68) Resonating Water
+   | Water skyfall +15% for 10 turns, Deal 50% damage

@@ -1,0 +1,60 @@
+#4053 - Redeeming Steel Star Goddess, Eschamali
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4053
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10898:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (10918:83) Protection of the Stars + Scales of Discernment + Waking Star - Dark
+ | Voids status ailments for 999 turns + Absorb Light and Dark damage for 30 turns + Light and Dark skyfall +20% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (10919:1) Entahaz Masaka
+     | Bind 4 random cards for 1~2 turns, Deal 100% damage
+     | condition: 33% chance
+     | (10920:62) Kokzaram
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 34% chance
+     | (10921:92) Sanaa Aswad
+     | Spawn 6 random Dark orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (10901:17) Limit of the Sky
+     | Increase damage to 150% for the next 99 turns
+   | group:
+     | condition: 33% chance
+     | (10919:1) Entahaz Masaka
+     | Bind 4 random cards for 1~2 turns, Deal 100% damage
+     | condition: 33% chance
+     | (10920:62) Kokzaram
+     | Blind all orbs on the board, Deal 100% damage
+     | condition: 34% chance
+     | (10921:92) Sanaa Aswad
+     | Spawn 6 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (10924:83) Mahatuha + Sahwakt
+     | Bind awoken skills for 3 turns + Movetime 50% for 3 turns
+   | group:
+     | (10927:83) Sout Yadoreb + Yasurek Sitta
+     | Deal 108% damage (3 hits, 36% each) + Blind random 6 orbs for 1 turn, Deal 108% damage (3 hits, 36% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (10902:83) Protection of the Planets + Limit of the Sky
+     | Reduce damage from all sources by 75% for 1 turn + Increase damage to 150% for the next 99 turns
+   | group:
+     | (10928:15) Shamar Zoful
+     | Deal 2,000% damage (4 hits, 500% each)

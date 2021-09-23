@@ -1,0 +1,31 @@
+#100098 - Alt. Mystic Flame Knight
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 100098
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: turn 1
+   | (4781:4) Fire Orb change
+   | Change all Water orbs to Fire orbs
+   | (4786:2) Flame Grudge
+   | Bind Water cards for 2~4 turns
+ | group:
+ | condition: turn 2
+   | (4786:2) Flame Grudge
+   | Bind Water cards for 2~4 turns
+
+level: 5
+ type: PREEMPT
+ | (4781:4) Fire Orb change
+ | Change all Water orbs to Fire orbs
+ | (4786:2) Flame Grudge
+ | Bind Water cards for 2~4 turns
+ group:
+ condition: turn 1, hp <= 100
+ | (4786:2) Flame Grudge
+ | Bind Water cards for 2~4 turns

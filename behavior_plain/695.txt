@@ -1,0 +1,30 @@
+#695 - Asuka&Eva Unit-02
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbLock(94:18221) -> Deploy A.T. Field
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 7 random orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 7
+
+#4: ESDebuffMovetime(39:18222) -> What are you, stupid?
+Movetime -2s for 1 turn, Deal 80% damage
+
+#5: ESAttackMultihit(15:18223) -> I can destroy it on my own!
+Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackMultihit(15:18224) -> Super-Electromagnetic Crossbow
+Deal 110% damage (5 hits, 22% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

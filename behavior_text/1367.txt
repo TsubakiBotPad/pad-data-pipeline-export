@@ -1,0 +1,25 @@
+#1367 - Waron
+monster size: 3
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1367
+approved: False
+
+level: 5
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1138:48) Petit Ice
+   | Change a random attribute to Water orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1138:48) Petit Ice
+     | Change a random attribute to Water orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (1142:15) Swinging a weapon
+     | Deal 80~160% damage (2~4 hits, 40% each)

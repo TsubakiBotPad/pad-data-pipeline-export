@@ -1,0 +1,31 @@
+#4182 - Lugh
+monster size: 5
+new AI: True
+start/max counter: 19
+counter increment: 0
+monster_id: 4182
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (17914:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (17906:83) You think you can best me? + You're skilled... + Let's see how you fight now + I won't forgive you for breaking my hold
+ | Voids status ailments for 10 turns + Void damage >= 20,000,000 for 999 turns + ATK -99% for 10 turns + Delay active skills by 99 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (17911:130) Insolence!
+   | ATK -99% for 10 turns, Deal 10,000% damage
+ | group:
+ | condition: turns 2-9
+   | (17912:66) ...
+   | Do nothing
+ | group:
+ | condition: turn 10
+   | (17913:15) Find devotion
+   | Deal 10,000% damage (10 hits, 1,000% each)
+ | group:
+   | (17915:83) Robes of Conversion + Find devotion
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 10,000% damage (10 hits, 1,000% each), Deal 10,000% damage (10 hits, 1,000% each)

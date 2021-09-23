@@ -1,0 +1,48 @@
+#304213 - Aurora Loving Goddess, Sakuya
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESStatusShield(20:8985) -> It's special, right?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 3 turns
+
+#5: ESAbsorbAttribute(53:8986) -> Kirin's Perception
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Absorb Light damage for 2 turns
+
+#6: ESBoardChangeAttackBits(85:8989) -> Kirin Four Origin Perception
+Condition: When < 10% HP (ai:100 rnd:0)
+Change all orbs to Fire, Water, Wood, and Light, Deal 180% damage
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBindAttack(63:8987) -> Chocolate Kiss
+Condition: 15% chance (ai:15 rnd:0)
+Bind 1 random sub for 1 turn, Deal 100% damage
+
+#10: ESAttackMultihit(15:8995) -> Sweet Combo
+Deal 100% damage (2 hits, 50% each)
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESSkillDelay(89:8988) -> Don't rush!
+Delay active skills by 0~2 turns, Deal 120% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

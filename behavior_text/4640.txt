@@ -1,0 +1,64 @@
+#4640 - Seven Seas Companion Dragon, Renya
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 4640
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10336:74) Major Protection
+ | Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (10335:107) Red Exception
+   | Unable to match Fire orbs for 3 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (10339:48) Träne Gerinnsel
+     | Change a random attribute to Water orbs, Deal 105% damage
+     | condition: 33% chance
+     | (10340:108) Veränderung
+     | Change all Dark orbs to Water orbs, Deal 110% damage
+     | condition: 34% chance
+     | (10341:15) Claw Slasher
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10338:85) Wasser Enclosure
+     | Change all orbs to Water, Wood, Dark, and Heal, Deal 120% damage
+ | group:
+ | condition: hp <= 14
+   | (10345:15) Zwei Flügel
+   | Deal 180% damage (2 hits, 90% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: execute repeatedly, turn 1-2 of 3
+   | condition: 33% chance
+   | (10339:48) Träne Gerinnsel
+   | Change a random attribute to Water orbs, Deal 105% damage
+   | condition: 33% chance
+   | (10340:108) Veränderung
+   | Change all Dark orbs to Water orbs, Deal 110% damage
+   | condition: 34% chance
+   | (10341:15) Claw Slasher
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (10337:39) Brechen Feder
+   | Movetime -1s for 2 turns
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (10335:107) Red Exception
+   | Unable to match Fire orbs for 3 turns
+ | group:
+ | condition: turn 2 while HP > 14, hp <= 100
+   | (10344:83) Groß Wolke + Calm Fighting Spirit
+   | A 3×3 square of clouds appears for 1 turn at a random location + Increase damage to 200% for the next 99 turns

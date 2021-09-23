@@ -1,0 +1,73 @@
+#103726 - Alt. Huoshi
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 4, target rnd 8
+
+#7: ESAbsorbAttribute(53:8200) -> Huohushenfu
+Absorb Fire damage for 2~6 turns
+
+#8: ESStatusShield(20:7376) -> Hushenfu
+Voids status ailments for 1 turn
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESOrbLock(94:7377) -> Huoshufu
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Lock all Fire orbs, Deal 50% damage
+
+#11: ESAttackUPRemainingEnemies(17:7353) -> Fennu
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESBombFixedSpawn(103:7347) -> Baozha
+Spawn Bomb orbs in the specified positions, Deal 80% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: ESAttackMultihit(15:7352) -> Gongji
+Deal 100% damage (2 hits, 50% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#21: ESInactivity66(66:7360) -> It's jumping around
+Do nothing
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn

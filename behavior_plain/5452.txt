@@ -1,0 +1,70 @@
+#5452 - 地下闘技場王者・範馬刃牙
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:14046) -> 強えなァあんた
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Void damage >= 12,000,000 for 3 turns
+
+#3: SkillSet:
+	Condition: When < 1% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:19482) -> This...is my last roll of the dice...
+	Lock all orbs
+	[1] ESAttackMultihit(15:19483) -> Front Neck-Lock
+	Deal 4,000% damage
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESAttackMultihit(15:14051) -> 転蓮華
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#7: ESRandomSpawn(92:14052) -> 図に乗りやがって…
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Fire orbs, Deal 95% damage
+
+#8: ESColumnSpawnMulti(77:19478) -> Right Low Kick
+Condition: 34% chance (ai:0 rnd:34)
+Change the 5th column to Light orbs, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: SkillSet:
+	[0] ESStatusShield(20:14047) -> リハーサル通りだな オイ
+	Voids status ailments for 999 turns
+	[1] ESRandomSpawn(92:14049) -> こうまでリハーサル通りだと――
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
+	[2] ESOrbLock(94:14050) -> フェアじゃない
+	Lock 15 random orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESOrbLock(94:14053) -> これ…最後の技です……
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock 20 random orbs
+
+#15: ESAttackMultihit(15:14054) -> フロントネックロック
+Deal 150% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:19480) -> Resolve
+Survive attacks with 1 HP when HP > 50%

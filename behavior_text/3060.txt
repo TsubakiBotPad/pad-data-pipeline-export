@@ -1,0 +1,77 @@
+#3060 - Musical Hell Mechanical Star God, Pollux
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3060
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26172:72) Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (26156:83) The stars are spectacular today. + Tell me... Did you make your wish?
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 10,000,000 for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (26168:83) Mechanical Star God's Protection + Astrocharge - Light
+     | Reduce damage from all sources by 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26170:83) Mechanical Star God's Light + Astrocharge - Light
+     | Spawn 9 random Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 7 while HP > 19
+     | (26105:83) Sudden Change of Weather + Tearful Rain of Sadness
+     | No skyfall for 7 turns + For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+   | group:
+     | condition: 50% chance
+     | (26168:83) Mechanical Star God's Protection + Astrocharge - Light
+     | Reduce damage from all sources by 50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26170:83) Mechanical Star God's Light + Astrocharge - Light
+     | Spawn 9 random Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (26160:83) Mechanical Creation Star of Gemini + Mechanical Star God's Restraints + Milky Way's Miracle
+     | Change the 1st row to Light orbs and the 5th row to Dark orbs + Lock all orbs + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (26163:83) Mechanical Light Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (26166:83) Mechanical Musical Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (26163:83) Mechanical Light Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 5 while HP > 19
+     | (26166:83) Mechanical Musical Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 6 while HP > 19
+     | (26163:83) Mechanical Light Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26163:83) Mechanical Light Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26166:83) Mechanical Musical Star of Gemini + Astrocharge - Light
+     | Spawn 12 random Dark orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26103:66) They gaze at the stars
+     | Do nothing
+   | group:
+     | (26159:15) Cosmic Charge - Light
+     | Deal 2,100% damage (7 hits, 300% each)

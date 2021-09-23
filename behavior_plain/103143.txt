@@ -1,0 +1,67 @@
+#103143 - 強力・キン肉マンビッグボディ
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchCard(90:5437) -> ESBranchCard
+Branch on player_cards HAS [3146, 3147], target rnd 8
+
+#7: ESAttackUPRemainingEnemies(17:5431) -> God of Brute Strength's Protection
+Condition: when <= 4 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 4 turns
+
+#8: ESAttackUPRemainingEnemies(17:5432) -> Brains over brawn?! Says who!
+Condition: when <= 4 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 4 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESBoardChangeAttackBits(85:5434) -> Mighty Swing
+Change all orbs to Fire, Dark, Heal, and Jammer, Deal 40% damage
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESOrbLock(94:5433) -> Mighty Spear
+Lock 6 random orbs, Deal 50% damage
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 19
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESAttackMultihit(15:5435) -> Muscle Impact
+Deal 100% damage
+
+#19: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#20: ESGravity(50:5436) -> Maple Leaf Clutch
+Player -100% HP

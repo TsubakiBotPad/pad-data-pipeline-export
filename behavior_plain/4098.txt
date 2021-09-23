@@ -1,0 +1,40 @@
+#4098 - Yuri Sakazaki
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindSkill(14:19671) -> I'm gonna beat you up quickly!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRowSpawnMulti(79:19672) -> Ko-Ou Ken!
+Condition: 33% chance (ai:0 rnd:33)
+Change the 4th row to Light orbs, Deal 95% damage
+
+#5: ESAttackMultihit(15:19673) -> Rai-Ou Ken!
+Condition: 33% chance (ai:0 rnd:33)
+Deal 98% damage (2 hits, 49% each)
+
+#6: ESAttackMultihit(15:19674) -> Chou Knuckle!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (5 hits, 20% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDamageShield(74:19675) -> What a cake walk!!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 30% for 4 turns
+
+#9: ESAttackMultihit(15:19676) -> Haoh Shoukou Ken!
+Deal 120% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

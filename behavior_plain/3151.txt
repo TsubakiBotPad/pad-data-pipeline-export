@@ -1,0 +1,43 @@
+#3151 - Genbu Princess of Leisure, Meimei
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:12644) -> What a good feeling!♪
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 15 random Heal orbs
+
+#3: ESSkillDelay(89:12645) -> Let's chill out!♪
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 6 turns
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESOrbLock(94:12646) -> I don't want to move!
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 95% damage
+
+#6: ESAttackMultihit(15:12647) -> Rolling, rolling!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 110% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSkyfall(68:12648) -> Oh! Sun shower!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Poison skyfall +20% for 5 turns
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 5
+
+#10: ESAttackMultihit(15:12649) -> Northern Seven-Star Formation
+Deal 245% damage (7 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

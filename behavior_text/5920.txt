@@ -1,0 +1,30 @@
+#5920 - ラストブシニャン
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5920
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: 50% chance
+ | (16493:92) Blaze
+ | Spawn 5 random Fire orbs, Deal 90% damage
+ | (16492:15) Lightning Slash
+ | Deal 99% damage (3 hits, 33% each)
+ group:
+ | group:
+   | condition: 50% chance
+   | (16493:92) Blaze
+   | Spawn 5 random Fire orbs, Deal 90% damage
+   | (16492:15) Lightning Slash
+   | Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 29
+   | (16495:76) Harakiri Sword
+   | Change the 3rd column to Fire orbs
+ type: REMAINING
+ condition: when 3 enemies remain, turn 1, hp <= 29
+ | (16494:17) Let's use all our power!
+ | Increase damage to 150% for the next 3 turns

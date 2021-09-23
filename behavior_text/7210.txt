@@ -1,0 +1,43 @@
+#7210 - Earthquake
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7210
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23904:94) The treasures of this world are all mine!!
+ | Lock all orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (23905:92) Fat Breath
+   | Spawn 4 random Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (23906:15) Fat Bound
+   | Deal 99% damage (3 hits, 33% each)
+   | condition: 34% chance
+   | (23908:74) Fat Replica Attack
+   | Reduce damage from all sources by 50% for 1 turn, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (23912:89) Triangle Flying
+     | Delay active skills by 3 turns
+   | group:
+     | condition: 33% chance
+     | (23907:94) Fat Chainsaw
+     | Lock 10 random orbs, Deal 95% damage
+     | condition: 33% chance
+     | (23909:102) Fat Bomber
+     | Spawn 3 random Bomb orbs, Deal 90% damage
+     | condition: 34% chance
+     | (23910:15) Damned Earth
+     | Deal 125% damage (5 hits, 25% each)
+ | group:
+ | condition: hp <= 14
+   | (23911:85) Earth Crisis
+   | Change all orbs to Fire and Heal, Deal 200% damage

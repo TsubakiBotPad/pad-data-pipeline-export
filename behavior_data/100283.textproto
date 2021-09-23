@@ -1,0 +1,108 @@
+  monster_id: 100283
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 5726
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 6
+                trigger_turn: 1
+                trigger_turn_end: 4
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 5730
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 5731
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 6
+                trigger_turn: 5
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 5729
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 6
+                trigger_turn: 6
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 5730
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 5731
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 19
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 5732
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  enemy_skill_id: 5733
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

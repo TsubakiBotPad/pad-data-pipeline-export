@@ -1,0 +1,39 @@
+#4091 - Iori Yagami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 1, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBranchCard(90:8669) -> ESBranchCard
+Branch on player_cards HAS [4076, 4077, 4078], target rnd 8
+
+#7: ESInactivity66(66:8677) -> I will end your pain.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#8: ESInactivity66(66:8678) -> Then let it burn, as it demands.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:8675) -> It can't end like this!
+	Do nothing

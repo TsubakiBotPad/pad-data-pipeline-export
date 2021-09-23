@@ -1,0 +1,36 @@
+#1629 - Chivalric Demon Prince, Cauchemar
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1629
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1549:67) Cauchemar Fantasy
+ | Absorb damage when combos <= 4 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 40% chance
+     | (1553:48) Cauchemar Illusion
+     | Change all Heal orbs to Jammer orbs, Deal 50% damage
+     | (1552:63) Cauchemar Nightmare
+     | Bind 3 random subs for 2 turns, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 40% chance
+     | (1553:48) Cauchemar Illusion
+     | Change all Heal orbs to Jammer orbs, Deal 50% damage
+     | (1550:15) Cauchemar Combat
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (1551:39) Astaroth's Whispers
+   | Movetime -2s for 2 turns
+ | group:
+ | condition: hp <= 29
+   | (1554:48) Cauchemar Impact
+   | Change a random attribute to Jammer orbs, Deal 200% damage

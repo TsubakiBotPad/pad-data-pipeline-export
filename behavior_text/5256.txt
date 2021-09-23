@@ -1,0 +1,43 @@
+#5256 - Horohoro
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 5256
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (13220:79) Mososo Kruppe
+ | Change the 5th row to Water orbs, Deal 95% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (13220:79) Mososo Kruppe
+   | Change the 5th row to Water orbs, Deal 95% damage
+   | condition: 50% chance
+   | (13221:92) Kawkaw Puri-Wenpe
+   | Spawn 4 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (13222:83) You're in my world now, + and here I'm the fittest.
+     | Change the 1st, 3rd, and 5th columns to Water orbs + Lock all Water orbs, Deal 55% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 50% chance
+     | (13220:79) Mososo Kruppe
+     | Change the 5th row to Water orbs, Deal 95% damage
+     | condition: 50% chance
+     | (13221:92) Kawkaw Puri-Wenpe
+     | Spawn 4 random Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (13225:94) This is my last offerring.
+     | Lock all orbs
+   | group:
+     | (13226:79) Neike Fuike Kiroro
+     | Change the 3rd row to Water orbs, Deal 250% damage

@@ -1,0 +1,29 @@
+#502420 - Dark Plant Mechanical Star God, Spica
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:21059) -> I will awaken your power.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Jammer skyfall +15% for 5 turns
+
+#3: ESDamageShield(74:21095) -> Not yet...
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 75% for 3 turns
+
+#4: ESAttackMultihit(15:21096) -> Mow-Down
+Condition: 50% chance when < 50% HP (ai:50 rnd:0)
+Deal 120% damage
+
+#5: ESOrbChangeAttack(48:21060) -> Star Consumption
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSuperResolve(129:21091) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

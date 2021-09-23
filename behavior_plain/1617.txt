@@ -1,0 +1,120 @@
+#1617 - Pure Water Sorcerer, Sharon
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:5780) -> Undine, here I go...
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:5781) -> Okay! Here's my Water Barrier!
+	Void damage >= 500,000 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 26
+
+#9: ESRowSpawnMulti(79:5782) -> Elemental Stream
+Change the 1st, 2nd, 3rd, and 4th rows to Fire, Wood, Light, and Dark orbs and the 5th row to Water orbs, Deal 200% damage
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 26
+
+#13: ESGravity(50:5783) -> Marine Pressure
+Player -99% HP
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 26
+
+#17: ESColumnSpawnMulti(77:5784) -> Abyssal Stream
+Change the 1st column to Water orbs, the 2nd, 3rd, 4th, and 5th columns to Fire, Wood, Light, and Dark orbs, and the 6th column to Mortal Poison orbs, Deal 200% damage
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#20: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 26
+
+#21: ESGravity(50:5785) -> Abyss Pressure
+Player -100% HP
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 25
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#24: SkillSet:
+	[0] ESBindAwoken(88:5799) -> No! The barrier's gonna break!
+	Bind awoken skills for 2 turns
+	[1] ESAttackUPRemainingEnemies(17:5800) -> Let's get serious...!
+	Increase damage to 200% for the next 1 turn
+
+#25: SkillSet:
+	[0] ESBoardChangeAttackBits(85:5802) -> Elemental Splash!
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 500% damage
+	[1] ESSkillDelay(89:5803) -> Voice of Innocence
+	Delay active skills by 1~3 turns
+
+#26: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRecoverEnemy86(86:5787) -> Sharon! Take this potion!
+	Enemy recover 50% HP
+	[1] ESInactivity66(66:5788) -> Thanks Undine!
+	Do nothing
+
+#27: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRecoverEnemy86(86:5790) -> Drink some more potion!
+	Enemy recover 30% HP
+	[1] ESMortalPoisonChangeRandom(61:5791) -> I can't drink this much...
+	Change 6 random orbs to Mortal Poison orbs
+
+#28: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:5793) -> If you don't drink it, you'll lose!
+	Enemy recover 10% HP
+	[1] ESMortalPoisonChangeRandom(61:5794) -> I can't...take any more...
+	Change 18 random orbs to Mortal Poison orbs
+
+#29: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:5796) -> Come on, open wide...
+	Do nothing
+	[1] ESBoardChange(84:5797) -> Aaaaahhhh!
+	Change all orbs to Mortal Poison
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn

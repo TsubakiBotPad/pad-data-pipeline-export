@@ -1,0 +1,107 @@
+  monster_id: 302711
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 19370
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          condition {
+            use_chance: 20
+          }
+          enemy_skill_id: 19371
+        }
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 25
+          }
+          enemy_skill_id: 19417
+        }
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 33
+          }
+          enemy_skill_id: 19418
+        }
+      }
+      children {
+        behavior {
+          condition {
+            use_chance: 50
+          }
+          enemy_skill_id: 19419
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 19420
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 50
+              }
+              enemy_skill_id: 19373
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 50
+              }
+              enemy_skill_id: 19410
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+            trigger_turn: 1
+            always_trigger_above: 9
+          }
+          children {
+            behavior {
+              enemy_skill_id: 19367
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 9
+          }
+          children {
+            behavior {
+              enemy_skill_id: 19374
+            }
+          }
+        }
+      }
+    }
+  }

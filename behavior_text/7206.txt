@@ -1,0 +1,51 @@
+#7206 - Iroha
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7206
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (23895:88) For my master!
+ | Bind awoken skills for 3 turns
+ | condition: 50% chance
+ | (23898:92) Wind Slash
+ | Spawn 3 random Wood and Light orbs, Deal 100% damage
+ | condition: 50% chance
+ | (23899:15) Dew Drizzle
+ | Deal 100% damage (4 hits, 25% each)
+ group:
+ | group:
+   | condition: 50% chance
+   | (23898:92) Wind Slash
+   | Spawn 3 random Wood and Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (23899:15) Dew Drizzle
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (23901:74) Rain Hollyhock
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+     | condition: 33% chance
+     | (23897:67) Double Jump
+     | Absorb damage when combos <= 5 for 1 turn, Deal 90% damage
+     | condition: 33% chance
+     | (23896:50) Iron Feather Ridge
+     | Player -50% HP
+     | condition: 34% chance
+     | (23900:15) Pinwheel
+     | Deal 105% damage (5 hits, 21% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (23902:6) Gale-force Drop
+     | Voids player buff effects
+   | group:
+     | (23903:15) Crane's Dance
+     | Deal 240% damage (6 hits, 40% each)

@@ -1,0 +1,50 @@
+#4034 - The Dwarf Inside the Flask
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 4034
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (8596:66) I have to thank you for it, my friend.
+ | Do nothing
+
+level: 4
+ type: PREEMPT
+ | (8523:83) I thank you for your help. All of you. + You've fulfilled your purpose.
+ | Voids status ailments for 999 turns + Bind active skills for 3 turns
+ group:
+ | group:
+   | condition: 10% chance
+   | (8525:77) Stationary Transmutation
+   | Change the 4th column to Dark orbs, Deal 100% damage
+   | condition: 10% chance
+   | (8526:79) Stationary Transmutation
+   | Change the 3rd row to Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (8527:92) Stationary Transmutation
+   | Spawn 7 random Jammer orbs, Deal 100% damage
+   | condition: 20% chance
+   | (8528:74) Stationary Transmutation
+   | Reduce damage from all sources by 75% for 1 turn, Deal 100% damage
+   | condition: 20% chance
+   | (8529:94) Stationary Transmutation
+   | Lock 10 random orbs, Deal 100% damage
+   | condition: 20% chance
+   | (8530:92) Stationary Transmutation
+   | Spawn 4 random Poison orbs, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 79
+   | (8524:71) How sad
+   | Void damage >= 500,000 for 3 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (8531:17) Disappear from my sight.
+     | Increase damage to 1,000% for the next 999 turns
+   | group:
+     | (8532:85) Nuclear Fusion
+     | Change all orbs to Fire, Deal 1,000% damage

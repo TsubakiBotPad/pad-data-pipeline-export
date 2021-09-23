@@ -1,0 +1,82 @@
+#105247 - Holy Girl Iron Maiden, Jeanne
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDebuffMovetime(39:13259) -> Why must you continue to sin?!
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -3s for 5 turns
+
+#5: ESOrbLock(94:13235) -> Over Soul Instruments of Torture: Interrogation Chair
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs, Deal 100% damage
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 19
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#8: ESBindAttack(63:13236) -> Shamash make them tighter.
+Condition: 33% chance (ai:0 rnd:33)
+Bind 1 random sub for 2 turns, Deal 95% damage
+
+#9: ESRandomSpawn(92:13237) -> Now beg forgiveness.
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 6 random Light orbs, Deal 90% damage
+
+#10: ESAttackMultihit(15:13238) -> You must repent.
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: ESBindAwoken(88:13239) -> I am saddened and disappointed.
+Bind awoken skills for 1 turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESRandomSpawn(92:13241) -> Over Soul Instruments of Torture: Statue of Apega
+Spawn 10 random Fire orbs, Deal 150% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 22
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: ESBindAwoken(88:13239) -> I am saddened and disappointed.
+Bind awoken skills for 1 turn
+
+#22: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#23: ESAttackMultihit(15:13240) -> Over Soul Instruments of Torture: Guillotine
+Deal 250% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

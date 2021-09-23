@@ -1,0 +1,94 @@
+#5085 - Emperor of Evil, M. Bison
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5085
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12612:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (12589:105) Bow down before my Psycho Power!
+ | RCV 50% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | condition: 33% chance
+     | (12449:48) Somersault Skull Diver
+     | Change a random attribute to Dark orbs, Deal 110% damage
+     | condition: 33% chance
+     | (12448:15) Head Press
+     | Deal 100% damage
+     | condition: 34% chance
+     | (12453:15) Double Knee Press
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (12459:79) Psycho Crusher
+     | Change the 3rd row to Dark orbs, Deal 250% damage
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: execute repeatedly, turn 1-9 of 10
+     | condition: 25% chance
+     | (12454:15) Psycho Inferno
+     | Deal 120% damage (4 hits, 30% each)
+     | condition: 33% chance
+     | (12449:48) Somersault Skull Diver
+     | Change a random attribute to Dark orbs, Deal 110% damage
+     | condition: 33% chance
+     | (12448:15) Head Press
+     | Deal 100% damage
+     | condition: 34% chance
+     | (12453:15) Double Knee Press
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: execute repeatedly, turn 10 of 10
+     | (12459:79) Psycho Crusher
+     | Change the 3rd row to Dark orbs, Deal 250% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (12456:83) Psycho Charge + Scurry! Psycho Nightmare
+     | Increase damage to 200% for the next 999 turns + Reduce damage from all sources by 50% for 10 turns
+   | group:
+   | condition: turns 2-9 while HP > 10
+     | condition: 25% chance
+     | (12454:15) Psycho Inferno
+     | Deal 120% damage (4 hits, 30% each)
+     | condition: 33% chance
+     | (12449:48) Somersault Skull Diver
+     | Change a random attribute to Dark orbs, Deal 110% damage
+     | condition: 33% chance
+     | (12448:15) Head Press
+     | Deal 100% damage
+     | condition: 34% chance
+     | (12453:15) Double Knee Press
+     | Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: turn 10 while HP > 10
+     | (12459:79) Psycho Crusher
+     | Change the 3rd row to Dark orbs, Deal 250% damage
+   | group:
+   | condition: execute repeatedly, turn 1-3 of 3
+     | condition: 25% chance
+     | (12454:15) Psycho Inferno
+     | Deal 120% damage (4 hits, 30% each)
+     | condition: 33% chance
+     | (12449:48) Somersault Skull Diver
+     | Change a random attribute to Dark orbs, Deal 110% damage
+     | condition: 33% chance
+     | (12448:15) Head Press
+     | Deal 100% damage
+     | condition: 34% chance
+     | (12453:15) Double Knee Press
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 10
+   | (23003:83) Away with you! + Ultimate Psycho Crusher
+   | Player -99% HP + Change the 3rd and 4th rows to Dark orbs, Deal 5,000% damage

@@ -1,0 +1,98 @@
+#103967 - Alt. Enlightening Goddess, Rushana
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:8156) -> Radiance of Enlightenment
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:8157) -> Halo of Truth
+	Void damage >= 15,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESDispel(6:8171) -> Inactivity of the Five Skhandas
+	Voids player buff effects
+	[1] ESGravity(50:8172) -> Anuttara Samyak Sambodhi
+	Player -500% HP
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: SkillSet:
+	[0] ESBindAwoken(88:8159) -> Illuminate the Path of Justice
+	Bind awoken skills for 1 turn
+	[1] ESBindTyping(3:8160) -> Demon Conqueror Seal
+	Bind Devil cards for 10 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPCooldown(19:8170) -> Enlightenment
+Increase damage to 150% for the next 999 turns
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESAbsorbCombo(67:8162) -> Central Vidyaraja Seal
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 7 for 1 turn, Deal 150% damage
+
+#15: ESOrbChangeAttackBits(108:8163) -> Eastern Vidyaraja Seal
+Condition: 20% chance (ai:0 rnd:20)
+Change all Heal orbs to Light orbs, Deal 160% damage
+
+#16: ESRecoverEnemy86(86:8164) -> Southern Vidyaraja Seal
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Enemy recover 10% HP
+
+#17: ESSpinnersFixed(110:8165) -> Western Vidyaraja Seal
+Condition: 20% chance (ai:0 rnd:20)
+Specific orbs change every 1.0s for 1 turn, Deal 150% damage
+
+#18: ESDamageShield(74:8166) -> Northern Vidyaraja Seal
+Condition: 20% chance (ai:0 rnd:20)
+Reduce damage from all sources by 75% for 2 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#21: ESOrbLock(94:8167) -> Jail of the Six Realms
+Condition: 34% chance (ai:0 rnd:34)
+Lock all orbs
+
+#22: ESSkillDelay(89:8168) -> Jail of the Six Realms
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 2~5 turns
+
+#23: ESSkyfall(68:8169) -> Jail of the Six Realms
+Condition: 33% chance (ai:0 rnd:33)
+Mortal Poison skyfall +25% for 1 turn
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESResolve(73:12143) -> Rushana Resolve
+Survive attacks with 1 HP when HP > 50%

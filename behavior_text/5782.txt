@@ -1,0 +1,33 @@
+#5782 - Yami Yugi & Slifer the Sky Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 5782
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15827:72) Light/Dark Halved
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (15814:53) It's time to Duel!
+ | Absorb Light and Dark damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (15825:83) It's my turn! I draw! + Spell Card "Card Destruction" + Trap Card "Disgraceful Charity"
+     | Random 1 orbs change every 1.0s for 1 turn + Absorb damage when combos <= 6 for 1 turn + Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (15822:83) It's my turn! I draw! + Slifer's effect: Lightning Blast
+     | Random 1 orbs change every 1.0s for 1 turn + Deal 75% damage, Deal 75% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (15823:83) It's my turn! I draw! + Spell Card "Pot of Greed"
+   | Random 1 orbs change every 1.0s for 1 turn + Delay active skills by 2 turns
+ | group:
+ | condition: hp <= 19
+   | (15826:83) It's my turn! I draw! + Thunderforce Attack
+   | Random 1 orbs change every 1.0s for 1 turn + Change the 1st row to Dark orbs and the 2nd row to Dark orbs, Deal 200% damage

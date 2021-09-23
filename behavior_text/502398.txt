@@ -1,0 +1,31 @@
+#502398 - Awoken Surtr
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 502398
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15480:85) I will plunge everything into a sea of fire!
+ | Change all orbs to Fire, Deal 150% damage
+ group:
+ | group:
+   | condition: 30% chance
+   | (15486:48) Black Flame
+   | Change all Fire orbs to Jammer orbs, Deal 150% damage
+   | (15482:15) Lævateinn
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: always turn 1, hp <= 79
+   | (15481:89) The Hordes of Muspel
+   | Delay active skills by 0~2 turns
+ | group:
+ | condition: always turn 2, hp <= 49
+   | (15485:83) Overheat + Body burns up even more...
+   | Fire skyfall +25% for 99 turns + Change own attribute to Fire
+ | group:
+ | condition: hp <= 9
+   | (15487:15) Last Flame
+   | Deal 280% damage (4 hits, 70% each)

@@ -1,0 +1,93 @@
+#1644 - Arbiter of Judgement, Metatron
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESOrbLock(94:6825) -> Black Wings of Divine Punishment
+	Lock all orbs
+	[1] ESAbsorbCombo(67:6826) -> Trials of Heaven
+	Absorb damage when combos <= 4 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 71, target rnd 21
+
+#7: ESAttackMultihit(15:6843) -> Herdade Voltro
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 30,000% damage (10 hits, 3,000% each)
+
+#8: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:6840) -> Holy Throne
+	Increase damage to 150% for the next 999 turns
+	[1] ESOrbLock(94:6855) -> Surveillance
+	Lock all Fire, Water, Wood, Light, Dark, Jammer, Poison, and Mortal Poison orbs
+
+#9: ESBlindStickyFixed(98:6829) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#10: ESBlindStickyFixed(98:6830) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#11: ESBlindStickyFixed(98:6831) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#12: ESBlindStickyFixed(98:6832) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#13: ESBlindStickyFixed(98:6833) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#14: ESBlindStickyFixed(98:6834) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#15: ESBlindStickyFixed(98:6835) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#16: ESBlindStickyFixed(98:6836) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#17: ESBlindStickyFixed(98:6837) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#18: ESBlindStickyFixed(98:6838) -> Sword of Divine Judgment
+Condition: 11% chance (ai:0 rnd:11)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#19: ESBlindStickyFixed(98:6839) -> Sword of Divine Judgment
+Condition: 12% chance (ai:0 rnd:12)
+Blind orbs in specific positions for 1 turn, Deal 200% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESAttackMultihit(15:6828) -> Shame... I expected more from you
+Deal 1,000% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESTurnChangePassive(106:6842) -> Turn changed through divine intervention
+Enemy turn counter change to 1 when HP <= 70%

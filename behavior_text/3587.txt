@@ -1,0 +1,79 @@
+#3587 - Twinblade Mechanical Star God, Algedi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3587
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (26155:72) Fire Halved
+ | Reduce damage from Fire attrs by 50%
+ | (26121:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (26139:83) The stars...are beautiful... + Did you make...a wish...?
+ | Voids status ailments for 999 turns + Void damage >= 10,000,000 for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (26151:83) Capricorn's Starslash + Star Dust - Land
+     | Absorb damage when combos <= 6 for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26153:83) Mechanical Star God's Gloom + Star Dust - Land
+     | Blind all orbs for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 7 while HP > 19
+     | (26105:83) Sudden Change of Weather + Tearful Rain of Sadness
+     | No skyfall for 7 turns + For 7 turns, 15% chance for skyfall orbs to be blinded for turn
+   | group:
+     | condition: 50% chance
+     | (26151:83) Capricorn's Starslash + Star Dust - Land
+     | Absorb damage when combos <= 6 for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+     | (26153:83) Mechanical Star God's Gloom + Star Dust - Land
+     | Blind all orbs for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (26143:83) Capricorn's Windy Mechanical Star + Mechanical Star God's Sanctuary + Milky Way's Miracle
+     | Bind awoken skills for 1 turn + Seal the 1st row for 7 turns + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (26146:83) Mechanical Star God's Gift + Star Dust - Land
+     | Change all Fire orbs to Wood orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: turn 3 while HP > 19
+     | (26149:83) Mechanical Star God's Gaze + Star Dust - Land
+     | ATK -50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 4 while HP > 19
+     | (26146:83) Mechanical Star God's Gift + Star Dust - Land
+     | Change all Fire orbs to Wood orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (26149:83) Mechanical Star God's Gaze + Star Dust - Land
+     | ATK -50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 6 while HP > 19
+     | (26146:83) Mechanical Star God's Gift + Star Dust - Land
+     | Change all Fire orbs to Wood orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (26146:83) Mechanical Star God's Gift + Star Dust - Land
+     | Change all Fire orbs to Wood orbs + Deal 120% damage (3 hits, 40% each), Deal 10% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (26149:83) Mechanical Star God's Gaze + Star Dust - Land
+     | ATK -50% for 1 turn + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (26103:66) They gaze at the stars
+     | Do nothing
+   | group:
+     | (26142:15) Star Dust - Miracle
+     | Deal 2,100% damage (7 hits, 300% each)

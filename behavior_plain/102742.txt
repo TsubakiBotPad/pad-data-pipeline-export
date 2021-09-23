@@ -1,0 +1,69 @@
+#102742 - Alt. Reincarnated Godly Knight of the Sky, Verche
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:4825) -> Heaven Dragon Knight's Soul
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:8215) -> Celestial Wings
+	Light and Heal skyfall +25% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESGravity(50:4828) -> Saint Decision
+	Player -60% HP
+	[1] ESPoisonChangeRandomAttack(64:4829) -> Saint Poison
+	Change 1 random orb to Poison orbs, Deal 40% damage
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#11: SkillSet:
+	[0] ESGravity(50:4828) -> Saint Decision
+	Player -60% HP
+	[1] ESPoisonChangeRandomAttack(64:4829) -> Saint Poison
+	Change 1 random orb to Poison orbs, Deal 40% damage
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#14: SkillSet:
+	[0] ESGravity(50:4828) -> Saint Decision
+	Player -60% HP
+	[1] ESPoisonChangeRandomAttack(64:4829) -> Saint Poison
+	Change 1 random orb to Poison orbs, Deal 40% damage
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1110
+
+#16: ESRandomSpawn(92:4831) -> Shining Railgun
+Condition: When mortal poison orbs are on the board (ai:100 rnd:0)
+Change all Mortal Poison orbs to Light orbs, Deal 5,000% damage
+
+#17: ESRecoverPlayer(55:4832) -> Heaven's Compassion
+Player recover 100% HP

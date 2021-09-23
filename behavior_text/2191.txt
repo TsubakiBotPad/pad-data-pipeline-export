@@ -1,0 +1,53 @@
+#2191 - Frost-Fanged CyberBeast, Alfecca
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2191
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (3703:73) Alfecca Resolve
+ | Survive attacks with 1 HP when HP > 76%
+ type: PREEMPT
+ | (3716:83) Arctic Coating + Frozen Ground
+ | Voids status ailments for 5 turns + Change all orbs to Water, Wood, Light, and Dark
+ group:
+ | group:
+   | (3710:48) Auto Sweeper
+   | Change all Jammer orbs to Water orbs, Deal 300% damage
+   | (3711:48) Auto Freezer
+   | Change all Poison orbs to Water orbs, Deal 250% damage
+   | condition: 20% chance
+   | (3719:83) Blizzard Signal + Steam Release
+   | Change the 6th column to Water orbs + Blind all orbs on the board, Deal 100% damage
+   | condition: 50% chance
+   | (3718:83) Blizzard Signal + Toxic Gas Cloud
+   | Change the 6th column to Water orbs + Change 3 random orbs (excluding hearts) to Poison orbs, Deal 100% damage
+   | (3717:83) Blizzard Signal + Scattered Clump of Earth
+   | Change the 6th column to Water orbs + Spawn 3 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 74
+   | (3710:48) Auto Sweeper
+   | Change all Jammer orbs to Water orbs, Deal 300% damage
+   | (3711:48) Auto Freezer
+   | Change all Poison orbs to Water orbs, Deal 250% damage
+   | (3720:83) Sapphire Drive + Blizzard Double Signal
+   | Absorb Water damage for 3 turns + Change the 5th and 6th columns to Water orbs, Deal 160% damage
+ | group:
+ | condition: hp <= 19
+   | (3710:48) Auto Sweeper
+   | Change all Jammer orbs to Water orbs, Deal 300% damage
+   | (3711:48) Auto Freezer
+   | Change all Poison orbs to Water orbs, Deal 250% damage
+   | (3715:79) Blizzard All Signal
+   | Change the 1st, 2nd, 3rd, 4th, 5th, and 6th rows to Water orbs, Deal 600% damage
+ | group:
+ | condition: hp <= 1
+   | (3710:48) Auto Sweeper
+   | Change all Jammer orbs to Water orbs, Deal 300% damage
+   | (3711:48) Auto Freezer
+   | Change all Poison orbs to Water orbs, Deal 250% damage
+   | (3721:83) Blizzard All Signal + Metal Repair
+   | Change the 1st, 2nd, 3rd, 4th, 5th, and 6th rows to Water orbs + Enemy recover 76% HP, Deal 600% damage

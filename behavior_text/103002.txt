@@ -1,0 +1,64 @@
+#103002 - Alt. Green Earth Ruler, Yamatsumi Dragon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 103002
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8222:73) Dragon Dimension Resolve
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (8222:73) Dragon Dimension Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (5129:83) Visitor, come here but do not rush + Dimension - Miracle
+ | Delay active skills by 0~2 turns + Lock all Wood and Heal orbs, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2145, 2146, 2972 on team
+     | (5131:83) Tranquility suits you well + Sacred Grounds of the Green Earth
+     | Voids status ailments for 999 turns + Change all orbs to Jammer, Deal 60% damage
+     | (5130:83) Mountain Dragon God's Protection + Sacred Grounds of the Green Earth
+     | Voids status ailments for 999 turns + Change all orbs to Jammer, Deal 60% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5138:92) Blue Wind of the Green Fate
+     | Spawn 3 random Wood and Heal orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (5143:94) Dimension - Miracle
+     | Lock all Wood and Heal orbs, Deal 80% damage
+     | (5142:94) Dimension - Miracle
+     | Lock 6 random Fire, Water, Wood, Light, and Dark orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5137:85) Sacred Grounds of the Green Earth
+     | Change all orbs to Jammer, Deal 60% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | condition: when 2145, 2146, 2972 on team
+     | (5133:83) Tranquility suits you well + Sacred Grounds of the Green Earth + Magatama of Yin and Yang
+     | Voids status ailments for 999 turns + Change all orbs to Jammer + Reduce damage from all sources by 75% for 1 turn, Deal 60% damage
+     | (5132:83) Mountain Dragon God's Protection + Sacred Grounds of the Green Earth + Magatama of Yin and Yang
+     | Voids status ailments for 999 turns + Change all orbs to Jammer + Reduce damage from all sources by 75% for 1 turn, Deal 60% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5140:85) Raging Wind of the Earth
+     | Change all orbs to Wood, Jammer, and Poison, Deal 200% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (5141:94) Summit Miracle
+     | Lock 18 random orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5139:74) Magatama of Yin and Yang
+     | Reduce damage from all sources by 75% for 1 turn

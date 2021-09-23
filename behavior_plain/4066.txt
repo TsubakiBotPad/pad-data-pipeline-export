@@ -1,0 +1,77 @@
+#4066 - Holy Night Courier, Claíomh Solais
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:15856) -> Merry Christmas♪
+	Do nothing
+	[1] ESAbsorbCombo(67:15857) -> You'll get a present if you defeat me
+	Absorb damage when combos <= 5 for 5 turns
+	[2] ESBoardChange(84:15858) -> This cake is yummy♪
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBoardChange(84:15861) -> Saint Kugel
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:15859) -> Okay then, I'll give you a little bonus
+	Movetime 400% for 99 turns
+	[1] ESBoardChangeAttackBits(85:15860) -> Do your best♪
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+
+#8: ESBoardChange(84:15861) -> Saint Kugel
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:15864) -> As promised, here is a present
+	Do nothing
+
+#11: ESNone(0:0) -> ESNone
+nothing
+
+#12: ESNone(0:0) -> ESNone
+nothing
+
+#13: ESNone(0:0) -> ESNone
+nothing
+
+#14: ESNone(0:0) -> ESNone
+nothing
+
+#15: ESNone(0:0) -> ESNone
+nothing
+
+#16: ESNone(0:0) -> ESNone
+nothing
+
+#17: ESNone(0:0) -> ESNone
+nothing
+
+#18: ESNone(0:0) -> ESNone
+nothing
+
+#19: ESNone(0:0) -> ESNone
+nothing
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

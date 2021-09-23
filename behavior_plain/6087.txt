@@ -1,0 +1,132 @@
+#6087 - Lady of the Holy Lake, Nimue
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17287) -> Spirit Water Vestments
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:17288) -> Entrust with the Sealed Sword
+	Movetime 50% for 20 turns
+	[2] ESDamageShield(74:17289) -> Fitted Carapace
+	Reduce damage from all sources by 99% for 1 turn
+	[3] ESBlindStickySkyfall(128:17290) -> Dark Lake Bottom
+	For 4 turns, 25% chance for skyfall orbs to be blinded for turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 6
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:17283) -> Gilded Carapace
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESSkyfallLocked(96:17293) -> Constrict in the Lake
+	Locked random skyfall +50% for 99 turns
+	[2] ESAttackMultihit(15:17309) -> Blade Scissor
+	Deal 60% damage (4 hits, 15% each)
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:17292) -> Gilded Carapace
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESSkyfallLocked(96:17293) -> Constrict in the Lake
+	Locked random skyfall +50% for 99 turns
+	[2] ESAttackMultihit(15:17309) -> Blade Scissor
+	Deal 60% damage (4 hits, 15% each)
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 24
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 20
+
+#9: ESAttackUPCooldown(19:17297) -> Sword's Release
+Increase damage to 150% for the next 999 turns
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 17
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 26
+
+#12: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 3, target rnd 14
+
+#13: SkillSet:
+	[0] ESLeaderSwap(75:17303) -> Maris Wavelet
+	Leader changes to random sub for 1 turn
+	[1] ESAttackUPCooldown(19:17304) -> Sword's Release
+	Increase damage to 150% for the next 999 turns
+
+#14: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbLock(94:17306) -> Crisis Restriction
+	Lock 15 random orbs
+	[1] ESDebuffRCV(105:17307) -> Lake of the Mind
+	RCV 50% for 1 turn, Deal 90% damage
+
+#15: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAttackMultihit(15:17309) -> Blade Scissor
+	Deal 60% damage (4 hits, 15% each)
+	[1] ESSpinnersFixed(110:17310) -> Recurring Fear
+	Specific orbs change every 2.0s for 1 turn, Deal 40% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: SkillSet:
+	[0] ESBlindStickySkyfall(128:17290) -> Dark Lake Bottom
+	For 4 turns, 25% chance for skyfall orbs to be blinded for turn
+	[1] ESGravity(50:17301) -> Nightmare Grudge
+	Player -99% HP
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#22: SkillSet:
+	[0] ESDebuffATK(130:17299) -> Flow of the Lake
+	ATK -75% for 99 turns
+	[1] ESBindAwoken(88:17312) -> Spirit Water Transformation
+	Bind awoken skills for 3 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:17313) -> Hatred Vortex
+Deal 1,800% damage (6 hits, 300% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	[0] ESBoardSizeChange(126:17295) -> Mysteries of the Lake Bottom
+	Change board size to 7x6 for 2 turns
+	[1] ESDamageShield(74:17296) -> Fitted Carapace
+	Reduce damage from all sources by 90% for 2 turns
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESSuperResolve(129:17285) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#29: ESTypeResist(118:17284) -> Healer Physical Attacker Halved
+Reduce damage from Physical, Healer, and Attacker types by 50%

@@ -1,0 +1,102 @@
+#4345 - Ceramics Club's Goddess, Hestia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkillDelay(89:13107) -> Don't get too close!
+	Delay active skills by 1~5 turns
+	[1] ESSkyfall(68:13108) -> It's dangerous
+	Poison skyfall +15% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESDamageShield(74:13118) -> Check the way I do it
+	Reduce damage from all sources by 50% for 10 turns
+	[1] ESBlindStickyFixed(98:13114) -> Turning on the potter's wheel!
+	Blind orbs in specific positions for 1 turn, Deal 90% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 26
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESBlindStickyFixed(98:13110) -> Do it like this here
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 100% damage
+
+#14: ESBlindStickyFixed(98:13111) -> Do it like this here
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 100% damage
+
+#15: ESBlindStickyFixed(98:13112) -> Do it like this here
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 90% damage
+
+#16: ESBlindStickyFixed(98:13113) -> Do it like this here
+Condition: 25% chance (ai:0 rnd:25)
+Blind orbs in specific positions for 1 turn, Deal 90% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: ESRowSpawnMulti(79:13116) -> Like this
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Wood and Jammer orbs, Deal 110% damage
+
+#21: ESBindAttack(63:13115) -> Like this
+Condition: 50% chance (ai:0 rnd:50)
+Bind 1 random card for 1 turn, Deal 110% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1100
+
+#24: ESAttackMultihit(15:13119) -> This way!
+Deal 180% damage (3 hits, 60% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESAbsorbThreshold(87:13117) -> You are too close!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when damage >= 8,000,000 for 10 turns
+
+#27: ESBlindStickyFixed(98:13120) -> That's all for today!
+Blind orbs in specific positions for 1 turn, Deal 600% damage
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

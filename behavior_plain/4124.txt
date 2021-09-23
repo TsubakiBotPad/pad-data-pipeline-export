@@ -1,0 +1,29 @@
+#4124 - Blue Stone Pillar
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:8708) -> Vile Cerulean Flame
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 6 for 99 turns
+
+#3: ESRecoverEnemyAlly(52:8709) -> Revival Flame
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#4: ESDispel(6:8710) -> Wave of Nothingness
+Voids player buff effects
+
+#5: ESRecoverEnemy7(7:8711) -> Healing Flame
+Condition: 20% chance (ai:20 rnd:0)
+Enemy recover 15% HP
+
+#6: ESOrbLock(94:8712) -> Freeze Flame
+Lock 4 random orbs, Deal 70% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

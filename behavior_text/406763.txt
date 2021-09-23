@@ -1,0 +1,28 @@
+#406763 - Sinister Shadows
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 406763
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (20514:129) Super Resolve
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (20502:128) Pitch Black Evil
+ | For 3 turns, 25% chance for skyfall orbs to be blinded for 4 turns
+ group:
+ | group:
+   | (20504:15) Evil Intent
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 2
+   | group:
+   | condition: turns 1-3
+     | (20503:7) It overflows with dark power
+     | Enemy recover 100% HP
+   | group:
+     | (20508:83) Vengeful Howl + Grrrrooooooo... + Poisonous Smoke of Resentment + GRRROOOOOOOO!
+     | Delay active skills by 99 turns + Bind awoken skills for 1 turn + Change all orbs to Mortal Poison + Reduce self HP to 0

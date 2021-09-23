@@ -1,0 +1,49 @@
+#4185 - Dark Moon Goddess of Serenity, Arianrhod
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4185
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (13630:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (13614:83) Moonlight Barrier + Wheel of Detestation
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (13617:102) Gift Bomb
+   | Spawn 1 random Bomb orb, Deal 105% damage
+   | condition: 33% chance
+   | (13618:92) Poison Assortment
+   | Spawn 3 random Poison and Mortal Poison orbs, Deal 100% damage
+   | condition: 34% chance
+   | (13619:15) Curse Rod
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (13620:83) Coffin Inviting the Unneeded + Everlasting Restraints
+   | Change all orbs to Dark + Locked random skyfall +50% for 10 turns, Deal 120% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (13623:83) Silver Disk Divine Protection + Magic Staff's Sealing Power
+     | Reduce damage from all sources by 75% for 1 turn + Movetime 50% for 1 turn
+   | group:
+     | (13626:85) Breaking of a Taboo
+     | Change all orbs to Dark, Deal 300% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (13627:83) Condensed Moonlight + Guidance of the Cursed Poison
+     | Enemy recover 30% HP + Mortal Poison skyfall +20% for 5 turns
+   | group:
+   | condition: turn 2
+     | (13623:83) Silver Disk Divine Protection + Magic Staff's Sealing Power
+     | Reduce damage from all sources by 75% for 1 turn + Movetime 50% for 1 turn

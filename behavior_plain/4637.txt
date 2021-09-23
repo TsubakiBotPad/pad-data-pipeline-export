@@ -1,0 +1,69 @@
+#4637 - Fire Companion Dragon, Harnis
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDeathCry(69:10309) -> Special Dungeon Fire Dragon Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Harnis's appearance is changing|Help have been summoned
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESGravity(50:10301) -> Flare Drive
+Player -99% HP
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#10: ESRandomSpawn(92:10302) -> Flare Wing
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Fire orbs, Deal 100% damage
+
+#11: ESBombRandomSpawn(102:10303) -> Property Bombing
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Bomb orbs, Deal 60% damage
+
+#12: ESAttackMultihit(15:10304) -> Strike
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (3 hits, 40% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:10305) -> Raging
+	Increase damage to 200% for the next 99 turns
+	[1] ESBombRandomSpawn(102:10306) -> Property Bombing
+	Spawn 1 random Bomb orb
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:10308) -> Flare Rush
+Deal 240% damage (3 hits, 80% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

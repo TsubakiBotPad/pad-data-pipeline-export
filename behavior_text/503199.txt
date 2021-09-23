@@ -1,0 +1,25 @@
+#503199 - Kundali
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 503199
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (27068:130) This beach is ours!
+ | ATK -50% for 3 turns
+ group:
+ | group:
+   | (27072:98) Cross Dive
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (27069:83) Don't think you can win! + We won't let you have the treasure!
+     | Delay active skills by 1~2 turns + Reduce damage from all sources by 50% for 2 turns
+   | group:
+     | (27073:15) Take this!
+     | Deal 144% damage (8 hits, 18% each)

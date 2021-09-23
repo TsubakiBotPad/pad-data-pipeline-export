@@ -1,0 +1,52 @@
+#104443 - 悲しき力・ゼオン＆デュフォー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 104443
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10120:72) ゼオン耐性
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (10121:63) テオザケル
+ | Bind 2 random cards for 2 turns, Deal 105% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (10127:100) レード・ディラス・ザケルガ
+   | Seal the 1st row for 2 turns
+ | group:
+   | condition: 33% chance
+   | (10123:77) ソルド・ザケルガ
+   | Change the 3rd column to Light orbs and the 4th column to Jammer orbs, Deal 110% damage
+   | condition: 66% chance
+   | (10122:15) ザケルガ
+   | Deal 120% damage
+   | (10124:15) ザケル
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2 while HP > 29
+     | (10128:50) ラージア・ザケル
+     | Player -70% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (10126:92) ジャウロ・ザケルガ
+     | Spawn 11 random Light orbs, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (10125:15) ガンレイズ・ザケル
+     | Deal 128% damage (8 hits, 16% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (10129:17) お前らと遊ぶのは、もう飽きた
+     | Increase damage to 200% for the next 99 turns
+   | group:
+     | (10130:83) ジガディラス・ウル・ザケルガ + ZIGAAAAAAAAAA
+     | Change the 3rd and 4th columns to Light orbs + Deal 400% damage (8 hits, 50% each), Deal 400% damage (8 hits, 50% each)

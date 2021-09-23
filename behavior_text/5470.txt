@@ -1,0 +1,31 @@
+#5470 - 島田亜輝
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 5470
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14105:100) はしゃぎすぎじゃねェか？
+ | Seal the 1st row for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (14106:92) いじめるゾこのヤロォ！
+   | Spawn 5 random Water orbs, Deal 95% damage
+   | condition: 33% chance
+   | (14109:15) このくそっ！
+   | Deal 100% damage
+   | condition: 34% chance
+   | (14110:48) ウダウダやってるヒマはねェぞ！
+   | Change a random attribute to Dark orbs, Deal 90% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (14107:74) まだまだこれからだぜ
+   | Reduce damage from all sources by 50% for 3 turns
+ | group:
+ | condition: turn 2, hp <= 20
+   | (14108:88) おまえは俺に勝てねェよ
+   | Bind awoken skills for 1 turn

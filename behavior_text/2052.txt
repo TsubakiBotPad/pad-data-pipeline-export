@@ -1,0 +1,65 @@
+#2052 - Chaos
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2052
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2154:66) I will be reborn again here.
+ | Do nothing
+ group:
+ | group:
+   | condition: 40% chance
+   | (2101:48) Blaze
+   | Change a random attribute to Fire orbs, Deal 90% damage
+   | condition: 30% chance
+   | (2103:15) Flare
+   | Deal 140% damage
+   | condition: 10% chance
+   | (2102:50) Cyclone
+   | Player -70% HP
+   | condition: 20% chance
+   | (1:82) Disable Skill
+   | Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 69, hp <= 89
+   | (2155:79) Blizzaga
+   | Change the 1st and 5th rows to Water orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1 while HP > 49
+     | (2155:79) Blizzaga
+     | Change the 1st and 5th rows to Water orbs, Deal 100% damage
+   | group:
+     | condition: 30% chance, one time only
+     | (2157:86) Curaga
+     | Enemy recover 100% HP
+     | condition: 40% chance
+     | (2101:48) Blaze
+     | Change a random attribute to Fire orbs, Deal 90% damage
+     | condition: 30% chance
+     | (2103:15) Flare
+     | Deal 140% damage
+     | condition: 10% chance
+     | (2102:50) Cyclone
+     | Player -70% HP
+     | condition: 20% chance
+     | (1:82) Disable Skill
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (2131:17) Haste
+     | Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2
+     | condition: 30% chance
+     | (2157:86) Curaga
+     | Enemy recover 100% HP
+     | (2155:79) Blizzaga
+     | Change the 1st and 5th rows to Water orbs, Deal 100% damage

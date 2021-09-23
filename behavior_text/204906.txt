@@ -1,0 +1,79 @@
+#204906 - Stone Dracosnake of the Purewings, Quetzalcoatl
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 204906
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11577:72) Fire Water Halves
+ | Reduce damage from Fire and Water attrs by 50%
+ type: PREEMPT
+ | (11578:83) It starts creating a gust + It spun a whirlwind around itself + The wind obstructs attacks
+ | Voids status ailments for 999 turns + Void damage >= 15,000,000 for 3 turns + Absorb damage when combos <= 7 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 33% chance
+     | (11583:83) Blazing Cyclone + Aero Feather
+     | Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs + Lock 15 random orbs, Deal 100% damage
+     | condition: 34% chance
+     | (11589:83) Whirling Tornado + Burst Wing
+     | Bind 3 random cards for 1 turn + Deal 111% damage (3 hits, 37% each), Deal 111% damage (3 hits, 37% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | condition: 33% chance
+     | (11583:83) Blazing Cyclone + Aero Feather
+     | Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs + Lock 15 random orbs, Deal 100% damage
+     | condition: 33% chance
+     | (11586:83) Stormy Hurricane + Storm Blast
+     | Bind awoken skills for 1 turn + Player -99% HP
+     | condition: 34% chance
+     | (11589:83) Whirling Tornado + Burst Wing
+     | Bind 3 random cards for 1 turn + Deal 111% damage (3 hits, 37% each), Deal 111% damage (3 hits, 37% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (11592:83) Wind Mischief + Wind Follower + The wind died down
+     | Leader changes to random sub for 3 turns + Reduce damage from all sources by 50% for 3 turns + Do nothing
+   | group:
+   | condition: execute repeatedly, turn 3-4 of 6
+     | condition: 33% chance
+     | (11595:48) Breeze Mist
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 33% chance
+     | (11596:92) Fire Storm
+     | Spawn 4 random Fire and Wood orbs, Deal 105% damage
+     | condition: 34% chance
+     | (11597:15) Climatic Gale
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (11582:83) It spun a whirlwind around itself + The wind obstructs attacks
+     | Void damage >= 15,000,000 for 3 turns + Absorb damage when combos <= 7 for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | condition: 33% chance
+     | (11583:83) Blazing Cyclone + Aero Feather
+     | Spawn 5 random Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison orbs + Lock 15 random orbs, Deal 100% damage
+     | condition: 33% chance
+     | (11586:83) Stormy Hurricane + Storm Blast
+     | Bind awoken skills for 1 turn + Player -99% HP
+     | condition: 34% chance
+     | (11589:83) Whirling Tornado + Burst Wing
+     | Bind 3 random cards for 1 turn + Deal 111% damage (3 hits, 37% each), Deal 111% damage (3 hits, 37% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (11598:83) Wind Eraser + Deaerate + Dust Storm
+   | Voids player buff effects + Delay active skills by 5 turns + Specific orbs change every 1.0s for 5 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (11601:83) Against the Wind + Burst of Rage
+     | Movetime 50% for 10 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | (11604:83) Molting + Aero Burst End
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 500% damage (5 hits, 100% each), Deal 500% damage (5 hits, 100% each)

@@ -1,0 +1,64 @@
+#103547 - Alt. Crescent Moon Wisedragon, Diena
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 103547
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (12119:72) Diena Dk Wd Halved
+ | Reduce damage from Wood and Dark attrs by 50%
+ type: PREEMPT
+ | (12118:83) Abnormal Dimension + Terror + Impurity
+ | Voids status ailments for 10 turns + Spawn 5 random locked Bomb orbs + Spawn 3 random Jammer and Mortal Poison orbs
+ group:
+ | group:
+ | condition: when hp is full
+   | group:
+   | condition: turn 1 while HP > 4
+     | condition: when required attributes on board
+     | (6969:92) Arced Horn of Truth
+     | Change all Jammer and Mortal Poison orbs to Dark orbs, Deal 1,200% damage
+     | (6972:83) Orb Rust + Distortion Field
+     | Seal the 6th column for 5 turns + Absorb damage when combos <= 5 for 5 turns
+   | group:
+     | (7024:68) Curse Invasion
+     | Mortal Poison skyfall +25% for 1 turn, Deal 2,400% damage
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: execute repeatedly, turn 1-4 of 5
+     | condition: 20% chance
+     | (6973:98) Eclipse Touch
+     | Blind orbs in specific positions for 1 turn, Deal 300% damage
+     | condition: 20% chance
+     | (6974:98) Eclipse Touch
+     | Blind orbs in specific positions for 1 turn, Deal 300% damage
+     | condition: 6% chance
+     | (6975:39) Time Mixup
+     | Movetime -1s for 1 turn, Deal 300% damage
+     | condition: 6% chance
+     | (6976:39) Time Mixup
+     | Movetime -2s for 1 turn, Deal 300% damage
+     | condition: 6% chance
+     | (6977:39) Time Mixup
+     | Movetime -3s for 1 turn, Deal 300% damage
+     | condition: 6% chance
+     | (6978:39) Time Mixup
+     | Movetime 50% for 1 turn, Deal 300% damage
+     | condition: 6% chance
+     | (6979:39) Time Mixup
+     | Movetime 150% for 1 turn, Deal 300% damage
+     | condition: 30% chance
+     | (6980:15) Wonder Bolt
+     | Deal 350% damage (7 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 5
+     | (6983:83) Shadow Wall + Wicked
+     | Reduce damage from all sources by 75% for 5 turns + Increase damage to 150% for the next 4 turns
+ | group:
+ | condition: hp <= 4
+   | (6984:68) Curse Invasion
+   | Mortal Poison skyfall +25% for 1 turn, Deal 2,400% damage

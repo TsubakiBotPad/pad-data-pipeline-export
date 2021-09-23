@@ -1,0 +1,30 @@
+#1309 - Golden Fox Spirit, Wolyafa
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 1309
+approved: False
+
+level: 5
+ group:
+ | group:
+ | condition: always turn 1
+   | (1051:14) Wide Silence
+   | Bind active skills for 3 turns
+ | group:
+ | condition: hp <= 74
+   | condition: 70% chance
+   | (1049:15) Rush Attack
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1050:50) Hammerfall
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 70% chance
+     | (1049:15) Rush Attack
+     | Deal 120% damage (3 hits, 40% each)

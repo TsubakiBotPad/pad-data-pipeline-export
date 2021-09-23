@@ -1,0 +1,42 @@
+#2409 - Mysterious Guest, Laila
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:20290) -> I'll have some fun tonight!
+	Absorb Light damage for 10 turns
+	[1] ESSkillDelay(89:20291) -> Why don't you relax a bit
+	Delay active skills by 3~5 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 9
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESOrbLock(94:20292) -> Binding Web
+Condition: 33% chance (ai:0 rnd:33)
+Lock all Dark orbs, Deal 105% damage
+
+#6: ESSpinnersRandom(109:20293) -> Fluctuating Flame Lantern
+Condition: 33% chance (ai:0 rnd:33)
+Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#7: ESRandomSpawn(92:20294) -> Midnight Spell
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 5 random Dark orbs, Deal 95% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:20295) -> That was fun!
+Deal 500% damage (5 hits, 100% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

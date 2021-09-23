@@ -1,0 +1,57 @@
+#100187 - Alt. Zeus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESOrbLock(94:4758) -> Supercell
+	Lock 20 random orbs
+	[1] ESStatusShield(20:4757) -> King of Gods' Majesty
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:4760) -> Super Nova
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 250% damage (10 hits, 25% each)
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESPoisonChangeRandomAttack(64:4771) -> Poison Lightning
+	Change 6 random orbs to Poison orbs, Deal 50% damage
+	[1] ESOrbLock(94:4772) -> Constrain
+	Lock all Mortal Poison orbs
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#9: ESAttackMultihit(15:4761) -> Lightning of God
+Condition: 50% chance when < 75% HP (ai:50 rnd:0)
+Deal 150% damage
+
+#10: ESOrbChangeAttack(48:4763) -> Tera Bolt
+Condition: 30% chance (ai:30 rnd:0)
+Change all Heal orbs to Jammer orbs, Deal 70% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESBindTyping(3:4762) -> Glare of Zeus
+Bind God cards for 2~4 turns

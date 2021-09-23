@@ -1,0 +1,33 @@
+#4100 - Athena Asamiya
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4100
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19677:97) Here comes Athena Asamiya!
+ | Blind random 4 orbs for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (19680:53) Psycho Reflector
+     | Absorb Dark damage for 3 turns
+   | group:
+     | condition: 50% chance
+     | (19678:92) Psycho Ball!
+     | Spawn 2 random Light and Dark orbs, Deal 98% damage
+     | (19679:15) Take this!
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (19681:17) Hiyah!
+     | Increase damage to 150% for the next 4 turns
+   | group:
+     | (19682:48) Crystal Shoot
+     | Change a random attribute to Dark orbs, Deal 95% damage

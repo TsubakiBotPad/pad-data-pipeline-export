@@ -1,0 +1,62 @@
+#304052 - Guard Bow Steel Star God, Australis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbThreshold(87:24529) -> Steel Star God's Protection
+	Absorb damage when damage >= 1,000,000,000 for 3 turns
+	[1] ESBoardChangeAttackBits(85:24530) -> Star Wake - Dust
+	Change all orbs to Heal, Jammer, and Poison, Deal 130% damage
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 12
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 10
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 14
+
+#7: ESOrbChangeAttack(48:24531) -> Rui Fulgor
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:24532) -> Radius
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:24533) -> Al'abad Shihab
+Deal 500% damage (5 hits, 100% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESChangeAttribute(46:24401) -> Iridescent Shine
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:24402) -> Radiant Flash
+	Deal 1,000% damage (5 hits, 200% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBlind62(62:24603) -> Sama' Bani
+Blind all orbs on the board, Deal 300% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:24604) -> Light & Dark Halved
+Reduce damage from Light and Dark attrs by 50%

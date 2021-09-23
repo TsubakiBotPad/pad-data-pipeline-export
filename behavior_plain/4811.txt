@@ -1,0 +1,178 @@
+#4811 - Brilliance Crafting Dragonbound, Chuan
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:11234) -> Oh, welcome to my shop
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:11235) -> You're the one doing errands huh?
+	Reduce damage from all sources by 75% for 1 turn
+	[2] ESVoidShield(71:11236) -> Show me the result of your errand
+	Void damage >= 50,000,000 for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 10
+
+#9: SkillSet:
+	[0] ESSkyfall(68:11238) -> You're just a small-fry
+	Jammer and Poison skyfall +10% for 99 turns
+	[1] ESSpinnersFixed(110:11239) -> Well, try your best!
+	Specific orbs change every 1.0s for 99 turns
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESDamageShield(74:11241) -> You're doing quite well
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESSkillDelay(89:11242) -> This is fine, right?
+	Delay active skills by 10 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 42
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 36
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 30
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 24
+
+#17: ESOrbLock(94:11243) -> Viscid Dragon
+Condition: 16% chance (ai:0 rnd:16)
+Lock 15 random orbs, Deal 100% damage
+
+#18: ESAttackMultihit(15:11244) -> Snappy
+Condition: 16% chance (ai:0 rnd:16)
+Deal 105% damage (3 hits, 35% each)
+
+#19: ESOrbChangeAttack(48:11245) -> Colorful Palette
+Condition: 17% chance (ai:0 rnd:17)
+Change a random attribute to Dark orbs, Deal 100% damage
+
+#20: ESDebuffMovetime(39:11246) -> Cracked Hourglass
+Condition: 17% chance (ai:0 rnd:17)
+Movetime -4s for 1 turn, Deal 95% damage
+
+#21: ESBombRandomSpawn(102:11247) -> Dangerous Tools
+Condition: 17% chance (ai:0 rnd:17)
+Spawn 5 random Bomb orbs, Deal 100% damage
+
+#22: ESBindRandom(1:11248) -> Welding
+Condition: 17% chance (ai:0 rnd:17)
+Bind 3 random cards for 2 turns, Deal 95% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#26: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 28
+
+#27: SkillSet:
+	[0] ESGravity(50:11250) -> It huuurts!
+	Player -50% HP
+	[1] ESRandomSpawn(92:11251) -> Eat this!
+	Spawn 10 random Mortal Poison orbs
+
+#28: SkillSet:
+	[0] ESGravity(50:11250) -> It huuurts!
+	Player -50% HP
+	[1] ESAbsorbCombo(67:11253) -> How about this?
+	Absorb damage when combos <= 7 for 99 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 17
+
+#31: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#32: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 34
+
+#33: SkillSet:
+	[0] ESGravity(50:11255) -> It huuurts!
+	Player -75% HP
+	[1] ESRandomSpawn(92:11256) -> Drown!
+	Spawn 20 random Mortal Poison orbs
+
+#34: SkillSet:
+	[0] ESGravity(50:11255) -> It huuurts!
+	Player -75% HP
+	[1] ESBindAwoken(88:11258) -> You won't have me again
+	Bind awoken skills for 3 turns
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 17
+
+#37: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#38: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 40
+
+#39: SkillSet:
+	[0] ESGravity(50:11260) -> It huuurts!
+	Player -99% HP
+	[1] ESRandomSpawn(92:11261) -> Sink!
+	Change all orbs to Mortal Poison
+
+#40: SkillSet:
+	[0] ESGravity(50:11260) -> It huuurts!
+	Player -99% HP
+	[1] ESAbsorbAttribute(53:11263) -> Is it over already?
+	Absorb Light and Dark damage for 99 turns
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 44
+
+#43: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#44: ESAttackMultihit(15:11264) -> Right, good job!
+Deal 3,000% damage (3 hits, 1,000% each)
+
+#45: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#46: SkillSet:
+	Condition: On death (ai:0 rnd:0)

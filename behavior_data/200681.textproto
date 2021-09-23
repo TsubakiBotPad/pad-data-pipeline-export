@@ -1,0 +1,46 @@
+  monster_id: 200681
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+        trigger_turn: 1
+      }
+      children {
+        behavior {
+          enemy_skill_id: 278
+        }
+      }
+    }
+  }
+  levels {
+    level: 3
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 278
+            }
+          }
+        }
+      }
+      children {
+        group {
+          children {
+            behavior {
+              enemy_skill_id: 279
+            }
+          }
+        }
+      }
+    }
+  }

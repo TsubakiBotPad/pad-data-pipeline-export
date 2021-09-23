@@ -1,0 +1,48 @@
+#3931 - Curse Inclined Dragon Caller, Ideal
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3931
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 3942, 3943 on team
+ | (13916:83) ... What is this feeling? + Eliminating Targets
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 3 turns
+ | (13915:83) Intruders Detected + Eliminating Targets
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 50% chance
+     | (13922:94) Shield Chain
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (13923:15) Absolute Destruction
+     | Deal 120% damage (6 hits, 20% each)
+   | group:
+   | condition: turn 3 while HP > 49
+     | (13924:15) Glorious Anihilation
+     | Deal 500% damage (5 hits, 100% each)
+   | group:
+   | condition: turn 4 while HP > 49
+     | (13920:83) Destroy + Summoning Dragon's Guidance
+     | Absorb damage when combos <= 7 for 5 turns + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (13922:94) Shield Chain
+     | Lock 15 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (13923:15) Absolute Destruction
+     | Deal 120% damage (6 hits, 20% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (13920:83) Destroy + Summoning Dragon's Guidance
+   | Absorb damage when combos <= 7 for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (13924:15) Glorious Anihilation
+   | Deal 500% damage (5 hits, 100% each)

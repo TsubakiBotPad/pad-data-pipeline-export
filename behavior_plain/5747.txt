@@ -1,0 +1,129 @@
+#5747 - Awoken Aife
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(33:23) -> ESBranchLevel
+Branch on level <= 5, target rnd 23
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAttributeBlock(107:19104) -> Heart Eraser
+	Unable to match Heal orbs for 3 turns
+	[1] ESVoidShield(71:19105) -> Blue Sword Flow Dance
+	Void damage >= 20,000,000 for 999 turns
+	[2] ESOrbLock(94:19114) -> Whirling Cold Blade
+	Lock all orbs, Deal 97% damage
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#6: ESBoardChangeAttackBits(85:19115) -> Drifting Ice Waltz
+Condition: 30% chance (ai:0 rnd:30)
+Change all orbs to Water, Wood, and Light, Deal 100% damage
+
+#7: ESChangeAttribute(46:19116) -> Blue Shearing Wave Sword
+Condition: 35% chance (ai:0 rnd:35)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 95% damage
+
+#8: ESOrbLock(94:19114) -> Whirling Cold Blade
+Condition: 35% chance (ai:0 rnd:35)
+Lock all orbs, Deal 97% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:19108) -> Against the Odds
+	Bind awoken skills for 5 turns
+	[1] ESSkillDelay(89:19107) -> Skill Release
+	Delay active skills by 10 turns
+	[2] ESGravity(50:19109) -> Aqua Impact
+	Player -1,000% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESGravity(50:19109) -> Aqua Impact
+Player -1,000% HP
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:19112) -> Warrior Goddess' Barrier
+	Reduce damage from all sources by 75% for 999 turns
+	[1] ESDebuffMovetime(39:19111) -> Time Division
+	Movetime -4s for 99 turns
+	[2] ESBoardChangeAttackBits(85:19059) -> Drifting Ice Waltz
+	Change all orbs to Water, Wood, and Light, Deal 200% damage
+
+#17: ESAttributeBlock(107:19127) -> Fire Eraser
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 1 turn, Deal 100% damage
+
+#18: ESAttributeBlock(107:19128) -> Aqua Eraser
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 1 turn, Deal 100% damage
+
+#19: ESAttributeBlock(107:19129) -> Tree Eraser
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 1 turn, Deal 100% damage
+
+#20: ESAttributeBlock(107:19130) -> Light Eraser
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 1 turn, Deal 100% damage
+
+#21: ESAttributeBlock(107:19131) -> Dark Eraser
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAttributeBlock(107:19150) -> Heart Eraser
+	Unable to match Heal orbs for 1 turn
+	[1] ESVoidShield(71:19151) -> Blue Sword Flow Dance
+	Void damage >= 20,000,000 for 999 turns
+	[2] ESOrbLock(94:19152) -> Whirling Cold Blade
+	Lock all orbs, Deal 97% damage
+
+#24: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#25: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#26: ESBoardChangeAttackBits(85:19115) -> Drifting Ice Waltz
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Water, Wood, and Light, Deal 100% damage
+
+#27: ESChangeAttribute(46:19116) -> Blue Shearing Wave Sword
+Condition: 33% chance (ai:0 rnd:33)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 95% damage
+
+#28: ESOrbLock(94:19114) -> Whirling Cold Blade
+Condition: 34% chance (ai:0 rnd:34)
+Lock all orbs, Deal 97% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESResolve(73:19102) -> Resolve
+Survive attacks with 1 HP when HP > 50%

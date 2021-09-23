@@ -1,0 +1,24 @@
+#1527 - High Water Ninja
+monster size: 4
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:1530) -> Ninpo - Hide in Mist
+Absorb Dark damage for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindAttack(63:1531) -> Alluring Technique
+Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind 3 random subs for 1~2 turns, Deal 50% damage

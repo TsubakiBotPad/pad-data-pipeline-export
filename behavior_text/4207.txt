@@ -1,0 +1,27 @@
+#4207 - Valentine Azure Princess, Carat
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4207
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21926:83) Hey, let's eat together! + Try my yummy sweets!
+ | Locked random skyfall +50% for 5 turns + Lock 15 random orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (21930:97) Have some chocolates
+   | Blind random 4~6 orbs for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (21929:92) Have some cookies
+   | Spawn 4 random Fire orbs, Deal 90% damage
+   | condition: 34% chance
+   | (21931:15) Have a star
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (21932:15) Do you want more?
+   | Deal 200% damage (2 hits, 100% each)

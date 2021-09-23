@@ -1,0 +1,37 @@
+#6687 - Hexing Straw Snake, Nakoja
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESMaxHPChange(111:20777) -> Hexing Hour
+	Change player HP to 500,000 for 5 turns
+	[1] ESSkillDelay(89:20778) -> Cursed Seal
+	Delay active skills by 5 turns
+
+#3: ESAttackMultihit(15:20693) -> Grudge Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 1,000% damage
+
+#4: ESAttackMultihit(15:20694) -> Grudge Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 1,500% damage
+
+#5: ESAttackMultihit(15:20695) -> Grudge Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 2,000% damage
+
+#6: ESAttackMultihit(15:20696) -> Grudge Strike
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 2,500% damage
+
+#7: ESAttackMultihit(15:20697) -> Grudge Strike
+Deal 3,000% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

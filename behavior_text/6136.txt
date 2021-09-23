@@ -1,0 +1,33 @@
+#6136 - Overseer, Kirei Kotomine
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 6136
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19583:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19576:83) I'm jealous of you all. + Both of us are short on time.
+ | Voids status ailments for 999 turns + Void damage >= 15,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (19579:89) Gaaah!
+     | Delay active skills by 2~4 turns, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (19578:85) Hmph.
+     | Change all orbs to Dark, Jammer, and Poison, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (19584:83) I simply feel bliss in others' misfortune. + You shall fulfill your obligations.
+   | Random 4 orbs change every 0.5s for 5 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (19585:85) Hmph.
+   | Change all orbs to Dark, Jammer, and Poison, Deal 400% damage

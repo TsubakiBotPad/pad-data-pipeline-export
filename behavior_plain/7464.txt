@@ -1,0 +1,94 @@
+#7464 - Monstrous Leopard, Legarovan
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:25807) -> Fire Aura
+	Voids status ailments for 99 turns
+	[1] ESAbsorbThreshold(87:25773) -> Roaring Hot Wind
+	Absorb damage when damage >= 100,000,000 for 2 turns
+	[2] ESDamageShield(74:25817) -> Lava Barrier
+	Reduce damage from all sources by 75% for 1 turn
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:25828) -> Huge Lava Barrier
+	Reduce damage from all sources by 99% for 99 turns
+	[1] ESBindAwoken(88:25775) -> Swirling Flames
+	Bind awoken skills for 1 turn
+	[2] ESBlindStickyRandom(97:25776) -> Billowing Black Smoke
+	Blind all orbs for 1 turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:25808) -> Fierce Flames' Protection
+	Enemy recover 100% HP
+	[1] ESAttackMultihit(15:25781) -> Volcano Claw
+	Deal 75% damage (3 hits, 25% each)
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 11
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#7: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESRandomSpawn(92:25780) -> Volcano Bomb
+	Spawn 3 random Jammer, Poison, and Mortal Poison orbs
+	[1] ESAttackMultihit(15:25823) -> Volcano Claw
+	Deal 90% damage (3 hits, 30% each)
+
+#8: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESVoidShield(71:25816) -> Volcano Wall
+	Void damage >= 10,000,000 for 1 turn
+	[1] ESAttackMultihit(15:25781) -> Volcano Claw
+	Deal 75% damage (3 hits, 25% each)
+
+#9: SkillSet:
+	[0] ESAbsorbCombo(67:25820) -> Fire Protection
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESAttackMultihit(15:25781) -> Volcano Claw
+	Deal 75% damage (3 hits, 25% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:25775) -> Swirling Flames
+	Bind awoken skills for 1 turn
+	[1] ESBlindStickyRandom(97:25776) -> Billowing Black Smoke
+	Blind all orbs for 1 turn
+	[2] ESDispel(6:25777) -> Invitation Into the Inferno
+	Voids player buff effects
+
+#12: ESAttackMultihit(15:25778) -> Volcano Tackle
+Deal 560% damage (7 hits, 80% each)
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESAttackUPRemainingEnemies(17:25830) -> Magma Energy
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 99 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESDeathCry(69:25783) -> Evolution
+Condition: On death (ai:0 rnd:0)
+Show message: BOOOOOOOOM!!|Its power swells with the volcano's eruption...
+
+#18: ESSuperResolve(129:25818) -> Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified

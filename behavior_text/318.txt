@@ -1,0 +1,26 @@
+#318 - Wood Mech Warrior, Asgard
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 318
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (157:16) Wait and See
+   | Do nothing
+ | group:
+ | condition: turn 2, hp <= 39
+   | (158:17) Overdrive
+   | Increase damage to 150% for the next 15 turns
+
+level: 7
+ type: PREEMPT
+ | (2598:50) High Pressure
+ | Player -99% HP
+ group:
+ | (2601:92) Asgard Gale
+ | Spawn 5 random Wood orbs, Deal 100% damage

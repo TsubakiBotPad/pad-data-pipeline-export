@@ -1,0 +1,47 @@
+#2743 - Reincarnated Chaos Dragon Knight, Voice
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 3)
+	[0] ESAbsorbAttribute(53:4833) -> Infernal Dragon Knight's Soul
+	Absorb Dark damage for 4 turns
+	[1] ESColumnSpawnMulti(77:4834) -> Darkness Scythe
+	Change the 5th column to Dark orbs, Deal 50% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:4838) -> Chaos Prominence
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 800% damage (8 hits, 100% each)
+
+#7: ESBindAttribute(2:4839) -> Abyss Cage
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Bind Dark cards for 5~10 turns
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 11
+
+#9: ESOrbChangeAttack(48:4837) -> Erosion
+Change a random attribute to Dark orbs, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:4836) -> Soul Spirit
+Deal 200% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

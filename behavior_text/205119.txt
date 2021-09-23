@@ -1,0 +1,137 @@
+#205119 - Righteous Warblade, Qilin
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 205119
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (12352:119) Okay, let's go!
+ | Immune to damage from all sources for 999 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (12353:15) Light Sword Dance Strike
+   | Deal 68% damage (4 hits, 17% each)
+   | condition: 33% chance
+   | (12354:50) Hah!!
+   | Player -77% HP
+   | condition: 34% chance
+   | (12355:89) Double Sword Wave
+   | Delay active skills by 0~2 turns, Deal 60% damage
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (12371:105) Here I come!
+   | RCV 50% for 10 turns
+ | group:
+ | condition: turn 1 while HP > 24, hp <= 49
+   | (12373:39) I'm hungry...
+   | Movetime 50% for 5 turns
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: always turn 1
+     | (12376:89) I won't forgive you anymore!
+     | Delay active skills by 12 turns
+   | group:
+     | condition: 50% chance
+     | (12356:74) Protective Impact
+     | Reduce damage from all sources by 50% for 1 turn, Deal 65% damage
+     | condition: 33% chance
+     | (12353:15) Light Sword Dance Strike
+     | Deal 68% damage (4 hits, 17% each)
+     | condition: 33% chance
+     | (12354:50) Hah!!
+     | Player -77% HP
+     | condition: 34% chance
+     | (12355:89) Double Sword Wave
+     | Delay active skills by 0~2 turns, Deal 60% damage
+ | group:
+ | condition: hp <= 10
+   | (12379:15) Strong Blade Boisterous Dance
+   | Deal 1,000% damage (10 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (12357:83) Okay, get ready to rumble! + Now I'm serious! + Are you ready?
+   | Remove damage immunity effect + Voids status ailments for 999 turns + Void damage >= 25,000,000 for 999 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-6 of 7
+     | condition: 33% chance
+     | (12364:83) Light Sword Dance Strike + Immovable Flash
+     | Deal 68% damage (4 hits, 17% each) + Lock 12 random orbs, Deal 68% damage (4 hits, 17% each)
+     | condition: 33% chance
+     | (12365:83) Light Sword Dance Strike + Dark Strike
+     | Deal 68% damage (4 hits, 17% each) + Blind random 7 orbs for 1 turn, Deal 68% damage (4 hits, 17% each)
+     | condition: 34% chance
+     | (12366:83) Light Sword Dance Strike + Furious Cut
+     | Deal 68% damage (4 hits, 17% each) + Random 2 orbs change every 1.0s for 1 turn, Deal 68% damage (4 hits, 17% each)
+   | group:
+   | condition: execute repeatedly, turn 7 of 7
+     | (12361:83) Destructive Fighting Spirit + Seven-Star Regeneration
+     | Bind awoken skills for 5 turns + Enemy ally recover 100% HP
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 2 while HP > 49
+     | (12370:83) Here I come! + Hah!!
+     | RCV 50% for 10 turns + Player -77% HP
+   | group:
+   | condition: execute repeatedly, turn 1-5 of 7
+     | condition: 33% chance
+     | (12364:83) Light Sword Dance Strike + Immovable Flash
+     | Deal 68% damage (4 hits, 17% each) + Lock 12 random orbs, Deal 68% damage (4 hits, 17% each)
+     | condition: 33% chance
+     | (12365:83) Light Sword Dance Strike + Dark Strike
+     | Deal 68% damage (4 hits, 17% each) + Blind random 7 orbs for 1 turn, Deal 68% damage (4 hits, 17% each)
+     | condition: 34% chance
+     | (12366:83) Light Sword Dance Strike + Furious Cut
+     | Deal 68% damage (4 hits, 17% each) + Random 2 orbs change every 1.0s for 1 turn, Deal 68% damage (4 hits, 17% each)
+   | group:
+   | condition: execute repeatedly, turn 6 of 7
+     | (12361:83) Destructive Fighting Spirit + Seven-Star Regeneration
+     | Bind awoken skills for 5 turns + Enemy ally recover 100% HP
+   | group:
+   | condition: execute repeatedly, turn 7 of 7
+     | condition: 33% chance
+     | (12364:83) Light Sword Dance Strike + Immovable Flash
+     | Deal 68% damage (4 hits, 17% each) + Lock 12 random orbs, Deal 68% damage (4 hits, 17% each)
+     | condition: 33% chance
+     | (12365:83) Light Sword Dance Strike + Dark Strike
+     | Deal 68% damage (4 hits, 17% each) + Blind random 7 orbs for 1 turn, Deal 68% damage (4 hits, 17% each)
+     | condition: 34% chance
+     | (12366:83) Light Sword Dance Strike + Furious Cut
+     | Deal 68% damage (4 hits, 17% each) + Random 2 orbs change every 1.0s for 1 turn, Deal 68% damage (4 hits, 17% each)
+ | group:
+ | condition: turn 2 while HP > 24, hp <= 49
+   | (12372:83) I'm hungry... + Chomp!
+   | Movetime 50% for 5 turns + Voids player buff effects
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: always turn 2
+     | (12375:83) I won't forgive you anymore! + Chomp!
+     | Delay active skills by 12 turns + Voids player buff effects
+   | group:
+   | condition: execute repeatedly, turn 1-6 of 7
+     | condition: 33% chance
+     | (12364:83) Light Sword Dance Strike + Immovable Flash
+     | Deal 68% damage (4 hits, 17% each) + Lock 12 random orbs, Deal 68% damage (4 hits, 17% each)
+     | condition: 33% chance
+     | (12365:83) Light Sword Dance Strike + Dark Strike
+     | Deal 68% damage (4 hits, 17% each) + Blind random 7 orbs for 1 turn, Deal 68% damage (4 hits, 17% each)
+     | condition: 34% chance
+     | (12366:83) Light Sword Dance Strike + Furious Cut
+     | Deal 68% damage (4 hits, 17% each) + Random 2 orbs change every 1.0s for 1 turn, Deal 68% damage (4 hits, 17% each)
+   | group:
+   | condition: execute repeatedly, turn 7 of 7
+     | (12361:83) Destructive Fighting Spirit + Seven-Star Regeneration
+     | Bind awoken skills for 5 turns + Enemy ally recover 100% HP
+ | group:
+ | condition: hp <= 10
+   | (12377:83) Changing Armor + Strong Blade Boisterous Dance
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)

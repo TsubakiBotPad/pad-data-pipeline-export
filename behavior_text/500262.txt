@@ -1,0 +1,22 @@
+#500262 - Flame Chimera
+monster size: 2
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 500262
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (23335:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (23341:106) !
+ | Enemy turn counter change to 1 when HP <= 50%
+ group:
+ | group:
+   | (23254:15) Frolic
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | (23336:40) They wander off somewhere...
+   | Reduce self HP to 0

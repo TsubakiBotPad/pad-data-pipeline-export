@@ -1,0 +1,56 @@
+#302543 - Shinto Shrine's Dragon Knight, Himiko
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 302543
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3671:55) Happy New Year ☆
+ | Player recover 100% HP
+
+level: 4
+ type: PREEMPT
+ | (3671:55) Happy New Year ☆
+ | Player recover 100% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 1362, 1363, 1364, 1365 on team
+     | (3688:92) May thee have a great one!
+     | Spawn 3 random Heal orbs
+     | condition: 50% chance
+     | (3674:79) Omikuji Blizzard
+     | Change the 1st, 3rd, and 5th rows to Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 130% damage
+     | (3684:15) Clay TAMADRA Multi Throw
+     | Deal 150% damage (3 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (3685:77) Fantastic Yamatai
+     | Change the 1st and 6th columns to Fire orbs, Deal 130% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 50% chance
+     | (3674:79) Omikuji Blizzard
+     | Change the 1st, 3rd, and 5th rows to Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 130% damage
+     | (3684:15) Clay TAMADRA Multi Throw
+     | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | condition: when 1362, 1363, 1364, 1365 on team
+   | (3688:92) May thee have a great one!
+   | Spawn 3 random Heal orbs
+   | (3675:74) Power of Magatama
+   | Reduce damage from all sources by 50% for 1 turn
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (3673:66) okimiH suineG etuC
+     | Do nothing
+   | group:
+     | (3686:50) Huge Clay TAMADRA Press
+     | Player -150% HP

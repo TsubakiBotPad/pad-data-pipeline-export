@@ -1,0 +1,113 @@
+#103597 - Alt. Dark Winged Machine, Demonius
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDeathCry(69:15309) -> ＿Demonius Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: Parts fall from the heavens|Demonius and the parts 
+are combining
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: SkillSet:
+	[0] ESStatusShield(20:15304) -> Hell Armor
+	Voids status ailments for 999 turns
+	[1] ESBombFixedSpawn(103:15305) -> Demon Flare
+	Spawn locked Bomb orbs in the specified positions
+	[2] ESSkyfallLocked(96:15306) -> Chaos Field
+	Locked random skyfall +100% for 1 turn
+	[3] ESGravity(50:15307) -> Darkness Wave
+	Player -100% HP
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:6678) -> Cell Proliferate
+	Enemy recover 51% HP
+	[1] ESAttackUPRemainingEnemies(17:6675) -> Helter-Skelter
+	Increase damage to 200% for the next 999 turns
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESFixedStart(101:6664) -> Energy Ray
+Fix orb movement starting point to random position on the board, Deal 200% damage
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#12: ESDebuffMovetime(39:6666) -> Black Metal Glare
+Condition: One-time use (ai:0 rnd:15) (cost: 2)
+Movetime -2s for 2 turns, Deal 130% damage
+
+#13: ESSkillDelay(89:6667) -> Suppression Pulse
+Condition: One-time use (ai:0 rnd:15) (cost: 2)
+Delay active skills by 2 turns, Deal 130% damage
+
+#14: ESBombRandomSpawn(102:6665) -> Evil Bomb
+Condition: 70% chance (ai:0 rnd:70)
+Spawn 3 random Bomb orbs, Deal 130% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: SkillSet:
+	Condition: When < 50% HP (ai:100 rnd:0)
+	[0] ESAbsorbCombo(67:6668) -> Trauma Dimension
+	Absorb damage when combos <= 5 for 999 turns
+	[1] ESSkyfall(68:6669) -> Jamming
+	Jammer skyfall +20% for 10 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttackMultihit(15:6676) -> Limit Break
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 6,000% damage (3 hits, 2,000% each)
+
+#21: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 2)
+	[0] ESSkillDelay(89:6672) -> Suppression Pulse
+	Delay active skills by 2 turns
+	[1] ESAttackMultihit(15:6673) -> Dead Wing
+	Deal 210% damage (3 hits, 70% each)
+
+#22: SkillSet:
+	Condition: One-time use (ai:0 rnd:20) (cost: 2)
+	[0] ESDebuffMovetime(39:6671) -> Black Metal Glare
+	Movetime -2s for 2 turns
+	[1] ESBindAttack(63:6674) -> Paralysis Dart
+	Bind 1 random card for 3 turns, Deal 180% damage
+
+#23: ESBombRandomSpawn(102:6683) -> Evil Bomb
+Condition: 60% chance (ai:0 rnd:60)
+Spawn 3 random Bomb orbs, Deal 160% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESAttributeResist(72:6677) -> Robo Light halved
+Reduce damage from Light attrs by 50%
+
+#26: ESResolve(73:6680) -> Robo Resovle
+Survive attacks with 1 HP when HP > 50%

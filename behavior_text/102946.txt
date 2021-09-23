@@ -1,0 +1,51 @@
+#102946 - Alt. Gleaming Queen, Hera-Sowilo
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 102946
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8254:73) Alt. Hera Normal Resolve
+ | Survive attacks with 1 HP when HP > 90%
+ type: PREEMPT
+ | (8090:83) Gleaming Queen's Whisper + Protection of the Gods
+ | Bind awoken skills for 7 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (8091:63) Bolt Arrow
+   | Bind 1 random sub for 10 turns, Deal 400% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 60% chance
+     | (8093:48) Shine Blast
+     | Change all Dark orbs to Light orbs, Deal 280% damage
+     | (8094:39) Resting Pulse
+     | Movetime -1s for 1 turn, Deal 280% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 60% chance
+     | (8093:48) Shine Blast
+     | Change all Dark orbs to Light orbs, Deal 280% damage
+     | (8095:15) Shine Wave
+     | Deal 300% damage (2 hits, 150% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (8096:67) Gleaming Queen's Trial
+     | Absorb damage when combos <= 8 for 8 turns
+   | group:
+   | condition: turns 3-9
+     | (8097:101) Gleaming Chains
+     | Fix orb movement starting point to random position on the board, Deal 300% damage
+   | group:
+     | (8100:83) Sorry + Gleaming Queen's Judgment
+     | Player -99% HP + Deal 15,000% damage (5 hits, 3,000% each), Deal 15,000% damage (5 hits, 3,000% each)
+ type: UNKNOWN_USE
+ | (8092:63) Bolt Arrow
+ | Bind both leaders for 10 turns, Deal 400% damage

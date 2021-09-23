@@ -1,0 +1,49 @@
+#102008 - Alt. Awoken Sphinx
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:8224) -> Tactical Defense Formation
+Absorb damage when combos <= 7 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:1995) -> Wrathful Charge
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 1,200% damage (12 hits, 100% each)
+
+#7: ESLeaderSwap(75:1994) -> The Pharaoh's Wish
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 2 turns
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 11
+
+#9: ESOrbChangeAttack(48:1992) -> Sandstorm Howl
+Change a random attribute to Jammer orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESSkillDelay(89:1993) -> Beast-King's Gaze
+Delay active skills by 2 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

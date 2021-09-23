@@ -1,0 +1,55 @@
+#206177 - Seven-Star Beast, Qilin Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:17691) -> Seven-Star Protection
+	Reduce damage from all sources by 90% for 999 turns
+	[1] ESSkyfall(68:17701) -> Black Rain
+	Jammer skyfall +20% for 15 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESAttackMultihit(15:17692) -> Light Sword Chaos Strike
+Deal 100% damage (5 hits, 20% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:17694) -> Seven-Star Guidance
+	Voids status ailments for 999 turns
+	[1] ESInactivity66(66:17695) -> Bladewings opened
+	Do nothing
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 6 if counter == 0
+
+#9: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESChangeAttribute(46:17697) -> Seven-Star Radiance
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:17698) -> Strong Blade Chaos Strike
+	Deal 2,100% damage (7 hits, 300% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSuperResolve(129:17693) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

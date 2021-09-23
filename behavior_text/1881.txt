@@ -1,0 +1,48 @@
+#1881 - Twin Blade Brave, Shotel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1881
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9531:118) Heal Half Reduced
+ | Reduce damage from Healer types by 50%
+ type: PREEMPT
+ | (9521:83) Dance of the Stronghold + Hero's Pride
+ | Reduce damage from all sources by 90% for 1 turn + Voids status ailments for 6 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (9524:83) Style Change + Fire Chain
+   | Change own attribute to Wood + Unable to match Fire orbs for 2 turns
+ | group:
+ | condition: always turn 6
+   | (9529:83) Dance of Aggression + Axe Kick
+   | Absorb damage when damage >= 4,000,000 for 5 turns + Player -99% HP
+ | group:
+   | group:
+   | condition: turns 2-5 while HP > 39
+     | condition: 50% chance
+     | (9525:77) Flame Sword
+     | Change the 1st column to Fire orbs, Deal 130% damage
+     | (9526:92) Wind Sword
+     | Spawn 5 random Wood orbs, Deal 130% damage
+   | group:
+     | condition: 50% chance
+     | (9525:77) Flame Sword
+     | Change the 1st column to Fire orbs, Deal 130% damage
+     | (9526:92) Wind Sword
+     | Spawn 5 random Wood orbs, Deal 130% damage
+ | group:
+ | condition: hp <= 39
+   | condition: 70% chance
+   | (9530:77) Twin Blade Dance
+   | Change the 1st, 2nd, and 3rd columns to Fire orbs and the 4th, 5th, and 6th columns to Wood orbs, Deal 180% damage
+   | condition: 50% chance
+   | (9525:77) Flame Sword
+   | Change the 1st column to Fire orbs, Deal 130% damage
+   | (9526:92) Wind Sword
+   | Spawn 5 random Wood orbs, Deal 130% damage

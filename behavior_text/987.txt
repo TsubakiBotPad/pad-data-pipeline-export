@@ -1,0 +1,27 @@
+#987 - Warded Storm God, Susano no Mikoto
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 987
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18640:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (18641:83) Iron Wall Stance + Celestial Current
+ | Void damage >= 10,000,000 for 999 turns + Delay active skills by 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (18644:94) Celestial Blossom
+   | Lock 10 random orbs, Deal 120% damage
+   | condition: 50% chance
+   | (18645:74) Sealing Sword
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18646:83) Warding Wind Wall + Unleash Sacred Treasure
+   | Absorb damage when combos <= 6 for 999 turns + Increase damage to 300% for the next 999 turns

@@ -1,0 +1,19 @@
+#500001 - Tyrra
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESDamageShield(74:13926) -> Tyrrake this!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 30% for 1 turn
+
+#2: ESRandomSpawn(92:13927) -> Heat Breath!
+Condition: 50% chance when < 50% HP (ai:50 rnd:0)
+Spawn 1 random Fire orb, Deal 120% damage
+
+#3: ESAttackMultihit(15:13925) -> Not Tyrrable!
+Deal 100% damage (2 hits, 50% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn

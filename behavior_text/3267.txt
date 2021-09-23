@@ -1,0 +1,25 @@
+#3267 - Aten
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3267
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (16670:129) 10% Super Resolve
+ | Damage which would reduce HP from above 10% to below 10% is nullified
+ | (16671:106) Enemy's turn changed
+ | Enemy turn counter change to 1 when HP <= 10%
+ type: PREEMPT
+ | (16672:97) Lightless Land
+ | Blind all orbs for 5 turns
+ group:
+ | group:
+   | (16676:15) Shining Signpost
+   | Deal 3,000% damage (6 hits, 500% each)
+ | group:
+ | condition: turn 1, hp <= 9
+   | (16673:83) Sunshine + Light of Love and Despair + Allu Daasu
+   | Voids status ailments for 999 turns + Movetime 25% for 1 turn + RCV 50% for 5 turns

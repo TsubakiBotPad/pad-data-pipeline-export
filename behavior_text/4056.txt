@@ -1,0 +1,52 @@
+#4056 - Black Calamity Goddess of Power, Kali
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4056
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (19010:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (19000:83) Dance of the Goddess + Mahavidya
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 99% for 10 turns
+ group:
+ | group:
+ | condition: always turn 10
+   | (19013:87) Demonic Ethereal Dance
+   | Absorb damage when damage >= 3,000,000 for 999 turns
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 79
+     | (19003:15) Muladhara
+     | Deal 6,000% damage (6 hits, 1,000% each)
+   | group:
+     | (19003:15) Muladhara
+     | Deal 6,000% damage (6 hits, 1,000% each)
+ | group:
+ | condition: hp <= 79
+   | condition: 33% chance
+   | (19004:83) Dark Sky's Destructive Dance + Nirmanakaya
+   | Change own attribute to random one of Fire, Water, Wood, or Dark + RCV 50% for 1 turn, Deal 90% damage
+   | condition: 33% chance
+   | (19005:83) Dark Sky's Destructive Dance + Dharmakaya
+   | Change own attribute to random one of Fire, Water, Wood, or Dark + Lock all orbs, Deal 100% damage
+   | condition: 34% chance
+   | (19006:83) Dark Sky's Destructive Dance + Sambhogakaya
+   | Change own attribute to random one of Fire, Water, Wood, or Dark + Delay active skills by 2~3 turns, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (19014:17) Released Chakra
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turns 1-9
+     | (19046:83) Dark Sky's Destructive Dance + Mahasukha-Kamala
+     | Change own attribute to random one of Fire, Water, Wood, or Dark + Deal 6,000% damage (6 hits, 1,000% each), Deal 6,000% damage (6 hits, 1,000% each)
+   | group:
+     | (19046:83) Dark Sky's Destructive Dance + Mahasukha-Kamala
+     | Change own attribute to random one of Fire, Water, Wood, or Dark + Deal 6,000% damage (6 hits, 1,000% each), Deal 6,000% damage (6 hits, 1,000% each)

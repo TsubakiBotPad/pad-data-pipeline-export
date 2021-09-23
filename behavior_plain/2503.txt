@@ -1,0 +1,24 @@
+#2503 - Explosive Demon Lord, Belial
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:15658) -> I'll wait 13 turns
+	Voids status ailments for 999 turns
+	[1] ESNoSkyfall(127:15659) -> Think about it!
+	No skyfall for 13 turns
+
+#3: SkillSet:
+	[0] ESDispel(6:15712) -> Too bad
+	Voids player buff effects
+	[1] ESAttackMultihit(15:15713) -> Victory is Mine!
+	Deal 10,000% damage (10 hits, 1,000% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn

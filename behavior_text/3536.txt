@@ -1,0 +1,76 @@
+#3536 - Sorceress of Purging Light, Ars Nova
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3536
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29107:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (29075:83) 私と戦いましょう + 魔力壁 + 魔導姫の魅惑 + 歪んだ神域
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 80% for 5 turns + Bind awoken skills for 5 turns + Change board size to 7x6 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 50% chance
+     | (29100:83) 魔導の鍵呪文・吸 + 魔導の鍵呪文・滅
+     | Absorb damage when damage >= 300,000,000 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+     | (29103:83) 魔導の鍵呪文・火 + 魔導の鍵呪文・十一 + 魔導の鍵呪文・滅
+     | Change the 1st and 5th columns to Fire orbs + Absorb damage when combos <= 11 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: turn 2 while HP > 9
+     | (29086:83) 飛び交う魔力 + 魔法の鍵
+     | Delay active skills by 3 turns + Lock all orbs, Deal 100% damage
+   | group:
+   | condition: turns 3-4 while HP > 49
+     | condition: 50% chance
+     | (29100:83) 魔導の鍵呪文・吸 + 魔導の鍵呪文・滅
+     | Absorb damage when damage >= 300,000,000 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+     | (29103:83) 魔導の鍵呪文・火 + 魔導の鍵呪文・十一 + 魔導の鍵呪文・滅
+     | Change the 1st and 5th columns to Fire orbs + Absorb damage when combos <= 11 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (29089:83) 飛び交う魔力 + まだ戦えますか？
+     | Delay active skills by 5 turns + Reduce damage from all sources by 50% for 10 turns
+   | group:
+     | condition: 50% chance
+     | (29100:83) 魔導の鍵呪文・吸 + 魔導の鍵呪文・滅
+     | Absorb damage when damage >= 300,000,000 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+     | (29103:83) 魔導の鍵呪文・火 + 魔導の鍵呪文・十一 + 魔導の鍵呪文・滅
+     | Change the 1st and 5th columns to Fire orbs + Absorb damage when combos <= 11 for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | condition: 50% chance
+     | (29092:83) 魔導の鍵呪文・縛 + 魔導の鍵呪文・毒 + 魔導の鍵呪文・滅
+     | Bind 2 random subs for 3 turns + Spawn 10 random Mortal Poison orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (29096:83) 魔導の鍵呪文・光 + 魔導の鍵呪文・盾 + 魔導の鍵呪文・滅
+     | Change the 1st and 5th rows to Light orbs + Void damage >= 300,000,000 for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+   | condition: turns 3-4 while HP > 9
+     | condition: 50% chance
+     | (29092:83) 魔導の鍵呪文・縛 + 魔導の鍵呪文・毒 + 魔導の鍵呪文・滅
+     | Bind 2 random subs for 3 turns + Spawn 10 random Mortal Poison orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (29096:83) 魔導の鍵呪文・光 + 魔導の鍵呪文・盾 + 魔導の鍵呪文・滅
+     | Change the 1st and 5th rows to Light orbs + Void damage >= 300,000,000 for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+     | condition: 50% chance
+     | (29092:83) 魔導の鍵呪文・縛 + 魔導の鍵呪文・毒 + 魔導の鍵呪文・滅
+     | Bind 2 random subs for 3 turns + Spawn 10 random Mortal Poison orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (29096:83) 魔導の鍵呪文・光 + 魔導の鍵呪文・盾 + 魔導の鍵呪文・滅
+     | Change the 1st and 5th rows to Light orbs + Void damage >= 300,000,000 for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (29080:83) 光の呪印 + 魔導姫の遊戯
+     | Bind awoken skills for 1 turn + Unable to match Fire and Light orbs for 1 turn
+   | group:
+     | (29083:83) 煌めく魔導書 + 魔導の鍵呪文・終
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,500% damage (5 hits, 500% each), Deal 2,500% damage (5 hits, 500% each)

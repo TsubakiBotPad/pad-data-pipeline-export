@@ -1,0 +1,32 @@
+#1927 - Abyssal Darkdragon, Vritra
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1927
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21671:106) Enemy's next turn changed
+ | Enemy turn counter change to 2 when HP <= 50%
+ type: PREEMPT
+ | (21672:83) Darkdragon's Fury + Abyssal Curse
+ | Reduce damage from all sources by 75% for 999 turns + ATK -75% for 99 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (21675:94) Dreadful Curse
+   | Lock all orbs, Deal 100% damage
+   | condition: 50% chance
+   | (21676:15) Furious Dance
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (21677:83) Divine Power of the Dragon God + Darkdragon's Destructive Spirit + Roar of the Dragon God
+     | Voids status ailments for 999 turns + Void damage >= 50,000,000 for 999 turns + For 2 turns, 50% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+   | group:
+     | (21681:15) Grudge Strike
+     | Deal 1,200% damage (4 hits, 300% each)

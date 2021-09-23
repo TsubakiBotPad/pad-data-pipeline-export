@@ -1,0 +1,43 @@
+#6680 - Flaming Bird-Man, Machigan
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6680
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (20684:53) Swooping Feather
+ | Absorb Light and Dark damage for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 33% chance
+     | (20685:102) Black Smoke Impact
+     | Spawn 3 random Bomb orbs, Deal 95% damage
+     | condition: 33% chance
+     | (20686:92) Hellfire
+     | Spawn 4 random Fire and Jammer orbs, Deal 100% damage
+     | condition: 34% chance
+     | (20687:15) Heavenly Strike
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 5 while HP > 9
+     | (20688:83) Shining Feather's Protection + Dancing Flames
+     | Reduce damage from all sources by 75% for 5 turns + Jammer skyfall +15% for 5 turns
+   | group:
+     | condition: 33% chance
+     | (20685:102) Black Smoke Impact
+     | Spawn 3 random Bomb orbs, Deal 95% damage
+     | condition: 33% chance
+     | (20686:92) Hellfire
+     | Spawn 4 random Fire and Jammer orbs, Deal 100% damage
+     | condition: 34% chance
+     | (20687:15) Heavenly Strike
+     | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 9
+   | (20691:15) Soaring Skies
+   | Deal 300% damage (5 hits, 60% each)

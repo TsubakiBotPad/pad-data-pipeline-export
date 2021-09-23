@@ -1,0 +1,73 @@
+#4275 - Reincarnated Andromeda
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:23666) -> Starsea Chains
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:23667) -> Are you ready for this?
+	Reduce damage from all sources by 75% for 6 turns
+	[2] ESAttributeBlock(107:23668) -> Here I come!
+	Unable to match Wood orbs for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 13
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 12
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 11
+
+#8: ESOrbLock(94:23678) -> Blue Chain Flash
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 100% damage
+
+#9: ESRandomSpawn(92:23679) -> Starsea Glimmer
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESAbsorbAttribute(53:23670) -> Are you ready for this?
+	Absorb Wood damage for 2 turns
+	[1] ESAttributeBlock(107:23671) -> Here I come!
+	Unable to match Fire orbs for 2 turns
+
+#12: SkillSet:
+	[0] ESVoidShield(71:23673) -> Are you ready for this?
+	Void damage >= 30,000,000 for 999 turns
+	[1] ESAttributeBlock(107:23674) -> Here I come!
+	Unable to match Water orbs for 2 turns
+
+#13: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:23676) -> Not bad!
+	Increase damage to 200% for the next 999 turns
+	[1] ESDebuffATK(130:23677) -> I'm going to end this now.
+	ATK -75% for 99 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBoardChangeAttackBits(85:23680) -> The Turquoise Star Chains
+Change all orbs to Heal, Jammer, Poison, and Mortal Poison, Deal 300% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:23664) -> Resolve
+Survive attacks with 1 HP when HP > 50%

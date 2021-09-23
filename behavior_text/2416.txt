@@ -1,0 +1,44 @@
+#2416 - Thorned Mechanical Star God, Antares
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 2416
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9817:118) God Machine Halved
+ | Reduce damage from God and Machine types by 50%
+
+level: 4
+ type: PASSIVE
+ | (9817:118) God Machine Halved
+ | Reduce damage from God and Machine types by 50%
+ type: PREEMPT
+ | (9820:83) Look! + That's a lot of meteors!
+ | Poison skyfall +20% for 5 turns + Locked Poison skyfall +100% for 30 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (9823:83) Like the stars in the night sky... + Show me your path...
+   | Absorb damage when combos <= 6 for 15 turns + Unable to match Poison orbs for 1 turn
+ | group:
+   | condition: 33% chance
+   | (9824:48) Shooting Stardust
+   | Change a random attribute to Jammer orbs, Deal 95% damage
+   | condition: 33% chance
+   | (9825:89) Star Symphony
+   | Delay active skills by 0~2 turns, Deal 90% damage
+   | condition: 34% chance
+   | (9826:15) Meteor Rain
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (9829:83) I'll end this with my own hands! + The stars are bright tonight...
+     | Increase damage to 150% for the next 99 turns + Blind all orbs on the board
+   | group:
+     | (9830:88) At least it's peaceful...
+     | Bind awoken skills for 1 turn, Deal 400% damage

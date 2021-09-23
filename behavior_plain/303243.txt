@@ -1,0 +1,62 @@
+#303243 - Reincarnated Parvati
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESOrbChangeAttackBits(108:21543) -> Lion of Fertility
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all Jammer and Poison orbs to Heal orbs, Deal 125% damage
+
+#5: ESBoardChangeAttackBits(85:21544) -> Bull of Fertility
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all orbs to Heal, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#8: ESAbsorbThreshold(87:21545) -> It's about to get more dangerous
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when damage >= 100,000,000 for 999 turns
+
+#9: ESOrbChangeAttackBits(108:21566) -> Lion of Fertility
+Change all Jammer and Poison orbs to Heal orbs, Deal 150% damage
+
+#10: ESRowSpawnMulti(79:21547) -> Calming Mountain Wind
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st row to Heal orbs, the 3rd row to Poison orbs, and the 5th row to Heal orbs, Deal 90% damage
+
+#11: ESColumnSpawnMulti(77:21548) -> Trishula
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st column to Jammer orbs, the 3rd column to Fire orbs, and the 5th column to Jammer orbs, Deal 80% damage
+
+#12: ESRowSpawnMulti(79:21549) -> Himalayan Enmity
+Condition: 34% chance (ai:0 rnd:34)
+Change the 1st row to Jammer orbs and the 5th row to Poison orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESRandomSpawn(92:21551) -> Grief of the Golden God
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
+	[1] ESEndBattle(40:21552) -> Foolishness...
+	Reduce self HP to 0
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:21542) -> Resolve
+Survive attacks with 1 HP when HP > 1%

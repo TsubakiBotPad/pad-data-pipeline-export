@@ -1,0 +1,76 @@
+#205022 - Servant, True Assassin
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESOrbLock(94:21576) -> How gracious of you.
+	Lock all orbs
+	[1] ESBlindStickyRandom(97:21577) -> I can regain the points I have lost.
+	Blind random 4~6 orbs for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbLock(94:21578) -> That's far enough.
+Condition: 33% chance (ai:0 rnd:33)
+Lock 15 random orbs, Deal 90% damage
+
+#6: ESLeaderSwap(75:21579) -> You're of no use.
+Condition: 33% chance (ai:0 rnd:33)
+Leader changes to random sub for 1 turn, Deal 80% damage
+
+#7: ESAttackMultihit(15:21581) -> Keh!
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESDamageShield(74:21584) -> This was my blunder.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 5 turns
+
+#10: ESRandomSpawn(92:21583) -> Gah!
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Dark orbs, Deal 95% damage
+
+#11: ESDebuffRCV(105:21580) -> Hehe...
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 90% damage
+
+#12: ESAbsorbCombo(67:21582) -> Huh?!
+Condition: 34% chance (ai:0 rnd:34)
+Absorb damage when combos <= 5 for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 18
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESGravity(50:21585) -> Noble Phantasm
+Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#19: ESAttackMultihit(15:21586) -> Zabaniya!
+Deal 150% damage (5 hits, 30% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

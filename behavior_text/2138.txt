@@ -1,0 +1,25 @@
+#2138 - Scarecrow+Fear Gas
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2138
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2573:20) There's nothing more to fear
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (2574:48) Fear Gas
+   | Change a random attribute to Jammer orbs, Deal 70% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2577:83) Pay! + For what you did to me!
+   | Player -75% HP + Change 7 random orbs to Poison orbs
+ | group:
+ | condition: hp <= 24
+   | (2578:83) Fear Gas + Fear Gas + Fear Gas
+   | Change a random attribute to Jammer orbs + Change a random attribute to Jammer orbs + Change a random attribute to Jammer orbs, Deal 70% damage

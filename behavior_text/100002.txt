@@ -1,0 +1,43 @@
+#100002 - Alt. Tyran
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 100002
+approved: False
+
+level: 4
+ group:
+ | group:
+ | condition: turn 1
+   | (10346:92) Heat Breath
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (10346:92) Heat Breath
+   | Spawn 3 random Fire orbs, Deal 100% damage
+   | (10347:89) Easing Friction
+   | Delay active skills by 0~2 turns, Deal 95% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10346:92) Heat Breath
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10348:74) Mountain Protection
+   | Reduce damage from all sources by 50% for 5 turns
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (10346:92) Heat Breath
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (10349:17) Jagged Mountain Range
+   | Increase damage to 300% for the next 99 turns
+ | group:
+   | (10350:15) Magma Breath
+   | Deal 140% damage (2 hits, 70% each)

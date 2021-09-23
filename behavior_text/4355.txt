@@ -1,0 +1,62 @@
+#4355 - Spirit Numen of Light, Keela
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4355
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10055:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: UNKNOWN_USE
+ | (10049:83) Philysians + Prism Mirror
+ | Increase damage to 200% for the next 1 turn + Absorb damage when combos <= 6 for 5 turns
+
+level: 4
+ type: PASSIVE
+ | (10055:72) Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (10033:83) Prayer + Dawn Eclipse + Halo Ring + Divine Gift of Silk
+ | Voids status ailments for 999 turns + Absorb Light damage for 10 turns + Specific orbs change every 1.5s for 20 turns + Void damage >= 15,000,000 for 999 turns
+ group:
+ | group:
+   | condition: when 9 combos last turn
+   | (10042:83) Traversing Radiance + Shining Arrow
+   | Specific orbs change every 0.8s for 20 turns + Deal 129% damage (3 hits, 43% each), Deal 129% damage (3 hits, 43% each)
+   | condition: 50% chance, when 9 combos last turn
+   | (10039:83) Traversing Radiance + Light Prison
+   | Specific orbs change every 0.8s for 20 turns + Bind 1 random sub for 2 turns, Deal 120% damage
+   | condition: when 6 combos last turn
+   | (10043:83) Traversing Radiance + Shining Arrow
+   | Specific orbs change every 1.0s for 20 turns + Deal 129% damage (3 hits, 43% each), Deal 129% damage (3 hits, 43% each)
+   | condition: 50% chance, when 6 combos last turn
+   | (10040:83) Traversing Radiance + Light Prison
+   | Specific orbs change every 1.0s for 20 turns + Bind 1 random sub for 2 turns, Deal 120% damage
+   | condition: 50% chance
+   | (10041:83) Traversing Radiance + Light Prison
+   | Specific orbs change every 1.5s for 20 turns + Bind 1 random sub for 2 turns, Deal 120% damage
+   | (10044:83) Traversing Radiance + Shining Arrow
+   | Specific orbs change every 1.5s for 20 turns + Deal 129% damage (3 hits, 43% each), Deal 129% damage (3 hits, 43% each)
+ | group:
+ | condition: turn 1 while HP > 49, hp <= 74
+   | (10045:94) Shadow of Fate
+   | Lock all orbs, Deal 160% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (10050:83) Philysians + Prism Mirror
+   | Increase damage to 200% for the next 1 turn + Absorb damage when combos <= 6 for 15 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (10053:83) Prism Mirror + Traversing Radiance
+     | Absorb damage when combos <= 9 for 1 turn + Specific orbs change every 1.0s for 20 turns
+   | group:
+     | (10054:15) Gleaming Sword of Alvaliere
+     | Deal 10,000% damage (10 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (10049:83) Philysians + Prism Mirror
+ | Increase damage to 200% for the next 1 turn + Absorb damage when combos <= 6 for 5 turns

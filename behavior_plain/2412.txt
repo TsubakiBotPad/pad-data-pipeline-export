@@ -1,0 +1,80 @@
+#2412 - Playful Star Gods, Thoth & Sopdet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbCombo(67:3386) -> Trick or Treat!
+Absorb damage when combos <= 4 for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: SkillSet:
+	[0] ESOrbChangeAttack(48:3387) -> Gimme candy!
+	Change a random attribute to Jammer orbs, Deal 100% damage
+	[1] ESInactivity66(66:3389) -> zzZZZ
+	Do nothing
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: SkillSet:
+	[0] ESOrbChangeAttack(48:3388) -> More!
+	Change a random attribute to Jammer orbs, Deal 150% damage
+	[1] ESInactivity66(66:3389) -> zzZZZ
+	Do nothing
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESInactivity66(66:3390) -> Wake up already!
+	Do nothing
+	[1] ESAttackUPRemainingEnemies(17:3391) -> Oops, sorry about that!
+	Increase damage to 200% for the next 999 turns
+
+#15: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESOrbChangeAttack(48:3393) -> And that!
+	Change a random attribute to Jammer orbs, Deal 120% damage
+	[1] ESRandomSpawn(92:3394) -> Magic Pumpkin Shot
+	Spawn 6 random Mortal Poison orbs
+
+#16: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESOrbChangeAttack(48:3393) -> And that!
+	Change a random attribute to Jammer orbs, Deal 120% damage
+	[1] ESRandomSpawn(92:3395) -> Underworld Glow
+	Spawn 3 random Poison orbs
+
+#17: SkillSet:
+	[0] ESOrbChangeAttack(48:3392) -> Take that!
+	Change a random attribute to Heal orbs, Deal 100% damage
+	[1] ESRandomSpawn(92:3395) -> Underworld Glow
+	Spawn 3 random Poison orbs
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

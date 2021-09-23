@@ -1,0 +1,28 @@
+#100586 - Alt. Light Sprite Pixie
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:14732) -> Fairies' Mischief
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 10 random Jammer orbs
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 5
+
+#4: ESBindAttack(63:14733) -> Charm of Sleep
+Bind 1 random card for 2 turns, Deal 100% damage
+
+#5: ESAttackUPCooldown(19:14734) -> Fairies' Rage
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#6: ESBindAttack(63:14733) -> Charm of Sleep
+Bind 1 random card for 2 turns, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

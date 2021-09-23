@@ -1,0 +1,73 @@
+#303327 - Queen of the Fairy Forest, Titania
+monster size: 5
+new AI: True
+start/max counter: 255
+counter increment: 0
+monster_id: 303327
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 2744 on team
+ | (6055:83) Miséricorde + Your humanity is meaningless to me.
+ | Movetime 200% for 20 turns + Absorb damage when combos <= 7 for 999 turns
+ | (5976:83) Miséricorde + Diadème de la Reine
+ | Movetime 200% for 20 turns + Absorb damage when combos <= 7 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (5979:83) Bouclier du Vent + Embrassement du Vent
+     | Voids status ailments for 999 turns + Bind 1 random sub for 4 turns, Deal 150% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | (5980:104) Siège de Brouillard
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 140% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | (5981:98) Lame Foncée
+     | Blind orbs in specific positions for 1 turn, Deal 140% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | (5982:86) She got tired and fell asleep
+     | Enemy recover 100% HP
+   | group:
+   | condition: turn 5 while HP > 19
+     | (5983:86) She's sound asleep
+     | Enemy recover 20% HP
+   | group:
+   | condition: turn 6 while HP > 19
+     | (5984:86) She's sound asleep
+     | Enemy recover 20% HP
+   | group:
+   | condition: turn 7 while HP > 98
+     | (5988:83) She woke up + You were waiting for me, weren't you?
+     | Do nothing + Do nothing
+   | group:
+     | condition: 50% chance
+     | (5994:104) Siège de Brouillard
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 140% damage
+     | (5995:98) Lame Foncée
+     | Blind orbs in specific positions for 1 turn, Deal 140% damage
+ | group:
+ | condition: turn 7 while HP > 19, hp <= 98
+   | (5989:83) She woke up + Sorry about that, let's continue!
+   | Do nothing + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 5
+     | (5997:83) She woke up startled + I'm just a little cranky, you know?
+     | Reduce damage from all sources by 75% for 3 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | (5993:15) Fée Colère
+     | Deal 3,000% damage (3 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (5996:83) She woke up startled + I'm just a little cranky, you know?
+ | Reduce damage from all sources by 75% for 3 turns + Increase damage to 200% for the next 999 turns
+ | (5998:83) She woke up startled + I'm just a little cranky, you know?
+ | Reduce damage from all sources by 75% for 3 turns + Increase damage to 200% for the next 999 turns
+ | (5999:83) She woke up startled + I'm just a little cranky, you know?
+ | Reduce damage from all sources by 75% for 3 turns + Increase damage to 200% for the next 999 turns
+ | (5992:83) She woke up startled + I'm just a little cranky, you know?
+ | Reduce damage from all sources by 75% for 3 turns + Increase damage to 200% for the next 999 turns

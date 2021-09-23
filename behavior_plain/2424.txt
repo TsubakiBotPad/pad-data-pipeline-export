@@ -1,0 +1,50 @@
+#2424 - Destruction Palm Mechanical Star God, Castor
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:10066) -> Twin Star Shadow
+	Void damage >= 8,000,000 for 999 turns
+	[1] ESSpinnersRandom(109:10067) -> Dark Hole
+	Random 1 orbs change every 1.0s for 10 turns
+
+#5: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:10071) -> Gravity Dome
+	Absorb damage when combos <= 5 for 10 turns
+	[1] ESStatusShield(20:10072) -> Twin Star Protection
+	Voids status ailments for 999 turns
+
+#6: ESBombRandomSpawn(102:10075) -> Dark Matter Blast
+Condition: When < 15% HP (ai:100 rnd:0)
+Spawn 8 random locked Bomb orbs, Deal 300% damage
+
+#7: ESDamageShield(74:10074) -> Grava Ursna
+Condition: 40% chance (ai:0 rnd:40)
+Reduce damage from all sources by 75% for 1 turn, Deal 170% damage
+
+#8: ESBombRandomSpawn(102:10069) -> Black Burst
+Condition: 30% chance (ai:0 rnd:30)
+Spawn 1 random Bomb orb, Deal 150% damage
+
+#9: ESOrbLock(94:10070) -> Tenjarie
+Condition: 30% chance (ai:0 rnd:30)
+Lock 3 random orbs, Deal 150% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESTypeResist(118:10076) -> God Machine Halved
+Reduce damage from God and Machine types by 50%

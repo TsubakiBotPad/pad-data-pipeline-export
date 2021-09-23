@@ -1,0 +1,31 @@
+#2680 - Orihime Inoue
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 2680
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (17400:20) I will protect all of you.
+ | Voids status ailments for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (17402:86) Sotenkishun
+     | Enemy recover 5% HP, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (17403:92) Kotenzanshun
+     | Spawn 3 random Wood orbs, Deal 85% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (17401:74) Santenkesshun
+     | Reduce damage from all sources by 30% for 1 turn
+   | group:
+     | (17404:15) I reject!!!
+     | Deal 110% damage

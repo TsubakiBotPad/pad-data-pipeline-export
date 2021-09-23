@@ -1,0 +1,31 @@
+#4067 - Holy Ritual Love Deity, Venus
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4067
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (15946:118) Balance God Halved
+ | Reduce damage from Balanced and God types by 50%
+ type: PREEMPT
+ | (15895:83) Come everyone, all together now! + Let's sing a hymn!
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 5 for 6 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (15891:92) Cupid Song
+   | Spawn 3 random Jammer orbs, Deal 100% damage
+   | (15893:63) Beautiful World
+   | Bind 2 random cards for 1~2 turns, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15892:39) I'm going to keep on singing♪
+     | Movetime -3s for 1 turn
+   | group:
+     | (15894:63) Carol World
+     | Bind 5 random cards for 1~2 turns, Deal 200% damage

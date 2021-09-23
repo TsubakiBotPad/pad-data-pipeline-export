@@ -1,0 +1,24 @@
+#4180 - Dagda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:13321) -> Break... everything...
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 7 for 10 turns
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESAttackMultihit(15:13322) -> This is... the end...
+Deal 20,000% damage (10 hits, 2,000% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

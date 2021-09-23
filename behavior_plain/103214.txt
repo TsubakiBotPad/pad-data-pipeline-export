@@ -1,0 +1,22 @@
+#103214 - Alt. Wind Imp
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:22805) -> Shakuhachi Whirlwind
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 6 turns
+
+#3: ESAttackUPRemainingEnemies(17:22800) -> Demon Solo
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 999 turns
+
+#4: ESRandomSpawn(92:22806) -> Imp's Wood Show
+Spawn 5 random Wood orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

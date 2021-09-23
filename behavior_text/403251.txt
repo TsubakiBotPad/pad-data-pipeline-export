@@ -1,0 +1,53 @@
+#403251 - Alt. Crimson Spring Dragon Goddess, Hinomitsuha
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 403251
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (13682:83) Deeper, into the endless darkness... + Flowing Hatred of Crimson Rain + Spiral
+ | Delay active skills by 3~5 turns + Poison skyfall +25% for 15 turns + Random 1 orbs change every 2.0s for 15 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (5778:83) Elemental Sphere Protection + Veiled Boundaries
+   | Reduce damage from all sources by 75% for 10 turns + Blind orbs in specific positions for 1 turn, Deal 90% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 25% chance
+     | (5737:98) A Shroud from the East
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (5738:98) A Shroud from the West
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (5739:98) Blackened Heavens
+     | Blind orbs in specific positions for 1 turn, Deal 90% damage
+     | condition: 25% chance
+     | (5740:98) Blackened Earth
+     | Blind orbs in specific positions for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (5773:79) Shadow Flame Bloodbath
+     | Change the 3rd row to Fire and Poison orbs, Deal 120% damage
+     | condition: 50% chance
+     | (5772:63) Dark Flame Shackles
+     | Bind 2 random cards for 1 turn, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5746:15) Drumming in the Night
+     | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (5744:87) Thousand-Year Imprisonment
+     | Absorb damage when damage >= 800,000 for 10 turns
+   | group:
+     | (5747:98) Stirring the Eternal Grudge
+     | Blind orbs in specific positions for 1 turn, Deal 600% damage

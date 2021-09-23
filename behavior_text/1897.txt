@@ -1,0 +1,37 @@
+#1897 - Earth Dragon Knight
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 1897
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (2449:6) Earth Dragon's Insight
+ | Voids player buff effects
+ | (2450:67) Earth Dragon's Jewel
+ | Absorb damage when combos <= 4 for 4 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (2451:53) Green Element
+   | Absorb Wood damage for 3 turns
+ | group:
+   | condition: 30% chance
+   | (2454:79) Earthlight Blade
+   | Change the 4th row to Wood and Jammer orbs, Deal 80% damage
+   | condition: 30% chance
+   | (2455:14) Earth Dragon Binding
+   | Bind active skills for 2 turns, Deal 90% damage
+   | condition: 30% chance
+   | (1:82) Disable Skill
+   | Deal 100% damage
+ | group:
+ | condition: turn 2 while HP > 19, hp <= 49
+   | (2453:86) Supernatural
+   | Enemy recover 30% HP
+ | group:
+ | condition: hp <= 19
+   | (2452:50) Ground Burst
+   | Player -100% HP

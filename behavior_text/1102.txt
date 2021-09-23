@@ -1,0 +1,32 @@
+#1102 - Creation Tree Spirit, Alraune
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1102
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4440:65) Nap Lullaby
+ | Bind 4 random subs for 4 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (4442:79) Breath of Life
+   | Change the 5th row to Wood and Jammer orbs, Deal 110% damage
+   | condition: when required attributes on board
+   | (4441:92) Holy Watering
+   | Spawn 5 random Water orbs, Deal 75% damage
+   | (4481:92) Holy Watering
+   | Spawn 10 random Water orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (4445:83) Good Luck Charm + Now I'm serious ♪
+     | Reduce damage from all sources by 50% for 5 turns + Increase damage to 200% for the next 5 turns
+   | group:
+   | condition: turn 2
+     | (4446:86) Cure
+     | Enemy recover 100% HP

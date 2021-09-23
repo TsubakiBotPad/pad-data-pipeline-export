@@ -1,0 +1,37 @@
+#3091 - Great Scorching Heat, Kurenai Goukami
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 3091
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (5210:83) Burning Heat Mantle + Blazing Tail
+ | Reduce damage from all sources by 75% for 4 turns + Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (5213:92) Powerful Blaze
+     | Spawn 6 random Fire orbs, Deal 170% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (5214:15) Hellfire Claw
+     | Deal 200% damage (2 hits, 100% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (5212:50) Blazing Tail
+     | Player -99% HP
+   | group:
+     | (5216:79) Inferno Blast
+     | Change the 1st row to Fire orbs, Deal 200% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 79
+   | (5215:48) Flame Breath
+   | Change a random attribute to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (5215:48) Flame Breath
+   | Change a random attribute to Fire orbs, Deal 100% damage

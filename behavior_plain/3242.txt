@@ -1,0 +1,50 @@
+#3242 - Reincarnated Lakshmi
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:15084) -> Can you erase Jammers?
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Spawn 10 random Jammer orbs
+
+#3: ESOrbChangeAttack(48:15099) -> Uh-Uh! No good!
+Change all Jammer orbs to Water orbs, Deal 1,000% damage
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRandomSpawn(92:15086) -> I'm just getting started
+	Spawn 8 random Jammer orbs
+	[1] ESDebuffMovetime(39:15087) -> Hey!
+	Movetime -2s for 1 turn
+	[2] ESBlindStickyRandom(97:15088) -> That!
+	Blind all orbs for 1 turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRandomSpawn(92:15090) -> Well, you're not too bad, huh
+	Spawn 15 random Jammer orbs
+	[1] ESOrbSealColumn(99:15091) -> What!!
+	Seal the 1st column for 1 turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:15093) -> H-huh?
+	Spawn 7 random Jammer orbs
+	[1] ESDebuffMovetime(39:15094) -> Well how about this.....
+	Movetime -3s for 1 turn
+	[2] ESFixedStart(101:15095) -> Can you erase them!?
+	Fix orb movement starting point to random position on the board
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:15097) -> You're Great!
+	Spawn 20 random Jammer orbs
+	[1] ESSpinnersFixed(110:15098) -> This is the last time!
+	Specific orbs change every 1.0s for 1 turn
+
+#8: ESEndBattle(40:15100) -> That was fun, see you again♪
+Reduce self HP to 0

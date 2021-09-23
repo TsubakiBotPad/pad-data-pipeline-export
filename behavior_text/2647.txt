@@ -1,0 +1,31 @@
+#2647 - Metallic Star Dragon, Leo
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2647
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2871:15) Heat Charge
+ | Deal 70% damage
+ group:
+ | group:
+   | condition: 20% chance
+   | (2875:89) Loud Roar
+   | Delay active skills by 1 turn
+   | condition: 50% chance
+   | (2874:77) Blazing Claw
+   | Change the 5th column to Fire orbs, Deal 100% damage
+   | condition: 30% chance
+   | (2873:50) Burning Fang
+   | Player -70% HP
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (2872:68) Flame Lion's Roar
+   | Fire skyfall +15% for 10 turns
+ | group:
+ | condition: hp <= 9
+   | (2876:15) Leo's Crest - Meteor
+   | Deal 600% damage

@@ -1,0 +1,58 @@
+#1222 - Gaia
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:19030) -> Energy Reflux
+	Change own attribute to Fire
+	[1] ESAttributeBlock(107:19031) -> Aqua Fade
+	Unable to match Water orbs for 3 turns
+
+#5: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:19033) -> Energy Reflux
+	Change own attribute to Water
+	[1] ESAttributeBlock(107:19034) -> Tree Fade
+	Unable to match Wood orbs for 3 turns
+
+#6: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:19040) -> Energy Reflux
+	Change own attribute to Light
+	[1] ESAttributeBlock(107:19041) -> Dark Fade
+	Unable to match Dark orbs for 3 turns
+
+#7: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:19043) -> Energy Reflux
+	Change own attribute to Dark
+	[1] ESAttributeBlock(107:19044) -> Light Fade
+	Unable to match Light orbs for 3 turns
+
+#8: ESAttributeBlock(107:7774) -> Fire Fade
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 3 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	[0] ESChangeAttribute(46:7778) -> Energy Reflux
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESGravity(50:7775) -> Gaia Pressure
+	Player -200% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

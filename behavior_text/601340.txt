@@ -1,0 +1,31 @@
+#601340 - Alt. Rich Gold Dragon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 601340
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (25667:83) Gold Body + Rich Change
+ | Void damage >= 5,000,000 for 4 turns + Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: always turn 3
+   | (25673:17) Hangry!
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 9
+     | (25671:48) Munch!
+     | Change all Jammer orbs to Light orbs, Deal 120% damage
+     | (25670:13) Lick!
+     | Change 2 random orb types to Jammer orbs, Deal 100% damage
+   | group:
+     | (25672:15) Chomp!
+     | Deal 150% damage
+ | group:
+ | condition: turns 1-2, hp <= 9
+   | (25672:15) Chomp!
+   | Deal 150% damage

@@ -1,0 +1,79 @@
+#103211 - Alt. Dark Guardian Dragon, Scion
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 103211
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5916:73) Willpower Dark Wisdom King Dragon
+ | Survive attacks with 1 HP when HP > 76%
+
+level: 4
+ type: PASSIVE
+ | (5916:73) Willpower Dark Wisdom King Dragon
+ | Survive attacks with 1 HP when HP > 76%
+ type: PREEMPT
+ | (15336:83) Skeletal Form + Dark Realm of Exorcism + Corpse's Call
+ | Voids status ailments for 3 turns + Player -99% HP + Poison skyfall +20% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 74
+     | (5907:92) Spear of Birth & Death
+     | Spawn 6 random Heal orbs, Deal 140% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5913:48) Jaws of Divine Justice
+     | Change all Jammer orbs to Light orbs, Deal 150% damage
+     | (5912:92) Six-Bone Sickle
+     | Spawn 6 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (5915:89) Fearful Grudge Shot
+     | Delay active skills by 1~3 turns, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5913:48) Jaws of Divine Justice
+     | Change all Jammer orbs to Light orbs, Deal 150% damage
+     | (5912:92) Six-Bone Sickle
+     | Spawn 6 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: turn 1 while HP > 9
+     | (5908:39) Spear of Burning Anguish
+     | Movetime -2s for 6 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (5913:48) Jaws of Divine Justice
+     | Change all Jammer orbs to Light orbs, Deal 150% damage
+     | condition: 50% chance, when required attributes on board
+     | (5914:92) Roar in the Black Mist
+     | Spawn 2 random Jammer orbs, Deal 80% damage
+     | (5912:92) Six-Bone Sickle
+     | Spawn 6 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (5915:89) Fearful Grudge Shot
+     | Delay active skills by 1~3 turns, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (5913:48) Jaws of Divine Justice
+     | Change all Jammer orbs to Light orbs, Deal 150% damage
+     | condition: 50% chance, when required attributes on board
+     | (5914:92) Roar in the Black Mist
+     | Spawn 2 random Jammer orbs, Deal 80% damage
+     | (5912:92) Six-Bone Sickle
+     | Spawn 6 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (5909:83) Dark Realm of Exorcism + Orbs are dyed the color of death
+     | Player -99% HP + Change all orbs to Dark and Mortal Poison
+   | group:
+     | (5911:50) Avidya
+     | Player -134% HP

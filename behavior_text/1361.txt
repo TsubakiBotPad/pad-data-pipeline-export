@@ -1,0 +1,32 @@
+#1361 - Scorched Land Dragon Knight, Himiko
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+monster_id: 1361
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (1153:20) God Beast Mirror
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (1154:63) Flame Tomb
+     | Bind 1 random sub for 2 turns, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | condition: 50% chance
+     | (1155:48) Clay TAMADRA Lob
+     | Change a random attribute to Fire orbs, Deal 80% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (1156:66) Clay Figure Chaos
+     | Do nothing
+   | group:
+     | (1157:15) Burning Yamataikoku
+     | Deal 200% damage (5 hits, 40% each)

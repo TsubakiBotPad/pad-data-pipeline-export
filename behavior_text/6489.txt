@@ -1,0 +1,33 @@
+#6489 - Four Heavenly Kings of Orochi, Yashiro Nanakase
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6489
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (19725:109) Let's have some fun.
+ | Random 3 orbs change every 1.0s for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (19726:92) Jet Counter
+   | Spawn 6 random Wood orbs, Deal 98% damage
+   | condition: 33% chance
+   | (19727:92) Jet Counter: Still
+   | Spawn 4 random Fire and Wood orbs, Deal 100% damage
+   | condition: 34% chance
+   | (19728:15) Missile Might Bash
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (19729:17) You need strength, my friend.
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (19730:15) Final Impact
+     | Deal 110% damage

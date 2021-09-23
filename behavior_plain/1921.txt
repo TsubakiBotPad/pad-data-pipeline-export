@@ -1,0 +1,45 @@
+#1921 - Wild Flowerdragon, Howling Brachys
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfall(68:10519) -> Full Blooming
+	Heal skyfall +20% for 10 turns
+	[1] ESDebuffRCV(105:10520) -> Withered Flowers
+	RCV 50% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 8
+
+#7: ESAttackUPRemainingEnemies(17:10525) -> Ripening of the Land
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#8: ESRandomSpawn(92:10522) -> Fluttering Flower Petals
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 4 random Jammer orbs, Deal 90% damage
+
+#9: ESOrbChangeAttackBits(108:10523) -> Decaying Flowers
+Condition: 33% chance (ai:0 rnd:33)
+Change all Heal orbs to Jammer orbs, Deal 80% damage
+
+#10: ESAttackMultihit(15:10524) -> Gaia Flame
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

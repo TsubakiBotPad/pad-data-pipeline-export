@@ -1,0 +1,77 @@
+#100111 - Alt. Vampire Lord
+monster size: 3
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 10, target rnd 5
+
+#3: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 9, target rnd 18
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: ESBlind5(5:9124) -> World of Darkness
+Blind all orbs on the board
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 16
+
+#10: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 13
+
+#11: ESRecoverEnemy86(86:9126) -> Bloody Stealing
+Condition: 50% chance (ai:50 rnd:0)
+Enemy recover 10% HP, Deal 70% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESRecoverEnemyAlly(52:9127) -> Bloody Sharing
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 50% HP
+
+#14: ESRecoverEnemy86(86:9126) -> Bloody Stealing
+Enemy recover 10% HP, Deal 70% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:9125) -> Nightmare Crush
+Deal 180% damage (3 hits, 60% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 16
+
+#22: ESRecoverEnemy86(86:9126) -> Bloody Stealing
+Condition: 50% chance (ai:50 rnd:0)
+Enemy recover 10% HP, Deal 70% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

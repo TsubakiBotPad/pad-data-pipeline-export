@@ -1,0 +1,68 @@
+#975 - Blue Pirate Dragon, Awilda
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbChangeAttack(48:740) -> I'll Stomp You Under My Heel!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Heal orbs, Deal 150% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 60, target rnd 18
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: ESBindTarget(54:739) -> Tempting Embrace
+Bind player leader for 3 turns
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 30, target rnd 18
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: ESAttackMultihit(15:742) -> Princess's Order
+Deal 5% damage
+
+#16: ESAttackMultihit(15:743) -> Sea Dragon's Massive Strike
+Deal 1,500% damage (5 hits, 300% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESOrbChangeAttack(48:740) -> I'll Stomp You Under My Heel!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change a random attribute to Heal orbs, Deal 150% damage
+
+#19: ESPoisonChangeSingle(56:741) -> Honey Poison
+Condition: 50% chance (ai:50 rnd:0)
+Change all Heal orbs to Poison orbs
+
+#20: ESOrbChangeAttack(48:738) -> Blue Slash
+Change a random attribute to Water orbs, Deal 100% damage

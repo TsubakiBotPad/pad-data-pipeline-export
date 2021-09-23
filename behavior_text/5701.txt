@@ -1,0 +1,33 @@
+#5701 - 大門山ツラヌキ＆Ｅ５＋Ｅ７
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5701
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15264:83) リンク、シンカリオン！ + まったくもって問題ねぇ！
+ | Lock 5 random Heal orbs + A 1×3 rectangle of clouds appears for 1 turn at a random location
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (15226:17) 俺の好きな四字熟語は獅子奮迅だ！
+     | Increase damage to 150% for the next 4 turns
+   | group:
+     | condition: 50% chance
+     | (15225:15) うおりゃあ！
+     | Deal 100% damage (2 hits, 50% each)
+     | (15229:79) グランクロス！
+     | Change the 2nd row to Water orbs, the 3rd row to Wood orbs, and the 4th row to Water orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15228:39) 好き勝手させるかよ！
+     | Movetime -2s for 3 turns
+   | group:
+     | (15227:15) 超シャリンドリル
+     | Deal 129% damage (3 hits, 43% each)

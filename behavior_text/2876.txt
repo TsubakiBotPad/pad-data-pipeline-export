@@ -1,0 +1,55 @@
+#2876 - Abyssal Shark Dragon, Toa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2876
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4220:73) Dragonbound's Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (4348:72) Toa Wood Halven
+ | Reduce damage from Wood attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (4220:73) Dragonbound's Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ | (4348:72) Toa Wood Halven
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (4226:83) I shall now confirm your wishes. + Abyss Dark Ring
+ | Voids status ailments for 5 turns + Change all orbs to Water, Dark, and Heal, Deal 130% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2442, 2443 on team
+     | (4228:89) Use the Claws' power as you wish.
+     | Delay active skills by 2 turns
+     | (4229:89) Wave of Calmness
+     | Delay active skills by 2 turns
+   | group:
+     | condition: 40% chance
+     | (4230:77) Blue Ice Revival
+     | Change the 1st column to Dark orbs and the 2nd column to Water orbs, Deal 100% damage
+     | condition: 50% chance
+     | (4232:15) Abyss Hole
+     | Deal 120% damage (4 hits, 30% each)
+     | (4231:92) Abyss' Guidance
+     | Spawn 8 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (4235:83) Abyssal Shark Dragon's Trial + Chopping Ring of the Deep Sea
+   | Absorb Water damage for 1 turn + Change all Heal orbs to Poison orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (4223:83) Conquering Will + Dragonbound's Wrath
+     | Enemy recover 55% HP + Increase damage to 200% for the next 999 turns
+   | group:
+     | (4236:83) Abyss Hole + Abyss Dark Ring
+     | Deal 120% damage (4 hits, 30% each) + Change all orbs to Water, Dark, and Heal, Deal 120% damage (4 hits, 30% each)

@@ -1,0 +1,36 @@
+#100414 - Mitsuki
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 100414
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25705:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25700:71) Heavenly Fox's Protection
+ | Void damage >= 50,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (25701:68) Heavenly Fox's Wish
+     | Fire skyfall +20% for 99 turns
+   | group:
+   | condition: turn 2
+     | (25702:67) Heavenly Fox's Vitality
+     | Absorb damage when combos <= 6 for 999 turns
+   | group:
+   | condition: turns 3-4
+     | (25703:92) Yip! Yip! Yip!
+     | Spawn 8 random Fire orbs, Deal 100% damage
+   | group:
+     | (25704:15) Heavenly Fox's Wrath
+     | Deal 450% damage (3 hits, 150% each)
+ | group:
+ | condition: turns 1-4, hp <= 1
+   | (25711:86) Heavenly Fox's Prayer
+   | Enemy recover 100% HP

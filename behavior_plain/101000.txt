@@ -1,0 +1,72 @@
+#101000 - Alt. Abyssal Hell Deity Jackal, Anubis
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 6, target rnd 6
+
+#5: SkillSet:
+	[0] ESBoardSizeChange(126:22839) -> Board Games
+	Change board size to 7x6 for 10 turns
+	[1] ESAbsorbCombo(67:22840) -> Dark Wolf Revelations
+	Absorb damage when combos <= 10 for 10 turns
+
+#6: SkillSet:
+	[0] ESBoardSizeChange(126:22839) -> Board Games
+	Change board size to 7x6 for 10 turns
+	[1] ESAbsorbCombo(67:22841) -> Dark Wolf Trial
+	Absorb damage when combos <= 12 for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 16
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#11: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 14
+
+#12: ESRandomSpawn(92:22844) -> Path to the Underworld
+Spawn 2 random Heal, Jammer, and Mortal Poison orbs, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESRandomSpawn(92:22843) -> Death Curse
+Change all orbs to Poison, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESAttackUPRemainingEnemies(17:22842) -> Dark Wolf Howl
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 1,000% for the next 999 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:22836) -> Resolve
+Survive attacks with 1 HP when HP > 50%

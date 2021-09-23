@@ -1,0 +1,39 @@
+#2932 - Burning Tail, Goukami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2932
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (4609:74) Scorching Heat Mantle
+ | Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+   | (4610:92) Powerful Blaze
+   | Spawn 6 random Fire orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 79
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (4611:50) Blazing Tail
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (4612:15) Hellfire Claw
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turns 1-2
+     | (4614:79) Inferno Blast
+     | Change the 1st row to Fire orbs, Deal 250% damage
+   | group:
+   | condition: turn 3
+     | (4613:74) Scorching Heat Mantle
+     | Reduce damage from all sources by 75% for 2 turns
+   | group:
+     | (4614:79) Inferno Blast
+     | Change the 1st row to Fire orbs, Deal 250% damage

@@ -1,0 +1,59 @@
+#7123 - Eiby
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindRandom(1:23203) -> Devil Bind
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 6 random cards for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 8
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 8
+
+#6: ESAttackMultihit(15:23205) -> Flurry of Arrows
+Deal 100% damage (4 hits, 25% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESDebuffMovetime(39:23204) -> Draining Light
+Movetime 50% for 10 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBindAwoken(88:23219) -> Dust Arrow
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 2 turns, Deal 50% damage
+
+#13: ESAttackMultihit(15:23205) -> Flurry of Arrows
+Deal 100% damage (4 hits, 25% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESTurnChangePassive(106:23201) -> Enemy's next turn changed
+Enemy turn counter change to 1 when HP <= 75%
+
+#16: ESTurnChangeRemainingEnemies(122:23202) -> Enemy's next turn changed
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1
+
+#17: ESSuperResolve(129:23200) -> Super Resolve
+Damage which would reduce HP from above 1% to below 1% is nullified

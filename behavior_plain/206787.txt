@@ -1,0 +1,40 @@
+#206787 - Quasi-Human Vampire, Shinobu Oshino
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:21288) -> I'm surprised that you survived.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+RCV 25% for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESSkillDelay(89:21289) -> I have never once failed.
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 1~3 turns, Deal 80% damage
+
+#5: ESBlindStickyRandom(97:21290) -> An interesting proposition.
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 4~6 orbs for 1 turn, Deal 90% damage
+
+#6: ESRandomSpawn(92:21291) -> It's inevitable.
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 6 random Fire orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBindAwoken(88:21292) -> You show-off.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 3 turns
+
+#9: ESAttackMultihit(15:21293) -> How miserable.
+Deal 120% damage (2 hits, 60% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

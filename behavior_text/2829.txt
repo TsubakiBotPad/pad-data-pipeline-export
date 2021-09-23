@@ -1,0 +1,25 @@
+#2829 - Assault Superman Soldier (Film)
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2829
+approved: False
+
+level: 4
+ group:
+ | group:
+   | (4114:15) Full Auto
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (4115:8) Encircle
+   | Increase damage to 200% for the next attack
+ | group:
+ | condition: hp <= 19
+   | (4118:89) Tackle
+   | Delay active skills by 1 turn, Deal 120% damage
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (4117:17) Advance
+ | Increase damage to 120% for the next 999 turns

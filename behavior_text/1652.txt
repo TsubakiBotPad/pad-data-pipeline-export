@@ -1,0 +1,59 @@
+#1652 - Armored Green Ice Knight, Muse
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1652
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18564:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18666:83) Blue Impact + Chivalry of the Blue Globe
+ | Player -99% HP + Absorb damage when combos <= 8 for 8 turns
+ group:
+ | group:
+   | (18570:46) Ice Mirage Sword
+   | Change own attribute to random one of Fire, Water, or Wood, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 50
+   | (18567:83) Hard Fought + Blue Impact
+   | Specific orbs change every 2.0s for 10 turns + Player -99% HP
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (18571:83) Blue Crest + Last Resort + Armored Knight's Sin
+     | Increase damage to 200% for the next 999 turns + No skyfall for 99 turns + Bind awoken skills for 5 turns
+   | group:
+   | condition: turn 2
+     | (18567:83) Hard Fought + Blue Impact
+     | Specific orbs change every 2.0s for 10 turns + Player -99% HP
+
+level: 6
+ type: PASSIVE
+ | (18564:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18565:83) Blue Impact + Chivalry of the Blue Globe
+ | Player -99% HP + Absorb damage when combos <= 9 for 9 turns
+ group:
+ | group:
+   | (18570:46) Ice Mirage Sword
+   | Change own attribute to random one of Fire, Water, or Wood, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 50
+   | (18567:83) Hard Fought + Blue Impact
+   | Specific orbs change every 2.0s for 10 turns + Player -99% HP
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (18571:83) Blue Crest + Last Resort + Armored Knight's Sin
+     | Increase damage to 200% for the next 999 turns + No skyfall for 99 turns + Bind awoken skills for 5 turns
+   | group:
+   | condition: turn 2
+     | (18567:83) Hard Fought + Blue Impact
+     | Specific orbs change every 2.0s for 10 turns + Player -99% HP

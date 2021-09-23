@@ -1,0 +1,42 @@
+#206206 - V + Shadow + Griffon
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDebuffATK(130:17728) -> Little wanderer, hie thee home.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+ATK -50% for 3 turns, Deal 90% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#6: ESAttackMultihit(15:17843) -> Flank Attack
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#7: ESBlindStickyRandom(97:17844) -> Breakthrough
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 3~5 orbs for 1 turn, Deal 90% damage
+
+#8: ESOrbSealColumn(99:17845) -> Skewer
+Condition: 34% chance (ai:0 rnd:34)
+Seal the 1st column for 1 turn, Deal 95% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:17846) -> Gambit
+Deal 250% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

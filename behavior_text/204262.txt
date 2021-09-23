@@ -1,0 +1,31 @@
+#204262 - Reincarnated Gabriel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204262
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (21325:129) Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (21326:83) Ice Archangel's Protection + Impregnable Divine Will + Frozen Earth
+ | Voids status ailments for 999 turns + No skyfall for 10 turns + Lock all orbs, Deal 350% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (21333:48) Holy Water's Judgment
+   | Change a random attribute to Water orbs, Deal 420% damage
+   | condition: 50% chance
+   | (21334:46) Divine Punishment
+   | Change own attribute to random one of Water or Wood, Deal 360% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (21330:83) Frozen World + Everlasting Traces
+   | Change all orbs to Water + Increase damage to 150% for the next 999 turns, Deal 355% damage
+ | group:
+ | condition: hp <= 9
+   | (21336:15) Life Crusher
+   | Deal 2,000% damage (5 hits, 400% each)

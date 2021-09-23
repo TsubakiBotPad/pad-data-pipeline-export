@@ -1,0 +1,112 @@
+#7609 - Fiendish Messenger, Ratatoskr
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:26440) -> Camouflaging Stripes
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:26441) -> Sway of the World Tree
+	Absorb damage when damage >= 80,000,000 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchAttrOnBoard(133:26453) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 19
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESTargetedSkillHaste(139:26442) -> Beguilement
+	Haste all cards' skills by 1 turn
+	[1] ESLeaderAlter(125:26443) -> Blazehorn Illusion
+	Change leader to [4652] for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESTargetedSkillHaste(139:26442) -> Beguilement
+	Haste all cards' skills by 1 turn
+	[1] ESBindAwoken(88:26444) -> Deception
+	Bind awoken skills for 1 turn, Deal 110% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: SkillSet:
+	[0] ESTargetedSkillHaste(139:26442) -> Beguilement
+	Haste all cards' skills by 1 turn
+	[1] ESCloud(104:26445) -> Seed's Magical Fragrance
+	A row of clouds appears for 2 turns at 5th row, 1st column, Deal 135% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbChangeAttackBits(108:26448) -> Oooh! You got somethin' good!
+	Change all Jammer orbs to Heal orbs, Deal 40% damage
+	[1] ESTargetedSkillHaste(139:26449) -> Just this one time!
+	Haste all cards' skills by 5 turns
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#24: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:26377) -> His fur stands on end
+	Increase damage to 300% for the next 999 turns
+	[1] ESDebuffATK(130:26471) -> Squirrel Trick
+	ATK -75% for 5 turns
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESSuperResolve(129:26437) -> ＿Rata Before Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#27: ESAttributeResist(72:26438) -> ＿Rata Before Fire & Light halved
+Reduce damage from Fire and Light attrs by 50%
+
+#28: ESDeathCry(69:26424) -> ＿Rata Death Transformation
+Condition: On death (ai:0 rnd:0)
+Show message: The seed cracks open!|Darkness seeps from its body
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn

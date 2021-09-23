@@ -1,0 +1,31 @@
+#206214 - Lady
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206214
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (17708:39) Looks like we're gonna be busy for a while.
+ | Movetime -2s for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (17835:63) Wire Shot
+   | Bind 1 random card for 1 turn, Deal 95% damage
+   | condition: 33% chance
+   | (17837:92) Bayonet Sweep
+   | Spawn 6 random Water orbs, Deal 105% damage
+   | condition: 34% chance
+   | (17838:15) Shredder Shot
+   | Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (17836:102) Scatter
+   | Spawn 3 random Bomb orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 9
+   | (17839:15) Maximum Burst
+   | Deal 240% damage (4 hits, 60% each)

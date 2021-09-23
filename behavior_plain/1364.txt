@@ -1,0 +1,55 @@
+#1364 - Holy Hour Dragon Knight, Jeanne d'Arc
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESGravity(50:1330) -> Enough talk!
+Player -75% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#9: ESOrbChangeAttack(48:1332) -> Red Dragon Soldier Valois
+Condition: 30% chance (ai:30 rnd:0)
+Change all Wood orbs to Fire orbs, Deal 75% damage
+
+#10: ESOrbChangeAttack(48:1333) -> Blue Dragon Soldier Gilles de Rais
+Condition: 40% chance (ai:40 rnd:0)
+Change all Fire orbs to Water orbs, Deal 75% damage
+
+#11: ESAttackMultihit(15:1331) -> Charge!
+Deal 100% damage (4 hits, 25% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBindAttribute(2:1334) -> No Flammables!!!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind Fire cards for 2~3 turns
+
+#14: ESAttackUPRemainingEnemies(17:1335) -> Now's the time! Attack!
+Condition: When < 50% HP, when <= 3 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 3 turns
+
+#15: ESAttackMultihit(15:1336) -> Advancing La Pucelle
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 150% damage (5 hits, 30% each)

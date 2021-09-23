@@ -1,0 +1,89 @@
+#5090 - Akuma
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESLeaderSwap(75:12590) -> Humph, so it's you.
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Leader changes to random sub for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 20
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDamageShield(74:12594) -> Rakan
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESSkillDelay(89:12595) -> No use! Rakan Gosho
+	Delay active skills by 0~2 turns, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDamageShield(74:12594) -> Rakan
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESOrbLock(94:12596) -> Rakan Gokyaku
+	Lock 10 random orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:12598) -> Gohadoken
+	Change the 3rd row to Dark orbs, Deal 50% damage
+	[1] ESAbsorbCombo(67:12599) -> Tatsumaki Zankukyaku
+	Absorb damage when combos <= 5 for 1 turn, Deal 55% damage
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:12601) -> Sekia Goshoha
+	Change the 3rd row to Fire orbs, Deal 50% damage
+	[1] ESAttackMultihit(15:12602) -> Goshoryuken
+	Deal 60% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPRemainingEnemies(17:12604) -> Dohatsu Shoten
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 10 turns
+
+#12: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 11, target rnd 5
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESLeaderSwap(75:12603) -> Ashura Senku
+Leader changes to random sub for 1 turn
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#18: ESAttackMultihit(15:12606) -> Shun Goku Satsu
+Deal 400% damage (10 hits, 40% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#21: ESColumnSpawnMulti(77:12605) -> Sekia Kuretsuha
+Change the 3rd and 4th columns to Fire orbs, Deal 350% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn

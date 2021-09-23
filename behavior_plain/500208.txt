@@ -1,0 +1,25 @@
+#500208 - Earth Light Carbuncle
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:23269) -> Earthlight Watering Can
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Water damage for 1 turn
+
+#3: ESEndBattle(40:23336) -> They wander off somewhere...
+Condition: When < 50% HP (ai:100 rnd:0)
+Reduce self HP to 0
+
+#4: ESRandomSpawn(92:23270) -> Prank
+Spawn 3 random Heal orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSuperResolve(129:23335) -> Super Resolve
+Damage which would reduce HP from above 50% to below 50% is nullified

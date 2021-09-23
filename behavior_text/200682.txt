@@ -1,0 +1,49 @@
+#200682 - Heavy Metal Dragon
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 200682
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25216:106) Enemy's next turn changed
+ | Enemy turn counter change to 1 when HP <= 50%
+ | condition: when 1 enemies remain
+ | (25217:122) Enemy's next turn changed
+ | Enemy turn counter change to 1
+ | (25223:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25215:5) Dragon's Roar
+ | Blind all orbs on the board
+ group:
+ | group:
+   | (25218:15) Gravity Claw
+   | Deal 200% damage (2 hits, 100% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: 50% chance
+   | (25221:53) Wrath of Light
+   | Absorb Light damage for 5 turns
+   | condition: 50% chance
+   | (25222:53) Wrath of Dark
+   | Absorb Dark damage for 5 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25220:88) Metal Aura
+     | Bind awoken skills for 1 turn
+   | group:
+     | (25219:15) Gravi-Disaster
+     | Deal 2,000% damage (4 hits, 500% each)
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | condition: 50% chance
+ | (25221:53) Wrath of Light
+ | Absorb Light damage for 5 turns
+ | condition: 50% chance
+ | (25222:53) Wrath of Dark
+ | Absorb Dark damage for 5 turns

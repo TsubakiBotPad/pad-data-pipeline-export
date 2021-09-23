@@ -1,0 +1,25 @@
+#338 - Blazing Dark Tiamat
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 338
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29244:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 10%
+ | (29119:129) 超根性10％
+ | Damage which would reduce HP from above 10% to below 10% is nullified
+ type: PREEMPT
+ | (29108:83) ダークハウル + ブラッドハウル + 呪舞
+ | Dark skyfall +20% for 3 turns + For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Specific orbs change every 1.0s for 10 turns
+ group:
+ | group:
+   | (29112:83) 暗黒な世界 + 紅闇龍の逆鱗
+   | Voids player buff effects + Deal 3,000% damage (6 hits, 500% each), Deal 3,000% damage (6 hits, 500% each)
+ | group:
+ | condition: hp <= 9
+   | (29115:83) 紅闇龍の魂 + 暗黒の力 + ゴォォォォオ…
+   | Locked random skyfall +30% for 10 turns + Change all orbs to Dark + Reduce self HP to 0

@@ -1,0 +1,22 @@
+#500475 - Hellfire Pyro Demon
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESAttackUPRemainingEnemies(17:15425) -> Devil's Rage
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 6 turns
+
+#2: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 4
+
+#3: ESFixedStart(101:15427) -> Demon's Choice
+Condition: 60% chance (ai:60 rnd:0)
+Fix orb movement starting point to random position on the board, Deal 200% damage
+
+#4: ESAttackMultihit(15:15426) -> Flare Rain
+Deal 105% damage (3 hits, 35% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

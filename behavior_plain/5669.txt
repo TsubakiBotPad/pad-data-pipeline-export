@@ -1,0 +1,65 @@
+#5669 - Destined Rival, Naga the Serpent
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:14948) -> Hohohoho!
+	Absorb damage when combos <= 7 for 5 turns
+	[1] ESAttributeBlock(107:14949) -> It's showtime!
+	Unable to match Wood orbs for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESGravity(50:14950) -> Stone Ghost!
+Condition: One-time use (ai:30 rnd:0) (cost: 1)
+Player -99% HP
+
+#8: ESOrbLock(94:14951) -> Chaos String!
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 70% damage
+
+#9: ESBindAttack(63:14952) -> Dynast Breath!
+Condition: 50% chance (ai:0 rnd:50)
+Bind 1 random card for 5 turns, Deal 65% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESSkillDelay(89:14953) -> It's come this far, so I guess I have no choice...
+Delay active skills by 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 7
+
+#16: ESRandomSpawn(92:14954) -> Gu Lu Douger!
+Spawn 10 random Dark orbs, Deal 150% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESTypeResist(118:14997) -> Physical Attack Halved
+Reduce damage from Physical and Attacker types by 50%

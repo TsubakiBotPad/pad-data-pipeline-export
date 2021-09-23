@@ -1,0 +1,36 @@
+#3460 - 最強より最高・坊屋春道
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3460
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24733:100) オレはカラスで十分だぜ!!
+ | Seal the 1st row for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (24736:1) じゃかましい
+   | Bind 2 random cards for 5 turns, Deal 90% damage
+   | condition: 33% chance
+   | (24737:62) なめた口きいてんじゃねー
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 34% chance
+   | (24734:15) とう！！
+   | Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (24735:110) わかんねーヤローだな！
+   | Specific orbs change every 1.0s for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (24738:83) おわりだバカヤロー + しめおとしたらぁー
+     | Bind awoken skills for 1 turn + Player -99% HP
+   | group:
+     | (24741:15) うおらああ
+     | Deal 260% damage (4 hits, 65% each)

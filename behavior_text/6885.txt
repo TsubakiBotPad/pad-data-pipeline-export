@@ -1,0 +1,37 @@
+#6885 - Ice Sprite King, Hoppo
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6885
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21606:83) Could you melt this ice for me? + Hurry, or I'll freeze solid! + I need you to link Fire Orbs!
+ | Immune to damage from all sources for 999 turns + Locked random skyfall +100% for 99 turns + Do nothing
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when all Fire orbs are matched last turn
+   | (21615:83) The fire isn't strong enough! + The ice grew stronger
+   | Do nothing + RCV 25% for 99 turns
+   | (21620:83) Oh no! The ice is getting stronger! + The ice grew stronger
+   | Do nothing + RCV 25% for 99 turns
+ | group:
+ | condition: turn 2
+   | condition: when all Fire orbs are matched last turn
+   | (21616:83) The fire isn't strong enough! + The ice grew stronger
+   | Do nothing + Movetime 25% for 99 turns
+   | (21621:83) Oh no! The ice is getting stronger! + The ice grew stronger
+   | Do nothing + Movetime 25% for 99 turns
+ | group:
+   | (21623:50) You were swallowed by the ice
+   | Player -5,000% HP
+ type: UNKNOWN_USE
+ | (21610:83) Just like that! + The ice crept further
+ | Do nothing + Unable to match Water and Wood orbs for 1 turn
+ | (21611:83) Just like that! + The ice crept further
+ | Do nothing + Unable to match Light and Dark orbs for 1 turn
+ | (21604:83) Yay! The ice melted away! + Thanks for the help!
+ | Do nothing + Reduce self HP to 0

@@ -1,0 +1,53 @@
+#101532 - Alt. Awoken Zeus Mercury
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:697) -> ESPreemptive
+Enable preempt if level 3
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 3, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:90) -> Protection of the Gods
+Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESSkyfall(68:1451) -> The Nectar of Welcome Rains
+Water skyfall +25% for 99 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAbsorbCombo(67:1452) -> Deep Aquarius
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 1 turn
+
+#13: ESAttackMultihit(15:1455) -> Galaxy Swarm
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 175% damage (5 hits, 35% each)
+
+#14: ESBindAttack(63:1453) -> Deucalion Flood
+Condition: 25% chance when < 75% HP (ai:25 rnd:0)
+Bind 3 random subs for 1~2 turns, Deal 75% damage
+
+#15: ESOrbChangeAttack(48:1454) -> Crystal Bullet
+Change a random attribute to Water orbs, Deal 100% damage

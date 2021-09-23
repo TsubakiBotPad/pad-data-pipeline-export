@@ -1,0 +1,47 @@
+#1626 - Jester Wizard, Chester
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 1626
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14406:83) Can't you hang out for a while? + Can you breakthrough this wall? + Try to overthrow me
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 14 for 999 turns + Void damage >= 999 for 999 turns
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 15 combos last turn
+   | (14413:40) Wow, amazing!
+   | Reduce self HP to 0
+   | (14409:66) Let's start the countdown
+   | Do nothing
+ | group:
+ | condition: turn 2
+   | condition: when 15 combos last turn
+   | (14413:40) Wow, amazing!
+   | Reduce self HP to 0
+   | (14410:66) You still have time
+   | Do nothing
+ | group:
+ | condition: turn 3
+   | condition: when 15 combos last turn
+   | (14413:40) Wow, amazing!
+   | Reduce self HP to 0
+   | (14411:66) You should probably hurry up
+   | Do nothing
+ | group:
+ | condition: turn 4
+   | condition: when 15 combos last turn
+   | (14413:40) Wow, amazing!
+   | Reduce self HP to 0
+   | (14412:66) You're on the edge now
+   | Do nothing
+ | group:
+   | condition: when 15 combos last turn
+   | (14413:40) Wow, amazing!
+   | Reduce self HP to 0
+   | (14414:83) You're out of time + Let's meet again♪
+   | Change own attribute to random one of Fire, Water, Wood, or Dark + Player -2,000% HP

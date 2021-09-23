@@ -1,0 +1,70 @@
+#3867 - Pixel Empress of Serpents, Echidna
+monster size: 4
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:16313) -> Menace
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Delay active skills by 3~6 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 12
+
+#4: ESGravity(50:16321) -> Crimson Dance
+Condition: 50% chance (ai:50 rnd:0)
+Player -75% HP
+
+#5: ESAttackMultihit(15:16317) -> Final Blow
+Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESGravity(50:16316) -> Crimson Dance
+	Player -25% HP
+	[1] ESAttackMultihit(15:16317) -> Final Blow
+	Deal 80% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:16319) -> Crimson Dance
+	Player -50% HP
+	[1] ESAttackMultihit(15:16317) -> Final Blow
+	Deal 80% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:16321) -> Crimson Dance
+	Player -75% HP
+	[1] ESAttackMultihit(15:16317) -> Final Blow
+	Deal 80% damage
+
+#10: SkillSet:
+	[0] ESGravity(50:16323) -> Crimson Dance
+	Player -99% HP
+	[1] ESAttackMultihit(15:16317) -> Final Blow
+	Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESRecoverEnemyAlly(52:16312) -> Healing Prayer
+	Enemy ally recover 50% HP
+	[1] ESSkillDelay(89:16313) -> Menace
+	Delay active skills by 3~6 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,24 @@
+#1657 - Evil Knight, Creuse
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1657
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (14731:83) Knight Armor + Knight's Pride
+ | Voids status ailments for 5 turns + Reduce damage from all sources by 99% for 3 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | (7696:15) Death Viper Slash
+   | Deal 500% damage (2 hits, 250% each)
+ | group:
+ | condition: turn 3
+   | (14297:83) Evil Crest + Death Viper Slash
+   | Increase damage to 250% for the next 1 turn + Deal 500% damage (2 hits, 250% each), Deal 500% damage (2 hits, 250% each)
+ | group:
+   | (7696:15) Death Viper Slash
+   | Deal 500% damage (2 hits, 250% each)

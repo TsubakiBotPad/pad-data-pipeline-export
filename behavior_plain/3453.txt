@@ -1,0 +1,110 @@
+#3453 - Soul Reclaimer God of Dark Riches, Osiris
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:27579) -> 冥穣神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:27580) -> 冥穣の摂理
+	Absorb damage when damage >= 30,000,000 for 5 turns
+	[2] ESAttributeBlock(107:27581) -> …逃がしません
+	Unable to match Heal orbs for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 22
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 20
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESDamageShield(74:27601) -> 冥穣神の呪壁
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESBindTarget(54:27602) -> メジェバインド
+	Bind player leader for 2 turns, Deal 100% damage
+
+#9: SkillSet:
+	[0] ESAbsorbCombo(67:27604) -> 冥穣神の奪取
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESAttackMultihit(15:27605) -> メジェブラスト
+	Deal 99% damage (3 hits, 33% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBombFixedSpawn(103:27595) -> 冥穣神の賜物
+	Spawn Bomb orbs in the specified positions
+	[1] ESAttackMultihit(15:27596) -> メジェブラスト
+	Deal 108% damage (3 hits, 36% each)
+
+#12: SkillSet:
+	[0] ESColumnSpawnMulti(76:27598) -> Wフォレストサイン
+	Change the 1st and 6th columns to Wood orbs
+	[1] ESAttackMultihit(15:27599) -> メジェブラスト
+	Deal 102% damage (3 hits, 34% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESNoSkyfall(127:27587) -> …終わりにしようか
+	No skyfall for 1 turn
+	[1] ESSpinnersFixed(110:27588) -> メジェターン
+	Specific orbs change every 1.0s for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:27589) -> …メ・ジ・エンド
+Deal 3,500% damage (7 hits, 500% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESRandomSpawn(92:27591) -> 冥穣神の活力
+	Spawn 15 random Wood orbs
+	[1] ESOrbLock(94:27592) -> メジェロック
+	Lock all Wood orbs
+	[2] ESAttackUPRemainingEnemies(17:27593) -> メジェパワー
+	Increase damage to 150% for the next 999 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	[0] ESRecoverEnemy86(86:27583) -> ……
+	Enemy recover 100% HP
+	[1] ESChangeAttribute(46:27584) -> 冥穣神の怪光
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[2] ESMaxHPChange(111:27585) -> 冥穣神の呪い
+	Change player HP to 50% for 1 turn
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESResolve(73:27606) -> 根性
+Survive attacks with 1 HP when HP > 50%

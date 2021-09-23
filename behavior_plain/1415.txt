@@ -1,0 +1,47 @@
+#1415 - Queen of the Dwarfs, Snow White
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:10880) -> Minor Protection
+Voids status ailments for 7 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 10
+
+#7: ESOrbChangeSingle(4:10881) -> Bitten Fruit
+Condition: 50% chance (ai:0 rnd:50)
+Change all Heal orbs to Poison orbs
+
+#8: ESBindRandom(1:10882) -> Completely Consumed Fruit
+Condition: 50% chance (ai:0 rnd:50)
+Bind 1 random card for 10 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESRecoverEnemy86(86:10883) -> Dwarven Rebirth
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 100% HP
+
+#11: ESAttackMultihit(15:10884) -> Raging Dwarf
+Deal 350% damage (7 hits, 50% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:10879) -> Resolve
+Survive attacks with 1 HP when HP > 30%

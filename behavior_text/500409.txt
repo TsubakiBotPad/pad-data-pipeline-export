@@ -1,0 +1,34 @@
+#500409 - Glacialdragon Niflheim
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 500409
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15378:74) Ice Barrier
+ | Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (15381:63) Blizzard Breath
+   | Bind 1 random sub for 1 turn, Deal 90% damage
+   | (15380:15) Hailstones
+   | Deal 77~110% damage (7~10 hits, 11% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15382:94) Freeze Wave
+     | Lock all orbs
+   | group:
+     | condition: 10% chance
+     | (15379:15) God Blizzard Breath
+     | Deal 150% damage (2 hits, 75% each)
+     | condition: 30% chance
+     | (15381:63) Blizzard Breath
+     | Bind 1 random sub for 1 turn, Deal 90% damage
+     | (15380:15) Hailstones
+     | Deal 77~110% damage (7~10 hits, 11% each)

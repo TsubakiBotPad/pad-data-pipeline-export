@@ -1,0 +1,80 @@
+#843 - DD・ドラゴン
+monster size: 5
+new AI: False
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESJammerChangeRandom(13:570) -> Howl
+Change 2 random orb types to Jammer orbs
+
+#7: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 40, target rnd 11
+
+#8: ESOrbChangeAttack(48:572) -> Fierce Fire Breath
+Condition: 50% chance (ai:50 rnd:0)
+Change a random attribute to Fire orbs, Deal 135% damage
+
+#9: ESBindRandom(1:569) -> Eagle Grip
+Condition: One-time use (ai:50 rnd:0) (cost: 2)
+Bind 1 random card for 5 turns
+
+#10: ESAttackMultihit(15:590) -> Claw Strike of Anger
+Deal 130% damage (2 hits, 65% each)
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBindRandom(1:569) -> Eagle Grip
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 1 random card for 5 turns
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: ESOrbChangeAttack(48:593) -> Breath of Flames
+Change a random attribute to Fire orbs, Deal 100% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#19: ESAttackMultihit(15:571) -> Tail Attack
+Deal 110% damage (2 hits, 55% each)
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 23
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#22: ESOrbChangeAttack(48:592) -> Wing Fluttering
+Change a random attribute to Jammer orbs, Deal 70% damage
+
+#23: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11110
+
+#24: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 40, target rnd 11

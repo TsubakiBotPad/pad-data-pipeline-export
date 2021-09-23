@@ -1,0 +1,24 @@
+#100310 - Alt. Ice Samurai Ogre
+monster size: 4
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 100310
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8206:73) Ogre Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (8269:15) Strike
+ | Deal 60% damage (2 hits, 30% each)
+ group:
+ | group:
+   | condition: 50% chance
+   | (8:8) Energy Charge
+   | Increase damage to 200% for the next attack
+ | group:
+ | condition: hp <= 49
+   | (422:15) Freeze Strike
+   | Deal 150% damage

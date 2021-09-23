@@ -1,0 +1,75 @@
+#2422 - Musical Winged Mechanical Star God, Pollux
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2422
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10095:118) God Machine Halved
+ | Reduce damage from God and Machine types by 50%
+
+level: 4
+ type: PASSIVE
+ | (10095:118) God Machine Halved
+ | Reduce damage from God and Machine types by 50%
+ type: PREEMPT
+ | (10098:83) Don't even try to get closer + Creation of Antibody
+ | Seal the 1st row for 5 turns + Absorb Water and Dark damage for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (10099:87) Gigantic Power Shield
+   | Absorb damage when damage >= 2,000,000 for 5 turns
+ | group:
+ | condition: always turn 10
+   | (10100:74) Divine Protection from the Gods
+   | Reduce damage from all sources by 75% for 99 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 9
+     | condition: 33% chance
+     | (10101:48) White Out
+     | Change all Heal orbs to Light orbs, Deal 110% damage
+     | condition: 33% chance
+     | (10102:94) Restraining Star
+     | Lock all Water and Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10103:15) Star Quasar
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+   | condition: turns 6-9 while HP > 9
+     | condition: 33% chance
+     | (10101:48) White Out
+     | Change all Heal orbs to Light orbs, Deal 110% damage
+     | condition: 33% chance
+     | (10102:94) Restraining Star
+     | Lock all Water and Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10103:15) Star Quasar
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+     | condition: 33% chance
+     | (10101:48) White Out
+     | Change all Heal orbs to Light orbs, Deal 110% damage
+     | condition: 33% chance
+     | (10102:94) Restraining Star
+     | Lock all Water and Dark orbs, Deal 105% damage
+     | condition: 34% chance
+     | (10103:15) Star Quasar
+     | Deal 120% damage (4 hits, 30% each)
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turns 1-4
+     | (10104:15) Shooting White Snow
+     | Deal 250% damage (5 hits, 50% each)
+   | group:
+   | condition: turns 6-9
+     | (10104:15) Shooting White Snow
+     | Deal 250% damage (5 hits, 50% each)
+   | group:
+     | (10104:15) Shooting White Snow
+     | Deal 250% damage (5 hits, 50% each)

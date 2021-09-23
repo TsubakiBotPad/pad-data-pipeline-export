@@ -1,0 +1,70 @@
+#104748 - Gintoki Sakata
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 104748
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (11057:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (11060:83) You guys!! + Do you even have a Gintama?
+ | Player -1% HP + Voids status ailments for 1 turn
+
+level: 4
+ type: PASSIVE
+ | (11057:73) Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (11039:83) You guys!! + Do you even have a Gintama?
+ | Player -80% HP + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | condition: 50% chance
+     | (11041:94) PAD isn't worth getting worked up over, okay?
+     | Lock 6 random orbs, Deal 105% damage
+     | condition: 50% chance
+     | (11042:15) Don't take us Shonen Jump protagonists lightly!
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (11043:74) That's not gonna be enough to beat me! 
+     | Reduce damage from all sources by 50% for 1 turn, Deal 105% damage
+     | condition: 50% chance
+     | (11047:79) Odd Jobs ain't to be underestimated!
+     | Change the 3rd row to Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 20% chance
+     | (11052:53) You ain't got enough sugar in you!
+     | Absorb Fire damage for 1 turn, Deal 90% damage
+     | condition: 20% chance
+     | (11053:53) You ain't got enough sugar in you!
+     | Absorb Water damage for 1 turn, Deal 90% damage
+     | condition: 20% chance
+     | (11054:53) You ain't got enough sugar in you!
+     | Absorb Wood damage for 1 turn, Deal 90% damage
+     | condition: 20% chance
+     | (11055:53) You ain't got enough sugar in you!
+     | Absorb Light damage for 1 turn, Deal 90% damage
+     | condition: 20% chance
+     | (11056:53) You ain't got enough sugar in you!
+     | Absorb Dark damage for 1 turn, Deal 90% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (11044:83) Okay, time for me to go all out, too.  + Your puzzling fun ends here!
+   | Increase damage to 150% for the next 99 turns + Movetime -2s for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (11051:83) Even if I'm not in my own manga, + until my body collapses, + I will live my life standing tall!
+   | Change a random attribute to Water orbs + Blind all orbs on the board + Deal 250% damage (5 hits, 50% each), Deal 10% damage
+ | group:
+ | condition: hp <= 1
+   | (11040:86) C'mon, have a parfait and chill. 
+   | Enemy recover 50% HP

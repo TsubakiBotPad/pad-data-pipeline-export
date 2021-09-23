@@ -1,0 +1,28 @@
+#323 - Green Flame Ifrit
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESStatusShield(20:205) -> Fertile Guard
+Voids status ailments for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESAttackMultihit(15:248) -> Magma Breath
+Deal 100% damage (2 hits, 50% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBindAttribute(2:366) -> Water Bind
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind Water cards for 2~4 turns
+
+#7: ESAttackMultihit(15:231) -> God Gaia Breath
+Condition: When < 50% HP (ai:100 rnd:0)
+Deal 150% damage (2 hits, 75% each)

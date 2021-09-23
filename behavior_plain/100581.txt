@@ -1,0 +1,44 @@
+#100581 - Alt. Kelpie
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 5, target rnd 6
+
+#3: ESBranchLevel(34:24) -> ESBranchLevel
+Branch on level = 8, target rnd 6
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 10, target rnd 6
+
+#5: ESOrbLock(94:17345) -> Cry of the Water Horse
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock all orbs
+
+#6: ESBindSkill(14:17346) -> Cry of the Water Horse
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind active skills for 10 turns
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 10
+
+#8: ESOrbLock(94:17347) -> Wail of the Water Horse
+Lock 20 random orbs, Deal 90% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackUPCooldown(19:17348) -> Rage of the Mythical Beast
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#11: ESOrbLock(94:17347) -> Wail of the Water Horse
+Lock 20 random orbs, Deal 90% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

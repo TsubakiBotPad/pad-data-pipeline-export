@@ -1,0 +1,43 @@
+#101648 - Alt. Corpse Armor Dark Knight, Gravis
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 0
+monster_id: 101648
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1613:20) Armor of Darkness
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 60% chance
+   | (1614:64) Shield of Destruction
+   | Change 3 random orbs to Poison orbs, Deal 60% damage
+   | condition: 60% chance
+   | (1616:48) Magic Flame
+   | Change all Light orbs to Fire orbs, Deal 100% damage
+   | (1615:62) Darkness
+   | Blind all orbs on the board, Deal 80% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | (1617:2) Black Binding
+   | Bind Light cards for 3 turns
+   | condition: 60% chance
+   | (1614:64) Shield of Destruction
+   | Change 3 random orbs to Poison orbs, Deal 60% damage
+   | condition: 60% chance
+   | (1616:48) Magic Flame
+   | Change all Light orbs to Fire orbs, Deal 100% damage
+   | (1615:62) Darkness
+   | Blind all orbs on the board, Deal 80% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (1617:2) Black Binding
+     | Bind Light cards for 3 turns
+   | group:
+     | (1618:15) Bloody Execution
+     | Deal 180% damage (3 hits, 60% each)

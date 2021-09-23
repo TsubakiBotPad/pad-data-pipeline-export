@@ -1,0 +1,37 @@
+#5763 - Masked Rider Faiz Accel Form
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5763
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (20871:127) If fighting's a sin, then I'll be a sinner!
+ | No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (20877:92) Faiz Shot
+   | Spawn 5 random Fire orbs, Deal 90% damage
+   | condition: 33% chance
+   | (20878:101) Faiz Pointer
+   | Fix orb movement starting point to random position on the board, Deal 80% damage
+   | condition: 34% chance
+   | (20872:15) Grand Impact
+   | Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (20873:83) I'll carry on your ideals as my own! + Accel Mode, activate!
+   | Voids status ailments for 999 turns + Movetime -3s for 5 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (20874:17) Exceed Charge
+     | Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: execute repeatedly, turn 2-6 of 6
+     | (20879:92) Enhanced Crimson Smash
+     | Spawn 10 random Fire orbs, Deal 80% damage

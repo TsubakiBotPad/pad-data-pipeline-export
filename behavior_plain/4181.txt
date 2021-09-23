@@ -1,0 +1,89 @@
+#4181 - Composed God of Great Knowledge, Dagda
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAttackMultihit(15:16514) -> A test before we begin
+	Deal 145% damage
+	[1] ESDamageShield(74:16515) -> You did well to withstand that...
+	Reduce damage from all sources by 50% for 99 turns
+	[2] ESAbsorbCombo(67:16516) -> I won't hold back any more!
+	Absorb damage when combos <= 11 for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:16525) -> Cauldron of Plenty
+	Voids status ailments for 999 turns
+	[1] ESBindRandom(1:16524) -> Harp - Lullaby
+	Bind 2 random cards for 10 turns
+
+#9: ESAttackMultihit(15:16522) -> Harp - Dirge
+Condition: 20% chance (ai:20 rnd:0)
+Deal 110% damage
+
+#10: ESBoardChangeAttackBits(85:16523) -> Harp - Ballad
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 82% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESRecoverEnemy86(86:16531) -> Club of Resurrection
+	Enemy recover 50% HP
+	[1] ESDispel(6:16519) -> Club of Destruction
+	Voids player buff effects
+	[2] ESBindAwoken(88:16520) -> It's over...
+	Bind awoken skills for 1 turn
+	[3] ESAttackMultihit(15:16521) -> Explosive Whirlwind Mace!!
+	Deal 1,010% damage (10 hits, 101% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESDebuffMovetime(39:16517) -> Not too bad
+	Movetime -2s for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:16518) -> Entertain me some more
+	Increase damage to 150% for the next 99 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBoardChangeAttackBits(85:16523) -> Harp - Ballad
+Condition: 20% chance (ai:20 rnd:0)
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 82% damage
+
+#19: ESAttackMultihit(15:16522) -> Harp - Dirge
+Deal 110% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:16530) -> Resolve
+Survive attacks with 1 HP when HP > 30%

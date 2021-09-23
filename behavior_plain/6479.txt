@@ -1,0 +1,63 @@
+#6479 - Geese Howard
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:19650) -> Come on!
+Reduce damage from all sources by 50% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESBindRandom(1:19652) -> Know your place.
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind 2 random cards for 5 turns
+
+#8: ESRowSpawnMulti(79:19651) -> Reppuu Ken
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st row to Light orbs, Deal 95% damage
+
+#9: ESRowSpawnMulti(79:19653) -> Double Reppuu Ken
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st and 5th rows to Light orbs, Deal 100% damage
+
+#10: ESAttackMultihit(15:19655) -> Shippuu Ken
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESStatusShield(20:19654) -> I wasn't too serious there, but it was pretty fun.
+	Voids status ailments for 4 turns
+	[1] ESAttackUPRemainingEnemies(17:19656) -> Come at me as though you're ready to die!
+	Increase damage to 150% for the next 4 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:19657) -> Raging Storm
+Deal 180% damage (6 hits, 30% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

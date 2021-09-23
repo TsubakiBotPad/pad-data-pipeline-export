@@ -1,0 +1,36 @@
+#761 - Jester Dragon, Drawn Joker
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 761
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4463:72) Water/Light/Dark Halved
+ | Reduce damage from Water, Light, and Dark attrs by 50%
+ type: PREEMPT
+ | (4449:83) Toon Bomb + Joker Time!
+ | Spawn 3 random Bomb orbs + Movetime -2s for 10 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (4452:83) Magic Barrier + Ice Mirror Barrier
+   | Reduce damage from all sources by 50% for 4 turns + Voids status ailments for 4 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (4455:83) Frost Left + Chilled Aqua
+   | Change the 1st column to Water orbs and the 2nd column to Water and Dark orbs + Lock all Water orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (4458:83) Nightmare Right + Chilled Darkness
+   | Change the 5th column to Water and Dark orbs and the 6th column to Dark orbs + Lock all Dark orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (4461:83) Median Joker + Chilled Shuffle
+   | Change the 3rd column to Dark orbs and the 4th column to Water orbs + Lock 12 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (4462:83) Frost Left + Nightmare Right + Median Joker
+   | Change the 1st column to Water orbs and the 2nd column to Water and Dark orbs + Change the 5th column to Water and Dark orbs and the 6th column to Dark orbs + Change the 3rd column to Dark orbs and the 4th column to Water orbs, Deal 100% damage

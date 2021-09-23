@@ -1,0 +1,90 @@
+#2720 - Darkness Goddess, Hera Dragon
+monster size: 5
+new AI: True
+start/max counter: 2047
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1024)
+	[0] ESStatusShield(20:4297) -> Black Body
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:4298) -> Dark Ball
+	Absorb damage when damage >= 2,000,000 for 999 turns
+	[2] ESAttackMultihit(15:4299) -> Darkdragon's Baptism
+	Deal 400% damage (4 hits, 100% each)
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 512)
+	[0] ESInactivity66(66:4301) -> Summon Vinus
+	Do nothing
+	[1] ESRecoverPlayer(55:4306) -> Breath of Compassion
+	Player recover 100% HP
+
+#4: ESAttackMultihit(15:4308) -> Brilliant World
+Condition: One-time use (ai:100 rnd:0) (cost: 256)
+Deal 1,000% damage (2 hits, 500% each)
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 128)
+	[0] ESInactivity66(66:4302) -> Summon Mineva
+	Do nothing
+	[1] ESRecoverPlayer(55:4306) -> Breath of Compassion
+	Player recover 100% HP
+
+#6: ESAttackMultihit(15:4310) -> Celestial Prison's Scorching Heat
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Deal 1,250% damage (5 hits, 250% each)
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESInactivity66(66:4303) -> Summon Seres
+	Do nothing
+	[1] ESRecoverPlayer(55:4306) -> Breath of Compassion
+	Player recover 100% HP
+
+#8: ESAttackMultihit(15:4312) -> Soul Burst
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Deal 1,500% damage (3 hits, 500% each)
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESInactivity66(66:4304) -> Summon Neptunus
+	Do nothing
+	[1] ESRecoverPlayer(55:4306) -> Breath of Compassion
+	Player recover 100% HP
+
+#10: ESAttackMultihit(15:4314) -> Abysstrom
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 1,760% damage (4 hits, 440% each)
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:4305) -> Summon Ades
+	Do nothing
+	[1] ESRecoverPlayer(55:4306) -> Breath of Compassion
+	Player recover 100% HP
+
+#12: ESAttackMultihit(15:4316) -> Death Scythe
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 2,100% damage (6 hits, 350% each)
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESInactivity66(66:4317) -> Gathering Magical Power
+Do nothing
+
+#16: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b1
+
+#17: SkillSet:
+	[0] ESDispel(6:4352) -> Dark Eyes
+	Voids player buff effects
+	[1] ESAttackMultihit(15:4318) -> Ultra Graviton Breath
+	Deal 3,000% damage (10 hits, 300% each)

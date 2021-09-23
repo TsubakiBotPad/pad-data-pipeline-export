@@ -1,0 +1,26 @@
+#920 - Elemental of Kind Waters, Undine
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 920
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (1720:14) Pure Melody
+ | Bind active skills for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1722:48) Aqua Gazer
+     | Change a random attribute to Water orbs, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1721:48) Torrent of Kind Waters
+     | Change all Water orbs to Heal orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 29
+   | (1723:15) Hey! Payback time!
+   | Deal 250% damage (2 hits, 125% each)
