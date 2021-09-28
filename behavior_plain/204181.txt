@@ -1,0 +1,84 @@
+#204181 - 裏泰然の大知神・ダグザ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:28902) -> 豊穣の大釜
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:28903) -> 大釜の魔力
+	Absorb damage when combos <= 10 for 1 turn
+	[2] ESBoardSizeChange(126:28904) -> 悲棍
+	Change board size to 6x5 for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESVoidShieldBig(137:28912) -> 大知神の守り
+	Void damage >= 5 for 100,000,000 turns
+	[1] ESBoardChangeAttackBits(85:28914) -> 竪琴・喜遊奏
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAbsorbCombo(67:28903) -> 大釜の魔力
+	Absorb damage when combos <= 10 for 1 turn
+	[1] ESSpinnersFixed(110:28915) -> 竪琴・悲哀奏
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAbsorbCombo(67:28911) -> 大釜の魔力
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESVoidShieldBig(137:28912) -> 大知神の守り
+	Void damage >= 5 for 100,000,000 turns
+	[2] ESBoardSizeChange(126:28913) -> 喜棍
+	Change board size to 7x6 for 1 turn
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESGravity(50:28906) -> 破壊棍
+	Player -100% HP
+	[1] ESAttackMultihit(15:28907) -> 旋風爆鎚棍！！
+	Deal 650% damage (10 hits, 65% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

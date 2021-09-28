@@ -1,0 +1,59 @@
+#205487 - 覚醒アクベンス
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:28832) -> 巨蟹の結界
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:28833) -> オレを倒せるかな
+	Reduce damage from all sources by 75% for 6 turns
+	[2] ESBlindStickySkyfall(128:28834) -> バトルだ！
+	For 1 turn, 20% chance for skyfall orbs to be blinded for turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 11
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#6: ESRandomSpawn(92:28836) -> かかったな！
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Spawn 7 random Jammer orbs, Deal 80% damage
+
+#7: ESNoSkyfall(127:28835) -> かかったな！
+Condition: 50% chance (ai:0 rnd:50)
+No skyfall for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:28837) -> 終わりだ！！
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 800% damage (4 hits, 200% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#14: ESTurnChangePassive(106:28838) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 99%

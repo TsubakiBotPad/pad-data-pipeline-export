@@ -1,0 +1,76 @@
+#202925 - 残光の破壊龍・アポカリプス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:28679) -> 残光の龍壁
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:28680) -> プラズマボール
+	Absorb damage when damage >= 500,000,000 for 6 turns
+	[2] ESGravity(50:28681) -> ディストラクションレイ
+	Player -150% HP
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESRandomSpawn(92:28690) -> ジャッジメントソード
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Light orbs, Deal 100% damage
+
+#8: ESRandomSpawn(92:28691) -> ジャッジメントソード
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Dark orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttributeBlock(107:28683) -> ダークディストラクション
+	Unable to match Dark orbs for 10 turns
+	[1] ESDebuffRCV(105:28684) -> プラズマボール
+	RCV 25% for 3 turns
+	[2] ESGravity(50:28685) -> ディストラクションレイ
+	Player -150% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBoardChangeAttackBits(85:28689) -> ラストジャッジメント
+Change all orbs to Light, Dark, and Heal, Deal 550% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

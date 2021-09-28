@@ -1,0 +1,38 @@
+#204894 - 覚醒ルミエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204894
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28725:83) 魔翼結界 + 魔召の神令 + これあーげる！
+ | Voids status ailments for 999 turns + Void damage >= 3 for 99,900,000,000 turns + Spawn 5 random Jammer and Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (28732:108) いらないものはゴミ箱にポイッ
+     | Change all Jammer orbs to Dark orbs, Deal 150% damage
+     | condition: 50% chance
+     | (28731:92) これあーげる！
+     | Spawn 5 random Jammer and Poison orbs, Deal 90% damage
+     | condition: 50% chance
+     | (28730:62) まーっくらだよ
+     | Blind all orbs on the board, Deal 100% damage
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (28733:83) これあーげる！ + もっともっとあーげる！
+   | Jammer skyfall +25% for 5 turns + Unable to match Jammer orbs for 5 turns
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28736:85) もう全部いらない！
+   | Change all orbs to Water and Dark, Deal 1,100% damage

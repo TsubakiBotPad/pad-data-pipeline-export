@@ -1,0 +1,23 @@
+#300587 - 裏ワーウルフ
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300587
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28513:130) 嘆きの遠吠え
+ | ATK -75% for 3 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (28514:15) ウルフコンボ
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+   | (28954:15) 潜帝の殄滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

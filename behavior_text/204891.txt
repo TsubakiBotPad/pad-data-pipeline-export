@@ -1,0 +1,67 @@
+#204891 - 覚醒ファミエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204891
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28692:83) 星天使の障壁 + 決起の神令 + 神水の天唱
+ | Voids status ailments for 999 turns + A row of clouds appears for 3 turns at 5th row, 1st column + Blind all orbs for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (28699:92) キュアポーション
+     | Spawn 10 random Heal orbs, Deal 90% damage
+     | condition: 33% chance
+     | (28700:92) ポイズンポーション
+     | Spawn 10 random Poison orbs, Deal 90% damage
+     | condition: 34% chance
+     | (28701:92) ダストポーション
+     | Spawn 10 random Jammer orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (28696:83) 天からの贈り物 + 流星
+     | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Specific orbs change every 1.0s for 3 turns
+   | group:
+   | condition: turns 4-5
+     | condition: 33% chance
+     | (28699:92) キュアポーション
+     | Spawn 10 random Heal orbs, Deal 90% damage
+     | condition: 33% chance
+     | (28700:92) ポイズンポーション
+     | Spawn 10 random Poison orbs, Deal 90% damage
+     | condition: 34% chance
+     | (28701:92) ダストポーション
+     | Spawn 10 random Jammer orbs, Deal 100% damage
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (28696:83) 天からの贈り物 + 流星
+     | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Specific orbs change every 1.0s for 3 turns
+   | group:
+   | condition: turn 3
+     | condition: 33% chance
+     | (28699:92) キュアポーション
+     | Spawn 10 random Heal orbs, Deal 90% damage
+     | condition: 33% chance
+     | (28700:92) ポイズンポーション
+     | Spawn 10 random Poison orbs, Deal 90% damage
+     | condition: 34% chance
+     | (28701:92) ダストポーション
+     | Spawn 10 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28702:85) スターロードポーション
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 600% damage

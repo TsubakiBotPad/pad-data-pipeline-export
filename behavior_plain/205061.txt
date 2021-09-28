@@ -1,0 +1,73 @@
+#205061 - 警護の耀星神・アストレア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:28764) -> 正義の提唱
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:28765) -> 移りゆく時代の流れ
+	Specific orbs change every 1.0s for 5 turns
+	[2] ESBombRandomSpawn(102:28766) -> 善悪の天秤
+	Spawn 20 random Bomb orbs
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBombRandomSpawn(102:28770) -> 善悪の天秤
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 15 random Bomb orbs, Deal 90% damage
+
+#8: ESRandomSpawn(92:28771) -> 耀星の追跡
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Light orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESSpinnersFixed(110:28768) -> 移りゆく時代の流れ
+	Specific orbs change every 1.0s for 3 turns
+	[1] ESBoardChangeAttackBits(85:28769) -> ハートヘイズ
+	Change all orbs to Heal, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:28774) -> 欺瞞に満ちた世界との見切り
+Deal 1,000% damage (5 hits, 200% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

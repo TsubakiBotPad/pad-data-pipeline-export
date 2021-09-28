@@ -1,0 +1,43 @@
+#202323 - 覚醒スサノオノミコト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202323
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28737:83) 我が守りを破れるか？ + 退屈させるでないぞ + 静かなる一刀
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 90% for 1 turn + Change a random attribute to Wood orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (28740:83) 退屈だな + 仕掛けさせてもらう
+     | Reduce damage from all sources by 80% for 5 turns + Void damage >= 5 for 99,900,000,000 turns
+   | group:
+   | condition: turns 2-5
+     | condition: 33% chance
+     | (28746:48) 静かなる一刀
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 33% chance
+     | (28748:92) 逆巻く木の葉
+     | Spawn 8 random Wood orbs, Deal 95% damage
+     | condition: 34% chance
+     | (28747:15) 悪滅八残光
+     | Deal 112% damage (8 hits, 14% each)
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (28743:83) 少しはやるようだな + こちらも仕掛けさせてもらう
+   | Reduce damage from all sources by 75% for 5 turns + Absorb damage when combos <= 8 for 5 turns
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28749:83) 興が醒めた + 殲滅十残光
+   | Bind awoken skills for 1 turn + Deal 850% damage (10 hits, 85% each), Deal 850% damage (10 hits, 85% each)

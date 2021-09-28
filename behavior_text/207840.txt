@@ -1,0 +1,34 @@
+#207840 - 奇譚・エンシェントドラゴンナイト -REX-
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207840
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28850:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (28941:83) 龍装の加護 + 古龍の護鱗 + 古龍騎士の魂
+ | Voids status ailments for 999 turns + Void damage >= 10 for 99,900,000,000 turns + Unable to match Wood orbs for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (28950:108) 水与天還
+     | Change all Heal orbs to Water orbs, Deal 150% damage
+     | (28949:92) 心砕獄導
+     | Spawn 10 random Heal orbs, Deal 100% damage
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (28945:83) 暗与円環 + エンシェント・オブ・ゼロ + 力の解放
+   | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Player -99% HP + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (28951:15) 生祓天葬斬
+   | Deal 400% damage (10 hits, 40% each)

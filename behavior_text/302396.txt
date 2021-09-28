@@ -1,0 +1,48 @@
+#302396 - 裏覚醒ロキ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302396
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28547:83) 守護のルーン + 狡知神の企み + 狡猾な悪戯
+ | Voids status ailments for 999 turns + ATK -75% for 2 turns + Leader changes to random sub for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | condition: 50% chance
+     | (28546:68) 魔蛇のルーン
+     | Poison skyfall +15% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (28545:68) 邪蛇のルーン
+     | Jammer skyfall +15% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (28551:83) 魔狼のルーン + 狡知神の魔鎖 + 終焉の解放
+     | Absorb damage when combos <= 9 for 999 turns + Lock all orbs + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turns 3-5
+     | condition: 50% chance
+     | (28546:68) 魔蛇のルーン
+     | Poison skyfall +15% for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (28545:68) 邪蛇のルーン
+     | Jammer skyfall +15% for 1 turn, Deal 100% damage
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (28552:83) 魔狼のルーン + 狡知神の魔鎖 + 終焉の解放
+   | Void damage >= 500,000,000 for 999 turns + Lock all orbs + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28779:50) 死のルーン
+   | Player -500% HP

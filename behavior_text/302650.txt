@@ -1,0 +1,46 @@
+#302650 - 裏金牛の鉄星龍・タウラス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302650
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28527:100) 聖角の導光
+ | Seal the 5th row for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5
+     | condition: 50% chance
+     | (28528:92) クレメントタックル
+     | Spawn 6 random Heal orbs, Deal 100% damage
+     | condition: 50% chance
+     | (28529:15) マッシブチャージ
+     | Deal 150% damage
+   | group:
+     | (28954:15) 潜帝の殄滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28530:50) タウラスクレスト・コスモ
+   | Player -300% HP
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (28955:17) 潜帝の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | condition: 50% chance
+   | (28528:92) クレメントタックル
+   | Spawn 6 random Heal orbs, Deal 100% damage
+   | condition: 50% chance
+   | (28529:15) マッシブチャージ
+   | Deal 150% damage

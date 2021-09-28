@@ -1,0 +1,38 @@
+#200792 - 裏疾駆の人馬・ケンタウロス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 200792
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28899:107) 癒切突き
+ | Unable to match Heal orbs for 2 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5
+     | (28900:85) 旋風突き
+     | Change all orbs to Fire, Water, Wood, and Heal, Deal 100% damage
+   | group:
+     | (28954:15) 潜帝の殄滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28777:85) 颯突き
+   | Change all orbs to Wood, Deal 900% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (28955:17) 潜帝の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (28900:85) 旋風突き
+   | Change all orbs to Fire, Water, Wood, and Heal, Deal 100% damage

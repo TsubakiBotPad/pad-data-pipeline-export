@@ -1,0 +1,85 @@
+#201533 - 裏覚醒ミネルヴァ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:28818) -> 女神の戦心
+	Bind awoken skills for 5 turns
+	[1] ESDebuffMovetime(39:28819) -> 乗り越えられるか？
+	Movetime 25% for 1 turn
+	[2] ESAbsorbCombo(67:28820) -> 君のパズル力、見せてもらおう！
+	Absorb damage when combos <= 7 for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 18
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 16
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 8, target rnd 10
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:28823) -> その程度か…
+	Absorb damage when combos <= 9 for 10 turns
+	[1] ESDamageShield(74:28824) -> 興醒めだな
+	Reduce damage from all sources by 75% for 5 turns
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:28825) -> ほう…
+	Absorb damage when combos <= 8 for 10 turns
+	[1] ESDamageShield(74:28826) -> なかなかやるな
+	Reduce damage from all sources by 50% for 5 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBlindStickyRandom(97:28827) -> 女神闇心
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 6~10 orbs for 1 turn, Deal 80% damage
+
+#13: ESBombRandomSpawn(102:28828) -> 女神怒衝
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Bomb orbs, Deal 90% damage
+
+#14: ESAttackMultihit(15:28829) -> 獄天剣技
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (4 hits, 25% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:28830) -> 獄炎天焦剣
+Deal 640% damage (4 hits, 160% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

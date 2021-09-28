@@ -1,0 +1,38 @@
+#200796 - 裏魅惑の夜魔・ダークレディ
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 200796
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28897:128) シャドウワールド
+ | For 3 turns, 20% chance for skyfall orbs to be blinded for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5
+     | (28898:102) ダークボム
+     | Spawn 3 random Bomb orbs, Deal 200% damage
+   | group:
+     | (28954:15) 潜帝の殄滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28776:102) ダークネスボム
+   | Spawn 6 random Bomb orbs, Deal 900% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (28955:17) 潜帝の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (28898:102) ダークボム
+   | Spawn 3 random Bomb orbs, Deal 200% damage

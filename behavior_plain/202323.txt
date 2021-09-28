@@ -1,0 +1,79 @@
+#202323 - 覚醒スサノオノミコト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:28738) -> 我が守りを破れるか？
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:28739) -> 退屈させるでないぞ
+	Reduce damage from all sources by 90% for 1 turn
+	[2] ESOrbChangeAttack(48:28746) -> 静かなる一刀
+	Change a random attribute to Wood orbs, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 13
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:28741) -> 退屈だな
+	Reduce damage from all sources by 80% for 5 turns
+	[1] ESVoidShieldBig(137:28742) -> 仕掛けさせてもらう
+	Void damage >= 5 for 99,900,000,000 turns
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:28744) -> 少しはやるようだな
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAbsorbCombo(67:28745) -> こちらも仕掛けさせてもらう
+	Absorb damage when combos <= 8 for 5 turns
+
+#9: ESOrbChangeAttack(48:28746) -> 静かなる一刀
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#10: ESRandomSpawn(92:28748) -> 逆巻く木の葉
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 8 random Wood orbs, Deal 95% damage
+
+#11: ESAttackMultihit(15:28747) -> 悪滅八残光
+Condition: 34% chance (ai:0 rnd:34)
+Deal 112% damage (8 hits, 14% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:28750) -> 興が醒めた
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28751) -> 殲滅十残光
+	Deal 850% damage (10 hits, 85% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

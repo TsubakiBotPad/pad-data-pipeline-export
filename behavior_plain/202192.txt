@@ -1,0 +1,73 @@
+#202192 - 裏風翼機導獣・ファクト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:28615) -> 風陣
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:28616) -> 風雷の翼
+	Absorb damage when combos <= 8 for 999 turns
+	[2] ESBoardChangeAttackBits(85:28617) -> トルネードストリーム
+	Change all orbs to Wood, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESRowSpawnMulti(79:28621) -> トルネードシグナル
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Wood orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:28622) -> エメラルドコンバータ
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESDebuffMovetime(39:28619) -> エメラルドゲイル
+	Movetime 25% for 3 turns
+	[1] ESBoardChangeAttackBits(85:28620) -> サンダーストリーム
+	Change all orbs to Light, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:28623) -> オーバーダイブ
+Deal 550% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

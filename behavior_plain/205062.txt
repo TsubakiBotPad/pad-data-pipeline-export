@@ -1,0 +1,62 @@
+#205062 - 宙剣の天王神・ウラノス
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:28781) -> 天王の守護
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:28782) -> 天王の障壁
+	Void damage >= 5 for 400,000,000 turns
+	[2] ESSpinnersFixed(110:28783) -> 勝負だ！
+	Specific orbs change every 1.0s for 4 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 11
+
+#6: ESSpinnersFixed(110:28784) -> その程度か
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Specific orbs change every 1.0s for 1 turn
+
+#7: ESSpinnersFixed(110:28785) -> その程度か
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 1 turn
+
+#8: ESSpinnersFixed(110:28786) -> その程度か
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 1 turn
+
+#9: ESAttackMultihit(15:28787) -> 力不足だな
+Deal 500% damage (5 hits, 100% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackMultihit(15:28788) -> ディメンションホール
+Deal 625% damage (5 hits, 125% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

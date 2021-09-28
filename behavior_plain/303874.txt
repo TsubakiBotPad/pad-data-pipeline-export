@@ -1,0 +1,80 @@
+#303874 - 氷晶の魔狼・フェンリル＝ヴィズ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:28540) -> 氷晶のオーラ
+	Absorb Water damage for 3 turns
+	[1] ESVoidShield(71:28541) -> 魔狼の毛皮
+	Void damage >= 100,000,000 for 999 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 18
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 16
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 9
+
+#7: ESAttackMultihit(15:28538) -> 噛みつき
+Deal 100% damage (2 hits, 50% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttributeBlock(107:28544) -> 氷滅
+	Unable to match Water orbs for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:28537) -> 終末の解放
+	Increase damage to 150% for the next 999 turns
+
+#11: ESAttackMultihit(15:28538) -> 噛みつき
+Deal 100% damage (2 hits, 50% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:28537) -> 終末の解放
+	Increase damage to 150% for the next 999 turns
+	[1] ESAttackMultihit(15:28538) -> 噛みつき
+	Deal 100% damage (2 hits, 50% each)
+
+#14: ESAttackMultihit(15:28538) -> 噛みつき
+Deal 100% damage (2 hits, 50% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:28778) -> 噛み砕く
+Deal 660% damage (2 hits, 330% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

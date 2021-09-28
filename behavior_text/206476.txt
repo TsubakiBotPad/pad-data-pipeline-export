@@ -1,0 +1,50 @@
+#206476 - 覚醒ハマル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206476
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28557:83) スターソーサー + 星の意志 + メテオドリーム
+ | Absorb Wood and Dark damage for 1 turn + Bind awoken skills for 1 turn + Bind active skills for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 98
+     | (28561:83) スターソーサー + 星羊の金毛 + 死星
+     | Absorb Fire and Light damage for 1 turn + Random 3 orbs change every 1.0s for 5 turns + Change all orbs to Poison, Deal 100% damage
+   | group:
+   | condition: turns 2-5
+     | condition: 33% chance
+     | (28568:83) スターソーサー + メテオチャージ・ダーク
+     | Absorb Fire and Dark damage for 1 turn + Change all orbs to Fire, Water, Wood, and Dark, Deal 100% damage
+     | condition: 33% chance
+     | (28570:83) スターソーサー + メテオチャージ・ダーク
+     | Absorb Water and Dark damage for 1 turn + Change all orbs to Fire, Water, Wood, and Dark, Deal 100% damage
+     | condition: 34% chance
+     | (28572:83) スターソーサー + メテオチャージ・ダーク
+     | Absorb Wood and Dark damage for 1 turn + Change all orbs to Fire, Water, Wood, and Dark, Deal 100% damage
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 98
+   | condition: 33% chance
+   | (28568:83) スターソーサー + メテオチャージ・ダーク
+   | Absorb Fire and Dark damage for 1 turn + Change all orbs to Fire, Water, Wood, and Dark, Deal 100% damage
+   | condition: 33% chance
+   | (28570:83) スターソーサー + メテオチャージ・ダーク
+   | Absorb Water and Dark damage for 1 turn + Change all orbs to Fire, Water, Wood, and Dark, Deal 100% damage
+   | condition: 34% chance
+   | (28572:83) スターソーサー + メテオチャージ・ダーク
+   | Absorb Wood and Dark damage for 1 turn + Change all orbs to Fire, Water, Wood, and Dark, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28565:83) スターソーサー + 星の意志 + 邪星
+   | Absorb Fire and Light damage for 1 turn + Bind awoken skills for 1 turn + Change all orbs to Jammer, Deal 600% damage

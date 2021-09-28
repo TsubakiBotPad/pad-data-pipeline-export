@@ -1,0 +1,23 @@
+#300585 - 裏ピクシー
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300585
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28511:75) 交代の魔法
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (28512:92) 妖精の悪戯
+   | Spawn 5 random Jammer orbs, Deal 100% damage
+ | group:
+   | (28954:15) 潜帝の殄滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

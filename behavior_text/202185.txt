@@ -1,0 +1,36 @@
+#202185 - 裏暴炎機導龍・トゥバン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202185
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28575:83) ロックフレイム + ルビーコーティング + フレアチェーン
+ | Locked random skyfall +50% for 5 turns + Change all orbs to Fire + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (28583:89) フレアチャージ
+     | Delay active skills by 1~3 turns, Deal 80% damage
+     | condition: 50% chance
+     | (28582:15) フレイムキャノン
+     | Deal 100% damage (4 hits, 25% each)
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (28579:83) ブレイズチャージ + フレアインパクト
+   | Increase damage to 150% for the next 999 turns + Player -99% HP
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28584:83) ルビーコーティング + フレアチェーン + フレイムリペア
+   | Change all orbs to Fire + Lock all orbs + Enemy recover 75% HP, Deal 1,000% damage

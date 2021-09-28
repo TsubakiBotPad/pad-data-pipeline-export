@@ -1,0 +1,36 @@
+#202188 - 裏天雷機導龍・シェザル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202188
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28588:83) 世界ヲ均衡スル + ゴールドコーティング + ライトニングフォール
+ | Voids status ailments for 999 turns + Change all orbs to Light + No skyfall for 3 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (28593:39) アンゼルソーウ
+     | Movetime 50% for 1 turn, Deal 90% damage
+     | condition: 50% chance
+     | (28592:15) レディオンラデル
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+     | (28952:83) 潜帝の波動 + 潜帝の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (28596:83) 断罪ノ時ハ来タ + 終焉ヲ受ケ入レヨ
+   | Increase damage to 150% for the next 999 turns + Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 1
+   | (28599:83) グァサ + ゴールドリペア + ゴールドコーティング
+   | Delay active skills by 4 turns + Enemy recover 75% HP + Change all orbs to Light, Deal 1,000% damage

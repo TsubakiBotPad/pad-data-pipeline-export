@@ -1,0 +1,35 @@
+#302655 - 裏イエローガジェット
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:28500) -> ガジェットリキュア
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 25% for 4 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 8
+
+#5: ESOrbChangeAttack(48:28501) -> ガジェットシャイン
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Light orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:28502) -> いえろー・いんぱくと
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:28954) -> 潜帝の殄滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

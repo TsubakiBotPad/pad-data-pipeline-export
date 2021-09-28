@@ -1,0 +1,73 @@
+#205130 - 伝承・エンシェントドラゴンナイト -REX-
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:28920) -> 龍装の加護
+	Voids status ailments for 4 turns
+	[1] ESVoidShield(71:28921) -> 古龍の護鱗
+	Void damage >= 100 for 999 turns
+	[2] ESBindAwoken(88:28922) -> 古龍騎士の魂
+	Bind awoken skills for 6 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESOrbChangeAttackBits(108:28928) -> 木与天還
+Change all Jammer orbs to Wood orbs, Deal 150% damage
+
+#8: ESRandomSpawn(92:28927) -> 心砕獄導
+Spawn 10 random Jammer orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESSkyfall(68:28924) -> 邪与円環
+	Jammer skyfall +20% for 10 turns
+	[1] ESDebuffRCV(105:28925) -> エンシェント・オブ・ゼロ
+	RCV 0% for 3 turns
+	[2] ESOrbChangeAttackBits(108:28926) -> 木与天還
+	Change all Heal orbs to Wood orbs, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:28929) -> 生祓天葬斬
+Deal 600% damage (10 hits, 60% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:28850) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,109 @@
+#201535 - 裏覚醒セレス
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:28804) -> 豊穣の加護
+	Voids status ailments for 999 turns
+	[1] ESMaxHPChange(111:28805) -> うふふふ…
+	Change player HP to 50% for 2 turns
+	[2] ESDebuffRCV(105:28806) -> 私から逃れられるかしら？
+	RCV 50% for 2 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 24
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 22
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 11
+
+#7: ESRecoverEnemy86(86:28813) -> ソウルキュアー
+Condition: 33% chance (ai:0 rnd:33)
+Enemy recover 5%~10% HP, Deal 90% damage
+
+#8: ESBoardChangeAttackBits(85:28815) -> ソウルバースト
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Wood and Poison, Deal 100% damage
+
+#9: ESAttackMultihit(15:28814) -> ソウルウィップ
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 17
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESMaxHPChange(111:28808) -> うふふふ…
+	Change player HP to 100,000 for 2 turns
+	[1] ESDebuffRCV(105:28809) -> 私から逃れられるかしら？
+	RCV 25% for 2 turns
+
+#13: ESRecoverEnemy86(86:28813) -> ソウルキュアー
+Condition: 33% chance (ai:0 rnd:33)
+Enemy recover 5%~10% HP, Deal 90% damage
+
+#14: ESBoardChangeAttackBits(85:28815) -> ソウルバースト
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Wood and Poison, Deal 100% damage
+
+#15: ESAttackMultihit(15:28814) -> ソウルウィップ
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESMaxHPChange(111:28811) -> うふふふ…
+	Change player HP to 50,000 for 2 turns
+	[1] ESDebuffRCV(105:28812) -> 私から逃れられるかしら？
+	RCV 0% for 2 turns
+
+#18: ESRecoverEnemy86(86:28813) -> ソウルキュアー
+Condition: 33% chance (ai:0 rnd:33)
+Enemy recover 5%~10% HP, Deal 90% damage
+
+#19: ESBoardChangeAttackBits(85:28815) -> ソウルバースト
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Wood and Poison, Deal 100% damage
+
+#20: ESAttackMultihit(15:28814) -> ソウルウィップ
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:28816) -> ソウルウィップストリーム
+Deal 640% damage (4 hits, 160% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

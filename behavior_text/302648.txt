@@ -1,0 +1,41 @@
+#302648 - 裏巨蟹の鉄星龍・キャンサー
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302648
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28523:104) 巨蟹の泡雲
+ | A row of clouds appears for 5 turns at 1st row, 1st column
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5
+     | (28525:94) ロックシザーズ
+     | Lock 10 random orbs, Deal 100% damage
+   | group:
+     | (28954:15) 潜帝の殄滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 1
+   | (28526:15) キャンサークレスト・コメット
+   | Deal 800% damage (2 hits, 400% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (28955:17) 潜帝の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (28525:94) ロックシザーズ
+   | Lock 10 random orbs, Deal 100% damage
+ type: UNKNOWN_USE
+ | (28524:15) ジェットシェル
+ | Deal 150% damage

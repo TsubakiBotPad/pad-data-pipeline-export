@@ -1,0 +1,51 @@
+#302650 - 裏金牛の鉄星龍・タウラス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESOrbSealRow(100:28527) -> 聖角の導光
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Seal the 5th row for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#6: ESAttackUPRemainingEnemies(17:28955) -> 潜帝の解放
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#7: ESRandomSpawn(92:28528) -> クレメントタックル
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Heal orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:28529) -> マッシブチャージ
+Condition: 50% chance (ai:0 rnd:50)
+Deal 150% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESGravity(50:28530) -> タウラスクレスト・コスモ
+Player -300% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:28954) -> 潜帝の殄滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

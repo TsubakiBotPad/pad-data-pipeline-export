@@ -1,0 +1,80 @@
+#204891 - 覚醒ファミエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:28693) -> 星天使の障壁
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:28694) -> 決起の神令
+	A row of clouds appears for 3 turns at 5th row, 1st column
+	[2] ESBlindStickyRandom(97:28695) -> 神水の天唱
+	Blind all orbs for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 18
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 16
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 12
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#8: ESRandomSpawn(92:28699) -> キュアポーション
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 10 random Heal orbs, Deal 90% damage
+
+#9: ESRandomSpawn(92:28700) -> ポイズンポーション
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 10 random Poison orbs, Deal 90% damage
+
+#10: ESRandomSpawn(92:28701) -> ダストポーション
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 10 random Jammer orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESBlindStickySkyfall(128:28697) -> 天からの贈り物
+	For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESSpinnersFixed(110:28698) -> 流星
+	Specific orbs change every 1.0s for 3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBoardChangeAttackBits(85:28702) -> スターロードポーション
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 600% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

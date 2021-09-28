@@ -1,0 +1,49 @@
+#302642 - 裏天蝎の鉄星龍・スコルピオ
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:28515) -> 天蠍の毒針
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Poison skyfall +15% for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#6: ESAttackUPRemainingEnemies(17:28955) -> 潜帝の解放
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#7: ESOrbChangeAttack(48:28517) -> フレイムストローク
+Change all Poison orbs to Fire orbs, Deal 150% damage
+
+#8: ESRandomSpawn(92:28516) -> ベノムテール
+Spawn 5 random Poison orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:28518) -> スコルピオクレスト・メテオ
+Deal 750% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:28954) -> 潜帝の殄滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

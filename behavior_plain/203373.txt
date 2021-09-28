@@ -1,0 +1,86 @@
+#203373 - 鋼書の龍機神・バルボワ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:28654) -> 龍機神の結界
+	Voids status ailments for 999 turns
+	[1] ESBoardSizeChange(126:28655) -> アストレイジモード
+	Change board size to 6x5 for 3 turns
+	[2] ESSpinnersFixed(110:28656) -> アストラルボディ
+	Specific orbs change every 1.0s for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 19
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#8: ESSkillDelay(89:28661) -> エナジーミスト
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 2~4 turns, Deal 80% damage
+
+#9: ESBindAttack(63:28662) -> ハーミットロッド
+Condition: 33% chance (ai:0 rnd:33)
+Bind 2 random cards for 5 turns, Deal 90% damage
+
+#10: ESOrbLock(94:28660) -> アストラルチェーン
+Condition: 34% chance (ai:0 rnd:34)
+Lock 15 random orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 16
+
+#15: SkillSet:
+	[0] ESAbsorbCombo(67:28658) -> 龍機神の清杖
+	Absorb damage when combos <= 7 for 999 turns
+	[1] ESBoardChangeAttackBits(85:28659) -> ハートアストレイ
+	Change all orbs to Heal, Deal 150% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESChangeAttribute(46:28664) -> エナジーパージ
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:28665) -> ハーミットエナジーレイ
+	Deal 550% damage (10 hits, 55% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:28775) -> 根性
+Survive attacks with 1 HP when HP > 50%

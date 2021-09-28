@@ -1,0 +1,61 @@
+#207168 - 蒼潜艇・ロイヤルオーク
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207168
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28775:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (28851:83) 蒼潜艇の厳秘 + カタパルトガード
+ | Locked random skyfall +50% for 10 turns + Reduce damage from all sources by 90% for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 25% chance
+     | (28875:103) アサルトキャノン
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+     | condition: 25% chance
+     | (28871:94) チェインバースト
+     | Lock 10 random orbs, Deal 95% damage
+     | condition: 25% chance
+     | (28881:110) コア・チェンジ
+     | Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (28883:97) シャドウソード
+     | Blind random 8~10 orbs for 1 turn, Deal 110% damage
+   | group:
+   | condition: turn 10
+     | (28857:83) サファイアブースト + グロリアスリペア
+     | Increase damage to 150% for the next 999 turns + Enemy recover 50% HP
+   | group:
+     | condition: 25% chance
+     | (28875:103) アサルトキャノン
+     | Spawn Bomb orbs in the specified positions, Deal 100% damage
+     | condition: 25% chance
+     | (28871:94) チェインバースト
+     | Lock 10 random orbs, Deal 95% damage
+     | condition: 25% chance
+     | (28881:110) コア・チェンジ
+     | Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (28883:97) シャドウソード
+     | Blind random 8~10 orbs for 1 turn, Deal 110% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (28854:83) 超電磁バリア + フォールダウン
+   | Voids status ailments for 999 turns + No skyfall for 99 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (28857:83) サファイアブースト + グロリアスリペア
+     | Increase damage to 150% for the next 999 turns + Enemy recover 50% HP
+   | group:
+     | (28877:15) マシンガンバースト
+     | Deal 500% damage (5 hits, 100% each)
