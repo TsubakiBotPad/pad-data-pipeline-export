@@ -1,0 +1,138 @@
+#7275 - Reincarnated Aife
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:29261) -> 攻戦神の魂
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:29262) -> 蒼刃の流舞
+	Delay active skills by 5 turns
+	[2] ESGravity(50:29263) -> 乗り越えてみなさい
+	Player -99% HP
+	[3] ESAttributeBlock(107:29264) -> マジックスコール
+	Unable to match Fire, Water, and Wood orbs for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#5: SkillSet:
+	[0] ESBoardChange(84:29292) -> マジックチェンジ
+	Change all orbs to Fire, Water, Wood, and Heal
+	[1] ESAttributeBlock(107:29286) -> マジックスコール
+	Unable to match Fire, Water, and Wood orbs for 1 turn
+	[2] ESDebuffRCV(105:29285) -> マジックハート
+	RCV 50% for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESBoardChange(84:29268) -> マジックチェンジ
+	Change all orbs to Light, Dark, and Heal
+	[1] ESAbsorbAttribute(53:29266) -> マジックオーラ
+	Absorb Light and Dark damage for 5 turns
+	[2] ESDamageShield(74:29267) -> マジックガード
+	Reduce damage from all sources by 50% for 4 turns, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESBoardChange(84:29292) -> マジックチェンジ
+	Change all orbs to Fire, Water, Wood, and Heal
+	[1] ESAttributeBlock(107:29273) -> マジックスコール
+	Unable to match Fire, Water, and Wood orbs for 1 turn
+	[2] ESAttackMultihit(15:29274) -> マジックソード
+	Deal 80% damage (4 hits, 20% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#17: SkillSet:
+	[0] ESBoardChange(84:29293) -> マジックチェンジ
+	Change all orbs to Fire, Water, and Heal
+	[1] ESAttributeBlock(107:29276) -> マジックスコール
+	Unable to match Fire, Water, and Wood orbs for 1 turn
+	[2] ESAttackMultihit(15:29277) -> マジックソード
+	Deal 100% damage (4 hits, 25% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#21: SkillSet:
+	[0] ESBoardChange(84:29294) -> マジックチェンジ
+	Change all orbs to Water and Heal
+	[1] ESAttributeBlock(107:29279) -> マジックスコール
+	Unable to match Fire, Water, and Wood orbs for 1 turn
+	[2] ESAttackMultihit(15:29280) -> マジックソード
+	Deal 120% damage (4 hits, 30% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 27
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#25: SkillSet:
+	[0] ESBoardChange(84:29295) -> マジックチェンジ
+	Change all orbs to Water
+	[1] ESAttributeBlock(107:29282) -> マジックスコール
+	Unable to match Fire, Water, and Wood orbs for 1 turn
+	[2] ESAttackMultihit(15:29283) -> マジックソード
+	Deal 140% damage (4 hits, 35% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: SkillSet:
+	[0] ESBindAwoken(88:29270) -> 消え去りなさい
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29271) -> 蒼刃の剣舞
+	Deal 2,100% damage (7 hits, 300% each)
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESSkillSet(83:29288) -> 持っていきなさい + これも忘れずに
+	Haste all cards' skills by 20 turns + No skyfall for 2 turns
+
+#30: ESSuperResolve(129:29291) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
