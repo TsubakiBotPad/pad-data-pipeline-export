@@ -1,0 +1,31 @@
+#201137 - キティホノワルりん
+monster size: 3
+new AI: False
+start/max counter: 0
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#2: ESInactivity66(66:886) -> 楽しそうに跳ねている♪
+Condition: 30% chance (ai:30 rnd:0)
+Do nothing
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESAttackMultihit(15:887) -> ジャンプアタック！
+Condition: 70% chance when < 30% HP (ai:70 rnd:0)
+Deal 150% damage
+
+#5: ESInactivity66(66:886) -> 楽しそうに跳ねている♪
+Condition: 30% chance (ai:30 rnd:0)
+Do nothing
+
+#6: ESOrbChangeSingle(4:888) -> ストロベリードロップ！
+Condition: 30% chance (ai:30 rnd:0)
+Change all Water orbs to Fire orbs
+
+#7: ESOrbChangeSingle(4:892) -> グレープドロップ！
+Condition: 30% chance (ai:30 rnd:0)
+Change all Light orbs to Dark orbs
