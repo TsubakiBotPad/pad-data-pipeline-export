@@ -1,0 +1,42 @@
+#202893 - 真魂縛の黒冥姫・ヘル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202893
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7980:72) 光闇半減
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (7967:83) 生きる道は自分で探せ + 魔の半身 + ダブルペイン
+ | Specific orbs change every 1.0s for 10 turns + Voids status ailments for 999 turns + Change 8 random orbs to Poison orbs, Deal 200% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (7970:83) エタニティサファー + ガルムの朽牙
+     | Poison skyfall +20% for 99 turns + Deal 165% damage (3 hits, 55% each), Deal 165% damage (3 hits, 55% each)
+   | group:
+   | condition: turns 2-10 while HP > 49
+     | condition: 50% chance
+     | (7977:94) デッドジャッジメント
+     | Lock 1 random Poison and Mortal Poison orb, Deal 160% damage
+     | (7978:64) ポイズンソーン
+     | Change 6 random orbs to Poison orbs, Deal 160% damage
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: turn 2 while HP > 9, hp <= 49
+   | (7976:83) 死者の色 + ナイトメア
+   | Player -99% HP + Delay active skills by 2~6 turns
+ | group:
+ | condition: turns 1-10, hp <= 9
+   | (7979:64) グリーフオブヘルヘイム
+   | Change 10 random orbs to Poison orbs, Deal 3,000% damage
+ type: UNKNOWN_USE
+ | (7973:83) 生命の色 + ナグルファル
+ | Enemy recover 100% HP + Reduce damage from all sources by 75% for 10 turns

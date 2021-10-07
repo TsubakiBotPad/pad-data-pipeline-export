@@ -1,0 +1,132 @@
+#504744 - 真光華の星運神・ソール＆マーニ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:10549) -> いくよ、マーニ！
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:27198) -> オッケー、ソール
+	Locked random skyfall +100% for 1 turn
+	[2] ESOrbLock(94:10551) -> 表裏一体
+	Lock all orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 26
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbChangeAttack(48:10555) -> 夜光
+	Change a random attribute to Heal orbs, Deal 90% damage
+	[1] ESBlind62(62:10553) -> 陰り
+	Blind all orbs on the board, Deal 60% damage
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESPoisonChangeRandomAttack(64:10556) -> 腐熱
+	Change 3 random orbs to Poison orbs, Deal 65% damage
+	[1] ESBlind62(62:10553) -> 陰り
+	Blind all orbs on the board, Deal 60% damage
+
+#11: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbChangeAttack(48:10555) -> 夜光
+	Change a random attribute to Heal orbs, Deal 90% damage
+	[1] ESBindAttack(63:10554) -> 日照り
+	Bind 1 random sub for 1 turn, Deal 60% damage
+
+#12: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESPoisonChangeRandomAttack(64:10556) -> 腐熱
+	Change 3 random orbs to Poison orbs, Deal 65% damage
+	[1] ESBindAttack(63:10554) -> 日照り
+	Bind 1 random sub for 1 turn, Deal 60% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESSkillDelay(89:10561) -> ルーロパーリ
+	Delay active skills by 0~3 turns
+	[1] ESAttackMultihit(15:10562) -> シンクロバースト
+	Deal 80% damage (4 hits, 20% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 24
+
+#19: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESAttackMultihit(15:10562) -> シンクロバースト
+	Deal 80% damage (4 hits, 20% each)
+	[1] ESBlind62(62:10553) -> 陰り
+	Blind all orbs on the board, Deal 60% damage
+
+#20: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESAttackMultihit(15:10562) -> シンクロバースト
+	Deal 80% damage (4 hits, 20% each)
+	[1] ESBindAttack(63:10554) -> 日照り
+	Bind 1 random sub for 1 turn, Deal 60% damage
+
+#21: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:10564) -> デテリ
+	Player -75% HP
+	[1] ESBlind62(62:10553) -> 陰り
+	Blind all orbs on the board, Deal 60% damage
+
+#22: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESGravity(50:10564) -> デテリ
+	Player -75% HP
+	[1] ESBindAttack(63:10554) -> 日照り
+	Bind 1 random sub for 1 turn, Deal 60% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESChangeAttribute(46:10569) -> 黄昏
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:10570) -> デミナミラクル
+	Deal 2,500% damage (5 hits, 500% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn

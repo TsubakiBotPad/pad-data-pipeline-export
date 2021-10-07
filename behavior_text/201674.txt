@@ -1,0 +1,83 @@
+#201674 - 真未来の時女神・スクルド
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 201674
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9241:73) 根性
+ | Survive attacks with 1 HP when HP > 51%
+ | (9240:72) 光闇耐性
+ | Reduce damage from Light and Dark attrs by 50%
+ | (9239:106) 時間の流れが変わる
+ | Enemy turn counter change to 1 when HP <= 50%
+
+level: 4
+ type: PASSIVE
+ | (9241:73) 根性
+ | Survive attacks with 1 HP when HP > 51%
+ | (9240:72) 光闇耐性
+ | Reduce damage from Light and Dark attrs by 50%
+ | (9239:106) 時間の流れが変わる
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (27278:83) ノルンの軌跡 + 時空障壁
+ | Absorb damage when combos <= 5 for 99 turns + Void damage >= 1,500,000,000 for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 59
+     | condition: 33% chance
+     | (9282:110) ルートゥニル
+     | Specific orbs change every 1.0s for 2 turns, Deal 170% damage
+     | condition: 50% chance
+     | (9285:83) オブリゲイトビフレスト + 女神の気まぐれ
+     | Change the 1st column to Water orbs and the 6th column to Wood orbs + Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 155% damage
+     | (9288:83) 女神のいたずら + ノルンスレイヴ
+     | Leader changes to random sub for 1 turn + Change all orbs to Water, Wood, and Heal, Deal 180% damage
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: hp <= 59
+   | group:
+   | condition: turn 1 while HP > 49
+     | (9245:99) 時流停止
+     | Seal the 1st column for 2 turns
+   | group:
+   | condition: always turns 2-9
+     | (9296:15) フィンブルヴェトフォーム
+     | Deal 600% damage (6 hits, 100% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (12182:83) 運命の歯車が動き出した + ノルニルの呪縛 + 次元滅
+     | Voids status ailments for 999 turns + Movetime 50% for 12 turns + Voids player buff effects
+   | group:
+   | condition: turns 2-9 while HP > 9
+     | condition: 33% chance
+     | (9291:83) オブリゲイトビフレスト + 戦乙女の守護
+     | Change the 1st row to Water orbs and the 5th row to Wood orbs + Reduce damage from all sources by 50% for 1 turn, Deal 110% damage
+     | condition: 50% chance
+     | (9294:83) ノルンスレイヴ + 時を駆ける
+     | Change all orbs to Water, Wood, and Jammer + Player -99% HP, Deal 90% damage
+     | (9295:15) フォームテイン
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 9
+   | (9251:88) 終焉の刻
+   | Bind awoken skills for 1 turn
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (12184:83) 癒しの刻 + 運命の歯車が動き出した + ノルニルの呪縛 + 次元滅
+     | Enemy recover 50% HP + Voids status ailments for 999 turns + Movetime 50% for 12 turns + Voids player buff effects
+   | group:
+   | condition: turn 2
+     | (9251:88) 終焉の刻
+     | Bind awoken skills for 1 turn

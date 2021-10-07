@@ -1,0 +1,70 @@
+#205863 - 樹堅龍・トゥクトス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205863
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27131:129) ＿トゥクトス超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (27133:83) ブレッシグランデ + 聖なる大地の賛美
+ | Voids status ailments for 999 turns + Wood skyfall +15% for 10 turns
+ group:
+ | group:
+ | condition: always turn 3
+   | (27136:83) 纏わる吸命の根 + ガイアクリーヴ
+   | RCV 25% for 1 turn + Change all Fire orbs to Wood orbs, Deal 200% damage
+ | group:
+ | condition: always turn 4
+   | (27139:83) アースバイト + 樹抉
+   | Lock all Wood orbs + Deal 195% damage (3 hits, 65% each), Deal 195% damage (3 hits, 65% each)
+ | group:
+ | condition: always turn 5
+   | (27136:83) 纏わる吸命の根 + ガイアクリーヴ
+   | RCV 25% for 1 turn + Change all Fire orbs to Wood orbs, Deal 200% damage
+ | group:
+ | condition: always turn 6
+   | (27139:83) アースバイト + 樹抉
+   | Lock all Wood orbs + Deal 195% damage (3 hits, 65% each), Deal 195% damage (3 hits, 65% each)
+ | group:
+ | condition: always turn 7
+   | (27136:83) 纏わる吸命の根 + ガイアクリーヴ
+   | RCV 25% for 1 turn + Change all Fire orbs to Wood orbs, Deal 200% damage
+ | group:
+ | condition: always turn 8
+   | (27139:83) アースバイト + 樹抉
+   | Lock all Wood orbs + Deal 195% damage (3 hits, 65% each), Deal 195% damage (3 hits, 65% each)
+ | group:
+ | condition: always turn 9
+   | (27136:83) 纏わる吸命の根 + ガイアクリーヴ
+   | RCV 25% for 1 turn + Change all Fire orbs to Wood orbs, Deal 200% damage
+ | group:
+ | condition: always turn 10
+   | (27139:83) アースバイト + 樹抉
+   | Lock all Wood orbs + Deal 195% damage (3 hits, 65% each), Deal 195% damage (3 hits, 65% each)
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (27136:83) 纏わる吸命の根 + ガイアクリーヴ
+     | RCV 25% for 1 turn + Change all Fire orbs to Wood orbs, Deal 200% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (27139:83) アースバイト + 樹抉
+     | Lock all Wood orbs + Deal 195% damage (3 hits, 65% each), Deal 195% damage (3 hits, 65% each)
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (27142:83) ガイアウォールコア + ヘクスライド
+     | Void damage >= 1,000,000,000 for 999 turns + Change board size to 6x5 for 10 turns, Deal 240% damage
+   | group:
+   | condition: turn 2
+     | (27145:83) トゥクティクス + シード・ルート・シール
+     | Increase damage to 200% for the next 999 turns + Unable to match Wood and Heal orbs for 5 turns

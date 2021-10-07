@@ -1,0 +1,85 @@
+#303483 - 真転生イズン＆イズーナ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 303483
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (10828:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (10831:83) いらっしゃいませ + ラブリーボム
+ | Voids status ailments for 999 turns + Spawn Bomb orbs in the specified positions
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 34% chance
+     | (10836:83) フェーデガンドル + ユールヘルグ
+     | Spawn 3 random Water and Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10837:83) ブロートガルドル + ユールヘルグ
+     | Change the 1st column to Water orbs and the 6th column to Dark orbs + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 33% chance
+     | (10838:83) スンベルセイズル + ユールヘルグ
+     | Reduce damage from all sources by 50% for 1 turn + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+   | group:
+   | condition: turns 5-10 while HP > 14
+     | (10840:83) 真っ暗ですよ + ラブリーボム
+     | Blind all orbs on the board + Spawn Bomb orbs in the specified positions
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (10844:83) 疲れを癒してください + このリンゴもあげちゃいなよ + あっそれは・・・
+   | Player recover 100% HP + Do nothing + Change all orbs to Poison
+ | group:
+ | condition: turns 1-10, hp <= 14
+   | (10847:83) やぁっ！ + とおっ！
+   | Deal 150% damage + Deal 150% damage, Deal 150% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (10850:83) 痛いじゃないですか！ + 許さないからっ！
+     | Enemy recover 50% HP + Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 2
+     | (10852:83) 痛いじゃないですか！ + この極上のヤツをあげる
+     | Enemy recover 50% HP + Change all orbs to Mortal Poison
+   | group:
+   | condition: turn 3
+     | (10850:83) 痛いじゃないですか！ + 許さないからっ！
+     | Enemy recover 50% HP + Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 4
+     | (10852:83) 痛いじゃないですか！ + この極上のヤツをあげる
+     | Enemy recover 50% HP + Change all orbs to Mortal Poison
+   | group:
+   | condition: turn 5
+     | (10850:83) 痛いじゃないですか！ + 許さないからっ！
+     | Enemy recover 50% HP + Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 6
+     | (10852:83) 痛いじゃないですか！ + この極上のヤツをあげる
+     | Enemy recover 50% HP + Change all orbs to Mortal Poison
+   | group:
+   | condition: turn 7
+     | (10850:83) 痛いじゃないですか！ + 許さないからっ！
+     | Enemy recover 50% HP + Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 8
+     | (10852:83) 痛いじゃないですか！ + この極上のヤツをあげる
+     | Enemy recover 50% HP + Change all orbs to Mortal Poison
+   | group:
+   | condition: turn 9
+     | (10850:83) 痛いじゃないですか！ + 許さないからっ！
+     | Enemy recover 50% HP + Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 10
+     | (10852:83) 痛いじゃないですか！ + この極上のヤツをあげる
+     | Enemy recover 50% HP + Change all orbs to Mortal Poison

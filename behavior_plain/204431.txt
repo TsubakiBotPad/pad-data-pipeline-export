@@ -1,0 +1,142 @@
+#204431 - 極醒の幻術神・オーディン
+monster size: 5
+new AI: True
+start/max counter: 16
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:27157) -> 戦神の覇道
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:27158) -> 耐え凌いで見せろ
+	Increase damage to 300% for the next 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 29
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 23
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 17
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESBoardChange(84:27164) -> 幻弾の陣
+	Change all orbs to Fire, Water, Wood, Light, and Dark
+	[1] ESAttributeBlock(107:27165) -> バーンフリント
+	Unable to match Fire orbs for 1 turn, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:27167) -> 滅槍
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:27168) -> グリムニルボム
+	Change all orbs to Fire, Wood, Light, Dark, Heal, and Mortal Poison, Deal 110% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: SkillSet:
+	[0] ESDamageShield(74:27170) -> 守りの衣
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESDebuffMovetime(39:27171) -> 秘幻術
+	Movetime 50% for 5 turns
+	[2] ESVoidShield(71:27172) -> フリズスキャールヴ
+	Void damage >= 1,000,000,000 for 999 turns, Deal 105% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: SkillSet:
+	[0] ESInactivity66(66:27174) -> …コイツは驚いた
+	Do nothing
+	[1] ESMaxHPChange(111:27175) -> ならば、次はこれだ
+	Change player HP to 50% for 3 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#24: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27177) -> スペルバレット
+	Change the 2nd row to Fire orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27178) -> リコシェ
+	Change the 5th column to Dark orbs, Deal 55% damage
+	[2] ESFixedStart(101:27179) -> 索対の幻眼
+	Fix orb movement starting point to random position on the board
+
+#25: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27181) -> スペルバレット
+	Change the 4th row to Dark orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27182) -> ピアシング
+	Change the 5th column to Fire orbs, Deal 55% damage
+	[2] ESSpinnersFixed(110:27183) -> 通貫の幻撃
+	Specific orbs change every 1.0s for 1 turn
+
+#26: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27185) -> スペルバレット
+	Change the 4th row to Fire orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27186) -> エクスプローシヴ
+	Change the 2nd column to Dark orbs, Deal 55% damage
+	[2] ESCloud(104:27187) -> 爆裂の幻硝
+	A 1×1 square of clouds appears for 1 turn at 4th row, 2nd column
+
+#27: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27189) -> スペルバレット
+	Change the 2nd row to Dark orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27190) -> フラッシュ
+	Change the 2nd column to Fire orbs, Deal 55% damage
+	[2] ESBlindStickyFixed(98:27191) -> 光虐の幻閃
+	Blind orbs in specific positions for 5 turns
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#30: ESSuperResolve(129:27155) -> ＿赤おでん超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn

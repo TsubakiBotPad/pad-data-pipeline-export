@@ -1,0 +1,66 @@
+#206428 - 光のかけら
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESOrbLock(94:27148) -> 罪封じ
+Lock all orbs
+
+#5: ESDebuffRCV(105:27149) -> 無欲の枷
+RCV 0% for 3 turns
+
+#6: ESOrbSealRow(100:27150) -> 静停の縛
+Seal the 5th row for 7 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 18
+
+#10: ESAttackUPRemainingEnemies(17:27151) -> 七想
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 700% for the next 999 turns
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESChangeAttribute(46:27152) -> 罪の連鎖
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 95% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: ESAttackMultihit(15:27153) -> 源悪の漆連
+Deal 126% damage (7 hits, 18% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBindAwoken(88:27129) -> 聖跡の浄罰
+Bind awoken skills for 10 turns, Deal 1,200% damage
+
+#19: ESAttackMultihit(15:27130) -> 聖跡の終天罰
+Deal 800% damage (5 hits, 160% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

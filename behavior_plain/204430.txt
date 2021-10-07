@@ -1,0 +1,142 @@
+#204430 - 極醒の秘術神・オーディン
+monster size: 5
+new AI: True
+start/max counter: 16
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:27195) -> 戦神の覇道
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:27196) -> 手加減の必要は無いな
+	Increase damage to 300% for the next 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 29
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 23
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 17
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESRowSpawnMulti(79:27202) -> 命刃
+	Change the 1st and 5th rows to Heal orbs, Deal 115% damage
+	[1] ESAttributeBlock(107:27203) -> 不可視の一閃
+	Unable to match Heal orbs for 1 turn, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:27205) -> 魔槍
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:27206) -> ドラウプニルヘル
+	Change all orbs to Water, Light, Dark, Heal, Jammer, and Poison, Deal 110% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: SkillSet:
+	[0] ESDamageShield(74:27208) -> 守りの衣
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESDebuffMovetime(39:27209) -> 秘幻術
+	Movetime 50% for 5 turns
+	[2] ESVoidShield(71:27210) -> フリズスキャールヴ
+	Void damage >= 1,000,000,000 for 999 turns, Deal 105% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: SkillSet:
+	[0] ESInactivity66(66:27212) -> …たどり着いただけはある
+	Do nothing
+	[1] ESMaxHPChange(111:27213) -> だが、まだ終わりではない
+	Change player HP to 50% for 3 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#24: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27215) -> 双魔槍刃
+	Change the 2nd row to Water orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27216) -> 刹穿
+	Change the 5th column to Dark orbs, Deal 55% damage
+	[2] ESFixedStart(101:27217) -> 斬命の魔眼
+	Fix orb movement starting point to random position on the board
+
+#25: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27219) -> 双魔槍刃
+	Change the 4th row to Dark orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27220) -> 没惑
+	Change the 5th column to Water orbs, Deal 55% damage
+	[2] ESSpinnersFixed(110:27221) -> 微睡の魔閃
+	Specific orbs change every 1.0s for 1 turn
+
+#26: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27223) -> 双魔槍刃
+	Change the 4th row to Water orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27224) -> 滅識
+	Change the 2nd column to Dark orbs, Deal 55% damage
+	[2] ESCloud(104:27225) -> 隠絶の魔霧
+	A 1×1 square of clouds appears for 1 turn at 4th row, 2nd column
+
+#27: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:27227) -> 双魔槍刃
+	Change the 2nd row to Dark orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:27228) -> 無覚
+	Change the 2nd column to Water orbs, Deal 55% damage
+	[2] ESBlindStickyFixed(98:27229) -> 深闇の魔域
+	Blind orbs in specific positions for 5 turns
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#30: ESSuperResolve(129:27193) -> ＿青おでん超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn

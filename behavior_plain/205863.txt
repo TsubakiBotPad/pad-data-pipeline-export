@@ -1,0 +1,112 @@
+#205863 - 樹堅龍・トゥクトス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:27134) -> ブレッシグランデ
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:27135) -> 聖なる大地の賛美
+	Wood skyfall +15% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 25
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: SkillSet:
+	[0] ESDebuffRCV(105:27137) -> 纏わる吸命の根
+	RCV 25% for 1 turn
+	[1] ESOrbChangeAttackBits(108:27138) -> ガイアクリーヴ
+	Change all Fire orbs to Wood orbs, Deal 200% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESOrbLock(94:27140) -> アースバイト
+	Lock all Wood orbs
+	[1] ESAttackMultihit(15:27141) -> 樹抉
+	Deal 195% damage (3 hits, 65% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:27144) -> ガイアウォールコア
+	Void damage >= 1,000,000,000 for 999 turns
+	[1] ESBoardSizeChange(126:27143) -> ヘクスライド
+	Change board size to 6x5 for 10 turns, Deal 240% damage
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:27146) -> トゥクティクス
+	Increase damage to 200% for the next 999 turns
+	[1] ESAttributeBlock(107:27147) -> シード・ルート・シール
+	Unable to match Wood and Heal orbs for 5 turns
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#20: SkillSet:
+	[0] ESDebuffRCV(105:27137) -> 纏わる吸命の根
+	RCV 25% for 1 turn
+	[1] ESOrbChangeAttackBits(108:27138) -> ガイアクリーヴ
+	Change all Fire orbs to Wood orbs, Deal 200% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#23: SkillSet:
+	[0] ESOrbLock(94:27140) -> アースバイト
+	Lock all Wood orbs
+	[1] ESAttackMultihit(15:27141) -> 樹抉
+	Deal 195% damage (3 hits, 65% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#26: ESSuperResolve(129:27131) -> ＿トゥクトス超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
