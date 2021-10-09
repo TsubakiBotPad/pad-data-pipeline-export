@@ -1,0 +1,52 @@
+#307951 - 虚無なる亡霊・ゴーストリング
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 6
+
+#5: ESAbsorbCombo(67:24096) -> 巨大ウィスパー召喚
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 4 for 5 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:24085) -> 巨大ウィスパー召喚
+	Absorb damage when combos <= 6 for 5 turns
+	[1] ESBlind62(62:24086) -> ドロドロ
+	Blind all orbs on the board, Deal 100% damage
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 11
+
+#8: ESBlindStickyRandom(97:24087) -> ドロドロ
+Condition: 50% chance (ai:0 rnd:50)
+Blind random 2~4 orbs for 1 turn, Deal 80% damage
+
+#9: ESRandomSpawn(92:24088) -> ドロロン
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Dark orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBlindStickyRandom(97:24097) -> ダークブレス
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs for 1 turn
+
+#12: ESRandomSpawn(92:24089) -> ヒュ～ドロロン
+Spawn 5 random Dark orbs, Deal 300% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
