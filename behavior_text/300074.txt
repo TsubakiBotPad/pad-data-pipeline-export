@@ -1,0 +1,33 @@
+#300074 - 裏ホワイトファイター
+monster size: 1
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300074
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29721:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (29765:75) ホワイトナイト
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (29766:48) ハートディセイバー
+   | Change a random attribute to Heal orbs, Deal 100% damage
+ | group:
+   | (29725:15) 次元の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (29726:17) 次元の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (29766:48) ハートディセイバー
+   | Change a random attribute to Heal orbs, Deal 100% damage

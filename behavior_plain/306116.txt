@@ -1,0 +1,88 @@
+#306116 - 転生ヌト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:29797) -> 星雲神の守護
+	Voids status ailments for 999 turns
+	[1] ESTargetedSkillHaste(139:29798) -> ダーフィアマハジュール
+	Haste both leaders' skills by 15 turns
+	[2] ESBlindStickySkyfall(128:29799) -> 黒く渦巻く感情
+	For 6 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 17
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBombFixedSpawn(103:29806) -> 魔導爆裂
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESBoardChangeAttackBits(85:29807) -> ノクタムジュール
+	Change all orbs to Water, Dark, and Heal, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:29809) -> 魔導炸裂
+	Spawn 10 random Jammer orbs
+	[1] ESOrbLock(94:29810) -> クンバラロック
+	Lock 15 random orbs, Deal 95% damage
+
+#9: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESDebuffRCV(105:29812) -> 偽悪の眼差し
+	RCV 25% for 1 turn
+	[1] ESAttackMultihit(15:29813) -> ギーラアーセファ
+	Deal 120% damage (4 hits, 30% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESTargetedSkillHaste(139:29801) -> ダーフィアマハジュール
+	Haste both leaders' skills by 99 turns
+	[1] ESAbsorbAttribute(53:29802) -> 星雲神の夢魂
+	Absorb Fire, Water, and Wood damage for 5 turns
+	[2] ESAttackUPRemainingEnemies(17:29803) -> 魔力解放
+	Increase damage to 150% for the next 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:29804) -> 魔力の奔流
+Deal 300% damage (3 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

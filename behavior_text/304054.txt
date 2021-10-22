@@ -1,0 +1,39 @@
+#304054 - 断秤の鋼星神・エスカマリ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304054
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (29697:83) 鋼神星の魂 + エアロウェイク・ダーク + 見識の秤
+ | Voids status ailments for 999 turns + Dark skyfall +15% for 6 turns + Absorb damage when combos <= 8 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 33% chance
+     | (29706:83) コックザラーム + サウトヤドレブ
+     | Seal the 5th row for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | condition: 33% chance
+     | (29709:83) コックザラーム + サウトヤドレブ
+     | A row of clouds appears for 1 turn at a random location + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | condition: 34% chance
+     | (29712:83) コックザラーム + マハトゥーハ
+     | Lock 15 random orbs + Fix orb movement starting point to random position on the board, Deal 100% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (29701:83) コックウェイク・ダーク + ゾフルダーク + 影鋼領域
+   | Locked Dark skyfall +100% for 5 turns + Absorb Dark damage for 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (29705:15) シャマールゾフル
+   | Deal 300% damage (5 hits, 60% each)

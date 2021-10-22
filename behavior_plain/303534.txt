@@ -1,0 +1,83 @@
+#303534 - 裏聖戦の調停者・メタトロン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:29471) -> 神聖の白翼
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:29472) -> メーテリオン・ガード
+	Reduce damage from all sources by 95% for 6 turns
+	[2] ESSkyfall(68:29473) -> 聖なる祈り
+	Heal skyfall +20% for 6 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESNoSkyfall(127:29820) -> 天上調律
+	No skyfall for 1 turn
+	[1] ESOrbSealColumn(99:29821) -> 神命の筆跡
+	Seal the 1st column for 1 turn, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRandomSpawn(92:29823) -> エンジェルキュアー
+	Spawn 8 random Heal orbs
+	[1] ESOrbSealColumn(99:29824) -> 神命の筆跡
+	Seal the 6th column for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:29475) -> プリディクション
+	Bind awoken skills for 1 turn
+	[1] ESBindRandom(1:29476) -> 聖なる封印
+	Bind 6 random cards for 1 turn
+	[2] ESRandomSpawn(92:29477) -> 神命の試練
+	Spawn 17 random Jammer orbs
+	[3] ESBombRandomSpawn(102:29478) -> お邪魔を全て消せるかしら？
+	Spawn 1 random Bomb orb
+
+#10: ESOrbChangeAttackBits(108:29484) -> あなたにはまだ早かったようね
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Jammer orbs to Heal orbs, Deal 1,000% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverPlayer(55:29482) -> あなたのパズル力、見せてもらったわ
+	Player recover 100% HP
+	[1] ESTargetedSkillHaste(139:29483) -> 神命の報酬を受け取りなさい
+	Haste all cards' skills by 2 turns
+
+#12: ESAttackMultihit(15:29480) -> メーテリオン・ケッシュ
+Deal 500% damage (10 hits, 50% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:29720) -> 超根性
+Damage which would reduce HP from above 1% to below 1% is nullified

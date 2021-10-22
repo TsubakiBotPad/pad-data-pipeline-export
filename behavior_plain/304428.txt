@@ -1,0 +1,65 @@
+#304428 - 遊刻の時龍契士・ミル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:29335) -> 本当のわたし、どれだと思う？
+	Voids status ailments for 999 turns
+	[1] ESNoSkyfall(127:29336) -> 時界の檻刻
+	No skyfall for 99 turns
+	[2] ESSkyfall(68:29337) -> ムーンフォール
+	Heal skyfall +20% for 15 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#5: ESChangeAttribute(46:29338) -> タイムチェンジ
+Change own attribute to random one of Fire, Water, Wood, or Dark, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESChangeAttribute(46:29348) -> タイムチェンジ
+	Change own attribute to Light
+	[1] ESRecoverEnemy86(86:29349) -> タイムリープ
+	Enemy recover 50% HP
+	[2] ESVoidShieldBig(137:29350) -> 次元の歪み
+	Void damage >= 20 for 400,000,000 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#12: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#13: ESBoardChangeAttackBits(85:29351) -> タイム・オブ・ムーンフェイズ
+Change all orbs to Heal, Deal 1,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#16: ESDeathCry(69:29352) -> 時龍契変身
+Condition: On death (ai:0 rnd:0)
+Show message: 本当はね…|全部わたしなの

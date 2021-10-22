@@ -1,0 +1,53 @@
+#303449 - 転生インドラ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:29622) -> 雷霆龍の結界
+	Voids status ailments for 999 turns
+	[1] ESBoardChange(84:29623) -> 雷霆龍の秘技
+	Change all orbs to Heal
+	[2] ESOrbLock(94:29624) -> 癒しの守り
+	Lock all Heal orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 99, target rnd 5
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:29626) -> 英龍の導き
+	Absorb damage when combos <= 10 for 999 turns
+	[1] ESDebuffRCV(105:29627) -> 破天の落雷
+	RCV 0% for 4 turns
+	[2] ESOrbLock(94:29624) -> 癒しの守り
+	Lock all Heal orbs, Deal 100% damage
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:29630) -> 英龍の導き
+	Absorb damage when combos <= 8 for 999 turns
+	[1] ESDebuffRCV(105:29631) -> 破天の落雷
+	RCV 25% for 4 turns
+	[2] ESBoardChangeAttackBits(85:29632) -> 雷霆龍の絶技
+	Change all orbs to Heal, Deal 150% damage
+
+#6: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#7: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#8: ESAttackMultihit(15:29633) -> 破天の雷霆
+Deal 300% damage (10 hits, 30% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

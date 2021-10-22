@@ -1,0 +1,81 @@
+#303762 - 刻火の時女神・ウルド
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:29487) -> ノルンの女神
+	Absorb Fire and Water damage for 6 turns
+	[1] ESAbsorbCombo(67:29488) -> 時空結界
+	Absorb damage when combos <= 7 for 999 turns
+	[2] ESOrbSealRow(100:29489) -> ブライドゥニル
+	Seal the 1st row for 6 turns, Deal 130% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBombFixedSpawn(103:29495) -> 女神の落とし物
+	Spawn Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:29496) -> 過去の蟠り
+	Change the 1st and 2nd rows to Jammer orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBombFixedSpawn(103:29498) -> 女神の落とし物
+	Spawn Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:29499) -> 過去の蟠り
+	Change the 4th and 5th rows to Poison orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESStatusShield(20:29491) -> 運命の歯車が動き出した
+	Voids status ailments for 999 turns
+	[1] ESBlindStickyRandom(97:29492) -> 女神のいたずら
+	Blind all orbs for 5 turns
+	[2] ESSkillDelay(89:29493) -> 時を遡る
+	Delay active skills by 2~4 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:29500) -> フィンブルヴェトウィーブ
+Deal 300% damage (6 hits, 50% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

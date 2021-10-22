@@ -1,0 +1,33 @@
+#301627 - 裏次元の魔術師・チェスター
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 301627
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29721:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (29455:126) 少し遊びませんか？
+ | Change board size to 7x6 for 1 turn
+ | (29459:83) 快適そうですね♪ + そんなあなたには、これです♪
+ | For 20 turns, 15% chance for skyfall orbs to be blinded for turn + Mortal Poison skyfall +15% for 99 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (29454:83) マジックガード + この壁を突破してみてください + チャンスは3回ですよ
+   | Voids status ailments for 999 turns + Absorb damage when combos <= 9 for 999 turns + Specific orbs change every 1.0s for 3 turns
+ | group:
+ | condition: turn 2
+   | (29465:85) カウントダウンをしましょう
+   | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (29466:85) さぁ、崖っぷちですよ
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+ | group:
+   | (29467:83) …タイムオーバーです + また会いましょう♪
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,200% damage (4 hits, 300% each), Deal 1,200% damage (4 hits, 300% each)

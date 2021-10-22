@@ -1,0 +1,27 @@
+#301619 - 裏神木の魔道士・リーザ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 301619
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29428:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 99%
+ type: PREEMPT
+ | (29577:83) マジックガード + ウィンドレイン + シルフ、お願い♪
+ | Voids status ailments for 999 turns + Wood skyfall +25% for 4 turns + Unable to match Fire orbs for 4 turns
+ type: DEATH
+ condition: when defeated
+ | (29583:95) またね♪
+ | Bind awoken skills for 1 turn
+ group:
+ | group:
+ | condition: turns 1-5
+   | (29581:85) エレメンタルウィンディ！
+   | Change all orbs to Wood, Deal 150% damage
+ | group:
+   | (29723:83) 次元の波動 + 次元の殲滅
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

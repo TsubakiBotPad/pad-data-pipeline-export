@@ -1,0 +1,30 @@
+#301624 - 裏放浪の魔法使い・ウィジャス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 301624
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (29485:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 4 when HP <= 99%
+ type: PREEMPT
+ | (29437:83) ディメンションウォール + ライブアワー + イリュージョンマター
+ | Voids status ailments for 999 turns + Void damage >= 20 for 99,900,000,000 turns + Specific orbs change every 1.0s for 1 turn
+ group:
+ | group:
+   | (29449:83) ディメンションガード + サイトアウト
+   | Reduce damage from all sources by 75% for 1 turn + Deal 160% damage (4 hits, 40% each), Deal 160% damage (4 hits, 40% each)
+ | group:
+ | condition: hp <= 98
+   | group:
+   | condition: turn 1
+     | (29441:83) イリュージョンマター + イリュージョンタイム + ディメンションガード
+     | Specific orbs change every 1.0s for 4 turns + Movetime 25% for 4 turns + Reduce damage from all sources by 50% for 999 turns
+   | group:
+     | (29453:85) 時空滅裂
+     | Change all orbs to Light and Jammer, Deal 300% damage

@@ -1,0 +1,81 @@
+#303763 - 刻風の時女神・ヴェルダンディ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:29502) -> ノルンの女神
+	Absorb Fire and Wood damage for 6 turns
+	[1] ESAbsorbCombo(67:29503) -> 時空結界
+	Absorb damage when combos <= 7 for 999 turns
+	[2] ESCloud(104:29504) -> クラドゥニル
+	A 2×3 rectangle of clouds appears for 6 turns at 2nd row, 3rd column, Deal 130% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRandomSpawn(92:29510) -> 女神の忘れ物
+	Spawn 8 random Jammer orbs
+	[1] ESOrbLock(94:29511) -> 変わらない現在
+	Lock 15 random orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRandomSpawn(92:29513) -> 女神の忘れ物
+	Spawn 8 random Poison orbs
+	[1] ESOrbLock(94:29514) -> 変わらない現在
+	Lock 15 random orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESStatusShield(20:29506) -> 運命の歯車が動き出した
+	Voids status ailments for 999 turns
+	[1] ESNoSkyfall(127:29507) -> 女神のいたずら
+	No skyfall for 5 turns
+	[2] ESOrbLock(94:29508) -> 時を止める
+	Lock all orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:29515) -> フィンブルヴェトアウェイク
+Deal 300% damage (6 hits, 50% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

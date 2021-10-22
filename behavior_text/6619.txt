@@ -1,0 +1,42 @@
+#6619 - Enraptured Devil Dragonbound, Suou
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 6619
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (24642:83) さぁお立合い！ + イタズラしにきたぜ！ + 消すなよ～ + 消したら怖いぜ～
+ | Bind awoken skills for 3 turns + Bind 6 random cards for 3 turns + Change the 2nd row to Jammer orbs + Specific orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when all Jammer orbs are matched last turn
+   | (24654:83) 消しちゃったなぁ + んじゃ次 + 「消すな」とは言ったが… + 「残せ」とは言ってない
+   | Locked random skyfall +25% for 99 turns + Movetime 1000% for 2 turns + Change the 2nd and 4th rows to Jammer orbs + A 7×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
+   | (24647:83) んじゃ次 + 「消すな」とは言ったが… + 「残せ」とは言ってない
+   | Movetime 1000% for 2 turns + Change the 2nd and 4th rows to Jammer orbs + A 7×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
+ | group:
+ | condition: turn 2
+   | condition: when all Jammer orbs are matched last turn
+   | (24656:83) こりゃ残念 + もっと見せてみな + お前のあがく姿…
+   | Mortal Poison skyfall +15% for 99 turns + Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs + Seal the 1st row for 1 turn
+   | (24651:83) もっと見せてみな + お前のあがく姿…
+   | Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs + Seal the 1st row for 1 turn
+ | group:
+ | condition: turn 3
+   | condition: when all Jammer orbs are matched last turn
+   | (24658:83) される方が好きってヤツ？ + ん～、飽きた！ + お前もこっちのが得意だろ？
+   | Delay active skills by 15 turns + Reduce damage from all sources by 50% for 5 turns + Absorb damage when combos <= 8 for 5 turns
+   | (24660:83) ん～、飽きた！ + お前もこっちのが得意だろ？
+   | Reduce damage from all sources by 50% for 5 turns + Absorb damage when combos <= 8 for 5 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (24663:15) そ～らコンコン！
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (24664:39) お手手コン！
+   | Movetime 50% for 1 turn, Deal 100% damage

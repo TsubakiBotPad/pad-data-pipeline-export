@@ -1,0 +1,27 @@
+#301617 - 裏錬水の魔道士・シャロン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 301617
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29428:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 99%
+ type: PREEMPT
+ | (29570:83) マジックガード + ウォーターレイン + ウンディーネ、行って・・・
+ | Voids status ailments for 999 turns + Water skyfall +25% for 4 turns + Unable to match Wood orbs for 4 turns
+ type: DEATH
+ condition: when defeated
+ | (29576:95) さよなら・・・
+ | Bind awoken skills for 1 turn
+ group:
+ | group:
+ | condition: turns 1-5
+   | (29574:85) エレメンタルスプラッシュ！
+   | Change all orbs to Water, Deal 150% damage
+ | group:
+   | (29723:83) 次元の波動 + 次元の殲滅
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

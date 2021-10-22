@@ -1,0 +1,132 @@
+#6619 - Enraptured Devil Dragonbound, Suou
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBindAwoken(88:24643) -> さぁお立合い！
+	Bind awoken skills for 3 turns
+	[1] ESBindRandom(1:24644) -> イタズラしにきたぜ！
+	Bind 6 random cards for 3 turns
+	[2] ESRowSpawnMulti(78:24645) -> 消すなよ～
+	Change the 2nd row to Jammer orbs
+	[3] ESSpinnersFixed(110:24646) -> 消したら怖いぜ～
+	Specific orbs change every 1.0s for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchEraseAttr(117:24667) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 17
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDebuffMovetime(39:24648) -> んじゃ次
+	Movetime 1000% for 2 turns
+	[1] ESRowSpawnMulti(78:24649) -> 「消すな」とは言ったが…
+	Change the 2nd and 4th rows to Jammer orbs
+	[2] ESCloud(104:24650) -> 「残せ」とは言ってない
+	A 7×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESColumnSpawnMulti(76:24652) -> もっと見せてみな
+	Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs
+	[1] ESOrbSealRow(100:24653) -> お前のあがく姿…
+	Seal the 1st row for 1 turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:24661) -> ん～、飽きた！
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESAbsorbCombo(67:24662) -> お前もこっちのが得意だろ？
+	Absorb damage when combos <= 8 for 5 turns
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESAttackMultihit(15:24663) -> そ～らコンコン！
+Deal 110% damage (2 hits, 55% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESDebuffMovetime(39:24664) -> お手手コン！
+Movetime 50% for 1 turn, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use & Jammer are erased (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfallLocked(96:24655) -> 消しちゃったなぁ
+	Locked random skyfall +25% for 99 turns
+	[1] ESDebuffMovetime(39:24648) -> んじゃ次
+	Movetime 1000% for 2 turns
+	[2] ESRowSpawnMulti(78:24649) -> 「消すな」とは言ったが…
+	Change the 2nd and 4th rows to Jammer orbs
+	[3] ESCloud(104:24650) -> 「残せ」とは言ってない
+	A 7×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
+
+#18: SkillSet:
+	Condition: One-time use & Jammer are erased (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:24657) -> こりゃ残念
+	Mortal Poison skyfall +15% for 99 turns
+	[1] ESColumnSpawnMulti(76:24652) -> もっと見せてみな
+	Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs
+	[2] ESOrbSealRow(100:24653) -> お前のあがく姿…
+	Seal the 1st row for 1 turn
+
+#19: SkillSet:
+	Condition: One-time use & Jammer are erased (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:24659) -> される方が好きってヤツ？
+	Delay active skills by 15 turns
+	[1] ESDamageShield(74:24661) -> ん～、飽きた！
+	Reduce damage from all sources by 50% for 5 turns
+	[2] ESAbsorbCombo(67:24662) -> お前もこっちのが得意だろ？
+	Absorb damage when combos <= 8 for 5 turns
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#22: ESAttackMultihit(15:24663) -> そ～らコンコン！
+Deal 110% damage (2 hits, 55% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#25: ESDebuffMovetime(39:24664) -> お手手コン！
+Movetime 50% for 1 turn, Deal 100% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESInactivity66(66:24666) -> 悪くなかったぜ
+	Do nothing
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn

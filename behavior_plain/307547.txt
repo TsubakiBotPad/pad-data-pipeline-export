@@ -1,0 +1,88 @@
+#307547 - 転生クロノス
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESStatusShield(20:29585) -> 地王神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:29586) -> 地王の試練
+	Absorb damage when damage >= 50,000,000 for 6 turns
+	[2] ESUnknown(141:29587) -> 地王の勅令
+	No description set
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESSkyfall(68:29592) -> ファイアフォール
+	Fire skyfall +30% for 1 turn
+	[1] ESSkyfallLocked(96:29593) -> ロックサイス
+	Locked Fire skyfall +100% for 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSkyfall(68:29595) -> アクアフォール
+	Water skyfall +30% for 1 turn
+	[1] ESSkyfallLocked(96:29596) -> ロックサイス
+	Locked Water skyfall +100% for 1 turn, Deal 100% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfall(68:29598) -> ウッドフォール
+	Wood skyfall +30% for 1 turn
+	[1] ESSkyfallLocked(96:29599) -> ロックサイス
+	Locked Wood skyfall +100% for 1 turn, Deal 100% damage
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:29601) -> シャインフォール
+	Light skyfall +30% for 1 turn
+	[1] ESSkyfallLocked(96:29602) -> ロックサイス
+	Locked Light skyfall +100% for 1 turn, Deal 100% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:29604) -> ダークフォール
+	Dark skyfall +30% for 1 turn
+	[1] ESSkyfallLocked(96:29605) -> ロックサイス
+	Locked Dark skyfall +100% for 1 turn, Deal 100% damage
+
+#12: ESGravity(50:29769) -> バニッシュメントサイス
+Player -1,000% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESNoSkyfall(127:29589) -> クレイフォール
+	No skyfall for 5 turns
+	[1] ESSkyfallLocked(96:29590) -> ロックサイス
+	Locked random skyfall +50% for 1 turn, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

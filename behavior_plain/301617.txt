@@ -1,0 +1,46 @@
+#301617 - 裏錬水の魔道士・シャロン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:29571) -> マジックガード
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:29572) -> ウォーターレイン
+	Water skyfall +25% for 4 turns
+	[2] ESAttributeBlock(107:29573) -> ウンディーネ、行って・・・
+	Unable to match Wood orbs for 4 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 7
+
+#5: ESBoardChangeAttackBits(85:29574) -> エレメンタルスプラッシュ！
+Change all orbs to Water, Deal 150% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESTurnChangePassive(106:29428) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 99%
+
+#10: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESBindAwoken(88:29575) -> さよなら・・・
+	Bind awoken skills for 1 turn

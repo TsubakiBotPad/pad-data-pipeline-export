@@ -1,0 +1,37 @@
+#300054 - 裏パープルカーバンクル
+monster size: 1
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESCloud(104:29328) -> アメジストジュエル
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+A row of clouds appears for 5 turns at 5th row, 1st column
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 8
+
+#5: ESAttackUPRemainingEnemies(17:29726) -> 次元の解放
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#6: ESRandomSpawn(92:29329) -> カーバンクルアタック
+Spawn 3 random Dark orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:29725) -> 次元の殲滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

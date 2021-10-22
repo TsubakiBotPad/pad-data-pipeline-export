@@ -1,0 +1,26 @@
+#300578 - 裏クロムギドラ
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300578
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29721:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | condition: when 1 enemies remain
+ | (29767:122) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (29320:128) ダークホップ
+ | For 5 turns, 15% chance for skyfall orbs to be blinded for 2 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (29321:48) バーリーキャノン
+   | Change a random attribute to Light orbs, Deal 1,000% damage
+ | group:
+   | (29725:15) 次元の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

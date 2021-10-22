@@ -1,0 +1,105 @@
+#303450 - 裏転生ヴリトラ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:29635) -> 暗黒龍の守護
+	Voids status ailments for 999 turns
+	[1] ESBoardChange(84:29636) -> 黒雷龍砲
+	Change all orbs to Light and Dark
+	[2] ESAttributeBlock(107:29637) -> 黒雷水晶
+	Unable to match Dark orbs for 2 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 18
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#5: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:29648) -> 黒雷水晶
+	Unable to match Fire orbs for 2 turns, Deal 100% damage
+	[1] ESOrbLock(94:29643) -> 火雷玉
+	Lock all Fire orbs, Deal 50% damage
+
+#6: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:29649) -> 黒雷水晶
+	Unable to match Water orbs for 2 turns, Deal 100% damage
+	[1] ESOrbLock(94:29644) -> 水雷玉
+	Lock all Water orbs, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:29650) -> 黒雷水晶
+	Unable to match Wood orbs for 2 turns, Deal 100% damage
+	[1] ESOrbLock(94:29645) -> 木雷玉
+	Lock all Wood orbs, Deal 50% damage
+
+#8: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:29651) -> 黒雷水晶
+	Unable to match Light orbs for 2 turns, Deal 100% damage
+	[1] ESOrbLock(94:29646) -> 光雷玉
+	Lock all Light orbs, Deal 50% damage
+
+#9: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:29652) -> 黒雷水晶
+	Unable to match Dark orbs for 2 turns, Deal 100% damage
+	[1] ESOrbLock(94:29647) -> 闇雷玉
+	Lock all Dark orbs, Deal 50% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:29639) -> 暗黒龍の鉄壁
+	Reduce damage from all sources by 50% for 999 turns
+	[1] ESBoardChange(84:29640) -> 混沌龍砲
+	Change all orbs to Light, Dark, and Heal
+	[2] ESAttributeBlock(107:29641) -> 黒雷水晶
+	Unable to match Heal orbs for 1 turn, Deal 150% damage
+
+#12: ESAttributeBlock(107:29814) -> 黒雷水晶
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 1 turn, Deal 100% damage
+
+#13: ESAttributeBlock(107:29815) -> 黒雷水晶
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 1 turn, Deal 100% damage
+
+#14: ESAttributeBlock(107:29816) -> 黒雷水晶
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 1 turn, Deal 100% damage
+
+#15: ESAttributeBlock(107:29817) -> 黒雷水晶
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 1 turn, Deal 100% damage
+
+#16: ESAttributeBlock(107:29818) -> 黒雷水晶
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:29642) -> 深獄の一撃
+Deal 300% damage (4 hits, 75% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#21: ESTurnChangePassive(106:29717) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 50%

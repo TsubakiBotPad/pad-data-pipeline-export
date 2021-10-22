@@ -1,0 +1,60 @@
+#303450 - 裏転生ヴリトラ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303450
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (29717:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 50%
+ type: PREEMPT
+ | (29634:83) 暗黒龍の守護 + 黒雷龍砲 + 黒雷水晶
+ | Voids status ailments for 999 turns + Change all orbs to Light and Dark + Unable to match Dark orbs for 2 turns, Deal 100% damage
+ group:
+ | group:
+   | condition: 20% chance
+   | (29653:83) 黒雷水晶 + 火雷玉
+   | Unable to match Fire orbs for 2 turns + Lock all Fire orbs, Deal 100% damage
+   | condition: 20% chance
+   | (29654:83) 黒雷水晶 + 水雷玉
+   | Unable to match Water orbs for 2 turns + Lock all Water orbs, Deal 100% damage
+   | condition: 20% chance
+   | (29655:83) 黒雷水晶 + 木雷玉
+   | Unable to match Wood orbs for 2 turns + Lock all Wood orbs, Deal 100% damage
+   | condition: 20% chance
+   | (29656:83) 黒雷水晶 + 光雷玉
+   | Unable to match Light orbs for 2 turns + Lock all Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (29657:83) 黒雷水晶 + 闇雷玉
+   | Unable to match Dark orbs for 2 turns + Lock all Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (29638:83) 暗黒龍の鉄壁 + 混沌龍砲 + 黒雷水晶
+     | Reduce damage from all sources by 50% for 999 turns + Change all orbs to Light, Dark, and Heal + Unable to match Heal orbs for 1 turn, Deal 150% damage
+   | group:
+     | condition: 20% chance
+     | (29814:107) 黒雷水晶
+     | Unable to match Fire orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (29815:107) 黒雷水晶
+     | Unable to match Water orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (29816:107) 黒雷水晶
+     | Unable to match Wood orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (29817:107) 黒雷水晶
+     | Unable to match Light orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (29818:107) 黒雷水晶
+     | Unable to match Dark orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (29642:15) 深獄の一撃
+   | Deal 300% damage (4 hits, 75% each)
