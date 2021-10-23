@@ -1,0 +1,33 @@
+#207907 - 亜久津 仁
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207907
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (29958:67) 約束通り遊んでやろう
+ | Absorb damage when combos <= 4 for 3 turns
+ group:
+ | group:
+   | (29959:78) 無駄無駄っ!!
+   | Change the 1st row to Wood orbs
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (30043:83) お前はもう… + 俺からポイントを奪う事はねぇ
+     | Blind all orbs on the board + Reduce damage from all sources by 90% for 3 turns
+   | group:
+   | condition: turns 2-3
+     | (29961:92) ぶっ潰す
+     | Spawn 4 random Dark orbs, Deal 101% damage
+   | group:
+   | condition: turn 4
+     | (29960:17) 最高じゃねーの!!
+     | Increase damage to 150% for the next 999 turns
+   | group:
+     | (29961:92) ぶっ潰す
+     | Spawn 4 random Dark orbs, Deal 101% damage

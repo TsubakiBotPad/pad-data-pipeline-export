@@ -1,0 +1,132 @@
+#407919 - 乾 貞治
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffMovetime(39:29982) -> ラリー対決でのゾーン練習
+	Movetime 300% for 99 turns
+	[1] ESSpinnersFixed(110:30427) -> 5球凌げば勝ちだ
+	Specific orbs change every 1.0s for 1 turn
+	[2] ESRandomSpawn(92:30031) -> 1球目
+	Spawn 5 random Water orbs
+
+#5: ESBranchAttrOnBoard(133:30053) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 20
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 18
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 16
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESSpinnersFixed(110:30428) -> 次…いくぞ
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30033) -> 2球目
+	Spawn 6 random Water orbs
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESSpinnersFixed(110:30429) -> 次…いくぞ
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30035) -> 3球目
+	Spawn 5 random Water orbs
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: SkillSet:
+	[0] ESSpinnersFixed(110:30430) -> 次…いくぞ
+	Specific orbs change every 0.5s for 1 turn
+	[1] ESRandomSpawn(92:30037) -> 4球目
+	Spawn 6 random Water orbs
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: SkillSet:
+	[0] ESSpinnersFixed(110:30039) -> これでラストだ
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30040) -> 5球目
+	Spawn 8 random Water orbs
+
+#18: ESEndBattle(40:29994) -> お見事
+Reduce self HP to 0
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 28
+
+#21: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 27
+
+#22: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 26
+
+#23: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 25
+
+#24: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:30471) -> やりなおそうか
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30031) -> 1球目
+	Spawn 5 random Water orbs
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:30472) -> やりなおそうか
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30033) -> 2球目
+	Spawn 6 random Water orbs
+
+#26: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:30473) -> やりなおそうか
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30035) -> 3球目
+	Spawn 5 random Water orbs
+
+#27: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:30474) -> やりなおそうか
+	Specific orbs change every 0.5s for 1 turn
+	[1] ESRandomSpawn(92:30037) -> 4球目
+	Spawn 6 random Water orbs
+
+#28: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:30475) -> やりなおそうか
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:30040) -> 5球目
+	Spawn 8 random Water orbs
+
+#29: ESGravity(50:29996) -> 残念 ここまでだ
+Player -500% HP
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn

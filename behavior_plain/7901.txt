@@ -1,0 +1,61 @@
+#7901 - 真田 弦一郎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:30338) -> 来い
+	Voids status ailments for 999 turns
+	[1] ESRandomSpawn(92:30339) -> ひねり潰してやるわ！
+	Spawn 7 random Fire orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESRandomSpawn(92:30344) -> 徐かなること林の如し
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 6 random Fire and Light orbs, Deal 100% damage
+
+#6: ESCloud(104:30345) -> 微温い
+A 1×1 square of clouds appears for 1 turn at a random location, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDebuffATK(130:30342) -> 所詮この程度か
+	ATK -50% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:30343) -> 疾きこと風の如し
+	Increase damage to 150% for the next 999 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 5
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESBoardChangeAttackBits(85:30340) -> 侵掠すること火の如く
+Change all orbs to Fire, Deal 250% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:30346) -> 火半減
+Reduce damage from Fire attrs by 50%

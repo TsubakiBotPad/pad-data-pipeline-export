@@ -1,0 +1,30 @@
+#7904 - 柳 蓮二
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 7904
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (30326:83) 覚悟！ + 柳 蓮二の勝率97％…
+ | Wood skyfall +15% for 5 turns + Player -97% HP
+ group:
+ | group:
+ | condition: always turn 1
+   | (30329:83) 否… + 100％だ
+   | Do nothing + Enemy recover 100% HP
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (30335:39) あまり失望させるな
+     | Movetime 50% for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (30336:63) かまいたち
+     | Bind 3 random subs for 2 turns, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (30332:83) お前のテニスは見切った + もう俺には通用せん
+   | Unable to match Fire orbs for 3 turns + Reduce damage from all sources by 50% for 3 turns

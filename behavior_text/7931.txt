@@ -1,0 +1,30 @@
+#7931 - 丸井 ブン太
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7931
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (30374:83) シクヨロ + 妙技 綱渡り
+ | Voids status ailments for 999 turns + Seal the 1st row for 2 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (30377:83) どう　天才的？ + さーて何をする？
+   | Blind all orbs on the board + Reduce damage from all sources by 50% for 5 turns
+ | group:
+   | condition: 33% chance
+   | (30381:77) 妙技…鉄柱当て
+   | Change the 1st column to Fire orbs and the 6th column to Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (30382:63) これももらった！
+   | Bind both leaders for 2 turns, Deal 100% damage
+   | (30383:15) ビンゴ!!
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (30380:17) ふうーっ天才的ぃ
+   | Increase damage to 150% for the next 999 turns

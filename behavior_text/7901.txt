@@ -1,0 +1,30 @@
+#7901 - 真田 弦一郎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7901
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30346:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (30337:83) 来い + ひねり潰してやるわ！
+ | Voids status ailments for 999 turns + Spawn 7 random Fire orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (30344:92) 徐かなること林の如し
+   | Spawn 6 random Fire and Light orbs, Deal 100% damage
+   | (30345:104) 微温い
+   | A 1×1 square of clouds appears for 1 turn at a random location, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (30341:83) 所詮この程度か + 疾きこと風の如し
+   | ATK -50% for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turn 1, hp <= 19
+   | (30340:85) 侵掠すること火の如く
+   | Change all orbs to Fire, Deal 250% damage

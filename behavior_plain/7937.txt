@@ -1,0 +1,73 @@
+#7937 - 不二 裕太
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbThreshold(87:30394) -> 俺は俺だ!!
+Absorb damage when damage >= 1,500,000 for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 20
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 16
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#10: ESDebuffMovetime(39:30401) -> 焦ったな!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 50% for 1 turn
+
+#11: ESAttackMultihit(15:30402) -> 何度やっても同じだ
+Deal 102% damage (3 hits, 34% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSpinnersFixed(110:30399) -> ツイストスピンショット
+Condition: 50% chance (ai:50 rnd:0)
+Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#14: ESRowSpawnMulti(79:30400) -> 超ライジング
+Change the 5th row to Light orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#18: ESDamageShield(74:30398) -> どんな変化も無効化する
+Reduce damage from all sources by 75% for 2 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:30396) -> やるべき事があるんだ
+	Increase damage to 150% for the next 999 turns
+	[1] ESGravity(50:30397) -> つまずいているヒマはない
+	Player -99% HP
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

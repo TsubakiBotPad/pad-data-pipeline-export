@@ -1,0 +1,32 @@
+#207940 - 田仁志 慧
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 207940
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (29966:83) ぬおおおおおっ + ビッグバン!!
+ | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Change the 6th column to Dark orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (29971:83) ビッグバン!! + ビッグバンやぁ敵なし!!
+     | Change the 1st column to Dark orbs + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (30057:83) ビッグバン!! + ビッグバンやぁ敵なし!!
+     | Change the 6th column to Dark orbs + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (29969:64) しみぃてぃいちゅんどぉー!!
+     | Change 3 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (29970:107) 上等やさコラァ!!
+     | Unable to match Water orbs for 1 turn, Deal 100% damage

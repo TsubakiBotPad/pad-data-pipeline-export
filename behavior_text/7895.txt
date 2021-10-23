@@ -1,0 +1,37 @@
+#7895 - 白石 蔵ノ介
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7895
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30099:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (30272:83) 遠慮なく行かせてもらうわ + 負けん気強いんやな…
+ | Voids status ailments for 999 turns + Locked random skyfall +25% for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (30281:110) 円卓ショット
+   | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+   | condition: 25% chance
+   | (30284:110) 円卓ショット
+   | Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+   | condition: 25% chance
+   | (30282:94) ドロップショット
+   | Lock all Light orbs, Deal 100% damage
+   | condition: 25% chance
+   | (30283:105) んーん惜しいわぁ
+   | RCV 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (30278:83) どんなテニスをしようと + 勝ったモン勝ちや―
+   | Change all orbs to Wood, Light, and Heal + Lock all Wood and Light orbs
+ | group:
+ | condition: hp <= 1
+   | (30275:83) んんーっ絶頂（エクスタシー）！ + ローボレー
+   | Enemy recover 100% HP + Spawn Bomb orbs in the specified positions

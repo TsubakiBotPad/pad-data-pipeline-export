@@ -1,0 +1,83 @@
+#307916 - 遠山 金太郎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:30204) -> いつでもいいでぇ！
+	Voids status ailments for 999 turns
+	[1] ESJammerChangeRandom(13:30205) -> デタラメなテニス
+	Change 2 random orb types to Jammer orbs
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBindTarget(54:30211) -> 野性的なカン
+	Bind both leaders for 3 turns
+	[1] ESAttackMultihit(15:30212) -> ふんぎぃ!!
+	Deal 102% damage (3 hits, 34% each)
+
+#8: SkillSet:
+	[0] ESRandomSpawn(92:30214) -> アレ拾うたんか
+	Spawn 6 random Wood orbs
+	[1] ESAttackMultihit(15:30215) -> スゴイ…
+	Deal 99% damage (3 hits, 33% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESDamageShield(74:30209) -> 無尽蔵の体力
+Reduce damage from all sources by 50% for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBindTarget(54:30211) -> 野性的なカン
+	Bind both leaders for 3 turns
+	[1] ESAttackMultihit(15:30212) -> ふんぎぃ!!
+	Deal 102% damage (3 hits, 34% each)
+
+#15: SkillSet:
+	[0] ESRandomSpawn(92:30214) -> アレ拾うたんか
+	Spawn 6 random Wood orbs
+	[1] ESAttackMultihit(15:30215) -> スゴイ…
+	Deal 99% damage (3 hits, 33% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESColumnSpawnMulti(76:30207) -> 超ウルトラグレートデリシャス
+	Change the 1st and 2nd columns to Wood orbs and the 5th and 6th columns to Wood orbs
+	[1] ESAttackMultihit(15:30208) -> 大車輪山嵐
+	Deal 280% damage (7 hits, 40% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:30216) -> 根性
+Survive attacks with 1 HP when HP > 50%

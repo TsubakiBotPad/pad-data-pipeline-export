@@ -1,0 +1,38 @@
+#207889 - 手塚 国光
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207889
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30138:118) 体力半減
+ | Reduce damage from Physical types by 50%
+ type: PREEMPT
+ | (30127:83) 油断せずに行こう + 手塚ゾーン
+ | Delay active skills by 5 turns + Absorb Water and Light damage for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (30130:83) 俺は負けない + 零式ドロップ
+   | Reduce damage from all sources by 75% for 3 turns + Unable to match Wood orbs for 3 turns, Deal 100% damage
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (30136:64) コードボール
+     | Change 5 random orbs to Poison orbs, Deal 100% damage
+     | (30137:94) ドライブボレー
+     | Lock all Water and Light orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (30136:64) コードボール
+     | Change 5 random orbs to Poison orbs, Deal 100% damage
+     | (30137:94) ドライブボレー
+     | Lock all Water and Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (30133:83) 遠慮するなよ + 本気で来い
+   | Haste both leaders' skills by 20 turns + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)

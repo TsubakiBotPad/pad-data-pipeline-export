@@ -1,0 +1,76 @@
+#7886 - 幸村 精市
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7886
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30152:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+
+level: 4
+ type: PASSIVE
+ | (30152:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (30217:83) 来たようだね + …いい瞳をしている
+ | Voids status ailments for 999 turns + Bind 6 random cards for 2 turns
+ group:
+ | group:
+ | condition: always turn 4
+   | (30223:83) 我が立海の3連覇に… + 死角はない!!
+   | Reduce damage from all sources by 50% for 10 turns + Increase damage to 150% for the next 999 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (30226:39) 触覚を奪う
+     | Movetime 50% for 2 turns, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (30227:62) 視覚を奪う
+     | Blind all orbs on the board, Deal 110% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (30228:50) 聴覚を奪う
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (30226:39) 触覚を奪う
+     | Movetime 50% for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (30227:62) 視覚を奪う
+     | Blind all orbs on the board, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (30228:50) 聴覚を奪う
+     | Player -99% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (30220:83) ボールは決して + 消えたりなどしない + これで　もう終わりかい？
+     | Do nothing + Lock all orbs + Void damage >= 3,000,000 for 999 turns
+   | group:
+   | condition: turn 2
+     | (30226:39) 触覚を奪う
+     | Movetime 50% for 2 turns, Deal 100% damage
+   | group:
+   | condition: turn 3
+     | (30227:62) 視覚を奪う
+     | Blind all orbs on the board, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (30228:50) 聴覚を奪う
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (30226:39) 触覚を奪う
+     | Movetime 50% for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (30227:62) 視覚を奪う
+     | Blind all orbs on the board, Deal 110% damage

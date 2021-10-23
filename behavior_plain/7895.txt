@@ -1,0 +1,64 @@
+#7895 - 白石 蔵ノ介
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:30273) -> 遠慮なく行かせてもらうわ
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:30274) -> 負けん気強いんやな…
+	Locked random skyfall +25% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESSpinnersFixed(110:30281) -> 円卓ショット
+Condition: 25% chance (ai:0 rnd:25)
+Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+
+#6: ESSpinnersFixed(110:30284) -> 円卓ショット
+Condition: 25% chance (ai:0 rnd:25)
+Specific orbs change every 1.0s for 2 turns, Deal 100% damage
+
+#7: ESOrbLock(94:30282) -> ドロップショット
+Condition: 25% chance (ai:0 rnd:25)
+Lock all Light orbs, Deal 100% damage
+
+#8: ESDebuffRCV(105:30283) -> んーん惜しいわぁ
+Condition: 25% chance (ai:0 rnd:25)
+RCV 50% for 1 turn, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESBoardChange(84:30279) -> どんなテニスをしようと
+	Change all orbs to Wood, Light, and Heal
+	[1] ESOrbLock(94:30280) -> 勝ったモン勝ちや―
+	Lock all Wood and Light orbs
+
+#13: SkillSet:
+	[0] ESRecoverEnemy86(86:30276) -> んんーっ絶頂（エクスタシー）！
+	Enemy recover 100% HP
+	[1] ESBombFixedSpawn(103:30277) -> ローボレー
+	Spawn Bomb orbs in the specified positions
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:30099) -> 根性
+Survive attacks with 1 HP when HP > 50%

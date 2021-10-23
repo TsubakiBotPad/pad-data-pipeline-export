@@ -1,0 +1,66 @@
+#7904 - 柳 蓮二
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfall(68:30327) -> 覚悟！
+	Wood skyfall +15% for 5 turns
+	[1] ESGravity(50:30328) -> 柳 蓮二の勝率97％…
+	Player -97% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: SkillSet:
+	[0] ESInactivity66(66:30330) -> 否…
+	Do nothing
+	[1] ESRecoverEnemy86(86:30331) -> 100％だ
+	Enemy recover 100% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#11: ESDebuffMovetime(39:30335) -> あまり失望させるな
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 50% for 1 turn, Deal 100% damage
+
+#12: ESBindAttack(63:30336) -> かまいたち
+Bind 3 random subs for 2 turns, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: SkillSet:
+	[0] ESAttributeBlock(107:30333) -> お前のテニスは見切った
+	Unable to match Fire orbs for 3 turns
+	[1] ESDamageShield(74:30334) -> もう俺には通用せん
+	Reduce damage from all sources by 50% for 3 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

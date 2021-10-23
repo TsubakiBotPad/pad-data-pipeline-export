@@ -1,0 +1,35 @@
+#207901 - 真田 弦一郎
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207901
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30085:72) 火光半減
+ | Reduce damage from Fire and Light attrs by 50%
+ type: PREEMPT
+ | (30075:83) 来い + ひねり潰してやるわ！
+ | Voids status ailments for 999 turns + Spawn 6 random Fire orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (30083:92) 徐かなること林の如し
+   | Spawn 4 random Fire and Light orbs, Deal 100% damage
+   | (30084:104) 微温い
+   | A 2×2 square of clouds appears for 1 turn at a random location, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (30080:83) 侵掠すること火の如く + 疾きこと風の如し
+   | Change all orbs to Fire + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (30078:88) 所詮この程度か
+     | Bind awoken skills for 3 turns
+   | group:
+     | (30079:15) 絶望と共に散るがいい！
+     | Deal 220% damage (4 hits, 55% each)

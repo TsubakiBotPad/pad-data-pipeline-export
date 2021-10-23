@@ -1,0 +1,58 @@
+#7922 - 日吉 若
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:30355) -> 下剋上だ
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:30356) -> 演武テニス
+	Specific orbs change every 1.0s for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: ESOrbChangeAttackBits(108:30363) -> ふっ!!
+Condition: 50% chance (ai:50 rnd:0)
+Change all Dark orbs to Light orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:30364) -> へらずグチを…
+Deal 102% damage (3 hits, 34% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESSkillDelay(89:30361) -> 返せない球じゃあないんだよ!!
+	Delay active skills by 3 turns
+	[1] ESDamageShield(74:30362) -> まだ10ゲームはいける！
+	Reduce damage from all sources by 25% for 10 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:30358) -> お前にとっての下剋上は
+	Increase damage to 150% for the next 999 turns
+	[1] ESOrbLock(94:30359) -> ここには無いんだよ
+	Lock all Water and Light orbs
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

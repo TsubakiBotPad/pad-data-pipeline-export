@@ -1,0 +1,37 @@
+#207922 - 日吉 若
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 207922
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (30063:83) 下剋上だ + 演武テニス
+ | Do nothing + Specific orbs change every 1.0s for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (29963:83) お前にとっての下剋上は + ここには無いんだよ
+   | Do nothing + ATK -50% for 3 turns, Deal 100% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (30048:108) 返せない球じゃあないんだよ!!
+     | Change all Water orbs to Light orbs, Deal 100% damage
+     | (30061:15) ふっ!!
+     | Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (30061:15) ふっ!!
+     | Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (30046:74) まだ10ゲームはいける！
+     | Reduce damage from all sources by 25% for 10 turns, Deal 100% damage
+   | group:
+     | (30047:92) へらずグチを…
+     | Spawn 5 random Jammer orbs, Deal 110% damage

@@ -1,0 +1,37 @@
+#207934 - 伊武 深司
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207934
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (30065:83) ぶっ倒そ… + キックサーブ
+ | Do nothing + Seal the 1st row for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (29951:92) トップスピン
+   | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (29952:92) スライス
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (29953:63) スポット
+   | Bind player leader for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (29951:92) トップスピン
+   | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (29952:92) スライス
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (30286:15) ナマイキすぎ
+   | Deal 99% damage (3 hits, 33% each)
