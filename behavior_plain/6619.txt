@@ -14,13 +14,13 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBindAwoken(88:24643) -> さぁお立合い！
+	[0] ESBindAwoken(88:24643) -> You're here!
 	Bind awoken skills for 3 turns
-	[1] ESBindRandom(1:24644) -> イタズラしにきたぜ！
+	[1] ESBindRandom(1:24644) -> I came to prank you!
 	Bind 6 random cards for 3 turns
-	[2] ESRowSpawnMulti(78:24645) -> 消すなよ～
+	[2] ESRowSpawnMulti(78:24645) -> You better not erase these, okay?
 	Change the 2nd row to Jammer orbs
-	[3] ESSpinnersFixed(110:24646) -> 消したら怖いぜ～
+	[3] ESSpinnersFixed(110:24646) -> If you do, things'll get scary!
 	Specific orbs change every 1.0s for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -31,25 +31,25 @@ Branch on color erased == 0, target rnd 17
 
 #7: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESDebuffMovetime(39:24648) -> んじゃ次
+	[0] ESDebuffMovetime(39:24648) -> Okay, next!
 	Movetime 1000% for 2 turns
-	[1] ESRowSpawnMulti(78:24649) -> 「消すな」とは言ったが…
+	[1] ESRowSpawnMulti(78:24649) -> I told you not to erase them...
 	Change the 2nd and 4th rows to Jammer orbs
-	[2] ESCloud(104:24650) -> 「残せ」とは言ってない
+	[2] ESCloud(104:24650) -> ...but I didn't say you could leave any!
 	A 7×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESColumnSpawnMulti(76:24652) -> もっと見せてみな
+	[0] ESColumnSpawnMulti(76:24652) -> Show me again...
 	Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs
-	[1] ESOrbSealRow(100:24653) -> お前のあがく姿…
+	[1] ESOrbSealRow(100:24653) -> ...that look when you struggle!
 	Seal the 1st row for 1 turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:24661) -> ん～、飽きた！
+	[0] ESDamageShield(74:24661) -> Hmph, I've had enough of this!
 	Reduce damage from all sources by 50% for 5 turns
-	[1] ESAbsorbCombo(67:24662) -> お前もこっちのが得意だろ？
+	[1] ESAbsorbCombo(67:24662) -> You know how to play this game, right?
 	Absorb damage when combos <= 8 for 5 turns
 
 #10: ESBranchFlag(43:10) -> ESBranchFlag
@@ -58,7 +58,7 @@ Branch on flag & 2, target rnd 14
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#12: ESAttackMultihit(15:24663) -> そ～らコンコン！
+#12: ESAttackMultihit(15:24663) -> Here we go! Yip yip!
 Deal 110% damage (2 hits, 55% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -67,7 +67,7 @@ end_turn
 #14: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#15: ESDebuffMovetime(39:24664) -> お手手コン！
+#15: ESDebuffMovetime(39:24664) -> Clap your hands! Yip!
 Movetime 50% for 1 turn, Deal 100% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -75,31 +75,31 @@ end_turn
 
 #17: SkillSet:
 	Condition: One-time use & Jammer are erased (ai:100 rnd:0) (cost: 4)
-	[0] ESSkyfallLocked(96:24655) -> 消しちゃったなぁ
+	[0] ESSkyfallLocked(96:24655) -> Oh no, you erased them!
 	Locked random skyfall +25% for 99 turns
-	[1] ESDebuffMovetime(39:24648) -> んじゃ次
+	[1] ESDebuffMovetime(39:24648) -> Okay, next!
 	Movetime 1000% for 2 turns
-	[2] ESRowSpawnMulti(78:24649) -> 「消すな」とは言ったが…
+	[2] ESRowSpawnMulti(78:24649) -> I told you not to erase them...
 	Change the 2nd and 4th rows to Jammer orbs
-	[3] ESCloud(104:24650) -> 「残せ」とは言ってない
+	[3] ESCloud(104:24650) -> ...but I didn't say you could leave any!
 	A 7×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
 
 #18: SkillSet:
 	Condition: One-time use & Jammer are erased (ai:100 rnd:0) (cost: 2)
-	[0] ESSkyfall(68:24657) -> こりゃ残念
+	[0] ESSkyfall(68:24657) -> What a shame...
 	Mortal Poison skyfall +15% for 99 turns
-	[1] ESColumnSpawnMulti(76:24652) -> もっと見せてみな
+	[1] ESColumnSpawnMulti(76:24652) -> Show me again...
 	Change the 1st, 2nd, 5th, and 6th columns to Jammer orbs
-	[2] ESOrbSealRow(100:24653) -> お前のあがく姿…
+	[2] ESOrbSealRow(100:24653) -> ...that look when you struggle!
 	Seal the 1st row for 1 turn
 
 #19: SkillSet:
 	Condition: One-time use & Jammer are erased (ai:100 rnd:0) (cost: 1)
-	[0] ESSkillDelay(89:24659) -> される方が好きってヤツ？
+	[0] ESSkillDelay(89:24659) -> You prefer to be on the receiving end?
 	Delay active skills by 15 turns
-	[1] ESDamageShield(74:24661) -> ん～、飽きた！
+	[1] ESDamageShield(74:24661) -> Hmph, I've had enough of this!
 	Reduce damage from all sources by 50% for 5 turns
-	[2] ESAbsorbCombo(67:24662) -> お前もこっちのが得意だろ？
+	[2] ESAbsorbCombo(67:24662) -> You know how to play this game, right?
 	Absorb damage when combos <= 8 for 5 turns
 
 #20: ESBranchFlag(43:10) -> ESBranchFlag
@@ -108,7 +108,7 @@ Branch on flag & 2, target rnd 14
 #21: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#22: ESAttackMultihit(15:24663) -> そ～らコンコン！
+#22: ESAttackMultihit(15:24663) -> Here we go! Yip yip!
 Deal 110% damage (2 hits, 55% each)
 
 #23: ESEndPath(36:26) -> ESEndPath
@@ -117,7 +117,7 @@ end_turn
 #24: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#25: ESDebuffMovetime(39:24664) -> お手手コン！
+#25: ESDebuffMovetime(39:24664) -> Clap your hands! Yip!
 Movetime 50% for 1 turn, Deal 100% damage
 
 #26: ESEndPath(36:26) -> ESEndPath
@@ -125,7 +125,7 @@ end_turn
 
 #27: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:24666) -> 悪くなかったぜ
+	[0] ESInactivity66(66:24666) -> Not too shabby.
 	Do nothing
 
 #28: ESEndPath(36:26) -> ESEndPath
