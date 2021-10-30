@@ -1,0 +1,166 @@
+#6358 - Reincarnated Nene
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:29941) -> 仁姫神の魂
+	Voids status ailments for 999 turns
+	[1] ESBoardChange(84:29901) -> ここは通しません
+	Change all orbs to Water
+	[2] ESSkyfall(68:29902) -> 降刀
+	Water skyfall +40% for 1 turn
+	[3] ESAbsorbAttribute(53:29903) -> 五色鮮刀
+	Absorb Water damage for 1 turn
+
+#3: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 24
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 13
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 17
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESBoardChange(84:29905) -> 染刀
+	Change all orbs to Wood
+	[1] ESSkyfall(68:29906) -> 降刀
+	Wood skyfall +40% for 1 turn
+	[2] ESAbsorbAttribute(53:29907) -> 五色鮮刀
+	Absorb Wood damage for 1 turn, Deal 200% damage
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESBoardChange(84:29909) -> 染刀
+	Change all orbs to Light
+	[1] ESSkyfall(68:29910) -> 降刀
+	Light skyfall +40% for 1 turn
+	[2] ESAbsorbAttribute(53:29911) -> 五色鮮刀
+	Absorb Light damage for 1 turn, Deal 200% damage
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESBoardChange(84:29913) -> 染刀
+	Change all orbs to Dark
+	[1] ESSkyfall(68:29914) -> 降刀
+	Dark skyfall +40% for 1 turn
+	[2] ESAbsorbAttribute(53:29915) -> 五色鮮刀
+	Absorb Dark damage for 1 turn, Deal 200% damage
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: SkillSet:
+	[0] ESBoardChange(84:29917) -> 染刀
+	Change all orbs to Fire
+	[1] ESSkyfall(68:29918) -> 降刀
+	Fire skyfall +40% for 1 turn
+	[2] ESAbsorbAttribute(53:29919) -> 五色鮮刀
+	Absorb Fire damage for 1 turn, Deal 200% damage
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: SkillSet:
+	[0] ESBoardChange(84:29921) -> 染刀
+	Change all orbs to Water
+	[1] ESSkyfall(68:29922) -> 降刀
+	Water skyfall +40% for 1 turn
+	[2] ESAbsorbAttribute(53:29923) -> 五色鮮刀
+	Absorb Water damage for 1 turn, Deal 200% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#22: SkillSet:
+	[0] ESBoardSizeChange(126:29925) -> 寛仁姫の企み
+	Change board size to 6x5 for 1 turn
+	[1] ESSkyfall(68:29926) -> 降刀
+	Heal skyfall +40% for 1 turn
+	[2] ESAbsorbCombo(67:29927) -> では、14コンボできますか？
+	Absorb damage when combos <= 13 for 1 turn
+	[3] ESRandomSpawn(92:29937) -> 寛仁姫の助勢
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[4] ESDamageShield(74:29939) -> 寛仁姫の守り
+	Reduce damage from all sources by 50% for 2 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 29
+
+#25: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 15, target rnd 34
+
+#26: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#27: SkillSet:
+	[0] ESBoardSizeChange(126:29929) -> もう一度チャンスをあげましょう
+	Change board size to 7x6 for 1 turn
+	[1] ESSkyfall(68:29930) -> 降刀
+	Water skyfall +40% for 1 turn
+	[2] ESAbsorbCombo(67:29931) -> 19コンボできなければ終わりです
+	Absorb damage when combos <= 18 for 1 turn
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 34
+
+#30: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#31: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 19, target rnd 34
+
+#32: SkillSet:
+	[0] ESChangeAttribute(46:29933) -> 寛仁姫の怒り
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:29934) -> 消えなさい
+	Deal 3,500% damage (7 hits, 500% each)
+
+#33: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#34: SkillSet:
+	[0] ESSkillDelay(89:29938) -> 遅延刀
+	Delay active skills by 6 turns
+	[1] ESEndBattle(40:29935) -> この辺で失礼いたします
+	Reduce self HP to 0
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#36: ESSuperResolve(129:29936) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
