@@ -1,0 +1,90 @@
+#402718 - 真起源神・ガイア＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 255
+counter increment: 0
+monster_id: 402718
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (28224:83) アンチウイルス + ギガンティックボディ + エナジーカーム
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 7 turns + Void damage >= 15 for 9,900,000,000 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (28274:92) 巨体が動き始めた
+   | Spawn 3 random Jammer orbs
+ | group:
+ | condition: always turn 2
+   | (28275:17) 腕を持ち上げた
+   | Increase damage to 424% for the next 1 turn
+ | group:
+ | condition: always turn 3
+   | (28276:82) ＿ガイドラ通常
+   | Deal 100% damage
+ | group:
+ | condition: always turn 4
+   | (28277:92) 態勢を立て直している
+   | Spawn 3 random Jammer orbs
+ | group:
+ | condition: always turn 5
+   | (28278:17) 再度腕を持ち上げた
+   | Increase damage to 424% for the next 1 turn
+ | group:
+ | condition: always turn 6
+   | (28279:82) ＿ガイドラ通常
+   | Deal 100% damage
+ | group:
+ | condition: always turn 7
+   | (2976:5) 口を開いた
+   | Blind all orbs on the board
+ | group:
+   | group:
+   | condition: turn 8 while HP > 49
+     | condition: 20% chance
+     | (2990:83) ガイアビーム + インヘイル
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Fire and Water damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2991:83) ガイアビーム + インヘイル
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Water and Wood damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2992:83) ガイアビーム + インヘイル
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Wood and Light damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2993:83) ガイアビーム + インヘイル
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Light and Dark damage for 3 turns, Deal 450% damage
+     | condition: 20% chance
+     | (2994:83) ガイアビーム + インヘイル
+     | Change the 3rd and 4th columns to Wood orbs + Absorb Fire and Dark damage for 3 turns, Deal 450% damage
+   | group:
+   | condition: turns 9-10 while HP > 49
+     | (2979:89) スキルブレイク
+     | Delay active skills by 3~5 turns, Deal 260% damage
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 8
+     | (2978:50) グランドレイ
+     | Player -500% HP
+   | group:
+   | condition: turns 9-10 while HP > 29
+     | condition: 50% chance
+     | (2980:94) ハードンサイン
+     | Lock 6 random orbs, Deal 340% damage
+     | (2981:62) マントルプレス
+     | Blind all orbs on the board, Deal 360% damage
+ | group:
+ | condition: turns 9-10 while HP > 19, hp <= 29
+   | condition: 50% chance
+   | (2982:86) セルメンディング
+   | Enemy recover 10% HP, Deal 420% damage
+   | (2983:63) グレートバイン
+   | Bind 1 random card for 5 turns, Deal 410% damage
+ | group:
+ | condition: turns 9-10, hp <= 19
+   | (2984:50) グランドレイ
+   | Player -500% HP

@@ -1,0 +1,102 @@
+#202722 - 真覚醒ヘパイストス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:2814) -> 灼炎の熔炉
+Reduce damage from all sources by 75% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 30
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESAttackMultihit(15:2815) -> 鍛錬
+Deal 80% damage (2 hits, 40% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESAttackMultihit(15:2816) -> 鍛錬
+Deal 100% damage (2 hits, 50% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESAttackMultihit(15:2817) -> 鍛錬
+Deal 120% damage (2 hits, 60% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#22: ESBoardChangeAttackBits(85:28222) -> 鍛錬
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Deal 120% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 28
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#26: ESAttackMultihit(15:2818) -> 神器創造
+Deal 160% damage
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: ESAttackMultihit(15:2819) -> アイアンランページ
+Deal 700% damage (7 hits, 100% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn

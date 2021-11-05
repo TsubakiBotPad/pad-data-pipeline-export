@@ -1,0 +1,172 @@
+#207994 - 古都の守護神・アテナ -NON-
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:28171) -> 神々の祝杯
+	Voids status ailments for 999 turns
+	[1] ESBoardChange(84:28172) -> オリーヴリンケージ
+	Change all orbs to Wood
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 35
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 29
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 27
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 26
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 8, target rnd 25
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 24
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 23
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 22
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 21
+
+#16: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 19
+
+#18: SkillSet:
+	[0] ESBoardChangeAttackBits(85:28252) -> アクロパイロス
+	Change all orbs to Fire, Deal 80% damage
+	[1] ESSkyfallLocked(96:28253) -> 封錠の祈り
+	Locked random skyfall +100% for 1 turn
+
+#19: SkillSet:
+	[0] ESChangeAttribute(46:28178) -> 流転
+	Change own attribute to random one of Fire or Wood
+	[1] ESAttackMultihit(15:28179) -> タービュランスロンド
+	Deal 105% damage (3 hits, 35% each)
+
+#20: SkillSet:
+	[0] ESOrbLock(94:28181) -> フェイント
+	Lock 15 random orbs
+	[1] ESDebuffATK(130:28182) -> ウィアーバイト
+	ATK -75% for 1 turn, Deal 95% damage
+
+#21: SkillSet:
+	[0] ESChangeAttribute(46:28178) -> 流転
+	Change own attribute to random one of Fire or Wood
+	[1] ESAttackMultihit(15:28179) -> タービュランスロンド
+	Deal 105% damage (3 hits, 35% each)
+
+#22: SkillSet:
+	[0] ESOrbLock(94:28175) -> フェイント
+	Lock 15 random orbs
+	[1] ESSkyfallLocked(96:28176) -> 封錠の祈り
+	Locked random skyfall +100% for 1 turn, Deal 105% damage
+
+#23: SkillSet:
+	[0] ESChangeAttribute(46:28178) -> 流転
+	Change own attribute to random one of Fire or Wood
+	[1] ESAttackMultihit(15:28179) -> タービュランスロンド
+	Deal 105% damage (3 hits, 35% each)
+
+#24: SkillSet:
+	[0] ESOrbLock(94:28181) -> フェイント
+	Lock 15 random orbs
+	[1] ESDebuffATK(130:28182) -> ウィアーバイト
+	ATK -75% for 1 turn, Deal 95% damage
+
+#25: SkillSet:
+	[0] ESChangeAttribute(46:28178) -> 流転
+	Change own attribute to random one of Fire or Wood
+	[1] ESAttackMultihit(15:28179) -> タービュランスロンド
+	Deal 105% damage (3 hits, 35% each)
+
+#26: SkillSet:
+	[0] ESOrbLock(94:28175) -> フェイント
+	Lock 15 random orbs
+	[1] ESSkyfallLocked(96:28176) -> 封錠の祈り
+	Locked random skyfall +100% for 1 turn, Deal 105% damage
+
+#27: SkillSet:
+	[0] ESChangeAttribute(46:28178) -> 流転
+	Change own attribute to random one of Fire or Wood
+	[1] ESAttackMultihit(15:28179) -> タービュランスロンド
+	Deal 105% damage (3 hits, 35% each)
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAttributeBlock(107:28184) -> 豊穣の枝葉
+	Unable to match Fire, Wood, and Heal orbs for 1 turn
+	[1] ESBoardChangeAttackBits(85:28185) -> ルナティック
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 105% damage
+
+#30: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfallLocked(96:28187) -> 封錠の祈り
+	Locked random skyfall +100% for 1 turn
+	[1] ESColumnSpawnMulti(77:28188) -> デュアルエッジ
+	Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 110% damage
+
+#31: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:28190) -> 聖域解放
+	Player -99% HP
+	[1] ESDamageShield(74:28191) -> 守護堅聖アイギス
+	Reduce damage from all sources by 75% for 999 turns
+
+#32: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:28193) -> 聖なる道標
+	Bind awoken skills for 5 turns
+	[1] ESSpinnersFixed(110:28194) -> プリズムーントリトニス
+	Specific orbs change every 1.0s for 5 turns
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESAttackUPRemainingEnemies(17:27295) -> 戦乱の聖跡
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#36: ESSetCounter(25:15) -> ESSetCounter
+counter = 2
+
+#37: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#39: ESSuperResolve(129:28169) -> ＿木NON超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
