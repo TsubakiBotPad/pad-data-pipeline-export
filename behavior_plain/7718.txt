@@ -1,4 +1,4 @@
-#7718 - ミストバーン
+#7718 - Mystvearn
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESInactivity66(66:28099) -> 大魔王さまのお言葉は
+	[0] ESInactivity66(66:28099) -> The Dark King's words...
 	Do nothing
-	[1] ESStatusShield(20:28100) -> すべてに優先する
+	[1] ESStatusShield(20:28100) -> ...take precedence above all.
 	Voids status ailments for 999 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -25,18 +25,18 @@ end_turn
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESBindRandom(1:28101) -> 闘魔傀儡掌
+#7: ESBindRandom(1:28101) -> Dark Puppetry Aura Hand
 Condition: 50% chance (ai:0 rnd:50)
 Bind 6 random cards for 1 turn
 
-#8: ESDebuffRCV(105:28102) -> ……
+#8: ESDebuffRCV(105:28102) -> .......
 Condition: 50% chance (ai:0 rnd:50)
 RCV 25% for 1 turn, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESBindAwoken(88:28103) -> …無理だ…おまえの力量では…
+#10: ESBindAwoken(88:28103) -> Not possible. Not with your strength.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Bind awoken skills for 5 turns, Deal 85% damage
 
@@ -49,7 +49,7 @@ Branch on counter = 1, target rnd 16
 #13: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#14: ESAttributeBlock(107:28104) -> 愚かな！
+#14: ESAttributeBlock(107:28104) -> You fool!
 Unable to match Heal orbs for 1 turn, Deal 55% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -58,7 +58,7 @@ end_turn
 #16: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#17: ESBlindStickyRandom(97:28105) -> うけろッ!!
+#17: ESBlindStickyRandom(97:28105) -> Take this!
 Blind random 5 orbs for 1 turn
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -67,7 +67,7 @@ end_turn
 #19: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#20: ESFixedStart(101:28106) -> ビュートデストリンガー!!!
+#20: ESFixedStart(101:28106) -> Byut Deathstringer!!
 Fix orb movement starting point to random position on the board, Deal 185% damage
 
 #21: ESEndPath(36:26) -> ESEndPath

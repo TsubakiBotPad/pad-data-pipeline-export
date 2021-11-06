@@ -1,0 +1,26 @@
+#3613 - 小狼
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3613
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30761:118) バランス半減
+ | Reduce damage from Balanced types by 50%
+ type: PREEMPT
+ | (30751:83) 大切な人を守りたい + 緋炎
+ | Voids status ailments for 999 turns + Absorb Fire damage for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (30757:83) 僅かな可能性でもあるなら + それに賭けます
+   | Do nothing + Change the 2nd and 4th columns to Fire orbs, Deal 100% damage
+   | (30760:15) やると決めたことはやる それだけだ
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (30754:83) 諦めない 強くなる もっと + ‥‥‥行ってきます
+   | Increase damage to 150% for the next 999 turns + Change the 3rd row to Fire orbs, Deal 101% damage

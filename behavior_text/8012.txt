@@ -1,0 +1,47 @@
+#8012 - 騎士王・アーサー・ボイル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8012
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30806:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (30807:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (30797:83) 俺はドラゴンを退治する男だぜ + “無我”
+ | Voids status ailments for 999 turns + Movetime 50% for 5 turns
+ group:
+ | group:
+   | condition: 20% chance
+   | (30805:79) “紫電 一閃”
+   | Change the 1st row to Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (30808:79) “紫電 一閃”
+   | Change the 2nd row to Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (30809:79) “紫電 一閃”
+   | Change the 3rd row to Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (30810:79) “紫電 一閃”
+   | Change the 4th row to Light orbs, Deal 100% damage
+   | condition: 20% chance
+   | (30811:79) “紫電 一閃”
+   | Change the 5th row to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (30800:83) 俺の心はもう読めない + 我が剣 鬼神の如し!!
+   | Void damage >= 25,000,000 for 999 turns + Random 3 orbs change every 1.0s for 5 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (30803:94) “涅槃”
+     | Lock all orbs, Deal 103% damage
+   | group:
+     | (30804:15) エクス！カリヴァアアア!!
+     | Deal 770% damage (7 hits, 110% each)

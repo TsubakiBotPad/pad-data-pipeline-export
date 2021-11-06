@@ -1,0 +1,49 @@
+#8004 - 初代総長・佐野万次郎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8004
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30796:118) マシン半減
+ | Reduce damage from Machine types by 50%
+ type: PREEMPT
+ | (30786:83) 行くぞオラぁあ!!! + オレはオマエの敵か？
+ | Voids status ailments for 999 turns + Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: always turn 3
+   | (30789:83) オレがここで…壊してやる + 日和ってる奴いる？
+   | Bind awoken skills for 1 turn + Seal the 1st row for 3 turns
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 14
+     | condition: 33% chance
+     | (30792:63) 黙れ 殴り殺してやる
+     | Bind 3 random subs for 2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (30793:63) 黙れ 殴り殺してやる
+     | Bind 2 random cards for 3 turns, Deal 101% damage
+     | (30794:63) 黙れ 殴り殺してやる
+     | Bind both leaders for 2 turns, Deal 102% damage
+   | group:
+     | condition: 33% chance
+     | (30792:63) 黙れ 殴り殺してやる
+     | Bind 3 random subs for 2 turns, Deal 100% damage
+     | condition: 50% chance
+     | (30793:63) 黙れ 殴り殺してやる
+     | Bind 2 random cards for 3 turns, Deal 101% damage
+     | (30794:63) 黙れ 殴り殺してやる
+     | Bind both leaders for 2 turns, Deal 102% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turns 1-2
+     | (30795:15) ホラ終わった
+     | Deal 500% damage (5 hits, 100% each)
+   | group:
+     | (30795:15) ホラ終わった
+     | Deal 500% damage (5 hits, 100% each)

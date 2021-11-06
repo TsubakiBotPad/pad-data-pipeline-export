@@ -1,0 +1,27 @@
+#203627 - 聖騎士長・ヘンドリクセン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 203627
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6715:68) 黒雪
+ | Poison skyfall +15% for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 2 of 2, hp <= 100
+   | (6716:15) 暗黒の環
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | condition: when 3608, 3609 on team
+     | (6739:83) たいした男だ…… + 闇夜さえも呑み込む漆黒に― + その身を喰われろ + 黒死
+     | Do nothing + Do nothing + Do nothing + Player -150% HP
+   | group:
+     | (6720:83) 闇夜さえも呑み込む漆黒に― + その身を喰われろ + 黒死
+     | Do nothing + Do nothing + Player -150% HP

@@ -1,4 +1,4 @@
-#7725 - フレイザード
+#7725 - Flazzard
 monster size: 5
 new AI: True
 start/max counter: 4
@@ -20,9 +20,9 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESStatusShield(20:26968) -> クハハハハハ――ッ!!!
+	[0] ESStatusShield(20:26968) -> Kuhahahahahaaaa!!!
 	Voids status ailments for 999 turns
-	[1] ESLeaderSwap(75:26969) -> そおらッ!!!
+	[1] ESLeaderSwap(75:26969) -> How's this!
 	Leader changes to random sub for 1 turn
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -30,15 +30,15 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 3)
-	[0] ESSkyfall(68:26971) -> いくぜェッ!!!小僧ッ!!!
+	[0] ESSkyfall(68:26971) -> Let's go!!! Brat!!!
 	Fire and Water skyfall +15% for 99 turns
-	[1] ESSkyfallLocked(96:26972) -> 氷炎爆花散!!
+	[1] ESSkyfallLocked(96:26972) -> Blizzblaze Shrapnel Detonation!
 	Locked Fire and Water skyfall +100% for 99 turns, Deal 120% damage
 
 #9: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#10: ESRandomSpawn(92:26973) -> 弾岩爆花散!!!
+#10: ESRandomSpawn(92:26973) -> Rock Bullet Shrapnel Detonation!
 Spawn 3 random Fire, Water, and Jammer orbs, Deal 115% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -46,9 +46,9 @@ end_turn
 
 #12: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:26975) -> たとえ全てを失ったとしても
+	[0] ESDamageShield(74:26975) -> Even if I've lost everything else...
 	Reduce damage from all sources by 50% for 3 turns
-	[1] ESVoidShield(71:26976) -> オレの勝利だけはのがさねえ…!!
+	[1] ESVoidShield(71:26976) -> ...I'll never let go of my victory...!!
 	Void damage >= 10,000,000 for 3 turns
 
 #13: ESBranchCounter(31:21) -> ESBranchCounter
@@ -57,7 +57,7 @@ Branch on counter = 1, target rnd 17
 #14: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#15: ESRandomSpawn(92:26977) -> 弾岩爆花散!!!
+#15: ESRandomSpawn(92:26977) -> Rock Bullet Shrapnel Detonation!
 Spawn 5 random Fire, Water, and Jammer orbs, Deal 135% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -66,7 +66,7 @@ end_turn
 #17: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#18: ESAttackMultihit(15:26978) -> こいつでジ・エンドだ～～～っ!!!!
+#18: ESAttackMultihit(15:26978) -> This is the end!
 Deal 210% damage (6 hits, 35% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
@@ -74,13 +74,13 @@ end_turn
 
 #20: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:26986) -> ウギャアアアアアアア～～ッ!!!!
+	[0] ESInactivity66(66:26986) -> Ugyaaaaaaaaah!!!!
 	Do nothing
 
-#21: ESAttributeResist(72:26965) -> ＿フレイザード火水半減
+#21: ESAttributeResist(72:26965) -> ＿Flazzard Fire & Water Halved
 Reduce damage from Fire and Water attrs by 50%
 
-#22: ESSuperResolve(129:26966) -> ＿フレイザード超根性
+#22: ESSuperResolve(129:26966) -> ＿Flazzard Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #23: ESEndPath(36:26) -> ESEndPath

@@ -1,4 +1,4 @@
-#207716 - 魔軍司令ハドラー
+#207716 - Dark Commander Hadlar
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAttributeBlock(107:26876) -> 裏切り者には死あるのみ！
+	[0] ESAttributeBlock(107:26876) -> Traitors must be abolished!
 	Unable to match Heal orbs for 3 turns
-	[1] ESDamageShield(74:26877) -> いたぶりながら殺してやる…!!
+	[1] ESDamageShield(74:26877) -> I'll make your death slow and painful!
 	Reduce damage from all sources by 50% for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -25,15 +25,15 @@ end_turn
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#7: ESRowSpawnMulti(79:26878) -> ヘルズクロー
+#7: ESRowSpawnMulti(79:26878) -> Hell's Claw
 Condition: 33% chance (ai:0 rnd:33)
 Change the 1st and 5th rows to Dark orbs, Deal 110% damage
 
-#8: ESRandomSpawn(92:26879) -> オオオオオオ…!!
+#8: ESRandomSpawn(92:26879) -> Oooooooooooh!!!!
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 3 random Light, Dark, and Jammer orbs, Deal 110% damage
 
-#9: ESColumnSpawnMulti(77:26880) -> メラゾーマ!!!!
+#9: ESColumnSpawnMulti(77:26880) -> Kafrizz!!!!
 Condition: 34% chance (ai:0 rnd:34)
 Change the 1st and 6th columns to Fire and Jammer orbs, Deal 125% damage
 
@@ -47,9 +47,9 @@ Branch on counter = 1, target rnd 15
 counter + 1
 
 #13: SkillSet:
-	[0] ESInactivity66(66:26881) -> 今こそ全力ではなってやろう！
+	[0] ESInactivity66(66:26881) -> Now watch as I unleash the full power...
 	Do nothing
-	[1] ESSpinnersFixed(110:26882) -> 我が最強の呪文を!!
+	[1] ESSpinnersFixed(110:26882) -> ...of my greatest spell!
 	Specific orbs change every 2.0s for 1 turn
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -58,13 +58,13 @@ end_turn
 #15: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#16: ESAttackMultihit(15:26883) -> ベギラゴン――ッ!!!!!
+#16: ESAttackMultihit(15:26883) -> Kasizz!!!!
 Deal 200% damage (8 hits, 25% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:26874) -> ＿魔ハドラー超根性
+#18: ESSuperResolve(129:26874) -> ＿Dark Hadlar Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #19: ESEndPath(36:26) -> ESEndPath
@@ -72,7 +72,7 @@ end_turn
 
 #20: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:26982) -> み…見事だヒュンケル…
+	[0] ESInactivity66(66:26982) -> Well done, Hyunckel...
 	Do nothing
 
 #21: ESEndPath(36:26) -> ESEndPath

@@ -1,4 +1,4 @@
-#207726 - 鎧武装フレイザード
+#207726 - Armoured Flazzard
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDamageShield(74:26904) -> 力が…力がみなぎってくる…
+	[0] ESDamageShield(74:26904) -> The power! The power is overwhelming!
 	Reduce damage from all sources by 90% for 4 turns
-	[1] ESAttributeBlock(107:26905) -> すさまじい力だ…！
+	[1] ESAttributeBlock(107:26905) -> Such extraordinary power!
 	Unable to match Fire, Water, Wood, and Dark orbs for 1 turn
-	[2] ESGravity(50:26906) -> こいつあすごいぜェェェッ!!!
+	[2] ESGravity(50:26906) -> This is amazing!
 	Player -70% HP
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -30,15 +30,15 @@ Branch on hp < 20, target rnd 16
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#8: ESRandomSpawn(92:26907) -> ウヒャハハハ!!
+#8: ESRandomSpawn(92:26907) -> Uhuahahaha!!
 Condition: 33% chance & when Water, Wood, Light, Poison, or Mortal Poison orbs are on the board (ai:0 rnd:33)
 Spawn 5 random Fire, Dark, Heal, and Jammer orbs, Deal 90% damage
 
-#9: ESFixedStart(101:26908) -> そらよおッ!!
+#9: ESFixedStart(101:26908) -> Take this!
 Condition: 33% chance (ai:0 rnd:33)
 Fix orb movement starting point to random position on the board, Deal 95% damage
 
-#10: ESOrbLock(94:26909) -> ギャハハハハッ!!
+#10: ESOrbLock(94:26909) -> Guahahahaha!!
 Condition: 34% chance (ai:0 rnd:34)
 Lock all orbs, Deal 105% damage
 
@@ -52,18 +52,18 @@ Branch on counter = 1, target rnd 8
 counter + 1
 
 #14: SkillSet:
-	[0] ESDebuffATK(130:26911) -> いい度胸だぜ!!小僧っ!!!
+	[0] ESDebuffATK(130:26911) -> You've got guts, kid!
 	ATK -50% for 1 turn
-	[1] ESAttackUPRemainingEnemies(17:26912) -> 一発であの世へ送ってやらあッ!!!
+	[1] ESAttackUPRemainingEnemies(17:26912) -> You're begging me to send you to the afterlife with one punch!
 	Increase damage to 150% for the next 999 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESAttackMultihit(15:26914) -> このクソガキがああ――ッ!!
+	[0] ESAttackMultihit(15:26914) -> You little brat!
 	Deal 60% damage (4 hits, 15% each)
-	[1] ESBlindStickyRandom(97:26915) -> うがあああああッ!!!
+	[1] ESBlindStickyRandom(97:26915) -> Ugaaaaaaaaaah!!!
 	Blind random 5 orbs for 1 turn, Deal 25% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -71,13 +71,13 @@ end_turn
 
 #18: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:26984) -> ウギャアアアアアアア～～ッ!!!
+	[0] ESInactivity66(66:26984) -> Ugyaaaaaaaah!
 	Do nothing
 
-#19: ESAttributeResist(72:26902) -> ＿鎧ザード火半減
+#19: ESAttributeResist(72:26902) -> ＿Armor Flazzard Fire Halved
 Reduce damage from Fire attrs by 50%
 
-#20: ESSuperResolve(129:26901) -> ＿鎧ザード超根性
+#20: ESSuperResolve(129:26901) -> ＿Armor Flazzard Super Resolve
 Damage which would reduce HP from above 20% to below 20% is nullified
 
 #21: ESEndPath(36:26) -> ESEndPath

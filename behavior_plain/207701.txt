@@ -1,4 +1,4 @@
-#207701 - 勇者の家庭教師・アバン
+#207701 - The Hero Tutor, Avan
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:28039) -> ここまでよく頑張りましたね！
+	[0] ESStatusShield(20:28039) -> You've done great so far!
 	Voids status ailments for 999 turns
-	[1] ESBoardSizeChange(126:28040) -> 私を倒せばこの修業はクリアです。
+	[1] ESBoardSizeChange(126:28040) -> Your training ends  if you can defeat me.
 	Change board size to 7x6 for 5 turns
-	[2] ESAbsorbCombo(67:28041) -> アー・ユー・レディー!?
+	[2] ESAbsorbCombo(67:28041) -> Are you ready?!
 	Absorb damage when combos <= 12 for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -39,7 +39,7 @@ Branch on counter = 1, target rnd 13
 #10: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#11: ESRandomSpawn(92:28042) -> ちょええええっ!!
+#11: ESRandomSpawn(92:28042) -> Choeeeeh!
 Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -48,7 +48,7 @@ end_turn
 #13: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#14: ESOrbLock(94:28043) -> アストロン!!!
+#14: ESOrbLock(94:28043) -> Kaclang!!
 Lock all orbs
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -57,7 +57,7 @@ end_turn
 #16: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#17: ESRandomSpawn(92:28042) -> ちょええええっ!!
+#17: ESRandomSpawn(92:28042) -> Choeeeeh!
 Spawn 6 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -66,7 +66,7 @@ end_turn
 #19: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#20: ESOrbLock(94:28043) -> アストロン!!!
+#20: ESOrbLock(94:28043) -> Kaclang!!
 Lock all orbs
 
 #21: ESEndPath(36:26) -> ESEndPath
@@ -76,19 +76,19 @@ end_turn
 counter + 1
 
 #23: SkillSet:
-	[0] ESRecoverEnemy86(86:28045) -> むむむ…!!
+	[0] ESRecoverEnemy86(86:28045) -> Hya! Ugh... Aah!
 	Enemy recover 100% HP
-	[1] ESBlind62(62:28046) -> いい太刀筋です
+	[1] ESBlind62(62:28046) -> Your swordsmanship is very good.
 	Blind all orbs on the board, Deal 100% damage
 
 #24: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#25: ESBindAwoken(88:28047) -> 詰めが甘いですねえ
+#25: ESBindAwoken(88:28047) -> You fail to see things through as usual.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Bind awoken skills for 10 turns
 
-#26: ESRowSpawnMulti(79:28048) -> アバンストラッシュ!!!
+#26: ESRowSpawnMulti(79:28048) -> Avan Strash!!
 Change the 1st, 2nd, 4th, and 5th rows to Light orbs, Deal 165% damage
 
 #27: ESEndPath(36:26) -> ESEndPath
@@ -96,13 +96,13 @@ end_turn
 
 #28: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:26988) -> お見事！
+	[0] ESInactivity66(66:26988) -> Well done!
 	Do nothing
 
 #29: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#30: ESSuperResolve(129:28037) -> ＿アバン超根性
+#30: ESSuperResolve(129:28037) -> ＿Avan Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #31: ESEndPath(36:26) -> ESEndPath
