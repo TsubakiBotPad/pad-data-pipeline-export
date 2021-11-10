@@ -1,0 +1,45 @@
+#7040 - Super Reincarnated Ceres
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7040
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (27949:129) ＿セレス超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (27950:83) 豊穣の風 + 実りの廻 + ハーベスタス
+ | Voids status ailments for 999 turns + Locked Light and Dark skyfall +100% for 99 turns + Absorb Light and Dark damage for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (27954:83) ハーベスタス + 祝福の大地
+     | Absorb Wood and Light damage for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (27957:83) ハーベスタス + 天界の陽光
+     | Absorb Wood and Dark damage for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (27960:83) ソウルキュアー + 豊穣神の魂
+     | Enemy recover 10% HP + Reduce damage from all sources by 75% for 5 turns, Deal 95% damage
+   | group:
+   | condition: turn 2
+     | (27963:83) シアリーズクラフト + 天変
+     | Void damage >= 40,000,000 for 999 turns + Unable to match Light and Dark orbs for 1 turn, Deal 100% damage
+   | group:
+     | condition: 34% chance
+     | (27966:83) ソウルキュアー + デメテルパニッシュ
+     | Enemy recover 10% HP + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | condition: 33% chance
+     | (27968:83) ソウルキュアー + 枯死の厄
+     | Enemy recover 10% HP + Change all orbs to Wood, Light, Dark, and Jammer, Deal 85% damage
+     | condition: 33% chance
+     | (27970:83) ソウルキュアー + 深き暗雲
+     | Enemy recover 10% HP + Blind random 15 orbs for 1 turn, Deal 90% damage

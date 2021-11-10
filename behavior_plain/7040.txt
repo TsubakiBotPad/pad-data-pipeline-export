@@ -1,0 +1,96 @@
+#7040 - Super Reincarnated Ceres
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:27951) -> 豊穣の風
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:27953) -> 実りの廻
+	Locked Light and Dark skyfall +100% for 99 turns
+	[2] ESAbsorbAttribute(53:27952) -> ハーベスタス
+	Absorb Light and Dark damage for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:27961) -> ソウルキュアー
+	Enemy recover 10% HP
+	[1] ESDamageShield(74:27962) -> 豊穣神の魂
+	Reduce damage from all sources by 75% for 5 turns, Deal 95% damage
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:27964) -> シアリーズクラフト
+	Void damage >= 40,000,000 for 999 turns
+	[1] ESAttributeBlock(107:27965) -> 天変
+	Unable to match Light and Dark orbs for 1 turn, Deal 100% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESAbsorbAttribute(53:27955) -> ハーベスタス
+	Absorb Wood and Light damage for 1 turn
+	[1] ESSpinnersFixed(110:27956) -> 祝福の大地
+	Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	[0] ESAbsorbAttribute(53:27958) -> ハーベスタス
+	Absorb Wood and Dark damage for 1 turn
+	[1] ESSpinnersFixed(110:27959) -> 天界の陽光
+	Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESRecoverEnemy86(86:27961) -> ソウルキュアー
+	Enemy recover 10% HP
+	[1] ESAttackMultihit(15:27967) -> デメテルパニッシュ
+	Deal 105% damage (3 hits, 35% each)
+
+#17: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRecoverEnemy86(86:27961) -> ソウルキュアー
+	Enemy recover 10% HP
+	[1] ESBoardChangeAttackBits(85:27969) -> 枯死の厄
+	Change all orbs to Wood, Light, Dark, and Jammer, Deal 85% damage
+
+#18: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRecoverEnemy86(86:27961) -> ソウルキュアー
+	Enemy recover 10% HP
+	[1] ESBlindStickyRandom(97:27971) -> 深き暗雲
+	Blind random 15 orbs for 1 turn, Deal 90% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:27949) -> ＿セレス超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

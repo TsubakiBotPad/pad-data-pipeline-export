@@ -1,0 +1,66 @@
+#7794 - 澄空の水柱神・ムート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 7794
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30715:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ | (30716:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (30673:83) もっと楽しませてくださいね + 制空の鍵爪 + さぁ、いきますよ
+ | Voids status ailments for 999 turns + Locked random skyfall +25% for 10 turns + Disable active skills for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (30706:83) 喪失のロッド + 水光の鍵爪
+   | ATK -75% for 1 turn + Change the 2nd column to Water orbs and the 5th column to Light orbs, Deal 100% damage
+   | condition: 50% chance
+   | (30709:83) 妨害の鍵爪 + 壊滅のロッド
+   | Spawn 2 random Jammer orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (30712:83) 水雲 + 壊滅のロッド
+   | A 3×3 square of clouds appears for 1 turn at a random location + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (30684:83) 私のとっておき お見せします + 耐えられますか？ + イーグルエンハンス
+     | Reduce damage from all sources by 90% for 1 turn + Void damage >= 700,000,000 for 999 turns + Increase damage to 700% for the next 1 turn
+   | group:
+   | condition: turn 2 while HP > 14
+     | (30688:83) イーグルガード + 超水玉 + プレシャスフェザー
+     | Reduce damage from all sources by 50% for 99 turns + Specific orbs change every 1.0s for 10 turns + Deal 100% damage (10 hits, 10% each), Deal 100% damage (10 hits, 10% each)
+   | group:
+   | condition: turn 3 while HP > 14
+     | (30718:83) 水柱神の活気 + 水柱神の誘惑
+     | Increase damage to 150% for the next 999 turns + Movetime 50% for 10 turns, Deal 101% damage
+   | group:
+     | condition: 20% chance
+     | (30691:83) ミラクルフェザー + 消失のロッド
+     | Change all orbs to Water, Light, and Heal + Unable to match Water orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (30694:83) ミラクルフェザー + 消失のロッド
+     | Change all orbs to Water, Light, and Heal + Unable to match Light orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (30697:83) ミラクルフェザー + 消失のロッド
+     | Change all orbs to Water, Light, and Heal + Unable to match Heal orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (30700:83) イーグルロック + ブラックフェザー
+     | Lock 15 random orbs + Blind all orbs on the board, Deal 101% damage
+     | condition: 20% chance
+     | (30703:83) 略奪のロッド + 縛水
+     | RCV 25% for 1 turn + Bind 2 random cards for 3 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (30677:83) 終焉の兆し + 水柱神の捕縛 + 水柱神の号令
+     | Bind awoken skills for 1 turn + Bind player leader for 1 turn + Haste random sub's skills by 25 turns, Deal 100% damage
+   | group:
+     | (30681:83) 色水 + 終焉の激流
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,100% damage (7 hits, 300% each), Deal 2,100% damage (7 hits, 300% each)

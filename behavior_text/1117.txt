@@ -1,0 +1,55 @@
+#1117 - Jade Oracle, Parvati
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 1117
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30607:72) 木光半減
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (30573:83) 頑張りますよー！ + いくよっ！トラちゃん！ + トラの威圧
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 1 turn + RCV 50% for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (30577:83) トラのいたずら + 防御態勢
+   | A 2×2 square of clouds appears for 5 turns at a random location + Reduce damage from all sources by 50% for 99 turns, Deal 100% damage
+ | group:
+ | condition: always turn 2
+   | (30580:83) 麗山神の天力 + ヒマラヤの異変 + 麗山神の賜物
+   | Bind awoken skills for 1 turn + Mortal Poison skyfall +60% for 1 turn + Change all Water, Light, and Dark orbs to Wood orbs, Deal 30% damage
+ | group:
+ | condition: always turn 3
+   | (30584:83) ヒマラヤの恵み + トラのいたずら + 麗山神の祈祷
+   | Spawn 9 random Heal orbs + Seal the 1st column for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+   | condition: 50% chance
+   | (30601:83) ヒマラヤの恵み + トラの援護
+   | Spawn 6 random Heal and Mortal Poison orbs + Change all Fire orbs to Heal orbs, Deal 100% damage
+   | (30604:83) ヒマラヤの恵み + 麗山神の眼差し
+   | Spawn 10 random Heal and Mortal Poison orbs + Lock all Heal orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 4 while HP > 14
+     | (30592:83) トラの微笑み + もっと頑張りますよー！
+     | Haste random sub's skills by 10 turns + Change the 1st and 6th columns to Heal orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (30595:83) トラの微笑み + どうぞっ！
+     | Haste random sub's skills by 3 turns + Change all Light and Dark orbs to Heal orbs, Deal 101% damage
+     | (30598:83) トラの微笑み + どうぞっ！
+     | Haste random sub's skills by 3 turns + Change the 3rd row to Heal orbs, Deal 102% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 4
+     | (30588:107) 怒りの前兆
+     | Unable to match Fire, Water, Wood, Light, and Dark orbs for 1 turn, Deal 30% damage
+   | group:
+     | (30589:83) 麗山神の天力 + トラの怒り
+     | Bind awoken skills for 1 turn + Player -400% HP

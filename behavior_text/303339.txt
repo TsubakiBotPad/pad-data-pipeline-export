@@ -1,0 +1,68 @@
+#303339 - 制空の水柱神・ムート
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303339
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30667:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ | (30668:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (30638:83) ようこそ、歓迎します + 楽しみましょう + 水柱神の加護
+ | For 10 turns, 15% chance for skyfall orbs to be blinded for turn + Absorb damage when damage >= 500,000,000 for 5 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (30661:83) 水玉 + ウォーターフェザー
+     | Random 3 orbs change every 1.0s for 1 turn + Change the 2nd and 3rd rows to Water orbs, Deal 100% damage
+     | (30664:83) 水玉 + ダークフェザー
+     | Random 2 orbs change every 0.5s for 1 turn + Change the 3rd and 4th columns to Dark orbs, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 14
+     | (30642:83) 水柱神の隠秘 + 水柱神の冥護
+     | Seal the 1st row for 5 turns + Reduce damage from all sources by 75% for 10 turns, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (30661:83) 水玉 + ウォーターフェザー
+     | Random 3 orbs change every 1.0s for 1 turn + Change the 2nd and 3rd rows to Water orbs, Deal 100% damage
+     | (30664:83) 水玉 + ダークフェザー
+     | Random 2 orbs change every 0.5s for 1 turn + Change the 3rd and 4th columns to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (30651:83) 水柱神の瞑想 + 鋭い鍵爪 + 毒水の鍵爪
+     | Absorb damage when combos <= 8 for 999 turns + Movetime 50% for 5 turns + Change the 2nd row to Water orbs and the 4th row to Mortal Poison orbs, Deal 101% damage
+   | group:
+   | condition: turns 2-4 while HP > 14
+     | condition: 50% chance
+     | (30655:83) 制空の猛襲 + イーグルフェザー
+     | Spawn 5 random Water, Jammer, and Mortal Poison orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (30658:83) 制空の猛襲 + ハートフェザー
+     | Spawn 5 random Water, Jammer, and Mortal Poison orbs + Change the 1st, 3rd, and 6th columns to Heal orbs, Deal 101% damage
+   | group:
+     | condition: 50% chance
+     | (30655:83) 制空の猛襲 + イーグルフェザー
+     | Spawn 5 random Water, Jammer, and Mortal Poison orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (30658:83) 制空の猛襲 + ハートフェザー
+     | Spawn 5 random Water, Jammer, and Mortal Poison orbs + Change the 1st, 3rd, and 6th columns to Heal orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (30645:83) 輝く鍵爪 + 水柱神のすり替え
+     | Bind awoken skills for 1 turn + Leader changes to random sub for 1 turn
+   | group:
+     | (30648:83) 色水 + ラストフェザー
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 2,100% damage (7 hits, 300% each), Deal 2,100% damage (7 hits, 300% each)
+ | group:
+ | condition: hp <= 1
+   | (30670:83) 水柱神の光 + まだ終わりません
+   | Enemy recover 100% HP + Lock all orbs, Deal 100% damage
