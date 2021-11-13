@@ -1,0 +1,42 @@
+#103827 - キングたまドラ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESTargetedSkillHaste(139:29254) -> たまぁ～♪
+	Haste random sub's skills by 30 turns
+	[1] ESRandomSpawn(92:23648) -> カラフルスマイル
+	Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#3: ESBranchDamage(116:29259) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 5
+
+#4: SkillSet:
+	[0] ESDebuffMovetime(39:29256) -> たまぁエール
+	Movetime 500% for 1 turn
+	[1] ESFixedStart(101:29257) -> たまぁ～？
+	Fix orb movement starting point to random position on the board
+	[2] ESRandomSpawn(92:23648) -> カラフルスマイル
+	Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#5: SkillSet:
+	Condition: damage done in previous turn is >= 120000 (ai:100 rnd:0)
+	[0] ESDebuffMovetime(39:28112) -> たまぁ？
+	Movetime -2s for 1 turn
+	[1] ESRandomSpawn(92:23648) -> カラフルスマイル
+	Spawn 7 random Fire, Water, Wood, Light, Dark, and Heal orbs
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESNone(0:0) -> ESNone
+nothing
+
+#8: ESSuperResolve(129:23649) -> 超根性汎用
+Damage which would reduce HP from above 50% to below 50% is nullified
