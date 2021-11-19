@@ -1,4 +1,4 @@
-#502805 - 悪鬼の首領・酒呑童子
+#502805 - Demon Leader, Shuten-doji
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:26309) -> 全力で相手をしてやる！
+	[0] ESDamageShield(74:26309) -> I'll show you my full strength!
 	Reduce damage from all sources by 75% for 4 turns
-	[1] ESSpinnersFixed(110:26310) -> ずたずたに引き裂いてやろう！
+	[1] ESSpinnersFixed(110:26310) -> I'm gonna tear you limb from limb!
 	Specific orbs change every 1.0s for 4 turns, Deal 100% damage
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,15 +20,15 @@ Branch on hp < 10, target rnd 13
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESRandomSpawn(92:26303) -> 炎鬼の酒
+#5: ESRandomSpawn(92:26303) -> Flame Demon's Sake
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 5 random Fire orbs, Deal 100% damage
 
-#6: ESRandomSpawn(92:26304) -> 氷鬼の酒
+#6: ESRandomSpawn(92:26304) -> Ice Demon's Sake
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 5 random Water orbs, Deal 100% damage
 
-#7: ESRandomSpawn(92:26305) -> 風鬼の酒
+#7: ESRandomSpawn(92:26305) -> Wind Demon's Sake
 Condition: 34% chance (ai:0 rnd:34)
 Spawn 5 random Wood orbs, Deal 100% damage
 
@@ -42,24 +42,24 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESVoidShield(71:26312) -> いてぇじゃねぇか…
+	[0] ESVoidShield(71:26312) -> That hurt...
 	Void damage >= 5,000,000 for 4 turns
-	[1] ESAttackUPRemainingEnemies(17:26313) -> 許さねぇぞ！！
+	[1] ESAttackUPRemainingEnemies(17:26313) -> You'll pay for that!!
 	Increase damage to 150% for the next 999 turns
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:26306) -> 酒鬼獄連斬
+#13: ESAttackMultihit(15:26306) -> Sake Demon's Infernal Slashes
 Deal 200% damage (5 hits, 40% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:26344) -> 超根性
+#15: ESSuperResolve(129:26344) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #16: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:26314) -> ばかなぁあああああ！！
+	[0] ESInactivity66(66:26314) -> How dare you!!
 	Do nothing

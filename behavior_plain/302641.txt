@@ -1,4 +1,4 @@
-#302641 - 真神仇の魔狼・フェンリル
+#302641 - True Gods' Enemy Monstrous Wolf, Fenrir
 monster size: 5
 new AI: True
 start/max counter: 5
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAttributeBlock(107:10541) -> 天地鳴動
+	[0] ESAttributeBlock(107:10541) -> World-Wrecking Rumble
 	Unable to match Heal orbs for 3 turns
-	[1] ESAbsorbCombo(67:10542) -> 魔狼の毛皮
+	[1] ESAbsorbCombo(67:10542) -> Demon Wolf Fur
 	Absorb damage when combos <= 7 for 999 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -28,19 +28,19 @@ Branch on counter >= 10, target rnd 13
 #7: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#8: ESGravity(50:10544) -> 漆黒のオーラ
+#8: ESGravity(50:10544) -> Pitch Black Aura
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Player -99% HP
 
-#9: ESAttackUPRemainingEnemies(17:10545) -> 拘束解除
+#9: ESAttackUPRemainingEnemies(17:10545) -> Unbinding
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 200% for the next 999 turns
 
-#10: ESOrbChangeAttackBits(108:10546) -> 神怨の咆哮
+#10: ESOrbChangeAttackBits(108:10546) -> God-Resenting Howl
 Condition: 50% chance (ai:0 rnd:50)
 Change all Heal orbs to Jammer orbs, Deal 100% damage
 
-#11: ESAttackMultihit(15:10547) -> 噛み砕く
+#11: ESAttackMultihit(15:10547) -> Crunch
 Condition: 50% chance (ai:0 rnd:50)
 Deal 120% damage (3 hits, 40% each)
 
@@ -48,9 +48,9 @@ Deal 120% damage (3 hits, 40% each)
 end_turn
 
 #13: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #14: ESEndPath(36:26) -> ESEndPath

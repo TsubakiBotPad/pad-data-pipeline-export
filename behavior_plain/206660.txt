@@ -1,4 +1,4 @@
-#206660 - 恩讐の退魔師・セイナ
+#206660 - Avenging Exorcist, Seina
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbAttribute(53:25992) -> 祓炎
+	[0] ESAbsorbAttribute(53:25992) -> Exorcising Flame
 	Absorb Fire and Water damage for 5 turns
-	[1] ESBindRandomSub(65:25993) -> 封縛の符
+	[1] ESBindRandomSub(65:25993) -> Binding Seal
 	Bind 4 random subs for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -32,9 +32,9 @@ Branch on counter = 1, target rnd 11
 counter + 1
 
 #9: SkillSet:
-	[0] ESOrbSealColumn(99:25995) -> 火車怒轟転
+	[0] ESOrbSealColumn(99:25995) -> Flame Wheel's Roaring Roll
 	Seal the 1st and 6th columns for 1 turn
-	[1] ESColumnSpawnMulti(77:25996) -> 退魔の双閃・丙
+	[1] ESColumnSpawnMulti(77:25996) -> Exorcising Dual Flash: Hinoe
 	Change the 1st column to Water orbs and the 6th column to Fire orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,24 +44,24 @@ end_turn
 counter = 0
 
 #12: SkillSet:
-	[0] ESOrbSealRow(100:25998) -> 火車怒轟転
+	[0] ESOrbSealRow(100:25998) -> Flame Wheel's Roaring Roll
 	Seal the 1st and 5th rows for 1 turn
-	[1] ESRowSpawnMulti(79:25999) -> 退魔の双閃・丁
+	[1] ESRowSpawnMulti(79:25999) -> Exorcising Dual Flash: Hinoto
 	Change the 1st row to Fire orbs and the 5th row to Water orbs, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESBoardChangeAttackBits(85:26001) -> 鬼葵爆旋
+	[0] ESBoardChangeAttackBits(85:26001) -> Blazing Spiral of Asarum
 	Change all orbs to Fire, Water, and Heal, Deal 150% damage
-	[1] ESDebuffRCV(105:26002) -> 不動の印
+	[1] ESDebuffRCV(105:26002) -> Sign of Conviction
 	RCV 25% for 1 turn
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESResolve(73:25990) -> ＿セイナ根性
+#16: ESResolve(73:25990) -> ＿Seina Resolve
 Survive attacks with 1 HP when HP > 50%
 
 #17: ESEndPath(36:26) -> ESEndPath

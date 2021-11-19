@@ -1,4 +1,4 @@
-#206666 - 奸計の陰陽師・ミカゲ
+#206666 - Duplicitous Mystic, Mikage
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:26038) -> 領域結界
+	[0] ESStatusShield(20:26038) -> Domain Barrier
 	Voids status ailments for 999 turns
-	[1] ESBlindStickyRandom(97:26039) -> 闇夜の残余
+	[1] ESBlindStickyRandom(97:26039) -> Remains of the Dark Night
 	Blind random 15 orbs for 10 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -28,15 +28,15 @@ Branch on hp < 10, target rnd 24
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#8: ESColumnSpawnMulti(77:20640) -> 双闇煙呪
+#8: ESColumnSpawnMulti(77:20640) -> Black Pillars of Smoke
 Condition: 33% chance (ai:0 rnd:33)
 Change the 2nd and 5th columns to Dark and Poison orbs, Deal 95% damage
 
-#9: ESRowSpawnMulti(79:20641) -> 双闇煙呪
+#9: ESRowSpawnMulti(79:20641) -> Black Pillars of Smoke
 Condition: 33% chance (ai:0 rnd:33)
 Change the 2nd and 4th rows to Dark and Jammer orbs, Deal 95% damage
 
-#10: ESAttackMultihit(15:20642) -> 呪殺
+#10: ESAttackMultihit(15:20642) -> Killing Curse
 Condition: 34% chance (ai:0 rnd:34)
 Deal 105% damage (3 hits, 35% each)
 
@@ -50,9 +50,9 @@ Branch on flag & 2, target rnd 16
 flag SET 0b11
 
 #14: SkillSet:
-	[0] ESDamageShield(74:26035) -> 式神操術
+	[0] ESDamageShield(74:26035) -> Spectre Manipulation
 	Reduce damage from all sources by 75% for 99 turns
-	[1] ESAbsorbCombo(67:26036) -> 術式解放
+	[1] ESAbsorbCombo(67:26036) -> Spell Release
 	Absorb damage when combos <= 8 for 3 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -64,21 +64,21 @@ Branch on counter >= 1, target rnd 19
 #17: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#18: ESLeaderSwap(75:20646) -> 呪言双換
+#18: ESLeaderSwap(75:20646) -> Incantation of Substitution
 Leader changes to random sub for 1 turn, Deal 100% damage
 
 #19: ESSetCounter(27:17) -> ESSetCounter
 counter - 1
 
-#20: ESColumnSpawnMulti(77:20640) -> 双闇煙呪
+#20: ESColumnSpawnMulti(77:20640) -> Black Pillars of Smoke
 Condition: 33% chance (ai:0 rnd:33)
 Change the 2nd and 5th columns to Dark and Poison orbs, Deal 95% damage
 
-#21: ESRowSpawnMulti(79:20641) -> 双闇煙呪
+#21: ESRowSpawnMulti(79:20641) -> Black Pillars of Smoke
 Condition: 33% chance (ai:0 rnd:33)
 Change the 2nd and 4th rows to Dark and Jammer orbs, Deal 95% damage
 
-#22: ESAttackMultihit(15:20642) -> 呪殺
+#22: ESAttackMultihit(15:20642) -> Killing Curse
 Condition: 34% chance (ai:0 rnd:34)
 Deal 105% damage (3 hits, 35% each)
 
@@ -87,18 +87,18 @@ end_turn
 
 #24: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:20648) -> 呪言怨礼
+	[0] ESBindAwoken(88:20648) -> Incantation of Vengeance
 	Bind awoken skills for 5 turns
-	[1] ESSkillDelay(89:20649) -> 滅びの呪歌
+	[1] ESSkillDelay(89:20649) -> Chant of Destruction
 	Delay active skills by 5 turns
 
-#25: ESAttackMultihit(15:20650) -> 呪力解放
+#25: ESAttackMultihit(15:20650) -> Unleash Cursed Power
 Deal 500% damage (5 hits, 100% each)
 
 #26: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#27: ESSuperResolve(129:20636) -> 超根性
+#27: ESSuperResolve(129:20636) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #28: ESNone(136:19049) -> ESNone

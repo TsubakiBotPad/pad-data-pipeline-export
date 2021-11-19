@@ -1,4 +1,4 @@
-#207876 - 火鳥の戦姫神・ヴァルキリー -CIEL-
+#207876 - Red Robin War Goddess, Valkyrie - Ciel
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:27233) -> ヘイムスクリングラ
+	[0] ESStatusShield(20:27233) -> Heimskringla
 	Voids status ailments for 999 turns
-	[1] ESBlindStickySkyfall(128:27234) -> 散りゆく女神たちの怒り
+	[1] ESBlindStickySkyfall(128:27234) -> Fallen Goddesses' Wrath
 	For 15 turns, 15% chance for skyfall orbs to be blinded for turn
-	[2] ESDamageShield(74:27235) -> リバーサルフェザー
+	[2] ESDamageShield(74:27235) -> Reversal Feather
 	Reduce damage from all sources by 90% for 1 turn
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -43,9 +43,9 @@ Branch on flag & 2, target rnd 14
 flag SET 0b11
 
 #12: SkillSet:
-	[0] ESDamageShield(74:27240) -> リバーサルフェザー
+	[0] ESDamageShield(74:27240) -> Reversal Feather
 	Reduce damage from all sources by 50% for 1 turn
-	[1] ESAttackMultihit(15:27241) -> シン・ディバインスワン
+	[1] ESAttackMultihit(15:27241) -> True Divine Swan
 	Deal 105% damage (3 hits, 35% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -55,9 +55,9 @@ end_turn
 flag SET 0b1
 
 #15: SkillSet:
-	[0] ESDamageShield(74:27235) -> リバーサルフェザー
+	[0] ESDamageShield(74:27235) -> Reversal Feather
 	Reduce damage from all sources by 90% for 1 turn
-	[1] ESBindAttack(63:27243) -> ブレッシングフェザー
+	[1] ESBindAttack(63:27243) -> Blessing Feather
 	Bind 3 random cards for 3 turns, Deal 100% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -65,28 +65,28 @@ end_turn
 
 #17: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:27246) -> ファム・ヴァルハラ
+	[0] ESBoardChangeAttackBits(85:27246) -> Valhalla Femme
 	Change all orbs to Fire, Deal 30% damage
-	[1] ESDamageShield(74:27247) -> リバーサルディバイド
+	[1] ESDamageShield(74:27247) -> Reversal Division
 	Reduce damage from all sources by 75% for 99 turns
-	[2] ESDispel(6:27245) -> 聖捌
+	[2] ESDispel(6:27245) -> Consecration
 	Voids player buff effects
 
 #18: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESSpinnersFixed(110:27249) -> 護神の碑文
+	[0] ESSpinnersFixed(110:27249) -> Guardian Deity's Epitaph
 	Specific orbs change every 1.0s for 1 turn
-	[1] ESRowSpawnMulti(79:27250) -> バーニングルーン
+	[1] ESRowSpawnMulti(79:27250) -> Burning Rune
 	Change the 1st and 5th rows to Fire orbs, Deal 100% damage
 
 #19: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESOrbLock(94:27252) -> 輝焔
+	[0] ESOrbLock(94:27252) -> Shining Blaze
 	Lock 15 random orbs
-	[1] ESDebuffMovetime(39:27253) -> 魂のざわめき
+	[1] ESDebuffMovetime(39:27253) -> Trembling Soul
 	Movetime 25% for 1 turn, Deal 95% damage
 
-#20: ESAttackMultihit(15:27241) -> シン・ディバインスワン
+#20: ESAttackMultihit(15:27241) -> True Divine Swan
 Condition: 33% chance (ai:0 rnd:33)
 Deal 105% damage (3 hits, 35% each)
 
@@ -94,21 +94,21 @@ Deal 105% damage (3 hits, 35% each)
 end_turn
 
 #22: SkillSet:
-	[0] ESSkyfall(68:27237) -> フォールクヴァングの領域
+	[0] ESSkyfall(68:27237) -> The Field of Fólkvangr
 	Fire, Wood, Light, and Dark skyfall +100% for 1 turn
-	[1] ESSkillDelay(89:27238) -> 不戦の聖約
+	[1] ESSkillDelay(89:27238) -> Sacred Truce
 	Delay active skills by 10 turns, Deal 135% damage
 
 #23: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:27246) -> ファム・ヴァルハラ
+	[0] ESBoardChangeAttackBits(85:27246) -> Valhalla Femme
 	Change all orbs to Fire, Deal 30% damage
-	[1] ESDamageShield(74:27247) -> リバーサルディバイド
+	[1] ESDamageShield(74:27247) -> Reversal Division
 	Reduce damage from all sources by 75% for 99 turns
-	[2] ESDispel(6:27245) -> 聖捌
+	[2] ESDispel(6:27245) -> Consecration
 	Voids player buff effects
 
-#24: ESAttackUPRemainingEnemies(17:27295) -> 戦乱の聖跡
+#24: ESAttackUPRemainingEnemies(17:27295) -> Sanctuary of War
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 200% for the next 999 turns
 
@@ -118,7 +118,7 @@ Branch on flag & 1, target rnd 8
 #26: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#27: ESSuperResolve(129:27230) -> ＿火シエル超根性
+#27: ESSuperResolve(129:27230) -> ＿Fire Ciel Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #28: ESEndPath(36:26) -> ESEndPath

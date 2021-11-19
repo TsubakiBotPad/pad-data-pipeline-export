@@ -1,4 +1,4 @@
-#303483 - 真転生イズン＆イズーナ
+#303483 - True Reincarnated Idunn & Idunna
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:10829) -> いらっしゃいませ
+	[0] ESStatusShield(20:10829) -> Welcome!
 	Voids status ailments for 999 turns
-	[1] ESBombFixedSpawn(103:10830) -> ラブリーボム
+	[1] ESBombFixedSpawn(103:10830) -> Lovely Bomb
 	Spawn Bomb orbs in the specified positions
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -39,23 +39,23 @@ Branch on counter >= 5, target rnd 23
 
 #11: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESRandomSpawn(92:10832) -> フェーデガンドル
+	[0] ESRandomSpawn(92:10832) -> Fehde Gandr
 	Spawn 3 random Water and Dark orbs
-	[1] ESAttackMultihit(15:10835) -> ユールヘルグ
+	[1] ESAttackMultihit(15:10835) -> Yule Hörgr
 	Deal 100% damage (2 hits, 50% each)
 
 #12: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESColumnSpawnMulti(76:10833) -> ブロートガルドル
+	[0] ESColumnSpawnMulti(76:10833) -> Blót Gandr
 	Change the 1st column to Water orbs and the 6th column to Dark orbs
-	[1] ESAttackMultihit(15:10835) -> ユールヘルグ
+	[1] ESAttackMultihit(15:10835) -> Yule Hörgr
 	Deal 100% damage (2 hits, 50% each)
 
 #13: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESDamageShield(74:10834) -> スンベルセイズル
+	[0] ESDamageShield(74:10834) -> Symbel Seidzr
 	Reduce damage from all sources by 50% for 1 turn
-	[1] ESAttackMultihit(15:10835) -> ユールヘルグ
+	[1] ESAttackMultihit(15:10835) -> Yule Hörgr
 	Deal 100% damage (2 hits, 50% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -71,11 +71,11 @@ Branch on flag & 2, target rnd 20
 flag SET 0b11
 
 #18: SkillSet:
-	[0] ESRecoverPlayer(55:10841) -> 疲れを癒してください
+	[0] ESRecoverPlayer(55:10841) -> Please replenish your strength.
 	Player recover 100% HP
-	[1] ESInactivity66(66:10842) -> このリンゴもあげちゃいなよ
+	[1] ESInactivity66(66:10842) -> We'll even give you this apple!
 	Do nothing
-	[2] ESBoardChange(84:10843) -> あっそれは・・・
+	[2] ESBoardChange(84:10843) -> Ah, that's...
 	Change all orbs to Poison
 
 #19: ESEndPath(36:26) -> ESEndPath
@@ -91,18 +91,18 @@ Branch on counter <= 5, target rnd 10
 end_turn
 
 #23: SkillSet:
-	[0] ESBlind5(5:10839) -> 真っ暗ですよ
+	[0] ESBlind5(5:10839) -> It's pitch black!
 	Blind all orbs on the board
-	[1] ESBombFixedSpawn(103:10830) -> ラブリーボム
+	[1] ESBombFixedSpawn(103:10830) -> Lovely Bomb
 	Spawn Bomb orbs in the specified positions
 
 #24: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #25: SkillSet:
-	[0] ESAttackMultihit(15:10845) -> やぁっ！
+	[0] ESAttackMultihit(15:10845) -> Yah!
 	Deal 150% damage
-	[1] ESAttackMultihit(15:10846) -> とおっ！
+	[1] ESAttackMultihit(15:10846) -> Toh!
 	Deal 150% damage
 
 #26: ESEndPath(36:26) -> ESEndPath
@@ -113,25 +113,25 @@ flag SET 0b1
 
 #28: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRecoverEnemy86(86:10848) -> 痛いじゃないですか！
+	[0] ESRecoverEnemy86(86:10848) -> That hurts!
 	Enemy recover 50% HP
-	[1] ESBindAwoken(88:10849) -> 許さないからっ！
+	[1] ESBindAwoken(88:10849) -> We won't forgive you!
 	Bind awoken skills for 1 turn
 
 #29: SkillSet:
-	[0] ESRecoverEnemy86(86:10848) -> 痛いじゃないですか！
+	[0] ESRecoverEnemy86(86:10848) -> That hurts!
 	Enemy recover 50% HP
-	[1] ESBoardChange(84:10851) -> この極上のヤツをあげる
+	[1] ESBoardChange(84:10851) -> We'll give you something first-rate!
 	Change all orbs to Mortal Poison
 
 #30: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #31: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
-#32: ESResolve(73:10828) -> 根性
+#32: ESResolve(73:10828) -> Resolve
 Survive attacks with 1 HP when HP > 50%

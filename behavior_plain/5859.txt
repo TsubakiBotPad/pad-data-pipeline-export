@@ -9,13 +9,13 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:27336) -> 全力で勝負だ！
+	[0] ESStatusShield(20:27336) -> Let's go all out!
 	Voids status ailments for 999 turns
-	[1] ESDebuffRCV(105:27337) -> 超力の天唱
+	[1] ESDebuffRCV(105:27337) -> Super Power Chant
 	RCV 25% for 1 turn
-	[2] ESDebuffMovetime(39:27368) -> 超力の聖歌
+	[2] ESDebuffMovetime(39:27368) -> Super Power Hymn
 	Movetime 25% for 5 turns
-	[3] ESAttackMultihit(15:27338) -> どっかーん！
+	[3] ESAttackMultihit(15:27338) -> Boom!!
 	Deal 120% damage
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -31,18 +31,18 @@ counter + 1
 Branch on counter = 3, target rnd 9
 
 #7: SkillSet:
-	[0] ESDebuffRCV(105:27337) -> 超力の天唱
+	[0] ESDebuffRCV(105:27337) -> Super Power Chant
 	RCV 25% for 1 turn
-	[1] ESAttackMultihit(15:27351) -> どっかーん！
+	[1] ESAttackMultihit(15:27351) -> Boom!!
 	Deal 125% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #9: SkillSet:
-	[0] ESDebuffRCV(105:27337) -> 超力の天唱
+	[0] ESDebuffRCV(105:27337) -> Super Power Chant
 	RCV 25% for 1 turn
-	[1] ESVoidShield(71:27349) -> ここからが本番だよ！
+	[1] ESVoidShield(71:27349) -> I'll get serious now!
 	Void damage >= 500,000,000 for 999 turns
 
 #10: ESBranchFlag(43:10) -> ESBranchFlag
@@ -52,36 +52,36 @@ Branch on flag & 1, target rnd 14
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESLeaderSwap(75:27343) -> 魔撃の伝令
+	[0] ESLeaderSwap(75:27343) -> Magical Attack Order
 	Leader changes to random sub for 1 turn
-	[1] ESBindAwoken(88:27344) -> 必殺技いくよ！
+	[1] ESBindAwoken(88:27344) -> Here comes my special move!
 	Bind awoken skills for 1 turn
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESChangeAttribute(46:27346) -> 力を込めて…！
+	[0] ESChangeAttribute(46:27346) -> Focus all my power...!
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:27347) -> どどどっかーん！
+	[1] ESAttackMultihit(15:27347) -> Bababoom!!
 	Deal 1,050% damage (3 hits, 350% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESRecoverEnemy86(86:27340) -> 翠天使の光
+	[0] ESRecoverEnemy86(86:27340) -> Light of the Green Angel
 	Enemy recover 100% HP
-	[1] ESDebuffRCV(105:27337) -> 超力の天唱
+	[1] ESDebuffRCV(105:27337) -> Super Power Chant
 	RCV 25% for 1 turn
-	[2] ESSkillDelay(89:27341) -> まだまだー！
+	[2] ESSkillDelay(89:27341) -> You'll have to do better than that!
 	Delay active skills by 10 turns
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESAttributeResist(72:27353) -> 火半減
+#18: ESAttributeResist(72:27353) -> Fire Halved
 Reduce damage from Fire attrs by 50%
 
-#19: ESResolve(73:27352) -> 根性
+#19: ESResolve(73:27352) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -1,4 +1,4 @@
-#202893 - 真魂縛の黒冥姫・ヘル
+#202893 - True Soul Binding Princess of Darkness, Hel
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSpinnersFixed(110:7964) -> 生きる道は自分で探せ
+	[0] ESSpinnersFixed(110:7964) -> Determine your own destiny!
 	Specific orbs change every 1.0s for 10 turns
-	[1] ESStatusShield(20:7965) -> 魔の半身
+	[1] ESStatusShield(20:7965) -> Demon Half
 	Voids status ailments for 999 turns
-	[2] ESPoisonChangeRandomAttack(64:7966) -> ダブルペイン
+	[2] ESPoisonChangeRandomAttack(64:7966) -> Double Pain
 	Change 8 random orbs to Poison orbs, Deal 200% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -30,25 +30,25 @@ Branch on counter >= 10, target rnd 23
 #7: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#8: ESPoisonChangeRandomAttack(64:7979) -> グリーフオブヘルヘイム
+#8: ESPoisonChangeRandomAttack(64:7979) -> Grief of Helheim
 Condition: When < 10% HP (ai:100 rnd:0)
 Change 10 random orbs to Poison orbs, Deal 3,000% damage
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:7968) -> エタニティサファー
+	[0] ESSkyfall(68:7968) -> Eternal Suffering
 	Poison skyfall +20% for 99 turns
-	[1] ESAttackMultihit(15:7969) -> ガルムの朽牙
+	[1] ESAttackMultihit(15:7969) -> Garm's Rotting Fangs
 	Deal 165% damage (3 hits, 55% each)
 
 #10: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 15
 
-#11: ESOrbLock(94:7977) -> デッドジャッジメント
+#11: ESOrbLock(94:7977) -> Dead Judgment
 Condition: 50% chance (ai:50 rnd:0)
 Lock 1 random Poison and Mortal Poison orb, Deal 160% damage
 
-#12: ESPoisonChangeRandomAttack(64:7978) -> ポイズンソーン
+#12: ESPoisonChangeRandomAttack(64:7978) -> Poison Thorns
 Change 6 random orbs to Poison orbs, Deal 160% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -67,30 +67,30 @@ flag SET 0b11
 Branch on counter >= 2, target rnd 19
 
 #18: SkillSet:
-	[0] ESRecoverEnemy86(86:7971) -> 生命の色
+	[0] ESRecoverEnemy86(86:7971) -> Color of Life
 	Enemy recover 100% HP
-	[1] ESDamageShield(74:7972) -> ナグルファル
+	[1] ESDamageShield(74:7972) -> Naglfar
 	Reduce damage from all sources by 75% for 10 turns
 
 #19: SkillSet:
-	[0] ESGravity(50:7974) -> 死者の色
+	[0] ESGravity(50:7974) -> Color of Death
 	Player -99% HP
-	[1] ESSkillDelay(89:7975) -> ナイトメア
+	[1] ESSkillDelay(89:7975) -> Nightmare
 	Delay active skills by 2~6 turns
 
 #20: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#21: ESAttributeResist(72:7980) -> 光闇半減
+#21: ESAttributeResist(72:7980) -> Light Dark Halved
 Reduce damage from Light and Dark attrs by 50%
 
 #22: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #23: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #24: ESEndPath(36:26) -> ESEndPath
