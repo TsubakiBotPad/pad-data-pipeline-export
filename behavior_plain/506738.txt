@@ -1,0 +1,53 @@
+#506738 - 真超グリーンカーバンクル
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindSkill(14:28282) -> みとれる宝石
+Bind active skills for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 11
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 14
+
+#9: ESAttackMultihit(15:28287) -> ジュエロール
+Deal 100% damage (2 hits, 50% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBindAwoken(88:27129) -> 聖跡の浄罰
+Bind awoken skills for 10 turns, Deal 1,200% damage
+
+#12: ESAttackMultihit(15:27130) -> 聖跡の終天罰
+Deal 800% damage (5 hits, 160% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackUPCooldown(19:28374) -> MAXキラりんパワー！
+Increase damage to 500% for the next 999 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

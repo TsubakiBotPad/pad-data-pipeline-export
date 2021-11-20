@@ -1,0 +1,105 @@
+#205616 - 溟妖龍・サザーイル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:28293) -> 紫光の龍眼
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:28294) -> 満ち潮のオーラ
+	Absorb damage when damage >= 300,000,000 for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 24
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: SkillSet:
+	[0] ESSkyfall(68:28296) -> 呪いの汚泥
+	Water and Poison skyfall +15% for 1 turn
+	[1] ESDebuffMovetime(39:28297) -> 引き潮の砂獄
+	Movetime 50% for 1 turn, Deal 295% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESSkyfall(68:28299) -> 穢れた汚泥
+	Water and Mortal Poison skyfall +15% for 1 turn
+	[1] ESAbsorbThreshold(87:28300) -> 満ち潮のオーラ
+	Absorb damage when damage >= 300,000,000 for 1 turn, Deal 300% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:28303) -> 深き黒海
+	Void damage >= 1,500,000,000 for 999 turns
+	[1] ESBoardSizeChange(126:28302) -> サザンクロイル
+	Change board size to 6x5 for 10 turns
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: SkillSet:
+	[0] ESSkyfall(68:28296) -> 呪いの汚泥
+	Water and Poison skyfall +15% for 1 turn
+	[1] ESAttackMultihit(15:28305) -> タイダルツイスト
+	Deal 300% damage (4 hits, 75% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#22: SkillSet:
+	[0] ESSkyfall(68:28299) -> 穢れた汚泥
+	Water and Mortal Poison skyfall +15% for 1 turn
+	[1] ESRowSpawnMulti(79:28307) -> 前後不覚の水流
+	Change the 1st and 5th rows to Water orbs, Deal 300% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESSuperResolve(129:28291) -> ＿サザ超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

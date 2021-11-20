@@ -1,0 +1,62 @@
+#208050 - 虚空の全能神・ゼウス -GIGA-
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 208050
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28316:129) ＿闇GIGA超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (28317:83) 神々の守り + ブラックホール + 万象誘引
+ | Voids status ailments for 999 turns + Void damage >= 30 for 99,900,000,000 turns + For 15 turns, None% chance for combo orb skyfall.
+ group:
+ | group:
+ | condition: always turn 1
+   | (28321:83) シャドーグラッジ + 圧縮する闇
+   | Locked Dark skyfall +100% for 5 turns + Deal 80% damage (2 hits, 40% each), Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: always turn 2
+   | (28324:83) ディストーションホール + 圧縮する闇
+   | Specific orbs change every 1.0s for 5 turns + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: always turn 3
+   | (28327:83) タイムブレイカー + 圧縮する闇
+   | Movetime 25% for 1 turn + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: always turn 11
+   | (27295:17) 戦乱の聖跡
+   | Increase damage to 200% for the next 999 turns
+ | group:
+   | group:
+   | condition: turn 4 while HP > 49
+     | (28330:83) ケイオスソウル + 万象誘引
+     | Absorb damage when combos <= 15 for 3 turns + For 15 turns, None% chance for combo orb skyfall., Deal 110% damage
+   | group:
+   | condition: turn 5 while HP > 49
+     | (28333:83) 零刻 + 圧縮する闇
+     | Locked random skyfall +100% for 1 turn + Deal 100% damage (5 hits, 20% each), Deal 100% damage (5 hits, 20% each)
+   | group:
+   | condition: turns 6-10 while HP > 49
+     | (28336:83) ダークネスコラプス + 拡散する闇
+     | Change all orbs to Dark + Deal 270% damage (6 hits, 45% each), Deal 270% damage (6 hits, 45% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 4
+     | (28339:83) ユピテルダスト + 神王の戯言
+     | Absorb damage when combos <= 8 for 5 turns + For 50 turns, 10% chance for skyfall orbs to be blinded for turn, Deal 85% damage
+   | group:
+   | condition: turn 5
+     | (28342:83) 零刻  + 黒熱雷
+     | Locked random skyfall +100% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+   | condition: turns 6-10
+     | condition: 50% chance
+     | (28345:83) フェイトオブユニバース + 黒熱雷
+     | Change the 1st row to Fire orbs and the 5th row to Dark orbs + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+     | (28348:83) 恐怖を纏う者 + 黒熱雷
+     | ATK -50% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)

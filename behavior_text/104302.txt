@@ -1,0 +1,38 @@
+#104302 - 霊界探偵・浦飯幽助
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 104302
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31817:118) ドラゴン半減
+ | Reduce damage from Dragon types by 50%
+ | (31818:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31796:83) 誰よりも自分自身を許せねぇ + 霊光弾
+ | Voids status ailments for 999 turns + Change all orbs to Water and Light, Deal 100% damage
+ group:
+ | group:
+   | condition: 20% chance
+   | (31802:83) 霊丸 + 内臓殺し
+   | Spawn 7 random Fire orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 20% chance
+   | (31805:83) 霊丸 + 内臓殺し
+   | Spawn 7 random Water orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 20% chance
+   | (31808:83) 霊丸 + 内臓殺し
+   | Spawn 7 random Wood orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 20% chance
+   | (31811:83) 霊丸 + 内臓殺し
+   | Spawn 7 random Light orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 20% chance
+   | (31814:83) 霊丸 + 内臓殺し
+   | Spawn 7 random Dark orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (31799:83) テメェの全てを壊してオレが勝つ！ + ヘッドバット
+   | Void damage >= 15,000,000 for 5 turns + Unable to match Light orbs for 5 turns

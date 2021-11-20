@@ -1,0 +1,55 @@
+#304321 - 100％の力・戸愚呂弟
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304321
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (9463:83) 今のおまえに足りないものがある + …危機感だよ…
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (9448:83) 今のおまえに足りないものがある + …危機感だよ…
+ | Reduce damage from all sources by 75% for 3 turns + Movetime -2s for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (9450:15) 指弾
+     | Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 19
+     | (9451:15) 今度は連続でいくぞ
+     | Deal 120% damage (4 hits, 30% each)
+   | group:
+   | condition: turn 3 while HP > 19
+     | (9449:6) 喝！！！
+     | Voids player buff effects
+     | (9454:83) 100％のオレはひどく腹が減る + 弱いものからどんどん喰うぞ！
+     | Spawn 6 random Jammer orbs + Enemy recover 30% HP
+   | group:
+     | condition: 33% chance
+     | (9450:15) 指弾
+     | Deal 100% damage
+     | condition: 50% chance
+     | (9451:15) 今度は連続でいくぞ
+     | Deal 120% damage (4 hits, 30% each)
+     | (9455:92) エサはだまって見てろ
+     | Spawn 6 random Jammer orbs, Deal 80% damage
+ | group:
+ | condition: turn 4 while HP > 19, hp <= 49
+   | (9456:88) お前は無力だ
+   | Bind awoken skills for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (9457:5) かつてない緊迫感！
+     | Blind all orbs on the board
+   | group:
+     | (9458:15) フルパワー！100％中の100％！
+     | Deal 300% damage (3 hits, 100% each)

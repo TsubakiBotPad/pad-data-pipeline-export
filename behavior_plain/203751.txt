@@ -1,0 +1,119 @@
+#203751 - 真覚醒クロノス
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:13464) -> 乗り越えてみろ
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:13465) -> 王の試練
+	Absorb damage when combos <= 6 for 1 turn
+	[2] ESDebuffMovetime(39:13466) -> 王の勅令
+	Movetime 25% for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 31
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 12
+
+#11: ESDamageShield(74:13468) -> 少しはできるようだな
+Reduce damage from all sources by 75% for 10 turns
+
+#12: ESBindAwoken(88:13467) -> その程度か？
+Bind awoken skills for 10 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 25
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 21
+
+#16: ESOrbChangeAttackBits(108:13472) -> トラッシュシフト
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all Jammer orbs to Wood orbs, Deal 150% damage
+
+#17: ESRowSpawnMulti(79:13473) -> ジャッジメントアダマス
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd row to Wood and Jammer orbs, Deal 95% damage
+
+#18: ESSkillDelay(89:13474) -> ブレイクスワロー
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~2 turns, Deal 100% damage
+
+#19: ESAttackMultihit(15:13475) -> キラーサイズ
+Condition: 34% chance (ai:0 rnd:34)
+Deal 110% damage (2 hits, 55% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#23: SkillSet:
+	[0] ESSkyfallLocked(96:13470) -> 少し物足りないな
+	Locked random skyfall +20% for 10 turns
+	[1] ESSkyfall(68:13471) -> これで楽しめそうだな
+	Jammer skyfall +15% for 10 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 29
+
+#26: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#27: SkillSet:
+	[0] ESBindAwoken(88:13477) -> もう十分だ
+	Bind awoken skills for 1 turn
+	[1] ESMaxHPChange(111:13478) -> 終わらせよう
+	Change player HP to 1,000 for 1 turn
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESAttackMultihit(15:13479) -> バニッシュメントアダマス
+Deal 320% damage (4 hits, 80% each)
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn

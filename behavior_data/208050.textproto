@@ -1,0 +1,176 @@
+  monster_id: 208050
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 28316
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 28317
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 28321
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 2
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 28324
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 3
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 28327
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 11
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 27295
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 4
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 28330
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 5
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 28333
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 6
+                trigger_turn_end: 10
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 28336
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 4
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 28339
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 5
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 28342
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 6
+                trigger_turn_end: 10
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 28345
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 28348
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

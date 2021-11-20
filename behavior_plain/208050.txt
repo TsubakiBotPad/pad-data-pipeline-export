@@ -1,0 +1,124 @@
+#208050 - 虚空の全能神・ゼウス -GIGA-
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:28318) -> 神々の守り
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:28320) -> ブラックホール
+	Void damage >= 30 for 99,900,000,000 turns
+	[2] ESComboSkyfall(131:28319) -> 万象誘引
+	For 15 turns, None% chance for combo orb skyfall.
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 23
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESSkyfallLocked(96:28323) -> シャドーグラッジ
+	Locked Dark skyfall +100% for 5 turns
+	[1] ESAttackMultihit(15:28322) -> 圧縮する闇
+	Deal 80% damage (2 hits, 40% each)
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESSpinnersFixed(110:28326) -> ディストーションホール
+	Specific orbs change every 1.0s for 5 turns
+	[1] ESAttackMultihit(15:28325) -> 圧縮する闇
+	Deal 90% damage (3 hits, 30% each)
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDebuffMovetime(39:28329) -> タイムブレイカー
+	Movetime 25% for 1 turn
+	[1] ESAttackMultihit(15:28328) -> 圧縮する闇
+	Deal 100% damage (4 hits, 25% each)
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:28332) -> ケイオスソウル
+	Absorb damage when combos <= 15 for 3 turns
+	[1] ESComboSkyfall(131:28331) -> 万象誘引
+	For 15 turns, None% chance for combo orb skyfall., Deal 110% damage
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:28335) -> 零刻
+	Locked random skyfall +100% for 1 turn
+	[1] ESAttackMultihit(15:28334) -> 圧縮する闇
+	Deal 100% damage (5 hits, 20% each)
+
+#14: SkillSet:
+	[0] ESBoardChange(84:28338) -> ダークネスコラプス
+	Change all orbs to Dark
+	[1] ESAttackMultihit(15:28337) -> 拡散する闇
+	Deal 270% damage (6 hits, 45% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:28340) -> ユピテルダスト
+	Absorb damage when combos <= 8 for 5 turns
+	[1] ESBlindStickySkyfall(128:28341) -> 神王の戯言
+	For 50 turns, 10% chance for skyfall orbs to be blinded for turn, Deal 85% damage
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:28343) -> 零刻 
+	Locked random skyfall +100% for 1 turn
+	[1] ESAttackMultihit(15:28344) -> 黒熱雷
+	Deal 125% damage (5 hits, 25% each)
+
+#18: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRowSpawnMulti(78:28346) -> フェイトオブユニバース
+	Change the 1st row to Fire orbs and the 5th row to Dark orbs
+	[1] ESAttackMultihit(15:28347) -> 黒熱雷
+	Deal 125% damage (5 hits, 25% each)
+
+#19: SkillSet:
+	[0] ESDebuffATK(130:28349) -> 恐怖を纏う者
+	ATK -50% for 1 turn
+	[1] ESAttackMultihit(15:28350) -> 黒熱雷
+	Deal 125% damage (5 hits, 25% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 8
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#23: ESAttackUPRemainingEnemies(17:27295) -> 戦乱の聖跡
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESSuperResolve(129:28316) -> ＿闇GIGA超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

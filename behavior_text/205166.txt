@@ -1,0 +1,23 @@
+#205166 - 死々若丸
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205166
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (31823:5) さぁだれだ 最初に死ぬのは？
+ | Blind all orbs on the board
+ group:
+ | group:
+   | condition: 50% chance
+   | (31825:108) 死出の羽衣
+   | Change all Light orbs to Dark orbs, Deal 100% damage
+   | (31826:15) 爆吐髑触葬
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (31824:74) 怨呼障縛壁
+   | Reduce damage from all sources by 75% for 2 turns

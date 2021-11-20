@@ -1,0 +1,55 @@
+#104304 - 妖狐蔵馬
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESLeaderSwap(75:31774) -> 魔界のオジギ草
+	Leader changes to random sub for 3 turns
+	[1] ESBindAttack(63:31775) -> シマネキ草
+	Bind 2 random cards for 2 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 10
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#5: SkillSet:
+	[0] ESRandomSpawn(92:31780) -> 食妖植物
+	Spawn 4 random Wood and Dark orbs
+	[1] ESBindAttack(63:31781) -> シマネキ草
+	Bind 2 random subs for 3 turns, Deal 102% damage
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESAttackUPRemainingEnemies(17:31784) -> オレを怒らせた罪は重い!!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	[0] ESRecoverEnemy86(86:31777) -> お前が悪党でよかった…
+	Enemy recover 100% HP
+	[1] ESBindAwoken(88:31778) -> 邪念樹
+	Bind awoken skills for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:31783) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESAttributeResist(72:31782) -> 木闇半減
+Reduce damage from Wood and Dark attrs by 50%

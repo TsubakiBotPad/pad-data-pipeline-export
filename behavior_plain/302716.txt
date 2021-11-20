@@ -1,0 +1,52 @@
+#302716 - 鍛煉神・ヘパイストス＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 255
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 128)
+	[0] ESStatusShield(20:4043) -> 剛炎鱗
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:4044) -> 真向勝負
+	Delay active skills by 15 turns
+
+#3: ESRecoverEnemy86(86:4057) -> 不屈
+Condition: When < 1% HP (ai:100 rnd:0)
+Enemy recover 50% HP
+
+#4: ESAttackMultihit(15:4046) -> 業火の大斧
+Condition: One-time use (ai:100 rnd:0) (cost: 64)
+Deal 101% damage
+
+#5: ESAttackMultihit(15:4047) -> 二鎚衝
+Condition: One-time use (ai:100 rnd:0) (cost: 32)
+Deal 204% damage (2 hits, 102% each)
+
+#6: ESAttackMultihit(15:4048) -> 灼火参刃
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Deal 309% damage (3 hits, 103% each)
+
+#7: ESAttackMultihit(15:4049) -> 獅子紅蓮
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 416% damage (4 hits, 104% each)
+
+#8: ESAttackMultihit(15:4050) -> 期裂苦断
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 525% damage (5 hits, 105% each)
+
+#9: ESAttackMultihit(15:4051) -> 六砕覇轟
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 636% damage (6 hits, 106% each)
+
+#10: ESAttackMultihit(15:4052) -> 神威
+Deal 3,619% damage (7 hits, 517% each)
+
+#11: ESResolve(73:4056) -> ヘパ根性
+Survive attacks with 1 HP when HP > 50%
+
+#12: ESAttributeResist(72:4053) -> ヘパパッシブ
+Reduce damage from Water attrs by 50%

@@ -1,0 +1,25 @@
+#205165 - 樹
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205165
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (31844:83) 我々はただ見守るだけ… + 裏男
+ | Random 2 orbs change every 1.0s for 5 turns + Jammer skyfall +15% for 5 turns
+ group:
+ | group:
+   | (31851:79) 影の手
+   | Change the 4th row to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (31847:83) オレはただの影… + 君たちには1人ずつ死んでもらう
+     | Reduce damage from all sources by 25% for 5 turns + Bind 1 random sub for 1 turn, Deal 100% damage
+   | group:
+     | (31850:63) 君たちには1人ずつ死んでもらう
+     | Bind 1 random sub for 1 turn, Deal 102% damage

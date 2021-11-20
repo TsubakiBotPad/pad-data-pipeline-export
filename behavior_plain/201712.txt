@@ -1,0 +1,48 @@
+#201712 - 不屈の戦国龍王・ゼローグ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:30723) -> 戦国龍王の豪気
+	Absorb Fire and Dark damage for 3 turns
+	[1] ESCloud(104:30724) -> 合戦の狼煙
+	A row of clouds appears for 3 turns at 1st row, 1st column
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:30729) -> 零黒天双鬼
+Condition: When < 1% HP (ai:100 rnd:0)
+Deal 140% damage (4 hits, 35% each)
+
+#7: ESRandomSpawn(92:30725) -> 龍魔炎撃
+Condition: 25% chance (ai:25 rnd:25)
+Spawn 3 random Fire, Dark, Jammer, and Poison orbs, Deal 105% damage
+
+#8: ESDebuffMovetime(39:30726) -> 士気高揚の叫び
+Condition: 33% chance (ai:33 rnd:0)
+Movetime 50% for 1 turn, Deal 95% damage
+
+#9: ESDebuffATK(130:30727) -> 龍鱗の甲冑
+Condition: 50% chance (ai:50 rnd:0)
+ATK -75% for 1 turn, Deal 105% damage
+
+#10: ESMaxHPChange(111:30728) -> 呪魂の一太刀
+Change player HP to 50% for 1 turn, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:30722) -> ＿戦国ゼローグ根性
+Survive attacks with 1 HP when HP > 50%

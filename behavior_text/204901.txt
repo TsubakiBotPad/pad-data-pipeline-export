@@ -1,0 +1,40 @@
+#204901 - 超ワルりん
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204901
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28284:129) ＿わるりん超根性
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (28389:66) ♪
+ | Do nothing
+ group:
+ | group:
+   | group:
+   | condition: turns 1-10
+     | (28290:101) ドンヨりん♪
+     | Fix orb movement starting point to random position on the board, Deal 75% damage
+   | group:
+     | (27129:88) 聖跡の浄罰
+     | Bind awoken skills for 10 turns, Deal 1,200% damage
+     | (27130:15) 聖跡の終天罰
+     | Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: turns 1-10, hp <= 1
+   | (28391:94) わるだくみ
+   | Lock all orbs, Deal 90% damage
+ type: REMAINING
+ condition: when 2 enemies remain
+ | group:
+ | condition: always turn 1
+   | (28374:19) MAXキラりんパワー！
+   | Increase damage to 500% for the next 999 turns
+ | group:
+ | condition: turns 2-10, hp <= 100
+   | (28290:101) ドンヨりん♪
+   | Fix orb movement starting point to random position on the board, Deal 75% damage

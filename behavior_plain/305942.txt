@@ -1,0 +1,74 @@
+#305942 - 真転生ネプチューン＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:16749) -> 海王神の加護
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:16750) -> 冥界の神水
+	Poison and Mortal Poison skyfall +15% for 10 turns
+	[2] ESAbsorbThreshold(87:28386) -> 聖舶への導き
+	Absorb damage when damage >= 2,000,000,000 for 999 turns
+	[3] ESDebuffATK(130:16752) -> 深海からの裁き
+	ATK -50% for 99 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 14
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:16754) -> 海王神の怒り
+	Increase damage to 200% for the next 999 turns
+	[1] ESBoardChangeAttackBits(85:16755) -> 冥海の渦潮
+	Change all orbs to Mortal Poison, Deal 100% damage
+
+#8: ESAttackMultihit(15:16756) -> トライバースト
+Condition: 34% chance (ai:0 rnd:34)
+Deal 90% damage (3 hits, 30% each)
+
+#9: ESRandomSpawn(92:16757) -> アビステンタクル
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Water, Poison, and Mortal Poison orbs, Deal 80% damage
+
+#10: ESDebuffMovetime(39:16758) -> アースクエイク
+Condition: 33% chance (ai:0 rnd:33)
+Movetime 50% for 1 turn, Deal 85% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:16759) -> カオスメイルシュトローム
+Deal 3,000% damage (10 hits, 300% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:16760) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#17: ESTypeResist(118:16734) -> 神悪魔半減
+Reduce damage from God and Devil types by 50%

@@ -1,0 +1,56 @@
+#300789 - コカトリス
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBlindStickyRandom(97:28308) -> インビジブルアイ
+Blind random 15 orbs for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 15
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESOrbLock(94:28311) -> サスペンドアイ
+Lock all orbs, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: ESBindAwoken(88:28313) -> プリベントアイ
+Bind awoken skills for 1 turn, Deal 105% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBindAwoken(88:27129) -> 聖跡の浄罰
+Bind awoken skills for 10 turns, Deal 1,200% damage
+
+#16: ESAttackMultihit(15:27130) -> 聖跡の終天罰
+Deal 800% damage (5 hits, 160% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

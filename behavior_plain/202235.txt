@@ -1,0 +1,110 @@
+#202235 - 真復仇の戦軍神・アレス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:3987) -> 戦軍神の覇気
+	Voids status ailments for 999 turns
+	[1] ESRowSpawnMulti(79:4002) -> ラピッドスカード
+	Change the 3rd row to Jammer orbs, Deal 1,000% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 25
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	Condition: When < 10% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:4004) -> ブレイジングスピリット
+	Enemy recover 40% HP
+	[1] ESVoidShield(71:28393) -> 輝炎の神躯
+	Void damage >= 2,000,000,000 for 10 turns
+
+#9: ESVoidShield(71:28393) -> 輝炎の神躯
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 2,000,000,000 for 10 turns
+
+#10: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:4004) -> ブレイジングスピリット
+	Enemy recover 40% HP
+	[1] ESColumnSpawnMulti(77:3999) -> イラプトウォール
+	Change the 1st, 3rd, 4th, and 6th columns to Fire orbs, Deal 1,500% damage
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 17
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESBindAttribute(2:4001) -> 復仇の怨憎
+Condition: When < 70% HP (ai:100 rnd:0)
+Bind Water cards for 5 turns
+
+#14: ESBindAttack(63:3994) -> トゥレンブルランス
+Condition: 20% chance (ai:20 rnd:0)
+Bind 4 random subs for 1 turn, Deal 900% damage
+
+#15: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBlind62(62:3991) -> シンダーストーム
+	Blind all orbs on the board, Deal 100% damage
+	[1] ESOrbChangeAttack(48:3992) -> ヒドゥンエンバー
+	Change a random attribute to Fire orbs, Deal 600% damage
+
+#16: ESJammerChangeRandom(13:3990) -> ウォールバースト
+Change 3 random orb types to Jammer orbs, Deal 800% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: ESOrbChangeAttack(48:3995) -> ラブルインシネレート
+Change all Jammer orbs to Fire orbs, Deal 3,000% damage
+
+#20: ESOrbLock(94:3996) -> コンスタントグリム
+Lock all Fire and Light orbs, Deal 700% damage
+
+#21: ESAttackMultihit(15:3997) -> スラストコンビネーション
+Deal 750~1,250% damage (3~5 hits, 250% each)
+
+#22: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#23: SkillSet:
+	[0] ESAbsorbCombo(67:28384) -> マーズコア
+	Absorb damage when combos <= 12 for 1 turn
+	[1] ESColumnSpawnMulti(77:3999) -> イラプトウォール
+	Change the 1st, 3rd, 4th, and 6th columns to Fire orbs, Deal 1,500% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESResolve(73:3989) -> アレス根性
+Survive attacks with 1 HP when HP > 50%

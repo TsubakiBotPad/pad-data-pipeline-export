@@ -1,0 +1,32 @@
+#506736 - 真超レッドカーバンクル
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506736
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (28280:84) ジュエリアント
+ | Change all orbs to Fire, Water, Wood, Light, and Dark
+ group:
+ | group:
+ | condition: turns 1-10
+   | (28285:15) ジュエロール
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+   | (27129:88) 聖跡の浄罰
+   | Bind awoken skills for 10 turns, Deal 1,200% damage
+   | (27130:15) 聖跡の終天罰
+   | Deal 800% damage (5 hits, 160% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (28374:19) MAXキラりんパワー！
+   | Increase damage to 500% for the next 999 turns
+ | group:
+ | condition: turns 2-10
+   | (28285:15) ジュエロール
+   | Deal 100% damage (2 hits, 50% each)

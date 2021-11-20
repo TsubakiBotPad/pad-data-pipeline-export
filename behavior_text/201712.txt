@@ -1,0 +1,32 @@
+#201712 - 不屈の戦国龍王・ゼローグ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 201712
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30722:73) ＿戦国ゼローグ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (30721:83) 戦国龍王の豪気 + 合戦の狼煙
+ | Absorb Fire and Dark damage for 3 turns + A row of clouds appears for 3 turns at 1st row, 1st column
+ group:
+ | group:
+   | condition: 43% chance
+   | (30725:92) 龍魔炎撃
+   | Spawn 3 random Fire, Dark, Jammer, and Poison orbs, Deal 105% damage
+   | condition: 33% chance
+   | (30726:39) 士気高揚の叫び
+   | Movetime 50% for 1 turn, Deal 95% damage
+   | condition: 50% chance
+   | (30727:130) 龍鱗の甲冑
+   | ATK -75% for 1 turn, Deal 105% damage
+   | (30728:111) 呪魂の一太刀
+   | Change player HP to 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (30729:15) 零黒天双鬼
+   | Deal 140% damage (4 hits, 35% each)

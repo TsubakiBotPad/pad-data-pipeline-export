@@ -1,0 +1,26 @@
+#300787 - ミノタウロス
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300787
+approved: False
+
+level: 1
+ type: PASSIVE
+ | condition: when 1 enemies remain
+ | (29767:122) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (28310:74) 剛筋の鎧
+ | Reduce damage from all sources by 75% for 5 turns
+ group:
+ | group:
+ | condition: turns 1-10
+   | (28315:50) 割砕
+   | Player -400% HP
+ | group:
+   | (27129:88) 聖跡の浄罰
+   | Bind awoken skills for 10 turns, Deal 1,200% damage
+   | (27130:15) 聖跡の終天罰
+   | Deal 800% damage (5 hits, 160% each)

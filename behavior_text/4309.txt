@@ -1,0 +1,26 @@
+#4309 - Sensui
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4309
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31703:72) 闇光半減
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (31697:83) お前の指図は受けない… + 無駄だ！
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000 for 3 turns
+ group:
+ | group:
+   | (31702:15) フ、なかなかやるな
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (31700:102) 裂蹴紫炎弾
+   | Spawn 5 random Bomb orbs, Deal 100% damage
+   | (31701:79) 裂蹴紅球波
+   | Change the 1st row to Dark orbs and the 5th row to Light orbs, Deal 101% damage

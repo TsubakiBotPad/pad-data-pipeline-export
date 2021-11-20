@@ -1,0 +1,66 @@
+#204901 - 超ワルりん
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESInactivity66(66:28389) -> ♪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 12
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 15
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 18
+
+#10: ESFixedStart(101:28290) -> ドンヨりん♪
+Fix orb movement starting point to random position on the board, Deal 75% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBindAwoken(88:27129) -> 聖跡の浄罰
+Bind awoken skills for 10 turns, Deal 1,200% damage
+
+#13: ESAttackMultihit(15:27130) -> 聖跡の終天罰
+Deal 800% damage (5 hits, 160% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPCooldown(19:28374) -> MAXキラりんパワー！
+Increase damage to 500% for the next 999 turns
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESOrbLock(94:28391) -> わるだくみ
+Lock all orbs, Deal 90% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:28284) -> ＿わるりん超根性
+Damage which would reduce HP from above 1% to below 1% is nullified

@@ -1,0 +1,45 @@
+#300787 - ミノタウロス
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:28310) -> 剛筋の鎧
+Reduce damage from all sources by 75% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESGravity(50:28315) -> 割砕
+Player -400% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBindAwoken(88:27129) -> 聖跡の浄罰
+Bind awoken skills for 10 turns, Deal 1,200% damage
+
+#11: ESAttackMultihit(15:27130) -> 聖跡の終天罰
+Deal 800% damage (5 hits, 160% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESTurnChangeRemainingEnemies(122:29767) -> 敵の行動ターンが変化した
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1

@@ -1,0 +1,92 @@
+#202750 - 真覚醒アポロン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 202750
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4137:73) アポロン根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (12171:83) セレスティアルプレリュード + 静かに聞いてくれると嬉しい…
+ | Absorb damage when combos <= 8 for 3 turns + Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (4092:79) 聖樹の五線譜
+     | Change the 1st, 3rd, and 5th rows to Light orbs and the 2nd and 4th rows to Wood orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 9
+     | (4093:85) 六弦の音色
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 200% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | (4096:83) 最終楽章「閃光」 + 演奏の時間は終わりだ…
+     | Change a random attribute to Light orbs + Reduce damage from all sources by 50% for 3 turns, Deal 300% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | (4098:3) 神滅の瞑鎖
+     | Bind God cards for 5 turns
+     | (4099:2) 魔滅の瞑鎖
+     | Bind Dark cards for 5 turns
+     | (4100:54) 双滅の瞑鎖
+     | Bind both leaders for 5 turns
+   | group:
+   | condition: turn 5 while HP > 9
+     | (4101:85) 嘆きのハイアシンス
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+   | condition: turn 6 while HP > 9
+     | (4102:48) サンライトギフト
+     | Change all Jammer orbs to Heal orbs, Deal 300% damage
+     | (4103:48) サンライトグロウ
+     | Change all Wood orbs to Fire orbs, Deal 200% damage
+     | (4104:48) サンライトティアー
+     | Change all Fire orbs to Water orbs, Deal 200% damage
+     | (4105:94) サンライトフラッシュ
+     | Lock all Light orbs, Deal 200% damage
+     | (4101:85) 嘆きのハイアシンス
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+   | condition: turn 7 while HP > 9
+     | (4101:85) 嘆きのハイアシンス
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+   | condition: turn 8 while HP > 9
+     | (4102:48) サンライトギフト
+     | Change all Jammer orbs to Heal orbs, Deal 300% damage
+     | (4103:48) サンライトグロウ
+     | Change all Wood orbs to Fire orbs, Deal 200% damage
+     | (4104:48) サンライトティアー
+     | Change all Fire orbs to Water orbs, Deal 200% damage
+     | (4105:94) サンライトフラッシュ
+     | Lock all Light orbs, Deal 200% damage
+     | (4101:85) 嘆きのハイアシンス
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+   | condition: turn 9 while HP > 9
+     | (4101:85) 嘆きのハイアシンス
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+   | condition: turn 10 while HP > 9
+     | (4102:48) サンライトギフト
+     | Change all Jammer orbs to Heal orbs, Deal 300% damage
+     | (4103:48) サンライトグロウ
+     | Change all Wood orbs to Fire orbs, Deal 200% damage
+     | (4104:48) サンライトティアー
+     | Change all Fire orbs to Water orbs, Deal 200% damage
+     | (4105:94) サンライトフラッシュ
+     | Lock all Light orbs, Deal 200% damage
+     | (4101:85) 嘆きのハイアシンス
+     | Change all orbs to Fire, Wood, Light, and Jammer, Deal 150% damage
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: turns 1-10, hp <= 9
+   | (4106:50) グロリアスポストリュード
+   | Player -500% HP

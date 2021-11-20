@@ -1,0 +1,51 @@
+#8075 - 修羅
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:31728) -> …パパこいつ大した事ないよ
+	Voids status ailments for 999 turns
+	[1] ESColumnSpawnMulti(77:31729) -> へへっ大成功！
+	Change the 1st and 2nd columns to Light orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESAttackMultihit(15:31733) -> ちっくしょお～
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESColumnSpawnMulti(77:31734) -> へへっ大成功！
+Change the 1st and 2nd columns to Light orbs, Deal 101% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:31731) -> 魔円咬
+	Increase damage to 150% for the next 999 turns
+	[1] ESDamageShield(74:31732) -> 行くぞお
+	Reduce damage from all sources by 50% for 5 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttributeResist(72:31735) -> 光半減
+Reduce damage from Light attrs by 50%
+
+#12: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:31736) -> ボクは絶対負けない…
+	Do nothing

@@ -1,0 +1,41 @@
+#5166 - Shishiwakamaru
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBlind5(5:31664) -> さぁだれだ 最初に死ぬのは？
+	Blind all orbs on the board
+	[1] ESDamageShield(74:31665) -> 怨呼障縛壁
+	Reduce damage from all sources by 50% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:31666) -> 爆吐髑触葬
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESOrbLock(94:31667) -> 死出の羽衣
+Lock all Water and Dark orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttributeResist(72:31668) -> 闇半減
+Reduce damage from Dark attrs by 50%
+
+#10: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:31669) -> あ…悪魔か…きさま…
+	Do nothing

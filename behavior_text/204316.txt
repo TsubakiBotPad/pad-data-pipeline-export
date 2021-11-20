@@ -1,0 +1,26 @@
+#204316 - 酎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 204316
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (31819:67) 力比べだ！行くぜ！
+ | Absorb damage when combos <= 3 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (31821:92) ぐっ グググーッ！ オエエエーッ！
+     | Spawn 3 random Water and Wood orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (31822:15) うりゃ～っ!!
+     | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (31820:86) ふーっ すっきりしたぜ
+   | Enemy recover 30% HP

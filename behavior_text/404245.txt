@@ -1,0 +1,29 @@
+#404245 - 真覚醒ポルックス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 404245
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (18057:83) 双児の加護 + 星失の空
+ | Voids status ailments for 999 turns + No skyfall for 10 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-10 while HP > 49
+     | condition: 50% chance
+     | (18060:67) 創生のハーモニー
+     | Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (18061:15) 滅びのメロディー
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (18062:17) コスモチャージ
+   | Increase damage to 200% for the next 999 turns

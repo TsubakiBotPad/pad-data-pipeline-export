@@ -1,0 +1,26 @@
+#8075 - 修羅
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8075
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31735:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (31727:83) …パパこいつ大した事ないよ + へへっ大成功！
+ | Voids status ailments for 999 turns + Change the 1st and 2nd columns to Light orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (31733:15) ちっくしょお～
+   | Deal 102% damage (3 hits, 34% each)
+   | (31734:77) へへっ大成功！
+   | Change the 1st and 2nd columns to Light orbs, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (31730:83) 魔円咬 + 行くぞお
+   | Increase damage to 150% for the next 999 turns + Reduce damage from all sources by 50% for 5 turns
