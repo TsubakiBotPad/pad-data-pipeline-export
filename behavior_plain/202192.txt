@@ -1,4 +1,4 @@
-#202192 - 裏風翼機導獣・ファクト
+#202192 - Alt. Swoop-Winged CyberBeast, Phact
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:28615) -> 風陣
+	[0] ESStatusShield(20:28615) -> Wind Formation
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:28616) -> 風雷の翼
+	[1] ESAbsorbCombo(67:28616) -> Thunderstorm Wings
 	Absorb damage when combos <= 8 for 999 turns
-	[2] ESBoardChangeAttackBits(85:28617) -> トルネードストリーム
+	[2] ESBoardChangeAttackBits(85:28617) -> Tornado Stream
 	Change all orbs to Wood, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,11 +28,11 @@ Branch on hp < 1, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESRowSpawnMulti(79:28621) -> トルネードシグナル
+#7: ESRowSpawnMulti(79:28621) -> Tornado Signal
 Condition: 50% chance (ai:0 rnd:50)
 Change the 3rd row to Wood orbs, Deal 100% damage
 
-#8: ESAttackMultihit(15:28622) -> エメラルドコンバータ
+#8: ESAttackMultihit(15:28622) -> Emerald Converter
 Condition: 50% chance (ai:0 rnd:50)
 Deal 120% damage (3 hits, 40% each)
 
@@ -46,28 +46,28 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESDebuffMovetime(39:28619) -> エメラルドゲイル
+	[0] ESDebuffMovetime(39:28619) -> Emerald Gale
 	Movetime 25% for 3 turns
-	[1] ESBoardChangeAttackBits(85:28620) -> サンダーストリーム
+	[1] ESBoardChangeAttackBits(85:28620) -> Thunder Stream
 	Change all orbs to Light, Deal 150% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:28623) -> オーバーダイブ
+#14: ESAttackMultihit(15:28623) -> Overdrive Dive
 Deal 550% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	[0] ESBindAwoken(88:28953) -> Submerged Conqueror's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	[1] ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:28775) -> 根性
+#18: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

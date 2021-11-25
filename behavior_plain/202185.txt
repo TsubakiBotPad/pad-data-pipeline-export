@@ -1,4 +1,4 @@
-#202185 - 裏暴炎機導龍・トゥバン
+#202185 - Alt. Blazing CyberDragon, Thuban
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfallLocked(96:28576) -> ロックフレイム
+	[0] ESSkyfallLocked(96:28576) -> Lock Flame
 	Locked random skyfall +50% for 5 turns
-	[1] ESBoardChangeAttackBits(85:28577) -> ルビーコーティング
+	[1] ESBoardChangeAttackBits(85:28577) -> Ruby Coating
 	Change all orbs to Fire, Deal 100% damage
-	[2] ESOrbLock(94:28578) -> フレアチェーン
+	[2] ESOrbLock(94:28578) -> Flare Chain
 	Lock all orbs
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,11 +28,11 @@ Branch on hp < 1, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESSkillDelay(89:28583) -> フレアチャージ
+#7: ESSkillDelay(89:28583) -> Flare Charge
 Condition: 50% chance (ai:0 rnd:50)
 Delay active skills by 1~3 turns, Deal 80% damage
 
-#8: ESAttackMultihit(15:28582) -> フレイムキャノン
+#8: ESAttackMultihit(15:28582) -> Flame Cannon
 Condition: 50% chance (ai:0 rnd:50)
 Deal 100% damage (4 hits, 25% each)
 
@@ -46,33 +46,33 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:28580) -> ブレイズチャージ
+	[0] ESAttackUPRemainingEnemies(17:28580) -> Blaze Charge
 	Increase damage to 150% for the next 999 turns
-	[1] ESGravity(50:28581) -> フレアインパクト
+	[1] ESGravity(50:28581) -> Flare Impact
 	Player -99% HP
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESBoardChangeAttackBits(85:28585) -> ルビーコーティング
+	[0] ESBoardChangeAttackBits(85:28585) -> Ruby Coating
 	Change all orbs to Fire, Deal 1,000% damage
-	[1] ESOrbLock(94:28586) -> フレアチェーン
+	[1] ESOrbLock(94:28586) -> Flare Chain
 	Lock all orbs
-	[2] ESRecoverEnemy86(86:28587) -> フレイムリペア
+	[2] ESRecoverEnemy86(86:28587) -> Flame Repair
 	Enemy recover 75% HP
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	[0] ESBindAwoken(88:28953) -> Submerged Conqueror's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	[1] ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:28775) -> 根性
+#18: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

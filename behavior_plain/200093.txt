@@ -1,4 +1,4 @@
-#200093 - アルラウネ
+#200093 - Mandrake
 monster size: 3
 new AI: True
 start/max counter: 1
@@ -13,23 +13,23 @@ Branch on flag & 1, target rnd 10
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESAbsorbAttribute(53:28506) -> 癒しの祈り
+#4: ESAbsorbAttribute(53:28506) -> Healing Prayer
 Condition: One-time use (ai:0 rnd:20) (cost: 1)
 Absorb Wood damage for 4 turns
 
-#5: ESAbsorbAttribute(53:28956) -> 癒しの祈り
+#5: ESAbsorbAttribute(53:28956) -> Healing Prayer
 Condition: One-time use (ai:0 rnd:20) (cost: 1)
 Absorb Fire damage for 4 turns
 
-#6: ESAbsorbAttribute(53:28957) -> 癒しの祈り
+#6: ESAbsorbAttribute(53:28957) -> Healing Prayer
 Condition: One-time use (ai:0 rnd:20) (cost: 1)
 Absorb Water damage for 4 turns
 
-#7: ESAbsorbAttribute(53:28958) -> 癒しの祈り
+#7: ESAbsorbAttribute(53:28958) -> Healing Prayer
 Condition: One-time use (ai:0 rnd:20) (cost: 1)
 Absorb Light damage for 4 turns
 
-#8: ESAbsorbAttribute(53:28959) -> 癒しの祈り
+#8: ESAbsorbAttribute(53:28959) -> Healing Prayer
 Condition: One-time use (ai:0 rnd:20) (cost: 1)
 Absorb Dark damage for 4 turns
 
@@ -42,21 +42,21 @@ counter + 1
 #11: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 6, target rnd 14
 
-#12: ESRandomSpawn(92:28508) -> 大地の癒し
+#12: ESRandomSpawn(92:28508) -> Healing of the Earth
 Spawn 6 random Heal orbs, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:28954) -> 潜帝の殄滅
+#14: ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESTurnChangeRemainingEnemies(122:28507) -> 敵の行動ターンが変化した
+#16: ESTurnChangeRemainingEnemies(122:28507) -> Enemy's next turn changed
 Condition: when <= 1 enemies remain (ai:0 rnd:0)
 Enemy turn counter change to 1
 
-#17: ESResolve(73:28775) -> 根性
+#17: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

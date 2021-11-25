@@ -1,4 +1,4 @@
-#303449 - 転生インドラ
+#303449 - Reincarnated Indra
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:29622) -> 雷霆龍の結界
+	[0] ESStatusShield(20:29622) -> Thunderdragon's Barrier
 	Voids status ailments for 999 turns
-	[1] ESBoardChange(84:29623) -> 雷霆龍の秘技
+	[1] ESBoardChange(84:29623) -> Thunderdragon's Secret Technique
 	Change all orbs to Heal
-	[2] ESOrbLock(94:29624) -> 癒しの守り
+	[2] ESOrbLock(94:29624) -> Healing Guard
 	Lock all Heal orbs, Deal 100% damage
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -21,20 +21,20 @@ Branch on hp < 99, target rnd 5
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:29626) -> 英龍の導き
+	[0] ESAbsorbCombo(67:29626) -> Heroic Dragon's Guidance
 	Absorb damage when combos <= 10 for 999 turns
-	[1] ESDebuffRCV(105:29627) -> 破天の落雷
+	[1] ESDebuffRCV(105:29627) -> Heaven-Shaking Lightning
 	RCV 0% for 4 turns
-	[2] ESOrbLock(94:29624) -> 癒しの守り
+	[2] ESOrbLock(94:29624) -> Healing Guard
 	Lock all Heal orbs, Deal 100% damage
 
 #5: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:29630) -> 英龍の導き
+	[0] ESAbsorbCombo(67:29630) -> Heroic Dragon's Guidance
 	Absorb damage when combos <= 8 for 999 turns
-	[1] ESDebuffRCV(105:29631) -> 破天の落雷
+	[1] ESDebuffRCV(105:29631) -> Heaven-Shaking Lightning
 	RCV 25% for 4 turns
-	[2] ESBoardChangeAttackBits(85:29632) -> 雷霆龍の絶技
+	[2] ESBoardChangeAttackBits(85:29632) -> Thunderdragon's Ultimate Technique
 	Change all orbs to Heal, Deal 150% damage
 
 #6: ESSetCounterIf(38:177) -> ESSetCounterIf
@@ -43,11 +43,11 @@ set counter = 4 if counter == 0
 #7: ESCountdown(37:178) -> ESCountdown
 countdown
 
-#8: ESAttackMultihit(15:29633) -> 破天の雷霆
+#8: ESAttackMultihit(15:29633) -> Heaven-Shaking Thunder
 Deal 300% damage (10 hits, 30% each)
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESResolve(73:29722) -> 根性
+#10: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

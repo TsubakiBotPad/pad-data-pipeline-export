@@ -1,4 +1,4 @@
-#303764 - 刻水の時女神・スクルド
+#303764 - Norn of Etched Water, Skuld
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbAttribute(53:29517) -> ノルンの女神
+	[0] ESAbsorbAttribute(53:29517) -> Norn Goddess
 	Absorb Water and Wood damage for 6 turns
-	[1] ESAbsorbCombo(67:29518) -> 時空結界
+	[1] ESAbsorbCombo(67:29518) -> Space-Time Barrier
 	Absorb damage when combos <= 7 for 999 turns
-	[2] ESSpinnersFixed(110:29519) -> ルートゥニル
+	[2] ESSpinnersFixed(110:29519) -> Rootnir
 	Specific orbs change every 1.0s for 6 turns, Deal 130% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESRandomSpawn(92:29525) -> 女神の気まぐれ
+	[0] ESRandomSpawn(92:29525) -> Norn's Whim
 	Spawn 4 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
-	[1] ESSpinnersFixed(110:29526) -> 未来の定め
+	[1] ESSpinnersFixed(110:29526) -> The Fate of the Future
 	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESRandomSpawn(92:29528) -> 女神の気まぐれ
+	[0] ESRandomSpawn(92:29528) -> Norn's Whim
 	Spawn 4 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
-	[1] ESSpinnersFixed(110:29529) -> 未来の定め
+	[1] ESSpinnersFixed(110:29529) -> The Fate of the Future
 	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -52,30 +52,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESStatusShield(20:29521) -> 運命の歯車が動き出した
+	[0] ESStatusShield(20:29521) -> The gears of fate begin to turn
 	Voids status ailments for 999 turns
-	[1] ESBindSkill(14:29522) -> 女神のいたずら
+	[1] ESBindSkill(14:29522) -> Norn's Mischief
 	Bind active skills for 5 turns
-	[2] ESGravity(50:29523) -> 時を駆ける
+	[2] ESGravity(50:29523) -> Time races forwards
 	Player -150% HP
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:29530) -> フィンブルヴェトフォーム
+#14: ESAttackMultihit(15:29530) -> Fimbulvetr Form
 Deal 300% damage (6 hits, 50% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:29724) -> 次元の波動
+	[0] ESBindAwoken(88:29724) -> Dimension Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	[1] ESAttackMultihit(15:29725) -> Dimension Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:29722) -> 根性
+#18: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -1,4 +1,4 @@
-#301627 - 裏次元の魔術師・チェスター
+#301627 - Alt. Dimensional Sorcerer, Chester
 monster size: 5
 new AI: True
 start/max counter: 15
@@ -7,42 +7,42 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBoardSizeChange(126:29455) -> 少し遊びませんか？
+#2: ESBoardSizeChange(126:29455) -> Will you play with me for a bit?
 Condition: One-time use (ai:100 rnd:0) (cost: 8)
 Change board size to 7x6 for 1 turn
 
 #3: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 8)
-	[0] ESBlindStickySkyfall(128:29460) -> 快適そうですね♪
+	[0] ESBlindStickySkyfall(128:29460) -> You seem at ease♪
 	For 20 turns, 15% chance for skyfall orbs to be blinded for turn
-	[1] ESSkyfall(68:29461) -> そんなあなたには、これです♪
+	[1] ESSkyfall(68:29461) -> In that case, here you go♪
 	Mortal Poison skyfall +15% for 99 turns
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESStatusShield(20:29456) -> マジックガード
+	[0] ESStatusShield(20:29456) -> Magic Guard
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:29457) -> この壁を突破してみてください
+	[1] ESAbsorbCombo(67:29457) -> Try to break through this wall!
 	Absorb damage when combos <= 9 for 999 turns
-	[2] ESSpinnersFixed(110:29458) -> チャンスは3回ですよ
+	[2] ESSpinnersFixed(110:29458) -> I'll give you 3 attempts.
 	Specific orbs change every 1.0s for 3 turns
 
-#5: ESBoardChangeAttackBits(85:29465) -> カウントダウンをしましょう
+#5: ESBoardChangeAttackBits(85:29465) -> Let's start the countdown!
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
 
-#6: ESBoardChangeAttackBits(85:29466) -> さぁ、崖っぷちですよ
+#6: ESBoardChangeAttackBits(85:29466) -> It's do or die now!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
 
 #7: SkillSet:
-	[0] ESChangeAttribute(46:29468) -> …タイムオーバーです
+	[0] ESChangeAttribute(46:29468) -> ...Time's up!
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:29469) -> また会いましょう♪
+	[1] ESAttackMultihit(15:29469) -> I hope we meet again♪
 	Deal 1,200% damage (4 hits, 300% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#9: ESSuperResolve(129:29721) -> 超根性
+#9: ESSuperResolve(129:29721) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

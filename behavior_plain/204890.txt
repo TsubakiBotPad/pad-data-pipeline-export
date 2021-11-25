@@ -1,4 +1,4 @@
-#204890 - 覚醒ロズエル
+#204890 - Awoken Rozuel
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:28715) -> 星天使の障壁
+	[0] ESStatusShield(20:28715) -> Star Angel's Barrier
 	Voids status ailments for 999 turns
-	[1] ESDebuffRCV(105:28716) -> 愛護の聖歌
+	[1] ESDebuffRCV(105:28716) -> Protecting Hymn
 	RCV 25% for 3 turns
-	[2] ESBombRandomSpawn(102:28717) -> フレアボム
+	[2] ESBombRandomSpawn(102:28717) -> Flare Bomb
 	Spawn 8 random Bomb orbs
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -31,15 +31,15 @@ Branch on counter >= 3, target rnd 12
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#8: ESBombRandomSpawn(102:28721) -> フレアボム
+#8: ESBombRandomSpawn(102:28721) -> Flare Bomb
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 5 random Bomb orbs, Deal 100% damage
 
-#9: ESBlindStickyRandom(97:28722) -> 焦閃
+#9: ESBlindStickyRandom(97:28722) -> Flashburn
 Condition: 33% chance (ai:0 rnd:33)
 Blind random 10~15 orbs for 1 turn, Deal 95% damage
 
-#10: ESRowSpawnMulti(79:28723) -> 紅闇刃
+#10: ESRowSpawnMulti(79:28723) -> Scarlet Azure Blade
 Condition: 34% chance (ai:0 rnd:34)
 Change the 2nd and 3rd rows to Fire and Dark orbs, Deal 105% damage
 
@@ -53,28 +53,28 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESNoSkyfall(127:28719) -> 天からの贈り物
+	[0] ESNoSkyfall(127:28719) -> Gift from Heaven
 	No skyfall for 3 turns
-	[1] ESSpinnersFixed(110:28720) -> 流星
+	[1] ESSpinnersFixed(110:28720) -> Shooting Stars
 	Specific orbs change every 1.0s for 3 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESAttackMultihit(15:28724) -> ロストフェザーソング
+#16: ESAttackMultihit(15:28724) -> Lost Feather Song
 Deal 1,100% damage (5 hits, 220% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #18: SkillSet:
-	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	[0] ESBindAwoken(88:28953) -> Submerged Conqueror's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	[1] ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESResolve(73:28775) -> 根性
+#20: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

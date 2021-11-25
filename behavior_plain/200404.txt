@@ -1,4 +1,4 @@
-#200404 - 裏ユニコーン
+#200404 - Alt. Unicorn
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,11 +7,11 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESOrbChangeAttackBits(108:28637) -> セイクリッドホーン
+#2: ESOrbChangeAttackBits(108:28637) -> Sacred Horn
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Change all Jammer orbs to Light orbs, Deal 350% damage
 
-#3: ESOrbLock(94:28893) -> チェーンホーン
+#3: ESOrbLock(94:28893) -> Chain Horn
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Lock all orbs, Deal 150% damage
 
@@ -24,30 +24,30 @@ Branch on counter >= 6, target rnd 13
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 1, target rnd 11
 
-#7: ESAttackUPRemainingEnemies(17:28955) -> 潜帝の解放
+#7: ESAttackUPRemainingEnemies(17:28955) -> Submerged Conqueror's Release
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 1,000% for the next 999 turns
 
-#8: ESOrbLock(94:28895) -> チェーンホーン
+#8: ESOrbLock(94:28895) -> Chain Horn
 Lock 10 random orbs, Deal 100% damage
 
-#9: ESChangeAttribute(46:28894) -> レインボーホーン
+#9: ESChangeAttribute(46:28894) -> Rainbow Horn
 Change own attribute to random one of Fire, Water, Wood, or Dark, Deal 150% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#11: ESChangeAttribute(46:28896) -> セイクリッドレインボー
+#11: ESChangeAttribute(46:28896) -> Sacred Rainbow
 Change own attribute to random one of Fire, Water, Wood, or Dark, Deal 1,000% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:28954) -> 潜帝の殄滅
+#13: ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:28775) -> 根性
+#15: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

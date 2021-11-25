@@ -1,4 +1,4 @@
-#303762 - 刻火の時女神・ウルド
+#303762 - Norn of Etched Fire, Urd
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbAttribute(53:29487) -> ノルンの女神
+	[0] ESAbsorbAttribute(53:29487) -> Norn Goddess
 	Absorb Fire and Water damage for 6 turns
-	[1] ESAbsorbCombo(67:29488) -> 時空結界
+	[1] ESAbsorbCombo(67:29488) -> Space-Time Barrier
 	Absorb damage when combos <= 7 for 999 turns
-	[2] ESOrbSealRow(100:29489) -> ブライドゥニル
+	[2] ESOrbSealRow(100:29489) -> Bridenir
 	Seal the 1st row for 6 turns, Deal 130% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBombFixedSpawn(103:29495) -> 女神の落とし物
+	[0] ESBombFixedSpawn(103:29495) -> Norn's Dropped Items
 	Spawn Bomb orbs in the specified positions
-	[1] ESRowSpawnMulti(79:29496) -> 過去の蟠り
+	[1] ESRowSpawnMulti(79:29496) -> The Ties of the Past
 	Change the 1st and 2nd rows to Jammer orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBombFixedSpawn(103:29498) -> 女神の落とし物
+	[0] ESBombFixedSpawn(103:29498) -> Norn's Dropped Items
 	Spawn Bomb orbs in the specified positions
-	[1] ESRowSpawnMulti(79:29499) -> 過去の蟠り
+	[1] ESRowSpawnMulti(79:29499) -> The Ties of the Past
 	Change the 4th and 5th rows to Poison orbs, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -52,30 +52,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESStatusShield(20:29491) -> 運命の歯車が動き出した
+	[0] ESStatusShield(20:29491) -> The gears of fate begin to turn
 	Voids status ailments for 999 turns
-	[1] ESBlindStickyRandom(97:29492) -> 女神のいたずら
+	[1] ESBlindStickyRandom(97:29492) -> Norn's Mischief
 	Blind all orbs for 5 turns
-	[2] ESSkillDelay(89:29493) -> 時を遡る
+	[2] ESSkillDelay(89:29493) -> Time winds backwards
 	Delay active skills by 2~4 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:29500) -> フィンブルヴェトウィーブ
+#14: ESAttackMultihit(15:29500) -> Fimbulvetr Weaving
 Deal 300% damage (6 hits, 50% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:29724) -> 次元の波動
+	[0] ESBindAwoken(88:29724) -> Dimension Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	[1] ESAttackMultihit(15:29725) -> Dimension Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:29722) -> 根性
+#18: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

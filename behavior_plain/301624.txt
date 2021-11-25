@@ -1,4 +1,4 @@
-#301624 - 裏放浪の魔法使い・ウィジャス
+#301624 - Alt. Wandering Wizard, Wee Jas
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,39 +9,39 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:29438) -> ディメンションウォール
+	[0] ESStatusShield(20:29438) -> Dimension Wall
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:29439) -> ライブアワー
+	[1] ESVoidShieldBig(137:29439) -> Lively Hour
 	Void damage >= 20 for 99,900,000,000 turns
-	[2] ESSpinnersFixed(110:29440) -> イリュージョンマター
+	[2] ESSpinnersFixed(110:29440) -> Matter Illusion
 	Specific orbs change every 1.0s for 1 turn
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 99, target rnd 5
 
 #4: SkillSet:
-	[0] ESDamageShield(74:29451) -> ディメンションガード
+	[0] ESDamageShield(74:29451) -> Dimension Guard
 	Reduce damage from all sources by 75% for 1 turn
-	[1] ESAttackMultihit(15:29452) -> サイトアウト
+	[1] ESAttackMultihit(15:29452) -> Out of Sight
 	Deal 160% damage (4 hits, 40% each)
 
 #5: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSpinnersFixed(110:29442) -> イリュージョンマター
+	[0] ESSpinnersFixed(110:29442) -> Matter Illusion
 	Specific orbs change every 1.0s for 4 turns
-	[1] ESDebuffMovetime(39:29443) -> イリュージョンタイム
+	[1] ESDebuffMovetime(39:29443) -> Time Illusion
 	Movetime 25% for 4 turns
-	[2] ESDamageShield(74:29444) -> ディメンションガード
+	[2] ESDamageShield(74:29444) -> Dimension Guard
 	Reduce damage from all sources by 50% for 999 turns
 
-#6: ESBoardChangeAttackBits(85:29453) -> 時空滅裂
+#6: ESBoardChangeAttackBits(85:29453) -> Space-Time Chaos
 Change all orbs to Light and Jammer, Deal 300% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#8: ESResolve(73:29722) -> 根性
+#8: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#9: ESTurnChangePassive(106:29485) -> 敵の行動ターンが変化した
+#9: ESTurnChangePassive(106:29485) -> Enemy's next turn changed
 Enemy turn counter change to 4 when HP <= 99%

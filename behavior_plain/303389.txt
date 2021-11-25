@@ -1,4 +1,4 @@
-#303389 - 転生ツクヨミ
+#303389 - Reincarnated Tsukuyomi
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:29532) -> 夜月神の結界
+	[0] ESStatusShield(20:29532) -> Barrier of the Moonlight Princess
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:29533) -> 夜月神の真魂
+	[1] ESAbsorbCombo(67:29533) -> True Spirit of the Moonlight Princess
 	Absorb damage when combos <= 10 for 6 turns
-	[2] ESBlindStickyRandom(97:29534) -> 煌月の世界
+	[2] ESBlindStickyRandom(97:29534) -> World of the Gleaming Moon
 	Blind all orbs for 6 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESColumnSpawnMulti(77:29539) -> 闇月刀
+	[0] ESColumnSpawnMulti(77:29539) -> Dark Moonsword
 	Change the 1st column to Dark orbs, Deal 50% damage
-	[1] ESOrbLock(94:29540) -> 月光
+	[1] ESOrbLock(94:29540) -> Moonlight
 	Lock all Dark orbs, Deal 50% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESColumnSpawnMulti(77:29542) -> 水月刀
+	[0] ESColumnSpawnMulti(77:29542) -> Water Moonsword
 	Change the 6th column to Water orbs, Deal 50% damage
-	[1] ESOrbLock(94:29543) -> 月光
+	[1] ESOrbLock(94:29543) -> Moonlight
 	Lock all Water orbs, Deal 50% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -52,30 +52,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:29536) -> 真刀集中
+	[0] ESAttackUPRemainingEnemies(17:29536) -> True Sword Concentration
 	Increase damage to 150% for the next 999 turns
-	[1] ESColumnSpawnMulti(77:29537) -> 水月刀
+	[1] ESColumnSpawnMulti(77:29537) -> Water Moonsword
 	Change the 1st and 6th columns to Water orbs, Deal 50% damage
-	[2] ESOrbLock(94:29543) -> 月光
+	[2] ESOrbLock(94:29543) -> Moonlight
 	Lock all Water orbs, Deal 50% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:29544) -> 宵想煌月天鈴斬
+#14: ESAttackMultihit(15:29544) -> Resounding Dusk Moon Swoop
 Deal 300% damage (10 hits, 30% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:29724) -> 次元の波動
+	[0] ESBindAwoken(88:29724) -> Dimension Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	[1] ESAttackMultihit(15:29725) -> Dimension Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:29722) -> 根性
+#18: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

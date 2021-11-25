@@ -1,4 +1,4 @@
-#202190 - 裏灼翼機導獣・マルカブ
+#202190 - Alt. Flame-Winged CyberBeast, Markab
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:28603) -> フレアガード
+	[0] ESStatusShield(20:28603) -> Flare Guard
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:28604) -> アクセルブースト
+	[1] ESAbsorbCombo(67:28604) -> Accelerator Boost
 	Absorb damage when combos <= 9 for 3 turns
-	[2] ESDebuffMovetime(39:28605) -> ルビーコンバータ
+	[2] ESDebuffMovetime(39:28605) -> Ruby Converter
 	Movetime 25% for 3 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,15 +28,15 @@ Branch on hp < 1, target rnd 14
 #6: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 3, target rnd 11
 
-#7: ESDebuffATK(130:28609) -> ブラストシグナル
+#7: ESDebuffATK(130:28609) -> Blast Signal
 Condition: 33% chance (ai:0 rnd:33)
 ATK -75% for 1 turn, Deal 90% damage
 
-#8: ESDebuffRCV(105:28610) -> ブラストシグナル
+#8: ESDebuffRCV(105:28610) -> Blast Signal
 Condition: 33% chance (ai:0 rnd:33)
 RCV 25% for 1 turn, Deal 90% damage
 
-#9: ESAttackMultihit(15:28611) -> ブラストラッシュ
+#9: ESAttackMultihit(15:28611) -> Blast Rush
 Condition: 34% chance (ai:0 rnd:34)
 Deal 100% damage (2 hits, 50% each)
 
@@ -45,31 +45,31 @@ end_turn
 
 #11: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:28607) -> アクセルブースト
+	[0] ESAbsorbCombo(67:28607) -> Accelerator Boost
 	Absorb damage when combos <= 8 for 999 turns
-	[1] ESAttributeBlock(107:28608) -> ヒールコンバータ
+	[1] ESAttributeBlock(107:28608) -> Heal Converter
 	Unable to match Heal orbs for 1 turn
 
-#12: ESAttackMultihit(15:28612) -> バーストラッシュ
+#12: ESAttackMultihit(15:28612) -> Burst Rush
 Deal 200% damage (4 hits, 50% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:28613) -> オーバーバーストラッシュ
+#14: ESAttackMultihit(15:28613) -> Overburst Rush
 Deal 550% damage (5 hits, 110% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	[0] ESBindAwoken(88:28953) -> Submerged Conqueror's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	[1] ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:28775) -> 根性
+#18: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

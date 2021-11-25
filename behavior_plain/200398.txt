@@ -1,4 +1,4 @@
-#200398 - 裏フェニックス
+#200398 - Alt. Phoenix
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBindAwoken(88:28888) -> 不死鳥の煌き
+#2: ESBindAwoken(88:28888) -> Phoenix Glitter
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Bind awoken skills for 5 turns
 
@@ -20,11 +20,11 @@ Branch on counter >= 6, target rnd 14
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 1, target rnd 9
 
-#6: ESAttackUPRemainingEnemies(17:28955) -> 潜帝の解放
+#6: ESAttackUPRemainingEnemies(17:28955) -> Submerged Conqueror's Release
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 1,000% for the next 999 turns
 
-#7: ESRandomSpawn(92:28889) -> エターナルフェザー
+#7: ESRandomSpawn(92:28889) -> Eternal Feather
 Spawn 5 random Heal orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -33,26 +33,26 @@ end_turn
 #9: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
 Branch on remaining enemies <= 1, target rnd 12
 
-#10: ESRecoverEnemy86(86:28891) -> 不死鳥の転生
+#10: ESRecoverEnemy86(86:28891) -> Phoenix Reincarnation
 Enemy recover 100% HP
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #12: SkillSet:
-	[0] ESRecoverEnemy86(86:28891) -> 不死鳥の転生
+	[0] ESRecoverEnemy86(86:28891) -> Phoenix Reincarnation
 	Enemy recover 100% HP
-	[1] ESBoardChangeAttackBits(85:28890) -> エターナルフェザー
+	[1] ESBoardChangeAttackBits(85:28890) -> Eternal Feather
 	Change all orbs to Heal, Deal 1,000% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:28954) -> 潜帝の殄滅
+#14: ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESResolve(73:28775) -> 根性
+#16: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

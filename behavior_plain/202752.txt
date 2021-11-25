@@ -1,4 +1,4 @@
-#202752 - 裏天空の守護龍・アヴァロンドレイク
+#202752 - Alt. Celestial Guardian Dragon, Avalon Drake
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESSkillDelay(89:28667) -> 緑翼の羽ばたき
+	[0] ESSkillDelay(89:28667) -> Beat of Green Wings
 	Delay active skills by 5 turns
-	[1] ESNoSkyfall(127:28668) -> 滑走
+	[1] ESNoSkyfall(127:28668) -> Glide
 	No skyfall for 6 turns
-	[2] ESAbsorbCombo(67:28669) -> 飛翔
+	[2] ESAbsorbCombo(67:28669) -> Soar
 	Absorb damage when combos <= 7 for 999 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,11 +28,11 @@ Branch on hp < 1, target rnd 13
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESColumnSpawnMulti(77:28670) -> ガイアブレード
+#7: ESColumnSpawnMulti(77:28670) -> Gaia Blade
 Condition: 50% chance (ai:0 rnd:50)
 Change the 2nd and 5th columns to Wood orbs, Deal 120% damage
 
-#8: ESColumnSpawnMulti(77:28671) -> ガイアブレード
+#8: ESColumnSpawnMulti(77:28671) -> Gaia Blade
 Condition: 50% chance (ai:0 rnd:50)
 Change the 3rd and 4th columns to Wood orbs, Deal 120% damage
 
@@ -41,33 +41,33 @@ end_turn
 
 #10: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChange(84:28673) -> ニルヴァーナガイア
+	[0] ESBoardChange(84:28673) -> Nirvana Gaia
 	Change all orbs to Wood
-	[1] ESOrbLock(94:28674) -> ガイアチェーン
+	[1] ESOrbLock(94:28674) -> Gaia Chain
 	Lock all orbs
-	[2] ESSkillDelay(89:28675) -> 緑翼の羽ばたき
+	[2] ESSkillDelay(89:28675) -> Beat of Green Wings
 	Delay active skills by 4~6 turns, Deal 100% damage
 
-#11: ESAttackMultihit(15:28676) -> オーバードスラッシュ
+#11: ESAttackMultihit(15:28676) -> Aubade Slash
 Deal 240% damage (4 hits, 60% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:28677) -> オーバーロードブレード
+#13: ESAttackMultihit(15:28677) -> Overlord Blade
 Deal 600% damage (4 hits, 150% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #15: SkillSet:
-	[0] ESBindAwoken(88:28953) -> 潜帝の波動
+	[0] ESBindAwoken(88:28953) -> Submerged Conqueror's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:28954) -> 潜帝の殄滅
+	[1] ESAttackMultihit(15:28954) -> Submerged Conqueror's Carnage
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:28775) -> 根性
+#17: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%

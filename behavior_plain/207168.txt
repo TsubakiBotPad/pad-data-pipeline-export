@@ -1,4 +1,4 @@
-#207168 - 蒼潜艇・ロイヤルオーク
+#207168 - Cobalt Submarine, Royal Oak
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESSkyfallLocked(96:28852) -> 蒼潜艇の厳秘
+	[0] ESSkyfallLocked(96:28852) -> Cobalt Submarine's Secret
 	Locked random skyfall +50% for 10 turns
-	[1] ESDamageShield(74:28853) -> カタパルトガード
+	[1] ESDamageShield(74:28853) -> Projectile Guard
 	Reduce damage from all sources by 90% for 10 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -26,19 +26,19 @@ Branch on counter >= 10, target rnd 16
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#7: ESBombFixedSpawn(103:28875) -> アサルトキャノン
+#7: ESBombFixedSpawn(103:28875) -> Assault Cannon
 Condition: 25% chance (ai:0 rnd:25)
 Spawn Bomb orbs in the specified positions, Deal 100% damage
 
-#8: ESOrbLock(94:28871) -> チェインバースト
+#8: ESOrbLock(94:28871) -> Chain Burst
 Condition: 25% chance (ai:0 rnd:25)
 Lock 10 random orbs, Deal 95% damage
 
-#9: ESSpinnersFixed(110:28881) -> コア・チェンジ
+#9: ESSpinnersFixed(110:28881) -> Core Change
 Condition: 25% chance (ai:0 rnd:25)
 Specific orbs change every 1.0s for 1 turn, Deal 100% damage
 
-#10: ESBlindStickyRandom(97:28883) -> シャドウソード
+#10: ESBlindStickyRandom(97:28883) -> Shadow Sword
 Condition: 25% chance (ai:0 rnd:25)
 Blind random 8~10 orbs for 1 turn, Deal 110% damage
 
@@ -52,9 +52,9 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESStatusShield(20:28855) -> 超電磁バリア
+	[0] ESStatusShield(20:28855) -> Super Electromagnetic Barrier
 	Voids status ailments for 999 turns
-	[1] ESNoSkyfall(127:28856) -> フォールダウン
+	[1] ESNoSkyfall(127:28856) -> Deep Dive
 	No skyfall for 99 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -68,23 +68,23 @@ Branch on counter >= 11, target rnd 6
 
 #18: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAttackUPRemainingEnemies(17:28858) -> サファイアブースト
+	[0] ESAttackUPRemainingEnemies(17:28858) -> Sapphire Boost
 	Increase damage to 150% for the next 999 turns
-	[1] ESRecoverEnemy86(86:28859) -> グロリアスリペア
+	[1] ESRecoverEnemy86(86:28859) -> Glorious Repair
 	Enemy recover 50% HP
 
-#19: ESAttackMultihit(15:28877) -> マシンガンバースト
+#19: ESAttackMultihit(15:28877) -> Machine Gun Burst
 Deal 500% damage (5 hits, 100% each)
 
-#20: ESAttackMultihit(15:28877) -> マシンガンバースト
+#20: ESAttackMultihit(15:28877) -> Machine Gun Burst
 Deal 500% damage (5 hits, 100% each)
 
 #21: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#22: ESResolve(73:28775) -> 根性
+#22: ESResolve(73:28775) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#23: ESDeathCry(69:28917) -> ロイヤルオーク変身
+#23: ESDeathCry(69:28917) -> Royal Oak's Transformation
 Condition: On death (ai:0 rnd:0)
-Show message: モードチェンジ・アサルト|姿が変形していく
+Show message: Mode Change: Assault|It changes form
