@@ -1,0 +1,75 @@
+#203691 - 覚醒稲姫
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:31210) -> 勇姫神の守護
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:31211) -> 勇姫神の障壁
+	Void damage >= 8 for 600,000,000 turns
+	[2] ESBoardChangeAttackBits(85:31212) -> 勇武姫の祈念
+	Change all orbs to Fire, Wood, and Heal, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBombRandomSpawn(102:31214) -> 爆炎槍
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 10 random locked Bomb orbs, Deal 80% damage
+
+#8: ESRandomSpawn(92:31213) -> 炎武槍
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Fire orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAbsorbAttribute(53:31216) -> 勇姫神の炎舞
+	Absorb Fire and Wood damage for 5 turns
+	[1] ESDebuffATK(130:31217) -> 結び雁金の護紋
+	ATK -75% for 5 turns
+	[2] ESBoardChangeAttackBits(85:31218) -> 勇武姫の威烈
+	Change all orbs to Fire, Wood, and Heal, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBombRandomSpawn(102:31219) -> 爆炎滅武槍
+Spawn 15 random locked Bomb orbs, Deal 1,000% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:31377) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:31387) -> 根性
+Survive attacks with 1 HP when HP > 50%

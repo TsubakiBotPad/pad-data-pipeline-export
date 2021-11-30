@@ -1,0 +1,36 @@
+#203693 - 覚醒ねね
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203693
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31220:83) 仁姫神の守護 + 仁姫神の障壁 + 寛仁姫の祈念
+ | Voids status ailments for 999 turns + Void damage >= 8 for 600,000,000 turns + Change all orbs to Water, Light, and Heal, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (31225:85) 波状刀
+     | Change all orbs to Water and Jammer, Deal 80% damage
+     | condition: 50% chance
+     | (31224:92) 水波刀
+     | Spawn 6 random Water orbs, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31226:83) 仁姫神の水舞 + 五三桐の護紋 + 寛仁姫の助勢
+   | Absorb Water and Wood damage for 5 turns + RCV 25% for 5 turns + Change all orbs to Water, Light, and Heal, Deal 150% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31230:85) 波状青龍刀
+   | Change all orbs to Water and Jammer, Deal 1,000% damage

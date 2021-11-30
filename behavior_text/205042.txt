@@ -1,0 +1,25 @@
+#205042 - 転生石田三成
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205042
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31383:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 99%
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31143:83) 諜報神の守護 + 我が策に対処できるか？ + 実力を見せてみろ
+ | Voids status ailments for 999 turns + Absorb Fire damage for 3 turns + Wood skyfall +25% for 3 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (31147:15) 忠義剣乱戟
+   | Deal 500% damage (4 hits, 125% each)
+ | group:
+   | (31376:83) 星機の波動 + 星機の殄滅
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

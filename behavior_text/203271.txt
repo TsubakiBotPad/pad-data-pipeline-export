@@ -1,0 +1,39 @@
+#203271 - 裏転生ヒノカグツチ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203271
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31159:83) 神包守炎 + 蛇神の火護 + 魂縛の神火
+ | Voids status ailments for 999 turns + Void damage >= 6 for 600,000,000 turns + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (31167:94) 魂縛の神火
+     | Lock 15 random orbs, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31163:83) 黄泉への還り火 + 怒炎神火 + 魂縛の神火
+   | Absorb damage when combos <= 7 for 999 turns + Increase damage to 150% for the next 999 turns + Lock all orbs, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31170:15) 蛇王鏖殺極龍破
+   | Deal 1,000% damage (8 hits, 125% each)
+ type: UNKNOWN_USE
+ | condition: 50% chance
+ | (31168:15) 命奪の神火
+ | Deal 150% damage (3 hits, 50% each)
+ | condition: 50% chance
+ | (31169:86) 蛇神の癒炎
+ | Enemy recover 5%~10% HP, Deal 120% damage

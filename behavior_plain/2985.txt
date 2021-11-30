@@ -1,0 +1,87 @@
+#2985 - Awoken Okuninushi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:30851) -> 国造神の魂
+	Voids status ailments for 999 turns
+	[1] ESSpinnersRandom(109:30852) -> 国建の巧技
+	Random 7 orbs change every 1.0s for 1 turn
+	[2] ESBoardChange(84:30853) -> 結縁の荒業
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESLeaderSwap(75:30856) -> 国建の巧技
+	Leader changes to random sub for 1 turn
+	[1] ESBoardChangeAttackBits(85:30858) -> 結縁の荒業
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+
+#9: SkillSet:
+	[0] ESSpinnersRandom(109:30852) -> 国建の巧技
+	Random 7 orbs change every 1.0s for 1 turn
+	[1] ESBoardChangeAttackBits(85:30858) -> 結縁の荒業
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESDamageShield(74:30860) -> 国造神の守り
+	Reduce damage from all sources by 99% for 1 turn
+	[1] ESAbsorbCombo(67:30869) -> 10コンボしてみろ
+	Absorb damage when combos <= 9 for 1 turn
+	[2] ESRandomSpawn(92:30861) -> これでどうだ？
+	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
+	[3] ESSpinnersRandom(109:30862) -> おまけだ
+	Random 2 orbs change every 1.0s for 1 turn
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 10, target rnd 18
+
+#16: SkillSet:
+	[0] ESDebuffMovetime(39:30867) -> 残念だったな
+	Movetime -2s for 5 turns
+	[1] ESEndBattle(40:30868) -> じゃあな
+	Reduce self HP to 0
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	[0] ESDebuffMovetime(39:30864) -> 見事だ
+	Movetime 150% for 5 turns
+	[1] ESEndBattle(40:30865) -> 先に進め
+	Reduce self HP to 0
+
+#19: ESSuperResolve(129:30854) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

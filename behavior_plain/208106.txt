@@ -1,0 +1,76 @@
+#208106 - 翠鋼の機神帝・グランディス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:31414) -> 機神帝の結界
+	Voids status ailments for 999 turns
+	[1] ESNoSkyfall(127:31415) -> グランツフォール
+	No skyfall for 6 turns
+	[2] ESAbsorbCombo(67:31416) -> タービュラントアーマー
+	Absorb damage when combos <= 12 for 1 turn, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 13
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:31418) -> 機神帝の怒り
+	Increase damage to 150% for the next 999 turns
+	[1] ESSpinnersFixed(110:31419) -> ルーレットグランツ
+	Specific orbs change every 1.0s for 5 turns
+	[2] ESAbsorbCombo(67:31420) -> タービュラントアーマー
+	Absorb damage when combos <= 12 for 1 turn, Deal 100% damage
+
+#7: ESAbsorbCombo(67:31421) -> タービュラントアーマー
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 10 for 1 turn, Deal 100% damage
+
+#8: ESAbsorbCombo(67:31422) -> タービュラントアーマー
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#9: ESAbsorbCombo(67:31423) -> タービュラントアーマー
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+
+#10: ESAbsorbCombo(67:31424) -> タービュラントアーマー
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+
+#11: ESAbsorbCombo(67:31425) -> タービュラントアーマー
+Condition: 20% chance (ai:0 rnd:20)
+Absorb damage when combos <= 11 for 1 turn, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:31426) -> タービュラントシュラーゲルト
+Deal 1,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:31377) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:31386) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

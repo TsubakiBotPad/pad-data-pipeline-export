@@ -1,0 +1,91 @@
+  monster_id: 208098
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 31386
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 31315
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 25
+              }
+              enemy_skill_id: 31326
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 25
+              }
+              enemy_skill_id: 31329
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 25
+              }
+              enemy_skill_id: 31332
+            }
+          }
+          children {
+            behavior {
+              condition {
+                use_chance: 25
+              }
+              enemy_skill_id: 31335
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+            trigger_turn: 1
+            always_trigger_above: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 31319
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 31323
+            }
+          }
+        }
+      }
+    }
+  }

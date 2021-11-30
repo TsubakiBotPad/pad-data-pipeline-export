@@ -1,0 +1,59 @@
+#200356 - 裏シルフ
+monster size: 4
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 200356
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31059:50) どーん！
+ | Player -99% HP
+ group:
+ | group:
+ | condition: always turns 4-5
+   | (31063:15) これでおわり
+   | Deal 800% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 4
+     | (31060:15) どんどんいくよ！
+     | Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 4
+     | (31061:15) 耐えられるかな？
+     | Deal 200% damage
+   | group:
+   | condition: turn 3 while HP > 4
+     | (31062:15) これはどうだ！
+     | Deal 300% damage
+   | group:
+     | (31378:15) 星機の殄滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-3, hp <= 4
+   | (31063:15) これでおわり
+   | Deal 800% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turns 4-5
+   | (31063:15) これでおわり
+   | Deal 800% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 4
+     | (31379:17) 星機の解放
+     | Increase damage to 1,000% for the next 999 turns
+   | group:
+   | condition: turn 2 while HP > 4
+     | (31060:15) どんどんいくよ！
+     | Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 4
+     | (31061:15) 耐えられるかな？
+     | Deal 200% damage

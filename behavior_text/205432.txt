@@ -1,0 +1,38 @@
+#205432 - 転生明智光秀
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205432
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31109:83) 謀略神の守護 + 謀略神の策略 + 仕掛けさせてもらう
+ | Voids status ailments for 999 turns + Void damage >= 5 for 600,000,000 turns + Unable to match Dark orbs for 6 turns, Deal 300% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (31113:48) これはいらないよ
+     | Change all Heal orbs to Dark orbs, Deal 150% damage
+     | condition: 50% chance
+     | (31114:74) 攻めつつ守りを固める
+     | Reduce damage from all sources by 75% for 1 turn, Deal 80% damage
+     | condition: 50% chance
+     | (31115:15) 間髪入れずに攻めさせてもらう
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31116:83) 出来れば使いたくなかったが… + ここで使わせてもらう + 終わりにしよう
+   | Absorb Dark damage for 5 turns + Absorb damage when combos <= 7 for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31120:15) 神剣羅刹刃
+   | Deal 1,000% damage (5 hits, 200% each)

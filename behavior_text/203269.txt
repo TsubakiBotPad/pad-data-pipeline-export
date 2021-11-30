@@ -1,0 +1,36 @@
+#203269 - 転生ヴィーナス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203269
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31281:126) 慈愛神の解放
+ | Change board size to 7x6 for 1 turn
+ | (31148:83) あらあら～ + すごく楽しそうですね♪ + そんなあなたにプレゼントです♪
+ | Bind awoken skills for 1 turn + Absorb damage when combos <= 10 for 6 turns + A 2×2 square of clouds appears for 99 turns at a random location
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (31152:83) 慈愛神の守り + まだまだこれからです♪ + 本気でいきますね♪
+     | Voids status ailments for 999 turns + Void damage >= 6 for 500,000,000 turns + Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turns 2-5 while HP > 9
+     | (31157:48) ハートキラー
+     | Change all Heal orbs to Poison orbs, Deal 150% damage
+     | (31156:92) キューピッドハート
+     | Spawn 8 random Heal orbs, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31158:85) ビューティフルフェザー
+   | Change all orbs to Heal, Deal 1,000% damage

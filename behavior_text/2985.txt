@@ -1,0 +1,37 @@
+#2985 - Awoken Okuninushi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2985
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30854:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (30850:83) 国造神の魂 + 国建の巧技 + 結縁の荒業
+ | Voids status ailments for 999 turns + Random 7 orbs change every 1.0s for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (30855:83) 国建の巧技 + 結縁の荒業
+     | Leader changes to random sub for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (30857:83) 国建の巧技 + 結縁の荒業
+     | Random 7 orbs change every 1.0s for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (30859:83) 国造神の守り + 10コンボしてみろ + これでどうだ？ + おまけだ
+     | Reduce damage from all sources by 99% for 1 turn + Absorb damage when combos <= 9 for 1 turn + Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Random 2 orbs change every 1.0s for 1 turn
+   | group:
+     | condition: when 10 combos last turn
+     | (30863:83) 見事だ + 先に進め
+     | Movetime 150% for 5 turns + Reduce self HP to 0
+     | (30866:83) 残念だったな + じゃあな
+     | Movetime -2s for 5 turns + Reduce self HP to 0

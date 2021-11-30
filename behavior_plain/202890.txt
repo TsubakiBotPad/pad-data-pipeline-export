@@ -1,0 +1,81 @@
+#202890 - 真天翼機・セラフィス
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:31362) -> ヘブンズガード
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:31363) -> 電磁フィールド
+	Locked random skyfall +20% for 99 turns
+	[2] ESBindAwoken(88:31364) -> ショックフラッシュ
+	Bind awoken skills for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 9
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESSkyfall(68:31366) -> ジャミング
+Condition: 50% chance (ai:0 rnd:50)
+Jammer skyfall +20% for 1 turn, Deal 80% damage
+
+#7: ESSkyfall(68:31367) -> ジャミング
+Condition: 50% chance (ai:0 rnd:50)
+Poison skyfall +20% for 1 turn, Deal 80% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:31369) -> ホーリーリペア
+	Enemy recover 100% HP
+	[1] ESDamageShield(74:31370) -> リミテッドアーマー
+	Reduce damage from all sources by 50% for 6 turns
+	[2] ESOrbLock(94:31371) -> ショックレイ
+	Lock all orbs
+
+#14: ESRecoverEnemy86(86:31373) -> エネルギー充填
+Enemy recover 5%~10% HP, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:31306) -> エネルギー充填完了
+	Lock all orbs
+	[1] ESAttackUPRemainingEnemies(17:31374) -> フルチャージ
+	Increase damage to 1,000% for the next 999 turns
+
+#17: ESAttackMultihit(15:31372) -> リミットブレイク
+Deal 1,000% damage (2 hits, 500% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESDeathCry(69:31375) -> セラフィス変身
+Condition: On death (ai:0 rnd:0)
+Show message: アーマーチェンジ|姿が変形していく

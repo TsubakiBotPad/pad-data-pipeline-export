@@ -1,0 +1,76 @@
+#202904 - 覚醒大喬＆小喬
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:31197) -> 双華神の守護
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:31198) -> 天衣無縫
+	Specific orbs change every 1.0s for 1 turn
+	[2] ESVoidShieldBig(137:31199) -> 双華神の障壁
+	Void damage >= 6 for 600,000,000 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 99, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:31205) -> 守護の宝剣
+	Reduce damage from all sources by 50% for 999 turns
+	[1] ESSpinnersFixed(110:31206) -> 天衣無縫
+	Specific orbs change every 1.0s for 5 turns
+	[2] ESBoardChangeAttackBits(85:31207) -> 守護龍の邪爪
+	Change all orbs to Heal and Jammer, Deal 100% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:31201) -> 守護の宝剣
+	Increase damage to 150% for the next 999 turns
+	[1] ESSpinnersFixed(110:31202) -> 天衣無縫
+	Specific orbs change every 1.0s for 5 turns
+	[2] ESBoardChangeAttackBits(85:31203) -> 守護龍の毒爪
+	Change all orbs to Heal and Poison, Deal 100% damage
+
+#9: ESBoardChangeAttackBits(85:31203) -> 守護龍の毒爪
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Heal and Poison, Deal 100% damage
+
+#10: ESBoardChangeAttackBits(85:31207) -> 守護龍の邪爪
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Heal and Jammer, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBoardChangeAttackBits(85:31208) -> 邪滅天宝剣
+Change all orbs to Water, Light, and Heal, Deal 1,000% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:31377) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:31387) -> 根性
+Survive attacks with 1 HP when HP > 50%

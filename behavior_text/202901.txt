@@ -1,0 +1,38 @@
+#202901 - 覚醒曹操
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202901
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31184:83) 武王神の守護 + 千古不滅 + 邪龍斬
+ | Voids status ailments for 999 turns + Void damage >= 6 for 600,000,000 turns + Change all orbs to Jammer and Poison, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (31195:108) 赤龍刀
+     | Change all Jammer and Poison orbs to Fire orbs, Deal 150% damage
+     | condition: 50% chance
+     | (31193:92) 邪龍斬
+     | Spawn 10 random Poison orbs, Deal 100% damage
+     | condition: 50% chance
+     | (31194:92) 邪龍斬
+     | Spawn 10 random Jammer orbs, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31188:83) 千古不朽 + 武王の策略 + 邪龍斬
+   | Reduce damage from all sources by 50% for 999 turns + No skyfall for 5 turns + Change all orbs to Jammer and Poison, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31192:85) 武王鳳凰斬
+   | Change all orbs to Fire, Deal 1,000% damage

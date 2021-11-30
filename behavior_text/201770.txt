@@ -1,0 +1,26 @@
+#201770 - 裏マグカフィ
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201770
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | condition: when 1 enemies remain
+ | (31380:122) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (31008:137) ティータイム♪
+ | Void damage >= 5 for 99,900,000,000 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (31009:15) マグマアタック
+   | Deal 200% damage
+ | group:
+   | (31378:15) 星機の殄滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

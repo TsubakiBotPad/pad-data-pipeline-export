@@ -1,0 +1,35 @@
+#205956 - 灼鉄の機神帝・グランディス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205956
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31389:83) 機神帝の結界 + ラーヴァキャノン + グランツロック
+ | Voids status ailments for 999 turns + Player -150% HP + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (31393:83) 機神帝の怒り + ラーヴァキャノン + グランツロック
+     | Increase damage to 150% for the next 999 turns + Player -150% HP + Lock all orbs, Deal 100% damage
+   | group:
+   | condition: turns 2-5 while HP > 9
+     | (31397:94) グランツロック
+     | Lock 15 random orbs, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31398:15) ラーヴァシュラーゲルト
+   | Deal 1,000% damage
+ type: UNKNOWN_USE
+ | (31427:50) ラーヴァキャノン
+ | Player -300% HP

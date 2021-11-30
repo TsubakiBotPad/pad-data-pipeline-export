@@ -1,0 +1,45 @@
+#208104 - 蒼鋼の機神帝・グランディス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 208104
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31399:83) 機神帝の結界 + ルーレットグランツ + ヴォーティカルフェイド
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 6 turns + Unable to match Fire, Water, Wood, Light, and Dark orbs for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 4
+     | (31403:83) 機神帝の怒り + ハートグランツ + ヴォーティカルフェイド
+     | Increase damage to 150% for the next 999 turns + Change all orbs to Heal + Unable to match Heal orbs for 1 turn, Deal 100% damage
+   | group:
+   | condition: turns 2-5 while HP > 4
+     | condition: 20% chance
+     | (31407:107) ヴォーティカルフェイド
+     | Unable to match Fire orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31408:107) ヴォーティカルフェイド
+     | Unable to match Water orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31409:107) ヴォーティカルフェイド
+     | Unable to match Wood orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31410:107) ヴォーティカルフェイド
+     | Unable to match Light orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31411:107) ヴォーティカルフェイド
+     | Unable to match Dark orbs for 1 turn, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (31412:15) ヴォーティカルシュラーゲルト
+   | Deal 1,000% damage

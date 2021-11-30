@@ -1,0 +1,45 @@
+#208106 - 翠鋼の機神帝・グランディス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 208106
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31413:83) 機神帝の結界 + グランツフォール + タービュラントアーマー
+ | Voids status ailments for 999 turns + No skyfall for 6 turns + Absorb damage when combos <= 12 for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 4
+     | (31417:83) 機神帝の怒り + ルーレットグランツ + タービュラントアーマー
+     | Increase damage to 150% for the next 999 turns + Specific orbs change every 1.0s for 5 turns + Absorb damage when combos <= 12 for 1 turn, Deal 100% damage
+   | group:
+   | condition: turns 2-5 while HP > 4
+     | condition: 20% chance
+     | (31421:67) タービュラントアーマー
+     | Absorb damage when combos <= 10 for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31422:67) タービュラントアーマー
+     | Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31423:67) タービュラントアーマー
+     | Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31424:67) タービュラントアーマー
+     | Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (31425:67) タービュラントアーマー
+     | Absorb damage when combos <= 11 for 1 turn, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (31426:15) タービュラントシュラーゲルト
+   | Deal 1,000% damage

@@ -1,0 +1,75 @@
+#203697 - 覚醒立花ぎん千代
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:31232) -> 雷姫神の守護
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:31233) -> 雷姫神の障壁
+	Void damage >= 8 for 600,000,000 turns
+	[2] ESAbsorbAttribute(53:31234) -> 豪雷舞
+	Absorb Light damage for 6 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESRandomSpawn(92:31235) -> 雷斬刀
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Light orbs, Deal 100% damage
+
+#8: ESBoardChangeAttackBits(85:31236) -> 豪雷刀
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:31238) -> 雷姫神の怒雷
+	Increase damage to 150% for the next 999 turns
+	[1] ESDebuffMovetime(39:31239) -> 立花守の護紋
+	Movetime 25% for 5 turns
+	[2] ESOrbChangeAttackBits(108:31240) -> 雷切
+	Change all Light orbs to Heal orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBoardChangeAttackBits(85:31241) -> 豪雷聖斬刀
+Change all orbs to Light and Heal, Deal 1,000% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:31377) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:31387) -> 根性
+Survive attacks with 1 HP when HP > 50%

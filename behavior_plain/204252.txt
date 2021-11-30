@@ -1,0 +1,77 @@
+#204252 - 覚醒不動明王
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:31254) -> 不動如来
+	Reduce damage from all sources by 95% for 2 turns
+	[1] ESBlindStickySkyfall(128:31255) -> 降暗の三鈷剣
+	For 1 turn, 30% chance for skyfall orbs to be blinded for turn
+	[2] ESOrbLock(94:31256) -> 而二不二
+	Lock all orbs, Deal 200% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 11
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:31265) -> 慈悲神の守り
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:31266) -> 不動如来
+	Reduce damage from all sources by 95% for 999 turns
+	[2] ESOrbLock(94:31267) -> 而二不二
+	Lock all orbs, Deal 200% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:31261) -> 慈悲神の守り
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:31262) -> 不動如来
+	Reduce damage from all sources by 80% for 999 turns
+	[2] ESVoidShieldBig(137:31263) -> 慈悲神の障壁
+	Void damage >= 2 for 99,900,000,000 turns
+
+#9: SkillSet:
+	[0] ESBlindStickySkyfall(128:31258) -> 降暗の三鈷剣
+	For 1 turn, 30% chance for skyfall orbs to be blinded for turn
+	[1] ESOrbLock(94:31259) -> 而二不二
+	Lock all orbs, Deal 250% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBoardChangeAttackBits(85:31268) -> 降魔大鈷剣
+Change all orbs to Wood, Deal 1,000% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:31377) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESTurnChangePassive(106:31384) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 10%
+
+#16: ESResolve(73:31387) -> 根性
+Survive attacks with 1 HP when HP > 50%

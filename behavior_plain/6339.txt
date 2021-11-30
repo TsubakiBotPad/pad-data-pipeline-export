@@ -1,0 +1,135 @@
+#6339 - Reincarnated Rozuel
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESStatusShield(20:30871) -> いらっしゃい♪
+	Voids status ailments for 999 turns
+	[1] ESInvulnerableOn(119:30813) -> 私と約束しましょう♪
+	Immune to damage from all sources for 999 turns
+	[2] ESBindAwoken(88:30814) -> 絶対に攻撃しないでね！
+	Bind awoken skills for 1 turn
+	[3] ESBindSkill(14:30815) -> それじゃあ、いくよ！
+	Bind active skills for 4 turns
+	[4] ESRowSpawnMulti(78:30816) -> 1回目～♪
+	Change the 1st row to Fire orbs and the 5th row to Wood orbs
+
+#4: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#5: ESBranchDamage(116:30870) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 28
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESRandomSpawn(92:30818) -> 2回目～♪
+	Spawn 8 random Fire, Water, Wood, and Light orbs
+	[1] ESBlindStickyRandom(97:30819) -> 次は、これかな！
+	Blind random 2 orbs for 1 turn
+	[2] ESCloud(104:30820) -> 絶対に攻撃しないでね！
+	A 2×2 square of clouds appears for 1 turn at a random location
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#9: ESBranchDamage(116:30870) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 28
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESBoardChange(84:30827) -> 3回目～♪
+	Change all orbs to Fire, Water, Wood, Light, and Dark
+	[1] ESSpinnersRandom(109:30828) -> 絶対に攻撃しないでね！
+	Random 6 orbs change every 0.5s for 1 turn
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESBranchDamage(116:30870) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 28
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRowSpawnMulti(78:30823) -> 4回目～♪
+	Change the 1st, 3rd, and 5th rows to Fire orbs and the 2nd and 4th rows to Wood orbs
+	[1] ESFixedStart(101:30824) -> 絶対に攻撃しないでね！
+	Fix orb movement starting point to random position on the board
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESBranchDamage(116:30870) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 28
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 22
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:30831) -> 5回目～♪
+	Fire skyfall +40% for 1 turn
+	[1] ESBoardChange(84:30832) -> 絶対に攻撃しないでね！
+	Change all orbs to Heal
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#21: ESBranchDamage(116:30870) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 28
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 32, target rnd 26
+
+#23: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:30835) -> ラスト～♪
+	Bind awoken skills for 1 turn
+	[1] ESBoardChange(84:30836) -> 絶対に攻撃しないでね！
+	Change all orbs to Mortal Poison
+	[2] ESSkillDelay(89:30837) -> それっ！
+	Delay active skills by 99 turns
+	[3] ESTargetedSkillHaste(139:30838) -> 少しやりすぎたかな…
+	Haste all cards' skills by 5 turns
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111111
+
+#25: ESBranchDamage(116:30870) -> ESBranchDamage
+Branch on damage last turn >= 0, target rnd 28
+
+#26: SkillSet:
+	[0] ESInvulnerableOff(121:30843) -> 約束を守ってくれてありがとう♪
+	Remove damage immunity effect
+	[1] ESEndBattle(40:30844) -> またねっ♪
+	Reduce self HP to 0
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: SkillSet:
+	Condition: damage done in previous turn is >= 1 (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:30840) -> 約束は破ったらダメだよ
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:30841) -> ラブリーソード
+	Deal 10,000% damage (10 hits, 1,000% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn

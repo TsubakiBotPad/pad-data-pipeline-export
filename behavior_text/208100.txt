@@ -1,0 +1,37 @@
+#208100 - 暁闇の星壊機・デスファリオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208100
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31338:83) 刻め、デスファリオンという名を！ + アーリプロテットーレ + エテルニタムーロ
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 400,000,000 for 999 turns + Reduce damage from all sources by 90% for 1 turn
+ group:
+ | group:
+   | condition: 25% chance
+   | (31349:83) エテルニタムーロ + オスクリタウェスティオー
+   | Reduce damage from all sources by 75% for 1 turn + ATK -75% for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (31352:83) エテルニタムーロ + キアーカンビャメント
+   | Reduce damage from all sources by 80% for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (31355:83) エテルニタムーロ + オスクリタウェスティオー
+   | Reduce damage from all sources by 85% for 1 turn + RCV 25% for 1 turn, Deal 80% damage
+   | condition: 25% chance
+   | (31358:83) エテルニタムーロ + アーラピィオーヴェレ
+   | Reduce damage from all sources by 90% for 1 turn + No skyfall for 1 turn
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (31342:83) エテルニタムーロ + アッチェレラツィオーネ + オスクリタピィオーヴェレ
+   | Reduce damage from all sources by 90% for 1 turn + Haste both leaders' skills by 99 turns + For 20 turns, 20% chance for skyfall orbs to be blinded for turn, Deal 250% damage
+ | group:
+ | condition: hp <= 4
+   | (31346:83) ニエンテスパーツィオ + インヌメレーヴォレモルテ
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (10 hits, 500% each), Deal 5,000% damage (10 hits, 500% each)

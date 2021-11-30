@@ -1,0 +1,33 @@
+#201546 - 裏シャドウシールドナイト
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201546
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31022:53) リフレクシールド
+ | Absorb Dark damage for 6 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (31023:92) パープルアタック
+   | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+   | (31378:15) 星機の殄滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (31381:19) 星機の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (31023:92) パープルアタック
+   | Spawn 3 random Dark orbs, Deal 100% damage

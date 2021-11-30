@@ -1,0 +1,52 @@
+#200356 - 裏シルフ
+monster size: 4
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESGravity(50:31059) -> どーん！
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Player -99% HP
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 10
+
+#6: ESAttackUPRemainingEnemies(17:31379) -> 星機の解放
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#7: ESAttackMultihit(15:31060) -> どんどんいくよ！
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 100% damage
+
+#8: ESAttackMultihit(15:31061) -> 耐えられるかな？
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 200% damage
+
+#9: ESAttackMultihit(15:31062) -> これはどうだ！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 300% damage
+
+#10: ESAttackMultihit(15:31063) -> これでおわり
+Deal 800% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:31378) -> 星機の殄滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:31387) -> 根性
+Survive attacks with 1 HP when HP > 50%

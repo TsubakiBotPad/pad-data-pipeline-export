@@ -1,0 +1,38 @@
+#205043 - 転生前田慶次
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205043
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31121:83) 傾奇神の守護 + 傾奇神の防壁 + 華麗に攻めるぜぇ！
+ | Voids status ailments for 999 turns + Void damage >= 5 for 600,000,000 turns + Unable to match Light orbs for 6 turns, Deal 300% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (31125:48) こいつはいらねぇよなぁ！
+     | Change all Heal orbs to Light orbs, Deal 150% damage
+     | condition: 50% chance
+     | (31126:110) 華麗に攻めるぜぇ！
+     | Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+     | condition: 50% chance
+     | (31127:15) おらぁ！
+     | Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31128:83) なかなかやるじゃねぇか！ + ここで使うぜぇ！ + 終わりにしてやんよぉ！
+   | Absorb Light damage for 5 turns + Reduce damage from all sources by 50% for 5 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31132:15) 二刀乱舞
+   | Deal 1,000% damage (2 hits, 500% each)

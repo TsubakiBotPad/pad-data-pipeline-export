@@ -1,0 +1,40 @@
+#202904 - 覚醒大喬＆小喬
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202904
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31196:83) 双華神の守護 + 天衣無縫 + 双華神の障壁
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 1 turn + Void damage >= 6 for 600,000,000 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 98
+     | (31204:83) 守護の宝剣 + 天衣無縫 + 守護龍の邪爪
+     | Reduce damage from all sources by 50% for 999 turns + Specific orbs change every 1.0s for 5 turns + Change all orbs to Heal and Jammer, Deal 100% damage
+   | group:
+   | condition: turns 2-5 while HP > 9
+     | condition: 50% chance
+     | (31203:85) 守護龍の毒爪
+     | Change all orbs to Heal and Poison, Deal 100% damage
+     | condition: 50% chance
+     | (31207:85) 守護龍の邪爪
+     | Change all orbs to Heal and Jammer, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 98
+   | (31200:83) 守護の宝剣 + 天衣無縫 + 守護龍の毒爪
+   | Increase damage to 150% for the next 999 turns + Specific orbs change every 1.0s for 5 turns + Change all orbs to Heal and Poison, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31208:85) 邪滅天宝剣
+   | Change all orbs to Water, Light, and Heal, Deal 1,000% damage

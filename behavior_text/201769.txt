@@ -1,0 +1,26 @@
+#201769 - 裏マグコーン
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201769
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | condition: when 1 enemies remain
+ | (31380:122) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (31006:127) ティータイム♪
+ | No skyfall for 6 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (31007:15) マグマアタック
+   | Deal 175% damage
+ | group:
+   | (31378:15) 星機の殄滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

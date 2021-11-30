@@ -1,0 +1,26 @@
+#201767 - 裏マグミル
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201767
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31385:129) 超根性
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ | condition: when 1 enemies remain
+ | (31380:122) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (31002:71) ティータイム♪
+ | Void damage >= 500,000 for 999 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (31003:15) マグマアタック
+   | Deal 160% damage
+ | group:
+   | (31378:15) 星機の殄滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

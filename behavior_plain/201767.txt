@@ -1,0 +1,37 @@
+#201767 - 裏マグミル
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:31002) -> ティータイム♪
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Void damage >= 500,000 for 999 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 7
+
+#5: ESAttackMultihit(15:31003) -> マグマアタック
+Deal 160% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackMultihit(15:31378) -> 星機の殄滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSuperResolve(129:31385) -> 超根性
+Damage which would reduce HP from above 1% to below 1% is nullified
+
+#10: ESTurnChangeRemainingEnemies(122:31380) -> 敵の行動ターンが変化した
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1

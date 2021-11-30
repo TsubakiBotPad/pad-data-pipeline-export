@@ -1,0 +1,25 @@
+#205431 - 転生毛利元就
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 205431
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31383:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 99%
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31138:83) 智謀神の守護 + この私を倒せますか？ + 期待していますよ
+ | Voids status ailments for 999 turns + Absorb Wood damage for 3 turns + Water skyfall +25% for 3 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (31142:15) 神速二刀
+   | Deal 500% damage (2 hits, 250% each)
+ | group:
+   | (31376:83) 星機の波動 + 星機の殄滅
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

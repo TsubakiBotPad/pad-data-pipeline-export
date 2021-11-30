@@ -1,0 +1,78 @@
+#205432 - 転生明智光秀
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:31110) -> 謀略神の守護
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:31111) -> 謀略神の策略
+	Void damage >= 5 for 600,000,000 turns
+	[2] ESAttributeBlock(107:31112) -> 仕掛けさせてもらう
+	Unable to match Dark orbs for 6 turns, Deal 300% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 17
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESOrbChangeAttack(48:31113) -> これはいらないよ
+Change all Heal orbs to Dark orbs, Deal 150% damage
+
+#8: ESDamageShield(74:31114) -> 攻めつつ守りを固める
+Condition: 50% chance (ai:0 rnd:50)
+Reduce damage from all sources by 75% for 1 turn, Deal 80% damage
+
+#9: ESAttackMultihit(15:31115) -> 間髪入れずに攻めさせてもらう
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESAbsorbAttribute(53:31117) -> 出来れば使いたくなかったが…
+	Absorb Dark damage for 5 turns
+	[1] ESAbsorbCombo(67:31118) -> ここで使わせてもらう
+	Absorb damage when combos <= 7 for 5 turns
+	[2] ESAttackUPRemainingEnemies(17:31119) -> 終わりにしよう
+	Increase damage to 150% for the next 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:31120) -> 神剣羅刹刃
+Deal 1,000% damage (5 hits, 200% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESBindAwoken(88:31377) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:31387) -> 根性
+Survive attacks with 1 HP when HP > 50%

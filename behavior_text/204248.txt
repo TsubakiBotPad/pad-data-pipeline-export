@@ -1,0 +1,34 @@
+#204248 - 覚醒降三世明王
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204248
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31382:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 50%
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31242:83) 真言結界 + オン・ソンバ + ニソンバ
+ | Void damage >= 8 for 99,900,000,000 turns + Player -150% HP + Deal 150% damage, Deal 150% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (31249:83) 真言の讃歌 + ウン・バザラ + ウン・パッタ
+     | Lock all orbs + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 150% damage (5 hits, 30% each), Deal 150% damage (5 hits, 30% each)
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31246:83) 降魔神の守り + 真言の讃歌 + オン・ソンバ
+   | Voids status ailments for 999 turns + Lock all orbs + Player -150% HP
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31252:15) 真言終唱
+   | Deal 1,000% damage (10 hits, 100% each)

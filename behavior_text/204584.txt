@@ -1,0 +1,38 @@
+#204584 - 覚醒司馬懿
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204584
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (31284:83) 宣王神の魂 + 狼顧の達観 + 宣王神の策略
+ | Voids status ailments for 999 turns + Jammer skyfall +20% for 6 turns + Absorb Dark damage for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | (31282:108) 狼顧の邪想
+     | Change all Jammer orbs to Dark orbs, Deal 150% damage
+     | condition: 50% chance
+     | (31293:15) 殲滅風
+     | Deal 120% damage (4 hits, 30% each)
+     | condition: 50% chance
+     | (31283:85) 神出鬼没の知謀
+     | Change all orbs to Light, Dark, and Jammer, Deal 100% damage
+   | group:
+     | (31376:83) 星機の波動 + 星機の殄滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31288:83) 宣王神の鉄壁 + 狼顧の暗想 + 神出鬼没の権謀
+   | Reduce damage from all sources by 50% for 999 turns + Blind all orbs for 5 turns + Change all orbs to Fire, Water, Wood, and Jammer, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (31292:85) 狼滅陣
+   | Change all orbs to Jammer, Deal 1,000% damage
