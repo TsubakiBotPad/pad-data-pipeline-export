@@ -1,0 +1,59 @@
+#305469 - カフェル・スパード
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBindAwoken(88:14137) -> 一人が怖くて何が海賊だよっ
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind awoken skills for 2 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#6: ESCloud(104:14138) -> レッドスケル!!出航用意だ！
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+A 2×2 square of clouds appears for 3 turns at a random location
+
+#7: ESBindSkill(14:14139) -> 右舷全砲点火用意！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 5 turns
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 11
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAttackMultihit(15:14141) -> 撃てっ撃てェ！
+Deal 100% damage (2 hits, 50% each)
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESOrbChangeAttack(48:14142) -> 撃てェエ!!
+Change a random attribute to Fire orbs, Deal 200% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: ESBombRandomSpawn(102:14140) -> くらえぇ!!
+Spawn 3 random Bomb orbs, Deal 80% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

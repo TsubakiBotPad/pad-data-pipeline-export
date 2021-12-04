@@ -1,0 +1,71 @@
+#6633 - 恐龍拳・範馬刃牙
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:30904) -> いくしかねェわな……
+	Voids status ailments for 999 turns
+	[1] ESInactivity66(66:30905) -> さァ………
+	Do nothing
+	[2] ESBlindStickySkyfall(128:30906) -> いってみようか
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 15
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 15
+
+#6: ESColumnSpawnMulti(77:30911) -> どうだい………？
+Condition: 16% chance (ai:16 rnd:0)
+Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 101% damage
+
+#7: ESColumnSpawnMulti(77:30912) -> どうだい………？
+Condition: 16% chance (ai:16 rnd:0)
+Change the 2nd column to Fire orbs and the 5th column to Wood orbs, Deal 102% damage
+
+#8: ESColumnSpawnMulti(77:30913) -> どうだい………？
+Condition: 16% chance (ai:16 rnd:0)
+Change the 3rd column to Fire orbs and the 4th column to Wood orbs, Deal 101% damage
+
+#9: ESOrbLock(94:30914) -> この構えが醸す殺意
+Lock 15 random orbs, Deal 101% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:30908) -> この構えの持つ意志
+	Bind awoken skills for 3 turns
+	[1] ESVoidShield(71:30909) -> この構えに備わる重量さ
+	Void damage >= 400,000,000 for 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:30910) -> 恐龍拳
+Deal 500% damage (5 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:30915) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#18: ESAttributeResist(72:30916) -> 火半減
+Reduce damage from Fire attrs by 50%

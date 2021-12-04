@@ -1,0 +1,105 @@
+#305475 - 愚地独歩
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305475
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14148:83) 愚地流の空手というものを―― + キミタチにお見せしよう
+ | Voids status ailments for 999 turns + Delay active skills by 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (14068:83) 三戦 + 呼ッ
+     | Do nothing + Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: turns 2-3 while HP > 49
+     | condition: 25% chance
+     | (14072:62) 虎口拳
+     | Blind all orbs on the board, Deal 80% damage
+     | condition: 25% chance
+     | (14073:77) 足先蹴り
+     | Change the 2nd column to Light orbs, Deal 85% damage
+     | condition: 25% chance
+     | (14074:15) 風摩殺
+     | Deal 100% damage
+     | condition: 25% chance
+     | (14075:92) 六波返し
+     | Spawn 3 random Poison orbs, Deal 90% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (14071:74) 前羽の構え
+     | Reduce damage from all sources by 75% for 2 turns
+   | group:
+     | condition: 25% chance
+     | (14072:62) 虎口拳
+     | Blind all orbs on the board, Deal 80% damage
+     | condition: 25% chance
+     | (14073:77) 足先蹴り
+     | Change the 2nd column to Light orbs, Deal 85% damage
+     | condition: 25% chance
+     | (14074:15) 風摩殺
+     | Deal 100% damage
+     | condition: 25% chance
+     | (14075:92) 六波返し
+     | Spawn 3 random Poison orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (14076:67) 天地上下の構え
+     | Absorb damage when combos <= 5 for 5 turns
+   | group:
+   | condition: turn 2 while HP > 19
+     | (14068:83) 三戦 + 呼ッ
+     | Do nothing + Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: always turn 4
+     | condition: 25% chance
+     | (14072:62) 虎口拳
+     | Blind all orbs on the board, Deal 80% damage
+     | condition: 25% chance
+     | (14073:77) 足先蹴り
+     | Change the 2nd column to Light orbs, Deal 85% damage
+     | condition: 25% chance
+     | (14074:15) 風摩殺
+     | Deal 100% damage
+     | condition: 25% chance
+     | (14075:92) 六波返し
+     | Spawn 3 random Poison orbs, Deal 90% damage
+   | group:
+   | condition: turn 5 while HP > 19
+     | (14071:74) 前羽の構え
+     | Reduce damage from all sources by 75% for 2 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (14077:83) 計算もクソもないッッ + 全てを肉体に委ねる
+     | Do nothing + Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: turn 3
+     | (14068:83) 三戦 + 呼ッ
+     | Do nothing + Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: turn 5
+     | condition: 25% chance
+     | (14072:62) 虎口拳
+     | Blind all orbs on the board, Deal 80% damage
+     | condition: 25% chance
+     | (14073:77) 足先蹴り
+     | Change the 2nd column to Light orbs, Deal 85% damage
+     | condition: 25% chance
+     | (14074:15) 風摩殺
+     | Deal 100% damage
+     | condition: 25% chance
+     | (14075:92) 六波返し
+     | Spawn 3 random Poison orbs, Deal 90% damage
+   | group:
+   | condition: turn 6
+     | (14071:74) 前羽の構え
+     | Reduce damage from all sources by 75% for 2 turns

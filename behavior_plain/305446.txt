@@ -1,0 +1,42 @@
+#305446 - キューティーハニー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESDebuffMovetime(39:14143) -> 愛の戦士キューティーハニー
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Movetime -2s for 5 turns
+
+#5: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 9
+
+#6: ESDebuffRCV(105:14144) -> 正義の刃を受けよ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 5 turns
+
+#7: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 9
+
+#8: ESRandomSpawn(92:14147) -> シルバーフルーレ
+Spawn 7 random Light orbs, Deal 200% damage
+
+#9: ESRowSpawnMulti(79:14145) -> ハニーッブーメラン!!!
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd row to Light orbs, Deal 95% damage
+
+#10: ESAttackMultihit(15:14146) -> 剣の舞うけてみろ！
+Condition: 50% chance (ai:0 rnd:50)
+Deal 105% damage (3 hits, 35% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

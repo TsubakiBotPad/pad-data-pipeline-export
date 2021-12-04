@@ -1,0 +1,49 @@
+#3370 - Hellbrand Mechdragon God, Baldin
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDebuffMovetime(39:15970) -> 会いに来てくれてありがとう
+Movetime 500% for 4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESNone(0:15968) -> ESNone
+nothing
+
+#7: ESBindSkill(14:15971) -> 頑張ってパズルしてね
+Bind active skills for 6 turns
+
+#8: ESRandomSpawn(92:15972) -> ドロップを用意するね
+Spawn 21 random Light and Dark orbs
+
+#9: ESRandomSpawn(92:15973) -> はい、どうぞ
+Spawn 5 random Fire, Water, and Wood orbs
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:15970) -> 会いに来てくれてありがとう
+	Movetime 500% for 4 turns
+	[1] ESBindSkill(14:15971) -> 頑張ってパズルしてね
+	Bind active skills for 6 turns
+	[2] ESRandomSpawn(92:15972) -> ドロップを用意するね
+	Spawn 21 random Light and Dark orbs
+	[3] ESRandomSpawn(92:15973) -> はい、どうぞ
+	Spawn 5 random Fire, Water, and Wood orbs
+
+#11: ESNone(0:15969) -> ESNone
+nothing
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

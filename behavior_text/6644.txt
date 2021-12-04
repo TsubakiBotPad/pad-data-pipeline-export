@@ -1,0 +1,35 @@
+#6644 - 海賊スイートマドンナ・ジョン・バーツ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 6644
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (30887:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (30888:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (30875:83) 野郎どもォ! 武器をとれ!! + サァ来いっ
+ | Voids status ailments for 999 turns + Delay active skills by 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (30884:107) さァてどうするよ
+   | Unable to match Water and Light orbs for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (30885:63) はしゃぐな
+   | Bind 2 random subs for 3 turns, Deal 102% damage
+   | (30886:15) 行くぜ 野郎どもっ
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (30881:83) 海賊スイートマドンナ！ + 全速前進！
+   | Change all orbs to Water + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 1
+   | (30878:83) ちょっと待ってろや + 覚悟しなァ!!
+   | Enemy recover 100% HP + Bind awoken skills for 3 turns

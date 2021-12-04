@@ -1,0 +1,78 @@
+#405471 - 赤城直巳
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 2, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 12
+
+#5: ESOrbLock(94:14111) -> こいつは俺が――ぶちのめす
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Lock all orbs, Deal 100% damage
+
+#6: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:14113) -> 伝家の宝刀――復活!!
+	Enemy recover 20% HP
+	[1] ESAttackUPRemainingEnemies(17:14114) -> 相当怒ってるぜ俺の右腕はよォ
+	Increase damage to 150% for the next 3 turns
+
+#8: ESColumnSpawnMulti(77:14115) -> この右腕一本で十分だぜ
+Condition: 33% chance (ai:0 rnd:33)
+Change the 6th column to Fire orbs, Deal 70% damage
+
+#9: ESAttackMultihit(15:14116) -> まだ終わっちゃいねェぜ
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage (4 hits, 25% each)
+
+#10: ESOrbChangeAttack(48:14117) -> うらあああああ
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Light orbs, Deal 75% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAbsorbCombo(67:14131) -> 負ける気がしねェ
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 4 for 5 turns
+
+#13: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 17
+
+#14: ESDamageShield(74:14135) -> 赤城直巳をなめんじゃねェ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 5 turns
+
+#15: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 21, target rnd 17
+
+#16: ESRowSpawnMulti(79:14136) -> うおおおおおっ！
+Change the 2nd and 4th rows to Light orbs, Deal 200% damage
+
+#17: ESAttackMultihit(15:14132) -> っだらあ!!
+Condition: 33% chance (ai:0 rnd:33)
+Deal 100% damage
+
+#18: ESAttackMultihit(15:14133) -> オラオラオラァ!!
+Condition: 33% chance (ai:0 rnd:33)
+Deal 105% damage (3 hits, 35% each)
+
+#19: ESOrbChangeAttack(48:14134) -> ウダウダ言ってんじゃねェよォ！
+Condition: 34% chance (ai:0 rnd:34)
+Change a random attribute to Light orbs, Deal 95% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

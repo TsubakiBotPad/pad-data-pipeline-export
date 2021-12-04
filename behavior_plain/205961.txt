@@ -1,0 +1,102 @@
+#205961 - 大天使・ラジエル
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 9, target rnd 7
+
+#6: SkillSet:
+	[0] ESAbsorbCombo(67:17049) -> 秘密の領域
+	Absorb damage when combos <= 16 for 999 turns
+	[1] ESSkyfall(68:17042) -> 至高の神秘
+	Heal skyfall +5% for 4 turns
+	[2] ESBoardChange(84:17043) -> 全てを見聞する者
+	Change all orbs to Wood, Light, Dark, and Heal
+
+#7: SkillSet:
+	[0] ESAbsorbCombo(67:17041) -> 秘密の領域
+	Absorb damage when combos <= 18 for 999 turns
+	[1] ESSkyfall(68:17042) -> 至高の神秘
+	Heal skyfall +5% for 4 turns
+	[2] ESBoardChange(84:17043) -> 全てを見聞する者
+	Change all orbs to Wood, Light, Dark, and Heal
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 23
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 20
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESDebuffRCV(105:17044) -> パラダイス・ロスト
+Condition: 25% chance (ai:0 rnd:25)
+RCV 50% for 1 turn, Deal 130% damage
+
+#12: ESBlind62(62:17045) -> パーガトリアル・エンド
+Condition: 25% chance (ai:0 rnd:25)
+Blind all orbs on the board, Deal 135% damage
+
+#13: ESAttackMultihit(15:17046) -> ボイド・エタニティ
+Condition: 25% chance (ai:0 rnd:25)
+Deal 140% damage (10 hits, 14% each)
+
+#14: ESOrbChangeAttackBits(108:17095) -> ホーリー・アトーンメント
+Condition: 5% chance (ai:0 rnd:5)
+Change all Fire and Water orbs to Heal orbs, Deal 160% damage
+
+#15: ESOrbChangeAttackBits(108:17096) -> ホーリー・アトーンメント
+Condition: 5% chance (ai:0 rnd:5)
+Change all Water and Wood orbs to Heal orbs, Deal 160% damage
+
+#16: ESOrbChangeAttackBits(108:17097) -> ホーリー・アトーンメント
+Condition: 5% chance (ai:0 rnd:5)
+Change all Wood and Light orbs to Heal orbs, Deal 160% damage
+
+#17: ESOrbChangeAttackBits(108:17098) -> ホーリー・アトーンメント
+Condition: 5% chance (ai:0 rnd:5)
+Change all Light and Dark orbs to Heal orbs, Deal 160% damage
+
+#18: ESOrbChangeAttackBits(108:17099) -> ホーリー・アトーンメント
+Condition: 5% chance (ai:0 rnd:5)
+Change all Fire and Dark orbs to Heal orbs, Deal 160% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#21: ESAttackUPRemainingEnemies(17:17047) -> 天地全容の書
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 8,800% for the next 1 turn
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttackMultihit(15:17100) -> レンヴェントシンズ
+Deal 8,000% damage (8 hits, 1,000% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESResolve(73:17093) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#26: ESTypeResist(118:17094) -> 悪魔バランス半減
+Reduce damage from Balanced and Devil types by 50%
