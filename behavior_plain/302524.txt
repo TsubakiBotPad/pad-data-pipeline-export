@@ -1,0 +1,101 @@
+#302524 - 聖夜の使者・サンタクロース
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESInactivity66(66:30936) -> メリ～クリスマ～ス♪
+	Do nothing
+	[1] ESBoardChange(84:30937) -> 火と光ドロップを全て消すのじゃ！
+	Change all orbs to Light
+	[2] ESRandomSpawn(92:30938) -> ほれっ！
+	Spawn 5 random Fire orbs
+
+#3: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 9
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 13
+
+#5: ESBranchAttrOnBoard(133:30958) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 17
+
+#6: ESBranchAttrOnBoard(133:30959) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 17
+
+#7: ESSetCounter(25:15) -> ESSetCounter
+counter = 1
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardChange(84:30940) -> これはどうじゃ！
+	Change all orbs to Light
+	[1] ESRandomSpawn(92:30941) -> ほれっ！
+	Spawn 10 random Fire orbs
+
+#9: ESBranchAttrOnBoard(133:30958) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 19
+
+#10: ESBranchAttrOnBoard(133:30959) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 19
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 2
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:30943) -> 最後じゃ！
+	Change all orbs to Light
+	[1] ESRandomSpawn(92:30944) -> ほれっ！
+	Spawn 15 random Fire orbs
+	[2] ESFixedStart(101:30945) -> ホッホッホ～♪
+	Fix orb movement starting point to random position on the board
+
+#13: ESBranchAttrOnBoard(133:30958) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 21
+
+#14: ESBranchAttrOnBoard(133:30959) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 21
+
+#15: SkillSet:
+	[0] ESInactivity66(66:30956) -> すばらしいパズルじゃったぞ～！
+	Do nothing
+	[1] ESInactivity66(66:30957) -> プレゼントはメールに届いておるぞ！
+	Do nothing
+	[2] ESEndBattle(40:30960) -> それじゃ～の～♪
+	Reduce self HP to 0
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESBoardChange(84:30947) -> やり直しじゃ！
+	Change all orbs to Light
+	[1] ESRandomSpawn(92:30948) -> ほれっ！
+	Spawn 5 random Fire orbs
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	[0] ESBoardChange(84:30950) -> やり直しじゃ！
+	Change all orbs to Light
+	[1] ESRandomSpawn(92:30951) -> ほれっ！
+	Spawn 10 random Fire orbs
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	[0] ESBoardChange(84:30953) -> やり直しじゃ！
+	Change all orbs to Light
+	[1] ESRandomSpawn(92:30954) -> ほれっ！
+	Spawn 15 random Fire orbs
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
