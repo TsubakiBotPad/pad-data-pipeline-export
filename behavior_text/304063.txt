@@ -1,0 +1,33 @@
+#304063 - 聖夜の滞在者・グレモリー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 304063
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (15932:83) ちょっとお邪魔するねっ！ + キミは何が欲しいのかなっ？
+ | Absorb damage when combos <= 6 for 10 turns + Seal the 6th column for 4 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (15927:39) ブラッククリスマス
+     | Movetime 25% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (15928:57) 黒い雪
+     | Change a random attribute to Poison orbs, Deal 89% damage
+     | (15929:15) 悪魔のいたずら
+     | Deal 93% damage (3 hits, 31% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (15930:127) プレゼントあげるねっ！
+     | No skyfall for 5 turns
+   | group:
+     | (15931:92) スイートワード
+     | Spawn 3 random Fire and Heal orbs, Deal 156% damage

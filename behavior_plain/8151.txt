@@ -1,0 +1,81 @@
+#8151 - 聖夜の魔導機士・メノア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:29852) -> 聖祭障壁
+	Reduce damage from all sources by 90% for 999 turns
+	[1] ESBindSkill(14:29853) -> お仕事中だよ～ん
+	Bind active skills for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 18
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 15
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESDebuffMovetime(39:29855) -> クイックギフト
+	Movetime 50% for 1 turn
+	[1] ESOrbLock(94:29856) -> スマートに配達！
+	Lock 15 random orbs, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESAttackMultihit(15:29858) -> ギフボミサイル
+	Deal 105% damage (3 hits, 35% each)
+	[1] ESTargetedSkillHaste(139:29859) -> すみやかに配達！
+	Haste all cards' skills by 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: SkillSet:
+	[0] ESSkyfall(68:29861) -> チムニードロップ
+	Jammer and Poison skyfall +15% for 1 turn
+	[1] ESBoardChangeAttackBits(85:29862) -> あでやかに配達！
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:29863) -> もう！なんで邪魔するの！
+Deal 325% damage (5 hits, 65% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESDeathCry(69:29864) -> ＿メノア変身
+Condition: On death (ai:0 rnd:0)
+Show message: 配達完了～♪|コード6078…
+
+#21: ESResolve(73:29850) -> ＿メノア根性
+Survive attacks with 1 HP when HP > 50%
