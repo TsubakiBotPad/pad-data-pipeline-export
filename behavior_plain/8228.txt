@@ -1,0 +1,149 @@
+#8228 - 超転生ネプチューン＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:32733) -> 海王神龍の真魂
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:32734) -> 海王神龍の咆哮
+	Locked random skyfall +30% for 5 turns
+	[2] ESVoidShield(71:32735) -> 冥海の加護
+	Void damage >= 60,000,000 for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 25
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 33
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESBoardSizeChange(126:32754) -> 海王神龍の領海
+	Change board size to 7x6 for 1 turn
+	[1] ESAbsorbCombo(67:32755) -> 海王神龍の舞
+	Absorb damage when combos <= 9 for 1 turn, Deal 101% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: SkillSet:
+	[0] ESBoardChangeAttackBits(85:32748) -> ヒュドラリフレッシュ
+	Change all orbs to Fire, Water, Heal, and Jammer, Deal 100% damage
+	[1] ESOrbLock(94:32749) -> ヒュドラホーン
+	Lock 15 random orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#16: SkillSet:
+	[0] ESDebuffATK(130:32742) -> 海王神龍の威圧
+	ATK -50% for 1 turn
+	[1] ESOrbChangeAttackBits(108:32743) -> ヒュドラブレス
+	Change all Light and Dark orbs to Fire, Water, and Jammer orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: SkillSet:
+	[0] ESCloud(104:32751) -> 海煙
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESBlind62(62:32752) -> 深海の導き
+	Blind all orbs on the board, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#23: SkillSet:
+	[0] ESAttributeBlock(107:32745) -> 海王神龍の心眼
+	Unable to match Fire orbs for 1 turn
+	[1] ESColumnSpawnMulti(77:32746) -> ヒュドラブレス
+	Change the 1st column to Heal orbs, Deal 101% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:32737) -> 海王神龍の鱗
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESNoSkyfall(127:32738) -> 冥海の奇跡
+	No skyfall for 4 turns
+	[2] ESOrbLock(94:32739) -> 海王神龍の拘束
+	Lock all orbs
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 29
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#28: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#29: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#30: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#31: SkillSet:
+	[0] ESChangeAttribute(46:32764) -> 海王神龍の逆鱗
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:32740) -> ヒュドラスケイル
+	Deal 1,500% damage (10 hits, 150% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:32760) -> ヒュドラエンハンス
+	Increase damage to 150% for the next 999 turns
+	[1] ESBlindStickyRandom(97:32761) -> ダークホーン
+	Blind random 5 orbs for 3 turns, Deal 100% damage
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESSuperResolve(129:32757) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#36: ESTypeResist(118:32756) -> 攻撃半減
+Reduce damage from Attacker types by 50%
+
+#37: ESNone(136:32762) -> ESNone
+nothing

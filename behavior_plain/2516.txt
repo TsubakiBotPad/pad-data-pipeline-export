@@ -1,0 +1,102 @@
+#2516 - Enchantress of the Sanctuary, Siren
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:32615) -> 一緒に歌いましょう♪
+	Voids status ailments for 999 turns
+	[1] ESColumnSpawnMulti(76:32616) -> アイシクルギフト
+	Change the 2nd column to Fire orbs and the 5th column to Water orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 18
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESFixedStart(101:32634) -> 歌姫の誘い
+	Fix orb movement starting point to random position on the board
+	[1] ESBindAttack(63:32635) -> エターナルソング
+	Bind 1 random sub for 2 turns, Deal 100% damage
+
+#9: SkillSet:
+	[0] ESDebuffRCV(105:32637) -> 魅惑の歌声
+	RCV 50% for 1 turn
+	[1] ESColumnSpawnMulti(77:32638) -> 癒しの舞
+	Change the 6th column to Heal orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESDamageShield(74:32624) -> 歌姫の守り
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESSkyfall(68:32625) -> 歌姫の祈り
+	Fire and Water skyfall +15% for 5 turns
+	[2] ESBindSkill(14:32626) -> ノエルの手助け
+	Bind active skills for 3 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:32628) -> 歌姫の守り
+	Reduce damage from all sources by 25% for 1 turn
+	[1] ESRowSpawnMulti(79:32629) -> ギフトブレス
+	Change the 3rd row to Heal orbs, Deal 101% damage
+
+#16: SkillSet:
+	[0] ESDamageShield(74:32631) -> 歌姫の守り
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESOrbLock(94:32632) -> 歌姫の拘束
+	Lock all Fire orbs, Deal 101% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: SkillSet:
+	[0] ESDebuffMovetime(39:32618) -> 歌姫の眼差し
+	Movetime 50% for 1 turn
+	[1] ESBindAttack(63:32619) -> 終わりにしましょう♪
+	Bind 2 random subs for 2 turns, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	[0] ESBindAwoken(88:32621) -> 響き渡る歌声
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:32622) -> 終焉のプレゼント
+	Deal 1,120% damage (7 hits, 160% each)
+
+#23: ESSuperResolve(129:32639) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

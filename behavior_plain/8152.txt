@@ -1,4 +1,4 @@
-#8152 - 煌星の魔導機士・メノア
+#8152 - Twinkling Star Magical Machinist, Menoa
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSkyfall(68:29867) -> ホーリーナイトゲート！
+	[0] ESSkyfall(68:29867) -> Holy Night Gate!
 	Heal skyfall +15% for 10 turns
-	[1] ESDamageShield(74:29868) -> 相手してあげる！
+	[1] ESDamageShield(74:29868) -> Now I'll take you on!
 	Reduce damage from all sources by 90% for 999 turns
-	[2] ESStatusShield(20:29869) -> 聖祭機装・マキナマギクス
+	[2] ESStatusShield(20:29869) -> Holy Festival Equip, Machina Magica
 	Voids status ailments for 999 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -30,23 +30,23 @@ Branch on hp < 10, target rnd 17
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 14
 
-#8: ESRowSpawnMulti(79:29870) -> ミエキリボイラー
+#8: ESRowSpawnMulti(79:29870) -> Burning Pose
 Condition: 20% chance (ai:0 rnd:20)
 Change the 4th row to Fire orbs and the 5th row to Fire orbs, Deal 100% damage
 
-#9: ESSpinnersRandom(109:29871) -> アークメノアノア
+#9: ESSpinnersRandom(109:29871) -> Menoah's Ark
 Condition: 20% chance (ai:0 rnd:20)
 Random 3 orbs change every 1.0s for 1 turn, Deal 105% damage
 
-#10: ESVoidShield(71:29872) -> エギダプレセピオ
+#10: ESVoidShield(71:29872) -> Presepe di Egida
 Condition: 20% chance (ai:0 rnd:20)
 Void damage >= 1,500,000,000 for 1 turn, Deal 102% damage
 
-#11: ESDebuffRCV(105:29873) -> オルファンタズマ
+#11: ESDebuffRCV(105:29873) -> Orphantasma
 Condition: 20% chance (ai:0 rnd:20)
 RCV 0% for 1 turn, Deal 95% damage
 
-#12: ESBlindStickyRandom(97:29874) -> デスファランクス
+#12: ESBlindStickyRandom(97:29874) -> Desphalanx
 Condition: 20% chance (ai:0 rnd:20)
 Blind random 10 orbs for 1 turn, Deal 103% damage
 
@@ -55,9 +55,9 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESBlindStickySkyfall(128:29876) -> 改機・ギフボミサイル
+	[0] ESBlindStickySkyfall(128:29876) -> Upgraded Gift Missile
 	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
-	[1] ESAttackUPRemainingEnemies(17:29877) -> ジングルシンドローム
+	[1] ESAttackUPRemainingEnemies(17:29877) -> Festive Syndrome
 	Increase damage to 150% for the next 999 turns
 
 #15: ESBranchFlag(43:10) -> ESBranchFlag
@@ -68,9 +68,9 @@ end_turn
 
 #17: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRecoverEnemy86(86:29879) -> オーナメントリペア
+	[0] ESRecoverEnemy86(86:29879) -> Ornament Repair
 	Enemy recover 10% HP
-	[1] ESCloud(104:29880) -> パウダースノーアウト
+	[1] ESCloud(104:29880) -> Snowy Whiteout
 	A 6×2 rectangle of clouds appears for 5 turns at 1st row, 5th column, Deal 170% damage
 
 #18: ESBranchFlag(43:10) -> ESBranchFlag
@@ -81,8 +81,8 @@ end_turn
 
 #20: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:29882) -> 強い子には～
+	[0] ESInactivity66(66:29882) -> Strong kids...
 	Do nothing
 
-#21: ESSuperResolve(129:29865) -> ＿変身後メノア超根性
+#21: ESSuperResolve(129:29865) -> ＿Transformed Menoa Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

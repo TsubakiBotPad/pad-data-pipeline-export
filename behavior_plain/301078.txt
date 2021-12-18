@@ -1,0 +1,95 @@
+#301078 - 裏蒼天の果実・ベリードラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESTargetedSkillDelay(140:32676) -> 果実の香り
+	Delay both leaders' skills by 1 turn
+	[1] ESSkyfall(68:32677) -> 蒼果の力
+	Jammer skyfall +15% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 17
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:32682) -> 蒼天の眩惑
+	Bind awoken skills for 2 turns
+	[1] ESColumnSpawnMulti(77:32683) -> バブルアタック
+	Change the 3rd column to Water orbs, Deal 100% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 11
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:32691) -> ブルーベリーシャワー
+	Spawn 4 random Water, Wood, and Jammer orbs
+	[1] ESBlind62(62:32692) -> ブラックシャワー
+	Blind all orbs on the board, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:32694) -> ブルーベリーシャワー
+	Spawn 6 random Heal and Jammer orbs
+	[1] ESBlind62(62:32695) -> ブラックシャワー
+	Blind all orbs on the board, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESCloud(104:32697) -> 蒼天の水飛沫
+	A 1×1 square of clouds appears for 1 turn at a random location
+	[1] ESBlind62(62:32698) -> ブラックシャワー
+	Blind all orbs on the board, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbSealColumn(99:32700) -> 蒼天の縄張り
+	Seal the 1st column for 1 turn
+	[1] ESOrbChangeAttackBits(108:32701) -> ブルーベリーブレス
+	Change all Water orbs to Jammer orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESSkillDelay(89:32685) -> 果実の香り
+	Delay active skills by 2 turns
+	[1] ESInactivity66(66:32686) -> 飛び跳ねた！
+	Do nothing
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESChangeAttribute(46:32688) -> 色づく果実
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:32689) -> 蒼天の怒り
+	Deal 1,000% damage (5 hits, 200% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESRecoverEnemy86(86:32679) -> 蒼果の恵み
+	Enemy recover 100% HP
+	[1] ESGravity(50:32680) -> ブルーベリータックル
+	Player -99% HP
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:32702) -> 根性
+Survive attacks with 1 HP when HP > 50%

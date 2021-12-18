@@ -1,4 +1,4 @@
-#204945 - 聖想の灰幻魔・イルミナ
+#204945 - Holy Thought Ash Phantom Demon, Ilmina
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDebuffATK(130:21379) -> 寒いけど…
+	[0] ESDebuffATK(130:21379) -> It's cold, but...
 	ATK -50% for 5 turns
-	[1] ESAbsorbAttribute(53:21380) -> …あたたかい
+	[1] ESAbsorbAttribute(53:21380) -> ...I'm nice and warm.
 	Absorb Dark damage for 5 turns
 
 #3: ESBranchCounter(32:22) -> ESBranchCounter
@@ -23,15 +23,15 @@ counter + 1
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 10, target rnd 14
 
-#6: ESRandomSpawn(92:21381) -> 色づく降雪
+#6: ESRandomSpawn(92:21381) -> Shining Snow
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 5 random Light orbs, Deal 100% damage
 
-#7: ESDamageShield(74:21382) -> ガードブック
+#7: ESDamageShield(74:21382) -> Protective Tome
 Condition: 33% chance (ai:0 rnd:33)
 Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
 
-#8: ESAttackMultihit(15:21383) -> 肉球ぱんち
+#8: ESAttackMultihit(15:21383) -> Paw Pad Punch!
 Condition: 34% chance (ai:0 rnd:34)
 Deal 120% damage
 
@@ -45,15 +45,15 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAbsorbCombo(67:21385) -> 心がポカポカする…
+	[0] ESAbsorbCombo(67:21385) -> I feel all toasty inside...
 	Absorb damage when combos <= 6 for 999 turns
-	[1] ESNoSkyfall(127:21386) -> …うれしい
+	[1] ESNoSkyfall(127:21386) -> ...How nice.
 	No skyfall for 10 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESRandomSpawn(92:21387) -> グリモワールインパクト
+#14: ESRandomSpawn(92:21387) -> Grimoire Impact
 Spawn 15 random Light orbs, Deal 300% damage
 
 #15: ESEndPath(36:26) -> ESEndPath

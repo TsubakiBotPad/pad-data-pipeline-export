@@ -1,0 +1,39 @@
+#8147 - Green Dracoblader of the Holy Night, Selica
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8147
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29883:129) ＿Xセリカ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (29884:83) プレゼント、欲しいですか？ + ならば、手合わせ願います
+ | Absorb damage when combos <= 8 for 5 turns + Locked Fire and Wood skyfall +100% for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (29887:83) 雪道はすべりますか？ + 山断の唐竹割り
+     | ATK -50% for 1 turn + Change the 1st column to Fire orbs and the 6th column to Wood orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (29890:83) 手、かじかみますか？ + 銀雪・鳳尾松
+     | RCV 50% for 1 turn + Change all orbs to Fire, Wood, and Heal, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (29893:83) 簡単には終わりません！ + 地蔵の頭突き
+     | Reduce damage from all sources by 95% for 1 turn + Deal 110% damage (2 hits, 55% each), Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (29896:83) 泣き言は聞きませんよ！ + 銀雪・羅漢松
+     | Movetime 50% for 1 turn + Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (29899:15) 三白六花・嵐火九斬
+   | Deal 135% damage (9 hits, 15% each)

@@ -1,0 +1,38 @@
+#4732 - Phantom Dracosnake of Water, Lindworm
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4732
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32613:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32600:83) 幻蛇龍の鱗 + 幻蛇龍の毒牙 + 飢餓 + 激渦の水牙
+ | Voids status ailments for 999 turns + Poison skyfall +15% for 5 turns + Absorb damage when damage >= 50,000,000 for 5 turns + ATK -50% for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (32609:15) かみ砕く
+   | Deal 90% damage (3 hits, 30% each)
+   | condition: 50% chance, when required attributes on board
+   | (32610:92) ウォータークランチ
+   | Spawn 4 random Water, Wood, Heal, and Jammer orbs, Deal 90% damage
+   | (32611:63) 幻蛇龍の睥睨
+   | Bind 2 random subs for 2 turns, Deal 95% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (32605:83) 幻蛇龍の怒り + 変色する鱗 + 混沌の渦潮
+   | Increase damage to 150% for the next 999 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Change all orbs to Water, Dark, and Jammer, Deal 80% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (32765:83) 海の恵み + 幻蛇龍の鋼鱗
+     | Enemy recover 10% HP + Reduce damage from all sources by 90% for 1 turn
+   | group:
+     | (32612:15) 破滅の渦潮
+     | Deal 1,000% damage (10 hits, 100% each)

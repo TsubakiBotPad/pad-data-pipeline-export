@@ -1,0 +1,45 @@
+#2516 - Enchantress of the Sanctuary, Siren
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2516
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32639:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (32614:83) 一緒に歌いましょう♪ + アイシクルギフト
+ | Voids status ailments for 999 turns + Change the 2nd column to Fire orbs and the 5th column to Water orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (32633:83) 歌姫の誘い + エターナルソング
+   | Fix orb movement starting point to random position on the board + Bind 1 random sub for 2 turns, Deal 100% damage
+   | (32636:83) 魅惑の歌声 + 癒しの舞
+   | RCV 50% for 1 turn + Change the 6th column to Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (32623:83) 歌姫の守り + 歌姫の祈り + ノエルの手助け
+     | Reduce damage from all sources by 50% for 1 turn + Fire and Water skyfall +15% for 5 turns + Bind active skills for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (32627:83) 歌姫の守り + ギフトブレス
+     | Reduce damage from all sources by 25% for 1 turn + Change the 3rd row to Heal orbs, Deal 101% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (32630:83) 歌姫の守り + 歌姫の拘束
+     | Reduce damage from all sources by 50% for 1 turn + Lock all Fire orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (32617:83) 歌姫の眼差し + 終わりにしましょう♪
+     | Movetime 50% for 1 turn + Bind 2 random subs for 2 turns, Deal 100% damage
+   | group:
+     | (32620:83) 響き渡る歌声 + 終焉のプレゼント
+     | Bind awoken skills for 1 turn + Deal 1,120% damage (7 hits, 160% each), Deal 1,120% damage (7 hits, 160% each)
