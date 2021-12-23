@@ -1,0 +1,39 @@
+#304262 - 裏転生ガブリエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304262
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32123:83) 氷天使の守り + 氷天使の魂 + 聖氷の霰
+ | Voids status ailments for 999 turns + Void damage >= 20 for 600,000,000 turns + Water and Jammer skyfall +25% for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 33% chance
+     | (32132:83) 氷柱 + 氷河の大地
+     | Change the 3rd and 4th columns to Water and Jammer orbs + Lock all Water orbs, Deal 50% damage
+     | condition: 33% chance
+     | (32579:83) 氷柱 + 氷河の大地
+     | Change the 5th and 6th columns to Water and Poison orbs + Lock all Water orbs, Deal 50% damage
+     | condition: 34% chance
+     | (32135:83) 氷柱 + 聖氷の輝き
+     | Change the 1st and 6th columns to Water and Poison orbs + Absorb Water damage for 1 turn, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32128:83) 氷結の塊 + 邪氷の目覚め + 氷河の大地
+   | Bind 6 random cards for 5 turns + Locked Jammer skyfall +100% for 5 turns + Lock all Water orbs, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32127:46) 天よりの裁き
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 1,000% damage

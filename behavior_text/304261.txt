@@ -1,0 +1,39 @@
+#304261 - 裏転生ウリエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304261
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32108:83) 炎天使の守り + 炎天使の魂 + 聖炎の灯
+ | Voids status ailments for 999 turns + Void damage >= 20 for 600,000,000 turns + Fire and Jammer skyfall +25% for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 33% chance
+     | (32120:83) 炎剣舞 + 剣の審判
+     | Change the 2nd and 3rd rows to Fire and Jammer orbs + No skyfall for 1 turn, Deal 50% damage
+     | condition: 33% chance
+     | (32576:83) 蒼剣舞 + 剣の審判
+     | Change the 4th and 5th rows to Water and Poison orbs + No skyfall for 1 turn, Deal 50% damage
+     | condition: 34% chance
+     | (32117:83) 炎剣舞 + 聖炎の輝き
+     | Change the 1st and 5th rows to Fire and Jammer orbs + Absorb Fire damage for 1 turn, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32113:83) 炎羽 + 邪炎の目覚め + 蒼炎の審判
+   | Bind active skills for 5 turns + Locked Jammer skyfall +100% for 5 turns + Lock all Fire and Water orbs, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32112:15) 終焉の炎剣
+   | Deal 1,000% damage (5 hits, 200% each)

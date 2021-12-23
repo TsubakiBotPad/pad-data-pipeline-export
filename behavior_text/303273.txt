@@ -1,0 +1,48 @@
+#303273 - 裏転生ラー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303273
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32337:83) 太陽神の魂 + ファラオの導き + ソーラーレーザー
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Player -300% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (32534:83) 太陽神の障壁 + ソーラーエネルギー + 太陽神の威光
+     | Void damage >= 7 for 99,900,000,000 turns + Increase damage to 700% for the next 1 turn + Voids player buff effects
+   | group:
+   | condition: turn 2 while HP > 9
+     | (32349:83) 太陽の恵み + ソーラーロック
+     | Fire skyfall +35% for 1 turn + Locked Fire skyfall +100% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | (32346:83) 太陽の恵み + ソーラーロック
+     | Light skyfall +35% for 1 turn + Locked Light skyfall +100% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 9
+     | (32349:83) 太陽の恵み + ソーラーロック
+     | Fire skyfall +35% for 1 turn + Locked Fire skyfall +100% for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 5 while HP > 9
+     | (32346:83) 太陽の恵み + ソーラーロック
+     | Light skyfall +35% for 1 turn + Locked Light skyfall +100% for 1 turn, Deal 100% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32341:83) 太陽神の障壁 + ソーラーガード + 太陽神の威光
+   | Void damage >= 7 for 99,900,000,000 turns + Reduce damage from all sources by 50% for 5 turns + Voids player buff effects
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32345:15) 太陽神の怒り
+   | Deal 1,000% damage (10 hits, 100% each)

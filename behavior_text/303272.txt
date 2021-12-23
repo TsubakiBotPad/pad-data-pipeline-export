@@ -1,0 +1,36 @@
+#303272 - 転生ホルス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 303272
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32322:83) ダウ・ヤフタレク・ジダール + サマー・シャムス・ワクト + カルブ・エンタハズ・ゾフル
+ | Voids status ailments for 999 turns + Movetime 50% for 6 turns + Player -300% HP
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (32330:83) ラマード・タグイェル・ショーラ + ザラーム・ダーヒル・サタァ・ダウ
+     | Change the 1st and 2nd columns to Fire and Jammer orbs + Blind all orbs for 1 turn, Deal 50% damage
+     | condition: 50% chance
+     | (32333:83) ラマード・タグイェル・ショーラ + ディッル・ユディウ・アッシャムス
+     | Change the 4th and 5th columns to Fire and Poison orbs + Lock all Fire orbs, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32326:83) サタァ・ショーラ・デルゥ + カルブ・エンタハズ・ゾフル + コッル・ヤフケド・フラーシュ
+   | Void damage >= 20 for 99,900,000,000 turns + Player -300% HP + Voids player buff effects
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32336:15) モカッサフ・ゾフル・ハジュマ
+   | Deal 1,050% damage (3 hits, 350% each)

@@ -1,0 +1,36 @@
+#306339 - 裏転生ロズエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306339
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32093:83) 紅天使の魂 + 進撃の伝令 + フレアフォール
+ | Voids status ailments for 999 turns + RCV 0% for 1 turn + No skyfall for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (32101:83) フレアボム + 癒しの歌声
+     | Spawn 8 random locked Bomb orbs + Change the 1st and 5th columns to Heal and Jammer orbs, Deal 100% damage
+     | condition: 50% chance
+     | (32104:83) フレアフォール + 焦閃
+     | No skyfall for 1 turn + Blind random 15 orbs for 1 turn, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32097:83) 天からの贈り物 + 進撃の伝令 + 癒しの聖歌
+   | Locked random skyfall +100% for 1 turn + RCV 0% for 1 turn + Change all orbs to Heal, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32107:15) ロストフェザーフレア
+   | Deal 1,100% damage (5 hits, 220% each)

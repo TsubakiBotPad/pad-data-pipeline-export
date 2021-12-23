@@ -1,0 +1,51 @@
+#300096 - 真サキュバス
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300096
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | condition: 20% chance
+ | (32026:53) 魔吸
+ | Absorb Dark damage for 6 turns
+ | condition: 20% chance
+ | (32022:53) 魔吸
+ | Absorb Fire damage for 6 turns
+ | condition: 20% chance
+ | (32023:53) 魔吸
+ | Absorb Water damage for 6 turns
+ | condition: 20% chance
+ | (32024:53) 魔吸
+ | Absorb Wood damage for 6 turns
+ | condition: 20% chance
+ | (32025:53) 魔吸
+ | Absorb Light damage for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 4
+     | (32013:92) ダークキッス
+     | Spawn 5 random Dark orbs, Deal 100% damage
+   | group:
+     | (29725:15) 次元の殲滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (32176:92) ダークデスネイル
+   | Spawn 10 random Dark orbs, Deal 1,000% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1 while HP > 4
+   | (32531:19) 次元の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5 while HP > 4
+   | (32013:92) ダークキッス
+   | Spawn 5 random Dark orbs, Deal 100% damage

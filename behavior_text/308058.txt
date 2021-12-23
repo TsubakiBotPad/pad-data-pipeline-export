@@ -1,0 +1,42 @@
+#308058 - 金冥華の女帝・エキドナ -SARA-
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 308058
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32396:83) 雨乞の舞 + 金冥演武 + オールミミクリィ
+ | Light and Dark skyfall +25% for 6 turns + Change all orbs to Light and Dark + Absorb Light and Dark damage for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (32400:83) 金冥の舞 + 女傑の障壁 + オールミミクリィ
+     | Voids status ailments for 999 turns + Void damage >= 20 for 500,000,000 turns + Absorb Light and Dark damage for 1 turn, Deal 100% damage
+   | group:
+   | condition: turns 2-5 while HP > 9
+     | condition: 25% chance
+     | (32404:83) 紅金の引絞 + オールミミクリィ
+     | Lock all Fire and Light orbs + Absorb Fire and Light damage for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (32407:83) 蒼金の引絞 + オールミミクリィ
+     | Lock all Water and Light orbs + Absorb Water and Light damage for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (32410:83) 旋金の引絞 + オールミミクリィ
+     | Lock all Wood and Light orbs + Absorb Wood and Light damage for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (32413:83) 金冥の引絞 + オールミミクリィ
+     | Lock all Light and Dark orbs + Absorb Light and Dark damage for 1 turn, Deal 100% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32416:83) 脱皮 + フレアオール
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)

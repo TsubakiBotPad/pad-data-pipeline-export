@@ -1,0 +1,38 @@
+#600307 - 真ジュペンドラ
+monster size: 1
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 600307
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32498:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (32016:96) ペンオーラ
+ | Locked random skyfall +30% for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 4
+     | (32019:46) はばたきアタック
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | group:
+     | (29725:15) 次元の殲滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (32027:15) はばたきドリル
+   | Deal 1,000% damage (5 hits, 200% each)
+ type: REMAINING
+ condition: when 4 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1 while HP > 4
+   | (32531:19) 次元の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5 while HP > 4
+   | (32003:46) はばたきビンタ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

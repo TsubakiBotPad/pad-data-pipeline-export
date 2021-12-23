@@ -1,0 +1,44 @@
+#306666 - 裏奸計の陰陽師・ミカゲ
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 306666
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31387:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32279:83) 領域結界 + 呪言怨唱 + 暗夜の残余
+ | Voids status ailments for 999 turns + Change player HP to 2,000,000 for 3 turns + For 3 turns, 25% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (32283:83) 黒風 + 滅びの呪歌
+     | Player -99% HP + RCV 25% for 1 turn
+   | group:
+   | condition: turn 2 while HP > 9
+     | (32286:83) 呪言怨礼 + 滅びの呪詛 + 呪殺
+     | Bind awoken skills for 1 turn + Bind 6 random cards for 1 turn + Deal 285% damage (3 hits, 95% each), Deal 285% damage (3 hits, 95% each)
+   | group:
+   | condition: turn 3 while HP > 9
+     | (32290:83) 式札展開 + 呪言怨唱 + 滅びの呪歌
+     | Void damage >= 20 for 99,900,000,000 turns + Change player HP to 50% for 1 turn + RCV 0% for 1 turn
+   | group:
+   | condition: turns 4-5 while HP > 9
+     | condition: 50% chance
+     | (32295:83) 呪言怨唱 + 双闇煙呪
+     | Change player HP to 50% for 1 turn + Change the 2nd and 5th columns to Dark and Poison orbs, Deal 50% damage
+     | condition: 50% chance
+     | (32298:83) 呪言怨唱 + 双闇煙呪
+     | Change player HP to 100,000 for 1 turn + Change the 2nd and 4th rows to Dark and Jammer orbs, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32294:15) 呪力解放
+   | Deal 1,000% damage (5 hits, 200% each)

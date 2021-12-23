@@ -1,0 +1,37 @@
+#300398 - 真フェニックス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300398
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32498:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (32021:137) 不死鳥の構え
+ | Void damage >= 10 for 600,000,000 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (32028:92) イモータルファイア
+   | Spawn 5 random Heal orbs, Deal 100% damage
+ | group:
+   | (29725:15) 次元の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (32029:83) 不死鳥の守り + 転生の炎 + エターナルガード
+   | Voids status ailments for 999 turns + Enemy recover 100% HP + Reduce damage from all sources by 75% for 5 turns
+ | group:
+ | condition: turns 2-5
+   | condition: 50% chance
+   | (32028:92) イモータルファイア
+   | Spawn 5 random Heal orbs, Deal 100% damage
+   | condition: 50% chance
+   | (32496:46) フェニックスフェザー
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

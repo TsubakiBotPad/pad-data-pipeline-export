@@ -1,0 +1,28 @@
+#306703 - 裏式神・コタツ
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 306703
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32498:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (32006:20) 式神の守り
+ | Voids status ailments for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 4
+     | (32009:46) 龍化爪
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | group:
+     | (29725:15) 次元の殲滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (32177:15) 龍爪乱撃
+   | Deal 1,000% damage (4 hits, 250% each)

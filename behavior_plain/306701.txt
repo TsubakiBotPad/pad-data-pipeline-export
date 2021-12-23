@@ -1,0 +1,42 @@
+#306701 - 裏式神・トウタツ
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:32004) -> 式神の守り
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 6 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 10
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 8
+
+#6: ESChangeAttribute(46:32009) -> 龍化爪
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackMultihit(15:32177) -> 龍爪乱撃
+Deal 1,000% damage (4 hits, 250% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:29725) -> 次元の殲滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSuperResolve(129:32498) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

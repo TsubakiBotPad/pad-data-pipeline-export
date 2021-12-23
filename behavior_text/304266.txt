@@ -1,0 +1,27 @@
+#304266 - 転生ベリアル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304266
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (32585:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ | (32586:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (32153:83) 1ターン待ってやる + 考える暇などないぞ！ + さぁ、来い！！
+ | Voids status ailments for 999 turns + Movetime 25% for 1 turn + Disable active skills for 1 turn
+ group:
+ | group:
+ | condition: turns 1-5
+   | (32157:83) 残念だったな + 俺の勝ちだ！！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)
+ | group:
+   | (29723:83) 次元の波動 + 次元の殲滅
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

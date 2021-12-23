@@ -1,0 +1,38 @@
+#300094 - 真キューピッド
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300094
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32020:138) 天吸
+ | No description set
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 4
+     | (32012:92) ライトサークル
+     | Spawn 5 random Light orbs, Deal 100% damage
+   | group:
+     | (29725:15) 次元の殲滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 4
+   | (32175:92) ライトヘブンフェザー
+   | Spawn 10 random Light orbs, Deal 1,000% damage
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1 while HP > 4
+   | (32531:19) 次元の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5 while HP > 4
+   | (32012:92) ライトサークル
+   | Spawn 5 random Light orbs, Deal 100% damage

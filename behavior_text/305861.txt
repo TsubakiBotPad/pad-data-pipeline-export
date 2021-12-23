@@ -1,0 +1,36 @@
+#305861 - 転生ルミエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 305861
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32048:83) 魔天使の結界 + 闇導 + 魔天使の障壁
+ | Voids status ailments for 999 turns + Dark and Jammer skyfall +30% for 3 turns + Void damage >= 20 for 600,000,000 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (32056:83) 討魔の闇唱 + 輝く夜星
+     | Change the 3rd and 4th columns to Dark and Poison orbs + Blind random 15 orbs for 1 turn, Deal 50% damage
+     | condition: 50% chance
+     | (32059:83) 討魔の星屑 + 輝く夜星
+     | Change the 1st and 2nd rows to Dark and Poison orbs + Blind random 15 orbs for 1 turn, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32052:83) 降闇 + 魔天使の鉄壁 + 遍く星々
+   | Locked Dark skyfall +100% for 3 turns + Reduce damage from all sources by 50% for 999 turns + Lock all Dark orbs, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32062:85) スターリバーバレイト
+   | Change all orbs to Dark, Deal 1,000% damage

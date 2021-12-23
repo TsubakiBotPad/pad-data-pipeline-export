@@ -1,0 +1,70 @@
+#304271 - 転生ヴィシュヌ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESUnknown(138:32517) -> ガルダの防風
+	No description set
+	[1] ESSkyfall(68:32518) -> 一神一体「繁栄」
+	Jammer skyfall +25% for 6 turns
+	[2] ESDebuffATK(130:32519) -> 収縮
+	ATK -75% for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 10
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:32521) -> 創界神の魂
+	Voids status ailments for 999 turns
+	[1] ESAttributeBlock(107:32522) -> カウラーヴァ
+	Unable to match Jammer orbs for 5 turns
+	[2] ESDebuffATK(130:32523) -> 収縮
+	ATK -50% for 5 turns
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRowSpawnMulti(79:32525) -> 繁栄の蓮華
+	Change the 1st row to Heal orbs and the 5th row to Wood orbs, Deal 50% damage
+	[1] ESRecoverEnemy86(86:32526) -> アヴァターラ
+	Enemy recover 5% HP, Deal 50% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRowSpawnMulti(79:32528) -> 繁栄の蓮華
+	Change the 1st row to Jammer orbs and the 5th row to Heal orbs, Deal 50% damage
+	[1] ESRecoverEnemy86(86:32529) -> アヴァターラ
+	Enemy recover 5% HP, Deal 50% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackMultihit(15:32530) -> 三足踏破
+Deal 1,050% damage (3 hits, 350% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

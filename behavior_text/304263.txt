@@ -1,0 +1,39 @@
+#304263 - 転生ミカエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304263
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32138:83) 樹天使の守り + 樹天使の魂 + 聖樹の幹
+ | Voids status ailments for 999 turns + Void damage >= 20 for 600,000,000 turns + Wood and Jammer skyfall +25% for 6 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 33% chance
+     | (32147:83) 干渉の審判 + 暗黒の審判
+     | Change the 3rd and 4th columns to Wood and Jammer orbs + Blind random 15 orbs for 1 turn, Deal 50% damage
+     | condition: 33% chance
+     | (32582:83) 干渉の審判 + 暗黒の審判
+     | Change the 5th and 6th columns to Wood and Poison orbs + Blind random 15 orbs for 1 turn, Deal 50% damage
+     | condition: 34% chance
+     | (32150:83) 干渉の審判 + 聖樹の輝き
+     | Change the 3rd and 4th rows to Wood and Jammer orbs + Absorb Wood damage for 1 turn, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32143:83) 久遠の煌き + 邪樹の目覚め + 風樹の息吹
+   | Absorb damage when combos <= 8 for 999 turns + Locked Jammer skyfall +100% for 5 turns + Delay active skills by 2 turns, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32142:15) 終焉の日
+   | Deal 990% damage (6 hits, 165% each)

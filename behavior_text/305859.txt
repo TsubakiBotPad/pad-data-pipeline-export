@@ -1,0 +1,36 @@
+#305859 - 転生リュエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 305859
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32078:83) 翠天使の魂 + 翠天使の障壁 + チェーンネイル
+ | Voids status ailments for 999 turns + Void damage >= 20 for 600,000,000 turns + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (32086:83) アースフォール + アースクロー
+     | No skyfall for 1 turn + Change the 1st and 6th columns to Wood and Jammer orbs, Deal 50% damage
+     | condition: 50% chance
+     | (32089:83) アースフォール + グランクロー
+     | No skyfall for 1 turn + Change the 3rd and 4th columns to Fire and Jammer orbs, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32082:83) 天からの贈り物 + 超力の聖歌 + アースコロニー
+   | For 5 turns, 30% chance for skyfall orbs to be blinded for turn + Movetime 50% for 5 turns + Change all orbs to Fire and Wood, Deal 100% damage
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32092:85) グランコロニーバースト
+   | Change all orbs to Fire and Wood, Deal 1,000% damage

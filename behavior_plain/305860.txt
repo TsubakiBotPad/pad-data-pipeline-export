@@ -1,0 +1,81 @@
+#305860 - 転生アリエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:32034) -> 聖天使の結界
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:32035) -> 光導
+	Light and Jammer skyfall +30% for 3 turns
+	[2] ESVoidShieldBig(137:32036) -> 聖天使の障壁
+	Void damage >= 20 for 600,000,000 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBombRandomSpawn(102:32042) -> コメットボム
+	Spawn 7 random locked Bomb orbs
+	[1] ESColumnSpawnMulti(77:32043) -> スラッシュスター
+	Change the 3rd and 4th columns to Light and Jammer orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBombRandomSpawn(102:32045) -> コメットボム
+	Spawn 7 random locked Bomb orbs
+	[1] ESRowSpawnMulti(79:32046) -> スイングスター
+	Change the 1st and 2nd rows to Light and Jammer orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESSkyfallLocked(96:32038) -> 降光
+	Locked Light skyfall +100% for 3 turns
+	[1] ESDamageShield(74:32039) -> 聖天使の鉄壁
+	Reduce damage from all sources by 50% for 999 turns
+	[2] ESOrbLock(94:32040) -> 輝く星々
+	Lock 15 random Light orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBoardChangeAttackBits(85:32047) -> ジャッジメントスターダスト
+Change all orbs to Light, Deal 1,000% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%

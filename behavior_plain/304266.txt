@@ -1,0 +1,50 @@
+#304266 - 転生ベリアル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:32154) -> 1ターン待ってやる
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:32155) -> 考える暇などないぞ！
+	Movetime 25% for 1 turn
+	[2] ESDisableAssists(141:32156) -> さぁ、来い！！
+	Disable active skills for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 7
+
+#5: SkillSet:
+	[0] ESChangeAttribute(46:32158) -> 残念だったな
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:32159) -> 俺の勝ちだ！！
+	Deal 1,000% damage (10 hits, 100% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	[0] ESBindAwoken(88:29724) -> 次元の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#10: ESAttributeResist(72:32585) -> 水半減
+Reduce damage from Water attrs by 50%
+
+#11: ESAttributeResist(72:32586) -> 火半減
+Reduce damage from Fire attrs by 50%

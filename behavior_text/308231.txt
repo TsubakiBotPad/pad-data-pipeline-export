@@ -1,0 +1,41 @@
+#308231 - 慶兆の孔雀王・ユリシャ
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 308231
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32500:73) 根性
+ | Survive attacks with 1 HP when HP > 5%
+ | (32495:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 5%
+ type: PREEMPT
+ | (32464:83) 孔雀王の結界 + 善因善果の羽根 + 炎羽舞
+ | Voids status ailments for 999 turns + For 15 turns, None% chance for combo orb skyfall. + Absorb damage when combos <= 13 for 2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (32469:83) 炎羽舞 + 孔雀王の激昂 + 暗変の転変
+   | Absorb damage when combos <= 12 for 2 turns + Increase damage to 150% for the next 1 turn + For 1 turn, 20% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (32473:83) 炎羽舞 + 孔雀王の激昂 + 暗変の転変
+   | Absorb damage when combos <= 11 for 2 turns + Increase damage to 200% for the next 1 turn + For 1 turn, 30% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (32477:83) 炎羽舞 + 孔雀王の激昂 + 暗変の転変
+   | Absorb damage when combos <= 10 for 2 turns + Increase damage to 250% for the next 1 turn + For 1 turn, 50% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (32481:83) 炎羽舞 + 孔雀王の激昂 + 暗変の転変
+   | Absorb damage when combos <= 9 for 2 turns + Increase damage to 300% for the next 1 turn + For 1 turn, 100% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (32485:83) 炎羽舞 + 孔雀障壁 + 孔雀王の激昂 + 暗変の転変
+   | Absorb damage when combos <= 8 for 999 turns + Void damage >= 20 for 99,900,000,000 turns + Increase damage to 700% for the next 999 turns + For 1 turn, 100% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ | group:
+   | (32461:83) 孔雀の波動 + 孔雀王の大転変
+   | Bind awoken skills for 1 turn + Deal 10,000% damage (5 hits, 2,000% each), Deal 10,000% damage (5 hits, 2,000% each)

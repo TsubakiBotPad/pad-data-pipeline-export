@@ -1,0 +1,40 @@
+#304267 - 転生アモン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 304267
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29722:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32160:83) 義侠魔の魂 + アモンオーラ + 龍装
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Haste both leaders' skills by 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (32538:83) オール・ホー・ミー + ドラゴンスケイル + 全てを破壊してやる
+     | Disable active skills for 1 turn + Absorb damage when combos <= 9 for 5 turns + Increase damage to 150% for the next 5 turns
+   | group:
+   | condition: turns 2-5 while HP > 9
+     | condition: 50% chance
+     | (32168:83) アモンソード + ドラゴンブレード
+     | Change the 1st column to Water and Jammer orbs + Change the 1st row to Dark and Poison orbs, Deal 50% damage
+     | condition: 50% chance
+     | (32171:83) アモンソード + ドラゴンブレード
+     | Change the 6th column to Water and Poison orbs + Change the 5th row to Dark and Jammer orbs, Deal 50% damage
+   | group:
+     | (29723:83) 次元の波動 + 次元の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (32164:83) オール・ホー・ミー + ドラゴンボディ + 全てを破壊してやる
+   | Disable active skills for 1 turn + Void damage >= 20 for 500,000,000 turns + Increase damage to 250% for the next 1 turn
+ | group:
+ | condition: turns 1-5, hp <= 9
+   | (32174:15) グレートドラゴンスラッシュ
+   | Deal 1,000% damage (10 hits, 100% each)
