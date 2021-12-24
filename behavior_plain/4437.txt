@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkillDelay(89:30763) -> ぼくは決してあなたを許さない
+	[0] ESSkillDelay(89:30763) -> I will never forgive you!
 	Delay active skills by 5 turns
-	[1] ESRandomSpawn(92:30764) -> 通背拳だー!!!
+	[1] ESRandomSpawn(92:30764) -> It's Tongbeiquan​!!
 	Spawn 6 random Light orbs
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,14 +20,14 @@ Branch on hp < 1, target rnd 12
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#5: ESDebuffATK(130:30771) -> 不老林火打ち石の術!!
+#5: ESDebuffATK(130:30771) -> Eternal Forest Fire Rock Technique!
 Condition: 50% chance (ai:50 rnd:0)
 ATK -50% for 1 turn, Deal 101% damage
 
 #6: SkillSet:
-	[0] ESColumnSpawnMulti(76:30773) -> これが大林寺奥義‥‥
+	[0] ESColumnSpawnMulti(76:30773) -> This is the secret technique of Dairinji!
 	Change the 5th and 6th columns to Light orbs
-	[1] ESAttackMultihit(15:30774) -> “雷神”だァ!!!
+	[1] ESAttackMultihit(15:30774) -> Call me "Thunder God"!
 	Deal 102% damage (3 hits, 34% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -40,22 +40,22 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #10: SkillSet:
-	[0] ESDamageShield(74:30769) -> ぼくの『限界』は‥‥
+	[0] ESDamageShield(74:30769) -> My "limit"...
 	Reduce damage from all sources by 50% for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:30770) -> まだここじゃない‥‥!!
+	[1] ESAttackUPRemainingEnemies(17:30770) -> ...is not this!
 	Increase damage to 150% for the next 999 turns
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #12: SkillSet:
-	[0] ESRecoverEnemy86(86:30766) -> 負けるもんか!!
+	[0] ESRecoverEnemy86(86:30766) -> I'll never lose!
 	Enemy recover 100% HP
-	[1] ESAttributeBlock(107:30767) -> 岩砕弾頭封じ‥‥!!タコつぼ戦法!!
+	[1] ESAttributeBlock(107:30767) -> Rock Clashing Headbutt!! Counterattack!
 	Unable to match Light orbs for 3 turns, Deal 100% damage
 
-#13: ESAttributeResist(72:30775) -> 光半減
+#13: ESAttributeResist(72:30775) -> Light Halved
 Reduce damage from Light attrs by 50%
 
-#14: ESResolve(73:30776) -> 根性
+#14: ESResolve(73:30776) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -20,9 +20,9 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESStatusShield(20:30479) -> 邪魔をするな
+	[0] ESStatusShield(20:30479) -> Don't get in my way.
 	Voids status ailments for 999 turns
-	[1] ESTargetedSkillHaste(139:30480) -> ヘアペンシル
+	[1] ESTargetedSkillHaste(139:30480) -> Moth Pheremones
 	Haste both leaders' skills by 10 turns
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -37,7 +37,7 @@ Branch on counter = 1, target rnd 13
 #10: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#11: ESRandomSpawn(92:30481) -> ミイデラゴミムシ
+#11: ESRandomSpawn(92:30481) -> Bombardier Beetle
 Spawn 5 random Wood and Dark orbs, Deal 90% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -46,28 +46,28 @@ end_turn
 #13: ESSetCounter(27:17) -> ESSetCounter
 counter - 1
 
-#14: ESOrbLock(94:30482) -> 私は“アドラ”に近づけた！
+#14: ESOrbLock(94:30482) -> I have come closer to Adolla!
 Lock all Wood and Dark orbs, Deal 100% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESVoidShield(71:30483) -> 焦らずとも見せてやる！
+#16: ESVoidShield(71:30483) -> Don't be impatient... I'll show you!
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Void damage >= 10,000,000 for 5 turns
 
-#17: ESAttackUPRemainingEnemies(17:30484) -> 潮時だ…
+#17: ESAttackUPRemainingEnemies(17:30484) -> The time is now...
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 150% for the next 999 turns
 
-#18: ESAttackMultihit(15:30485) -> この星はもはや燃え散りゆくのみよ
+#18: ESAttackMultihit(15:30485) -> This star will soon burn to ash and scatter to the winds!
 Deal 140% damage (4 hits, 35% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESAttributeResist(72:30476) -> ＿ジョヴァンニ火軽減
+#20: ESAttributeResist(72:30476) -> ＿Giovanni Fire Reduced
 Reduce damage from Fire attrs by 50%
 
-#21: ESSuperResolve(129:30477) -> ＿ジョヴァンニ超根性
+#21: ESSuperResolve(129:30477) -> ＿Giovanni Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

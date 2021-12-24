@@ -1,4 +1,4 @@
-#202560 - 真ハマル
+#202560 - True Hamal
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -15,46 +15,46 @@ flag SET 0b1
 
 #4: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESChangeAttribute(46:13737) -> 転星
+	[0] ESChangeAttribute(46:13737) -> Constellation Shift
 	Change own attribute to Fire
-	[1] ESAbsorbAttribute(53:28231) -> スターソーサー
+	[1] ESAbsorbAttribute(53:28231) -> Star Saucer
 	Absorb Water damage for 10 turns
-	[2] ESOrbLock(94:13745) -> 禍の啓示
+	[2] ESOrbLock(94:13745) -> Wicked Revelation
 	Lock all Heal orbs
-	[3] ESBindAwoken(88:13746) -> 星の意志
+	[3] ESBindAwoken(88:13746) -> Star's Will
 	Bind awoken skills for 1 turn
 
 #5: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESChangeAttribute(46:13739) -> 転星
+	[0] ESChangeAttribute(46:13739) -> Constellation Shift
 	Change own attribute to Water
-	[1] ESAbsorbAttribute(53:28232) -> スターソーサー
+	[1] ESAbsorbAttribute(53:28232) -> Star Saucer
 	Absorb Wood damage for 10 turns
-	[2] ESOrbLock(94:13745) -> 禍の啓示
+	[2] ESOrbLock(94:13745) -> Wicked Revelation
 	Lock all Heal orbs
-	[3] ESBindAwoken(88:13746) -> 星の意志
+	[3] ESBindAwoken(88:13746) -> Star's Will
 	Bind awoken skills for 1 turn
 
 #6: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESChangeAttribute(46:13741) -> 転星
+	[0] ESChangeAttribute(46:13741) -> Constellation Shift
 	Change own attribute to Wood
-	[1] ESAbsorbAttribute(53:28230) -> スターソーサー
+	[1] ESAbsorbAttribute(53:28230) -> Star Saucer
 	Absorb Fire damage for 10 turns
-	[2] ESOrbLock(94:13745) -> 禍の啓示
+	[2] ESOrbLock(94:13745) -> Wicked Revelation
 	Lock all Heal orbs
-	[3] ESBindAwoken(88:13746) -> 星の意志
+	[3] ESBindAwoken(88:13746) -> Star's Will
 	Bind awoken skills for 1 turn
 
 #7: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESChangeAttribute(46:13743) -> 転星
+	[0] ESChangeAttribute(46:13743) -> Constellation Shift
 	Change own attribute to Light
-	[1] ESAbsorbAttribute(53:28233) -> スターソーサー
+	[1] ESAbsorbAttribute(53:28233) -> Star Saucer
 	Absorb Dark damage for 10 turns
-	[2] ESOrbLock(94:13745) -> 禍の啓示
+	[2] ESOrbLock(94:13745) -> Wicked Revelation
 	Lock all Heal orbs
-	[3] ESBindAwoken(88:13746) -> 星の意志
+	[3] ESBindAwoken(88:13746) -> Star's Will
 	Bind awoken skills for 1 turn
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -72,23 +72,23 @@ Branch on flag & 2, target rnd 15
 #12: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#13: ESBoardChangeAttackBits(85:6648) -> 死星
+#13: ESBoardChangeAttackBits(85:6648) -> Necrostar
 Change all orbs to Poison, Deal 140% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESBoardChangeAttackBits(85:6659) -> クルエルティスター
+#15: ESBoardChangeAttackBits(85:6659) -> Cruelty Star
 Condition: When < 20% HP (ai:100 rnd:0)
 Change all orbs to Poison, Deal 680% damage
 
 #16: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESChangeAttribute(46:6655) -> 星還
+	[0] ESChangeAttribute(46:6655) -> Altered Orbit
 	Change own attribute to Dark
-	[1] ESAttackUPRemainingEnemies(17:6656) -> 神王の共鳴
+	[1] ESAttackUPRemainingEnemies(17:6656) -> God King's Resonance
 	Increase damage to 150% for the next 999 turns
-	[2] ESSkyfall(68:6657) -> 禍雨
+	[2] ESSkyfall(68:6657) -> Calamity Rain
 	Poison skyfall +15% for 5 turns
 
 #17: ESBranchFlag(43:10) -> ESBranchFlag
@@ -99,15 +99,15 @@ flag SET 0b111
 
 #19: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESCloud(104:6649) -> 星羊の金毛
+	[0] ESCloud(104:6649) -> Aries' Golden Fleece
 	A 3×1 rectangle of clouds appears for 2 turns at a random location
-	[1] ESAttackMultihit(15:6651) -> ダークネイル
+	[1] ESAttackMultihit(15:6651) -> Dark Nail
 	Deal 150% damage (3 hits, 50% each)
 
 #20: SkillSet:
-	[0] ESCloud(104:6650) -> 星羊の金毛
+	[0] ESCloud(104:6650) -> Aries' Golden Fleece
 	A 1×3 rectangle of clouds appears for 2 turns at a random location
-	[1] ESAttackMultihit(15:6651) -> ダークネイル
+	[1] ESAttackMultihit(15:6651) -> Dark Nail
 	Deal 150% damage (3 hits, 50% each)
 
 #21: ESEndPath(36:26) -> ESEndPath
@@ -119,7 +119,7 @@ Branch on flag & 8, target rnd 26
 #23: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1111
 
-#24: ESBindAttack(63:6654) -> 暗星の瞬き
+#24: ESBindAttack(63:6654) -> Dark Star Luster
 Bind 1 random card for 1 turn, Deal 140% damage
 
 #25: ESEndPath(36:26) -> ESEndPath
@@ -128,20 +128,20 @@ end_turn
 #26: ESFlagOperation(24:14) -> ESFlagOperation
 flag UNSET 0b1100
 
-#27: ESBindAttack(63:6654) -> 暗星の瞬き
+#27: ESBindAttack(63:6654) -> Dark Star Luster
 Bind 1 random card for 1 turn, Deal 140% damage
 
 #28: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #29: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #30: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#31: ESTypeResist(118:13751) -> 悪魔半減
+#31: ESTypeResist(118:13751) -> Devil Halved
 Reduce damage from Devil types by 50%

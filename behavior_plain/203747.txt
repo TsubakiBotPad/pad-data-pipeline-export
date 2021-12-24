@@ -1,4 +1,4 @@
-#203747 - 真覚醒ヘスティア
+#203747 - True Awoken Hestia
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -15,30 +15,30 @@ flag SET 0b1
 
 #4: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:12290) -> 近づいたら危ないよ
+	[0] ESStatusShield(20:12290) -> Don't come here, it's dangerous!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:12291) -> 吸縛の溶練炉
+	[1] ESAbsorbAttribute(53:12291) -> Bellows of the Smelting Furnace
 	Absorb Water and Wood damage for 1 turn
 
 #5: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:12290) -> 近づいたら危ないよ
+	[0] ESStatusShield(20:12290) -> Don't come here, it's dangerous!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:12292) -> 吸縛の溶練炉
+	[1] ESAbsorbAttribute(53:12292) -> Bellows of the Smelting Furnace
 	Absorb Water and Light damage for 1 turn
 
 #6: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:12290) -> 近づいたら危ないよ
+	[0] ESStatusShield(20:12290) -> Don't come here, it's dangerous!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:12293) -> 吸縛の溶練炉
+	[1] ESAbsorbAttribute(53:12293) -> Bellows of the Smelting Furnace
 	Absorb Wood and Dark damage for 1 turn
 
 #7: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:12290) -> 近づいたら危ないよ
+	[0] ESStatusShield(20:12290) -> Don't come here, it's dangerous!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:12294) -> 吸縛の溶練炉
+	[1] ESAbsorbAttribute(53:12294) -> Bellows of the Smelting Furnace
 	Absorb Light and Dark damage for 1 turn
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -61,61 +61,61 @@ Branch on hp > 51, target rnd 15
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:12299) -> 残灰
+	[0] ESSkyfall(68:12299) -> Ashes
 	Jammer skyfall +20% for 10 turns
-	[1] ESDebuffRCV(105:12300) -> 炉への生贄
+	[1] ESDebuffRCV(105:12300) -> Sacrifice to the Furnace
 	RCV 50% for 10 turns
 
 #15: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:12291) -> 吸縛の溶練炉
+	[0] ESAbsorbAttribute(53:12291) -> Bellows of the Smelting Furnace
 	Absorb Water and Wood damage for 1 turn
-	[1] ESAttackMultihit(15:12305) -> 塵芥処理
+	[1] ESAttackMultihit(15:12305) -> Waste Disposal
 	Deal 105% damage (3 hits, 35% each)
 
 #16: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:12292) -> 吸縛の溶練炉
+	[0] ESAbsorbAttribute(53:12292) -> Bellows of the Smelting Furnace
 	Absorb Water and Light damage for 1 turn
-	[1] ESOrbChangeAttack(48:12306) -> 聖火の粉塵
+	[1] ESOrbChangeAttack(48:12306) -> Sacred Fire Dust
 	Change a random attribute to Jammer orbs, Deal 100% damage
 
 #17: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:12293) -> 吸縛の溶練炉
+	[0] ESAbsorbAttribute(53:12293) -> Bellows of the Smelting Furnace
 	Absorb Wood and Dark damage for 1 turn
-	[1] ESRowSpawnMulti(79:12307) -> 焼却閃火
+	[1] ESRowSpawnMulti(79:12307) -> Incineration
 	Change the 2nd and 4th rows to Fire orbs, Deal 95% damage
 
 #18: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:12294) -> 吸縛の溶練炉
+	[0] ESAbsorbAttribute(53:12294) -> Bellows of the Smelting Furnace
 	Absorb Light and Dark damage for 1 turn
-	[1] ESRowSpawnMulti(79:12308) -> 焼却閃火
+	[1] ESRowSpawnMulti(79:12308) -> Incineration
 	Change the 1st and 5th rows to Fire orbs, Deal 95% damage
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESBoardChangeAttackBits(85:12309) -> 全部燃えちゃえ
+#20: ESBoardChangeAttackBits(85:12309) -> Burn it all!
 Change all orbs to Fire and Jammer, Deal 500% damage
 
 #21: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #22: SkillSet:
-	[0] ESAbsorbCombo(67:12296) -> そんなものなの？
+	[0] ESAbsorbCombo(67:12296) -> That's it?
 	Absorb damage when combos <= 7 for 1 turn
-	[1] ESSkillDelay(89:12297) -> それじゃ私には勝てないよ
+	[1] ESSkillDelay(89:12297) -> You won't beat me like that!
 	Delay active skills by 3~10 turns
 
 #23: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #24: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #25: ESEndPath(36:26) -> ESEndPath

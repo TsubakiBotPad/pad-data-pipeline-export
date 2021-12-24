@@ -1,4 +1,4 @@
-#207996 - 幽都の守護神・アテナ -NON-
+#207996 - Guardian of the Ghostly Capital, Athena - Non
 monster size: 5
 new AI: True
 start/max counter: 255
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:28197) -> さぁ始めようぞ
+	[0] ESStatusShield(20:28197) -> Now, let us begin the ritual.
 	Voids status ailments for 999 turns
-	[1] ESMaxHPChange(111:28198) -> 闇を映す月…
+	[1] ESMaxHPChange(111:28198) -> Great moon, reflector of darkness...
 	Change player HP to 5,000,000 for 4 turns
-	[2] ESSpinnersFixed(110:28199) -> 我は終局を告げる女神
+	[2] ESSpinnersFixed(110:28199) -> Hear me, the Harbinger of the End.
 	Specific orbs change every 1.0s for 1 turn
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -32,28 +32,28 @@ counter + 1
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 128)
-	[0] ESGravity(50:28240) -> 新月、無辺の牢…
+	[0] ESGravity(50:28240) -> New moon, boundless prison...
 	Player -50% HP
-	[1] ESSpinnersFixed(110:28241) -> あまねくは骸の魔性
+	[1] ESSpinnersFixed(110:28241) -> Dark power of corpses surrounds us.
 	Specific orbs change every 1.0s for 1 turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 64)
-	[0] ESGravity(50:28243) -> 永劫たる恐怖…
+	[0] ESGravity(50:28243) -> Everlasting fear...
 	Player -50% HP
-	[1] ESSpinnersFixed(110:28244) -> 絶望をその身に受けよ！
+	[1] ESSpinnersFixed(110:28244) -> Give in to your despair!
 	Specific orbs change every 1.0s for 1 turn
 
 #10: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 32)
-	[0] ESBindAwoken(88:28246) -> 裁きの時は来た
+	[0] ESBindAwoken(88:28246) -> The hour of judgment has come.
 	Bind awoken skills for 1 turn
-	[1] ESBindRandom(1:28247) -> 喰われよ
+	[1] ESBindRandom(1:28247) -> I shall devour you!
 	Bind 6 random cards for 1 turn
-	[2] ESAttackMultihit(15:28248) -> エイジスティ・クレセンダ
+	[2] ESAttackMultihit(15:28248) -> Aegis Crescenda
 	Deal 1,110% damage (5 hits, 222% each)
 
-#11: ESRecoverPlayer(55:28250) -> ああ、美しき命よ…
+#11: ESRecoverPlayer(55:28250) -> Oh, the beauty of life...
 Condition: One-time use (ai:100 rnd:0) (cost: 16)
 Player recover 100% HP
 
@@ -76,27 +76,27 @@ Branch on counter >= 7, target rnd 20
 Branch on counter >= 6, target rnd 19
 
 #18: SkillSet:
-	[0] ESBlindStickySkyfall(128:28201) -> 魂絶の呪い
+	[0] ESBlindStickySkyfall(128:28201) -> Soul-Severing Curse
 	For 1 turn, 100% chance for skyfall orbs to be blinded for turn
-	[1] ESFixedStart(101:28202) -> ソウルネイル
+	[1] ESFixedStart(101:28202) -> Soul Nail
 	Fix orb movement starting point to random position on the board, Deal 105% damage
 
 #19: SkillSet:
-	[0] ESChangeAttribute(46:28204) -> 流転
+	[0] ESChangeAttribute(46:28204) -> Transmigration
 	Change own attribute to random one of Light or Dark
-	[1] ESAttackMultihit(15:28205) -> タービュランスロンド
+	[1] ESAttackMultihit(15:28205) -> Turbulent Rondo
 	Deal 105% damage (3 hits, 35% each)
 
 #20: SkillSet:
-	[0] ESBlindStickySkyfall(128:28207) -> 魂絶の呪い
+	[0] ESBlindStickySkyfall(128:28207) -> Soul-Severing Curse
 	For 1 turn, 100% chance for skyfall orbs to be blinded for turn
-	[1] ESDebuffATK(130:28208) -> ウィアーバイト
+	[1] ESDebuffATK(130:28208) -> Eroding Bite
 	ATK -75% for 1 turn, Deal 95% damage
 
 #21: SkillSet:
-	[0] ESChangeAttribute(46:28204) -> 流転
+	[0] ESChangeAttribute(46:28204) -> Transmigration
 	Change own attribute to random one of Light or Dark
-	[1] ESAttackMultihit(15:28205) -> タービュランスロンド
+	[1] ESAttackMultihit(15:28205) -> Turbulent Rondo
 	Deal 105% damage (3 hits, 35% each)
 
 #22: ESEndPath(36:26) -> ESEndPath
@@ -104,30 +104,30 @@ end_turn
 
 #23: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 8)
-	[0] ESAttributeBlock(107:28210) -> 三日月の陰
+	[0] ESAttributeBlock(107:28210) -> Crescent Moon's Shadow
 	Unable to match Light, Dark, and Heal orbs for 1 turn
-	[1] ESBoardChangeAttackBits(85:28211) -> ルナティック
+	[1] ESBoardChangeAttackBits(85:28211) -> Lunacy
 	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 105% damage
 
 #24: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESBlindStickySkyfall(128:28213) -> 魂絶の呪い
+	[0] ESBlindStickySkyfall(128:28213) -> Soul-Severing Curse
 	For 1 turn, 100% chance for skyfall orbs to be blinded for turn
-	[1] ESColumnSpawnMulti(77:28214) -> デュアルエッジ
+	[1] ESColumnSpawnMulti(77:28214) -> Dual Blades
 	Change the 1st column to Dark orbs and the 6th column to Light orbs, Deal 110% damage
 
 #25: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESGravity(50:28216) -> 聖域解放
+	[0] ESGravity(50:28216) -> Sanctuary Liberation
 	Player -99% HP
-	[1] ESDamageShield(74:28217) -> 守護堅聖アイギス
+	[1] ESDamageShield(74:28217) -> Aegis' Sacred Protection
 	Reduce damage from all sources by 75% for 999 turns
 
 #26: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:28219) -> 聖なる道標
+	[0] ESBindAwoken(88:28219) -> Sacred Signpost
 	Bind awoken skills for 5 turns
-	[1] ESBlindStickyFixed(98:28220) -> ヴォイドムーンシェイド
+	[1] ESBlindStickyFixed(98:28220) -> Moonshade Void
 	Blind orbs in specific positions for 1 turn
 
 #27: ESBranchFlag(43:10) -> ESBranchFlag
@@ -136,7 +136,7 @@ Branch on flag & 1, target rnd 13
 #28: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#29: ESAttackUPRemainingEnemies(17:27295) -> 戦乱の聖跡
+#29: ESAttackUPRemainingEnemies(17:27295) -> Sanctuary of War
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 200% for the next 999 turns
 
@@ -149,5 +149,5 @@ Branch on flag & 1, target rnd 12
 #32: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#33: ESSuperResolve(129:28195) -> ＿闇NON超根性
+#33: ESSuperResolve(129:28195) -> ＿Dark NON Super resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
