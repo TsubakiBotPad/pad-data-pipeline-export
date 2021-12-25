@@ -1,0 +1,40 @@
+#208197 - S級ヒーロー・ジェノス
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 208197
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32996:73) ＿ジェノス根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32997:83) お前を排除する + 焼却
+ | Absorb damage when combos <= 7 for 999 turns + Change all orbs to Fire
+ group:
+ | group:
+ | condition: always turn 1
+   | (33000:83) 諦めろ + 無駄だ
+   | Void damage >= 100,000,000 for 999 turns + Reduce damage from all sources by 50% for 99 turns, Deal 105% damage
+ | group:
+   | (33003:92) マシンガンブロー
+   | Spawn 8 random Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (33004:83) デュアルブレードラッシュ + うぉおおおおおおおおッ!!!
+     | Change the 1st and 5th rows to Fire orbs + Deal 140% damage (7 hits, 20% each), Deal 140% damage (7 hits, 20% each)
+   | group:
+   | condition: turn 3
+     | (33007:139) ジェットドライブアロー
+     | Haste both leaders' skills by 15 turns, Deal 75% damage
+   | group:
+     | condition: 50% chance
+     | (33003:92) マシンガンブロー
+     | Spawn 8 random Fire orbs, Deal 90% damage
+     | condition: 50% chance
+     | (33028:85) 焼却
+     | Change all orbs to Fire, Deal 90% damage

@@ -1,0 +1,35 @@
+#208220 - 無免ライダー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208220
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33029:73) ＿無免根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (33030:83) 正義の自転車乗り + 無免ライダー参上!!!
+ | Spawn 8 random Wood orbs + Lock all Wood orbs
+ group:
+ | group:
+   | (33035:104) 吼えろジャスティス号
+   | A row of clouds appears for 5 turns at 5th row, 1st column, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (33036:17) ぬぅおおおおおおああああああ
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (33037:77) ジャスティスクラッシュ！
+     | Change the 1st and 6th columns to Wood orbs, Deal 80% damage
+ type: UNKNOWN_USE
+ | condition: 50% chance
+ | (33034:92) おりゃ！
+ | Spawn 6 random Wood orbs, Deal 100% damage
+ | condition: 50% chance
+ | (33033:139) とうッ
+ | Haste both leaders' skills by 1 turn

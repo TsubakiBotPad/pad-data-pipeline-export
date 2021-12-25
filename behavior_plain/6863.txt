@@ -1,0 +1,81 @@
+#6863 - Strolling Moonlight Princess, Tsukuyomi
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:33301) -> 皆で仲良く参ろうか
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:33302) -> 夜月神の本能
+	Absorb damage when combos <= 8 for 5 turns
+	[2] ESColumnSpawnMulti(77:33303) -> 光影月
+	Change the 1st column to Light orbs and the 6th column to Dark orbs, Deal 50% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 11
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 13
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttributeBlock(107:33311) -> 煌月の世界
+	Unable to match Light orbs for 1 turn
+	[1] ESAttackMultihit(15:33312) -> 夜想連撃
+	Deal 105% damage (3 hits, 35% each)
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttributeBlock(107:33314) -> 煌月の世界
+	Unable to match Dark orbs for 1 turn
+	[1] ESAttackMultihit(15:33315) -> 夜想連撃
+	Deal 105% damage (3 hits, 35% each)
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBoardChange(84:33317) -> 夜想陣
+	Change all orbs to Light, Dark, Heal, and Jammer
+	[1] ESAttackMultihit(15:33318) -> 夜想連撃
+	Deal 108% damage (3 hits, 36% each)
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbLock(94:33320) -> 捉月
+	Lock 8 random orbs
+	[1] ESAttackMultihit(15:33321) -> 夜想連撃
+	Deal 102% damage (3 hits, 34% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESRecoverEnemy86(86:33305) -> 夜月神の光
+	Enemy recover 100% HP
+	[1] ESSkillDelay(89:33306) -> 夜月神の誘い
+	Delay active skills by 5 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESAbsorbCombo(67:33308) -> 夜月神の本能
+	Absorb damage when combos <= 7 for 10 turns
+	[1] ESNoSkyfall(127:33309) -> 夜月神の調律
+	No skyfall for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:33322) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#16: ESTypeResist(118:33323) -> 体力半減
+Reduce damage from Physical types by 50%

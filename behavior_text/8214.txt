@@ -1,0 +1,34 @@
+#8214 - タンクトップマスター
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8214
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32952:73) ＿タンクトップ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32953:50) タンクトップパンチ
+ | Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (32954:107) ここで消えてなくなれ！
+     | Unable to match Wood orbs for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (32953:50) タンクトップパンチ
+     | Player -99% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (32955:17) 悪いがとどめだ
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (32956:77) タンクトップタックル
+     | Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 75% damage

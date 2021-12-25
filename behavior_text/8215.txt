@@ -1,0 +1,48 @@
+#8215 - 金属バット
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8215
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32957:73) ＿金属バット根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (32958:118) ＿金属バット龍半減
+ | Reduce damage from Dragon types by 50%
+ type: PREEMPT
+ | (32959:50) とりあえずぶっ潰す!!
+ | Player -99% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (32960:3) 怒羅厳シバき
+   | Bind Dragon cards for 5 turns
+   | condition: 50% chance
+   | (32961:101) 狙うならそこしかねーな
+   | Fix orb movement starting point to random position on the board, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (32962:83) 気合いだ気合い + どんどんかかってこいよ
+     | Reduce damage from all sources by 50% for 5 turns + Absorb damage when combos <= 6 for 5 turns
+   | group:
+   | condition: turn 2
+     | (32965:83) テメーの腐った根性 + 俺が叩き直してやる
+     | No skyfall for 10 turns + Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 25% chance
+     | (32968:110) 野蛮トルネード
+     | Specific orbs change every 1.0s for 1 turn, Deal 85% damage
+     | condition: 25% chance
+     | (32969:110) 野蛮トルネード
+     | Specific orbs change every 1.0s for 1 turn, Deal 85% damage
+     | condition: 25% chance
+     | (32970:110) 野蛮トルネード
+     | Specific orbs change every 1.0s for 1 turn, Deal 85% damage
+     | condition: 25% chance
+     | (32971:110) 野蛮トルネード
+     | Specific orbs change every 1.0s for 1 turn, Deal 85% damage

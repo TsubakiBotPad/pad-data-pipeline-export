@@ -1,0 +1,25 @@
+#8219 - イナズマックス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8219
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (32940:67) 勝負しろ
+ | Absorb damage when combos <= 4 for 3 turns
+ group:
+ | group:
+   | (32941:79) 稲妻蹴り
+   | Change the 1st row to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (32942:83) くそ + 嫌な野郎だ
+     | ATK -50% for 1 turn + Movetime 50% for 1 turn, Deal 90% damage
+   | group:
+     | (32945:102) 稲妻飛び後ろ回し蹴り
+     | Spawn 4 random Bomb orbs, Deal 110% damage

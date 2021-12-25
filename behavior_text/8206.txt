@@ -1,0 +1,36 @@
+#8206 - S級ヒーロー・ぷりぷりプリズナー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8206
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33059:129) ＿プリズナー超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33060:71) エンジェル☆スタイル
+ | Void damage >= 30,000,000 for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (33061:83) まずは半分程度の力で + 様子をみようか！
+   | Fix orb movement starting point to random position on the board + Reduce damage from all sources by 50% for 3 turns, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (33064:89) あなたは許せん
+   | Delay active skills by 1 turn, Deal 85% damage
+   | condition: 50% chance
+   | (33065:130) 負けるわけにはいかない
+   | ATK -75% for 1 turn, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (33066:17) あなたは絶対に許さああああん
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (33101:83) 覚悟しな + エンジェル☆ラッシュ
+     | Lock 15 random orbs + Deal 120% damage (8 hits, 15% each), Deal 120% damage (8 hits, 15% each)

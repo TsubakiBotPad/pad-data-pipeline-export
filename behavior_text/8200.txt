@@ -1,0 +1,38 @@
+#8200 - S級ヒーロー・シルバーファング
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8200
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33081:73) ＿シルバー根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (33082:83) 終わらせてやる + かかってきな + 流水岩砕拳
+ | Player -99% HP + Reduce damage from all sources by 75% for 3 turns + Absorb Water damage for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (33086:67) 完璧な攻守一体の動き
+   | Absorb damage when combos <= 6 for 5 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (33087:77) 猛撃
+     | Change the 1st and 2nd columns to Water orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (33088:68) 流水の動き
+     | Water skyfall +20% for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (33089:17) 人生最後の全力を出すぜ
+     | Increase damage to 150% for the next 999 turns
+   | group:
+     | (33090:15) 激流の如き一撃
+     | Deal 100% damage (5 hits, 20% each)

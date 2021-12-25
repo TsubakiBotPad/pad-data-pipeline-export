@@ -1,0 +1,79 @@
+#408212 - 海の支配者・深海王
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDamageShield(74:32881) -> あなたの攻撃まるで痛くない
+Reduce damage from all sources by 75% for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 17
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESRandomSpawn(92:32885) -> うるさい
+Spawn 3 random Jammer and Poison orbs, Deal 85% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESSkyfall(68:32886) -> 溶解液
+Poison skyfall +15% for 1 turn
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAttackUPRemainingEnemies(17:32883) -> キレたわ
+	Increase damage to 200% for the next 999 turns
+	[1] ESSpinnersRandom(109:32884) -> グチャグチャにしてあげる
+	Random 3 orbs change every 1.0s for 3 turns
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttributeBlock(107:32887) -> もう飽きたのよ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Water orbs for 3 turns, Deal 80% damage
+
+#21: ESBlindStickyRandom(97:32888) -> 死になさい
+Blind random 10 orbs for 1 turn, Deal 120% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttributeResist(72:32910) -> ＿深海王水半減
+Reduce damage from Water attrs by 50%

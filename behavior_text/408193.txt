@@ -1,0 +1,45 @@
+#408193 - 暗黒盗賊団ダークマターの頭目・ボロス
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 408193
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32889:73) ＿ボロス根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (32889:73) ＿ボロス根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32890:67) さぁ俺の生に刺激を与えてくれ
+ | Absorb damage when combos <= 5 for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (32893:104) 後ろだ！
+   | A row of clouds appears for 2 turns at 4th row, 1st column, Deal 95% damage
+   | condition: 33% chance
+   | (32892:105) さすがに強いな！
+   | RCV 50% for 2 turns, Deal 90% damage
+   | condition: 34% chance
+   | (32891:92) いい動きだ！
+   | Spawn 5 random Light and Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (32894:86) 宇宙でも随一の自然治癒力
+     | Enemy recover 100% HP
+   | group:
+   | condition: turn 2
+     | (32895:77) 体内にある莫大なエネルギーの放出
+     | Change the 1st column to Dark orbs and the 6th column to Light orbs, Deal 100% damage
+   | group:
+   | condition: turn 3
+     | (32896:94) 勝敗が見えてきたな
+     | Lock all orbs, Deal 95% damage

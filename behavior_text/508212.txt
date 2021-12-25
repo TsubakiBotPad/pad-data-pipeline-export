@@ -1,0 +1,24 @@
+#508212 - 海の支配者・深海王
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 508212
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (32823:68) 雨のおかげで元気でてきたわ
+ | Water skyfall +15% for 10 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (32824:74) あなたの攻撃まるで痛くない
+   | Reduce damage from all sources by 75% for 2 turns
+ | group:
+   | condition: 50% chance
+   | (32826:109) グチャグチャにしてあげる
+   | Random 3 orbs change every 1.0s for 1 turn
+   | condition: 50% chance
+   | (32830:97) 死になさい
+   | Blind random 4 orbs for 1 turn, Deal 75% damage

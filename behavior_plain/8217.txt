@@ -1,0 +1,71 @@
+#8217 - 地獄のフブキ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkyfallLocked(96:32919) -> 超能力
+Locked Water and Wood skyfall +100% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSpinnersRandom(109:32921) -> 馬鹿にしてるわね
+	Random 2 orbs change every 1.0s for 1 turn
+	[1] ESSkillDelay(89:32922) -> 後悔するわよ
+	Delay active skills by 1 turn, Deal 90% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:32924) -> 死なない程度に殺してあげる！
+	Player -50% HP
+	[1] ESBoardChange(84:32925) -> 地獄嵐
+	Change all orbs to Water, Wood, and Jammer
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 16
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESDebuffRCV(105:32926) -> あんたが悪いのよ
+RCV 50% for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESAttackMultihit(15:32927) -> 私が一番なのよッ！
+Deal 105% damage (3 hits, 35% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:32929) -> 敵になりうる奴は
+	Bind awoken skills for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:32930) -> 潰す！
+	Increase damage to 150% for the next 999 turns
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

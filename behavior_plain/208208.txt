@@ -1,0 +1,62 @@
+#208208 - 音速のソニック
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbSealRow(100:32858) -> もう逃がす事はできない
+Seal the 5th row for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBlind62(62:32859) -> どうだ？見えるか！？
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Blind all orbs on the board, Deal 90% damage
+
+#9: ESBlindStickyRandom(97:32860) -> この速さについてこれるか!!?
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind random 5 orbs for 3 turns, Deal 90% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#11: ESColumnSpawnMulti(77:32861) -> 風刃脚
+Change the 1st column to Dark orbs, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAbsorbAttribute(53:32862) -> 逃げられると思うのか
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Light and Dark damage for 5 turns, Deal 75% damage
+
+#14: ESAttackUPRemainingEnemies(17:32863) -> こないならこっちから行くぞ
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#15: ESBombRandomSpawn(102:32864) -> 爆裂手裏剣!!
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Bomb orbs
+
+#16: ESAttackMultihit(15:32865) -> 殺戮乱陣
+Condition: 50% chance (ai:0 rnd:50)
+Deal 80% damage (4 hits, 20% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

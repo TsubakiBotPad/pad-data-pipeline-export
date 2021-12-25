@@ -1,0 +1,43 @@
+#208212 - 海の支配者・深海王
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 208212
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32910:72) ＿深海王水半減
+ | Reduce damage from Water attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (32910:72) ＿深海王水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (32881:74) あなたの攻撃まるで痛くない
+ | Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (32885:92) うるさい
+     | Spawn 3 random Jammer and Poison orbs, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (32886:68) 溶解液
+     | Poison skyfall +15% for 1 turn
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (32882:83) キレたわ + グチャグチャにしてあげる
+   | Increase damage to 200% for the next 999 turns + Random 3 orbs change every 1.0s for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 2
+     | (32887:107) もう飽きたのよ
+     | Unable to match Water orbs for 3 turns, Deal 80% damage
+   | group:
+     | (32888:97) 死になさい
+     | Blind random 10 orbs for 1 turn, Deal 120% damage

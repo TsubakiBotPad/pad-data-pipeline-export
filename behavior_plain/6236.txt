@@ -1,0 +1,91 @@
+#6236 - Reincarnated Takeda Shingen
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:33351) -> 虎将神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:33352) -> 虎将神の構え
+	Absorb Fire damage for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESOrbSealRow(100:33361) -> 炎領域
+	Seal the 5th row for 1 turn
+	[1] ESBindAttack(63:33362) -> 縛炎撃
+	Bind 2 random subs for 2 turns, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:33364) -> 疾風炎
+	Spawn 7 random Fire orbs
+	[1] ESAttackMultihit(15:33365) -> 極炎撃
+	Deal 102% damage (3 hits, 34% each)
+
+#8: SkillSet:
+	[0] ESAbsorbCombo(67:33367) -> 炎舞
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESAttackMultihit(15:33368) -> 極炎撃
+	Deal 105% damage (3 hits, 35% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlindStickyRandom(97:33358) -> 虎将神の策略
+	Blind random 9 orbs for 3 turns
+	[1] ESOrbLock(94:33359) -> 封炎撃
+	Lock 15 random orbs, Deal 101% damage
+
+#11: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESOrbSealRow(100:33361) -> 炎領域
+	Seal the 5th row for 1 turn
+	[1] ESBindAttack(63:33362) -> 縛炎撃
+	Bind 2 random subs for 2 turns, Deal 100% damage
+
+#12: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:33364) -> 疾風炎
+	Spawn 7 random Fire orbs
+	[1] ESAttackMultihit(15:33365) -> 極炎撃
+	Deal 102% damage (3 hits, 34% each)
+
+#13: SkillSet:
+	[0] ESAbsorbCombo(67:33367) -> 炎舞
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESAttackMultihit(15:33368) -> 極炎撃
+	Deal 105% damage (3 hits, 35% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:33354) -> 虎将神の怒気
+	Increase damage to 150% for the next 999 turns
+	[1] ESRowSpawnMulti(79:33355) -> 侵略炎
+	Change the 1st row to Fire orbs and the 5th row to Fire orbs, Deal 50% damage
+	[2] ESColumnSpawnMulti(77:33356) -> 追撃炎
+	Change the 1st column to Fire orbs and the 6th column to Fire orbs, Deal 50% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:33369) -> 超根性50%
+Damage which would reduce HP from above 50% to below 50% is nullified

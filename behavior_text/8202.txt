@@ -1,0 +1,31 @@
+#8202 - 戦慄のタツマキ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8202
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32990:73) ＿タツマキ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (32991:20) 私が一人で片づけるわよ！
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (32992:67) ちょっと何やってんのよ
+   | Absorb damage when combos <= 6 for 5 turns, Deal 90% damage
+ | group:
+ | condition: always turn 2
+   | (32993:75) 邪魔だからどっか行ってて
+   | Leader changes to random sub for 1 turn, Deal 105% damage
+ | group:
+   | (32994:92) 超自然的な攻撃
+   | Spawn 8 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: turn 3, hp <= 49
+   | (32995:17) でしゃばるんじゃないわよ！
+   | Increase damage to 150% for the next 999 turns

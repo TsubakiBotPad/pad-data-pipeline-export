@@ -1,0 +1,45 @@
+#8220 - 無免ライダー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESRandomSpawn(92:32913) -> 正義の自転車乗り
+	Spawn 8 random Wood orbs
+	[1] ESOrbLock(94:32914) -> 無免ライダー参上!!!
+	Lock all Wood orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPRemainingEnemies(17:32917) -> ぬぅおおおおおおああああああ
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#7: ESColumnSpawnMulti(77:32918) -> ジャスティスクラッシュ！
+Condition: When < 50% HP (ai:100 rnd:0)
+Change the 1st and 6th columns to Wood orbs, Deal 80% damage
+
+#8: ESRandomSpawn(92:32916) -> おりゃ！
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Wood orbs, Deal 100% damage
+
+#9: ESTargetedSkillHaste(139:32915) -> とうッ
+Condition: 50% chance (ai:0 rnd:50)
+Haste both leaders' skills by 1 turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:32911) -> ＿無免根性
+Survive attacks with 1 HP when HP > 50%
