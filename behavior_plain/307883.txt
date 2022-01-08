@@ -1,4 +1,4 @@
-#307883 - 跡部 景吾
+#307883 - Keigo Atobe
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESOrbLock(94:30115) -> いくぜっ!!
+	[0] ESOrbLock(94:30115) -> Here I go!
 	Lock all Water orbs
-	[1] ESDebuffATK(130:30116) -> 俺様の美技に酔いな
+	[1] ESDebuffATK(130:30116) -> Stand in awe of my brilliant techniques.
 	ATK -50% for 3 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -26,15 +26,15 @@ Branch on counter = 5, target rnd 17
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#7: ESDebuffRCV(105:30123) -> ドライブボレー
+#7: ESDebuffRCV(105:30123) -> Drive Volley
 Condition: 33% chance (ai:33 rnd:0)
 RCV 25% for 1 turn, Deal 100% damage
 
-#8: ESOrbLock(94:30124) -> 甘い甘い!!
+#8: ESOrbLock(94:30124) -> Not good enough!
 Condition: 50% chance (ai:50 rnd:0)
 Lock all Water and Dark orbs, Deal 100% damage
 
-#9: ESRandomSpawn(92:30125) -> 氷の世界
+#9: ESRandomSpawn(92:30125) -> World of Ice
 Spawn 10 random Water orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -47,25 +47,25 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESVoidShield(71:30122) -> オラよ！
+	[0] ESVoidShield(71:30122) -> Take that!
 	Void damage >= 5,000,000 for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:30121) -> 決めるぜ!!
+	[1] ESAttackUPRemainingEnemies(17:30121) -> Gotcha.
 	Increase damage to 150% for the next 999 turns
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #15: SkillSet:
-	[0] ESOrbSealRow(100:30118) -> 次いくぜ!!
+	[0] ESOrbSealRow(100:30118) -> Here I go again!
 	Seal the 1st row for 5 turns
-	[1] ESBindAttack(63:30119) -> 眼力（インサイト）
+	[1] ESBindAttack(63:30119) -> Insight
 	Bind 6 random cards for 3 turns, Deal 100% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESBombFixedSpawn(103:30309) -> 破滅への輪舞曲(ロンド)
+#17: ESBombFixedSpawn(103:30309) -> Rondo to Destruction
 Spawn Bomb orbs in the specified positions, Deal 150% damage
 
-#18: ESAttributeResist(72:30126) -> 水闇半減
+#18: ESAttributeResist(72:30126) -> Water Dark Halved
 Reduce damage from Water and Dark attrs by 50%

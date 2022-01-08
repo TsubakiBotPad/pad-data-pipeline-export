@@ -1,0 +1,38 @@
+#5914 - 覚醒エンマ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 5914
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33480:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ | (33481:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33469:83) 雷神の術 + 魔笛の息吹
+ | Absorb damage when combos <= 6 for 5 turns + Lock 15 random orbs
+ group:
+ | group:
+   | condition: 20% chance
+   | (33475:107) 魔眼獄滅波
+   | Unable to match Fire orbs for 1 turn, Deal 101% damage
+   | condition: 20% chance
+   | (33476:107) 魔眼獄滅波
+   | Unable to match Water orbs for 1 turn, Deal 100% damage
+   | condition: 20% chance
+   | (33477:107) 魔眼獄滅波
+   | Unable to match Wood orbs for 1 turn, Deal 102% damage
+   | condition: 20% chance
+   | (33478:107) 魔眼獄滅波
+   | Unable to match Light orbs for 1 turn, Deal 100% damage
+   | condition: 20% chance
+   | (33479:107) 魔眼獄滅波
+   | Unable to match Dark orbs for 1 turn, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33472:83) 恐れずについてくるのだ + 覚醒させる
+   | Void damage >= 20,000,000 for 5 turns + Increase damage to 150% for the next 999 turns

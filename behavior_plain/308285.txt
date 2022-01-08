@@ -1,0 +1,45 @@
+#308285 - 蛇王カイラ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:33483) -> 情けはかけん！
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:33484) -> 大滝の術
+	Locked random skyfall +25% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESDebuffATK(130:33486) -> 蛇王の威圧
+Condition: 50% chance (ai:50 rnd:0)
+ATK -75% for 1 turn, Deal 101% damage
+
+#5: ESColumnSpawnMulti(77:33487) -> 邪炎斬り
+Change the 1st column to Fire orbs and the 6th column to Dark orbs, Deal 102% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttackUPRemainingEnemies(17:33485) -> 私に本気を出させるとは…　見事だ
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#8: ESDebuffATK(130:33486) -> 蛇王の威圧
+Condition: 50% chance (ai:50 rnd:0)
+ATK -75% for 1 turn, Deal 101% damage
+
+#9: ESColumnSpawnMulti(77:33487) -> 邪炎斬り
+Change the 1st column to Fire orbs and the 6th column to Dark orbs, Deal 102% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttributeResist(72:33488) -> 火闇半減
+Reduce damage from Fire and Dark attrs by 50%

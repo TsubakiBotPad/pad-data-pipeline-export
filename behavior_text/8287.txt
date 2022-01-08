@@ -1,0 +1,26 @@
+#8287 - アンドロイド山田
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8287
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33424:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (33418:39) 『説明しよう！』
+ | Movetime 50% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (33422:15) ヘッドバット
+   | Deal 102% damage (3 hits, 34% each)
+   | (33423:109) へそビーム
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 101% damage
+ | group:
+ | condition: hp <= 1
+   | (33419:83) 心優しきアンドロイド + アンドロイドにする
+   | Enemy recover 100% HP + Bind 2 random subs for 2 turns, Deal 100% damage

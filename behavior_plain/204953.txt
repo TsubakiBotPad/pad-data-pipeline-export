@@ -1,0 +1,29 @@
+#204953 - コマさんＳ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESGravity(50:33439) -> ぶんなぐる
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Player -99% HP
+
+#3: ESAttackMultihit(15:33440) -> ひとだま乱舞
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#4: ESColumnSpawnMulti(77:33441) -> れんごくの術
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd column to Fire orbs, Deal 100% damage
+
+#5: ESRowSpawnMulti(79:33442) -> やけどさせるＳ
+Change the 2nd row to Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttributeResist(72:33443) -> 火木半減
+Reduce damage from Fire and Wood attrs by 50%

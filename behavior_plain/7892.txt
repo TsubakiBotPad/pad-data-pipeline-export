@@ -1,4 +1,4 @@
-#7892 - 不二 周助
+#7892 - Shusuke Fuji
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:30248) -> お手やわらかに
+	[0] ESAbsorbCombo(67:30248) -> Take it easy on me.
 	Absorb damage when combos <= 5 for 999 turns
-	[1] ESBlindStickyRandom(97:30249) -> その打球　消えるよ
+	[1] ESBlindStickyRandom(97:30249) -> That ball...will disappear.
 	Blind random 4 orbs for 3 turns, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -23,11 +23,11 @@ Branch on counter = 3, target rnd 12
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#6: ESRowSpawnMulti(79:30257) -> つばめ返し
+#6: ESRowSpawnMulti(79:30257) -> Swallow Return
 Condition: 50% chance (ai:50 rnd:0)
 Change the 1st row to Wood orbs and the 5th row to Water orbs, Deal 100% damage
 
-#7: ESAttackMultihit(15:30258) -> 断ち切る!!
+#7: ESAttackMultihit(15:30258) -> Broken!!
 Deal 99% damage (3 hits, 33% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -40,21 +40,21 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESBindSkill(14:30254) -> さあ　もう一球いこうか…
+	[0] ESBindSkill(14:30254) -> Now, how about another one?
 	Bind active skills for 3 turns
-	[1] ESDebuffMovetime(39:30255) -> 風の止まないうちに
+	[1] ESDebuffMovetime(39:30255) -> Before the wind dies down.
 	Movetime 50% for 3 turns
-	[2] ESAttackUPRemainingEnemies(17:30256) -> 僕に勝つのはまだ早いよ
+	[2] ESAttackUPRemainingEnemies(17:30256) -> It's still way too early to declare victory over me!
 	Increase damage to 150% for the next 999 turns
 
 #12: SkillSet:
-	[0] ESLeaderSwap(75:30251) -> 白鯨
+	[0] ESLeaderSwap(75:30251) -> White Whale
 	Leader changes to random sub for 1 turn
-	[1] ESGravity(50:30252) -> 羆落とし
+	[1] ESGravity(50:30252) -> Bear Drop
 	Player -99% HP
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESTypeResist(118:30259) -> 神半減
+#14: ESTypeResist(118:30259) -> God type Halved
 Reduce damage from God types by 50%

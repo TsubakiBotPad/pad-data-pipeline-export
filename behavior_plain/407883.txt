@@ -1,4 +1,4 @@
-#407883 - 跡部 景吾
+#407883 - Keigo Atobe
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -20,9 +20,9 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESAbsorbCombo(67:30192) -> 俺が王様（キング）だ!!
+	[0] ESAbsorbCombo(67:30192) -> I am the king!!
 	Absorb damage when combos <= 6 for 3 turns
-	[1] ESDebuffATK(130:30193) -> 俺様の美技に酔いな
+	[1] ESDebuffATK(130:30193) -> Stand in awe of my brilliant techniques.
 	ATK -50% for 3 turns
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -37,11 +37,11 @@ Branch on counter = 3, target rnd 21
 #10: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 14
 
-#11: ESRandomSpawn(92:30200) -> オラよ！
+#11: ESRandomSpawn(92:30200) -> Take that!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Spawn 6 random Water orbs, Deal 100% damage
 
-#12: ESAttributeBlock(107:30201) -> ほうら凍れ
+#12: ESAttributeBlock(107:30201) -> Now...freeze!
 Unable to match Fire, Wood, Light, and Dark orbs for 1 turn
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -53,31 +53,31 @@ Branch on flag & 2, target rnd 18
 #15: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#16: ESAttackUPRemainingEnemies(17:30197) -> 決めるぜ!!
+#16: ESAttackUPRemainingEnemies(17:30197) -> Gotcha.
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESDebuffRCV(105:30198) -> ドライブボレー
+#18: ESDebuffRCV(105:30198) -> Drive Volley
 Condition: 50% chance (ai:50 rnd:0)
 RCV 50% for 1 turn, Deal 100% damage
 
-#19: ESOrbLock(94:30199) -> 甘い甘い!!
+#19: ESOrbLock(94:30199) -> Not good enough!
 Lock all Water and Dark orbs, Deal 100% damage
 
 #20: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #21: SkillSet:
-	[0] ESOrbSealRow(100:30195) -> 次いくぜ!!
+	[0] ESOrbSealRow(100:30195) -> Here I go again!
 	Seal the 1st row for 5 turns
-	[1] ESBindAttack(63:30196) -> 眼力（インサイト）
+	[1] ESBindAttack(63:30196) -> Insight
 	Bind 2 random subs for 2 turns, Deal 100% damage
 
 #22: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#23: ESAttributeResist(72:30202) -> 水半減
+#23: ESAttributeResist(72:30202) -> Water Halved
 Reduce damage from Water attrs by 50%

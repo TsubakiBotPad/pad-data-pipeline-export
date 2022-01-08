@@ -1,4 +1,4 @@
-#7886 - 幸村 精市
+#7886 - Seiichi Yukimura
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -15,9 +15,9 @@ end_turn
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:30218) -> 来たようだね
+	[0] ESStatusShield(20:30218) -> Looks like he showed up.
 	Voids status ailments for 999 turns
-	[1] ESBindRandom(1:30219) -> …いい瞳をしている
+	[1] ESBindRandom(1:30219) -> ...You've got the eyes.
 	Bind 6 random cards for 2 turns
 
 #5: ESSetCounter(26:16) -> ESSetCounter
@@ -35,7 +35,7 @@ Branch on flag & 1, target rnd 12
 #9: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#10: ESDebuffMovetime(39:30226) -> 触覚を奪う
+#10: ESDebuffMovetime(39:30226) -> Losing your sense of touch.
 Movetime 50% for 2 turns, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -47,7 +47,7 @@ Branch on flag & 2, target rnd 16
 #13: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#14: ESBlind62(62:30227) -> 視覚を奪う
+#14: ESBlind62(62:30227) -> Losing your sense of sight.
 Blind all orbs on the board, Deal 110% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -56,7 +56,7 @@ end_turn
 #16: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b0
 
-#17: ESGravity(50:30228) -> 聴覚を奪う
+#17: ESGravity(50:30228) -> Losing your sense of hearing.
 Player -99% HP
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -64,11 +64,11 @@ end_turn
 
 #19: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESInactivity66(66:30231) -> ボールは決して
+	[0] ESInactivity66(66:30231) -> The ball...
 	Do nothing
-	[1] ESOrbLock(94:30221) -> 消えたりなどしない
+	[1] ESOrbLock(94:30221) -> ...does not disappear.
 	Lock all orbs
-	[2] ESVoidShield(71:30222) -> これで　もう終わりかい？
+	[2] ESVoidShield(71:30222) -> Is that it?
 	Void damage >= 3,000,000 for 999 turns
 
 #20: ESBranchFlag(43:10) -> ESBranchFlag
@@ -77,7 +77,7 @@ Branch on flag & 1, target rnd 24
 #21: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#22: ESDebuffMovetime(39:30226) -> 触覚を奪う
+#22: ESDebuffMovetime(39:30226) -> Losing your sense of touch.
 Movetime 50% for 2 turns, Deal 100% damage
 
 #23: ESEndPath(36:26) -> ESEndPath
@@ -89,7 +89,7 @@ Branch on flag & 2, target rnd 28
 #25: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#26: ESBlind62(62:30227) -> 視覚を奪う
+#26: ESBlind62(62:30227) -> Losing your sense of sight.
 Blind all orbs on the board, Deal 110% damage
 
 #27: ESEndPath(36:26) -> ESEndPath
@@ -98,20 +98,20 @@ end_turn
 #28: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b0
 
-#29: ESGravity(50:30228) -> 聴覚を奪う
+#29: ESGravity(50:30228) -> Losing your sense of hearing.
 Player -99% HP
 
 #30: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #31: SkillSet:
-	[0] ESDamageShield(74:30224) -> 我が立海の3連覇に…
+	[0] ESDamageShield(74:30224) -> We Rikkai...
 	Reduce damage from all sources by 50% for 10 turns
-	[1] ESAttackUPRemainingEnemies(17:30225) -> 死角はない!!
+	[1] ESAttackUPRemainingEnemies(17:30225) -> ...will win our third.
 	Increase damage to 150% for the next 999 turns
 
 #32: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#33: ESSuperResolve(129:30152) -> 超根性
+#33: ESSuperResolve(129:30152) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

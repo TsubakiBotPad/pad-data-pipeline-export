@@ -1,4 +1,4 @@
-#203751 - 真覚醒クロノス
+#203751 - True Awoken Cronus
 monster size: 5
 new AI: True
 start/max counter: 2
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:13464) -> 乗り越えてみろ
+	[0] ESStatusShield(20:13464) -> Get over it!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:13465) -> 王の試練
+	[1] ESAbsorbCombo(67:13465) -> King's Test
 	Absorb damage when combos <= 6 for 1 turn
-	[2] ESDebuffMovetime(39:13466) -> 王の勅令
+	[2] ESDebuffMovetime(39:13466) -> King's Edict
 	Movetime 25% for 1 turn
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -39,10 +39,10 @@ flag SET 0b11
 #10: ESBranchHP(29:19) -> ESBranchHP
 Branch on hp > 100, target rnd 12
 
-#11: ESDamageShield(74:13468) -> 少しはできるようだな
+#11: ESDamageShield(74:13468) -> Looks like you're starting to get it.
 Reduce damage from all sources by 75% for 10 turns
 
-#12: ESBindAwoken(88:13467) -> その程度か？
+#12: ESBindAwoken(88:13467) -> That's it?
 Bind awoken skills for 10 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -54,19 +54,19 @@ Branch on hp < 5, target rnd 25
 #15: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 21
 
-#16: ESOrbChangeAttackBits(108:13472) -> トラッシュシフト
+#16: ESOrbChangeAttackBits(108:13472) -> Trash Shift
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Change all Jammer orbs to Wood orbs, Deal 150% damage
 
-#17: ESRowSpawnMulti(79:13473) -> ジャッジメントアダマス
+#17: ESRowSpawnMulti(79:13473) -> Adamant Judgment
 Condition: 33% chance (ai:0 rnd:33)
 Change the 3rd row to Wood and Jammer orbs, Deal 95% damage
 
-#18: ESSkillDelay(89:13474) -> ブレイクスワロー
+#18: ESSkillDelay(89:13474) -> Breaking Swallow
 Condition: 33% chance (ai:0 rnd:33)
 Delay active skills by 0~2 turns, Deal 100% damage
 
-#19: ESAttackMultihit(15:13475) -> キラーサイズ
+#19: ESAttackMultihit(15:13475) -> Killer Scythe
 Condition: 34% chance (ai:0 rnd:34)
 Deal 110% damage (2 hits, 55% each)
 
@@ -80,9 +80,9 @@ Branch on flag & 4, target rnd 16
 flag SET 0b111
 
 #23: SkillSet:
-	[0] ESSkyfallLocked(96:13470) -> 少し物足りないな
+	[0] ESSkyfallLocked(96:13470) -> Well, that wasn't enough...
 	Locked random skyfall +20% for 10 turns
-	[1] ESSkyfall(68:13471) -> これで楽しめそうだな
+	[1] ESSkyfall(68:13471) -> This could be more fun.
 	Jammer skyfall +15% for 10 turns
 
 #24: ESEndPath(36:26) -> ESEndPath
@@ -95,24 +95,24 @@ Branch on flag & 8, target rnd 29
 flag SET 0b1111
 
 #27: SkillSet:
-	[0] ESBindAwoken(88:13477) -> もう十分だ
+	[0] ESBindAwoken(88:13477) -> That's enough!
 	Bind awoken skills for 1 turn
-	[1] ESMaxHPChange(111:13478) -> 終わらせよう
+	[1] ESMaxHPChange(111:13478) -> Let's finish this!
 	Change player HP to 1,000 for 1 turn
 
 #28: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#29: ESAttackMultihit(15:13479) -> バニッシュメントアダマス
+#29: ESAttackMultihit(15:13479) -> Adamas of Banishment
 Deal 320% damage (4 hits, 80% each)
 
 #30: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #31: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #32: ESEndPath(36:26) -> ESEndPath

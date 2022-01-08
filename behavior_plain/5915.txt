@@ -1,0 +1,59 @@
+#5915 - ぬらり神
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:33459) -> 神の美しさ
+	Movetime 50% for 5 turns
+	[1] ESRowSpawnMulti(79:33460) -> 閃光ぎり
+	Change the 4th row to Light orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRandomSpawn(92:33464) -> 神剣ヌラノツルギ
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 4 random Light and Dark orbs, Deal 100% damage
+
+#5: ESRandomSpawn(92:33465) -> 神剣ヌラノツルギ
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Light and Dark orbs, Deal 101% damage
+
+#6: ESRandomSpawn(92:33466) -> 神剣ヌラノツルギ
+Spawn 6 random Light and Dark orbs, Deal 102% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindSkill(14:33462) -> 極楽の術
+	Bind active skills for 5 turns
+	[1] ESSpinnersRandom(109:33463) -> 神サービスをほどこしてやろう
+	Random 3 orbs change every 1.0s for 5 turns, Deal 100% damage
+
+#9: ESRandomSpawn(92:33464) -> 神剣ヌラノツルギ
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 4 random Light and Dark orbs, Deal 100% damage
+
+#10: ESRandomSpawn(92:33465) -> 神剣ヌラノツルギ
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Light and Dark orbs, Deal 101% damage
+
+#11: ESRandomSpawn(92:33466) -> 神剣ヌラノツルギ
+Spawn 6 random Light and Dark orbs, Deal 102% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttributeResist(72:33467) -> 光半減
+Reduce damage from Light attrs by 50%
+
+#14: ESSuperResolve(129:33468) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,29 @@
+#4977 - ウィスパー
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbThreshold(87:33425) -> 吸収の術
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when damage >= 5,000,000 for 5 turns
+
+#3: ESAttackMultihit(15:33426) -> あてみ
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#4: ESRandomSpawn(92:33427) -> 口からでまかせブレス
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 6 random Dark orbs, Deal 100% damage
+
+#5: ESRandomSpawn(92:33428) -> ゲロを吐く
+Spawn 5 random Jammer orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttributeResist(72:33429) -> 闇半減
+Reduce damage from Dark attrs by 50%

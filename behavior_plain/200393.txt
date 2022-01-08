@@ -1,0 +1,119 @@
+#200393 - 真豊穣神・イービルセレス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:4319) -> ダークメランコリー
+	Absorb damage when combos <= 6 for 999 turns
+	[1] ESStatusShield(20:4320) -> 豊穣の加護
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 25
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	Condition: When < 1% HP (ai:100 rnd:0)
+	[0] ESRecoverEnemy86(86:4339) -> 癒しの風
+	Enemy recover 50% HP
+	[1] ESGravity(50:4340) -> イービルアイ
+	Player -500% HP
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 17
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#11: ESBoardChangeAttackBits(85:4322) -> ゼフィロスアンガー
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+
+#12: ESAbsorbAttribute(53:4323) -> ライトファシネイション
+Absorb Light damage for 1 turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: SkillSet:
+	[0] ESSkyfall(68:4324) -> ルーセントブレシング
+	Light skyfall +20% for 5 turns
+	[1] ESBoardChangeAttackBits(85:4325) -> ゼフィロスレイジ
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
+
+#16: ESBoardChangeAttackBits(85:4325) -> ゼフィロスレイジ
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#19: SkillSet:
+	[0] ESVoidShield(71:31575) -> 神樹の籠
+	Void damage >= 1,500,000,000 for 99 turns
+	[1] ESAbsorbAttribute(53:4328) -> プラントファシネイション
+	Absorb Wood damage for 1 turn
+
+#20: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4330) -> フレイムファシネイション
+	Absorb Fire damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#21: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4331) -> アイスファシネイション
+	Absorb Water damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#22: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4332) -> ダークファシネイション
+	Absorb Dark damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#23: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAbsorbAttribute(53:4328) -> プラントファシネイション
+	Absorb Wood damage for 1 turn
+	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	Change the 5th row to Heal orbs, Deal 1,000% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESBindAwoken(88:27128) -> 神恨
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	Deal 800% damage (5 hits, 160% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESResolve(73:4338) -> 30%根性
+Survive attacks with 1 HP when HP > 30%

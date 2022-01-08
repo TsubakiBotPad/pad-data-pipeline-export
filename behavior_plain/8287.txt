@@ -1,0 +1,37 @@
+#8287 - アンドロイド山田
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffMovetime(39:33418) -> 『説明しよう！』
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 50% for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 7
+
+#4: ESAttackMultihit(15:33422) -> ヘッドバット
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESSpinnersRandom(109:33423) -> へそビーム
+Random 2 orbs change every 1.0s for 1 turn, Deal 101% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	[0] ESRecoverEnemy86(86:33420) -> 心優しきアンドロイド
+	Enemy recover 100% HP
+	[1] ESBindAttack(63:33421) -> アンドロイドにする
+	Bind 2 random subs for 2 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESResolve(73:33424) -> 根性
+Survive attacks with 1 HP when HP > 50%

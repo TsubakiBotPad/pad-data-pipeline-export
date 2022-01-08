@@ -1,0 +1,31 @@
+#205915 - ぬらり神
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205915
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33498:72) 光闇半減
+ | Reduce damage from Light and Dark attrs by 50%
+ | (33499:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33489:83) 神の美しさ + 閃光ぎり
+ | Movetime 25% for 5 turns + Change the 2nd and 4th rows to Light orbs, Deal 101% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (33495:92) 神剣ヌラノツルギ
+   | Spawn 5 random Light and Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (33496:92) 神剣ヌラノツルギ
+   | Spawn 6 random Light and Dark orbs, Deal 101% damage
+   | (33497:92) 神剣ヌラノツルギ
+   | Spawn 7 random Light and Dark orbs, Deal 102% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33492:83) 極楽の術 + 神サービスをほどこしてやろう
+   | Bind active skills for 5 turns + Specific orbs change every 1.0s for 5 turns, Deal 100% damage

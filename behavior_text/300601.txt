@@ -15,24 +15,22 @@ level: 1
  | Bind active skills for 10 turns
  group:
  | group:
-   | group:
-   | condition: turns 1-5 while HP > 4
-     | (32003:46) はばたきビンタ
-     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
-   | group:
-     | (29725:15) 次元の殲滅
-     | Deal 5,000% damage (5 hits, 1,000% each)
+ | condition: turns 1-5
+   | (32003:46) はばたきビンタ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
  | group:
- | condition: turns 1-5, hp <= 4
-   | (32027:15) はばたきドリル
-   | Deal 1,000% damage (5 hits, 200% each)
+   | (29725:15) 次元の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
  type: REMAINING
  condition: when 2 enemies remain, hp <= 100
  | group:
- | condition: turn 1 while HP > 4
+ | condition: turn 1
    | (32531:19) 次元の解放
    | Increase damage to 1,000% for the next 999 turns
  | group:
- | condition: turns 2-5 while HP > 4
+ | condition: turns 2-5
    | (32003:46) はばたきビンタ
    | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ type: UNKNOWN_USE
+ | (32027:15) はばたきドリル
+ | Deal 1,000% damage (5 hits, 200% each)

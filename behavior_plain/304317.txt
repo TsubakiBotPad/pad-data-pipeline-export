@@ -1,4 +1,4 @@
-#304317 - 陣
+#304317 - Jin
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -22,7 +22,7 @@ Branch on flag & 1, target rnd 9
 #6: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#7: ESAbsorbCombo(67:9402) -> 楽しく戦うべ
+#7: ESAbsorbCombo(67:9402) -> Let's have some fun, then!
 Absorb damage when combos <= 4 for 5 turns
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -35,9 +35,9 @@ Branch on flag & 2, target rnd 13
 flag SET 0b11
 
 #11: SkillSet:
-	[0] ESInactivity66(66:9403) -> この島は必ずオラが頂くだ！
+	[0] ESInactivity66(66:9403) -> It could really all be ours.
 	Do nothing
-	[1] ESGravity(50:9404) -> オメエばぶっ倒してな！
+	[1] ESGravity(50:9404) -> I'm gettin' my prize!
 	Player -99% HP
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -46,7 +46,7 @@ end_turn
 #13: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 16
 
-#14: ESCloud(104:9406) -> 修羅旋風拳
+#14: ESCloud(104:9406) -> Tornado Fist
 A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -59,19 +59,19 @@ Branch on flag & 4, target rnd 20
 flag SET 0b111
 
 #18: SkillSet:
-	[0] ESCloud(104:9407) -> さあて そろそろケリつけるだかな
+	[0] ESCloud(104:9407) -> Been a blast playin' defender, but I think I'll get on with my attack!
 	A row of clouds appears for 1 turn at 3rd row, 1st column
-	[1] ESDamageShield(74:9408) -> 爆風障壁
+	[1] ESDamageShield(74:9408) -> Wall of Wind
 	Reduce damage from all sources by 50% for 1 turn
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESAttackMultihit(15:9410) -> おもしれーぞ 勝負だ!
+#20: ESAttackMultihit(15:9410) -> I can't be waitin' any more! Let's play!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Deal 120% damage (2 hits, 60% each)
 
-#21: ESCloud(104:9406) -> 修羅旋風拳
+#21: ESCloud(104:9406) -> Tornado Fist
 A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage
 
 #22: ESEndPath(36:26) -> ESEndPath
@@ -83,7 +83,7 @@ Branch on flag & 1, target rnd 26
 #24: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#25: ESInactivity66(66:9413) -> 楽しく戦うべ
+#25: ESInactivity66(66:9413) -> Let's have some fun, then!
 Do nothing
 
 #26: ESEndPath(36:26) -> ESEndPath
@@ -91,5 +91,5 @@ end_turn
 
 #27: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:9411) -> いいパンチだった
+	[0] ESInactivity66(66:9411) -> That was a nice punch!
 	Do nothing

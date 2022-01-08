@@ -1,0 +1,94 @@
+#200393 - 真豊穣神・イービルセレス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 200393
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (4338:73) 30%根性
+ | Survive attacks with 1 HP when HP > 30%
+ type: PREEMPT
+ | (4321:83) ダークメランコリー + 豊穣の加護
+ | Absorb damage when combos <= 6 for 999 turns + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (4322:85) ゼフィロスアンガー
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (4323:53) ライトファシネイション
+     | Absorb Light damage for 1 turn
+   | group:
+   | condition: turn 3 while HP > 49
+     | (4322:85) ゼフィロスアンガー
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (4323:53) ライトファシネイション
+     | Absorb Light damage for 1 turn
+   | group:
+   | condition: turn 5 while HP > 49
+     | (4322:85) ゼフィロスアンガー
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+   | group:
+   | condition: turn 6 while HP > 49
+     | (4323:53) ライトファシネイション
+     | Absorb Light damage for 1 turn
+   | group:
+   | condition: turn 7 while HP > 49
+     | (4322:85) ゼフィロスアンガー
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+   | group:
+   | condition: turn 8 while HP > 49
+     | (4323:53) ライトファシネイション
+     | Absorb Light damage for 1 turn
+   | group:
+   | condition: turn 9 while HP > 49
+     | (4322:85) ゼフィロスアンガー
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
+   | group:
+   | condition: turn 10 while HP > 49
+     | (4323:53) ライトファシネイション
+     | Absorb Light damage for 1 turn
+   | group:
+     | (27161:83) 神恨 + 聖跡の終天罰
+     | Bind awoken skills for 10 turns + Deal 800% damage (5 hits, 160% each), Deal 800% damage (5 hits, 160% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 29
+     | (4326:83) ルーセントブレシング + ゼフィロスレイジ
+     | Light skyfall +20% for 5 turns + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
+   | group:
+   | condition: turns 2-10 while HP > 29
+     | (4325:85) ゼフィロスレイジ
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (31574:83) 神樹の籠 + プラントファシネイション
+     | Void damage >= 1,500,000,000 for 99 turns + Absorb Wood damage for 1 turn
+   | group:
+   | condition: turns 2-10
+     | condition: 25% chance
+     | (4334:83) フレイムファシネイション + ナチュラルディザスター
+     | Absorb Fire damage for 1 turn + Change the 5th row to Heal orbs, Deal 1,000% damage
+     | condition: 25% chance
+     | (4335:83) アイスファシネイション + ナチュラルディザスター
+     | Absorb Water damage for 1 turn + Change the 5th row to Heal orbs, Deal 1,000% damage
+     | condition: 25% chance
+     | (4336:83) ダークファシネイション + ナチュラルディザスター
+     | Absorb Dark damage for 1 turn + Change the 5th row to Heal orbs, Deal 1,000% damage
+     | condition: 25% chance
+     | (4337:83) プラントファシネイション + ナチュラルディザスター
+     | Absorb Wood damage for 1 turn + Change the 5th row to Heal orbs, Deal 1,000% damage
+ | group:
+ | condition: turns 1-10, hp <= 1
+   | (4341:83) 癒しの風 + イービルアイ
+   | Enemy recover 50% HP + Player -500% HP

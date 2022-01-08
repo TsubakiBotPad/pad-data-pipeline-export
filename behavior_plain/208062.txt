@@ -1,0 +1,140 @@
+#208062 - 緋星の神王妃・ヘラ -LUNA-
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:31545) -> 気高きオリュンポス
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:31546) -> 緋星のオーラ
+	Void damage >= 2,000,000,000 for 999 turns
+	[2] ESAttackMultihit(15:31547) -> グラビティア
+	Deal 130% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 32
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#11: SkillSet:
+	[0] ESOrbLock(94:31549) -> エネルギーバース
+	Lock all Fire, Water, and Dark orbs
+	[1] ESBoardChangeAttackBits(85:31550) -> 拡散
+	Change all orbs to Heal, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#15: SkillSet:
+	[0] ESAbsorbAttribute(53:31552) -> 熱気の収縮
+	Absorb Fire and Water damage for 1 turn
+	[1] ESRowSpawnMulti(79:31553) -> ドミネート・オブ・ゼウス
+	Change the 1st row to Fire orbs and the 5th row to Water orbs, Deal 80% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#18: SkillSet:
+	[0] ESBindRandom(1:31555) -> 嫉心の戒
+	Bind 3 random cards for 10 turns
+	[1] ESAttackMultihit(15:31556) -> オーミナスバーン
+	Deal 80% damage (4 hits, 20% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:31558) -> 緋に染まる聖域
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESTargetedSkillHaste(139:31559) -> 王妃の天恵
+	Haste random sub's skills by 20 turns
+	[2] ESTargetedSkillDelay(140:31560) -> 貞淑のさだめ
+	Delay both leaders' skills by 10 turns
+
+#21: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 25
+
+#22: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#23: SkillSet:
+	[0] ESBlindStickyRandom(97:31562) -> デプスダーク
+	Blind random 15 orbs for 1 turn
+	[1] ESOrbSealRow(100:31563) -> 裁きの王笏
+	Seal the 5th row for 1 turn, Deal 75% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 29
+
+#26: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#27: SkillSet:
+	[0] ESChangeAttribute(46:31565) -> 愛憎の業
+	Change own attribute to random one of Fire or Water
+	[1] ESAttackMultihit(15:31566) -> オーミナスバーン
+	Deal 80% damage (4 hits, 20% each)
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#30: SkillSet:
+	[0] ESOrbLock(94:31568) -> サイレントリップ
+	Lock 15 random orbs
+	[1] ESSpinnersRandom(109:31569) -> 幻惑の懐抱
+	Random 3 orbs change every 1.0s for 1 turn, Deal 75% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESAttackUPRemainingEnemies(17:27295) -> 戦乱の聖跡
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 999 turns
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESSuperResolve(129:31543) -> ＿火LUNA超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

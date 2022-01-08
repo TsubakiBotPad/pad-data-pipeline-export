@@ -1,4 +1,4 @@
-#203903 - 真魔星の神王妃・ヘラ＝ニクス
+#203903 - True Devil Star Divine Queen, Hera-Nyx
 monster size: 5
 new AI: True
 start/max counter: 63
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 32)
-	[0] ESStatusShield(20:13757) -> 来たね…始めようか！
+	[0] ESStatusShield(20:13757) -> Here at last... Shall we begin?
 	Voids status ailments for 999 turns
 	[1] ESVoidShield(71:28388) -> 魔星の紋章
 	Void damage >= 2,000,000,000 for 999 turns
-	[2] ESAttributeBlock(107:13760) -> どこまで耐えれるかな♪
+	[2] ESAttributeBlock(107:13760) -> Wonder how long you can last♪
 	Unable to match Light orbs for 2 turns
 	[3] ESAttackMultihit(15:28397) -> いくよ、私の拳 受けてみて！！
 	Deal 350% damage
@@ -33,18 +33,18 @@ counter + 1
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 16)
-	[0] ESInactivity66(66:8105) -> お見事♪でもまだまだ…
+	[0] ESInactivity66(66:8105) -> Splendid♪ Not over yet though...
 	Do nothing
-	[1] ESGravity(50:8106) -> グラビトンフィスト
+	[1] ESGravity(50:8106) -> Graviton Fist
 	Player -99% HP
-	[2] ESBlind62(62:8107) -> ハイキック
+	[2] ESBlind62(62:8107) -> High Kick
 	Blind all orbs on the board, Deal 100% damage
 
 #7: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 8)
-	[0] ESAbsorbCombo(67:8113) -> そろそろ本気でいかなきゃだね
+	[0] ESAbsorbCombo(67:8113) -> I'll have to get serious soon!
 	Absorb damage when combos <= 7 for 999 turns
-	[1] ESDebuffMovetime(39:8114) -> もっと…速くっ！！
+	[1] ESDebuffMovetime(39:8114) -> Come on! Faster!
 	Movetime -1s for 10 turns
 
 #8: ESBranchHP(28:18) -> ESBranchHP
@@ -53,15 +53,15 @@ Branch on hp < 10, target rnd 25
 #9: ESBranchFlag(43:10) -> ESBranchFlag
 Branch on flag & 8, target rnd 25
 
-#10: ESBlindStickyRandom(97:8116) -> ブラックスクリューブロー
+#10: ESBlindStickyRandom(97:8116) -> Black Screw Blow
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 4)
 Blind random 6 orbs for 2 turns, Deal 350% damage
 
-#11: ESAttackMultihit(15:8117) -> フルスピンキック
+#11: ESAttackMultihit(15:8117) -> Full Spin Kick
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
 Deal 480% damage (6 hits, 80% each)
 
-#12: ESAttackMultihit(15:8118) -> ヘルショットパンチ
+#12: ESAttackMultihit(15:8118) -> Hell Shot Punch
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Deal 700% damage
 
@@ -71,7 +71,7 @@ Branch on flag & 1, target rnd 16
 #14: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#15: ESAttackMultihit(15:8109) -> スピンキック
+#15: ESAttackMultihit(15:8109) -> Spin Kick
 Deal 330% damage (3 hits, 110% each)
 
 #16: ESBranchFlag(43:10) -> ESBranchFlag
@@ -80,7 +80,7 @@ Branch on flag & 2, target rnd 19
 #17: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#18: ESSkillDelay(89:8110) -> ボディブロー
+#18: ESSkillDelay(89:8110) -> Body Blow
 Delay active skills by 0~3 turns, Deal 280% damage
 
 #19: ESBranchFlag(43:10) -> ESBranchFlag
@@ -89,13 +89,13 @@ Branch on flag & 4, target rnd 22
 #20: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b111
 
-#21: ESAttackMultihit(15:8111) -> コンボラッシュ
+#21: ESAttackMultihit(15:8111) -> Combo Rush
 Deal 400% damage (5 hits, 80% each)
 
 #22: ESFlagOperation(24:14) -> ESFlagOperation
 flag UNSET 0b111
 
-#23: ESSpinnersFixed(110:8112) -> アックスキック
+#23: ESSpinnersFixed(110:8112) -> Axe Kick
 Specific orbs change every 1.0s for 1 turn, Deal 300% damage
 
 #24: ESEndPath(36:26) -> ESEndPath
@@ -108,25 +108,25 @@ Branch on flag & 8, target rnd 28
 flag SET 0b1111
 
 #27: SkillSet:
-	[0] ESChangeAttribute(46:8119) -> 楽しかったよ、でも もうお終い
+	[0] ESChangeAttribute(46:8119) -> It's been fun, but let's end this.
 	Change own attribute to random one of Fire, Water, or Wood
-	[1] ESAttackMultihit(15:8120) -> これが私の、全身全霊！！！
+	[1] ESAttackMultihit(15:8120) -> This is my full power!!!
 	Deal 60,000% damage (10 hits, 6,000% each)
 
-#28: ESAttackMultihit(15:8126) -> 渦巻く魔力
+#28: ESAttackMultihit(15:8126) -> Whirling Magical Power
 Deal 50,000% damage (10 hits, 5,000% each)
 
 #29: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #30: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #31: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#32: ESResolve(73:8125) -> ヘラ根性
+#32: ESResolve(73:8125) -> Hera Resolve
 Survive attacks with 1 HP when HP > 50%

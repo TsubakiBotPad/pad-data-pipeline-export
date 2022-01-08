@@ -1,0 +1,29 @@
+#8283 - 呪野花子
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8283
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33410:118) 神半減
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (33405:89) 呪いのラブレター
+ | Delay active skills by 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (33407:15) はりたおす
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (33408:92) 死神の術
+   | Spawn 5 random Dark orbs, Deal 101% damage
+   | (33409:92) 花子（高２）の呪い
+   | Spawn 5 random Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33406:104) 今日から毎日　呪ってあげるね！
+   | A row of clouds appears for 3 turns at 1st row, 1st column

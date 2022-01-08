@@ -1,4 +1,4 @@
-#207895 - 白石 蔵ノ介
+#207895 - Kuranosuke Shiraishi
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:30087) -> 遠慮なく行かせてもらうわ
+	[0] ESStatusShield(20:30087) -> I'm not holding anything back.
 	Voids status ailments for 999 turns
-	[1] ESSkyfallLocked(96:30088) -> 負けん気強いんやな…
+	[1] ESSkyfallLocked(96:30088) -> You don't like to lose, do you.
 	Locked random skyfall +25% for 10 turns
-	[2] ESGravity(50:30089) -> 無駄多いでぇ
+	[2] ESGravity(50:30089) -> A lot of it's unnecessary.
 	Player -99% HP
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,19 +22,19 @@ Branch on hp < 1, target rnd 13
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#5: ESSpinnersFixed(110:30096) -> 円卓ショット
+#5: ESSpinnersFixed(110:30096) -> Round Table Shot
 Condition: 25% chance (ai:0 rnd:25)
 Specific orbs change every 1.0s for 3 turns, Deal 100% damage
 
-#6: ESSpinnersFixed(110:30100) -> 円卓ショット
+#6: ESSpinnersFixed(110:30100) -> Round Table Shot
 Condition: 25% chance (ai:0 rnd:25)
 Specific orbs change every 1.0s for 3 turns, Deal 100% damage
 
-#7: ESOrbLock(94:30097) -> ドロップショット
+#7: ESOrbLock(94:30097) -> Drop Shot
 Condition: 25% chance (ai:0 rnd:25)
 Lock all Light orbs, Deal 100% damage
 
-#8: ESDebuffRCV(105:30098) -> んーん惜しいわぁ
+#8: ESDebuffRCV(105:30098) -> Hm. Almost.
 Condition: 25% chance (ai:0 rnd:25)
 RCV 25% for 1 turn, Deal 100% damage
 
@@ -48,19 +48,19 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESBoardChange(84:30094) -> どんなテニスをしようと
+	[0] ESBoardChange(84:30094) -> It's all about...
 	Change all orbs to Wood, Light, and Heal
-	[1] ESOrbLock(94:30095) -> 勝ったモン勝ちや―
+	[1] ESOrbLock(94:30095) -> ...winning.
 	Lock all Wood and Light orbs
 
 #13: SkillSet:
-	[0] ESRecoverEnemy86(86:30091) -> んんーっ絶頂（エクスタシー）！
+	[0] ESRecoverEnemy86(86:30091) -> Hmm! Ecstasy!!
 	Enemy recover 100% HP
-	[1] ESBombFixedSpawn(103:30092) -> ローボレー
+	[1] ESBombFixedSpawn(103:30092) -> Low Volley
 	Spawn Bomb orbs in the specified positions
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:30099) -> 根性
+#15: ESResolve(73:30099) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -1,4 +1,4 @@
-#7880 - 越前 リョーマ
+#7880 - Ryoma Echizen
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:30233) -> いくよ！
+	[0] ESStatusShield(20:30233) -> Let's go!
 	Voids status ailments for 999 turns
-	[1] ESSpinnersFixed(110:30234) -> ツイストサーブ
+	[1] ESSpinnersFixed(110:30234) -> Twist Serve
 	Specific orbs change every 1.0s for 4 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -32,7 +32,7 @@ Branch on flag & 1, target rnd 11
 #8: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#9: ESRowSpawnMulti(79:30243) -> ドライブA
+#9: ESRowSpawnMulti(79:30243) -> Drive A
 Change the 1st row to Fire orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,7 +44,7 @@ Branch on flag & 2, target rnd 15
 #12: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#13: ESColumnSpawnMulti(77:30244) -> ドライブB
+#13: ESColumnSpawnMulti(77:30244) -> Drive B
 Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -53,7 +53,7 @@ end_turn
 #15: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b0
 
-#16: ESRowSpawnMulti(79:30242) -> COOLドライブ
+#16: ESRowSpawnMulti(79:30242) -> COOL Drive
 Change the 4th row to Fire orbs and the 5th row to Water orbs, Deal 100% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -61,9 +61,9 @@ end_turn
 
 #18: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBlind5(5:30241) -> よそ見してていーの？
+	[0] ESBlind5(5:30241) -> Sure you don't need to face front?
 	Blind all orbs on the board
-	[1] ESRowSpawnMulti(79:30242) -> COOLドライブ
+	[1] ESRowSpawnMulti(79:30242) -> COOL Drive
 	Change the 4th row to Fire orbs and the 5th row to Water orbs, Deal 100% damage
 
 #19: ESBranchFlag(43:10) -> ESBranchFlag
@@ -72,7 +72,7 @@ Branch on flag & 1, target rnd 23
 #20: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#21: ESRowSpawnMulti(79:30243) -> ドライブA
+#21: ESRowSpawnMulti(79:30243) -> Drive A
 Change the 1st row to Fire orbs, Deal 100% damage
 
 #22: ESEndPath(36:26) -> ESEndPath
@@ -84,7 +84,7 @@ Branch on flag & 2, target rnd 27
 #24: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#25: ESColumnSpawnMulti(77:30244) -> ドライブB
+#25: ESColumnSpawnMulti(77:30244) -> Drive B
 Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage
 
 #26: ESEndPath(36:26) -> ESEndPath
@@ -93,13 +93,13 @@ end_turn
 #27: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b0
 
-#28: ESRowSpawnMulti(79:30242) -> COOLドライブ
+#28: ESRowSpawnMulti(79:30242) -> COOL Drive
 Change the 4th row to Fire orbs and the 5th row to Water orbs, Deal 100% damage
 
 #29: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#30: ESDamageShield(74:30235) -> へえ　やるじゃん…
+#30: ESDamageShield(74:30235) -> Oh? You're better than I thought.
 Reduce damage from all sources by 50% for 10 turns
 
 #31: ESEndPath(36:26) -> ESEndPath
@@ -112,19 +112,19 @@ Branch on flag & 8, target rnd 35
 flag SET 0b1111
 
 #34: SkillSet:
-	[0] ESBindAwoken(88:30237) -> まだまだだね
+	[0] ESBindAwoken(88:30237) -> You've still got a ways to go!
 	Bind awoken skills for 1 turn
-	[1] ESSpinnersFixed(110:30238) -> ツイストサーブ
+	[1] ESSpinnersFixed(110:30238) -> Twist Serve
 	Specific orbs change every 1.0s for 4 turns
 
-#35: ESAttackMultihit(15:30239) -> …にゃろう
+#35: ESAttackMultihit(15:30239) -> Sheesh...
 Deal 1,000% damage (5 hits, 200% each)
 
 #36: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#37: ESTypeResist(118:30245) -> 攻撃半減
+#37: ESTypeResist(118:30245) -> Attacker Type Halved
 Reduce damage from Attacker types by 50%
 
-#38: ESSuperResolve(129:30246) -> 超根性
+#38: ESSuperResolve(129:30246) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

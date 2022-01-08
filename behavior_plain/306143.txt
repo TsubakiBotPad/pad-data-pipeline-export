@@ -1,4 +1,4 @@
-#306143 - 闘争の昂魔王・ベレト
+#306143 - Ascendant Demon King of Conflict, Beleth
 monster size: 5
 new AI: True
 start/max counter: 47
@@ -9,15 +9,15 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 24)
-	[0] ESInvulnerableOn(119:17355) -> 我に…挑むか
+	[0] ESInvulnerableOn(119:17355) -> You wish to challenge me?
 	Immune to damage from all sources for 999 turns
-	[1] ESBindAwoken(88:17356) -> いいだろう
+	[1] ESBindAwoken(88:17356) -> Very well.
 	Bind awoken skills for 3 turns
-	[2] ESBindSkill(14:17357) -> まずは貴様を試す…
+	[2] ESBindSkill(14:17357) -> First I will test you...
 	Bind active skills for 3 turns
-	[3] ESBoardSizeChange(126:17358) -> 開境
+	[3] ESBoardSizeChange(126:17358) -> Open Borders
 	Change board size to 7x6 for 3 turns
-	[4] ESRandomSpawn(92:17359) -> 組んでみせろ
+	[4] ESRandomSpawn(92:17359) -> Show me that you can unite them.
 	Spawn 7 random Fire, Water, Wood, Heal, Jammer, and Poison orbs
 
 #3: ESBranchFlag(43:10) -> ESBranchFlag
@@ -146,7 +146,7 @@ counter + 1
 #44: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#45: ESRandomSpawn(92:17359) -> 組んでみせろ
+#45: ESRandomSpawn(92:17359) -> Show me that you can unite them.
 Condition: One-time use (ai:100 rnd:0) (cost: 8)
 Spawn 7 random Fire, Water, Wood, Heal, Jammer, and Poison orbs
 
@@ -158,22 +158,22 @@ Branch on counter >= 30, target rnd 49
 
 #48: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESInvulnerableOff(121:17365) -> 未熟だな
+	[0] ESInvulnerableOff(121:17365) -> You're weak.
 	Remove damage immunity effect
-	[1] ESStatusShield(20:17366) -> 魔境の鎧
+	[1] ESStatusShield(20:17366) -> Demon Realm Armor
 	Voids status ailments for 999 turns
-	[2] ESDamageShield(74:17367) -> 叩き潰してくれる
+	[2] ESDamageShield(74:17367) -> I shall strike you down.
 	Reduce damage from all sources by 90% for 999 turns
-	[3] ESSpinnersFixed(110:17368) -> 覚悟しろ
+	[3] ESSpinnersFixed(110:17368) -> Ready yourself.
 	Specific orbs change every 1.0s for 20 turns
 
 #49: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESInvulnerableOff(121:17361) -> 見事だ
+	[0] ESInvulnerableOff(121:17361) -> You did well.
 	Remove damage immunity effect
-	[1] ESDamageShield(74:17362) -> では始めよう
+	[1] ESDamageShield(74:17362) -> Let us begin.
 	Reduce damage from all sources by 90% for 999 turns
-	[2] ESSpinnersFixed(110:17368) -> 覚悟しろ
+	[2] ESSpinnersFixed(110:17368) -> Ready yourself.
 	Specific orbs change every 1.0s for 20 turns
 
 #50: ESBranchCounter(32:22) -> ESBranchCounter
@@ -184,28 +184,28 @@ Branch on hp > 50, target rnd 54
 
 #52: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESAttackUPCooldown(19:17363) -> 全力でいくぞ
+	[0] ESAttackUPCooldown(19:17363) -> No holding back.
 	Increase damage to 200% for the next 999 turns
-	[1] ESDispel(6:17371) -> 消失の覇気
+	[1] ESDispel(6:17371) -> Spirit of Loss
 	Voids player buff effects
-	[2] ESAttributeBlock(107:17372) -> さぁ、どうする
+	[2] ESAttributeBlock(107:17372) -> What will you do now?
 	Unable to match Heal orbs for 1 turn
 
 #53: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 10, target rnd 59
 
-#54: ESOrbChangeAttackBits(108:17376) -> 燃焼のブルータルカット
+#54: ESOrbChangeAttackBits(108:17376) -> Brutal Burning Cut
 Change all Poison orbs to Fire and Water orbs, Deal 200% damage
 
-#55: ESOrbLock(94:17373) -> 氷結のフルスイング
+#55: ESOrbLock(94:17373) -> Freezing Full Swing
 Condition: 33% chance (ai:0 rnd:33)
 Lock 15 random orbs, Deal 120% damage
 
-#56: ESSkyfall(68:17374) -> 凍燃のスラッシュ
+#56: ESSkyfall(68:17374) -> Frostburn Slash
 Condition: 33% chance (ai:0 rnd:33)
 Poison skyfall +20% for 1 turn, Deal 95% damage
 
-#57: ESDebuffRCV(105:17375) -> 減命の炎
+#57: ESDebuffRCV(105:17375) -> Life-Stealing Flame
 Condition: 34% chance (ai:0 rnd:34)
 RCV 50% for 1 turn, Deal 90% damage
 
@@ -214,19 +214,19 @@ end_turn
 
 #59: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkillDelay(89:17378) -> 狂喜の慟哭
+	[0] ESSkillDelay(89:17378) -> Ecstatic Wail
 	Delay active skills by 4~8 turns
-	[1] ESDebuffMovetime(39:17379) -> 悪夢の強襲
+	[1] ESDebuffMovetime(39:17379) -> Nightmare Assault
 	Movetime 25% for 5 turns
 
 #60: SkillSet:
-	[0] ESChangeAttribute(46:17381) -> 今際の景色
+	[0] ESChangeAttribute(46:17381) -> The View from Death's Door
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:17382) -> 残虐の双刀撃
+	[1] ESAttackMultihit(15:17382) -> Savage Double-Bladed Attack
 	Deal 800% damage (8 hits, 100% each)
 
 #61: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#62: ESSuperResolve(129:17369) -> 超根性
+#62: ESSuperResolve(129:17369) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

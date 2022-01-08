@@ -1,0 +1,35 @@
+#204985 - ミツマタノヅチ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 204985
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11934:83) ギョロローン！ + アツいゾッ　ヤケドするゾ～ッ！
+ | Voids status ailments for 10 turns + Locked Fire skyfall +100% for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (11937:50) ギョロドッカーン！
+   | Player -75% HP
+   | condition: 50% chance
+   | (11938:48) ギョロッ！　コレにするのダ！
+   | Change a random attribute to Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 50
+   | condition: 50% chance
+   | (11939:101) ギロギロ～ッ！
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | condition: 50% chance
+   | (11937:50) ギョロドッカーン！
+   | Player -75% HP
+   | condition: 50% chance
+   | (11938:48) ギョロッ！　コレにするのダ！
+   | Change a random attribute to Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | (11940:15) モーレツ三又撃
+   | Deal 300% damage (3 hits, 100% each)

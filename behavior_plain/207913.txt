@@ -1,4 +1,4 @@
-#207913 - 木手 永四郎
+#207913 - Eishiro Kite
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESColumnSpawnMulti(77:30067) -> ビッグバン
+	[0] ESColumnSpawnMulti(77:30067) -> Big Bang Serve
 	Change the 1st column to Dark orbs, Deal 100% damage
-	[1] ESCloud(104:30068) -> 何を見せてくれるのかな？
+	[1] ESCloud(104:30068) -> What are you going to show me...
 	A row of clouds appears for 2 turns at 5th row, 1st column
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -26,11 +26,11 @@ Branch on hp < 20, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESDebuffATK(130:30072) -> 手は抜かない方がいい
+#7: ESDebuffATK(130:30072) -> I suggest that you not hold back.
 Condition: 50% chance (ai:50 rnd:0)
 ATK -75% for 1 turn, Deal 100% damage
 
-#8: ESDebuffRCV(105:30073) -> 残念だよ
+#8: ESDebuffRCV(105:30073) -> What a shame.
 RCV 50% for 1 turn, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -42,23 +42,23 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESSkillDelay(89:30071) -> 全方向への縮地法
+#12: ESSkillDelay(89:30071) -> Shukuchi Technique in all directions
 Delay active skills by 5 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:30070) -> 消し飛ぶんだ
+#14: ESAttackMultihit(15:30070) -> You'll only be blasted away.
 Deal 220% damage (4 hits, 55% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESVoidShield(71:30069) -> 無駄だよ
+#16: ESVoidShield(71:30069) -> Don't bother.
 Void damage >= 5,000,000 for 5 turns
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESAttributeResist(72:30074) -> 木闇半減
+#18: ESAttributeResist(72:30074) -> Wood Dark Halved
 Reduce damage from Wood and Dark attrs by 50%

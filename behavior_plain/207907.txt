@@ -1,4 +1,4 @@
-#207907 - 亜久津 仁
+#207907 - Jin Akutsu
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESAbsorbCombo(67:29958) -> 約束通り遊んでやろう
+#2: ESAbsorbCombo(67:29958) -> As promised, I'll play with you.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Absorb damage when combos <= 4 for 3 turns
 
@@ -17,7 +17,7 @@ Branch on flag & 1, target rnd 11
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#5: ESRowSpawnMulti(78:29959) -> 無駄無駄っ!!
+#5: ESRowSpawnMulti(78:29959) -> Forget it, it won't work.
 Change the 1st row to Wood orbs
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -30,9 +30,9 @@ Branch on flag & 1, target rnd 11
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESBlind5(5:30044) -> お前はもう…
+	[0] ESBlind5(5:30044) -> You won't steal...
 	Blind all orbs on the board
-	[1] ESDamageShield(74:30045) -> 俺からポイントを奪う事はねぇ
+	[1] ESDamageShield(74:30045) -> ...any more points from me.
 	Reduce damage from all sources by 90% for 3 turns
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,13 +44,13 @@ counter + 1
 #12: ESBranchCounter(31:21) -> ESBranchCounter
 Branch on counter = 3, target rnd 15
 
-#13: ESRandomSpawn(92:29961) -> ぶっ潰す
+#13: ESRandomSpawn(92:29961) -> I'm gonna squash you.
 Spawn 4 random Dark orbs, Deal 101% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackUPRemainingEnemies(17:29960) -> 最高じゃねーの!!
+#15: ESAttackUPRemainingEnemies(17:29960) -> Well, isn't this great?!
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
@@ -59,5 +59,5 @@ end_turn
 
 #17: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:30173) -> つまんねぇ
+	[0] ESInactivity66(66:30173) -> It's boring.
 	Do nothing

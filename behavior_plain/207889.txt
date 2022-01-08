@@ -1,4 +1,4 @@
-#207889 - 手塚 国光
+#207889 - Kunimitsu Tezuka
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkillDelay(89:30128) -> 油断せずに行こう
+	[0] ESSkillDelay(89:30128) -> I won't let my guard down.
 	Delay active skills by 5 turns
-	[1] ESAbsorbAttribute(53:30129) -> 手塚ゾーン
+	[1] ESAbsorbAttribute(53:30129) -> Tezuka Zone
 	Absorb Water and Light damage for 5 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -23,11 +23,11 @@ Branch on counter = 5, target rnd 12
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#6: ESPoisonChangeRandomAttack(64:30136) -> コードボール
+#6: ESPoisonChangeRandomAttack(64:30136) -> Cord Ball
 Condition: 50% chance (ai:50 rnd:0)
 Change 5 random orbs to Poison orbs, Deal 100% damage
 
-#7: ESOrbLock(94:30137) -> ドライブボレー
+#7: ESOrbLock(94:30137) -> Drive Volley
 Lock all Water and Light orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -40,19 +40,19 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESTargetedSkillHaste(139:30134) -> 遠慮するなよ
+	[0] ESTargetedSkillHaste(139:30134) -> Don't hold back.
 	Haste both leaders' skills by 20 turns
-	[1] ESAttackMultihit(15:30135) -> 本気で来い
+	[1] ESAttackMultihit(15:30135) -> Bring it on.
 	Deal 120% damage (3 hits, 40% each)
 
 #12: SkillSet:
-	[0] ESDamageShield(74:30131) -> 俺は負けない
+	[0] ESDamageShield(74:30131) -> I won't lose.
 	Reduce damage from all sources by 75% for 3 turns
-	[1] ESAttributeBlock(107:30132) -> 零式ドロップ
+	[1] ESAttributeBlock(107:30132) -> Zero-Shiki Drop Shot
 	Unable to match Wood orbs for 3 turns, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESTypeResist(118:30138) -> 体力半減
+#14: ESTypeResist(118:30138) -> Physical Type Halved
 Reduce damage from Physical types by 50%

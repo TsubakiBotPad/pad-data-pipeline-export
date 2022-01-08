@@ -1,4 +1,4 @@
-#207922 - 日吉 若
+#207922 - Wakashi Hiyoshi
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESInactivity66(66:30062) -> 下剋上だ
+	[0] ESInactivity66(66:30062) -> I'll overthrow you.
 	Do nothing
-	[1] ESSpinnersFixed(110:29962) -> 演武テニス
+	[1] ESSpinnersFixed(110:29962) -> Enbu Tennis
 	Specific orbs change every 1.0s for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -29,9 +29,9 @@ Branch on flag & 2, target rnd 10
 flag SET 0b11
 
 #8: SkillSet:
-	[0] ESInactivity66(66:29964) -> お前にとっての下剋上は
+	[0] ESInactivity66(66:29964) -> You're not...
 	Do nothing
-	[1] ESDebuffATK(130:29965) -> ここには無いんだよ
+	[1] ESDebuffATK(130:29965) -> ...overthrowing anyone here.
 	ATK -50% for 3 turns, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -40,11 +40,11 @@ end_turn
 #10: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 14
 
-#11: ESOrbChangeAttackBits(108:30048) -> 返せない球じゃあないんだよ!!
+#11: ESOrbChangeAttackBits(108:30048) -> I can return it, you know!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change all Water orbs to Light orbs, Deal 100% damage
 
-#12: ESAttackMultihit(15:30061) -> ふっ!!
+#12: ESAttackMultihit(15:30061) -> Hah!!
 Deal 99% damage (3 hits, 33% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -56,13 +56,13 @@ Branch on flag & 4, target rnd 18
 #15: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b111
 
-#16: ESDamageShield(74:30046) -> まだ10ゲームはいける！
+#16: ESDamageShield(74:30046) -> I can go another ten games.
 Reduce damage from all sources by 25% for 10 turns, Deal 100% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESRandomSpawn(92:30047) -> へらずグチを…
+#18: ESRandomSpawn(92:30047) -> Insolent talk.
 Spawn 5 random Jammer orbs, Deal 110% damage
 
 #19: ESEndPath(36:26) -> ESEndPath

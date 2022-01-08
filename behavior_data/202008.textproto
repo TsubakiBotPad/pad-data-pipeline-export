@@ -1,0 +1,110 @@
+  monster_id: 202008
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 8224
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                trigger_turn_end: 10
+                always_trigger_above: 79
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 1992
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  enemy_skill_id: 27161
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 79
+            trigger_turn: 1
+            always_trigger_above: 49
+          }
+          children {
+            behavior {
+              enemy_skill_id: 1993
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 2
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 1994
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 2
+                always_trigger_above: 2
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 1993
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 2
+            trigger_turn: 1
+            trigger_turn_end: 10
+          }
+          children {
+            behavior {
+              enemy_skill_id: 1995
+            }
+          }
+        }
+      }
+    }
+  }

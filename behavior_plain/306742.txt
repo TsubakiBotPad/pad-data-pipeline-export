@@ -1,0 +1,68 @@
+#306742 - 真超アイスゴーレム
+monster size: 3
+new AI: True
+start/max counter: 4
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDamageShield(74:31453) -> ティタノマーチ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 80% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 17
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBindAwoken(88:31457) -> 叛逆のヘカトンケイル
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 5 turns
+
+#9: ESBindSkill(14:31458) -> タルタロス
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 5 turns
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#12: ESBindRandom(1:31455) -> タックル
+Bind 3 random cards for 5 turns, Deal 110% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESAttackMultihit(15:31456) -> ナックル
+Deal 110% damage (2 hits, 55% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBindAwoken(88:27129) -> 聖跡の浄罰
+Bind awoken skills for 10 turns, Deal 1,200% damage
+
+#18: ESAttackMultihit(15:27130) -> 聖跡の終天罰
+Deal 800% damage (5 hits, 160% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:31451) -> ＿水ゴーレム超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

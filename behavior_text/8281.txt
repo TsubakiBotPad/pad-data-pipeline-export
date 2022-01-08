@@ -1,0 +1,26 @@
+#8281 - ブチニャン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8281
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33404:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (33400:68) いかずちの術
+ | Light skyfall +15% for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (33402:15) 百万倍返し肉球
+   | Deal 102% damage (3 hits, 34% each)
+   | (33403:108) やりかえすニャ～うぃす！
+   | Change all Dark orbs to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33401:17) 奇跡の合体パワー
+   | Increase damage to 150% for the next 999 turns
