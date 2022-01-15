@@ -1,0 +1,40 @@
+#408297 - 狛犬龍・センリ＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 408297
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24679:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24668:83) 狛犬龍の結界 + 対龍の炎盾
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 8 turns
+ group:
+ | group:
+ | condition: always turn 7
+   | (24671:17) 炎犬の怒牙
+   | Increase damage to 10,000% for the next 999 turns
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (24678:85) 燃陣の焔
+     | Change all orbs to Fire, Deal 100% damage
+     | condition: 50% chance
+     | (24677:85) 狛陣の焔
+     | Change all orbs to Heal, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (24678:85) 燃陣の焔
+     | Change all orbs to Fire, Deal 100% damage
+     | condition: 50% chance
+     | (24677:85) 狛陣の焔
+     | Change all orbs to Heal, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (24672:83) 天 + 手 + 古 + 舞
+   | Delay all cards' skills by 1~10 turns + Haste all cards' skills by 2~6 turns + Delay all cards' skills by 1~10 turns + Haste all cards' skills by 2~6 turns

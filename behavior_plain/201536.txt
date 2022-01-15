@@ -1,0 +1,35 @@
+#201536 - 覚醒ヘラ・ウルズ↑↑
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESTargetedSkillHaste(139:3000) -> アゲてこ～↑↑
+Haste both leaders' skills by 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAbsorbCombo(67:1567) -> ダブリット☆ミラー
+Condition: When < 50% HP (ai:100 rnd:0)
+Absorb damage when combos <= 5 for 999 turns
+
+#7: ESAttackMultihit(15:1568) -> ウルズ↑↑フィーバー☆
+Condition: 75% chance when < 50% HP (ai:75 rnd:0)
+Deal 150% damage (3 hits, 50% each)
+
+#8: ESOrbChangeAttack(48:1565) -> スイートデビル♪
+Condition: 50% chance (ai:50 rnd:0)
+Change all Water orbs to Jammer orbs, Deal 100% damage
+
+#9: ESOrbChangeAttack(48:1566) -> ハートフルアロー
+Change a random attribute to Fire orbs, Deal 100% damage

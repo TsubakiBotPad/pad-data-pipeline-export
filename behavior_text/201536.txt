@@ -1,0 +1,34 @@
+#201536 - 覚醒ヘラ・ウルズ↑↑
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 201536
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (3000:139) アゲてこ～↑↑
+ | Haste both leaders' skills by 99 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (1565:48) スイートデビル♪
+   | Change all Water orbs to Jammer orbs, Deal 100% damage
+   | (1566:48) ハートフルアロー
+   | Change a random attribute to Fire orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (1567:67) ダブリット☆ミラー
+     | Absorb damage when combos <= 5 for 999 turns
+   | group:
+     | condition: 75% chance
+     | (1568:15) ウルズ↑↑フィーバー☆
+     | Deal 150% damage (3 hits, 50% each)
+     | condition: 50% chance
+     | (1565:48) スイートデビル♪
+     | Change all Water orbs to Jammer orbs, Deal 100% damage
+     | (1566:48) ハートフルアロー
+     | Change a random attribute to Fire orbs, Deal 100% damage
