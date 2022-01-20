@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:30851) -> 国造神の魂
+	[0] ESStatusShield(20:30851) -> Spirit of the National Founder
 	Voids status ailments for 999 turns
-	[1] ESSpinnersRandom(109:30852) -> 国建の巧技
+	[1] ESSpinnersRandom(109:30852) -> Masterful Foundation
 	Random 7 orbs change every 1.0s for 1 turn
-	[2] ESBoardChange(84:30853) -> 結縁の荒業
+	[2] ESBoardChange(84:30853) -> Powerful Technique Connection
 	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -32,15 +32,15 @@ Branch on hp < 50, target rnd 11
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESLeaderSwap(75:30856) -> 国建の巧技
+	[0] ESLeaderSwap(75:30856) -> Masterful Foundation
 	Leader changes to random sub for 1 turn
-	[1] ESBoardChangeAttackBits(85:30858) -> 結縁の荒業
+	[1] ESBoardChangeAttackBits(85:30858) -> Powerful Technique Connection
 	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
 
 #9: SkillSet:
-	[0] ESSpinnersRandom(109:30852) -> 国建の巧技
+	[0] ESSpinnersRandom(109:30852) -> Masterful Foundation
 	Random 7 orbs change every 1.0s for 1 turn
-	[1] ESBoardChangeAttackBits(85:30858) -> 結縁の荒業
+	[1] ESBoardChangeAttackBits(85:30858) -> Powerful Technique Connection
 	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -53,13 +53,13 @@ Branch on flag & 2, target rnd 15
 flag SET 0b11
 
 #13: SkillSet:
-	[0] ESDamageShield(74:30860) -> 国造神の守り
+	[0] ESDamageShield(74:30860) -> National Founder's Protection
 	Reduce damage from all sources by 99% for 1 turn
-	[1] ESAbsorbCombo(67:30869) -> 10コンボしてみろ
+	[1] ESAbsorbCombo(67:30869) -> Try to make 10 combos.
 	Absorb damage when combos <= 9 for 1 turn
-	[2] ESRandomSpawn(92:30861) -> これでどうだ？
+	[2] ESRandomSpawn(92:30861) -> How about this?
 	Spawn 6 random Fire, Water, Wood, Light, and Dark orbs
-	[3] ESSpinnersRandom(109:30862) -> おまけだ
+	[3] ESSpinnersRandom(109:30862) -> Here's a little extra.
 	Random 2 orbs change every 1.0s for 1 turn
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -69,19 +69,19 @@ end_turn
 Branch on combo >= 10, target rnd 18
 
 #16: SkillSet:
-	[0] ESDebuffMovetime(39:30867) -> 残念だったな
+	[0] ESDebuffMovetime(39:30867) -> What a shame.
 	Movetime -2s for 5 turns
-	[1] ESEndBattle(40:30868) -> じゃあな
+	[1] ESEndBattle(40:30868) -> Goodbye.
 	Reduce self HP to 0
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #18: SkillSet:
-	[0] ESDebuffMovetime(39:30864) -> 見事だ
+	[0] ESDebuffMovetime(39:30864) -> Well done!
 	Movetime 150% for 5 turns
-	[1] ESEndBattle(40:30865) -> 先に進め
+	[1] ESEndBattle(40:30865) -> You may proceed.
 	Reduce self HP to 0
 
-#19: ESSuperResolve(129:30854) -> 超根性
+#19: ESSuperResolve(129:30854) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
