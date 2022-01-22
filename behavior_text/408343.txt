@@ -1,0 +1,35 @@
+#408343 - バルタン星人
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 408343
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (33774:67) 飛行能力
+ | Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+ | condition: always turn 3
+   | (33775:74) 転移術
+   | Reduce damage from all sources by 25% for 5 turns
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 50% chance
+     | (33777:15) 白色破壊光線
+     | Deal 102% damage (3 hits, 34% each)
+     | (33778:92) 赤色凍結光線
+     | Spawn 5 random Water orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (33777:15) 白色破壊光線
+     | Deal 102% damage (3 hits, 34% each)
+     | (33778:92) 赤色凍結光線
+     | Spawn 5 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33776:86) 脱皮能力
+   | Enemy recover 30% HP

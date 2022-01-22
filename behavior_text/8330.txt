@@ -1,0 +1,36 @@
+#8330 - ウルトラマンA
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8330
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33609:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (33602:83) メディカルレイ + サークルバリヤー
+ | Player recover 100% HP + Void damage >= 2,500,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (33605:88) メタリウム光線
+     | Bind awoken skills for 2 turns, Deal 101% damage
+   | group:
+     | condition: 50% chance
+     | (33607:92) 電撃キック
+     | Spawn 6 random Light orbs, Deal 100% damage
+     | (33608:94) ハンディシュート
+     | Lock 6 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (33605:88) メタリウム光線
+     | Bind awoken skills for 2 turns, Deal 101% damage
+   | group:
+     | (33606:15) スペースQ
+     | Deal 180% damage (3 hits, 60% each)

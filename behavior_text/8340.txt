@@ -1,0 +1,30 @@
+#8340 - ウルトラの母
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8340
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33637:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (33632:55) マザー光線
+ | Player recover 100% HP
+ group:
+ | group:
+   | condition: 33% chance
+   | (33634:77) マザー破壊光線
+   | Change the 3rd column to Light orbs, Deal 100% damage
+   | condition: 33% chance
+   | (33635:15) マザーパンチ
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 34% chance
+   | (33636:94) マザーキック
+   | Lock all Light orbs, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33633:17) パワービーム
+   | Increase damage to 150% for the next 999 turns

@@ -1,0 +1,26 @@
+#208314 - ウルトラセブン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 208314
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33746:118) 神半減
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (33740:83) ウルトラ念力 + ウルトラバリヤー
+ | Leader changes to random sub for 3 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (33743:14) エメリウム光線
+   | Bind active skills for 5 turns, Deal 101% damage
+ | group:
+   | condition: 50% chance
+   | (33744:77) ワイドショット
+   | Change the 1st and 2nd columns to Light orbs, Deal 100% damage
+   | (33745:15) ウルトラチョップ
+   | Deal 102% damage (3 hits, 34% each)

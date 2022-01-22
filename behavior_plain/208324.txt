@@ -1,0 +1,33 @@
+#208324 - ウルトラマンジード プリミティブ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbThreshold(87:33695) -> ジードバリア
+	Absorb damage when damage >= 10,000,000 for 5 turns
+	[1] ESOrbChangeAttackBits(108:33696) -> ジードタックル
+	Change all Water orbs to Fire orbs, Deal 100% damage
+
+#3: ESRowSpawnMulti(79:33697) -> レッキングバースト
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st and 5th rows to Fire orbs, Deal 101% damage
+
+#4: ESColumnSpawnMulti(77:33698) -> レッキングリッパー
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st and 6th columns to Water orbs, Deal 101% damage
+
+#5: ESDebuffATK(130:33699) -> レッキングスロウ
+Condition: 34% chance (ai:0 rnd:34)
+ATK -75% for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESTypeResist(118:33700) -> 悪魔半減
+Reduce damage from Devil types by 50%

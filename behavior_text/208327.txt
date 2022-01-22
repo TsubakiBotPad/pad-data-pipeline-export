@@ -1,0 +1,33 @@
+#208327 - ウルトラマンタロウ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208327
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33731:118) 体力半減
+ | Reduce damage from Physical types by 50%
+ type: PREEMPT
+ | (33723:83) タロウバリヤー + 反重力光線
+ | Voids status ailments for 999 turns + Movetime 25% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (33728:92) ファイヤーダッシュ
+   | Spawn 9 random Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (33729:15) ウルトラスウィング
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 34% chance
+   | (33730:63) シューティングビーム
+   | Bind 3 random subs for 3 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (33726:77) ストリウム光線
+   | Change the 2nd column to Fire orbs and the 5th column to Light orbs, Deal 101% damage
+   | (33727:102) ウルトラダイナマイト
+   | Spawn 8 random Bomb orbs, Deal 100% damage

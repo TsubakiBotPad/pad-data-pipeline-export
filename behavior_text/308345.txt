@@ -1,0 +1,41 @@
+#308345 - キングジョー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 308345
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33542:118) マシン半減
+ | Reduce damage from Machine types by 50%
+
+level: 4
+ type: PASSIVE
+ | (33542:118) マシン半減
+ | Reduce damage from Machine types by 50%
+ type: PREEMPT
+ | (33537:71) 超金属の装甲
+ | Void damage >= 3,000,000 for 2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (33539:79) 破壊光線
+   | Change the 4th row to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (33538:53) 分離
+   | Absorb Light and Dark damage for 2 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (33540:127) 馬乗り
+   | No skyfall for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (33541:15) 怪力
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (33539:79) 破壊光線
+   | Change the 4th row to Light orbs, Deal 100% damage

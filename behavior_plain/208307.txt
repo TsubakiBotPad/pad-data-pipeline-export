@@ -1,0 +1,78 @@
+#208307 - ウルトラマンティガ マルチタイプ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBlindStickySkyfall(128:33713) -> ウルトラ念力
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESSpinnersRandom(109:33714) -> ティガトルネード
+	Random 3 orbs change every 1.0s for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#8: ESRandomSpawn(92:33715) -> タイマーフラッシュ
+Spawn 8 random Light orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#12: ESRandomSpawn(92:33716) -> タイマーフラッシュスペシャル
+Spawn 20 random Light orbs, Deal 103% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 18
+
+#15: ESAttackMultihit(15:33720) -> ゼペリオン光線
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 102% damage (3 hits, 34% each)
+
+#16: ESAttributeBlock(107:33721) -> ティガスライサー
+Unable to match Light orbs for 1 turn, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 15
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#20: SkillSet:
+	[0] ESRecoverEnemy86(86:33718) -> ヒーリング・レイ
+	Enemy recover 30% HP
+	[1] ESDamageShield(74:33719) -> ウルトラシールド
+	Reduce damage from all sources by 50% for 5 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESTypeResist(118:33722) -> 攻撃半減
+Reduce damage from Attacker types by 50%

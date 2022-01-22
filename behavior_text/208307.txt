@@ -1,0 +1,37 @@
+#208307 - ウルトラマンティガ マルチタイプ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 208307
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33722:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (33712:83) ウルトラ念力 + ティガトルネード
+ | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Random 3 orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (33715:92) タイマーフラッシュ
+   | Spawn 8 random Light orbs, Deal 100% damage
+ | group:
+ | condition: always turn 2
+   | (33716:92) タイマーフラッシュスペシャル
+   | Spawn 20 random Light orbs, Deal 103% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (33720:15) ゼペリオン光線
+     | Deal 102% damage (3 hits, 34% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (33721:107) ティガスライサー
+     | Unable to match Light orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 3, hp <= 49
+   | (33717:83) ヒーリング・レイ + ウルトラシールド
+   | Enemy recover 30% HP + Reduce damage from all sources by 50% for 5 turns

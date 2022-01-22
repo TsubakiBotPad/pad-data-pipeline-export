@@ -1,0 +1,39 @@
+#208342 - ゴモラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208342
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33530:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+
+level: 4
+ type: PASSIVE
+ | (33530:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33523:66) 眠っている
+ | Do nothing
+ group:
+ | group:
+   | (33523:66) 眠っている
+   | Do nothing
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (33524:83) 覚醒 + 咆哮
+     | Increase damage to 150% for the next 999 turns + Voids status ailments for 999 turns
+   | group:
+     | condition: 33% chance
+     | (33527:15) 尻尾での連打
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 50% chance
+     | (33528:50) エルボースマッシュ
+     | Player -99% HP
+     | (33529:77) 尻尾での打撃
+     | Change the 2nd column to Wood orbs, Deal 100% damage

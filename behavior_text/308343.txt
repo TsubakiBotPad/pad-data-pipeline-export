@@ -1,0 +1,35 @@
+#308343 - バルタン星人
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 308343
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33552:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (33552:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (33543:67) 飛行能力
+ | Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (33550:15) 白色破壊光線
+   | Deal 102% damage (3 hits, 34% each)
+   | (33551:77) 赤色凍結光線
+   | Change the 1st and 6th columns to Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33547:83) 巨大なハサミ + 転移術
+   | Unable to match Water orbs for 2 turns + Reduce damage from all sources by 50% for 5 turns
+ | group:
+ | condition: hp <= 1
+   | (33544:83) 脱皮能力 + 分身術
+   | Enemy recover 100% HP + Bind awoken skills for 2 turns

@@ -1,0 +1,30 @@
+#8346 - メトロン星人
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8346
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33678:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33671:83) あぐらをかく + 巨大化
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 99 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (33675:13) 円盤攻撃
+   | Change 2 random orb types to Jammer orbs, Deal 100% damage
+   | condition: 33% chance
+   | (33676:79) 赤い結晶体
+   | Change the 2nd row to Fire orbs and the 5th row to Wood orbs, Deal 100% damage
+   | condition: 34% chance
+   | (33677:104) 走り回る
+   | A 2×2 square of clouds appears for 1 turn at a random location, Deal 101% damage
+ | group:
+ | condition: hp <= 49
+   | (33674:40) 逃げ出す
+   | Reduce self HP to 0

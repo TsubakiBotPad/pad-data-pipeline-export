@@ -1,0 +1,66 @@
+#8345 - キングジョー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESVoidShield(71:33537) -> 超金属の装甲
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 3,000,000 for 2 turns
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 18
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 11
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: ESRowSpawnMulti(79:33539) -> 破壊光線
+Change the 4th row to Light orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: ESNoSkyfall(127:33540) -> 馬乗り
+No skyfall for 1 turn
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#16: ESAttackMultihit(15:33541) -> 怪力
+Deal 102% damage (3 hits, 34% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAbsorbAttribute(53:33538) -> 分離
+Absorb Light and Dark damage for 2 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESTypeResist(118:33542) -> マシン半減
+Reduce damage from Machine types by 50%

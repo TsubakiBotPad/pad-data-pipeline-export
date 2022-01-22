@@ -1,0 +1,51 @@
+#408343 - バルタン星人
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:33774) -> 飛行能力
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 5 for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: ESAttackMultihit(15:33777) -> 白色破壊光線
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESRandomSpawn(92:33778) -> 赤色凍結光線
+Spawn 5 random Water orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESRecoverEnemy86(86:33776) -> 脱皮能力
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 30% HP
+
+#10: ESAttackMultihit(15:33777) -> 白色破壊光線
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#11: ESRandomSpawn(92:33778) -> 赤色凍結光線
+Spawn 5 random Water orbs, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESDamageShield(74:33775) -> 転移術
+Reduce damage from all sources by 25% for 5 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

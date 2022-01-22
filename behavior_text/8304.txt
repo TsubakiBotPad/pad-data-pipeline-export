@@ -1,0 +1,37 @@
+#8304 - ウルトラマン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 8304
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33648:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33638:83) キャッチ・リング + ウルトラサイコキネシス
+ | Locked random skyfall +25% for 3 turns + ATK -50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (33646:127) 岩石落とし
+     | No skyfall for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (33647:15) ウルトラチョップ
+     | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (33641:83) ウルトラバリヤー + ハイスピン
+     | Voids status ailments for 999 turns + Void damage >= 3,500,000 for 3 turns
+   | group:
+     | condition: 50% chance
+     | (33644:108) スペシウム光線
+     | Change all Dark orbs to Light orbs, Deal 100% damage
+     | (33645:109) ウルトラスラッシュ
+     | Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage

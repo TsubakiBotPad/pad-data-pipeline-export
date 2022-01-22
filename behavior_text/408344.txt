@@ -1,0 +1,30 @@
+#408344 - エレキング
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 408344
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (33765:109) 回転する角
+ | Random 2 orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 50% chance
+   | (33767:101) 岩石落とし
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | (33768:15) 取っ組み合い
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 3
+   | (33766:13) 妨害電波
+   | Change 2 random orb types to Jammer orbs, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (33767:101) 岩石落とし
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | (33768:15) 取っ組み合い
+   | Deal 102% damage (3 hits, 34% each)
