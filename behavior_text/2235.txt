@@ -41,7 +41,7 @@ level: 1
  | condition: hp <= 69
    | group:
    | condition: execute repeatedly, turn 1 of 3
-     | (4001:2) Revenge Full of Hatred
+     | (4001:2) Hate-Filled Vengeance
      | Bind Water cards for 5 turns
      | condition: 20% chance
      | (3994:63) Trembling Lance
@@ -68,11 +68,10 @@ level: 1
    | (4003:71) Divine Body's Shining Flames
    | Void damage >= 1,000,000 for 10 turns
  | group:
- | condition: hp <= 9
-   | group:
-   | condition: turn 1
-     | (4005:83) Blazing Spirit + Divine Body's Shining Flames
-     | Enemy recover 40% HP + Void damage >= 1,000,000 for 10 turns
-   | group:
-     | (4006:83) Blazing Spirit + Wall Eruption
-     | Enemy recover 40% HP + Change the 1st, 3rd, 4th, and 6th columns to Fire orbs, Deal 1,500% damage
+ | condition: always turn 1, hp <= 9
+   | (4005:83) Blazing Spirit + Divine Body's Shining Flames
+   | Enemy recover 40% HP + Void damage >= 1,000,000 for 10 turns
+ | group:
+ | condition: hp <= 2
+   | (4006:83) Blazing Spirit + Wall Eruption
+   | Enemy recover 40% HP + Change the 1st, 3rd, 4th, and 6th columns to Fire orbs, Deal 1,500% damage

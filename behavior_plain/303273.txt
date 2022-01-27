@@ -1,4 +1,4 @@
-#303273 - 裏転生ラー
+#303273 - Alt. Reincarnated Ra
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:32338) -> 太陽神の魂
+	[0] ESStatusShield(20:32338) -> Spirit of the Sun God
 	Voids status ailments for 999 turns
-	[1] ESBindAwoken(88:32339) -> ファラオの導き
+	[1] ESBindAwoken(88:32339) -> The Pharaoh's Guidance
 	Bind awoken skills for 1 turn
-	[2] ESGravity(50:32340) -> ソーラーレーザー
+	[2] ESGravity(50:32340) -> Solar Laser
 	Player -300% HP
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,20 +30,20 @@ Branch on hp < 50, target rnd 8
 
 #7: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESVoidShieldBig(137:32535) -> 太陽神の障壁
+	[0] ESVoidShieldBig(137:32535) -> Barrier of the Sun God
 	Void damage >= 700,000,000 for 999 turns
-	[1] ESAttackUPRemainingEnemies(17:32536) -> ソーラーエネルギー
+	[1] ESAttackUPRemainingEnemies(17:32536) -> Solar Energy
 	Increase damage to 700% for the next 1 turn
-	[2] ESDispel(6:32537) -> 太陽神の威光
+	[2] ESDispel(6:32537) -> Majesty of the Sun God
 	Voids player buff effects
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESVoidShieldBig(137:32342) -> 太陽神の障壁
+	[0] ESVoidShieldBig(137:32342) -> Barrier of the Sun God
 	Void damage >= 700,000,000 for 999 turns
-	[1] ESDamageShield(74:32343) -> ソーラーガード
+	[1] ESDamageShield(74:32343) -> Solar Guard
 	Reduce damage from all sources by 50% for 5 turns
-	[2] ESDispel(6:32344) -> 太陽神の威光
+	[2] ESDispel(6:32344) -> Majesty of the Sun God
 	Voids player buff effects
 
 #9: ESBranchFlag(43:10) -> ESBranchFlag
@@ -53,9 +53,9 @@ Branch on flag & 1, target rnd 13
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESSkyfall(68:32350) -> 太陽の恵み
+	[0] ESSkyfall(68:32350) -> The Sun's Blessing
 	Fire skyfall +35% for 1 turn
-	[1] ESSkyfallLocked(96:32351) -> ソーラーロック
+	[1] ESSkyfallLocked(96:32351) -> Solar Lock
 	Locked Fire skyfall +100% for 1 turn, Deal 100% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -65,28 +65,28 @@ end_turn
 flag SET 0b0
 
 #14: SkillSet:
-	[0] ESSkyfall(68:32347) -> 太陽の恵み
+	[0] ESSkyfall(68:32347) -> The Sun's Blessing
 	Light skyfall +35% for 1 turn
-	[1] ESSkyfallLocked(96:32348) -> ソーラーロック
+	[1] ESSkyfallLocked(96:32348) -> Solar Lock
 	Locked Light skyfall +100% for 1 turn, Deal 100% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESAttackMultihit(15:32345) -> 太陽神の怒り
+#16: ESAttackMultihit(15:32345) -> Wrath of the Sun God
 Deal 1,000% damage (10 hits, 100% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #18: SkillSet:
-	[0] ESBindAwoken(88:29724) -> 次元の波動
+	[0] ESBindAwoken(88:29724) -> Dimension Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	[1] ESAttackMultihit(15:29725) -> Dimension Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESResolve(73:29722) -> 根性
+#20: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

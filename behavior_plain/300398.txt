@@ -1,4 +1,4 @@
-#300398 - 真フェニックス
+#300398 - True Phoenix
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESVoidShieldBig(137:32021) -> 不死鳥の構え
+#2: ESVoidShieldBig(137:32021) -> Phoenix Stance
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Void damage >= 1,000,000,000 for 6 turns
 
@@ -20,7 +20,7 @@ Branch on counter >= 6, target rnd 12
 #5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
 Branch on remaining enemies <= 1, target rnd 8
 
-#6: ESRandomSpawn(92:32028) -> イモータルファイア
+#6: ESRandomSpawn(92:32028) -> Immortal Fire
 Spawn 5 random Heal orbs, Deal 100% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -28,29 +28,29 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:32030) -> 不死鳥の守り
+	[0] ESStatusShield(20:32030) -> Protection of the Phoenix
 	Voids status ailments for 999 turns
-	[1] ESRecoverEnemy86(86:32031) -> 転生の炎
+	[1] ESRecoverEnemy86(86:32031) -> Flames of Reincarnation
 	Enemy recover 100% HP
-	[2] ESDamageShield(74:32032) -> エターナルガード
+	[2] ESDamageShield(74:32032) -> Eternal Guard
 	Reduce damage from all sources by 75% for 5 turns
 
-#9: ESRandomSpawn(92:32028) -> イモータルファイア
+#9: ESRandomSpawn(92:32028) -> Immortal Fire
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 5 random Heal orbs, Deal 100% damage
 
-#10: ESChangeAttribute(46:32496) -> フェニックスフェザー
+#10: ESChangeAttribute(46:32496) -> Phoenix Feather
 Condition: 50% chance (ai:0 rnd:50)
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESAttackMultihit(15:29725) -> 次元の殲滅
+#12: ESAttackMultihit(15:29725) -> Dimension Destruction
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESSuperResolve(129:32498) -> 超根性
+#14: ESSuperResolve(129:32498) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

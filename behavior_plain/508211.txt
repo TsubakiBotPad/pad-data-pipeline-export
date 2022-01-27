@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDamageShield(74:32809) -> あなた不快だから
+	[0] ESDamageShield(74:32809) -> When something's so annoying...
 	Reduce damage from all sources by 25% for 5 turns
-	[1] ESSkyfallLocked(96:32810) -> 死んで構わないわよ
+	[1] ESSkyfallLocked(96:32810) -> ...it is a pleasure to watch it die.
 	Locked Water skyfall +100% for 99 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -28,7 +28,7 @@ Branch on hp < 50, target rnd 14
 #7: ESBranchDamage(116:32854) -> ESBranchDamage
 Branch on damage last turn >= 0, target rnd 10
 
-#8: ESAttackMultihit(15:32816) -> 連打
+#8: ESAttackMultihit(15:32816) -> Combo
 Deal 80% damage (4 hits, 20% each)
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -36,23 +36,23 @@ end_turn
 
 #10: SkillSet:
 	Condition: One-time use & damage done in previous turn is >= 1 (ai:100 rnd:0) (cost: 4)
-	[0] ESBlindStickySkyfall(128:32814) -> 効いたわ
+	[0] ESBlindStickySkyfall(128:32814) -> I felt that...
 	For 2 turns, 15% chance for skyfall orbs to be blinded for turn
-	[1] ESAbsorbCombo(67:32815) -> 少しね
+	[1] ESAbsorbCombo(67:32815) -> ...just a little
 	Absorb damage when combos <= 4 for 2 turns
 
-#11: ESNoSkyfall(127:32813) -> ちょっと本気出しちゃう
+#11: ESNoSkyfall(127:32813) -> My appetite is up!
 Condition: One-time use & damage done in previous turn is >= 1 (ai:100 rnd:0) (cost: 2)
 No skyfall for 5 turns
 
-#12: ESRandomSpawn(92:32811) -> 痛いじゃない
+#12: ESRandomSpawn(92:32811) -> That smarts.
 Condition: damage done in previous turn is >= 1 (ai:100 rnd:0)
 Spawn 2 random Water and Dark orbs
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackUPRemainingEnemies(17:32817) -> 楽しいわね
+#14: ESAttackUPRemainingEnemies(17:32817) -> Isn't this fun?
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
@@ -63,12 +63,12 @@ Branch on flag & 2, target rnd 18
 flag SET 0b11
 
 #17: SkillSet:
-	[0] ESGravity(50:32819) -> ふふ
+	[0] ESGravity(50:32819) -> Heh heh...
 	Player -50% HP
-	[1] ESSkyfall(68:32820) -> うふぁはははははははははは
+	[1] ESSkyfall(68:32820) -> Hah hah hah hah hah!
 	Water skyfall +15% for 1 turn
 
-#18: ESRowSpawnMulti(79:32818) -> 体内ウツボ
+#18: ESRowSpawnMulti(79:32818) -> My little moray
 Change the 1st row to Water orbs and the 5th row to Dark orbs, Deal 100% damage
 
 #19: ESEndPath(36:26) -> ESEndPath
@@ -76,5 +76,5 @@ end_turn
 
 #20: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:32822) -> 雨 降ってきたわね
+	[0] ESInactivity66(66:32822) -> The rain...is falling.
 	Do nothing

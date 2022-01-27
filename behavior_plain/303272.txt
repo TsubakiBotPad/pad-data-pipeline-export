@@ -1,4 +1,4 @@
-#303272 - 転生ホルス
+#303272 - Reincarnated Horus
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:32323) -> ダウ・ヤフタレク・ジダール
+	[0] ESStatusShield(20:32323) -> Dhu Yahtariq Jadar
 	Voids status ailments for 999 turns
-	[1] ESDebuffMovetime(39:32324) -> サマー・シャムス・ワクト
+	[1] ESDebuffMovetime(39:32324) -> Sama' Shams Waqt
 	Movetime 50% for 6 turns
-	[2] ESGravity(50:32325) -> カルブ・エンタハズ・ゾフル
+	[2] ESGravity(50:32325) -> Kalb Aintahaz Zufur
 	Player -300% HP
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESColumnSpawnMulti(77:32331) -> ラマード・タグイェル・ショーラ
+	[0] ESColumnSpawnMulti(77:32331) -> Ramad Taghyir Shaeila
 	Change the 1st and 2nd columns to Fire and Jammer orbs, Deal 50% damage
-	[1] ESBlindStickyRandom(97:32332) -> ザラーム・ダーヒル・サタァ・ダウ
+	[1] ESBlindStickyRandom(97:32332) -> Zalaam Dakhil Sataa Dhu
 	Blind all orbs for 1 turn, Deal 50% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESColumnSpawnMulti(77:32334) -> ラマード・タグイェル・ショーラ
+	[0] ESColumnSpawnMulti(77:32334) -> Ramad Taghyir Shaeila
 	Change the 4th and 5th columns to Fire and Poison orbs, Deal 50% damage
-	[1] ESOrbLock(94:32335) -> ディッル・ユディウ・アッシャムス
+	[1] ESOrbLock(94:32335) -> Zil Yudi' Shams
 	Lock all Fire orbs, Deal 50% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -52,30 +52,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESVoidShieldBig(137:32327) -> サタァ・ショーラ・デルゥ
+	[0] ESVoidShieldBig(137:32327) -> Sata Shola Dir'un
 	Void damage >= 2,000,000,000 for 999 turns
-	[1] ESGravity(50:32328) -> カルブ・エンタハズ・ゾフル
+	[1] ESGravity(50:32328) -> Kalb Aintahaz Zufur
 	Player -300% HP
-	[2] ESDispel(6:32329) -> コッル・ヤフケド・フラーシュ
+	[2] ESDispel(6:32329) -> Kl Yufqid Falash
 	Voids player buff effects
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:32336) -> モカッサフ・ゾフル・ハジュマ
+#14: ESAttackMultihit(15:32336) -> Mukathaf Zufur Hajma
 Deal 1,050% damage (3 hits, 350% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:29724) -> 次元の波動
+	[0] ESBindAwoken(88:29724) -> Dimension Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	[1] ESAttackMultihit(15:29725) -> Dimension Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:29722) -> 根性
+#18: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

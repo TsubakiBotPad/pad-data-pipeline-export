@@ -1,4 +1,4 @@
-#304270 - 転生サラスヴァティ
+#304270 - Reincarnated Sarasvati
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:32502) -> 麗女神の魂
+	[0] ESStatusShield(20:32502) -> Spirit of the Beautiful Goddess
 	Voids status ailments for 999 turns
-	[1] ESBindAwoken(88:32503) -> 雲散霧消
+	[1] ESBindAwoken(88:32503) -> Disappearing Mist
 	Bind awoken skills for 6 turns
-	[2] ESSkyfallLocked(96:32504) -> 石の雨
+	[2] ESSkyfallLocked(96:32504) -> Stone Rain
 	Locked random skyfall +50% for 6 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESSkillDelay(89:32510) -> 命水
+	[0] ESSkillDelay(89:32510) -> Water of Life
 	Delay active skills by 1~2 turns
-	[1] ESRowSpawnMulti(79:32511) -> 濁流
+	[1] ESRowSpawnMulti(79:32511) -> Muddy Stream
 	Change the 1st row to Water orbs and the 5th row to Jammer orbs, Deal 80% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESTargetedSkillHaste(139:32513) -> 命水
+	[0] ESTargetedSkillHaste(139:32513) -> Water of Life
 	Haste all cards' skills by 2 turns
-	[1] ESRowSpawnMulti(79:32514) -> 濁流
+	[1] ESRowSpawnMulti(79:32514) -> Muddy Stream
 	Change the 3rd and 4th rows to Water and Jammer orbs, Deal 80% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -52,30 +52,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESVoidShieldBig(137:32506) -> 麗女神の障壁
+	[0] ESVoidShieldBig(137:32506) -> Beautiful Goddess' Barrier
 	Void damage >= 2,000,000,000 for 999 turns
-	[1] ESGravity(50:32507) -> 旱魃
+	[1] ESGravity(50:32507) -> Drought
 	Player -150% HP
-	[2] ESDebuffRCV(105:32508) -> 失われた命水
+	[2] ESDebuffRCV(105:32508) -> Lost Water of Life
 	RCV 25% for 1 turn, Deal 50% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:32515) -> 孔雀演舞
+#14: ESAttackMultihit(15:32515) -> Peacock Dance
 Deal 1,000% damage (5 hits, 200% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:29724) -> 次元の波動
+	[0] ESBindAwoken(88:29724) -> Dimension Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:29725) -> 次元の殲滅
+	[1] ESAttackMultihit(15:29725) -> Dimension Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:29722) -> 根性
+#18: ESResolve(73:29722) -> Resolve
 Survive attacks with 1 HP when HP > 50%

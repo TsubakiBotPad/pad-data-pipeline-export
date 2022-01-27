@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:30890) -> 登るよ!!
+	[0] ESStatusShield(20:30890) -> Time to climb!
 	Voids status ailments for 999 turns
-	[1] ESRowSpawnMulti(79:30891) -> まっすぐにいくんだ!!
+	[1] ESRowSpawnMulti(79:30891) -> No turning back!!
 	Change the 2nd row to Wood orbs and the 4th row to Light orbs, Deal 100% damage
-	[2] ESSpinnersRandom(109:30917) -> 回れ　回れ
+	[2] ESSpinnersRandom(109:30917) -> Push! Push!
 	Random 5 orbs change every 1.0s for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -36,7 +36,7 @@ Branch on counter >= 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESSpinnersRandom(109:30899) -> 回ってくれ
+#10: ESSpinnersRandom(109:30899) -> Turn those pedals!
 Random 6 orbs change every 1.0s for 5 turns, Deal 102% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -48,7 +48,7 @@ Branch on counter >= 2, target rnd 16
 #13: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#14: ESSpinnersRandom(109:30900) -> 回れぇぇ!!
+#14: ESSpinnersRandom(109:30900) -> Keep on pedaling!!
 Random 7 orbs change every 1.0s for 5 turns, Deal 101% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -57,7 +57,7 @@ end_turn
 #16: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#17: ESSpinnersRandom(109:30898) -> 回れ　回れ
+#17: ESSpinnersRandom(109:30898) -> Push! Push!
 Random 5 orbs change every 1.0s for 5 turns, Deal 103% damage
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -70,9 +70,9 @@ Branch on flag & 2, target rnd 7
 flag SET 0b11
 
 #21: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:30896) -> このハンドルは放さない
+	[0] ESAttackUPRemainingEnemies(17:30896) -> I won't let go of these handlebars!
 	Increase damage to 150% for the next 999 turns
-	[1] ESVoidShield(71:30897) -> このペダルもゆるめない
+	[1] ESVoidShield(71:30897) -> I won't slow down on these pedals, either!
 	Void damage >= 200,000,000 for 999 turns
 
 #22: ESEndPath(36:26) -> ESEndPath
@@ -85,13 +85,13 @@ Branch on flag & 4, target rnd 8
 flag SET 0b111
 
 #25: SkillSet:
-	[0] ESRecoverEnemy86(86:30893) -> 追いつく
+	[0] ESRecoverEnemy86(86:30893) -> Catch Up
 	Enemy recover 15% HP
-	[1] ESSkillDelay(89:30894) -> 追いつくんだ
+	[1] ESSkillDelay(89:30894) -> I'm catching up to you!
 	Delay active skills by 5 turns, Deal 100% damage
 
-#26: ESSuperResolve(129:30901) -> 超根性
+#26: ESSuperResolve(129:30901) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
-#27: ESAttributeResist(72:30902) -> 木半減
+#27: ESAttributeResist(72:30902) -> Wood Halved
 Reduce damage from Wood attrs by 50%

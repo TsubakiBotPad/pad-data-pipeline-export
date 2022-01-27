@@ -190,26 +190,25 @@
           group_type: STANDARD
           condition {
             hp_threshold: 9
+            trigger_turn: 1
+            always_trigger_above: 1
           }
           children {
-            group {
-              condition {
-                trigger_turn: 1
-              }
-              children {
-                behavior {
-                  enemy_skill_id: 4005
-                }
-              }
+            behavior {
+              enemy_skill_id: 4005
             }
           }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 2
+          }
           children {
-            group {
-              children {
-                behavior {
-                  enemy_skill_id: 4006
-                }
-              }
+            behavior {
+              enemy_skill_id: 4006
             }
           }
         }

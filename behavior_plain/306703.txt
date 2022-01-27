@@ -1,4 +1,4 @@
-#306703 - 裏式神・コタツ
+#306703 - Alt. Mystic Familiar, Kotatsu
 monster size: 2
 new AI: True
 start/max counter: 3
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESStatusShield(20:32006) -> 式神の守り
+#2: ESStatusShield(20:32006) -> Mystic Familiar's Protection
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Voids status ailments for 6 turns
 
@@ -20,23 +20,23 @@ Branch on counter >= 6, target rnd 10
 #5: ESNone(0:0) -> ESNone
 nothing
 
-#6: ESChangeAttribute(46:32009) -> 龍化爪
+#6: ESChangeAttribute(46:32009) -> Draconic Claw
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#8: ESAttackMultihit(15:32177) -> 龍爪乱撃
+#8: ESAttackMultihit(15:32177) -> Dragonclaw Slash
 Deal 1,000% damage (4 hits, 250% each)
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESAttackMultihit(15:29725) -> 次元の殲滅
+#10: ESAttackMultihit(15:29725) -> Dimension Destruction
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESSuperResolve(129:32498) -> 超根性
+#12: ESSuperResolve(129:32498) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

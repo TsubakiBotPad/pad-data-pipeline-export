@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbCombo(67:33070) -> お前を排除する
+	[0] ESAbsorbCombo(67:33070) -> I am here to eliminate you.
 	Absorb damage when combos <= 5 for 5 turns
-	[1] ESBoardChange(84:33071) -> 焼却
+	[1] ESBoardChange(84:33071) -> Incinerate
 	Change all orbs to Fire
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,15 +24,15 @@ end_turn
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESVoidShield(71:33073) -> 諦めろ
+	[0] ESVoidShield(71:33073) -> Give it up.
 	Void damage >= 30,000,000 for 5 turns
-	[1] ESDamageShield(74:33074) -> 無駄だ
+	[1] ESDamageShield(74:33074) -> Meaningless.
 	Reduce damage from all sources by 50% for 99 turns, Deal 105% damage
 
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#8: ESRandomSpawn(92:33075) -> マシンガンブロー
+#8: ESRandomSpawn(92:33075) -> Machinegun Blows
 Spawn 8 random Fire orbs, Deal 90% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -40,12 +40,12 @@ end_turn
 
 #10: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESRowSpawnMulti(78:33077) -> デュアルブレードラッシュ
+	[0] ESRowSpawnMulti(78:33077) -> Dual Blade Rush
 	Change the 1st and 5th rows to Fire orbs
-	[1] ESAttackMultihit(15:33078) -> うぉおおおおおおおおッ!!!
+	[1] ESAttackMultihit(15:33078) -> Gwoooooooooooh!!
 	Deal 140% damage (7 hits, 20% each)
 
-#11: ESTargetedSkillHaste(139:33079) -> ジェットドライブアロー
+#11: ESTargetedSkillHaste(139:33079) -> Jet Drive Arrow
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Haste both leaders' skills by 15 turns, Deal 75% damage
 
@@ -55,16 +55,16 @@ Branch on flag & 1, target rnd 14
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESRandomSpawn(92:33075) -> マシンガンブロー
+#14: ESRandomSpawn(92:33075) -> Machinegun Blows
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 8 random Fire orbs, Deal 90% damage
 
-#15: ESBoardChangeAttackBits(85:33080) -> 焼却
+#15: ESBoardChangeAttackBits(85:33080) -> Incinerate
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Fire, Deal 90% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:33068) -> ＿ジェノス根性
+#17: ESResolve(73:33068) -> ＿Genos Resolve
 Survive attacks with 1 HP when HP > 50%
