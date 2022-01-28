@@ -1,0 +1,54 @@
+#300988 - 裏光臨舞神・アマテラスオオカミ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESRecoverPlayer(55:25052) -> 完治の光
+	Player recover 100% HP
+	[1] ESBindRandom(1:25053) -> ひと時の休息
+	Bind 6 random cards for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 40, target rnd 10
+
+#7: ESOrbChangeAttack(48:1962) -> 八咫の神鏡
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Dark orbs to Light orbs, Deal 50% damage
+
+#8: ESRowSpawnMulti(79:1961) -> 豊穣の神楽舞
+Change the 5th row to Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESRecoverEnemy86(86:1963) -> 完治の光
+Enemy recover 100% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBlind62(62:1964) -> 天岩戸の神隠れ
+Blind all orbs on the board, Deal 350% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

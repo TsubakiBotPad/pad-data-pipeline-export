@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBlindStickySkyfall(128:32018) -> Peng-Aura
+#2: ESBlindStickySkyfall(128:32018) -> ペンオーラ
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 For 6 turns, 25% chance for skyfall orbs to be blinded for 2 turns
 
@@ -17,39 +17,39 @@ counter + 1
 #4: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 6, target rnd 14
 
-#5: ESNone(0:0) -> ESNone
-nothing
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 4, target rnd 10
 
-#6: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
-Branch on remaining enemies <= 4, target rnd 9
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 11
 
-#7: ESChangeAttribute(46:32019) -> Flap-Slap
-Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 11
 
-#8: ESEndPath(36:26) -> ESEndPath
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#9: ESAttackUPCooldown(19:32531) -> Dimension Liberation
+#10: ESAttackUPCooldown(19:32531) -> 次元の解放
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Increase damage to 1,000% for the next 999 turns
 
-#10: ESChangeAttribute(46:32003) -> Flap-Slap
+#11: ESChangeAttribute(46:32019) -> はばたきアタック
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
-#11: ESEndPath(36:26) -> ESEndPath
+#12: ESEndPath(36:26) -> ESEndPath
 end_turn
-
-#12: ESAttackMultihit(15:32027) -> Flap-Drill
-Deal 1,000% damage (5 hits, 200% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:29725) -> Dimension Destruction
+#14: ESAttackMultihit(15:29725) -> 次元の殲滅
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESSuperResolve(129:32498) -> Super Resolve
+#16: ESSuperResolve(129:32498) -> 超根性
 Damage which would reduce HP from above 50% to below 50% is nullified

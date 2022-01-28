@@ -8,29 +8,34 @@ approved: False
 
 level: 1
  type: PASSIVE
- | (32498:129) Super Resolve
+ | (32498:129) 超根性
  | Damage which would reduce HP from above 50% to below 50% is nullified
  type: PREEMPT
- | (32016:96) Peng-Aura
+ | (32016:96) ペンオーラ
  | Locked random skyfall +30% for 6 turns
  group:
  | group:
- | condition: turns 1-5
-   | (32019:46) Flap-Slap
+ | condition: turn 1
+   | (32019:46) はばたきアタック
    | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
  | group:
-   | (29725:15) Dimension Destruction
+ | condition: turn 3
+   | (32019:46) はばたきアタック
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (32019:46) はばたきアタック
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (29725:15) 次元の殲滅
    | Deal 5,000% damage (5 hits, 1,000% each)
  type: REMAINING
  condition: when 4 enemies remain, hp <= 100
  | group:
  | condition: turn 1
-   | (32531:19) Dimension Liberation
+   | (32531:19) 次元の解放
    | Increase damage to 1,000% for the next 999 turns
  | group:
  | condition: turns 2-5
-   | (32003:46) Flap-Slap
+   | (32019:46) はばたきアタック
    | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
- type: UNKNOWN_USE
- | (32027:15) Flap-Drill
- | Deal 1,000% damage (5 hits, 200% each)

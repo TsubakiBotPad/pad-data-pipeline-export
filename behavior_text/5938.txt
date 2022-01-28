@@ -1,0 +1,59 @@
+#5938 - Super Reincarnated Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 5938
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25074:72) ＿光アマ光半減
+ | Reduce damage from Light attrs by 50%
+ | (25054:73) ＿超転生アマ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (25055:83) 大嘗祭 + 天錠 + 光錠
+ | RCV 0% for 3 turns + Locked Heal skyfall +100% for 3 turns + Lock 15 random orbs, Deal 65% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 9
+     | (25056:105) 大嘗祭
+     | RCV 0% for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 9
+     | (25061:83) 極光の目眩 + 後光波
+     | Blind all orbs on the board + Spawn 6 random Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 9
+     | (25064:83) 天の慈悲 + 舞い踊る大地
+     | Change the 1st row to Heal orbs + Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 9
+     | (25056:105) 大嘗祭
+     | RCV 0% for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 5 of 9
+     | (25067:83) 天戸 + 無光の護洞
+     | Change the 1st and 6th columns to Heal orbs + Unable to match Heal orbs for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 9
+     | (25061:83) 極光の目眩 + 後光波
+     | Blind all orbs on the board + Spawn 6 random Heal orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 7 of 9
+     | (25056:105) 大嘗祭
+     | RCV 0% for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 8 of 9
+     | (25064:83) 天の慈悲 + 舞い踊る大地
+     | Change the 1st row to Heal orbs + Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 9 of 9
+     | (25067:83) 天戸 + 無光の護洞
+     | Change the 1st and 6th columns to Heal orbs + Unable to match Heal orbs for 1 turn, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 1
+   | (25070:83) 穢れ落とし + 照らされる闇 + 最高神の守護
+   | Enemy recover 100% HP + Delay all cards' skills by 10 turns + Void damage >= 30,000,000 for 5 turns, Deal 125% damage

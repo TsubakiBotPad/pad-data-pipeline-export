@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESStatusShield(20:32005) -> Mystic Familiar's Protection
+#2: ESStatusShield(20:32005) -> 式神の守り
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Voids status ailments for 6 turns
 
@@ -17,26 +17,26 @@ counter + 1
 #4: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 6, target rnd 10
 
-#5: ESNone(0:0) -> ESNone
-nothing
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 8
 
-#6: ESChangeAttribute(46:32009) -> Draconic Claw
-Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 8
 
 #7: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#8: ESAttackMultihit(15:32177) -> Dragonclaw Slash
-Deal 1,000% damage (4 hits, 250% each)
+#8: ESChangeAttribute(46:32009) -> 龍化爪
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESAttackMultihit(15:29725) -> Dimension Destruction
+#10: ESAttackMultihit(15:29725) -> 次元の殲滅
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESSuperResolve(129:32498) -> Super Resolve
+#12: ESSuperResolve(129:32498) -> 超根性
 Damage which would reduce HP from above 50% to below 50% is nullified
