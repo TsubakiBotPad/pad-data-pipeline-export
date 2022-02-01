@@ -1,0 +1,65 @@
+#8360 - バレンタインの耀星神・アストレア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8360
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33839:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (33840:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (33810:83) こ、こっち見ないでよ！ + 余ったらあげてもいいけど… + 期待しないで
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 95% for 2 turns + Locked random skyfall +25% for 10 turns
+ group:
+ | group:
+ | condition: always turn 2
+   | (33814:83) 耀星神の守り + 耀星神の想い
+   | Reduce damage from all sources by 50% for 99 turns + Unable to match Light and Dark orbs for 3 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 33% chance
+     | (33830:83) シャインヘイズ + まだ見るなぁー！
+     | Absorb Light damage for 1 turn + Change all Heal orbs to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (33833:83) シャインヘイズ + まだ見るなぁー！
+     | Absorb Light damage for 1 turn + Change all Dark orbs to Light orbs, Deal 100% damage
+     | condition: 34% chance
+     | (33836:83) シャインヘイズ + スイートステイシス
+     | Absorb Dark damage for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+   | group:
+     | condition: 33% chance
+     | (33830:83) シャインヘイズ + まだ見るなぁー！
+     | Absorb Light damage for 1 turn + Change all Heal orbs to Light orbs, Deal 100% damage
+     | condition: 33% chance
+     | (33833:83) シャインヘイズ + まだ見るなぁー！
+     | Absorb Light damage for 1 turn + Change all Dark orbs to Light orbs, Deal 100% damage
+     | condition: 34% chance
+     | (33836:83) シャインヘイズ + スイートステイシス
+     | Absorb Dark damage for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (33821:83) 甘い香り + ほらっ！あげる！
+     | ATK -50% for 5 turns + Lock 15 random orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (33824:83) 誘惑のチョコ + 義理チョコだからね！
+     | Seal the 1st row for 1 turn + Change the 2nd and 5th columns to Dark orbs, Deal 101% damage
+     | (33827:83) 魅惑のチョコ + 義理チョコだからね！
+     | Delay active skills by 2 turns + Change the 2nd and 4th rows to Dark orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (33817:83) 耀星神の眼差し + 焦げたチョコ
+     | Bind awoken skills for 1 turn + Spawn 7 random Jammer orbs
+   | group:
+     | (33820:15) 超スイートステイシス
+     | Deal 350% damage (7 hits, 50% each)
