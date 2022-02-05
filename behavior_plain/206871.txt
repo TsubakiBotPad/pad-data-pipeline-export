@@ -1,0 +1,21 @@
+#206871 - 冷菓の氷雪王・ミアーダ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:32793) -> バニラアイスにチョコレート♪
+	Spawn 12 random Light, Dark, and Jammer orbs
+	[1] ESRandomSpawn(92:32794) -> 最後は雪のキラキラパウダー♪
+	Spawn 6 random Water orbs
+
+#3: ESRandomSpawn(92:32796) -> スノーレイン
+Spawn 3 random Water orbs, Deal 100% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
