@@ -1,0 +1,19 @@
+#301820 - 羅刹の飛翔神・ミニ呂布
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESNoSkyfall(127:27986) -> 業滅の衝動
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No skyfall for 1 turn
+
+#3: ESAttackUPRemainingEnemies(17:27987) -> 天下無双の崩撃
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 1 turn
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -9,18 +9,18 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:31786) -> 文句のある奴は殺す 皆殺しだ！
+	[0] ESStatusShield(20:31786) -> I'll kill anyone that has anything to say about it.
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:31787) -> 邪王炎殺剣
+	[1] ESAbsorbAttribute(53:31787) -> Sword of the Darkness Flame
 	Absorb Dark damage for 5 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 6
 
 #4: SkillSet:
-	[0] ESRandomSpawn(92:31792) -> 炎殺！黒龍波！
+	[0] ESRandomSpawn(92:31792) -> Dragon of the Darkness Flame!
 	Spawn 9 random Dark orbs
-	[1] ESAttackMultihit(15:31793) -> 邪王炎殺煉獄焦
+	[1] ESAttackMultihit(15:31793) -> Fist of the Mortal Flame
 	Deal 102% damage (3 hits, 34% each)
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -33,16 +33,16 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #8: SkillSet:
-	[0] ESSkillDelay(89:31789) -> フン　死にたきゃ勝手に死ね
+	[0] ESSkillDelay(89:31789) -> Hmpf, if you want to die then go ahead.
 	Delay active skills by 5 turns
-	[1] ESBoardChangeAttackBits(85:31790) -> もう後もどりできんぞ
+	[1] ESBoardChangeAttackBits(85:31790) -> There's no turning back now.
 	Change all orbs to Dark, Deal 110% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESTypeResist(118:31794) -> 攻撃半減
+#10: ESTypeResist(118:31794) -> Attacker type halved
 Reduce damage from Attacker types by 50%
 
-#11: ESSuperResolve(129:31795) -> 超根性50%
+#11: ESSuperResolve(129:31795) -> Super resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

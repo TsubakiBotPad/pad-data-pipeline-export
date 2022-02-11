@@ -1,4 +1,4 @@
-#104304 - Yoko Kurama
+#104304 - Youko Kurama
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESLeaderSwap(75:31774) -> 魔界のオジギ草
+	[0] ESLeaderSwap(75:31774) -> Ojigi Plant
 	Leader changes to random sub for 3 turns
-	[1] ESBindAttack(63:31775) -> シマネキ草
+	[1] ESBindAttack(63:31775) -> Seed of the Death Plant
 	Bind 2 random cards for 2 turns, Deal 100% damage
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -21,9 +21,9 @@ Branch on hp < 1, target rnd 10
 Branch on hp < 50, target rnd 6
 
 #5: SkillSet:
-	[0] ESRandomSpawn(92:31780) -> 食妖植物
+	[0] ESRandomSpawn(92:31780) -> Apparition-Eating Plant
 	Spawn 4 random Wood and Dark orbs
-	[1] ESBindAttack(63:31781) -> シマネキ草
+	[1] ESBindAttack(63:31781) -> Seed of the Death Plant
 	Bind 2 random subs for 3 turns, Deal 102% damage
 
 #6: ESBranchFlag(43:10) -> ESBranchFlag
@@ -32,7 +32,7 @@ Branch on flag & 1, target rnd 5
 #7: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#8: ESAttackUPRemainingEnemies(17:31784) -> オレを怒らせた罪は重い!!
+#8: ESAttackUPRemainingEnemies(17:31784) -> But as you see, the stories were incorrect.
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
@@ -40,16 +40,16 @@ Increase damage to 150% for the next 999 turns
 end_turn
 
 #10: SkillSet:
-	[0] ESRecoverEnemy86(86:31777) -> お前が悪党でよかった…
+	[0] ESRecoverEnemy86(86:31777) -> It's a good thing you're such a punk...
 	Enemy recover 100% HP
-	[1] ESBindAwoken(88:31778) -> 邪念樹
+	[1] ESBindAwoken(88:31778) -> Sinning Tree
 	Bind awoken skills for 3 turns
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESResolve(73:31783) -> 根性
+#12: ESResolve(73:31783) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#13: ESAttributeResist(72:31782) -> 木闇半減
+#13: ESAttributeResist(72:31782) -> Wood Dark halved
 Reduce damage from Wood and Dark attrs by 50%

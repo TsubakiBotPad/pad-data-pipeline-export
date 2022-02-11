@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:31232) -> 雷姫神の守護
+	[0] ESStatusShield(20:31232) -> Lightning Goddess' Protection
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:31233) -> 雷姫神の障壁
+	[1] ESVoidShieldBig(137:31233) -> Lightning Goddess' Barrier
 	Void damage >= 800,000,000 for 6 turns
-	[2] ESAbsorbAttribute(53:31234) -> 豪雷舞
+	[2] ESAbsorbAttribute(53:31234) -> Great Thunder Dance
 	Absorb Light damage for 6 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,11 +28,11 @@ Branch on hp < 10, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESRandomSpawn(92:31235) -> 雷斬刀
+#7: ESRandomSpawn(92:31235) -> Thunder-Splitting Blade
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 6 random Light orbs, Deal 100% damage
 
-#8: ESBoardChangeAttackBits(85:31236) -> 豪雷刀
+#8: ESBoardChangeAttackBits(85:31236) -> Great Thunder Blade
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 80% damage
 
@@ -46,30 +46,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:31238) -> 雷姫神の怒雷
+	[0] ESAttackUPRemainingEnemies(17:31238) -> Lightning Goddess' Furious Thunder
 	Increase damage to 150% for the next 999 turns
-	[1] ESDebuffMovetime(39:31239) -> 立花守の護紋
+	[1] ESDebuffMovetime(39:31239) -> Tachibana Protective Crest
 	Movetime 25% for 5 turns
-	[2] ESOrbChangeAttackBits(108:31240) -> 雷切
+	[2] ESOrbChangeAttackBits(108:31240) -> Thunder Cut
 	Change all Light orbs to Heal orbs, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESBoardChangeAttackBits(85:31241) -> 豪雷聖斬刀
+#14: ESBoardChangeAttackBits(85:31241) -> Great Holy Thunder-Splitting Blade
 Change all orbs to Light and Heal, Deal 1,000% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:31377) -> 星機の波動
+	[0] ESBindAwoken(88:31377) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	[1] ESAttackMultihit(15:31378) -> Star Machine's Annihilation
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:31387) -> 根性
+#18: ESResolve(73:31387) -> Resolve
 Survive attacks with 1 HP when HP > 50%

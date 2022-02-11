@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:31221) -> 仁姫神の守護
+	[0] ESStatusShield(20:31221) -> Benevolent Goddess' Protection
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:31222) -> 仁姫神の障壁
+	[1] ESVoidShieldBig(137:31222) -> Benevolent Goddess' Barrier
 	Void damage >= 800,000,000 for 6 turns
-	[2] ESBoardChangeAttackBits(85:31223) -> 寛仁姫の祈念
+	[2] ESBoardChangeAttackBits(85:31223) -> Benevolent Prayer
 	Change all orbs to Water, Light, and Heal, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,11 +28,11 @@ Branch on hp < 10, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESBoardChangeAttackBits(85:31225) -> 波状刀
+#7: ESBoardChangeAttackBits(85:31225) -> Pulsing Blade
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Water and Jammer, Deal 80% damage
 
-#8: ESRandomSpawn(92:31224) -> 水波刀
+#8: ESRandomSpawn(92:31224) -> Water Wave Blade
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 6 random Water orbs, Deal 100% damage
 
@@ -46,30 +46,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAbsorbAttribute(53:31227) -> 仁姫神の水舞
+	[0] ESAbsorbAttribute(53:31227) -> Benevolent Goddess' Water Dance
 	Absorb Water and Wood damage for 5 turns
-	[1] ESDebuffRCV(105:31228) -> 五三桐の護紋
+	[1] ESDebuffRCV(105:31228) -> Paulownia Protective Crest
 	RCV 25% for 5 turns
-	[2] ESBoardChangeAttackBits(85:31229) -> 寛仁姫の助勢
+	[2] ESBoardChangeAttackBits(85:31229) -> Benevolent Support
 	Change all orbs to Water, Light, and Heal, Deal 150% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESBoardChangeAttackBits(85:31230) -> 波状青龍刀
+#14: ESBoardChangeAttackBits(85:31230) -> Pulsing Blue Dragon Blade
 Change all orbs to Water and Jammer, Deal 1,000% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:31377) -> 星機の波動
+	[0] ESBindAwoken(88:31377) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	[1] ESAttackMultihit(15:31378) -> Star Machine's Annihilation
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:31387) -> 根性
+#18: ESResolve(73:31387) -> Resolve
 Survive attacks with 1 HP when HP > 50%

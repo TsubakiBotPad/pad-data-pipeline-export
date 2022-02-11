@@ -1,0 +1,97 @@
+#3833 - Athena Helios
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:33842) -> いきますっ！
+	Absorb Fire damage for 5 turns
+	[1] ESSpinnersRandom(109:33843) -> ニケの支援
+	Random 2 orbs change every 1.0s for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 21
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 17
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 19
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#11: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRowSpawnMulti(79:33858) -> フレイムスピア
+	Change the 1st and 5th rows to Fire orbs, Deal 100% damage
+	[1] ESBombRandomSpawn(102:33859) -> ブラストスピア
+	Spawn 5 random Bomb orbs
+
+#12: SkillSet:
+	[0] ESOrbSealRow(100:33861) -> 守護神の計略
+	Seal the 5th row for 1 turn
+	[1] ESAttackMultihit(15:33862) -> パイロスターバースト
+	Deal 102% damage (3 hits, 34% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESLeaderSwap(75:33852) -> アイギスの輝き
+	Leader changes to random sub for 1 turn
+	[1] ESAttackMultihit(15:33853) -> パイロスターバースト
+	Deal 102% damage (3 hits, 34% each)
+
+#15: SkillSet:
+	[0] ESTargetedSkillDelay(140:33855) -> アイギスの煌めき
+	Delay random sub's skills by 2 turns
+	[1] ESAttackMultihit(15:33856) -> パイロスターバースト
+	Deal 102% damage (3 hits, 34% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESDamageShield(74:33848) -> アイギスの守り
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESAbsorbCombo(67:33849) -> 守護神の試練
+	Absorb damage when combos <= 7 for 5 turns
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESAttackMultihit(15:33850) -> パイロスターバースト！！
+Deal 315% damage (7 hits, 45% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	[0] ESRecoverEnemy86(86:33845) -> リザレクション
+	Enemy recover 100% HP
+	[1] ESBindAwoken(88:33846) -> アイギスの昂り
+	Bind awoken skills for 1 turn
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESResolve(73:33863) -> 根性
+Survive attacks with 1 HP when HP > 50%

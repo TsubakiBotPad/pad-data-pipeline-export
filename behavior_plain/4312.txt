@@ -9,23 +9,23 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDebuffMovetime(39:31620) -> ふん・・・よくもまあ集まったもんだね
+	[0] ESDebuffMovetime(39:31620) -> My my quite a crowd.
 	Movetime -2s for 5 turns
-	[1] ESRowSpawnMulti(79:31621) -> 師範と呼べ！こんガキャ！
+	[1] ESRowSpawnMulti(79:31621) -> Address me as "Master", you little brat!
 	Change the 2nd row to Water orbs, Deal 100% damage
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#4: ESRandomSpawn(92:31623) -> お前は百パーセント負ける！
+#4: ESRandomSpawn(92:31623) -> The way you are now, you will lose, one hundred percent!
 Condition: 33% chance (ai:33 rnd:0)
 Spawn 5 random Water orbs, Deal 101% damage
 
-#5: ESDebuffRCV(105:31624) -> 喝！
+#5: ESDebuffRCV(105:31624) -> Ka!
 Condition: 50% chance (ai:50 rnd:0)
 RCV 50% for 1 turn, Deal 100% damage
 
-#6: ESAttackMultihit(15:31625) -> どうじゃ！痛いか?!
+#6: ESAttackMultihit(15:31625) -> Does it hurt?
 Deal 102% damage (3 hits, 34% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -37,12 +37,12 @@ Branch on flag & 1, target rnd 4
 #9: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#10: ESAttackUPRemainingEnemies(17:31622) -> 今度は容赦せんぞ
+#10: ESAttackUPRemainingEnemies(17:31622) -> This time I won't go easy.
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESTypeResist(118:31626) -> 悪魔半減
+#12: ESTypeResist(118:31626) -> Demon type halved
 Reduce damage from Devil types by 50%

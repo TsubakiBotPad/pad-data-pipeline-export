@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESVoidShieldBig(137:31243) -> 真言結界
+	[0] ESVoidShieldBig(137:31243) -> Mantra's Barrier
 	Void damage >= 800,000,000 for 999 turns
-	[1] ESGravity(50:31244) -> オン・ソンバ
+	[1] ESGravity(50:31244) -> Om Sumbha
 	Player -150% HP
-	[2] ESAttackMultihit(15:31245) -> ニソンバ
+	[2] ESAttackMultihit(15:31245) -> Nisumbha
 	Deal 150% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -29,11 +29,11 @@ Branch on hp < 10, target rnd 13
 Branch on hp < 50, target rnd 9
 
 #7: SkillSet:
-	[0] ESOrbLock(94:31248) -> 真言の讃歌
+	[0] ESOrbLock(94:31248) -> Mantric Hymn
 	Lock all orbs
-	[1] ESChangeAttribute(46:31250) -> ウン・バザラ
+	[1] ESChangeAttribute(46:31250) -> Hum Vajra
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[2] ESAttackMultihit(15:31251) -> ウン・パッタ
+	[2] ESAttackMultihit(15:31251) -> Hum Phat
 	Deal 150% damage (5 hits, 30% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -46,33 +46,33 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESStatusShield(20:31247) -> 降魔神の守り
+	[0] ESStatusShield(20:31247) -> Evil Conquering Goddess' Protection
 	Voids status ailments for 999 turns
-	[1] ESOrbLock(94:31248) -> 真言の讃歌
+	[1] ESOrbLock(94:31248) -> Mantric Hymn
 	Lock all orbs
-	[2] ESGravity(50:31244) -> オン・ソンバ
+	[2] ESGravity(50:31244) -> Om Sumbha
 	Player -150% HP
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:31252) -> 真言終唱
+#13: ESAttackMultihit(15:31252) -> Mantra's End
 Deal 1,000% damage (10 hits, 100% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #15: SkillSet:
-	[0] ESBindAwoken(88:31377) -> 星機の波動
+	[0] ESBindAwoken(88:31377) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	[1] ESAttackMultihit(15:31378) -> Star Machine's Annihilation
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESTurnChangePassive(106:31382) -> 敵の行動ターンが変化した
+#17: ESTurnChangePassive(106:31382) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 50%
 
-#18: ESResolve(73:31387) -> 根性
+#18: ESResolve(73:31387) -> Resolve
 Survive attacks with 1 HP when HP > 50%

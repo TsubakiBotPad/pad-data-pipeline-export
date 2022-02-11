@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:31122) -> 傾奇神の守護
+	[0] ESStatusShield(20:31122) -> Defense of the Dandy
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:31123) -> 傾奇神の防壁
+	[1] ESVoidShieldBig(137:31123) -> Barrier of the Dandy
 	Void damage >= 500,000,000 for 6 turns
-	[2] ESAttributeBlock(107:31124) -> 華麗に攻めるぜぇ！
+	[2] ESAttributeBlock(107:31124) -> Behold my glorious attacks!
 	Unable to match Light orbs for 6 turns, Deal 300% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -28,14 +28,14 @@ Branch on hp < 10, target rnd 15
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#7: ESOrbChangeAttack(48:31125) -> こいつはいらねぇよなぁ！
+#7: ESOrbChangeAttack(48:31125) -> You don't need to recover!
 Change all Heal orbs to Light orbs, Deal 150% damage
 
-#8: ESSpinnersFixed(110:31126) -> 華麗に攻めるぜぇ！
+#8: ESSpinnersFixed(110:31126) -> Behold my glorious attacks!
 Condition: 50% chance (ai:0 rnd:50)
 Specific orbs change every 1.0s for 1 turn, Deal 80% damage
 
-#9: ESAttackMultihit(15:31127) -> おらぁ！
+#9: ESAttackMultihit(15:31127) -> Hyah!
 Condition: 50% chance (ai:0 rnd:50)
 Deal 100% damage
 
@@ -49,30 +49,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESAbsorbAttribute(53:31129) -> なかなかやるじゃねぇか！
+	[0] ESAbsorbAttribute(53:31129) -> Well well, not too shabby!
 	Absorb Light damage for 5 turns
-	[1] ESDamageShield(74:31130) -> ここで使うぜぇ！
+	[1] ESDamageShield(74:31130) -> It's time I used this!
 	Reduce damage from all sources by 50% for 5 turns
-	[2] ESAttackUPRemainingEnemies(17:31131) -> 終わりにしてやんよぉ！
+	[2] ESAttackUPRemainingEnemies(17:31131) -> I'll end this right now!
 	Increase damage to 150% for the next 999 turns
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackMultihit(15:31132) -> 二刀乱舞
+#15: ESAttackMultihit(15:31132) -> Dance of the Dual Blades
 Deal 1,000% damage (2 hits, 500% each)
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #17: SkillSet:
-	[0] ESBindAwoken(88:31377) -> 星機の波動
+	[0] ESBindAwoken(88:31377) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:31378) -> 星機の殄滅
+	[1] ESAttackMultihit(15:31378) -> Star Machine's Annihilation
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESResolve(73:31387) -> 根性
+#19: ESResolve(73:31387) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESInactivity66(66:31679) -> 自分を殺す男の名前だ
+	[0] ESInactivity66(66:31679) -> That's the name of the man that will kill you...
 	Do nothing
-	[1] ESBlindStickySkyfall(128:31680) -> 覚えておけ
+	[1] ESBlindStickySkyfall(128:31680) -> ...remember it.
 	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,11 +20,11 @@ Branch on hp < 1, target rnd 12
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#5: ESFixedStart(101:31683) -> オレの攻撃はその的を外さない
+#5: ESFixedStart(101:31683) -> My attacks never miss their target.
 Condition: 50% chance (ai:50 rnd:0)
 Fix orb movement starting point to random position on the board, Deal 100% damage
 
-#6: ESAttackMultihit(15:31684) -> 消えろ
+#6: ESAttackMultihit(15:31684) -> Disappear.
 Deal 102% damage (3 hits, 34% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -36,23 +36,23 @@ Branch on flag & 1, target rnd 5
 #9: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#10: ESAttackUPRemainingEnemies(17:31681) -> 死紋十字斑
+#10: ESAttackUPRemainingEnemies(17:31681) -> Death Print Bull's Eye
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESAttributeBlock(107:31682) -> もうオレから逃げられないぜ
+#12: ESAttributeBlock(107:31682) -> You can no longer escape from me.
 Unable to match Water and Light orbs for 5 turns, Deal 101% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESResolve(73:31685) -> 根性
+#14: ESResolve(73:31685) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
 #15: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:31686) -> バイバイ
+	[0] ESInactivity66(66:31686) -> Bye bye.
 	Do nothing

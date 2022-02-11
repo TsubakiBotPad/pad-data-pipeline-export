@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESInactivity66(66:31855) -> 負けを覚悟で戦うことを
+	[0] ESInactivity66(66:31855) -> Fighting while prepared for defeat...
 	Do nothing
-	[1] ESAbsorbAttribute(53:31856) -> オレは潔しとは思わない
+	[1] ESAbsorbAttribute(53:31856) -> ...is something that I disdain.
 	Absorb Dark damage for 3 turns
 
 #5: ESSetCounter(26:16) -> ESSetCounter
@@ -28,26 +28,26 @@ Branch on counter = 3, target rnd 13
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#8: ESRandomSpawn(92:31862) -> ハァ!!
+#8: ESRandomSpawn(92:31862) -> Ha!
 Spawn 5 random Dark orbs, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESPoisonChangeRandomAttack(64:31860) -> 気の毒だが楽には死ねないよ
+#10: ESPoisonChangeRandomAttack(64:31860) -> I regret to inform you that you will not die easily.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change 3 random orbs to Poison orbs, Deal 100% damage
 
-#11: ESAttackMultihit(15:31861) -> ぬぅ～～～っ!!
+#11: ESAttackMultihit(15:31861) -> Hmpf!
 Deal 102% damage (3 hits, 34% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #13: SkillSet:
-	[0] ESDamageShield(74:31858) -> 気鋼闘衣
+	[0] ESDamageShield(74:31858) -> Sacred Energy Armor
 	Reduce damage from all sources by 50% for 5 turns
-	[1] ESAbsorbCombo(67:31859) -> 裂破風陣拳
+	[1] ESAbsorbCombo(67:31859) -> Twisted Twister
 	Absorb damage when combos <= 5 for 5 turns
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -55,5 +55,5 @@ end_turn
 
 #15: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESSkillSet(83:31863) -> 初めて楽しく戦えた + ありがとう
+	[0] ESSkillSet(83:31863) -> This is the first battle I ever enjoyed. + Thank you.
 	Do nothing + Do nothing
