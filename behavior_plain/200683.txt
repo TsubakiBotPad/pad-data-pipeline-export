@@ -1,0 +1,74 @@
+#200683 - 裏龍王・ゼローグ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBoardChangeAttackBits(85:33118) -> フルドロップ
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 90% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 22
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESBoardChangeAttackBits(85:33119) -> ファイブレイク
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESBoardChangeAttackBits(85:33120) -> コンフリクターズ
+Change all orbs to Fire, Water, Light, and Dark, Deal 110% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESBoardChangeAttackBits(85:33121) -> バイフーファング
+Change all orbs to Fire, Water, and Dark, Deal 120% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#20: ESBoardChangeAttackBits(85:33122) -> クレアドラゴニック
+Change all orbs to Water and Dark, Deal 130% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBoardChangeAttackBits(85:33123) -> ゼロディザスター
+Change all orbs to Dark, Deal 160% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

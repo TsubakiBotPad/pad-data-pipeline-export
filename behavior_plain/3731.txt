@@ -1,0 +1,64 @@
+#3731 - Violent Dragon Lord, Valten
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSpinnersFixed(110:33144) -> コンフュージョン
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESBombRandomSpawn(102:33145) -> テンペストボム
+	Spawn 2 random Bomb orbs
+	[2] ESNoSkyfall(127:33146) -> 不沈龍
+	No skyfall for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:33153) -> サプレッション
+	Bind awoken skills for 3 turns
+	[1] ESLeaderSwap(75:33154) -> リジェクション
+	Leader changes to random sub for 3 turns
+	[2] ESDamageShield(74:33155) -> ウォール
+	Reduce damage from all sources by 50% for 3 turns
+
+#7: ESAttackMultihit(15:33156) -> X・バースト
+Condition: When < 1% HP (ai:100 rnd:0)
+Deal 1,500% damage (10 hits, 150% each)
+
+#8: ESBombRandomSpawn(102:33147) -> イグナイテッド
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 3 random Bomb orbs, Deal 95% damage
+
+#9: ESOrbChangeAttack(48:33148) -> フレアブレス
+Condition: 20% chance (ai:0 rnd:20)
+Change a random attribute to Fire orbs, Deal 100% damage
+
+#10: ESOrbLock(94:33149) -> ノヴァ
+Condition: 20% chance (ai:0 rnd:20)
+Lock all orbs, Deal 105% damage
+
+#11: ESCloud(104:33150) -> ヒートヘイズ
+Condition: 20% chance (ai:0 rnd:20)
+A 1×1 square of clouds appears for 1 turn at a random location, Deal 100% damage
+
+#12: ESAttackMultihit(15:33151) -> ミーティア
+Condition: 20% chance (ai:0 rnd:20)
+Deal 108% damage (3 hits, 36% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:33142) -> ＿ヴァルテン根性
+Survive attacks with 1 HP when HP > 50%

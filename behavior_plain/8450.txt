@@ -1,0 +1,89 @@
+#8450 - 極醒の水都神・アテナ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:33240) -> 守護神の天恵
+	Voids status ailments for 20 turns
+	[1] ESSkyfallLocked(96:33241) -> 豊穣の祈り
+	Locked Water and Wood skyfall +100% for 99 turns
+	[2] ESSkyfall(68:33242) -> 水都のうたかた
+	Water and Wood skyfall +10% for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 5% HP (ai:100 rnd:0)
+	[0] ESBindAwoken(88:33244) -> 終戦の契り
+	Bind awoken skills for 10 turns
+	[1] ESAttackMultihit(15:33245) -> ニケアプティロス・ロア
+	Deal 240% damage (8 hits, 30% each)
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESColumnSpawnMulti(77:33250) -> 神槍の波紋
+Change the 1st column to Wood orbs and the 6th column to Water orbs, Deal 115% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESAttackMultihit(15:33251) -> 飛沫凍連
+Deal 120% damage (4 hits, 30% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:33247) -> 深底のまどろみ
+	Specific orbs change every 1.0s for 5 turns
+	[1] ESBoardChangeAttackBits(85:33248) -> アポロレイザー
+	Change all orbs to Water and Wood, Deal 125% damage
+	[2] ESDebuffATK(130:33249) -> 水面に遊ぶ清光
+	ATK -75% for 1 turn
+
+#16: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 20
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: ESBoardChangeAttackBits(85:33252) -> アポロレイザー
+Change all orbs to Water and Wood, Deal 125% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#21: ESAttackMultihit(15:33253) -> 氷沫凍漣
+Deal 180% damage (6 hits, 30% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSuperResolve(129:33238) -> ＿水アテナ超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

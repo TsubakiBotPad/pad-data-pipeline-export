@@ -1,0 +1,67 @@
+#7277 - Reincarnated Hestia
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESMaxHPChange(111:33174) -> 秩序の魔鉱炉
+	Change player HP to 1,000,000 for 3 turns
+	[1] ESRecoverPlayer(55:33175) -> 座する祝福
+	Player recover 100% HP
+	[2] ESDebuffRCV(105:33176) -> サクリファイス
+	RCV 0% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDamageShield(74:33181) -> 空虚な窯
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESAbsorbAttribute(53:33182) -> ブレイズピラー
+	Absorb Fire and Water damage for 1 turn, Deal 300% damage
+
+#8: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESRandomSpawn(92:33184) -> 融解する魔鉱
+	Spawn 6 random Heal orbs
+	[1] ESAbsorbAttribute(53:33185) -> ブレイズピラー
+	Absorb Fire and Wood damage for 1 turn, Deal 300% damage
+
+#9: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESOrbLock(94:33187) -> 凝固する熱鉄
+	Lock 15 random orbs
+	[1] ESAbsorbAttribute(53:33188) -> ブレイズピラー
+	Absorb Fire and Wood damage for 1 turn, Deal 300% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 6
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESBlindStickyRandom(97:33178) -> 燃える灰
+	Blind random 8 orbs for 3 turns
+	[1] ESBoardChangeAttackBits(85:33179) -> ファイアヘイズ
+	Change all orbs to Fire, Wood, Light, and Heal, Deal 350% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
