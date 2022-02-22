@@ -1,0 +1,38 @@
+#8485 - 版画幻画師・クロエ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8485
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (35059:87) わらわの精密な技術を見せてやろう
+ | Absorb damage when damage >= 5,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 9
+     | (35060:50) 彫刻
+     | Player -99% HP
+   | group:
+   | condition: turn 2 while HP > 9
+     | (35061:89) 刷毛
+     | Delay active skills by 1~2 turns, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 9
+     | (35062:83) 気に入ったぞ + おぬしを完璧に削ってやろう
+     | Reduce damage from all sources by 50% for 5 turns + Absorb Water damage for 5 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (35060:50) 彫刻
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (35061:89) 刷毛
+     | Delay active skills by 1~2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (35065:50) 金魚彫刻刀
+   | Player -300% HP

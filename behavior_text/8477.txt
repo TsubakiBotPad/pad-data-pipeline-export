@@ -1,0 +1,56 @@
+#8477 - 彩妖精の水彩幻画師・アトリ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8477
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (35183:83) えへへっ♪ + こんにちは妖精さん♪ + 一緒にお花見しましょう？
+ | Voids status ailments for 999 turns + Absorb Fire and Water damage for 3 turns + Bind active skills for 5 turns
+ group:
+ | group:
+ | condition: always turns 1-2
+   | (35183:83) えへへっ♪ + こんにちは妖精さん♪ + 一緒にお花見しましょう？
+   | Voids status ailments for 999 turns + Absorb Fire and Water damage for 3 turns + Bind active skills for 5 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 6
+     | condition: 50% chance
+     | (35200:83) フラワーグラデーション + フェアリーウォッシュ
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (35200:83) フラワーグラデーション + フェアリーウォッシュ
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (35187:83) フラワーグラデーション + こんにちは妖精さん♪ + 一緒にお絵描きしましょう？
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Absorb damage when damage >= 500,000,000 for 3 turns + Bind 6 random cards for 5 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 4-5 of 6
+     | condition: 50% chance
+     | (35200:83) フラワーグラデーション + フェアリーウォッシュ
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (35200:83) フラワーグラデーション + フェアリーウォッシュ
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | condition: 33% chance
+     | (35190:83) フラワーグラデーション + こんにちは妖精さん♪ + 一緒にお花見しましょう？
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Absorb Water and Wood damage for 3 turns + Water and Wood skyfall +20% for 3 turns
+     | condition: 33% chance
+     | (35193:83) フラワーグラデーション + こんにちは妖精さん♪ + 一緒にお花見しましょう？
+     | Change own attribute to random one of Fire, Water, Wood, or Light + Absorb Fire and Wood damage for 3 turns + Fire and Wood skyfall +20% for 3 turns
+     | condition: 34% chance
+     | (35196:83) フラワーグラデーション + こんにちは妖精さん♪ + 一緒にお花見しましょう？
+     | Change own attribute to random one of Fire, Water, Wood, or Dark + Absorb Light and Dark damage for 3 turns + Light and Dark skyfall +20% for 3 turns
+ | group:
+ | condition: hp <= 9
+   | (35199:85) フラワーカラフルパレット
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 1,000% damage
+ type: UNKNOWN_USE
+ | (35227:15) ポリゴンブレス！！！
+ | Deal 1,000% damage (5 hits, 200% each)

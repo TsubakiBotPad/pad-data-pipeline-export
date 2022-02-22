@@ -1,0 +1,101 @@
+  monster_id: 8486
+  levels {
+    level: 4
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 35131
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 9
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 35060
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 2
+                always_trigger_above: 9
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 35061
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 3
+                always_trigger_above: 9
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 35062
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 2
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 35060
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                repeats_every: 2
+                trigger_turn: 2
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 35061
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 9
+          }
+          children {
+            behavior {
+              enemy_skill_id: 35065
+            }
+          }
+        }
+      }
+    }
+  }

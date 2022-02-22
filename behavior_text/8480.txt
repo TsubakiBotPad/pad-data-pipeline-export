@@ -1,0 +1,39 @@
+#8480 - 墨猛虎の水墨幻画師・カイシュウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8480
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35113:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (35114:83) 墨猛虎の結界 + 墨虎図 + 我が筆さばきを見せてやろう
+ | Voids status ailments for 999 turns + Void damage >= 15,000,000 for 999 turns + For 10 turns, 20% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | condition: 33% chance
+   | (35118:100) 巨筆
+   | Seal the 1st row for 1 turn, Deal 90% damage
+   | condition: 33% chance
+   | (35120:94) 浅絳山水
+   | Lock 15 random orbs, Deal 95% damage
+   | condition: 34% chance
+   | (35119:97) 水暈墨章
+   | Blind random 10~15 orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (35121:83) 猛虎の雄叫び + 墨雲
+   | Bind awoken skills for 1 turn + A 2×2 square of clouds appears for 5 turns at 3rd row, 3rd column, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (35124:83) 気韻生動！いでよ！ + 猛虎咆哮
+     | Lock all orbs + Delay active skills by 5 turns
+   | group:
+     | (35127:15) 黒雷猛虎爪
+     | Deal 1,000% damage (10 hits, 100% each)

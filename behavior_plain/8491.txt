@@ -1,0 +1,59 @@
+#8491 - グラフィティ幻画師・メルティ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESAbsorbCombo(67:35051) -> ウチとやる気？
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 5 for 6 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESChangeAttribute(46:35052) -> カラースプレー
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 150% damage
+
+#8: ESSpinnersFixed(110:35053) -> ローラーブレード
+Condition: 50% chance (ai:0 rnd:50)
+Specific orbs change every 1.5s for 1 turn, Deal 140% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESSkillDelay(89:35055) -> キミ遅すぎ
+	Delay active skills by 1~3 turns
+	[1] ESSpinnersFixed(110:35056) -> ウチの速さについてこれる？
+	Specific orbs change every 0.5s for 1 turn
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:35057) -> ペインターブレード
+Deal 300% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESTurnChangePassive(106:35058) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 50%

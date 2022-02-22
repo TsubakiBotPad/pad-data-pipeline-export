@@ -1,0 +1,102 @@
+#8477 - 彩妖精の水彩幻画師・アトリ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:35184) -> えへへっ♪
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:35185) -> こんにちは妖精さん♪
+	Absorb Fire and Water damage for 3 turns
+	[2] ESBindSkill(14:35186) -> 一緒にお花見しましょう？
+	Bind active skills for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 18
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 13
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESChangeAttribute(46:35201) -> フラワーグラデーション
+	Change own attribute to random one of Fire, Water, Wood, or Light
+	[1] ESOrbSealColumn(99:35202) -> フェアリーウォッシュ
+	Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESChangeAttribute(46:35201) -> フラワーグラデーション
+	Change own attribute to random one of Fire, Water, Wood, or Light
+	[1] ESOrbSealColumn(99:35202) -> フェアリーウォッシュ
+	Seal the 1st and 6th columns for 1 turn, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 6
+
+#11: SkillSet:
+	[0] ESChangeAttribute(46:35201) -> フラワーグラデーション
+	Change own attribute to random one of Fire, Water, Wood, or Light
+	[1] ESAbsorbThresholdBig(138:35188) -> こんにちは妖精さん♪
+	Absorb damage when damage >= 500,000,000 for 3 turns
+	[2] ESBindRandom(1:35189) -> 一緒にお絵描きしましょう？
+	Bind 6 random cards for 5 turns, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:35201) -> フラワーグラデーション
+	Change own attribute to random one of Fire, Water, Wood, or Light
+	[1] ESAbsorbAttribute(53:35191) -> こんにちは妖精さん♪
+	Absorb Water and Wood damage for 3 turns
+	[2] ESSkyfall(68:35192) -> 一緒にお花見しましょう？
+	Water and Wood skyfall +20% for 3 turns
+
+#15: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:35201) -> フラワーグラデーション
+	Change own attribute to random one of Fire, Water, Wood, or Light
+	[1] ESAbsorbAttribute(53:35194) -> こんにちは妖精さん♪
+	Absorb Fire and Wood damage for 3 turns
+	[2] ESSkyfall(68:35195) -> 一緒にお花見しましょう？
+	Fire and Wood skyfall +20% for 3 turns
+
+#16: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESChangeAttribute(46:35204) -> フラワーグラデーション
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESAbsorbAttribute(53:35197) -> こんにちは妖精さん♪
+	Absorb Light and Dark damage for 3 turns
+	[2] ESSkyfall(68:35198) -> 一緒にお花見しましょう？
+	Light and Dark skyfall +20% for 3 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBoardChangeAttackBits(85:35199) -> フラワーカラフルパレット
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 1,000% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttackMultihit(15:35227) -> ポリゴンブレス！！！
+Deal 1,000% damage (5 hits, 200% each)

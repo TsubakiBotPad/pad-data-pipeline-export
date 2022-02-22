@@ -1,0 +1,76 @@
+#208480 - 墨猛虎の水墨幻画師・カイシュウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:35165) -> 墨猛虎の結界
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:35166) -> 墨虎図
+	Void damage >= 1,000,000,000 for 999 turns
+	[2] ESBlindStickySkyfall(128:35167) -> 我が筆さばきを見せてやろう
+	For 15 turns, 25% chance for skyfall orbs to be blinded for turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESColumnSpawnMulti(77:35175) -> 黒虎爪
+	Change the 1st column to Dark orbs and the 6th column to Dark orbs, Deal 50% damage
+	[1] ESOrbSealRow(100:35176) -> 巨筆
+	Seal the 1st row for 1 turn, Deal 50% damage
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESBoardChangeAttackBits(85:35178) -> 黒筆
+	Change all orbs to Dark, Jammer, and Poison, Deal 50% damage
+	[1] ESBlindStickyRandom(97:35179) -> 水暈墨章
+	Blind random 10~15 orbs for 1 turn, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESDamageShield(74:35181) -> 猛虎の体毛
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESOrbLock(94:35182) -> 浅絳山水
+	Lock 15 random orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESBindAwoken(88:35171) -> 猛虎の雄叫び
+	Bind awoken skills for 1 turn
+	[1] ESAbsorbCombo(67:35172) -> 墨猛虎の跳躍
+	Absorb damage when combos <= 8 for 5 turns
+	[2] ESCloud(104:35173) -> 墨雲
+	A 2×3 rectangle of clouds appears for 5 turns at 2nd row, 3rd column, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESSkillDelay(89:35169) -> 猛虎咆哮
+	Delay active skills by 10 turns
+	[1] ESAttackMultihit(15:35127) -> 黒雷猛虎爪
+	Deal 1,000% damage (10 hits, 100% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:35113) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

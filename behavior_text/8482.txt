@@ -1,0 +1,44 @@
+#8482 - 漫画幻画師・エリオ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8482
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35026:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (35026:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (35066:68) オレと戦おう！
+ | Fire and Wood skyfall +25% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (35067:92) スクールペンミサイル
+   | Spawn 4 random Fire and Wood orbs, Deal 100% damage
+   | condition: 33% chance
+   | (35068:109) 丸ペンミサイル
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 90% damage
+   | condition: 34% chance
+   | (35069:102) かぶらペンミサイル
+   | Spawn 5 random Bomb orbs, Deal 95% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35070:83) まだまだぁ！ + 俺たちの戦いはこれからだぜ！？
+   | Absorb Fire and Wood damage for 5 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (35242:83) 俺は絶対にあきらめない！ + 何があろうとも！
+     | Bind awoken skills for 1 turn + Delay active skills by 2 turns
+   | group:
+     | (35073:102) Gペンロケットキャノン
+     | Spawn 10 random Bomb orbs, Deal 500% damage

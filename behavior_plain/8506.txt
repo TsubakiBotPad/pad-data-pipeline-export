@@ -1,0 +1,28 @@
+#8506 - レッドペインター
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESNoSkyfall(127:35005) -> ペイントローラー
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No skyfall for 3 turns
+
+#5: ESAttackUPRemainingEnemies(17:35000) -> ペインターパワー
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#6: ESRandomSpawn(92:35006) -> レッドペンキ
+Spawn 3 random Fire orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

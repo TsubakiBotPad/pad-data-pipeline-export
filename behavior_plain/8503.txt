@@ -1,0 +1,64 @@
+#8503 - 漫画幻画師・パステル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBindAwoken(88:35027) -> 素敵なロマンスを考えました♪
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBlindStickyRandom(97:35028) -> ベタ塗り
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 6~8 orbs for 1 turn, Deal 100% damage
+
+#8: ESOrbLock(94:35029) -> トーン貼り
+Condition: 33% chance (ai:0 rnd:33)
+Lock 8 random orbs, Deal 95% damage
+
+#9: ESAttributeBlock(107:35030) -> ホワイト修正
+Condition: 34% chance (ai:0 rnd:34)
+Unable to match Heal orbs for 1 turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESAttributeBlock(107:35032) -> うふふ♪
+	Unable to match Heal orbs for 1 turn
+	[1] ESDamageShield(74:35033) -> 妄想が膨らみますね♪
+	Reduce damage from all sources by 50% for 3 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPRemainingEnemies(17:35035) -> 仕上げです♪
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#16: ESAttackMultihit(15:35034) -> 読んでみてください♪
+Deal 300% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
