@@ -1,0 +1,79 @@
+#306351 - 極醒の裁秤神・エスカマリ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34128) -> 星々の煌き
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:34129) -> 見識の秤
+	Absorb damage when combos <= 9 for 6 turns
+	[2] ESSkyfall(68:34130) -> スターロード・ダーク 
+	Dark skyfall +20% for 4 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbSealRow(100:34137) -> コックザラーム
+	Seal the 5th row for 1 turn
+	[1] ESTargetedSkillHaste(139:34138) -> シャマールワズン
+	Haste random sub's skills by 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESCloud(104:34140) -> コックザラーム
+	A row of clouds appears for 1 turn at a random location
+	[1] ESTargetedSkillHaste(139:34141) -> シャマールワズン
+	Haste both leaders' skills by 1 turn, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:34133) -> ブルジュ・アルミザーン
+	Bind awoken skills for 1 turn
+	[1] ESBlindStickyRandom(97:34134) -> 暗黒世界
+	Blind random 10 orbs for 1 turn
+	[2] ESFixedStart(101:34135) -> シャマールターゲット
+	Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:34131) -> シャマールナジュム
+Deal 1,000% damage (5 hits, 200% each)
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

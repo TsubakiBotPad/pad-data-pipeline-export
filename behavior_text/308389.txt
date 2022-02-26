@@ -1,0 +1,39 @@
+#308389 - 超樹のサムライオーガ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 308389
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34042:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (34010:19) 武士の構え
+ | Increase damage to 200% for the next 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | (34007:46) オーガフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (34010:19) 武士の構え
+   | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: turn 3
+   | (34007:46) オーガフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (34010:19) 武士の構え
+   | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: turn 5
+   | (34007:46) オーガフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (34046:15) 宇宙の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)

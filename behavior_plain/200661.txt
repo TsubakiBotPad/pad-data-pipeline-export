@@ -1,4 +1,4 @@
-#200661 - 真カオスブリザードドラゴン
+#200661 - True Chaos Blizzard Dragon
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -13,7 +13,7 @@ Branch on flag & 1, target rnd 6
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESOrbLock(94:9367) -> アイスブレス
+#4: ESOrbLock(94:9367) -> Ice Breath
 Lock 18 random orbs, Deal 50% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -28,31 +28,31 @@ counter + 1
 #8: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 30, target rnd 11
 
-#9: ESRandomSpawn(92:9369) -> ブルーニードル
+#9: ESRandomSpawn(92:9369) -> Blue Needle
 Condition: 50% chance (ai:50 rnd:0)
 Spawn 6 random Water orbs, Deal 80% damage
 
-#10: ESAttackMultihit(15:9373) -> トリプルファング
+#10: ESAttackMultihit(15:9373) -> Triple Fang
 Deal 105% damage (3 hits, 35% each)
 
-#11: ESInactivity66(66:9371) -> 大きく口をひらいた
+#11: ESInactivity66(66:9371) -> It opens its mouth wide
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Do nothing
 
-#12: ESAttackMultihit(15:9372) -> カオスレイ
+#12: ESAttackMultihit(15:9372) -> Chaos Ray
 Deal 400% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESTurnChangePassive(106:9370) -> 敵の行動ターンが変化した
+#16: ESTurnChangePassive(106:9370) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 30%

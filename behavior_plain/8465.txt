@@ -1,0 +1,139 @@
+#8465 - 聖典の管理者・メタトロン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34826) -> さぁ、始めましょうか
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:34827) -> 聖戦の試練
+	Absorb damage when combos <= 13 for 3 turns
+	[2] ESSpinnersRandom(109:34828) -> 聖戦の宰領
+	Random 5 orbs change every 1.0s for 10 turns
+	[3] ESBoardSizeChange(126:34855) -> 管理者の聖域
+	Change board size to 7x6 for 99 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 18
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 24
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbSealRow(100:34842) -> 天界の贈り物
+	Seal the 5th row for 1 turn
+	[1] ESAttackMultihit(15:34843) -> 管理者の裁き
+	Deal 102% damage (3 hits, 34% each)
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffRCV(105:34845) -> 魅惑の聖典
+	RCV 25% for 1 turn
+	[1] ESAttackMultihit(15:34846) -> 管理者の裁き
+	Deal 102% damage (3 hits, 34% each)
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:34848) -> 光の散在
+	Spawn 12 random Light orbs
+	[1] ESOrbLock(94:34849) -> 管理者の追撃
+	Lock all Light orbs, Deal 101% damage
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:34851) -> ディバインフェザー
+	Change the 1st and 5th rows to Light orbs, Deal 102% damage
+	[1] ESFixedStart(101:34852) -> 神秘の羽ペン
+	Fix orb movement starting point to random position on the board
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:34839) -> 幻惑の羽ペン
+	Bind awoken skills for 1 turn
+	[1] ESCloud(104:34840) -> 天界の雲
+	A row of clouds appears for 3 turns at 1st row, 1st column
+
+#13: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbSealRow(100:34842) -> 天界の贈り物
+	Seal the 5th row for 1 turn
+	[1] ESAttackMultihit(15:34843) -> 管理者の裁き
+	Deal 102% damage (3 hits, 34% each)
+
+#14: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffRCV(105:34845) -> 魅惑の聖典
+	RCV 25% for 1 turn
+	[1] ESAttackMultihit(15:34846) -> 管理者の裁き
+	Deal 102% damage (3 hits, 34% each)
+
+#15: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:34848) -> 光の散在
+	Spawn 12 random Light orbs
+	[1] ESOrbLock(94:34849) -> 管理者の追撃
+	Lock all Light orbs, Deal 101% damage
+
+#16: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:34851) -> ディバインフェザー
+	Change the 1st and 5th rows to Light orbs, Deal 102% damage
+	[1] ESFixedStart(101:34852) -> 神秘の羽ペン
+	Fix orb movement starting point to random position on the board
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: SkillSet:
+	[0] ESDamageShield(74:34830) -> 管理者の守り
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESRecoverEnemy86(86:34831) -> クイックキュアー
+	Enemy recover 15% HP
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	[0] ESBindAwoken(88:34833) -> 幻惑の羽ペン
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34834) -> ディバインテスタメント
+	Deal 1,400% damage (7 hits, 200% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESVoidShield(71:34836) -> ディバインガード
+	Void damage >= 500,000,000 for 999 turns
+	[1] ESAbsorbCombo(67:34837) -> 聖戦の試練
+	Absorb damage when combos <= 11 for 3 turns
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESSuperResolve(129:34853) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#27: ESAttributeResist(72:34854) -> 光半減
+Reduce damage from Light attrs by 50%

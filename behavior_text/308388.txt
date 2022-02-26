@@ -1,0 +1,36 @@
+#308388 - 超ボルケーノドラゴン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 308388
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34042:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (34442:138) ボルケーノオーラ
+ | Absorb damage when damage >= 2,000,000,000 for 1 turn
+ group:
+ | group:
+ | condition: always turns 2-5
+   | (34448:46) エレメントボルケーノ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (34444:19) フレイムチャージ
+     | Increase damage to 300% for the next 5 turns
+   | group:
+     | (34046:15) 宇宙の殲滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34443:67) ボルテックヒート
+   | Absorb damage when combos <= 10 for 1 turn
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 49
+ | (34445:83) ドラゴンフィアー + ボルケーノスケイル
+ | Disable active skills for 1 turn + Reduce damage from all sources by 50% for 5 turns

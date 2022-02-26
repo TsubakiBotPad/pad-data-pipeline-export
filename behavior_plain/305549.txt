@@ -1,0 +1,91 @@
+#305549 - 超転生レイラン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34049) -> 朱雀神の真魂
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:34050) -> 緋天
+	Fire and Jammer skyfall +25% for 3 turns
+	[2] ESAbsorbCombo(67:34051) -> 朱翼の舞
+	Absorb damage when combos <= 9 for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 18
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAbsorbCombo(67:34058) -> 朱翼の舞
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESOrbChangeAttack(48:34059) -> 朱豪鉄槍
+	Change a random attribute to Fire orbs, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESAbsorbCombo(67:34061) -> 朱翼の舞
+	Absorb damage when combos <= 9 for 1 turn
+	[1] ESBoardChangeAttackBits(85:34062) -> 南方七星陣
+	Change all orbs to Fire, Wood, and Light, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:34054) -> 緋棍
+	Locked Fire skyfall +100% for 5 turns
+	[1] ESAbsorbCombo(67:34055) -> 朱翼の舞
+	Absorb damage when combos <= 10 for 1 turn
+	[2] ESBoardChangeAttackBits(85:34056) -> 南方七星陣
+	Change all orbs to Fire, Wood, and Light, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBoardChangeAttackBits(85:34052) -> 朱雀七星陣
+Change all orbs to Fire, Wood, and Light, Deal 1,000% damage
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#19: ESChangeAttribute(46:34005) -> 宇宙の光源
+Change own attribute to Light, Deal 100% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

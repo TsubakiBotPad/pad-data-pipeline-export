@@ -1,4 +1,4 @@
-#200393 - 真豊穣神・イービルセレス
+#200393 - True Fertility Deity, Evil Ceres
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbCombo(67:4319) -> ダークメランコリー
+	[0] ESAbsorbCombo(67:4319) -> Dark Melancholy
 	Absorb damage when combos <= 6 for 999 turns
-	[1] ESStatusShield(20:4320) -> 豊穣の加護
+	[1] ESStatusShield(20:4320) -> Protection of the Bountiful Harvest
 	Voids status ailments for 999 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -30,9 +30,9 @@ counter + 1
 
 #8: SkillSet:
 	Condition: When < 1% HP (ai:100 rnd:0)
-	[0] ESRecoverEnemy86(86:4339) -> 癒しの風
+	[0] ESRecoverEnemy86(86:4339) -> Healing Wind
 	Enemy recover 50% HP
-	[1] ESGravity(50:4340) -> イービルアイ
+	[1] ESGravity(50:4340) -> Evil Eye
 	Player -500% HP
 
 #9: ESBranchHP(28:18) -> ESBranchHP
@@ -41,11 +41,11 @@ Branch on hp < 30, target rnd 17
 #10: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 13
 
-#11: ESBoardChangeAttackBits(85:4322) -> ゼフィロスアンガー
+#11: ESBoardChangeAttackBits(85:4322) -> Sephiroth Anger
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 240% damage
 
-#12: ESAbsorbAttribute(53:4323) -> ライトファシネイション
+#12: ESAbsorbAttribute(53:4323) -> Light Fascination
 Absorb Light damage for 1 turn
 
 #13: ESBranchFlag(43:10) -> ESBranchFlag
@@ -55,12 +55,12 @@ Branch on flag & 2, target rnd 16
 flag SET 0b11
 
 #15: SkillSet:
-	[0] ESSkyfall(68:4324) -> ルーセントブレシング
+	[0] ESSkyfall(68:4324) -> Lucent Blessing
 	Light skyfall +20% for 5 turns
-	[1] ESBoardChangeAttackBits(85:4325) -> ゼフィロスレイジ
+	[1] ESBoardChangeAttackBits(85:4325) -> Sephiroth Rage
 	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
 
-#16: ESBoardChangeAttackBits(85:4325) -> ゼフィロスレイジ
+#16: ESBoardChangeAttackBits(85:4325) -> Sephiroth Rage
 Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 340% damage
 
 #17: ESBranchFlag(43:10) -> ESBranchFlag
@@ -70,50 +70,50 @@ Branch on flag & 4, target rnd 20
 flag SET 0b111
 
 #19: SkillSet:
-	[0] ESVoidShield(71:31575) -> 神樹の籠
+	[0] ESVoidShield(71:31575) -> God Tree's Basket
 	Void damage >= 1,500,000,000 for 99 turns
-	[1] ESAbsorbAttribute(53:4328) -> プラントファシネイション
+	[1] ESAbsorbAttribute(53:4328) -> Plant Fascination
 	Absorb Wood damage for 1 turn
 
 #20: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:4330) -> フレイムファシネイション
+	[0] ESAbsorbAttribute(53:4330) -> Flame Fascination
 	Absorb Fire damage for 1 turn
-	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
 	Change the 5th row to Heal orbs, Deal 1,000% damage
 
 #21: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:4331) -> アイスファシネイション
+	[0] ESAbsorbAttribute(53:4331) -> Ice Fascination
 	Absorb Water damage for 1 turn
-	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
 	Change the 5th row to Heal orbs, Deal 1,000% damage
 
 #22: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:4332) -> ダークファシネイション
+	[0] ESAbsorbAttribute(53:4332) -> Dark Fascination
 	Absorb Dark damage for 1 turn
-	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
 	Change the 5th row to Heal orbs, Deal 1,000% damage
 
 #23: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAbsorbAttribute(53:4328) -> プラントファシネイション
+	[0] ESAbsorbAttribute(53:4328) -> Plant Fascination
 	Absorb Wood damage for 1 turn
-	[1] ESRowSpawnMulti(79:4333) -> ナチュラルディザスター
+	[1] ESRowSpawnMulti(79:4333) -> Natural Disaster
 	Change the 5th row to Heal orbs, Deal 1,000% damage
 
 #24: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #25: SkillSet:
-	[0] ESBindAwoken(88:27128) -> 神恨
+	[0] ESBindAwoken(88:27128) -> Divine Grudge
 	Bind awoken skills for 10 turns
-	[1] ESAttackMultihit(15:27130) -> 聖跡の終天罰
+	[1] ESAttackMultihit(15:27130) -> Sanctuary's Divine Punishment
 	Deal 800% damage (5 hits, 160% each)
 
 #26: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#27: ESResolve(73:4338) -> 30%根性
+#27: ESResolve(73:4338) -> 30% Resolve
 Survive attacks with 1 HP when HP > 30%

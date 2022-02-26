@@ -1,0 +1,85 @@
+#305935 - 超転生熾天使ルシファー
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:34351) -> 熾天使の真魂
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:34352) -> 明星の閃光
+	Fire, Water, and Wood skyfall +15% for 6 turns
+	[2] ESBoardChangeAttackBits(85:34353) -> エターナルヴァイパー
+	Change all orbs to Dark, Heal, and Jammer, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESDamageShield(74:34365) -> 熾天使の鎧
+	Reduce damage from all sources by 90% for 1 turn
+	[1] ESColumnSpawnMulti(77:34366) -> エターナルヴェスパー
+	Change the 1st and 6th columns to Dark and Heal orbs, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESDamageShield(74:34368) -> 熾天使の鎧
+	Reduce damage from all sources by 95% for 1 turn
+	[1] ESColumnSpawnMulti(77:34369) -> エターナルヴェスパー
+	Change the 1st and 2nd columns to Dark and Heal orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(27:17) -> ESSetCounter
+counter - 1
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:34153) -> 明星の閃光
+	Heal skyfall +100% for 1 turn
+	[1] ESBindAwoken(88:34356) -> ここを通りたくば、試練を乗り越えろ
+	Bind awoken skills for 1 turn
+	[2] ESBindRandom(1:34357) -> パズルで道を切り開くがいい
+	Bind 6 random cards for 1 turn
+	[3] ESNoSkyfall(127:34358) -> ゆくぞ！
+	No skyfall for 1 turn
+	[4] ESBoardChange(84:34359) -> 光、闇を全て消すがいい
+	Change all orbs to Light and Dark
+
+#11: ESOrbChangeAttackBits(108:34360) -> 出直してこい
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all Light and Dark orbs to Heal orbs, Deal 1,000% damage
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESTargetedSkillHaste(139:34362) -> いいだろう、報酬を与えてやろう
+	Haste all cards' skills by 3 turns
+	[1] ESEndBattle(40:34363) -> では通るがいい
+	Reduce self HP to 0
+
+#13: ESAttackMultihit(15:34354) -> 星明けの明星
+Deal 1,050% damage (3 hits, 350% each)
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:34041) -> 超根性
+Damage which would reduce HP from above 1% to below 1% is nullified

@@ -1,0 +1,95 @@
+#307015 - 裏極醒の灼手神・マッハ
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:34371) -> 憤激の炎
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:34372) -> 暴怒の神魔術
+	Increase damage to 150% for the next 2 turns
+	[2] ESLeaderSwap(75:34373) -> デスティニーシフト
+	Leader changes to random sub for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 17
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 16
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESChangeAttribute(46:34348) -> 変化の神魔術
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAbsorbCombo(67:34376) -> 赫灼の焔
+	Absorb damage when combos <= 8 for 1 turn
+	[2] ESOrbLock(94:34377) -> デスティニーロック
+	Lock all orbs, Deal 100% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESChangeAttribute(46:34348) -> 変化の神魔術
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAbsorbCombo(67:34379) -> 赫灼の焔
+	Absorb damage when combos <= 9 for 1 turn
+	[2] ESSkyfallLocked(96:34380) -> デスティニーチェイン
+	Locked random skyfall +100% for 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:34382) -> 狂怒の神魔術
+	Increase damage to 500% for the next 1 turn
+	[1] ESAbsorbCombo(67:34383) -> 赫灼の焔
+	Absorb damage when combos <= 14 for 1 turn
+	[2] ESBoardSizeChange(126:34384) -> デスティニーワールド
+	Change board size to 7x6 for 1 turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESAbsorbCombo(67:34386) -> 赫灼の焔
+	Absorb damage when combos <= 9 for 1 turn
+	[1] ESBoardSizeChange(126:34387) -> デスティニーワールド
+	Change board size to 6x5 for 1 turn, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#14: SkillSet:
+	[0] ESAbsorbCombo(67:34383) -> 赫灼の焔
+	Absorb damage when combos <= 14 for 1 turn
+	[1] ESBoardSizeChange(126:34384) -> デスティニーワールド
+	Change board size to 7x6 for 1 turn
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:34374) -> レイジングバースト
+Deal 1,000% damage (5 hits, 200% each)
+
+#17: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

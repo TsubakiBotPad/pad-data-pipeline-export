@@ -1,0 +1,45 @@
+#305933 - 極醒の霊央神・カミムスビ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305933
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34043:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34209:83) 霊央の結界 + 始原の霊力 + 癒しの消撃
+ | Voids status ailments for 999 turns + Change player HP to 50% for 2 turns + Unable to match Heal orbs for 2 turns, Deal 70% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-3 while HP > 49
+     | condition: 20% chance
+     | (34228:83) 始原の霊力 + 輝きの消撃 + 霊央の輝き
+     | Change player HP to 50% for 2 turns + Unable to match Fire orbs for 2 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+     | condition: 20% chance
+     | (34229:83) 始原の霊力 + 輝きの消撃 + 霊央の輝き
+     | Change player HP to 50% for 2 turns + Unable to match Water orbs for 2 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+     | condition: 20% chance
+     | (34230:83) 始原の霊力 + 輝きの消撃 + 霊央の輝き
+     | Change player HP to 50% for 2 turns + Unable to match Wood orbs for 2 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+     | condition: 20% chance
+     | (34231:83) 始原の霊力 + 輝きの消撃 + 霊央の輝き
+     | Change player HP to 500,000 for 2 turns + Unable to match Light orbs for 2 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+     | condition: 20% chance
+     | (34232:83) 始原の霊力 + 輝きの消撃 + 霊央の輝き
+     | Change player HP to 500,000 for 2 turns + Unable to match Dark orbs for 2 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | group:
+     | (34044:83) 宇宙の波動 + 宇宙の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (34214:83) 始原の防陣 + 始原の霊力 + 霊央の輝き
+   | Reduce damage from all sources by 50% for 4 turns + Change player HP to 50% for 2 turns + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turns 1-3, hp <= 2
+   | (34213:15) 始原ノ消失
+   | Deal 1,000% damage (5 hits, 200% each)

@@ -1,4 +1,4 @@
-#208062 - 緋星の神王妃・ヘラ -LUNA-
+#208062 - Crimson Star Divine Queen, Hera - Luna
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:31545) -> 気高きオリュンポス
+	[0] ESStatusShield(20:31545) -> Supreme Olympus
 	Voids status ailments for 999 turns
-	[1] ESVoidShield(71:31546) -> 緋星のオーラ
+	[1] ESVoidShield(71:31546) -> Crimson Star Aura
 	Void damage >= 2,000,000,000 for 999 turns
-	[2] ESAttackMultihit(15:31547) -> グラビティア
+	[2] ESAttackMultihit(15:31547) -> Gravitia
 	Deal 130% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -40,9 +40,9 @@ Branch on flag & 2, target rnd 13
 flag SET 0b11
 
 #11: SkillSet:
-	[0] ESOrbLock(94:31549) -> エネルギーバース
+	[0] ESOrbLock(94:31549) -> Energy Bath
 	Lock all Fire, Water, and Dark orbs
-	[1] ESBoardChangeAttackBits(85:31550) -> 拡散
+	[1] ESBoardChangeAttackBits(85:31550) -> Diffusion
 	Change all orbs to Heal, Deal 100% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -55,9 +55,9 @@ Branch on flag & 4, target rnd 17
 flag SET 0b111
 
 #15: SkillSet:
-	[0] ESAbsorbAttribute(53:31552) -> 熱気の収縮
+	[0] ESAbsorbAttribute(53:31552) -> Steam Condensation
 	Absorb Fire and Water damage for 1 turn
-	[1] ESRowSpawnMulti(79:31553) -> ドミネート・オブ・ゼウス
+	[1] ESRowSpawnMulti(79:31553) -> Domination of Zeus
 	Change the 1st row to Fire orbs and the 5th row to Water orbs, Deal 80% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -67,9 +67,9 @@ end_turn
 flag SET 0b1
 
 #18: SkillSet:
-	[0] ESBindRandom(1:31555) -> 嫉心の戒
+	[0] ESBindRandom(1:31555) -> Jealous Heart's Lesson
 	Bind 3 random cards for 10 turns
-	[1] ESAttackMultihit(15:31556) -> オーミナスバーン
+	[1] ESAttackMultihit(15:31556) -> Ominous Burn
 	Deal 80% damage (4 hits, 20% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
@@ -77,11 +77,11 @@ end_turn
 
 #20: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:31558) -> 緋に染まる聖域
+	[0] ESDamageShield(74:31558) -> Scarlet-Stained Sanctuary
 	Reduce damage from all sources by 50% for 99 turns
-	[1] ESTargetedSkillHaste(139:31559) -> 王妃の天恵
+	[1] ESTargetedSkillHaste(139:31559) -> The Queen's Grace
 	Haste random sub's skills by 20 turns
-	[2] ESTargetedSkillDelay(140:31560) -> 貞淑のさだめ
+	[2] ESTargetedSkillDelay(140:31560) -> Chastity's Decree
 	Delay both leaders' skills by 10 turns
 
 #21: ESBranchFlag(43:10) -> ESBranchFlag
@@ -91,9 +91,9 @@ Branch on flag & 2, target rnd 25
 flag SET 0b11
 
 #23: SkillSet:
-	[0] ESBlindStickyRandom(97:31562) -> デプスダーク
+	[0] ESBlindStickyRandom(97:31562) -> Depths of Darkness
 	Blind random 15 orbs for 1 turn
-	[1] ESOrbSealRow(100:31563) -> 裁きの王笏
+	[1] ESOrbSealRow(100:31563) -> Scepter of Judgment
 	Seal the 5th row for 1 turn, Deal 75% damage
 
 #24: ESEndPath(36:26) -> ESEndPath
@@ -106,9 +106,9 @@ Branch on flag & 4, target rnd 29
 flag SET 0b111
 
 #27: SkillSet:
-	[0] ESChangeAttribute(46:31565) -> 愛憎の業
+	[0] ESChangeAttribute(46:31565) -> Fated Love and Hate
 	Change own attribute to random one of Fire or Water
-	[1] ESAttackMultihit(15:31566) -> オーミナスバーン
+	[1] ESAttackMultihit(15:31566) -> Ominous Burn
 	Deal 80% damage (4 hits, 20% each)
 
 #28: ESEndPath(36:26) -> ESEndPath
@@ -118,15 +118,15 @@ end_turn
 flag SET 0b1
 
 #30: SkillSet:
-	[0] ESOrbLock(94:31568) -> サイレントリップ
+	[0] ESOrbLock(94:31568) -> Silent Slit
 	Lock 15 random orbs
-	[1] ESSpinnersRandom(109:31569) -> 幻惑の懐抱
+	[1] ESSpinnersRandom(109:31569) -> Enchanting Embrace
 	Random 3 orbs change every 1.0s for 1 turn, Deal 75% damage
 
 #31: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#32: ESAttackUPRemainingEnemies(17:27295) -> 戦乱の聖跡
+#32: ESAttackUPRemainingEnemies(17:27295) -> Sanctuary of War
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 200% for the next 999 turns
 
@@ -136,5 +136,5 @@ Branch on flag & 1, target rnd 8
 #34: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#35: ESSuperResolve(129:31543) -> ＿火LUNA超根性
+#35: ESSuperResolve(129:31543) -> ＿Fire LUNA Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

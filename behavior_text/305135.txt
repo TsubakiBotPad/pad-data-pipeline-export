@@ -1,0 +1,32 @@
+#305135 - 超転生ハク
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305135
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34043:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34097:83) 白虎円舞 + 睥睨の瞳 + 虎闇眼
+ | Absorb damage when damage >= 2,000,000,000 for 6 turns + RCV 0% for 1 turn + For 1 turn, 30% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (34106:83) 不割の牙 + 虎暗爪
+     | Player -99% HP + Blind random 10~17 orbs for 1 turn, Deal 50% damage
+     | condition: 50% chance
+     | (34109:83) 不割の牙 + 西方七星陣
+     | Player -99% HP + Change all orbs to Fire, Water, and Dark, Deal 50% damage
+   | group:
+     | (34044:83) 宇宙の波動 + 宇宙の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34102:83) 白虎神の真魂 + 睥睨の瞳 + 不割の牙
+   | Voids status ailments for 999 turns + RCV 0% for 1 turn + Player -99% HP

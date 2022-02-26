@@ -1,0 +1,41 @@
+#308391 - 超フレイムファイター
+monster size: 1
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 308391
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34042:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (34011:105) フレイムファイト
+ | RCV 50% for 6 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (34016:92) フレイムアックス
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (34016:92) フレイムアックス
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (34016:92) フレイムアックス
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+   | (34046:15) 宇宙の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 3 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (34037:19) 宇宙の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (34016:92) フレイムアックス
+   | Spawn 3 random Fire orbs, Deal 100% damage

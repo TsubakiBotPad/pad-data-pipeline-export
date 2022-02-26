@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:24669) -> 狛犬龍の結界
+	[0] ESStatusShield(20:24669) -> Komainu Beast's Barrier
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:24670) -> 対龍の炎盾
+	[1] ESDamageShield(74:24670) -> Twin Dragons' Flame Shield
 	Reduce damage from all sources by 75% for 8 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -23,11 +23,11 @@ Branch on counter >= 7, target rnd 13
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#6: ESBoardChangeAttackBits(85:24678) -> 燃陣の焔
+#6: ESBoardChangeAttackBits(85:24678) -> Blazing Formation's Flames
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Fire, Deal 100% damage
 
-#7: ESBoardChangeAttackBits(85:24677) -> 狛陣の焔
+#7: ESBoardChangeAttackBits(85:24677) -> Komainu Formation's Flames
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Heal, Deal 100% damage
 
@@ -41,13 +41,13 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESTargetedSkillDelay(140:24673) -> 天
+	[0] ESTargetedSkillDelay(140:24673) -> R
 	Delay all cards' skills by 1~10 turns
-	[1] ESTargetedSkillHaste(139:24674) -> 手
+	[1] ESTargetedSkillHaste(139:24674) -> U
 	Haste all cards' skills by 2~6 turns
-	[2] ESTargetedSkillDelay(140:24675) -> 古
+	[2] ESTargetedSkillDelay(140:24675) -> S
 	Delay all cards' skills by 1~10 turns
-	[3] ESTargetedSkillHaste(139:24676) -> 舞
+	[3] ESTargetedSkillHaste(139:24676) -> H
 	Haste all cards' skills by 2~6 turns
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -56,12 +56,12 @@ end_turn
 #13: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 8, target rnd 5
 
-#14: ESAttackUPRemainingEnemies(17:24671) -> 炎犬の怒牙
+#14: ESAttackUPRemainingEnemies(17:24671) -> Flame Dogs' Raging Fangs
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 10,000% for the next 999 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESSuperResolve(129:24679) -> 超根性
+#16: ESSuperResolve(129:24679) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

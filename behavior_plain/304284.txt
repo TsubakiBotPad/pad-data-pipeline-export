@@ -1,0 +1,105 @@
+#304284 - 極醒の緑龍喚士・ソニア＝フィオ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34249) -> 古龍族の加護
+	Voids status ailments for 999 turns
+	[1] ESOrbSealColumn(99:34250) -> 古龍召喚・止木
+	Seal the 1st and 6th columns for 3 turns
+	[2] ESGravity(50:34251) -> ゲイルソードテール
+	Player -300% HP
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 18
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34258) -> ストームソード
+	Change the 1st and 6th columns to Wood and Heal orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:34259) -> ポイズンテール
+	Change the 1st and 5th rows to Poison orbs, Deal 50% damage
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34261) -> ストームソード
+	Change the 3rd and 4th columns to Wood and Heal orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:34262) -> ゲイルテール
+	Change the 1st and 5th rows to Jammer orbs, Deal 50% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:34254) -> 古龍召喚・邪木
+	Jammer skyfall +25% for 3 turns
+	[1] ESAbsorbCombo(67:34255) -> 緑龍の大尾
+	Absorb damage when combos <= 9 for 3 turns
+	[2] ESBoardChangeAttackBits(85:34256) -> 継界護星陣・木闇
+	Change all orbs to Wood and Dark, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:34252) -> 天地崩嵐斬
+Deal 1,000% damage (5 hits, 200% each)
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#19: ESChangeAttribute(46:34038) -> 宇宙の光源
+Change own attribute to Dark, Deal 100% damage
+
+#20: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34258) -> ストームソード
+	Change the 1st and 6th columns to Wood and Heal orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:34259) -> ポイズンテール
+	Change the 1st and 5th rows to Poison orbs, Deal 50% damage
+
+#21: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34261) -> ストームソード
+	Change the 3rd and 4th columns to Wood and Heal orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:34262) -> ゲイルテール
+	Change the 1st and 5th rows to Jammer orbs, Deal 50% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

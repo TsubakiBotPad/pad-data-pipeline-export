@@ -1,0 +1,43 @@
+#305935 - 超転生熾天使ルシファー
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 305935
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34041:129) 超根性
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ type: PREEMPT
+ | (34350:83) 熾天使の真魂 + 明星の閃光 + エターナルヴァイパー
+ | Voids status ailments for 999 turns + Fire, Water, and Wood skyfall +15% for 6 turns + Change all orbs to Dark, Heal, and Jammer, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5
+     | condition: 50% chance
+     | (34364:83) 熾天使の鎧 + エターナルヴェスパー
+     | Reduce damage from all sources by 90% for 1 turn + Change the 1st and 6th columns to Dark and Heal orbs, Deal 100% damage
+     | condition: 50% chance
+     | (34367:83) 熾天使の鎧 + エターナルヴェスパー
+     | Reduce damage from all sources by 95% for 1 turn + Change the 1st and 2nd columns to Dark and Heal orbs, Deal 100% damage
+   | group:
+     | (34044:83) 宇宙の波動 + 宇宙の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (34355:83) 明星の閃光 + ここを通りたくば、試練を乗り越えろ + パズルで道を切り開くがいい + ゆくぞ！ + 光、闇を全て消すがいい
+     | Heal skyfall +100% for 1 turn + Bind awoken skills for 1 turn + Bind 6 random cards for 1 turn + No skyfall for 1 turn + Change all orbs to Light and Dark
+   | group:
+   | condition: turn 2
+     | (34360:108) 出直してこい
+     | Change all Light and Dark orbs to Heal orbs, Deal 1,000% damage
+     | (34361:83) いいだろう、報酬を与えてやろう + では通るがいい
+     | Haste all cards' skills by 3 turns + Reduce self HP to 0
+   | group:
+     | (34354:15) 星明けの明星
+     | Deal 1,050% damage (3 hits, 350% each)

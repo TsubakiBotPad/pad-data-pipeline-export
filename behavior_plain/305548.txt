@@ -1,0 +1,79 @@
+#305548 - 超転生ヤマタノオロチ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34390) -> 八龍神の真魂
+	Voids status ailments for 999 turns
+	[1] ESBoardChange(84:34391) -> 八つ首の息吹
+	Change all orbs to Fire, Water, Wood, Light, and Dark
+	[2] ESOrbLock(94:34392) -> 八元震慄
+	Lock all orbs, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:34399) -> 八つ首の怒号
+	Increase damage to 150% for the next 999 turns
+	[1] ESBoardChange(84:34400) -> 八つ首の息吹
+	Change all orbs to Fire, Water, Wood, Light, and Dark
+	[2] ESOrbLock(94:34401) -> 瀬錠
+	Lock all orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:34395) -> 八つ首の怒号
+	Increase damage to 800% for the next 1 turn
+	[1] ESBoardChange(84:34396) -> 八つ首の息吹
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
+	[2] ESOrbLock(94:34397) -> 八元震慄
+	Lock all orbs
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBoardChange(84:34403) -> 八つ首の息吹
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
+	[1] ESOrbLock(94:34404) -> 瀬錠
+	Lock 15 random orbs, Deal 100% damage
+
+#10: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBoardChange(84:34406) -> 八つ首の息吹
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[1] ESOrbLock(94:34407) -> 瀬錠
+	Lock 15 random orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:34393) -> 龍双河八穿
+Deal 520% damage (8 hits, 65% each)
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

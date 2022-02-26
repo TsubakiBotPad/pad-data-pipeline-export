@@ -1,0 +1,71 @@
+#308401 - 超レッドシードラ
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttributeBlock(107:34023) -> リフレクチャージ
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Unable to match Fire orbs for 5 turns
+
+#5: ESAttributeBlock(107:34024) -> リフレクチャージ
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Unable to match Water orbs for 5 turns
+
+#6: ESAttributeBlock(107:34025) -> リフレクチャージ
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Unable to match Wood orbs for 5 turns
+
+#7: ESAttributeBlock(107:34026) -> リフレクチャージ
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Unable to match Light orbs for 5 turns
+
+#8: ESAttributeBlock(107:34027) -> リフレクチャージ
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Unable to match Dark orbs for 5 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 18
+
+#12: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 15
+
+#13: ESRandomSpawn(92:34032) -> レッドアタック
+Spawn 5 random Fire orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPCooldown(19:34037) -> 宇宙の解放
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#16: ESRandomSpawn(92:34032) -> レッドアタック
+Spawn 5 random Fire orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:29725) -> 次元の殲滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:29722) -> 根性
+Survive attacks with 1 HP when HP > 50%
