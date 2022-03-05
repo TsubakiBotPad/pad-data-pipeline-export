@@ -1,0 +1,36 @@
+#8564 - マトリフ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8564
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (33867:20) ただの準備運動だ
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (33869:89) 情けねぇ奴だな
+     | Delay active skills by 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (33870:77) ヒャド
+     | Change the 5th and 6th columns to Water orbs, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (33871:102) イオラッ!!
+     | Spawn 5 random Bomb orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (33868:17) …やりゃできるじゃないか…
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2
+     | (33872:139) ま　あわてずがんばれや
+     | Haste all cards' skills by 5 turns, Deal 110% damage
