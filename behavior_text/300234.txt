@@ -1,0 +1,37 @@
+#300234 - 裏神秘の仮面
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300234
+approved: False
+
+level: 1
+ group:
+ | group:
+ | condition: always turn 1
+   | (4776:89) 神秘の波動
+   | Delay active skills by 1~3 turns
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (4777:15) 怪光線
+   | Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (4778:52) 蘇生の儀式
+ | Enemy ally recover 100% HP
+
+level: 5
+ type: PREEMPT
+ | (4776:89) 神秘の波動
+ | Delay active skills by 1~3 turns
+ group:
+ condition: hp <= 49
+ | condition: 50% chance
+ | (4777:15) 怪光線
+ | Deal 200% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (4778:52) 蘇生の儀式
+ | Enemy ally recover 100% HP

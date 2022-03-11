@@ -1,0 +1,33 @@
+#8458 - 超転生ネフティス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8458
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31576:129) ＿ネフティス超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31577:83) ネベトヘウト + ダークテラーフォグ + 闇の牢獄
+ | Voids status ailments for 999 turns + Heal and Poison skyfall +20% for 99 turns + Absorb Dark damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (31581:83) 冥界波 + ネクロスチール
+     | Movetime 50% for 1 turn + Change all Heal and Poison orbs to Mortal Poison orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (31584:83) 冥界響 + ネクロリバース
+     | ATK -75% for 1 turn + Change all Heal, Poison, and Mortal Poison orbs to Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (31587:83) 冥深獄 + ネクロアビスホール
+     | Blind all orbs on the board + Deal 132% damage (6 hits, 22% each), Deal 132% damage (6 hits, 22% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (31590:83) 葬愛 + 冥界の霧
+   | Bind awoken skills for 3 turns + Void damage >= 100,000,000 for 999 turns, Deal 90% damage
