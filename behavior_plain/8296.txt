@@ -1,0 +1,154 @@
+#8296 - Reincarnated Arianrhod
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:35674) -> 冥月神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:35675) -> ムーンライトカーテン
+	Absorb Fire and Water damage for 3 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:35677) -> 冥月神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:35678) -> ムーンライトカーテン
+	Absorb Fire and Wood damage for 3 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:35773) -> 冥月神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:35774) -> ムーンライトカーテン
+	Absorb Water and Wood damage for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 24
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 22
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBlindStickyRandom(97:35692) -> 冥月神の憂愁
+	Blind random 3~5 orbs for 1 turn
+	[1] ESAttackMultihit(15:35693) -> ムーンソング
+	Deal 104% damage (4 hits, 26% each)
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBindRandomSub(65:35695) -> 魔杖の呪力
+	Bind 2 random subs for 2 turns
+	[1] ESAttackMultihit(15:35696) -> ムーンソング
+	Deal 102% damage (3 hits, 34% each)
+
+#11: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:35698) -> ダークロッド
+	Spawn 3 random Dark orbs
+	[1] ESOrbLock(94:35699) -> 魔杖の聖力
+	Lock all Dark orbs, Deal 100% damage
+
+#12: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombRandomSpawn(102:35701) -> ムーンボム
+	Spawn 3 random Bomb orbs
+	[1] ESAttackMultihit(15:35702) -> ムーンソング
+	Deal 102% damage (3 hits, 34% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:35686) -> ムーンワールド
+	No skyfall for 5 turns
+	[1] ESBindAttribute(2:35775) -> 魅惑の月光
+	Bind Fire cards for 3 turns
+	[2] ESChangeAttribute(46:35687) -> ムーンライトシェル
+	Change own attribute to Fire
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 22
+
+#17: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBlindStickyRandom(97:35692) -> 冥月神の憂愁
+	Blind random 3~5 orbs for 1 turn
+	[1] ESAttackMultihit(15:35693) -> ムーンソング
+	Deal 104% damage (4 hits, 26% each)
+
+#18: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBindRandomSub(65:35695) -> 魔杖の呪力
+	Bind 2 random subs for 2 turns
+	[1] ESAttackMultihit(15:35696) -> ムーンソング
+	Deal 102% damage (3 hits, 34% each)
+
+#19: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:35698) -> ダークロッド
+	Spawn 3 random Dark orbs
+	[1] ESOrbLock(94:35699) -> 魔杖の聖力
+	Lock all Dark orbs, Deal 100% damage
+
+#20: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombRandomSpawn(102:35701) -> ムーンボム
+	Spawn 3 random Bomb orbs
+	[1] ESAttackMultihit(15:35702) -> ムーンソング
+	Deal 102% damage (3 hits, 34% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	[0] ESSkyfallLocked(96:35689) -> 永久の束縛
+	Locked Water and Dark skyfall +100% for 5 turns
+	[1] ESColumnSpawnMulti(77:35690) -> 月影
+	Change the 1st column to Dark orbs and the 6th column to Heal orbs, Deal 101% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 28
+
+#25: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#26: SkillSet:
+	[0] ESSpinnersFixed(110:35680) -> 幻惑の月光
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESOrbSealRow(100:35681) -> ムーンロード
+	Seal the 1st row for 1 turn
+
+#27: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#28: SkillSet:
+	[0] ESChangeAttribute(46:35683) -> ムーンライトシェル
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:35684) -> 冥月神の怒り
+	Deal 700% damage (7 hits, 100% each)
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESSuperResolve(129:35703) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

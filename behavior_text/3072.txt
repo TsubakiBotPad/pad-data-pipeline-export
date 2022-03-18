@@ -1,0 +1,48 @@
+#3072 - Smiting Hand Slayer Goddess, Durga
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3072
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35726:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (35704:83) さぁ、こっちにおいで + 逃がさないわよ
+ | Jammer skyfall +15% for 5 turns + Absorb damage when damage >= 70,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (35720:83) 神器の暗舞 + 四源の魔刃
+     | Spawn 4 random Dark orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+   | condition: turn 2 while HP > 49
+     | (35723:83) 殲掌の妙術 + 四源の魔刃
+     | Unable to match Dark orbs for 1 turn + Deal 75% damage (3 hits, 25% each), Deal 75% damage (3 hits, 25% each)
+   | group:
+   | condition: turn 3
+     | (35711:83) 討女神の魂 + 四源の秘刃
+     | Reduce damage from all sources by 50% for 99 turns + Delay active skills by 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (35720:83) 神器の暗舞 + 四源の魔刃
+     | Spawn 4 random Dark orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (35723:83) 殲掌の妙術 + 四源の魔刃
+     | Unable to match Dark orbs for 1 turn + Deal 75% damage (3 hits, 25% each), Deal 75% damage (3 hits, 25% each)
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (35714:83) 永遠の呪縛 + 四源の魔刃
+   | Lock all Dark and Heal orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (35717:83) 討女神の気迫 + 四源の魔刃
+   | ATK -50% for 1 turn + Deal 104% damage, Deal 104% damage
+ | group:
+ | condition: hp <= 1
+   | (35707:83) 暗黒の神器 + 絶望の神器 + …抗いなさい
+   | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Mortal Poison skyfall +15% for 5 turns + Reduce self HP to 0

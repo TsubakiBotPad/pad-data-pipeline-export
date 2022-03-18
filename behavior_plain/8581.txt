@@ -1,0 +1,135 @@
+#8581 - 超転生オーディン＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:35728) -> 光槍神龍の魂
+	Voids status ailments for 999 turns
+	[1] ESAttributeBlock(107:35729) -> 知識の渇望
+	Unable to match Fire orbs for 2 turns
+	[2] ESBindAttack(63:35730) -> 終焉への予言
+	Bind 6 random cards for 3 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 17
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESRowSpawnMulti(79:35758) -> ヴァルファズル
+	Change the 1st row to Wood orbs, Deal 10% damage
+	[1] ESAttackMultihit(15:35759) -> ドラウプニル
+	Deal 93% damage (3 hits, 31% each)
+
+#6: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRowSpawnMulti(79:35761) -> ヴァルチュール
+	Change the 5th row to Water orbs, Deal 10% damage
+	[1] ESAttackMultihit(15:35762) -> ドラウプニル
+	Deal 93% damage (3 hits, 31% each)
+
+#7: SkillSet:
+	[0] ESPoisonChangeRandomAttack(64:35764) -> ヴィズル
+	Change 4 random orbs to Poison orbs, Deal 30% damage
+	[1] ESOrbLock(94:35765) -> ミーミルの奇跡
+	Lock 5 random orbs, Deal 101% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:35738) -> 神界の陣風
+	Heal skyfall +15% for 5 turns
+	[1] ESDamageShield(74:35739) -> 光槍神壁
+	Reduce damage from all sources by 95% for 1 turn
+	[2] ESAttackUPRemainingEnemies(17:35740) -> 崩壊の前兆
+	Increase damage to 300% for the next 1 turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:35742) -> ヴァク
+	Specific orbs change every 0.5s for 5 turns
+	[1] ESDamageShield(74:35743) -> 光槍神壁
+	Reduce damage from all sources by 75% for 1 turn
+	[2] ESAttackMultihit(15:35744) -> 真・ドラウプニル
+	Deal 125% damage (5 hits, 25% each)
+
+#11: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDamageShield(74:35746) -> 光槍神壁
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESColumnSpawnMulti(77:35747) -> ヴァルソグニル
+	Change the 3rd column to Water and Wood orbs and the 4th column to Light and Heal orbs, Deal 104% damage
+
+#12: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDamageShield(74:35749) -> 光槍神壁
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESOrbLock(94:35750) -> グリーム
+	Lock all Water and Wood orbs, Deal 106% damage
+
+#13: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDamageShield(74:35752) -> 光槍神壁
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESBoardChangeAttackBits(85:35753) -> 光槍陣
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 105% damage
+
+#14: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDamageShield(74:35755) -> 光槍神壁
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESAbsorbCombo(67:35756) -> ユッグ
+	Absorb damage when combos <= 7 for 1 turn, Deal 105% damage
+
+#15: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESDamageShield(74:35770) -> 光槍神壁
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESAttackMultihit(15:35771) -> ドラウプニル
+	Deal 105% damage (3 hits, 35% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#19: SkillSet:
+	[0] ESBoardChangeAttackBits(85:35732) -> 光槍陣
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 105% damage
+	[1] ESDebuffATK(130:35733) -> 沈黙の刻
+	ATK -75% for 1 turn
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	[0] ESChangeAttribute(46:35735) -> スヴィパル
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:35736) -> 滅・ドラウプニル
+	Deal 700% damage (7 hits, 100% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSuperResolve(129:35766) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#24: ESTypeResist(118:35767) -> 悪魔半減
+Reduce damage from Devil types by 50%
+
+#25: ESNone(136:35768) -> ESNone
+nothing

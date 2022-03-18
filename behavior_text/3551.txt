@@ -1,0 +1,66 @@
+#3551 - Heroic Yinyang Swordpair, Gan Jiang & Mo Ye
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3551
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35626:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (35600:83) 私達の力、お見せいたします！ + 陰陽壁 + 陰陽の目覚め
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 5 turns + Light and Dark skyfall +15% for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (35604:83) 陰陽壁 + 干将莫耶の陰
+   | Reduce damage from all sources by 35% for 99 turns + Delay active skills by 2 turns
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (35620:83) 錠 + 陰陽剣
+     | Lock 3 random orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (35623:83) 癒 + 陰陽剣
+     | Spawn 3 random Heal orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+     | condition: 50% chance
+     | (35620:83) 錠 + 陰陽剣
+     | Lock 3 random orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (35623:83) 癒 + 陰陽剣
+     | Spawn 3 random Heal orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (35611:83) 陰陽の名剣術 + 陰陽の妙技
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison + Player -80% HP, Deal 100% damage
+   | group:
+   | condition: turns 2-4 while HP > 14
+     | condition: 50% chance
+     | (35614:83) 陰 + 陰陽剣
+     | Change the 1st column to Dark orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (35617:83) 陽 + 陰陽剣
+     | Change the 6th column to Light orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+     | condition: 50% chance
+     | (35614:83) 陰 + 陰陽剣
+     | Change the 1st column to Dark orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+     | (35617:83) 陽 + 陰陽剣
+     | Change the 6th column to Light orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (35607:83) 封 + 漲
+     | Bind active skills for 5 turns + Increase damage to 500% for the next 999 turns
+   | group:
+   | condition: turns 2-4
+     | (35610:15) 干将☆莫耶
+     | Deal 140% damage (7 hits, 20% each)
+   | group:
+     | (35610:15) 干将☆莫耶
+     | Deal 140% damage (7 hits, 20% each)

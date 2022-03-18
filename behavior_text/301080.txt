@@ -1,0 +1,38 @@
+#301080 - 裏碧天の果実・メロンドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 301080
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (35627:83) メロンバリアー + 癒しのメロン + メロンシャワー
+ | Voids status ailments for 999 turns + Player recover 100% HP + Absorb Wood damage for 1 turn
+ group:
+ | group:
+   | condition: 20% chance
+   | (35635:83) メロンシャワー + メロンブレス
+   | Absorb Fire damage for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 20% chance
+   | (35638:83) メロンシャワー + 碧天の守り
+   | Absorb Water damage for 1 turn + Reduce damage from all sources by 35% for 1 turn, Deal 100% damage
+   | condition: 20% chance
+   | (35641:83) メロンシャワー + 碧果の恵み
+   | Absorb Wood damage for 1 turn + Change the 3rd column to Wood and Heal orbs, Deal 100% damage
+   | condition: 20% chance
+   | (35644:83) メロンシャワー + メロンタックル
+   | Absorb Light damage for 1 turn + Player -99% HP
+   | condition: 20% chance
+   | (35647:83) メロンシャワー + 碧果のいたずら
+   | Absorb Dark damage for 1 turn + Change the 3rd row to Wood and Jammer orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (35631:66) 飛び跳ねた！
+     | Do nothing
+   | group:
+     | (35632:83) 色づく果実 + 碧天の怒り
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 525% damage (7 hits, 75% each), Deal 525% damage (7 hits, 75% each)

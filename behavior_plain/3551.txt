@@ -1,0 +1,101 @@
+#3551 - Heroic Yinyang Swordpair, Gan Jiang & Mo Ye
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:35601) -> 私達の力、お見せいたします！
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:35602) -> 陰陽壁
+	Reduce damage from all sources by 50% for 5 turns
+	[2] ESSkyfall(68:35603) -> 陰陽の目覚め
+	Light and Dark skyfall +15% for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 5, target rnd 20
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESOrbLock(94:35621) -> 錠
+	Lock 3 random orbs
+	[1] ESAttackMultihit(15:35622) -> 陰陽剣
+	Deal 105% damage (3 hits, 35% each)
+
+#8: SkillSet:
+	[0] ESRandomSpawn(92:35624) -> 癒
+	Spawn 3 random Heal orbs
+	[1] ESAttackMultihit(15:35625) -> 陰陽剣
+	Deal 102% damage (3 hits, 34% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:35612) -> 陰陽の名剣術
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+	[1] ESGravity(50:35613) -> 陰陽の妙技
+	Player -80% HP
+
+#11: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESColumnSpawnMulti(76:35615) -> 陰
+	Change the 1st column to Dark orbs
+	[1] ESAttackMultihit(15:35616) -> 陰陽剣
+	Deal 105% damage (3 hits, 35% each)
+
+#12: SkillSet:
+	[0] ESColumnSpawnMulti(76:35618) -> 陽
+	Change the 6th column to Light orbs
+	[1] ESAttackMultihit(15:35619) -> 陰陽剣
+	Deal 102% damage (3 hits, 34% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESBindSkill(14:35608) -> 封
+	Bind active skills for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:35609) -> 漲
+	Increase damage to 500% for the next 999 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:35610) -> 干将☆莫耶
+Deal 140% damage (7 hits, 20% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: SkillSet:
+	[0] ESDamageShield(74:35605) -> 陰陽壁
+	Reduce damage from all sources by 35% for 99 turns
+	[1] ESSkillDelay(89:35606) -> 干将莫耶の陰
+	Delay active skills by 2 turns
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttributeResist(72:35626) -> 光半減
+Reduce damage from Light attrs by 50%

@@ -1,0 +1,62 @@
+#8581 - 超転生オーディン＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 8581
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35766:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (35767:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (35727:83) 光槍神龍の魂 + 知識の渇望 + 終焉への予言
+ | Voids status ailments for 999 turns + Unable to match Fire orbs for 2 turns + Bind 6 random cards for 3 turns, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (35757:83) ヴァルファズル + ドラウプニル
+   | Change the 1st row to Wood orbs + Deal 93% damage (3 hits, 31% each), Deal 10% damage
+   | condition: 50% chance
+   | (35760:83) ヴァルチュール + ドラウプニル
+   | Change the 5th row to Water orbs + Deal 93% damage (3 hits, 31% each), Deal 10% damage
+   | (35763:83) ヴィズル + ミーミルの奇跡
+   | Change 4 random orbs to Poison orbs + Lock 5 random orbs, Deal 30% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (35737:83) 神界の陣風 + 光槍神壁 + 崩壊の前兆
+     | Heal skyfall +15% for 5 turns + Reduce damage from all sources by 95% for 1 turn + Increase damage to 300% for the next 1 turn
+   | group:
+   | condition: turn 2 while HP > 14
+     | (35741:83) ヴァク + 光槍神壁 + 真・ドラウプニル
+     | Specific orbs change every 0.5s for 5 turns + Reduce damage from all sources by 75% for 1 turn + Deal 125% damage (5 hits, 25% each), Deal 125% damage (5 hits, 25% each)
+   | group:
+     | condition: 20% chance
+     | (35745:83) 光槍神壁 + ヴァルソグニル
+     | Reduce damage from all sources by 50% for 1 turn + Change the 3rd column to Water and Wood orbs and the 4th column to Light and Heal orbs, Deal 104% damage
+     | condition: 20% chance
+     | (35748:83) 光槍神壁 + グリーム
+     | Reduce damage from all sources by 50% for 1 turn + Lock all Water and Wood orbs, Deal 106% damage
+     | condition: 20% chance
+     | (35751:83) 光槍神壁 + 光槍陣
+     | Reduce damage from all sources by 75% for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 105% damage
+     | condition: 20% chance
+     | (35754:83) 光槍神壁 + ユッグ
+     | Reduce damage from all sources by 50% for 1 turn + Absorb damage when combos <= 7 for 1 turn, Deal 105% damage
+     | condition: 20% chance
+     | (35769:83) 光槍神壁 + ドラウプニル
+     | Reduce damage from all sources by 75% for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (35731:83) 光槍陣 + 沈黙の刻
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison + ATK -75% for 1 turn, Deal 105% damage
+   | group:
+     | (35734:83) スヴィパル + 滅・ドラウプニル
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 700% damage (7 hits, 100% each), Deal 700% damage (7 hits, 100% each)

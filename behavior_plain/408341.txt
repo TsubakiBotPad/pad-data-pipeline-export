@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESAbsorbAttribute(53:33779) -> 光線吸収
+#2: ESAbsorbAttribute(53:33779) -> Light Beam Absorption
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Absorb Light damage for 3 turns
 
@@ -20,15 +20,15 @@ Branch on counter >= 3, target rnd 10
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 19
 
-#6: ESCloud(104:33784) -> 瞬間移動
+#6: ESCloud(104:33784) -> Teleportation
 Condition: 33% chance (ai:0 rnd:33)
 A 1×1 square of clouds appears for 1 turn at 1st row, 2nd column, Deal 100% damage
 
-#7: ESAttackMultihit(15:33785) -> 怪力
+#7: ESAttackMultihit(15:33785) -> Super Strength
 Condition: 33% chance (ai:0 rnd:33)
 Deal 102% damage (3 hits, 34% each)
 
-#8: ESBlind62(62:33786) -> のしかかる
+#8: ESBlind62(62:33786) -> Heavy Press
 Condition: 34% chance (ai:0 rnd:34)
 Blind all orbs on the board, Deal 100% damage
 
@@ -38,19 +38,19 @@ end_turn
 #10: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 16
 
-#11: ESRowSpawnMulti(79:33783) -> 波状の光線
+#11: ESRowSpawnMulti(79:33783) -> Oscillating Light Beam
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change the 2nd and 4th rows to Dark orbs, Deal 110% damage
 
-#12: ESCloud(104:33784) -> 瞬間移動
+#12: ESCloud(104:33784) -> Teleportation
 Condition: 33% chance (ai:0 rnd:33)
 A 1×1 square of clouds appears for 1 turn at 1st row, 2nd column, Deal 100% damage
 
-#13: ESAttackMultihit(15:33785) -> 怪力
+#13: ESAttackMultihit(15:33785) -> Super Strength
 Condition: 33% chance (ai:0 rnd:33)
 Deal 102% damage (3 hits, 34% each)
 
-#14: ESBlind62(62:33786) -> のしかかる
+#14: ESBlind62(62:33786) -> Heavy Press
 Condition: 34% chance (ai:0 rnd:34)
 Blind all orbs on the board, Deal 100% damage
 
@@ -64,9 +64,9 @@ Branch on flag & 1, target rnd 11
 flag SET 0b1
 
 #18: SkillSet:
-	[0] ESOrbSealColumn(99:33781) -> 白色の光弾
+	[0] ESOrbSealColumn(99:33781) -> White Light Bullet
 	Seal the 1st column for 3 turns
-	[1] ESColumnSpawnMulti(77:33782) -> 一兆度の火球
+	[1] ESColumnSpawnMulti(77:33782) -> Trillion-Degree Fireball
 	Change the 2nd and 5th columns to Fire orbs, Deal 100% damage
 
 #19: ESBranchFlag(43:10) -> ESBranchFlag
@@ -76,10 +76,10 @@ Branch on flag & 1, target rnd 12
 flag SET 0b1
 
 #21: SkillSet:
-	[0] ESOrbSealColumn(99:33781) -> 白色の光弾
+	[0] ESOrbSealColumn(99:33781) -> White Light Bullet
 	Seal the 1st column for 3 turns
-	[1] ESColumnSpawnMulti(77:33782) -> 一兆度の火球
+	[1] ESColumnSpawnMulti(77:33782) -> Trillion-Degree Fireball
 	Change the 2nd and 5th columns to Fire orbs, Deal 100% damage
 
-#22: ESSuperResolve(129:33787) -> 超根性50%
+#22: ESSuperResolve(129:33787) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified
