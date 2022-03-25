@@ -1,4 +1,4 @@
-#8474 - 多角龍のデジタル幻画師・プリム
+#8474 - Geometric Dragon Illusionary Artist, Prim
 monster size: 5
 new AI: True
 start/max counter: 31
@@ -15,34 +15,34 @@ end_turn
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 16)
-	[0] ESStatusShield(20:35013) -> 多角龍の結界
+	[0] ESStatusShield(20:35013) -> Geometric Dragon's Barrier
 	Voids status ailments for 999 turns
-	[1] ESVoidShield(71:35014) -> 何を描くかお楽しみにー！
+	[1] ESVoidShield(71:35014) -> Just wait and see what I'm gonna draw!
 	Void damage >= 10,000,000 for 5 turns
 
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 10, target rnd 12
 
-#6: ESSkyfallLocked(96:35016) -> まずは下描き！
+#6: ESSkyfallLocked(96:35016) -> Start with a rough sketch!
 Condition: One-time use (ai:100 rnd:0) (cost: 8)
 Locked random skyfall +25% for 4 turns
 
-#7: ESBlindStickyRandom(97:35017) -> 線画で強調！
+#7: ESBlindStickyRandom(97:35017) -> Next, do the outlines!
 Condition: One-time use (ai:100 rnd:0) (cost: 4)
 Blind random 10~15 orbs for 1 turn, Deal 100% damage
 
-#8: ESOrbLock(94:35018) -> 色塗りは大事！
+#8: ESOrbLock(94:35018) -> Gotta make sure to color it!
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Lock all orbs, Deal 100% damage
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:35020) -> 仕上げは立体的に！
+	[0] ESDamageShield(74:35020) -> And to finish it off, we make it 3D!
 	Reduce damage from all sources by 50% for 1 turn
-	[1] ESSkillDelay(89:35021) -> 完成ー！飛び出せドラゴン！
+	[1] ESSkillDelay(89:35021) -> All done! Take flight, Polygon Dragon!
 	Delay active skills by 2 turns
 
-#10: ESRandomSpawn(92:35015) -> ポリゴンフレア！！
+#10: ESRandomSpawn(92:35015) -> Polygon Flare!!
 Spawn 5 random Fire and Water orbs, Deal 500% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -55,19 +55,19 @@ Branch on flag & 1, target rnd 16
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESBindAwoken(88:35023) -> ドラゴントレース
+	[0] ESBindAwoken(88:35023) -> Dragon Tracing
 	Bind awoken skills for 1 turn
-	[1] ESSkillDelay(89:35024) -> 飛び出せドラゴン！
+	[1] ESSkillDelay(89:35024) -> Take flight, Polygon Dragon!
 	Delay active skills by 2 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESAttackMultihit(15:35025) -> ポリゴンブレス！！！
+#16: ESAttackMultihit(15:35025) -> Polygon Breath!!
 Deal 1,000% damage (5 hits, 200% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:35011) -> 根性
+#18: ESResolve(73:35011) -> Resolve
 Survive attacks with 1 HP when HP > 10%

@@ -1,4 +1,4 @@
-#7606 - 画蝕魔・アルシオン
+#7606 - Art Devouring Demon, Alcion
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:35077) -> 幻画結界
+	[0] ESStatusShield(20:35077) -> Illusionary Art Barrier
 	Voids status ailments for 999 turns
-	[1] ESVoidShield(71:35078) -> 画額障壁
+	[1] ESVoidShield(71:35078) -> Picture Frame Wall
 	Void damage >= 50,000,000 for 999 turns
-	[2] ESAbsorbAttribute(53:35079) -> 芸術の凶蝕
+	[2] ESAbsorbAttribute(53:35079) -> Wicked Devouring of Art
 	Absorb Light and Dark damage for 1 turn
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,28 +22,28 @@ Branch on hp < 10, target rnd 14
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#5: ESOrbLock(94:35093) -> 邪蝕
+#5: ESOrbLock(94:35093) -> Evil Encroachment
 Lock all Jammer orbs, Deal 150% damage
 
 #6: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESAbsorbAttribute(53:35084) -> 芸術の凶蝕
+	[0] ESAbsorbAttribute(53:35084) -> Wicked Devouring of Art
 	Absorb Fire and Water damage for 1 turn
-	[1] ESOrbSealRow(100:35085) -> アーティファクトレイヤー
+	[1] ESOrbSealRow(100:35085) -> Portrait Layering
 	Seal the 1st row for 1 turn, Deal 100% damage
 
 #7: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESAbsorbAttribute(53:35087) -> 芸術の凶蝕
+	[0] ESAbsorbAttribute(53:35087) -> Wicked Devouring of Art
 	Absorb Fire and Wood damage for 1 turn
-	[1] ESChangeAttribute(46:35088) -> アーティファクトスプレー
+	[1] ESChangeAttribute(46:35088) -> Portrait Spraying
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESAbsorbAttribute(53:35090) -> 芸術の凶蝕
+	[0] ESAbsorbAttribute(53:35090) -> Wicked Devouring of Art
 	Absorb Water and Wood damage for 1 turn
-	[1] ESCloud(104:35091) -> アーティファクトインク
+	[1] ESCloud(104:35091) -> Portrait Inking
 	A 2×2 square of clouds appears for 1 turn at a random location, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -56,19 +56,19 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESSkyfall(68:35081) -> 幻画召邪
+	[0] ESSkyfall(68:35081) -> Evil-Conjuring Illusionary Art
 	Jammer skyfall +20% for 10 turns
-	[1] ESBoardChangeAttackBits(85:35082) -> 邪画
+	[1] ESBoardChangeAttackBits(85:35082) -> Evil Artwork
 	Change all orbs to Jammer, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:35092) -> 絶望の晩餐会
+#14: ESAttackMultihit(15:35092) -> Banquet of Despair
 Deal 2,000% damage (10 hits, 200% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESSuperResolve(129:35075) -> 超根性
+#16: ESSuperResolve(129:35075) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

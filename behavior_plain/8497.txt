@@ -1,4 +1,4 @@
-#8497 - デジタル幻画師・レン
+#8497 - Digital Illusionary Artist, Ren
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -13,7 +13,7 @@ Branch on level >= 4, target rnd 4
 #3: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#4: ESBindSkill(14:35074) -> システム起動！
+#4: ESBindSkill(14:35074) -> All systems online!
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Bind active skills for 4 turns
 
@@ -23,10 +23,10 @@ Branch on hp < 1, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESOrbLock(94:35149) -> ロケットフィンガー
+#7: ESOrbLock(94:35149) -> Rocket Finger
 Lock 15 random orbs, Deal 100% damage
 
-#8: ESAttackMultihit(15:35150) -> ロケットナックル
+#8: ESAttackMultihit(15:35150) -> Rocket Punch
 Deal 120% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -39,9 +39,9 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAbsorbCombo(67:35152) -> エンジン起動せよ！
+	[0] ESAbsorbCombo(67:35152) -> Starting engines!
 	Absorb damage when combos <= 5 for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:35153) -> デジタルサイバー発進！
+	[1] ESAttackUPRemainingEnemies(17:35153) -> Digital Mech, launch!
 	Increase damage to 200% for the next 999 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -49,16 +49,16 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESLeaderSwap(75:35237) -> コクピット損傷！一旦離脱するぜ！
+	[0] ESLeaderSwap(75:35237) -> The cockpit's damaged! Fall back!
 	Leader changes to random sub for 1 turn
-	[1] ESRecoverEnemy86(86:35238) -> ドックに戻って回復だ！
+	[1] ESRecoverEnemy86(86:35238) -> Let's return to the dock for repairs!
 	Enemy recover 50% HP
 
-#15: ESAttackMultihit(15:35154) -> アルティメットフィンガー
+#15: ESAttackMultihit(15:35154) -> Ultimate Rocket Finger
 Deal 500% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:35026) -> 根性
+#17: ESResolve(73:35026) -> Resolve
 Survive attacks with 1 HP when HP > 50%
