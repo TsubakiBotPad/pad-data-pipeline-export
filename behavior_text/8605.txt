@@ -1,0 +1,38 @@
+#8605 - 奇術師・ヒソカ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8605
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35326:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (35313:83) そんな目で見つめるなよ + 興奮しちゃうじゃないか…
+ | Voids status ailments for 999 turns + Void damage >= 5,000,000 for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (35323:92) ボク達は相性いいよ
+   | Spawn 4 random Fire orbs, Deal 100% damage
+   | condition: 50% chance
+   | (35324:92) ボクを失望させるなよ
+   | Spawn 5 random Dark orbs, Deal 101% damage
+   | (35325:100) 伸縮自在の愛
+   | Seal the 5th row for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (35320:83) どうした？ + かかっておいでよ
+   | Reduce damage from all sources by 50% for 3 turns + Leader changes to random sub for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (35316:83) 何が起きるか + わかるかな？
+     | Do nothing + Unable to match Fire and Dark orbs for 1 turn
+   | group:
+     | (35319:15) もう逃げられないよ
+     | Deal 300% damage (6 hits, 50% each)

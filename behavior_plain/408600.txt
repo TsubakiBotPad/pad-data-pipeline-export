@@ -1,0 +1,81 @@
+#408600 - 旅団の頭・クロロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:35294) -> 怖いのか？
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:35295) -> 密室遊魚
+	Absorb damage when damage >= 5,000,000 for 3 turns
+
+#5: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#8: ESRowSpawnMulti(79:35300) -> 生け捕りは無理かな
+Condition: 10% chance (ai:0 rnd:10)
+Change the 1st row to Dark and Jammer orbs, Deal 100% damage
+
+#9: ESRowSpawnMulti(79:35301) -> 生け捕りは無理かな
+Condition: 10% chance (ai:0 rnd:10)
+Change the 2nd row to Dark and Jammer orbs, Deal 101% damage
+
+#10: ESRowSpawnMulti(79:35302) -> 生け捕りは無理かな
+Condition: 10% chance (ai:0 rnd:10)
+Change the 3rd row to Dark and Jammer orbs, Deal 102% damage
+
+#11: ESRowSpawnMulti(79:35303) -> 生け捕りは無理かな
+Condition: 10% chance (ai:0 rnd:10)
+Change the 4th row to Dark and Jammer orbs, Deal 101% damage
+
+#12: ESRowSpawnMulti(79:35304) -> 生け捕りは無理かな
+Condition: 10% chance (ai:0 rnd:10)
+Change the 5th row to Dark and Jammer orbs, Deal 100% damage
+
+#13: ESCloud(104:35305) -> 不思議で便利な大風呂敷
+Condition: 50% chance (ai:0 rnd:50)
+A 2×1 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#17: SkillSet:
+	[0] ESSkillDelay(89:35298) -> 少し黙れ
+	Delay active skills by 3 turns
+	[1] ESBoardChangeAttackBits(85:35299) -> ベンズナイフ
+	Change all orbs to Dark, Jammer, and Poison, Deal 101% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESVoidShield(71:35296) -> 盗賊の極意
+Void damage >= 4,000,000 for 3 turns, Deal 100% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESSuperResolve(129:35306) -> 超根性50%
+Damage which would reduce HP from above 50% to below 50% is nullified

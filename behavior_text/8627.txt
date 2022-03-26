@@ -1,0 +1,30 @@
+#8627 - シズク
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8627
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35334:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (35327:83) いくよデメちゃん + ギョギョギョ
+ | Voids status ailments for 999 turns + Spawn 4 random Bomb orbs
+ group:
+ | group:
+   | condition: 50% chance
+   | (35332:87) 吸いとれ!!
+   | Absorb damage when damage >= 3,000,000 for 1 turn, Deal 100% damage
+   | (35333:94) 全て理解しました
+   | Lock 5 random orbs, Deal 101% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (35331:74) うーん 防戦一方
+   | Reduce damage from all sources by 50% for 3 turns
+ | group:
+ | condition: hp <= 14
+   | (35330:15) 私とデメちゃんの勝ちです
+   | Deal 250% damage (5 hits, 50% each)

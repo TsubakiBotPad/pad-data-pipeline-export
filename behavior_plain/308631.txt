@@ -1,0 +1,46 @@
+#308631 - パクノダ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:35406) -> 調べようか？
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Light and Dark damage for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#4: ESAttackMultihit(15:35410) -> 邪魔しないで
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESRowSpawnMulti(79:35411) -> 次　左手折るわよ
+Condition: 25% chance (ai:0 rnd:25)
+Change the 2nd and 4th rows to Light orbs, Deal 101% damage
+
+#6: ESColumnSpawnMulti(77:35412) -> ウソはいけないわね
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st and 6th columns to Dark orbs, Deal 101% damage
+
+#7: ESBindAttack(63:35413) -> 黙りなさい
+Condition: 25% chance (ai:0 rnd:25)
+Bind both leaders for 3 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	[0] ESRecoverEnemy86(86:35408) -> 偽証は不可能よ
+	Enemy recover 100% HP
+	[1] ESBlindStickyRandom(97:35409) -> 記憶を探る能力
+	Blind random 4 orbs for 3 turns, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:35414) -> 根性
+Survive attacks with 1 HP when HP > 50%

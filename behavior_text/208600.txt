@@ -1,0 +1,42 @@
+#208600 - 旅団の頭・クロロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208600
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35393:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (35380:83) 怖いのか？ + 密室遊魚
+ | Jammer skyfall +15% for 5 turns + Reduce damage from all sources by 75% for 3 turns
+ group:
+ | group:
+   | condition: 6% chance
+   | (35386:79) 生け捕りは無理かな
+   | Change the 1st row to Dark and Jammer orbs, Deal 100% damage
+   | condition: 7% chance
+   | (35387:79) 生け捕りは無理かな
+   | Change the 2nd row to Dark and Jammer orbs, Deal 100% damage
+   | condition: 7% chance
+   | (35388:79) 生け捕りは無理かな
+   | Change the 3rd row to Dark and Jammer orbs, Deal 100% damage
+   | condition: 7% chance
+   | (35389:79) 生け捕りは無理かな
+   | Change the 4th row to Dark and Jammer orbs, Deal 100% damage
+   | condition: 7% chance
+   | (35390:79) 生け捕りは無理かな
+   | Change the 5th row to Dark and Jammer orbs, Deal 100% damage
+   | condition: 33% chance
+   | (35391:104) 不思議で便利な大風呂敷
+   | A 2×2 square of clouds appears for 1 turn at a random location, Deal 101% damage
+   | condition: 33% chance
+   | (35392:15) 少し黙れ
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35383:83) ベンズナイフ + 盗賊の極意
+   | Spawn 3 random Dark, Heal, and Poison orbs + Specific orbs change every 1.0s for 3 turns, Deal 100% damage

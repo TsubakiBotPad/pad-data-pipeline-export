@@ -1,0 +1,77 @@
+#8605 - 奇術師・ヒソカ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:35314) -> そんな目で見つめるなよ
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:35315) -> 興奮しちゃうじゃないか…
+	Void damage >= 5,000,000 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:35323) -> ボク達は相性いいよ
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 4 random Fire orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:35324) -> ボクを失望させるなよ
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Dark orbs, Deal 101% damage
+
+#7: ESOrbSealRow(100:35325) -> 伸縮自在の愛
+Seal the 5th row for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:35321) -> どうした？
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESLeaderSwap(75:35322) -> かかっておいでよ
+	Leader changes to random sub for 3 turns
+
+#10: ESRandomSpawn(92:35323) -> ボク達は相性いいよ
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 4 random Fire orbs, Deal 100% damage
+
+#11: ESRandomSpawn(92:35324) -> ボクを失望させるなよ
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Dark orbs, Deal 101% damage
+
+#12: ESOrbSealRow(100:35325) -> 伸縮自在の愛
+Seal the 5th row for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESInactivity66(66:35317) -> 何が起きるか
+	Do nothing
+	[1] ESAttributeBlock(107:35318) -> わかるかな？
+	Unable to match Fire and Dark orbs for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:35319) -> もう逃げられないよ
+Deal 300% damage (6 hits, 50% each)
+
+#19: ESSuperResolve(129:35326) -> 超根性50%
+Damage which would reduce HP from above 50% to below 50% is nullified

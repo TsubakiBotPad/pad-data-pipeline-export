@@ -1,0 +1,43 @@
+#508623 - ノブナガ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 508623
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35275:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (35275:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (35262:83) おっかねェなァ… + 殺る気満々って面だぜ？
+ | Voids status ailments for 999 turns + No skyfall for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (35265:83) オレの間合いに入ったら + 斬るぜ
+   | RCV 50% for 3 turns + Reduce damage from all sources by 50% for 3 turns, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (35273:92) やめとけ
+   | Spawn 5 random Dark orbs, Deal 100% damage
+   | (35274:15) 馬鹿が!!!
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (35268:83) オレに刀をぬかせるな + 居合斬り
+     | Movetime 50% for 3 turns + Unable to match Dark orbs for 3 turns, Deal 101% damage
+   | group:
+     | condition: 50% chance
+     | (35271:139) やっぱお前ら面白ェわ
+     | Haste both leaders' skills by 3 turns, Deal 101% damage
+     | (35272:63) おとなしくしとけ
+     | Bind 2 random subs for 2 turns, Deal 100% damage

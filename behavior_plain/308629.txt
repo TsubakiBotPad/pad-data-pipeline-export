@@ -1,0 +1,53 @@
+#308629 - マチ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardChangeAttackBits(85:35429) -> いくよ
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Change all orbs to Water, Dark, and Poison, Deal 100% damage
+
+#3: ESSkyfallLocked(96:35430) -> ちょっと見くびってたわね
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Locked Water and Dark skyfall +100% for 5 turns, Deal 100% damage
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESDamageShield(74:35432) -> ムダよ
+Condition: 25% chance (ai:0 rnd:25)
+Reduce damage from all sources by 75% for 1 turn, Deal 100% damage
+
+#6: ESOrbChangeAttackBits(108:35433) -> 下手な真似しないで
+Condition: 25% chance (ai:0 rnd:25)
+Change all Light orbs to Dark orbs, Deal 101% damage
+
+#7: ESOrbLock(94:35434) -> 捕まえた
+Condition: 25% chance (ai:0 rnd:25)
+Lock all Water and Dark orbs, Deal 100% damage
+
+#8: ESAttackMultihit(15:35487) -> 殺気を出せばこっちも構える
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESOrbSealRow(100:35431) -> 念糸
+Seal the 1st and 5th rows for 5 turns, Deal 101% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTypeResist(118:35435) -> 攻撃半減
+Reduce damage from Attacker types by 50%

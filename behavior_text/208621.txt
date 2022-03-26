@@ -1,0 +1,30 @@
+#208621 - ウボォーギン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208621
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (35344:83) 待たせたな + 先手必勝!!
+ | Do nothing + Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+ group:
+ | group:
+   | condition: 25% chance
+   | (35350:50) 超破壊拳
+   | Player -20% HP
+   | condition: 25% chance
+   | (35259:15) 手ごたえあり！
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (35352:130) 悲しいぜ
+   | ATK -50% for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (35394:92) むかつく野郎だ
+   | Spawn 4 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35347:83) やってやるぜ + 全開だ!!!!!!
+   | Do nothing + Increase damage to 150% for the next 999 turns
