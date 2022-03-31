@@ -7,10 +7,11 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDeathCry(69:3020) -> 火闇悪魔変身
+#2: ESDeathCry(69:3020) -> Fire Dark Demon Transformation
 Condition: On death (ai:0 rnd:0)
-Show message: つ、強いですね
-では、この子を召喚しましょう|魔力を解放し、杖が魔獣へと変化した
+Show message: You're....you're pretty strong.
+Well then, let's summon this thing.|By releasing its magical power,
+the staff turned into a beast
 
 #3: ESBranchFlag(43:10) -> ESBranchFlag
 Branch on flag & 1, target rnd 7
@@ -30,7 +31,7 @@ Branch on hp > 100, target rnd 18
 #8: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 13
 
-#9: ESAttackUPCooldown(19:3023) -> Let's Go!
+#9: ESAttackUPCooldown(19:3023) -> Let's go!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Increase damage to 200% for the next 999 turns
 
@@ -58,7 +59,7 @@ Bind 1 random card for 1 turn
 Condition: When < 45% HP (ai:100 rnd:0)
 Deal 160% damage (2 hits, 80% each)
 
-#17: ESRandomSpawn(92:3028) -> Violet Flaaa!
+#17: ESRandomSpawn(92:3028) -> Violet Flaa-!
 Condition: When < 50% HP (ai:100 rnd:0)
 Spawn 11 random Jammer orbs
 
@@ -68,5 +69,5 @@ Branch on flag & 2, target rnd 8
 #19: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#20: ESSkillDelay(89:3022) -> What Happened?
+#20: ESSkillDelay(89:3022) -> What's wrong?
 Delay active skills by 2 turns
