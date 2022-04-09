@@ -1,0 +1,36 @@
+#2463 - 鬼族の宇宙人・ラム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2463
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (34620:83) うちに決闘を申し込むとは + しゃらくさいっちゃーっ!!
+ | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Bind active skills for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (34623:77) 女をなめるなっ!!
+   | Change the 5th and 6th columns to Light and Jammer orbs, Deal 115% damage
+   | condition: 33% chance
+   | (34624:107) せーの!!くらえー!!
+   | Unable to match Fire and Dark orbs for 1 turn
+   | condition: 34% chance
+   | (34625:88) ダーリン!!
+   | Bind awoken skills for 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (34626:17) うちは不愉快だっちゃーっ!!
+     | Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2
+     | (34627:83) やさしくしてくれないと… + 電撃だっちゃ～～っ!!
+     | RCV 25% for 3 turns + ATK -75% for 3 turns, Deal 45% damage
+   | group:
+     | (34630:15) こーなったら徹底交戦だっちゃーっ!!
+     | Deal 80% damage (5 hits, 16% each)

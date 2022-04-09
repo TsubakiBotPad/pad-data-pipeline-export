@@ -1,0 +1,28 @@
+#4814 - 魔装アモン・アリババ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4814
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34654:118) ＿アリババ悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (34655:83) 行くぜアモン! + ぶった斬る!!
+ | Absorb damage when damage >= 20,000,000 for 2 turns + Reduce damage from all sources by 90% for 2 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (34658:79) アモンの轟炎剣
+   | Change the 1st and 5th rows to Fire orbs, Deal 110% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (34659:83) 炎の壁 + 極大魔法 炎宰相の裂斬剣
+   | Absorb Fire and Light damage for 2 turns + Change all orbs to Fire and Light, Deal 125% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (34662:139) 俺はあんたを倒す。必ず!!!
+   | Haste all cards' skills by 2 turns, Deal 100% damage

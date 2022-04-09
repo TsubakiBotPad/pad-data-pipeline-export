@@ -1,0 +1,29 @@
+#2860 - 最強コンビ・三橋＆伊藤
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2860
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34609:73) ＿三橋伊藤根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34610:50) こんの野郎!!
+ | Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (34611:83) 死にてー奴からかかって来な。 + 俺にかなおーなんざ1000年早ェー!!
+     | Movetime 25% for 1 turn + Deal 110% damage (2 hits, 55% each), Deal 110% damage (2 hits, 55% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (34614:83) なめんなコラーッ!! + ダリャアーー
+     | Blind all orbs on the board + Player -99% HP, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34617:83) ふざけんじゃねーぞ、ドカスが… + スーパー不意打ちクラーシュ!!
+   | Increase damage to 200% for the next 999 turns + A row of clouds appears for 5 turns at 5th row, 1st column

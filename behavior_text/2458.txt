@@ -1,0 +1,32 @@
+#2458 - 半妖の少年・犬夜叉
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2458
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34682:118) ＿犬夜叉攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (34683:83) 覚悟しやがれ! + 風の傷!!
+ | Movetime 50% for 5 turns + Change all orbs to Fire, Wood, Light, and Dark, Deal 85% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (34686:111) 爆流破!!
+   | Change player HP to 50% for 5 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (34687:6) くらえ！金剛槍破!
+   | Voids player buff effects, Deal 100% damage
+   | (34688:83) ぶっ殺す! + だーーーっ!
+   | Reduce damage from all sources by 95% for 1 turn + Deal 130% damage (5 hits, 26% each), Deal 130% damage (5 hits, 26% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (34687:6) くらえ！金剛槍破!
+   | Voids player buff effects, Deal 100% damage
+   | (34685:85) 風の傷!!
+   | Change all orbs to Fire, Wood, Light, and Dark, Deal 85% damage

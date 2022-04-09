@@ -1,0 +1,58 @@
+#2463 - 鬼族の宇宙人・ラム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBlindStickySkyfall(128:34621) -> うちに決闘を申し込むとは
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESBindSkill(14:34622) -> しゃらくさいっちゃーっ!!
+	Bind active skills for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESColumnSpawnMulti(77:34623) -> 女をなめるなっ!!
+Condition: 33% chance (ai:0 rnd:33)
+Change the 5th and 6th columns to Light and Jammer orbs, Deal 115% damage
+
+#8: ESAttributeBlock(107:34624) -> せーの!!くらえー!!
+Condition: 33% chance (ai:0 rnd:33)
+Unable to match Fire and Dark orbs for 1 turn
+
+#9: ESBindAwoken(88:34625) -> ダーリン!!
+Condition: 34% chance (ai:0 rnd:34)
+Bind awoken skills for 1 turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttackUPRemainingEnemies(17:34626) -> うちは不愉快だっちゃーっ!!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 200% for the next 999 turns
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffRCV(105:34628) -> やさしくしてくれないと…
+	RCV 25% for 3 turns, Deal 45% damage
+	[1] ESDebuffATK(130:34629) -> 電撃だっちゃ～～っ!!
+	ATK -75% for 3 turns, Deal 45% damage
+
+#13: ESAttackMultihit(15:34630) -> こーなったら徹底交戦だっちゃーっ!!
+Deal 80% damage (5 hits, 16% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

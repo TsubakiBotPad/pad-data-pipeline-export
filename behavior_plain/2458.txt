@@ -1,0 +1,57 @@
+#2458 - 半妖の少年・犬夜叉
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffMovetime(39:34684) -> 覚悟しやがれ!
+	Movetime 50% for 5 turns
+	[1] ESBoardChangeAttackBits(85:34685) -> 風の傷!!
+	Change all orbs to Fire, Wood, Light, and Dark, Deal 85% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESMaxHPChange(111:34686) -> 爆流破!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change player HP to 50% for 5 turns
+
+#7: ESDispel(6:34687) -> くらえ！金剛槍破!
+Voids player buff effects, Deal 100% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESDamageShield(74:34689) -> ぶっ殺す!
+	Reduce damage from all sources by 95% for 1 turn
+	[1] ESAttackMultihit(15:34690) -> だーーーっ!
+	Deal 130% damage (5 hits, 26% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESBoardChangeAttackBits(85:34685) -> 風の傷!!
+Change all orbs to Fire, Wood, Light, and Dark, Deal 85% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESTypeResist(118:34682) -> ＿犬夜叉攻撃半減
+Reduce damage from Attacker types by 50%

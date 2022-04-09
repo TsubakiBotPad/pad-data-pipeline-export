@@ -1,0 +1,43 @@
+#3436 - 無差別格闘早乙女流二代目・早乙女乱馬
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 3436
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34663:73) ＿らんま根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34664:71) この勝負受けた!!
+ | Void damage >= 80,000,000 for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (34665:75) この野郎～～っ!!
+   | Leader changes to random sub for 3 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (34666:50) だーーっ
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (34667:15) 火中天津甘栗拳!!
+     | Deal 120% damage (6 hits, 20% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (34668:68) くらえ、飛竜昇天破!!
+     | Fire skyfall +15% for 2 turns
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (34669:67) そろそろ本気出させてもらうか…
+     | Absorb damage when combos <= 7 for 5 turns
+   | group:
+   | condition: turn 3
+     | (34670:17) 生まれて初めて、本気で怒ってんだ!!
+     | Increase damage to 150% for the next 999 turns

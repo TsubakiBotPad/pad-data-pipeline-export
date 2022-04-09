@@ -1,0 +1,30 @@
+#2465 - うしおととら
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2465
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34645:72) ＿うしとら光闇半減
+ | Reduce damage from Light and Dark attrs by 50%
+ | (34681:73) ＿うしとら根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34646:83) オレは強くなりてぇよォォ!! + 来ねえんなら…こっちから行くぜえ！！
+ | Voids status ailments for 999 turns + Lock all orbs
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (34649:15) うおおおお
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (34650:77) バカヤロォォ!
+   | Change the 1st and 6th columns to Light orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (34651:83) かあああ!! + ごおおお!
+   | Movetime 25% for 1 turn + Delay active skills by 5 turns, Deal 110% damage

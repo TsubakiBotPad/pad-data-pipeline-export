@@ -1,0 +1,68 @@
+#3436 - 無差別格闘早乙女流二代目・早乙女乱馬
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESVoidShield(71:34664) -> この勝負受けた!!
+Void damage >= 80,000,000 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESLeaderSwap(75:34665) -> この野郎～～っ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Leader changes to random sub for 3 turns
+
+#7: ESAbsorbCombo(67:34669) -> そろそろ本気出させてもらうか…
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 7 for 5 turns
+
+#8: ESAttackUPRemainingEnemies(17:34670) -> 生まれて初めて、本気で怒ってんだ!!
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 17
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESGravity(50:34666) -> だーーっ
+Player -99% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESAttackMultihit(15:34667) -> 火中天津甘栗拳!!
+Deal 120% damage (6 hits, 20% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: ESSkyfall(68:34668) -> くらえ、飛竜昇天破!!
+Fire skyfall +15% for 2 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:34663) -> ＿らんま根性
+Survive attacks with 1 HP when HP > 50%

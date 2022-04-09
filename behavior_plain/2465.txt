@@ -1,0 +1,65 @@
+#2465 - うしおととら
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:34647) -> オレは強くなりてぇよォォ!!
+	Voids status ailments for 999 turns
+	[1] ESOrbLock(94:34648) -> 来ねえんなら…こっちから行くぜえ！！
+	Lock all orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttackMultihit(15:34649) -> うおおおお
+Deal 105% damage (3 hits, 35% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESColumnSpawnMulti(77:34650) -> バカヤロォォ!
+Change the 1st and 6th columns to Light orbs, Deal 95% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: SkillSet:
+	[0] ESDebuffMovetime(39:34652) -> かあああ!!
+	Movetime 25% for 1 turn, Deal 110% damage
+	[1] ESSkillDelay(89:34653) -> ごおおお!
+	Delay active skills by 5 turns, Deal 105% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttributeResist(72:34645) -> ＿うしとら光闇半減
+Reduce damage from Light and Dark attrs by 50%
+
+#18: ESResolve(73:34681) -> ＿うしとら根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,34 @@
+#4820 - 中国拳法使い・加藤鳴海
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4820
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (34631:127) 死を必すれば則ち生く
+ | No skyfall for 10 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (34632:67) ふぅん、オレが人間に見えるのか…
+   | Absorb damage when combos <= 8 for 2 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (34633:89) 悪魔さ。
+     | Delay active skills by 3 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (34634:85) なめるんじゃねぇ!!
+     | Change all orbs to Fire, Light, Heal, and Jammer, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (34635:92) 劈拳
+     | Spawn 7 random Fire orbs, Deal 95% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (34636:17) 負けられるかよ!
+   | Increase damage to 150% for the next 999 turns
