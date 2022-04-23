@@ -1,0 +1,29 @@
+#306322 - 荼毘
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306322
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35841:72) 火闇半減
+ | Reduce damage from Fire and Dark attrs by 50%
+ type: PREEMPT
+ | (35834:83) さァ始まりだ + 守りきれるといいな……
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (35838:107) これは…要らねぇよなァ…
+   | Unable to match Fire and Heal orbs for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (35839:92) 伏せろ
+   | Spawn 8 random Fire orbs, Deal 101% damage
+   | (35840:92) 伏せろ
+   | Spawn 8 random Dark orbs, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35837:85) 燃えて俺の薪となれ
+   | Change all orbs to Fire, Dark, Jammer, and Mortal Poison, Deal 110% damage

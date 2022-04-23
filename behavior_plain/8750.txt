@@ -1,0 +1,68 @@
+#8750 - 救けて勝つ・緑谷出久
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:35821) -> 大丈夫
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:35822) -> 絶対に勝てる
+	Absorb damage when combos <= 7 for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESAttackMultihit(15:35829) -> エア・フォース
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESSkillDelay(89:35830) -> 要領は同じ！
+Condition: 50% chance (ai:50 rnd:0)
+Delay active skills by 2 turns, Deal 100% damage
+
+#8: ESBindAttack(63:35831) -> 黒鞭
+Bind 2 random subs for 2 turns, Deal 101% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESOrbLock(94:35827) -> やれる！
+	Lock all Wood and Light orbs
+	[1] ESAttackUPRemainingEnemies(17:35828) -> 情けないとこ見せられない!!
+	Increase damage to 150% for the next 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESDebuffMovetime(39:35824) -> おまえの望みは何一つ
+	Movetime 25% for 3 turns
+	[1] ESVoidShield(71:35825) -> 叶わない！
+	Void damage >= 15,000,000 for 3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:35832) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#17: ESAttributeResist(72:35833) -> 木半減
+Reduce damage from Wood attrs by 50%

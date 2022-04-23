@@ -1,0 +1,52 @@
+#206321 - トガヒミコ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSpinnersFixed(110:18375) -> トガです！
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 6 turns, Deal 80% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESFixedStart(101:18376) -> カァイイねぇ
+Fix orb movement starting point to random position on the board
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESRecoverEnemy7(7:18377) -> チウチウ
+Enemy recover 5% HP, Deal 110% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESDebuffRCV(105:18378) -> ひどいねェ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 2 turns
+
+#14: ESRandomSpawn(92:18379) -> 刺すね
+Spawn 4 random Light orbs, Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

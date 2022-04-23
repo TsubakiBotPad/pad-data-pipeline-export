@@ -1,0 +1,67 @@
+#8751 - 勝って救ける・爆豪勝己
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:35808) -> 決めてンよ俺ァ！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:35809) -> 勝負は必ず完全勝利！
+	Absorb Fire and Light damage for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: ESAttackMultihit(15:35814) -> 遅ェ――ンだよのろまが!!
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESOrbLock(94:35815) -> てめーら覚悟はねェのかよ！
+Condition: 25% chance (ai:0 rnd:25)
+Lock all Fire and Light orbs, Deal 101% damage
+
+#7: ESBombRandomSpawn(102:35816) -> 爆破式カタパルト
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 5 random Bomb orbs, Deal 100% damage
+
+#8: ESCloud(104:35817) -> ゼロ距離閃光弾
+Condition: 25% chance (ai:0 rnd:25)
+A row of clouds appears for 1 turn at 1st row, 1st column, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESDamageShield(74:35813) -> やっとあったまってきた
+Reduce damage from all sources by 75% for 3 turns, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESRecoverEnemy86(86:35811) -> なめやがって……！
+	Enemy recover 100% HP
+	[1] ESSkillDelay(89:35812) -> 行くぞ
+	Delay active skills by 5 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:35818) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#17: ESAttributeResist(72:35819) -> 火半減
+Reduce damage from Fire attrs by 50%

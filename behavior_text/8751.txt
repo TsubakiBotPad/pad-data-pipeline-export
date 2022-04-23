@@ -1,0 +1,39 @@
+#8751 - 勝って救ける・爆豪勝己
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8751
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35818:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (35819:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (35807:83) 決めてンよ俺ァ！ + 勝負は必ず完全勝利！
+ | Voids status ailments for 999 turns + Absorb Fire and Light damage for 5 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (35814:15) 遅ェ――ンだよのろまが!!
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (35815:94) てめーら覚悟はねェのかよ！
+   | Lock all Fire and Light orbs, Deal 101% damage
+   | condition: 25% chance
+   | (35816:102) 爆破式カタパルト
+   | Spawn 5 random Bomb orbs, Deal 100% damage
+   | condition: 25% chance
+   | (35817:104) ゼロ距離閃光弾
+   | A row of clouds appears for 1 turn at 1st row, 1st column, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35813:74) やっとあったまってきた
+   | Reduce damage from all sources by 75% for 3 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (35810:83) なめやがって……！ + 行くぞ
+   | Enemy recover 100% HP + Delay active skills by 5 turns

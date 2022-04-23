@@ -1,0 +1,32 @@
+#8752 - 限界を超える・轟焦凍
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8752
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35806:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (35799:83) 退け + 溶けちまうぞ
+ | Voids status ailments for 999 turns + Unable to match Fire and Water orbs for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (35802:79) もっと上げろ
+   | Change the 1st row to Fire orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (35803:79) 上げられる
+   | Change the 1st and 5th rows to Fire orbs, Deal 102% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (35804:79) 己を燃やせ
+   | Change the 1st, 3rd, and 5th rows to Fire orbs, Deal 104% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (35805:85) なりたい俺になる為に
+   | Change all orbs to Fire, Deal 250% damage

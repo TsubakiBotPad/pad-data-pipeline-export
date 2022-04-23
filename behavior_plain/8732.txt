@@ -1,0 +1,62 @@
+#8732 - 巨悪・オール・フォー・ワン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDisableAssists(141:35852) -> さて…やるか
+	Disable active skills for 5 turns
+	[1] ESGravity(50:35853) -> 「衝撃反転」
+	Player -110% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESColumnSpawnMulti(77:35858) -> 煩わしい
+Condition: 33% chance (ai:33 rnd:0)
+Change the 2nd and 5th columns to Dark orbs, Deal 101% damage
+
+#6: ESVoidShield(71:35859) -> 君を殴る
+Condition: 50% chance (ai:50 rnd:0)
+Void damage >= 1,000,000,000 for 1 turn, Deal 100% damage
+
+#7: ESAbsorbThreshold(87:35860) -> 君を殴る
+Absorb damage when damage >= 1,000,000,000 for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESAbsorbAttribute(53:35856) -> させないさ
+	Absorb Fire, Water, and Wood damage for 5 turns
+	[1] ESGravity(50:35857) -> 「衝撃反転」
+	Player -130% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:35854) -> 君の負けだ
+Deal 300% damage (5 hits, 60% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttributeResist(72:35861) -> 闇半減
+Reduce damage from Dark attrs by 50%
+
+#16: ESSuperResolve(129:35862) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

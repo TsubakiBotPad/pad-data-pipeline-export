@@ -1,0 +1,30 @@
+#8743 - 上鳴電気
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8743
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35784:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (35776:68) 俺に触ると痺れるぜ
+ | Light skyfall +15% for 5 turns
+ type: DEATH
+ condition: when defeated
+ | (35783:95) 無差別放電130万V
+ | Change all orbs to Light
+ group:
+ | group:
+   | condition: 50% chance
+   | (35780:101) ターゲットエレクト
+   | Fix orb movement starting point to random position on the board, Deal 101% damage
+   | (35781:15) うェ～～い
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35777:83) これなら俺は… + クソ強え！
+   | Reduce damage from all sources by 50% for 5 turns + Increase damage to 150% for the next 999 turns

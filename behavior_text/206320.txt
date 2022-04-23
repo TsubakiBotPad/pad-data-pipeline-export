@@ -1,0 +1,34 @@
+#206320 - トゥワイス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206320
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (18370:17) “個性”二倍
+ | Increase damage to 200% for the next 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (18372:92) 感じ悪いよな！！
+     | Spawn 3 random Dark orbs, Deal 40% damage
+     | (18371:15) ちくしょうこのヤロー！！
+     | Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (18370:17) “個性”二倍
+     | Increase damage to 200% for the next 1 turn
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (18373:39) やっぱ好きにさせてもらうわ
+     | Movetime -2s for 5 turns
+   | group:
+     | (18374:15) 責任取らせろ！
+     | Deal 110% damage (2 hits, 55% each)

@@ -1,0 +1,46 @@
+#8750 - 救けて勝つ・緑谷出久
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8750
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (35832:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (35833:72) 木半減
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (35820:83) 大丈夫 + 絶対に勝てる
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 3 turns
+ group:
+ | group:
+ | condition: always turn 3
+   | (35823:83) おまえの望みは何一つ + 叶わない！
+   | Movetime 25% for 3 turns + Void damage >= 15,000,000 for 3 turns
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (35829:15) エア・フォース
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 50% chance
+     | (35830:89) 要領は同じ！
+     | Delay active skills by 2 turns, Deal 100% damage
+     | (35831:63) 黒鞭
+     | Bind 2 random subs for 2 turns, Deal 101% damage
+   | group:
+     | condition: 33% chance
+     | (35829:15) エア・フォース
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 50% chance
+     | (35830:89) 要領は同じ！
+     | Delay active skills by 2 turns, Deal 100% damage
+     | (35831:63) 黒鞭
+     | Bind 2 random subs for 2 turns, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (35826:83) やれる！ + 情けないとこ見せられない!!
+   | Lock all Wood and Light orbs + Increase damage to 150% for the next 999 turns
