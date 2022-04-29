@@ -1,0 +1,65 @@
+#608672 - 魔人の腕
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:36110) -> 我の本当の力を見せてやろう！
+	ATK -90% for 4 turns
+	[1] ESBindRandom(1:36111) -> そして、お前の体を奪ってやる！
+	Bind 3 random cards for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:36116) -> デーモンハンド
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Wood and Dark orbs, Deal 100% damage
+
+#6: ESOrbLock(94:36117) -> デーモンハンド
+Condition: 33% chance (ai:0 rnd:33)
+Lock 6 random orbs, Deal 80% damage
+
+#7: ESNoSkyfall(127:36115) -> デーモンフィスト
+Condition: 34% chance (ai:0 rnd:34)
+No skyfall for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESVoidShield(71:36113) -> くははははっ！
+	Void damage >= 1,000,000 for 4 turns
+	[1] ESAttackUPRemainingEnemies(17:36114) -> 力がみなぎるぞ！
+	Increase damage to 150% for the next 999 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:36131) -> デーモンデスフィンガー
+Deal 150% damage (5 hits, 30% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:36126) -> おのれ小娘がぁあああ！！
+	Do nothing
+
+#16: ESSuperResolve(129:36118) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

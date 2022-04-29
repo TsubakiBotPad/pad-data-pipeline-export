@@ -1,0 +1,76 @@
+#306656 - 裏妖精王・アルバート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22444) -> 修羅の境界
+	Voids status ailments for 999 turns
+	[1] ESBlindStickySkyfall(128:22485) -> 眩惑の緑陰樹
+	For 5 turns, 20% chance for skyfall orbs to be blinded for turn
+	[2] ESBindAwoken(88:22486) -> 妖精の森域
+	Bind awoken skills for 1 turn, Deal 90% damage
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 16
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBindAwoken(88:22486) -> 妖精の森域
+Condition: 50% chance (ai:0 rnd:50)
+Bind awoken skills for 1 turn, Deal 90% damage
+
+#8: ESBombRandomSpawn(102:22487) -> フェアリープランク
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Bomb orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESSpinnersRandom(109:22489) -> 妖精輪舞
+	Random 4 orbs change every 1.0s for 10 turns
+	[1] ESNoSkyfall(127:22490) -> フォレストライト
+	No skyfall for 10 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:22491) -> フェアリーシャインブラスト
+Deal 500% damage (5 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:22483) -> 根性
+Survive attacks with 1 HP when HP > 9%
+
+#19: ESTypeResist(118:33924) -> 回復半減
+Reduce damage from Healer types by 50%

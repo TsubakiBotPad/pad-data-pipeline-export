@@ -1,0 +1,79 @@
+#203690 - 稲姫
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:31886) -> 四天の誇り
+	Voids status ailments for 999 turns
+	[1] ESBlindStickySkyfall(128:31888) -> 輝夜
+	For 1 turn, 30% chance for skyfall orbs to be blinded for turn
+	[2] ESBoardSizeChange(126:31887) -> 表裏比興
+	Change board size to 7x6 for 2 turns, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESTargetedSkillHaste(139:31899) -> 戦火の艶
+	Haste both leaders' skills by 1 turn
+	[1] ESTargetedSkillDelay(140:31900) -> 戦乱の守勢
+	Delay random sub's skills by 1 turn
+	[2] ESCloud(104:31901) -> 追撃の狼煙
+	A row of clouds appears for 1 turn at 1st row, 1st column, Deal 95% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESColumnSpawnMulti(77:31890) -> 硝煙撃
+	Change the 1st and 2nd columns to Fire and Jammer orbs, Deal 55% damage
+	[1] ESColumnSpawnMulti(77:31891) -> 小松凪
+	Change the 5th and 6th columns to Wood and Poison orbs, Deal 55% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESAbsorbCombo(67:31893) -> 結び雁金
+	Absorb damage when combos <= 13 for 1 turn
+	[1] ESDamageShield(74:31894) -> 勇武の守
+	Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: SkillSet:
+	[0] ESAbsorbAttribute(53:31896) -> さあ踊ってみせよ
+	Absorb Fire and Wood damage for 1 turn
+	[1] ESBlindStickyRandom(97:31897) -> まげ掴み
+	Blind random 10 orbs for 1 turn, Deal 95% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:31884) -> ＿稲姫超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

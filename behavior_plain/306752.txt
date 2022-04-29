@@ -1,0 +1,46 @@
+#306752 - 超ホノりん
+monster size: 0
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlindStickyRandom(97:22235) -> こげこげドロップ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 7
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESRandomSpawn(92:22236) -> りんストライク
+Spawn 5 random Fire orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 9
+
+#8: ESChangeAttribute(46:20950) -> 修羅の殄滅
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+
+#9: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:22201) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#12: ESTurnChangeRemainingEnemies(122:22240) -> 敵の行動ターンが変化した
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1

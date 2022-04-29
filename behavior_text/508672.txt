@@ -1,0 +1,24 @@
+#508672 - 魔人の腕
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 508672
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36105:65) 逃がさんぞ！！
+ | Bind 1 random sub for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (36107:92) デーモンナックル
+   | Spawn 3 random Wood orbs, Deal 80% damage
+   | condition: 50% chance
+   | (36108:15) デーモンパンチ
+   | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36106:17) 勝てるとでも思っているのか？
+   | Increase damage to 150% for the next 3 turns

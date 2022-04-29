@@ -1,0 +1,30 @@
+#501101 - 世界樹の精霊・アルラウネ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 501101
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36037:88) いきますよ～♪
+ | Bind awoken skills for 2 turns
+ | condition: 50% chance
+ | (36041:85) フラワーブランコ
+ | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+ | condition: 50% chance
+ | (36042:85) フラワーブランコ
+ | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 80% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (36041:85) フラワーブランコ
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+   | condition: 50% chance
+   | (36042:85) フラワーブランコ
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36038:83) もっと全力で向かってきてください♪ + 私も全力でいきますよ♪
+   | Reduce damage from all sources by 50% for 3 turns + Increase damage to 150% for the next 3 turns

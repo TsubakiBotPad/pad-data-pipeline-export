@@ -1,0 +1,74 @@
+#305939 - 裏超転生パールヴァティー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShieldBig(137:33940) -> 修羅の辺際
+	Void damage >= 3,000,000,000 for 999 turns
+	[1] ESNoSkyfall(127:22279) -> 金色神の真魂
+	No skyfall for 10 turns
+	[2] ESDebuffRCV(105:22280) -> 天地崩壊
+	RCV 0% for 3 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 15
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 13
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#7: SkillSet:
+	[0] ESColumnSpawnMulti(77:22282) -> 心癒の山風
+	Change the 3rd and 4th columns to Heal, Jammer, and Poison orbs, Deal 50% damage
+	[1] ESOrbChangeAttackBits(108:22283) -> 心朽の谷風
+	Change all Jammer and Poison orbs to Wood orbs, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESBoardChangeAttackBits(85:22285) -> 晴天心癒
+	Change all orbs to Heal, Deal 150% damage
+	[1] ESDebuffRCV(105:22287) -> 天地崩壊
+	RCV 0% for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBoardChangeAttackBits(85:22286) -> 衝天心癒
+Change all orbs to Heal, Deal 500% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:22277) -> 根性
+Survive attacks with 1 HP when HP > 14%
+
+#18: ESTypeResist(118:33927) -> 攻撃半減
+Reduce damage from Attacker types by 50%

@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDisableAssists(141:35475) -> 怖いのか？
+	[0] ESDisableAssists(141:35475) -> Are you frightened?
 	Disable active skills for 3 turns
-	[1] ESAbsorbThreshold(87:35476) -> 密室遊魚
+	[1] ESAbsorbThreshold(87:35476) -> Indoor Fish
 	Absorb damage when damage >= 10,000,000 for 3 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -23,23 +23,23 @@ Branch on counter = 3, target rnd 16
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#6: ESRowSpawnMulti(79:35481) -> 生け捕りは無理かな
+#6: ESRowSpawnMulti(79:35481) -> I'm guessing that I won't be able to capture him alive.
 Condition: 13% chance (ai:0 rnd:13)
 Change the 1st and 5th rows to Dark and Jammer orbs, Deal 100% damage
 
-#7: ESRowSpawnMulti(79:35482) -> 生け捕りは無理かな
+#7: ESRowSpawnMulti(79:35482) -> I'm guessing that I won't be able to capture him alive.
 Condition: 13% chance (ai:0 rnd:13)
 Change the 1st and 3rd rows to Dark and Jammer orbs, Deal 101% damage
 
-#8: ESRowSpawnMulti(79:35483) -> 生け捕りは無理かな
+#8: ESRowSpawnMulti(79:35483) -> I'm guessing that I won't be able to capture him alive.
 Condition: 12% chance (ai:0 rnd:12)
 Change the 2nd and 4th rows to Dark and Jammer orbs, Deal 100% damage
 
-#9: ESRowSpawnMulti(79:35484) -> 生け捕りは無理かな
+#9: ESRowSpawnMulti(79:35484) -> I'm guessing that I won't be able to capture him alive.
 Condition: 12% chance (ai:0 rnd:12)
 Change the 3rd and 5th rows to Dark and Jammer orbs, Deal 101% damage
 
-#10: ESCloud(104:35485) -> 不思議で便利な大風呂敷
+#10: ESCloud(104:35485) -> Fun Fun Cloth: The Convenient Magic Handkerchief
 Condition: 50% chance (ai:0 rnd:50)
 A 3×3 square of clouds appears for 1 turn at a random location, Deal 102% damage
 
@@ -53,19 +53,19 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESTargetedSkillDelay(140:35479) -> 少し黙れ
+	[0] ESTargetedSkillDelay(140:35479) -> Stop talking for a bit.
 	Delay random sub's skills by 6 turns
-	[1] ESBoardChangeAttackBits(85:35480) -> ベンズナイフ
+	[1] ESBoardChangeAttackBits(85:35480) -> Ben's Knife
 	Change all orbs to Dark, Jammer, and Mortal Poison, Deal 120% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESVoidShield(71:35477) -> 盗賊の極意
+#16: ESVoidShield(71:35477) -> Skill Hunter: Bandit's Secret
 Void damage >= 10,000,000 for 3 turns, Deal 101% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:35486) -> 超根性50%
+#18: ESSuperResolve(129:35486) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

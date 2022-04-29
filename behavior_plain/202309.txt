@@ -1,0 +1,30 @@
+#202309 - 裏豹紋の妖異・風狸
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESTargetedSkillDelay(140:31981) -> 向かい風
+Delay both leaders' skills by 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAbsorbCombo(67:31983) -> 風に舞うでありんす
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 8 for 5 turns, Deal 103% damage
+
+#7: ESSpinnersRandom(109:31984) -> 花風雷
+Random 2 orbs change every 1.0s for 1 turn, Deal 108% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,39 @@
+#200989 - 真夜刻武神・ツクヨミ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 200989
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31989:72) ＿光ヨミ光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (31991:97) 新月・霞
+ | Blind random 15 orbs for 3 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (764:15) 夜刻一刀
+   | Deal 150% damage
+   | (763:48) 影月
+   | Change a random attribute to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 40% chance
+   | (764:15) 夜刻一刀
+   | Deal 150% damage
+   | (762:48) 月光
+   | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (765:66) チェンジ・ザ
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (766:15) ワールド！
+     | Deal 1,200% damage (12 hits, 100% each)

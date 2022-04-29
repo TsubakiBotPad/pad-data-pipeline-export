@@ -1,0 +1,35 @@
+#306745 - 超ダークゴーレム
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306745
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22201:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (22219:107) 消せない命
+ | Unable to match Heal orbs for 4 turns, Deal 80% damage
+ group:
+ condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+ | (22211:46) ゴーレムストライク
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (22441:17) 修羅の波動
+   | Increase damage to 900% for the next 999 turns
+ | group:
+ | condition: turns 2-14
+   | (22211:46) ゴーレムストライク
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (22200:83) 修羅の変貌 + 修羅の殄戮
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ type: UNKNOWN_USE
+ | (20950:46) 修羅の殄滅
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage

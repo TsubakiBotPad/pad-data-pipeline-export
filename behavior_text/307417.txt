@@ -1,0 +1,40 @@
+#307417 - 裏妖桜精・ニルオーカム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 307417
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33915:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33906:83) オーラエレメンタル + エレメンタルガード + ヴァインラッシュ
+ | Voids status ailments for 999 turns + Void damage >= 3,000,000,000 for 999 turns + Deal 140% damage (2 hits, 70% each), Deal 140% damage (2 hits, 70% each)
+ group:
+ | group:
+ | condition: always turns 2-4
+   | condition: 50% chance
+   | (33912:46) エレメンタルチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (33913:15) ウィップヴァイン
+   | Deal 110% damage (5 hits, 22% each)
+ | group:
+ | condition: always turn 5
+   | (33914:19) エレメンタルパワー
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (33910:53) ダークエレメンタル
+     | Absorb Dark damage for 5 turns
+   | group:
+     | (33913:15) ウィップヴァイン
+     | Deal 110% damage (5 hits, 22% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33911:85) ヴァインシャドウ
+   | Change all orbs to Dark, Deal 100% damage

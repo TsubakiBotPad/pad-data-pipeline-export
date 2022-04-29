@@ -1,0 +1,116 @@
+  monster_id: 505141
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 22359
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 33921
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 22360
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 4
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 22369
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 2
+                always_trigger_above: 74
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 22363
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 3
+                trigger_turn_end: 14
+                always_trigger_above: 4
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 22369
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  enemy_skill_id: 22200
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 74
+            trigger_turn: 2
+            always_trigger_above: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 33941
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 4
+            repeats_every: 7
+            trigger_turn: 1
+            trigger_turn_end: 7
+          }
+          children {
+            behavior {
+              enemy_skill_id: 22370
+            }
+          }
+        }
+      }
+    }
+  }

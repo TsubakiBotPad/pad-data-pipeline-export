@@ -1,0 +1,76 @@
+#304740 - 裏極醒の執行者・メタトロン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22444) -> 修羅の境界
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:22373) -> 天上の試練
+	Absorb damage when combos <= 7 for 999 turns
+	[2] ESAttributeBlock(107:22374) -> 断罪執行
+	Unable to match Heal orbs for 8 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 16
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESBlindStickyRandom(97:22375) -> 断罪の神剣
+Condition: 50% chance (ai:0 rnd:50)
+Blind random 10 orbs for 1 turn, Deal 95% damage
+
+#8: ESOrbLock(94:22376) -> 神罰の黒翼
+Condition: 50% chance (ai:0 rnd:50)
+Lock all orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22378) -> 神格の王座
+	Increase damage to 150% for the next 999 turns
+	[1] ESBlindStickyRandom(97:22379) -> 断罪の神剣
+	Blind random 10 orbs for 10 turns, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:22380) -> エルダージ・ボルトロ
+Deal 500% damage (10 hits, 50% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:22371) -> 根性
+Survive attacks with 1 HP when HP > 10%
+
+#19: ESAttributeResist(72:33920) -> 光軽減
+Reduce damage from Light attrs by 50%

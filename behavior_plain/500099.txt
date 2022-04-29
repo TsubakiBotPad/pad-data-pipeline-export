@@ -1,0 +1,28 @@
+#500099 - フェニックスナイト
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESNoSkyfall(127:36090) -> きさま何者だ！
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No skyfall for 2 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 5
+
+#4: ESColumnSpawnMulti(77:36091) -> フレアソード
+Change the 1st column to Fire orbs, Deal 100% damage
+
+#5: ESAttackUPRemainingEnemies(17:36127) -> 兵士の誓い
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 4 turns
+
+#6: ESColumnSpawnMulti(77:36091) -> フレアソード
+Change the 1st column to Fire orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

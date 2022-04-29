@@ -1,0 +1,37 @@
+#8771 - 漸咬の明龍刀士・キオ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8771
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31948:129) ＿キオ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31949:83) 宿龍甲 + 雷霆万鈞 + 荒ぶる御魂
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 500,000,000 for 2 turns + For 10 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (31953:83) 流削ぎ + 双連咬牙斬
+     | Change the 1st column to Fire orbs and the 6th column to Water orbs + Deal 100% damage (4 hits, 25% each), Deal 35% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (31956:83) 乱削ぎ + 双連咬牙斬
+     | Change the 3rd, 4th, and 5th rows to Fire, Water, and Heal orbs + Deal 100% damage (4 hits, 25% each), Deal 35% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (31959:83) 命抉 + 龍刀護陣
+     | Movetime 50% for 1 turn + Absorb damage when combos <= 10 for 1 turn
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31962:83) 我乱童子の剣舞 + 静龍心 + 叫刃
+   | Fire and Water skyfall +15% for 99 turns + Locked Fire and Water skyfall +100% for 99 turns + Delay all cards' skills by 1 turn, Deal 110% damage
+ | group:
+ | condition: hp <= 9
+   | (31986:83) 彩漣刀 + 秘剣・龍駕刹戒
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 6,000% damage (5 hits, 1,200% each), Deal 6,000% damage (5 hits, 1,200% each)

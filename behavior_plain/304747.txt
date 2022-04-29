@@ -1,0 +1,64 @@
+#304747 - 裏極醒の魔神爵・グレモリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22444) -> 修羅の境界
+	Voids status ailments for 999 turns
+	[1] ESMaxHPChange(111:22351) -> 悪魔の遊戯
+	Change player HP to 100,000 for 1 turn
+	[2] ESDebuffMovetime(39:22352) -> 宝探の純魔心
+	Movetime 50% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 11
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESMaxHPChange(111:22354) -> 悪魔の遊戯
+	Change player HP to 50% for 1 turn
+	[1] ESDebuffATK(130:22355) -> 宝探の純魔心
+	ATK -50% for 4 turns, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESMaxHPChange(111:22351) -> 悪魔の遊戯
+	Change player HP to 100,000 for 1 turn
+	[1] ESDebuffRCV(105:22357) -> 宝探の純魔心
+	RCV 50% for 4 turns, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackMultihit(15:22358) -> ディアーカタストロフィ
+Deal 500% damage (5 hits, 100% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:22349) -> 根性
+Survive attacks with 1 HP when HP > 15%
+
+#14: ESAttributeResist(72:33920) -> 光軽減
+Reduce damage from Light attrs by 50%

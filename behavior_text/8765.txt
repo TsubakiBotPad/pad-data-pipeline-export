@@ -1,0 +1,37 @@
+#8765 - 闇纏の紅龍刀士・アキネ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8765
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31902:129) ＿アキネ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31903:83) 宿龍甲 + 蛇骨姫の霊廊 + 灯影の門
+ | Voids status ailments for 999 turns + Light and Dark skyfall +15% for 99 turns + Absorb Light and Dark damage for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (31907:83) 無灯の魂 + 蛇烈螺旋斬
+     | Blind random 15 orbs for 3 turns + Deal 120% damage (6 hits, 20% each), Deal 120% damage (6 hits, 20% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (31910:83) 士魂のなげき + 蛇烈螺旋斬
+     | Specific orbs change every 1.0s for 1 turn + Deal 120% damage (6 hits, 20% each), Deal 120% damage (6 hits, 20% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (31913:83) 乱刃 + 朧天舞 + 蛇烈螺旋斬
+     | ATK -75% for 1 turn + RCV 25% for 1 turn + Deal 120% damage (6 hits, 20% each), Deal 120% damage (6 hits, 20% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31917:83) 蛇骨姫の威迫 + 龍の刃鱗
+   | Locked Light and Dark skyfall +100% for 99 turns + Void damage >= 1,000,000,000 for 10 turns, Deal 112% damage
+ | group:
+ | condition: hp <= 9
+   | (31986:83) 彩漣刀 + 秘剣・龍駕刹戒
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 6,000% damage (5 hits, 1,200% each), Deal 6,000% damage (5 hits, 1,200% each)

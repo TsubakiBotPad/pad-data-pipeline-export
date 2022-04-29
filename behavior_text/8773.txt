@@ -1,0 +1,33 @@
+#8773 - 飄散の暗龍刀士・イナ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8773
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31966:129) ＿イナ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (31967:83) 宿龍甲 + 無空に茂る蔓 + 散華冥天斬
+ | Voids status ailments for 999 turns + Wood skyfall +15% for 1 turn + Locked Wood skyfall +100% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (31971:83) 闇に堕つ種子 + 散華冥獄斬
+     | Dark skyfall +15% for 1 turn + Locked Dark skyfall +100% for 1 turn, Deal 135% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (31974:83) 無空に茂る蔓 + 散華冥天斬
+     | Wood skyfall +15% for 1 turn + Locked Wood skyfall +100% for 1 turn, Deal 135% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (31977:83) 枝垂彼岸 + 宙天丸の咆哮 + 龍の刃鱗
+   | Change player HP to 50% for 4 turns + ATK -50% for 4 turns + Void damage >= 500,000,000 for 10 turns, Deal 80% damage
+ | group:
+ | condition: hp <= 9
+   | (31986:83) 彩漣刀 + 秘剣・龍駕刹戒
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 6,000% damage (5 hits, 1,200% each), Deal 6,000% damage (5 hits, 1,200% each)

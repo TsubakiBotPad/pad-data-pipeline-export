@@ -1,0 +1,59 @@
+#506457 - 紫の輝石・キョムノマガタマ
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 506457
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22425:119) 輝石の共鳴
+ | Immune to damage from all sources for 999 turns
+ group:
+ | group:
+ | condition: turns 1-5
+   | (22426:66) 輝石が輝いている
+   | Do nothing
+ | group:
+ | condition: turn 6
+   | (22427:46) 輝石は光を解き放った
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 10,000% damage
+ | group:
+   | (22426:66) 輝石が輝いている
+   | Do nothing
+ type: REMAINING
+ condition: when 3 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (22468:83) 輝石が神秘的に輝いた + 輝石が神秘的に輝いた
+   | Enemy ally recover 100% HP + Enemy ally recover 100% HP
+ | group:
+ | condition: turns 3-5
+   | condition: 50% chance
+   | (22466:94) 輝石が光り輝く
+   | Lock 15 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (22467:15) 輝石が光り輝く
+   | Deal 120% damage
+ | group:
+ | condition: turn 6
+   | (22467:15) 輝石が光り輝く
+   | Deal 120% damage
+ | group:
+   | condition: 50% chance
+   | (22466:94) 輝石が光り輝く
+   | Lock 15 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (22467:15) 輝石が光り輝く
+   | Deal 120% damage
+ type: UNKNOWN_USE
+ | condition: when 1 enemies remain
+ | (22428:52) 輝石が神秘的に輝いた
+ | Enemy ally recover 100% HP
+ | (22464:121) 輝石の共鳴が消えた
+ | Remove damage immunity effect, Deal 400% damage
+ | (22465:15) 輝石が光り輝く
+ | Deal 200% damage
+ | (22429:121) 輝石の共鳴が消えた
+ | Remove damage immunity effect

@@ -1,0 +1,30 @@
+#306740 - 超パープルカーバンクル
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306740
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22267:73) 根性
+ | Survive attacks with 1 HP when HP > 35%
+ | condition: when 1 enemies remain
+ | (22206:122) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1
+ type: PREEMPT
+ | (22442:68) 紫宝石の力
+ | Poison skyfall +20% for 10 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | (22207:15) カーバンクルラッシュ
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+   | (20950:46) 修羅の殄滅
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 8,000% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | (22200:83) 修羅の変貌 + 修羅の殄戮
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)

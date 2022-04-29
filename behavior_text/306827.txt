@@ -1,0 +1,40 @@
+#306827 - 裏妖樹精・ニルヴォーク
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 306827
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33915:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (33898:83) オーラエレメンタル + エレメンタルガード + タイムエレメンタル
+ | Voids status ailments for 999 turns + Void damage >= 3,000,000,000 for 999 turns + Movetime 25% for 1 turn
+ group:
+ | group:
+ | condition: always turns 2-4
+   | condition: 50% chance
+   | (33904:46) エレメンタルチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (33905:15) ウィップヴァイン
+   | Deal 110% damage (5 hits, 22% each)
+ | group:
+ | condition: always turn 5
+   | (33914:19) エレメンタルパワー
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (33902:53) ウッドエレメンタル
+     | Absorb Wood damage for 5 turns
+   | group:
+     | (33905:15) ウィップヴァイン
+     | Deal 110% damage (5 hits, 22% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (33903:85) ヴァインプラント
+   | Change all orbs to Wood, Deal 100% damage

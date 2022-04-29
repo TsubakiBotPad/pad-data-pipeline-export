@@ -1,0 +1,148 @@
+#506457 - 紫の輝石・キョムノマガタマ
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESInvulnerableOn(119:22425) -> 輝石の共鳴
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Immune to damage from all sources for 999 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 30
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 3, target rnd 8
+
+#6: ESInactivity66(66:22426) -> 輝石が輝いている
+Do nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 12
+
+#11: ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+	Enemy ally recover 100% HP
+	[1] ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+	Enemy ally recover 100% HP
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 22
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 19
+
+#18: ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#20: SkillSet:
+	[0] ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+	Enemy ally recover 100% HP
+	[1] ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+	Enemy ally recover 100% HP
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 26
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#24: ESRecoverEnemyAlly(52:22428) -> 輝石が神秘的に輝いた
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Enemy ally recover 100% HP
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 40
+
+#27: ESOrbLock(94:22466) -> 輝石が光り輝く
+Condition: 50% chance (ai:0 rnd:50)
+Lock 15 random orbs, Deal 100% damage
+
+#28: ESAttackMultihit(15:22467) -> 輝石が光り輝く
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 5
+
+#31: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#32: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 38
+
+#33: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 37
+
+#34: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 36
+
+#35: ESChangeAttribute(46:22427) -> 輝石は光を解き放った
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 10,000% damage
+
+#36: ESInvulnerableOff(121:22464) -> 輝石の共鳴が消えた
+Remove damage immunity effect, Deal 400% damage
+
+#37: ESAttackMultihit(15:22465) -> 輝石が光り輝く
+Deal 200% damage
+
+#38: ESAttackMultihit(15:22467) -> 輝石が光り輝く
+Deal 120% damage
+
+#39: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#40: ESInvulnerableOff(121:22429) -> 輝石の共鳴が消えた
+Remove damage immunity effect
+
+#41: ESOrbLock(94:22466) -> 輝石が光り輝く
+Condition: 50% chance (ai:0 rnd:50)
+Lock 15 random orbs, Deal 100% damage
+
+#42: ESAttackMultihit(15:22467) -> 輝石が光り輝く
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn

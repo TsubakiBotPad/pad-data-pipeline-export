@@ -1,0 +1,74 @@
+#505904 - 裏青陰龍・リュウウンサイ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22398) -> 絶界領域
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:33919) -> 天駆招来
+	Void damage >= 3,000,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:22400) -> 生殺への刻
+	Absorb damage when combos <= 8 for 999 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 14
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbChangeAttackBits(108:22693) -> 水落の雷
+	Change all Fire orbs to Poison orbs, Deal 50% damage
+	[1] ESSpinnersRandom(109:22694) -> 廻水
+	Random 3 orbs change every 1.0s for 1 turn, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESGravity(50:20713) -> 絶死崩壊
+	Player -100% HP
+	[1] ESDebuffRCV(105:20714) -> 喪水
+	RCV 50% for 1 turn, Deal 50% damage
+
+#8: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAttackMultihit(15:20716) -> 猛水の息吹
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESDebuffMovetime(39:20717) -> 奪水
+	Movetime 50% for 1 turn, Deal 45% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESDebuffATK(130:22696) -> 天よりの試練
+	ATK -75% for 99 turns
+	[1] ESAttributeBlock(107:22699) -> 力の剥奪
+	Unable to match Fire orbs for 10 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:20718) -> 灰塵の水渦
+Deal 2,000% damage (10 hits, 200% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:22396) -> 根性
+Survive attacks with 1 HP when HP > 8%

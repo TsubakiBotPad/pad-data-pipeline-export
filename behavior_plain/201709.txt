@@ -1,0 +1,23 @@
+#201709 - ゴールドたまドラ
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESAttackMultihit(15:35955) -> たまぁ～☆
+Deal 100% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	[0] ESInactivity66(66:35957) -> ラッキーたまぁ～☆
+	Do nothing
+	[1] ESEndBattle(40:35958) -> プレゼントたまぁ～☆
+	Reduce self HP to 0

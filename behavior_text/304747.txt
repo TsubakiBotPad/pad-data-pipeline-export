@@ -1,0 +1,33 @@
+#304747 - 裏極醒の魔神爵・グレモリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304747
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22349:73) 根性
+ | Survive attacks with 1 HP when HP > 15%
+ | (33920:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (22350:83) 修羅の境界 + 悪魔の遊戯 + 宝探の純魔心
+ | Voids status ailments for 999 turns + Change player HP to 100,000 for 1 turn + Movetime 50% for 10 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | condition: 50% chance
+   | (22353:83) 悪魔の遊戯 + 宝探の純魔心
+   | Change player HP to 50% for 1 turn + ATK -50% for 4 turns, Deal 50% damage
+   | condition: 50% chance
+   | (22356:83) 悪魔の遊戯 + 宝探の純魔心
+   | Change player HP to 100,000 for 1 turn + RCV 50% for 4 turns, Deal 50% damage
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 4
+   | (22358:15) ディアーカタストロフィ
+   | Deal 500% damage (5 hits, 100% each)
+ type: UNKNOWN_USE
+ | (22200:83) 修羅の変貌 + 修羅の殄戮
+ | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)

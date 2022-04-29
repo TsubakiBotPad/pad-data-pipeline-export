@@ -1,0 +1,64 @@
+#305327 - 裏超転生ミネルヴァ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShieldBig(137:33940) -> 修羅の辺際
+	Void damage >= 3,000,000,000 for 999 turns
+	[1] ESCloud(104:22269) -> 煉龍の神力
+	A 1×2 rectangle of clouds appears for 5 turns at a random location
+	[2] ESSkyfallLocked(96:22270) -> 戦女神の真魂
+	Locked random skyfall +50% for 99 turns, Deal 80% damage
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 11
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBombRandomSpawn(102:22272) -> 女神怒衝
+	Spawn 7 random Bomb orbs
+	[1] ESAttackMultihit(15:22273) -> 獄天剣技
+	Deal 100% damage (4 hits, 25% each)
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBlindStickyRandom(97:22275) -> 女神闇心
+	Blind random 15 orbs for 2 turns
+	[1] ESAttackMultihit(15:22273) -> 獄天剣技
+	Deal 100% damage (4 hits, 25% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESRowSpawnMulti(79:22276) -> 紅蓮焦熱
+Change the 1st, 3rd, and 5th rows to Fire orbs, Deal 500% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:22277) -> 根性
+Survive attacks with 1 HP when HP > 14%
+
+#14: ESTypeResist(118:33925) -> ドラゴン半減
+Reduce damage from Dragon types by 50%

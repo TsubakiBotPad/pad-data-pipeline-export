@@ -1,0 +1,47 @@
+#304740 - 裏極醒の執行者・メタトロン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304740
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22371:73) 根性
+ | Survive attacks with 1 HP when HP > 10%
+ | (33920:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (22372:83) 修羅の境界 + 天上の試練 + 断罪執行
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 999 turns + Unable to match Heal orbs for 8 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | condition: 50% chance
+   | (22375:97) 断罪の神剣
+   | Blind random 10 orbs for 1 turn, Deal 95% damage
+   | condition: 50% chance
+   | (22376:94) 神罰の黒翼
+   | Lock all orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 4
+     | (22377:83) 神格の王座 + 断罪の神剣
+     | Increase damage to 150% for the next 999 turns + Blind random 10 orbs for 10 turns, Deal 100% damage
+   | group:
+   | condition: turns 2-14 while HP > 4
+     | condition: 50% chance
+     | (22375:97) 断罪の神剣
+     | Blind random 10 orbs for 1 turn, Deal 95% damage
+     | condition: 50% chance
+     | (22376:94) 神罰の黒翼
+     | Lock all orbs, Deal 100% damage
+   | group:
+     | (22200:83) 修羅の変貌 + 修羅の殄戮
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 4
+   | (22380:15) エルダージ・ボルトロ
+   | Deal 500% damage (10 hits, 50% each)

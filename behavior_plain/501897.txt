@@ -1,0 +1,41 @@
+#501897 - アースドラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlindStickyRandom(97:36015) -> 戦士の試練
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind random 2~3 orbs for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESColumnSpawnMulti(77:36019) -> ドラゴンソード
+Change the 3rd column to Wood orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: SkillSet:
+	[0] ESDamageShield(74:36017) -> 地龍鎧
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:36018) -> 戦士の怒り
+	Increase damage to 150% for the next 999 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:36133) -> 見事だ……
+	Do nothing

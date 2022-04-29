@@ -1,0 +1,68 @@
+#306384 - 裏大罪の化身・ゴルフェイス
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAbsorbAttribute(53:22383) -> 罪ノ色
+	Absorb Water and Dark damage for 7 turns
+	[1] ESDebuffATK(130:22384) -> 悪徳の連鎖
+	ATK -75% for 7 turns
+	[2] ESStatusShield(20:22385) -> Sin ラースリベレーション
+	Voids status ailments for 2 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 14
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 13
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 12
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 11
+
+#10: ESAbsorbCombo(67:18945) -> Sin プライドリベレーション
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+
+#11: ESDebuffMovetime(39:18946) -> Sin グラトニーリベレーション
+Movetime 25% for 1 turn, Deal 95% damage
+
+#12: ESSpinnersFixed(110:18947) -> Sin ラストリベレーション
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 0.5s for 1 turn, Deal 110% damage
+
+#13: ESBindAwoken(88:18948) -> Sin グリードリベレーション
+Bind awoken skills for 1 turn, Deal 90% damage
+
+#14: ESSkillDelay(89:22496) -> Sin スロウスリベレーション
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 1~2 turns, Deal 105% damage
+
+#15: ESGravity(50:18950) -> Sin エンヴィーリベレーション
+Player -150% HP
+
+#16: ESAttackMultihit(15:18951) -> セブンクライシス
+Deal 4,900% damage (7 hits, 700% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:22386) -> 根性
+Survive attacks with 1 HP when HP > 40%

@@ -1,0 +1,60 @@
+#506656 - 妖精王・アルバート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:36097) -> 我と勝負せよ！
+	Reduce damage from all sources by 90% for 3 turns
+	[1] ESBindAwoken(88:36098) -> ゆくぞ！
+	Bind awoken skills for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:36102) -> フォレストグリーン
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Wood orbs, Deal 90% damage
+
+#6: ESSpinnersRandom(109:36103) -> フェアリーライト
+Condition: 33% chance (ai:0 rnd:33)
+Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+
+#7: ESOrbLock(94:36104) -> フェアリーチェイン
+Condition: 34% chance (ai:0 rnd:34)
+Lock 5 random orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESSpinnersRandom(109:36100) -> はははっ！
+	Random 1 orbs change every 1.0s for 3 turns
+	[1] ESVoidShield(71:36101) -> 楽しくなってきたぞ！
+	Void damage >= 1,000,000 for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:36130) -> フェアリーストリーム
+Deal 120% damage (3 hits, 40% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:36118) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

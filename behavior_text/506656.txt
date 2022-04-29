@@ -1,0 +1,34 @@
+#506656 - 妖精王・アルバート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506656
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36118:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (36096:83) 我と勝負せよ！ + ゆくぞ！
+ | Reduce damage from all sources by 90% for 3 turns + Bind awoken skills for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36102:92) フォレストグリーン
+   | Spawn 5 random Wood orbs, Deal 90% damage
+   | condition: 33% chance
+   | (36103:109) フェアリーライト
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+   | condition: 34% chance
+   | (36104:94) フェアリーチェイン
+   | Lock 5 random orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (36099:83) はははっ！ + 楽しくなってきたぞ！
+   | Random 1 orbs change every 1.0s for 3 turns + Void damage >= 1,000,000 for 3 turns
+ | group:
+ | condition: hp <= 4
+   | (36130:15) フェアリーストリーム
+   | Deal 120% damage (3 hits, 40% each)

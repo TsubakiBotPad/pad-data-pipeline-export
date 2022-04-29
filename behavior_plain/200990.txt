@@ -1,0 +1,60 @@
+#200990 - 真夜想詠神・ツクヨミ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:31992) -> さわらないで・・・
+Absorb damage when combos <= 9 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 15
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 13
+
+#8: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 100, target rnd 12
+
+#9: ESDebuffMovetime(39:3881) -> 詠神の調律
+Condition: When < 70% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Movetime -1s for 5 turns
+
+#10: ESRandomSpawn(92:3880) -> 盈月
+Spawn 3 random Heal and Poison orbs, Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESAttackMultihit(15:3879) -> 夜想連刀
+Deal 70~140% damage (7~14 hits, 10% each)
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: ESInactivity66(66:3882) -> 時よ止まれ・・・
+Do nothing
+
+#15: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b10
+
+#16: ESGravity(50:3883) -> 夜想天鈴斬
+Player -500% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttributeResist(72:31990) -> ＿闇ヨミ闇半減
+Reduce damage from Dark attrs by 50%

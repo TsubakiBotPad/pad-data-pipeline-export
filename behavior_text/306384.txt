@@ -1,0 +1,43 @@
+#306384 - 裏大罪の化身・ゴルフェイス
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 306384
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22386:73) 根性
+ | Survive attacks with 1 HP when HP > 40%
+ type: PREEMPT
+ | (22382:83) 罪ノ色 + 悪徳の連鎖 + Sin ラースリベレーション
+ | Absorb Water and Dark damage for 7 turns + ATK -75% for 7 turns + Voids status ailments for 2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (18945:67) Sin プライドリベレーション
+   | Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (18946:39) Sin グラトニーリベレーション
+   | Movetime 25% for 1 turn, Deal 95% damage
+ | group:
+ | condition: turn 3
+   | (18947:110) Sin ラストリベレーション
+   | Specific orbs change every 0.5s for 1 turn, Deal 110% damage
+ | group:
+ | condition: turn 4
+   | (18948:88) Sin グリードリベレーション
+   | Bind awoken skills for 1 turn, Deal 90% damage
+ | group:
+ | condition: turn 5
+   | (22496:89) Sin スロウスリベレーション
+   | Delay active skills by 1~2 turns, Deal 105% damage
+ | group:
+ | condition: turn 6
+   | (18950:50) Sin エンヴィーリベレーション
+   | Player -150% HP
+ | group:
+   | (18951:15) セブンクライシス
+   | Deal 4,900% damage (7 hits, 700% each)

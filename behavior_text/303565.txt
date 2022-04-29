@@ -1,0 +1,43 @@
+#303565 - 真山神の風龍喚士・カエデ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303565
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25381:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (31996:72) ＿カエデ火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (31997:83) 神風の山道 + 舞風伊吹
+ | Seal the 5th row for 5 turns + Absorb damage when combos <= 7 for 999 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (31999:137) 神山の聖護符
+   | Void damage >= 100,000,000 for 5 turns
+ | group:
+   | group:
+   | condition: turns 1-4
+     | (25376:92) 風牙斬
+     | Spawn 6 random Wood orbs, Deal 100% damage
+   | group:
+     | (25376:92) 風牙斬
+     | Spawn 6 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (25377:83) 吹花護柳 + 千鳥風輪
+     | Enemy recover 50% HP + Movetime 25% for 3 turns
+   | group:
+   | condition: turns 2-4
+     | (25380:15) 神風八百万ノ太刀
+     | Deal 1,000% damage (4 hits, 250% each)
+   | group:
+     | (25380:15) 神風八百万ノ太刀
+     | Deal 1,000% damage (4 hits, 250% each)

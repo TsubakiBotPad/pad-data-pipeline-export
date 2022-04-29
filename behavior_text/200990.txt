@@ -1,0 +1,38 @@
+#200990 - 真夜想詠神・ツクヨミ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200990
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31990:72) ＿闇ヨミ闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (31992:67) さわらないで・・・
+ | Absorb damage when combos <= 9 for 3 turns
+ group:
+ | group:
+ | condition: when hp is full
+   | (3879:15) 夜想連刀
+   | Deal 70~140% damage (7~14 hits, 10% each)
+ | group:
+ | condition: hp <= 99
+   | (3880:92) 盈月
+   | Spawn 3 random Heal and Poison orbs, Deal 80% damage
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 69
+   | (3881:39) 詠神の調律
+   | Movetime -1s for 5 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (3882:66) 時よ止まれ・・・
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (3883:50) 夜想天鈴斬
+     | Player -500% HP

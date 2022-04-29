@@ -1,0 +1,39 @@
+#305939 - 裏超転生パールヴァティー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 305939
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (22277:73) 根性
+ | Survive attacks with 1 HP when HP > 14%
+ | (33927:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (33939:83) 修羅の辺際 + 金色神の真魂 + 天地崩壊
+ | Void damage >= 3,000,000,000 for 999 turns + No skyfall for 10 turns + RCV 0% for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 100
+   | (22281:83) 心癒の山風 + 心朽の谷風
+   | Change the 3rd and 4th columns to Heal, Jammer, and Poison orbs + Change all Jammer and Poison orbs to Wood orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 4
+     | (22284:83) 晴天心癒 + 天地崩壊
+     | Change all orbs to Heal + RCV 0% for 1 turn, Deal 150% damage
+   | group:
+   | condition: turns 2-14 while HP > 4
+     | (22281:83) 心癒の山風 + 心朽の谷風
+     | Change the 3rd and 4th columns to Heal, Jammer, and Poison orbs + Change all Jammer and Poison orbs to Wood orbs, Deal 50% damage
+   | group:
+     | (22200:83) 修羅の変貌 + 修羅の殄戮
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,500% damage (7 hits, 500% each), Deal 3,500% damage (7 hits, 500% each)
+ | group:
+ | condition: execute repeatedly, turn 1-7 of 7, hp <= 4
+   | (22286:85) 衝天心癒
+   | Change all orbs to Heal, Deal 500% damage

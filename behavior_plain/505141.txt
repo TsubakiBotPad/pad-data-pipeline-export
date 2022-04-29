@@ -1,0 +1,80 @@
+#505141 - 裏極醒の神葬狼・フェンリル＝ヴィズ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22444) -> 修羅の境界
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:22361) -> 終末の掃討
+	Reduce damage from all sources by 50% for 2 turns
+	[2] ESDebuffATK(130:22362) -> 旭日の魔光
+	ATK -75% for 10 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 14, target rnd 17
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 15
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 9
+
+#7: ESAttackMultihit(15:22369) -> 噛砕
+Deal 100% damage (4 hits, 25% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 13
+
+#12: SkillSet:
+	[0] ESAbsorbCombo(67:22364) -> 神葬狼の翼
+	Absorb damage when combos <= 9 for 999 turns
+	[1] ESDebuffRCV(105:22365) -> 旭日の魔光
+	RCV 25% for 10 turns
+
+#13: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:22367) -> 神魔開放
+	Increase damage to 150% for the next 999 turns
+	[1] ESVoidShieldBig(137:33942) -> 終末への掃滅
+	Void damage >= 3,000,000,000 for 999 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:22370) -> 神魔天撃
+Deal 500% damage (5 hits, 100% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	Deal 3,500% damage (7 hits, 500% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:22359) -> 根性
+Survive attacks with 1 HP when HP > 14%
+
+#20: ESAttributeResist(72:33921) -> 闇軽減
+Reduce damage from Dark attrs by 50%

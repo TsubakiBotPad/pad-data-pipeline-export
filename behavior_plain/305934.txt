@@ -1,0 +1,27 @@
+#305934 - 裏超転生ラファエル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22665) -> 一撃だけ許してやろう
+	Voids status ailments for 999 turns
+	[1] ESInactivity66(66:22666) -> 来い
+	Do nothing
+
+#3: SkillSet:
+	[0] ESBindAwoken(88:22667) -> 力無き者は散るがいい
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:22668) -> 絶滅の天雷
+	Deal 500% damage (5 hits, 100% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESAttributeResist(72:33921) -> 闇軽減
+Reduce damage from Dark attrs by 50%

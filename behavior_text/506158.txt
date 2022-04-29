@@ -1,0 +1,30 @@
+#506158 - 森奥の大魔女・アルジェ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506158
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36118:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (36081:83) い、いきますよ…？ + 準備はいいですか…？
+ | Absorb damage when combos <= 6 for 3 turns + Seal the 5th row for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36089:85) グリーンウィスパー
+   | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 80% damage
+   | condition: 33% chance
+   | (36087:85) フォレストウィスパー
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 90% damage
+   | condition: 34% chance
+   | (36088:92) ウッドウィスパー
+   | Spawn 5 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36084:83) わわわ！ + ま、まだ負けてませんよ…？
+   | Delay active skills by 1~3 turns + Reduce damage from all sources by 75% for 3 turns
