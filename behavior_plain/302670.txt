@@ -1,0 +1,72 @@
+#302670 - 裏深翠の宝石姫・カメオ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:36901) -> 深翠の守り
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:36902) -> フロッグチャーム
+	Reduce damage from all sources by 75% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESAbsorbCombo(67:36909) -> 深翠の試練
+	Absorb damage when combos <= 7 for 1 turn
+	[1] ESAttackMultihit(15:36910) -> エメラルドラッシュ
+	Deal 102% damage (3 hits, 34% each)
+
+#6: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESSpinnersRandom(109:36912) -> カメオルーレット
+	Random 2 orbs change every 0.5s for 1 turn
+	[1] ESAttackMultihit(15:36913) -> エメラルドラッシュ
+	Deal 108% damage (3 hits, 36% each)
+
+#7: SkillSet:
+	[0] ESOrbChangeAttackBits(108:36915) -> 明晰のエメラルド
+	Change all Heal orbs to Wood orbs, Deal 10% damage
+	[1] ESAttackMultihit(15:36916) -> エメラルドラッシュ
+	Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESDisableAssists(141:36906) -> 宝石姫の秘技
+	Disable active skills for 3 turns
+	[1] ESAbsorbThreshold(87:36907) -> カメオスペシャル
+	Absorb damage when damage >= 70,000,000 for 3 turns
+
+#12: ESSkillDelay(89:36903) -> 宝石が輝いた
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 6 turns
+
+#13: ESAttackMultihit(15:36904) -> ミラクルエメラルド
+Deal 700% damage (7 hits, 100% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:36917) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#16: ESAttributeResist(72:36918) -> 木軽減
+Reduce damage from Wood attrs by 50%

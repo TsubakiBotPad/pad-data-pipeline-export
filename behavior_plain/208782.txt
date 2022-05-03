@@ -1,0 +1,82 @@
+#208782 - スズランの純星霊・ミリア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34742) -> うふふ…
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:34743) -> 贈り物をキミにあげます！
+	Absorb damage when damage >= 1,000,000,000 for 10 turns
+	[2] ESSkyfall(68:34744) -> さぁ、受け取ってください！
+	Wood and Poison skyfall +30% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESMaxHPChange(111:34755) -> 麝香
+	Change player HP to 200,000 for 1 turn
+	[1] ESBoardChangeAttackBits(85:34756) -> ヴァ―チュアスガーデン
+	Change all orbs to Wood and Poison, Deal 80% damage
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESMaxHPChange(111:34758) -> 麝香
+	Change player HP to 100,000 for 1 turn
+	[1] ESColumnSpawnMulti(77:34759) -> ヴァ―チュアスガーデン
+	Change the 1st column to Wood orbs and the 6th column to Poison orbs, Deal 60% damage
+
+#7: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESMaxHPChange(111:34761) -> 麝香
+	Change player HP to 50% for 1 turn
+	[1] ESDamageShield(74:34762) -> ヴァ―チュアスガード
+	Reduce damage from all sources by 50% for 1 turn, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESMaxHPChange(111:34746) -> 麝香
+	Change player HP to 500,000 for 1 turn
+	[1] ESAttributeBlock(107:34747) -> キミを逃がしませんよ！
+	Unable to match Heal orbs for 1 turn
+	[2] ESBoardChangeAttackBits(85:34748) -> さぁ、受け取ってください！
+	Change all orbs to Heal and Poison, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:34750) -> うふふふ
+	Delay active skills by 6 turns
+	[1] ESBindAwoken(88:34751) -> まだ諦めてませんよ？
+	Bind awoken skills for 1 turn
+	[2] ESOrbLock(94:34752) -> これで捕まえてあげます！
+	Lock all orbs
+
+#14: ESAttackMultihit(15:34753) -> リリー・オブ・ザ・ヴァリー
+Deal 1,000% damage (10 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:34763) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,40 @@
+#302670 - 裏深翠の宝石姫・カメオ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302670
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36917:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (36918:72) 木軽減
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (36900:83) 深翠の守り + フロッグチャーム
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36908:83) 深翠の試練 + エメラルドラッシュ
+   | Absorb damage when combos <= 7 for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (36911:83) カメオルーレット + エメラルドラッシュ
+   | Random 2 orbs change every 0.5s for 1 turn + Deal 108% damage (3 hits, 36% each), Deal 108% damage (3 hits, 36% each)
+   | (36914:83) 明晰のエメラルド + エメラルドラッシュ
+   | Change all Heal orbs to Wood orbs + Deal 105% damage (3 hits, 35% each), Deal 10% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (36905:83) 宝石姫の秘技 + カメオスペシャル
+   | Disable active skills for 3 turns + Absorb damage when damage >= 70,000,000 for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (36903:89) 宝石が輝いた
+     | Delay active skills by 6 turns
+   | group:
+     | (36904:15) ミラクルエメラルド
+     | Deal 700% damage (7 hits, 100% each)

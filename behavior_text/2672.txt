@@ -1,0 +1,40 @@
+#2672 - Adamantine Jewel Princess, Facet
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 2672
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36936:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (36937:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (36919:83) 金剛の守り + スネークチャーム
+ | Voids status ailments for 999 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | condition: 33% chance
+   | (36927:83) 不屈のダイヤモンド + ダイヤモンドウェーブ
+   | RCV 25% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (36930:83) 金剛の導き + ダイヤモンドウェーブ
+   | Fix orb movement starting point to random position on the board + Deal 108% damage (3 hits, 36% each), Deal 108% damage (3 hits, 36% each)
+   | (36933:83) 宝石姫の瞳 + ダイヤモンドウェーブ
+   | ATK -75% for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (36924:83) 宝石姫の秘技 + ファセットスペシャル
+   | Disable active skills for 3 turns + Seal the 1st row for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (36922:89) 宝石が輝いた
+     | Delay active skills by 6 turns
+   | group:
+     | (36923:15) ミラクルダイヤモンド
+     | Deal 700% damage (7 hits, 100% each)

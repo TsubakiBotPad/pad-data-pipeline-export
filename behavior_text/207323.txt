@@ -1,0 +1,36 @@
+#207323 - ハイビスカスの凛星霊・ロザリン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207323
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34764:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34723:83) 行きますわよ！ + 覚悟はよろしくて！ + 紅蓮の炎をくらいなさい！
+ | Voids status ailments for 999 turns + Void damage >= 500,000,000 for 999 turns + Change all orbs to Fire, Deal 150% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (34735:83) サマーチェインパラード + ブリリアントフルーレ
+   | Lock 15 random orbs + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (34738:83) サマーチェインパラード + ブリリアントフルーレ
+   | Lock 15 random orbs + Blind random 10~15 orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (34727:83) なんですって！？ + きぃー！ + 許しませんわ！！
+   | Lock all orbs + Movetime 20% for 5 turns + Increase damage to 200% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (34731:83) 覚悟なさい！ + これで終わりにしてあげますわ！
+     | Reduce damage from all sources by 99% for 1 turn + Bind awoken skills for 1 turn
+   | group:
+     | (34734:92) レッドスターフルーレ
+     | Spawn 20 random Fire orbs, Deal 600% damage
