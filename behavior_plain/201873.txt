@@ -1,0 +1,74 @@
+#201873 - 聖帝・サウザー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESLeaderSwap(75:34909) -> おれは帝王サウザー!!
+	Leader changes to random sub for 3 turns
+	[1] ESAbsorbCombo(67:34910) -> 南斗六星の帝王!!
+	Absorb damage when combos <= 8 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESRowSpawnMulti(78:34912) -> 南斗鳳凰拳奥義
+	Change the 3rd row to Light orbs
+	[1] ESColumnSpawnMulti(77:34913) -> 天翔十字鳳!!
+	Change the 4th column to Light orbs, Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESOrbChangeAttackBits(108:34914) -> 帝王に愛などいらぬ!!
+Change all Heal orbs to Light and Dark orbs, Deal 105% damage
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 15
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESDebuffATK(130:34915) -> えやーっ!!
+ATK -75% for 1 turn, Deal 106% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: ESBindRandomSub(65:34916) -> 敵は全て下郎!!
+Bind 2 random subs for 4 turns, Deal 108% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

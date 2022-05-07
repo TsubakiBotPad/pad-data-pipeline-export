@@ -1,0 +1,63 @@
+#202444 - 北斗神拳伝承者・ケンシロウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202444
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34935:129) ＿ケンシロウ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (34936:20) てめえらに今日を生きる資格はねぇ!!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (34940:101) おああああ
+     | Fix orb movement starting point to random position on the board, Deal 105% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (34941:15) あたたたたーっ!!
+     | Deal 110% damage (10 hits, 11% each)
+   | group:
+   | condition: turn 3 while HP > 49
+     | (34942:109) お前はもう死んでいる……
+     | Random 7 orbs change every 2.0s for 3 turns, Deal 115% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (34943:104) おまえもまさしく強敵だった!!
+     | A row of clouds appears for 1 turn at 1st row, 1st column, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (34940:101) おああああ
+     | Fix orb movement starting point to random position on the board, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (34941:15) あたたたたーっ!!
+     | Deal 110% damage (10 hits, 11% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (34937:83) 北斗神拳究極奥義 + 無想転生
+     | Absorb damage when combos <= 10 for 5 turns + Void damage >= 50,000,000 for 5 turns
+   | group:
+   | condition: turn 2
+     | (34940:101) おああああ
+     | Fix orb movement starting point to random position on the board, Deal 105% damage
+   | group:
+   | condition: turn 3
+     | (34941:15) あたたたたーっ!!
+     | Deal 110% damage (10 hits, 11% each)
+   | group:
+   | condition: turn 4
+     | (34942:109) お前はもう死んでいる……
+     | Random 7 orbs change every 2.0s for 3 turns, Deal 115% damage
+   | group:
+   | condition: turn 5
+     | (34943:104) おまえもまさしく強敵だった!!
+     | A row of clouds appears for 1 turn at 1st row, 1st column, Deal 120% damage
