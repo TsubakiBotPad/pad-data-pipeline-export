@@ -1,0 +1,30 @@
+#506415 - 憤怒の大罪龍王・バルディターン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506415
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36252:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (36223:83) 我の前に現われたことを… + 後悔させてやろう！
+ | Absorb damage when combos <= 5 for 3 turns + Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36231:79) ダークラースフレア
+   | Change the 5th row to Fire orbs, Deal 100% damage
+   | condition: 33% chance
+   | (36230:79) ダークラースブレス
+   | Change the 1st row to Fire orbs, Deal 100% damage
+   | condition: 34% chance
+   | (36229:104) 黒煙
+   | A 1×1 square of clouds appears for 1 turn at a random location, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36226:83) 貴様の罪を… + 我が裁いてやろう！
+   | Voids status ailments for 3 turns + Increase damage to 150% for the next 3 turns

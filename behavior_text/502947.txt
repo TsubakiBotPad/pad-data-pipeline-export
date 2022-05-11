@@ -1,0 +1,22 @@
+#502947 - 夜行の屍霊龍・ドラゴンゾンビ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 502947
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36168:92) 立ち去れ…
+ | Spawn 3 random Poison orbs
+ group:
+ | group:
+   | (36173:48) デッドスピリットブレス
+   | Change all Poison orbs to Fire orbs, Deal 120% damage
+   | (36172:92) デッドポイズンブレス
+   | Spawn 3 random Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36169:83) とまれ… + 考え直せ…
+   | Blind all orbs on the board + Random 1 orbs change every 1.0s for 3 turns

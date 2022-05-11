@@ -1,0 +1,51 @@
+#506415 - 憤怒の大罪龍王・バルディターン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:36224) -> 我の前に現われたことを…
+	Absorb damage when combos <= 5 for 3 turns
+	[1] ESDamageShield(74:36225) -> 後悔させてやろう！
+	Reduce damage from all sources by 50% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESRowSpawnMulti(79:36231) -> ダークラースフレア
+Condition: 33% chance (ai:0 rnd:33)
+Change the 5th row to Fire orbs, Deal 100% damage
+
+#5: ESRowSpawnMulti(79:36230) -> ダークラースブレス
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st row to Fire orbs, Deal 100% damage
+
+#6: ESCloud(104:36229) -> 黒煙
+Condition: 34% chance (ai:0 rnd:34)
+A 1×1 square of clouds appears for 1 turn at a random location, Deal 80% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESStatusShield(20:36227) -> 貴様の罪を…
+	Voids status ailments for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:36228) -> 我が裁いてやろう！
+	Increase damage to 150% for the next 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSuperResolve(129:36252) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,22 @@
+#601214 - 冥界の闇番犬・ケルベロス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 601214
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36182:83) 旨そうな匂いがするぜ！ + 食ってやる！
+ | Jammer skyfall +10% for 3 turns + Change 1 random orb type to Jammer orbs
+ group:
+ | group:
+   | (36188:48) ヘルフレイム
+   | Change all Jammer orbs to Fire orbs, Deal 120% damage
+   | (36189:92) マッドハウリング
+   | Spawn 6 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36185:83) 腹減ったぜ… + 食ってやる！
+   | Reduce damage from all sources by 50% for 3 turns + Change 1 random orb type to Jammer orbs
