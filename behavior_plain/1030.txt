@@ -1,4 +1,4 @@
-#1030 - メルエム
+#1030 - Meruem
 monster size: 5
 new AI: False
 start/max counter: 1
@@ -13,7 +13,7 @@ Branch on flag & 1, target rnd 6
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESRecoverPlayer(55:826) -> しっかり体調を戻せ
+#4: ESRecoverPlayer(55:826) -> Go recover your strength.
 Player recover 100% HP
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -31,24 +31,24 @@ Branch on flag & 2, target rnd 12
 #9: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#10: ESStorePower(8:827) -> おぬし　なかなか強いな
+#10: ESStorePower(8:827) -> You are quite strong indeed.
 Condition: When < 75% HP (ai:100 rnd:0)
 Increase damage to 200% for the next attack
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESOrbChangeAttack(48:828) -> まぁよいわ
+#12: ESOrbChangeAttack(48:828) -> Very well, then.
 Condition: 60% chance (ai:60 rnd:0)
 Change a random attribute to Jammer orbs, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESInactivity16(16:829) -> 余の力こそが
+#14: ESInactivity16(16:829) -> My power is stronger...
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Do nothing
 
-#15: ESAttackMultihit(15:830) -> この世の頂点に在る！
+#15: ESAttackMultihit(15:830) -> ...than any other in existence.
 Condition: When < 25% HP (ai:100 rnd:0)
 Deal 400% damage (4 hits, 100% each)

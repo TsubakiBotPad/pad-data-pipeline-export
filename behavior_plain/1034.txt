@@ -1,4 +1,4 @@
-#1034 - 陶酔の蝶・プフ
+#1034 - Euphoric Butterly, Pouf
 monster size: 4
 new AI: True
 start/max counter: 1
@@ -13,7 +13,7 @@ Branch on flag & 1, target rnd 6
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESStatusShield(20:3070) -> Scale Powder Love Spring
+#4: ESStatusShield(20:3070) -> Spiritual Message
 Voids status ailments for 999 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -22,11 +22,11 @@ end_turn
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#7: ESBindRandom(1:833) -> 催眠作用のある鱗粉
+#7: ESBindRandom(1:833) -> Wing Scales with Hypnotic Effect
 Condition: When < 75% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Bind 3 random cards for 2~3 turns
 
-#8: ESAttackMultihit(15:3073) -> That's all it is
+#8: ESAttackMultihit(15:3073) -> That's all there is to it.
 Deal 100% damage
 
 #9: ESBranchFlag(43:10) -> ESBranchFlag
@@ -37,14 +37,14 @@ flag SET 0b11
 
 #11: SkillSet:
 	Condition: When < 50% HP (ai:100 rnd:0)
-	[0] ESDamageShield(74:3071) -> Lord of the Flies
+	[0] ESDamageShield(74:3071) -> Beelzebub!
 	Reduce damage from all sources by 30% for 99 turns
-	[1] ESAttackMultihit(15:3072) -> Alter Ego Attack
+	[1] ESAttackMultihit(15:3072) -> Segments' Attacks
 	Deal 60% damage (6 hits, 10% each)
 
 #12: SkillSet:
 	Condition: When < 50% HP (ai:100 rnd:0)
-	[0] ESAttackMultihit(15:3073) -> That's all it is
+	[0] ESAttackMultihit(15:3073) -> That's all there is to it.
 	Deal 100% damage
-	[1] ESAttackMultihit(15:3072) -> Alter Ego Attack
+	[1] ESAttackMultihit(15:3072) -> Segments' Attacks
 	Deal 60% damage (6 hits, 10% each)
