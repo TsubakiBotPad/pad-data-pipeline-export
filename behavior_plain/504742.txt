@@ -1,0 +1,36 @@
+#504742 - 奇炎なるもの・クトゥグア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:36411) -> ガァアアア！
+	Reduce damage from all sources by 50% for 2 turns
+	[1] ESAbsorbThreshold(87:36412) -> グルァアアアア！
+	Absorb damage when damage >= 1,000,000 for 1 turn
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:36414) -> ガォオオオ！
+	No skyfall for 3 turns
+	[1] ESAbsorbAttribute(53:36415) -> グルォオオオオ！
+	Absorb Fire damage for 3 turns
+
+#4: ESRandomSpawn(92:36416) -> グルォ！
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Fire orbs, Deal 80% damage
+
+#5: ESRandomSpawn(92:36417) -> グルァ！
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Fire and Water orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttributeResist(72:36478) -> 水軽減
+Reduce damage from Water attrs by 50%

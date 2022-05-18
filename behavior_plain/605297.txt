@@ -1,0 +1,48 @@
+#605297 - 究毒の魔学者・ガスロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:36448) -> 瓶の中身が欲しければ…
+	Poison skyfall +10% for 3 turns
+	[1] ESAbsorbCombo(67:36449) -> 力ずくで奪い返してみたまえ！
+	Absorb damage when combos <= 4 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESOrbLock(94:36453) -> チェインポーション
+Condition: 50% chance (ai:0 rnd:50)
+Lock 5 random orbs, Deal 80% damage
+
+#5: ESRandomSpawn(92:36454) -> リキッドポーション
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Water, Dark, and Poison orbs, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESAttributeBlock(107:36451) -> フフ…
+	Unable to match Poison orbs for 2 turns
+	[1] ESDamageShield(74:36452) -> 楽しませてもらおうか！
+	Reduce damage from all sources by 75% for 3 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESDeathCry(69:36465) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: 私から奪えるものなら…|奪い取ってみたまえ！

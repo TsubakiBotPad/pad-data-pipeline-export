@@ -1,0 +1,59 @@
+#705297 - 究毒の魔学者・ガスロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:36456) -> フフフ…
+	ATK -50% for 3 turns
+	[1] ESAbsorbThreshold(87:36457) -> 全力でお相手しよう！
+	Absorb damage when damage >= 1,000,000 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESOrbLock(94:36462) -> チェインポーション
+Lock all Poison orbs, Deal 120% damage
+
+#6: ESRandomSpawn(92:36461) -> ポイズンポーション
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Poison orbs, Deal 100% damage
+
+#7: ESBoardChangeAttackBits(85:36463) -> リキッドポーション
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:36459) -> フフフフ…
+	Increase damage to 150% for the next 3 turns
+	[1] ESDamageShield(74:36460) -> もっと楽しませてもらおうか！
+	Reduce damage from all sources by 80% for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESRandomSpawn(92:36464) -> 魔力を回収させてもらおう！！
+Spawn 5 random Poison orbs, Deal 150% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:36466) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,27 @@
+#606451 - 灼月夜の魔王・ジル＝レガート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 606451
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36428:83) 遠慮はいらんぞ + 全力でかかってくるがよい
+ | Reduce damage from all sources by 50% for 3 turns + Absorb damage when damage >= 1,000,000 for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36434:94) ブラッディチェイン
+   | Lock 5 random orbs, Deal 80% damage
+   | condition: 33% chance
+   | (36435:77) インフェルノソード
+   | Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage
+   | condition: 34% chance
+   | (36436:77) アビスフリーズブレード
+   | Change the 6th column to Dark orbs and the 1st column to Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36431:83) ははははは！ + もっと魔法をみせるがよい！
+   | ATK -50% for 3 turns + Absorb Water damage for 2 turns

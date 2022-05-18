@@ -1,0 +1,24 @@
+#605297 - 究毒の魔学者・ガスロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 605297
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36447:83) 瓶の中身が欲しければ… + 力ずくで奪い返してみたまえ！
+ | Poison skyfall +10% for 3 turns + Absorb damage when combos <= 4 for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (36453:94) チェインポーション
+   | Lock 5 random orbs, Deal 80% damage
+   | condition: 50% chance
+   | (36454:92) リキッドポーション
+   | Spawn 3 random Water, Dark, and Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36450:83) フフ… + 楽しませてもらおうか！
+   | Unable to match Poison orbs for 2 turns + Reduce damage from all sources by 75% for 3 turns
