@@ -1,0 +1,61 @@
+#8810 - 手折正弦
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:37714) -> ……やあ
+Absorb Water damage for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAbsorbAttribute(53:37715) -> いや、違うな、こうじゃない
+Condition: One-time use (ai:100 rnd:0) (cost: 16)
+Absorb Water and Dark damage for 1 turn, Deal 85% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESNoSkyfall(127:37717) -> 違うな
+	No skyfall for 5 turns
+	[1] ESAbsorbAttribute(53:37718) -> こうでもない
+	Absorb Water, Light, and Dark damage for 1 turn, Deal 95% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDebuffRCV(105:37720) -> 私は一体
+	RCV 25% for 3 turns
+	[1] ESVoidShield(71:37721) -> どうしてここにいるんだ？
+	Void damage >= 5,000,000 for 3 turns
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAttackUPRemainingEnemies(17:37723) -> じゃあそろそろ始めようか
+	Increase damage to 150% for the next 999 turns
+	[1] ESDamageShield(74:37724) -> というより、終わらすのだが
+	Reduce damage from all sources by 75% for 5 turns
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESLeaderSwap(75:37726) -> もう待てないな
+	Leader changes to random sub for 1 turn
+	[1] ESAttackMultihit(15:37727) -> 私はうんざりだ
+	Deal 75% damage (3 hits, 25% each)
+
+#11: ESOrbLock(94:37728) -> アドリブは許されていない
+Lock 15 random orbs, Deal 80% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESTypeResist(118:37713) -> ＿手折神悪魔半減
+Reduce damage from God and Devil types by 50%

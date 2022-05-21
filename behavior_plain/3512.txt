@@ -1,0 +1,105 @@
+#3512 - Awoken Sun Wukong
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:36958) -> 俺が相手をしてやろう
+	Voids status ailments for 999 turns
+	[1] ESBlindStickySkyfall(128:36959) -> 仙丹の活力
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+	[2] ESAbsorbAttribute(53:36960) -> 功徳の大成
+	Absorb Wood and Light damage for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESOrbLock(94:36970) -> 金猿神の捕縛
+	Lock all Wood and Light orbs
+	[1] ESAttackMultihit(15:36971) -> 如意棒
+	Deal 102% damage (3 hits, 34% each)
+
+#6: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESSpinnersFixed(110:36973) -> 金猿神の妙技
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESAttackMultihit(15:36974) -> 如意棒
+	Deal 102% damage (3 hits, 34% each)
+
+#7: SkillSet:
+	[0] ESSkillDelay(89:36976) -> 金猿神の威圧
+	Delay active skills by 1 turn
+	[1] ESDamageShield(74:36977) -> 金猿神の鉄壁
+	Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:36966) -> 功徳の大成
+	Absorb Fire, Water, and Wood damage for 5 turns
+	[1] ESOrbLock(94:36967) -> 仙丹の秘奥
+	Lock all orbs
+	[2] ESAttackUPRemainingEnemies(17:36968) -> さぁ、ここからだ！
+	Increase damage to 150% for the next 999 turns
+
+#10: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESOrbLock(94:36981) -> 金猿神の捕縛
+	Lock 10 random orbs
+	[1] ESAttackMultihit(15:36982) -> 如意棒
+	Deal 102% damage (3 hits, 34% each)
+
+#11: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESSpinnersFixed(110:36984) -> 金猿神の妙技
+	Specific orbs change every 0.5s for 1 turn
+	[1] ESAttackMultihit(15:36985) -> 如意棒
+	Deal 102% damage (3 hits, 34% each)
+
+#12: SkillSet:
+	[0] ESSkillDelay(89:36987) -> 金猿神の威圧
+	Delay active skills by 1 turn
+	[1] ESDamageShield(74:36988) -> 金猿神の鉄壁
+	Reduce damage from all sources by 75% for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:36962) -> 幻惑如意棒
+	Bind awoken skills for 1 turn
+	[1] ESBlindStickyRandom(97:36963) -> 金猿神の秘技
+	Blind random 10 orbs for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:36964) -> 龍輪如意棒
+Deal 750% damage (5 hits, 150% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:36978) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#21: ESTypeResist(118:36979) -> 攻撃半減
+Reduce damage from Attacker types by 50%

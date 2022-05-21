@@ -1,0 +1,43 @@
+#8808 - エピソード
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8808
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37701:73) ＿エピソード根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (37702:83) オッケ。 + 早い者勝ちってこったな
+ | ATK -50% for 5 turns + Delay active skills by 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (37706:92) 超ウケる
+     | Spawn 4 random Light and Dark orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (37707:85) 手間が省けて助かるぜ
+     | Change all orbs to Light, Dark, and Heal, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (37708:139) 今日は特別サービスだ
+     | Haste all cards' skills by 2 turns, Deal 97% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (37709:17) 手加減してもらえるとか思うなよ
+     | Increase damage to 150% for the next 999 turns
+   | group:
+   | condition: turn 2
+     | (37710:83) 霧の俺に + 当たるわけねえだろうが！
+     | A row of clouds appears for 3 turns at 1st row, 1st column + Blind random 5 orbs for 3 turns, Deal 80% damage
+ | group:
+ | condition: hp <= 1
+   | (37705:15) はい、俺の勝ちぃ
+   | Deal 130% damage (5 hits, 26% each)

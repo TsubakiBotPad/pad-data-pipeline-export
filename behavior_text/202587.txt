@@ -1,0 +1,42 @@
+#202587 - イエローキーパー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202587
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36282:83) イエローコート + タイムブースト + レディ + ゴー！
+ | Light skyfall +100% for 10 turns + Movetime 400% for 10 turns + Delay active skills by 4 turns + Spawn 14 random Fire, Water, and Wood orbs
+ group:
+ | group:
+ | condition: turn 1
+   | condition: 33% chance
+   | (36291:83) ゲーミングビーム + スタートポイント
+   | Change the 1st, 3rd, and 4th columns to Fire orbs and the 2nd and 5th columns to Dark orbs + Fix orb movement starting point to random position on the board
+   | condition: 33% chance
+   | (36292:83) ゲーミングビーム + スタートポイント
+   | Change the 1st, 3rd, and 4th columns to Water orbs and the 2nd and 5th columns to Dark orbs + Fix orb movement starting point to random position on the board
+   | condition: 34% chance
+   | (36293:83) ゲーミングビーム + スタートポイント
+   | Change the 1st, 3rd, and 4th columns to Wood orbs and the 2nd and 5th columns to Dark orbs + Fix orb movement starting point to random position on the board
+ | group:
+ | condition: turn 2
+   | condition: 33% chance
+   | (36294:83) ゲーミングビーム + スタートポイント
+   | Change the 2nd and 4th rows to Dark orbs and the 1st and 3rd rows to Fire orbs + Fix orb movement starting point to random position on the board
+   | condition: 33% chance
+   | (36295:83) ゲーミングビーム + スタートポイント
+   | Change the 2nd and 4th rows to Dark orbs and the 1st and 3rd rows to Water orbs + Fix orb movement starting point to random position on the board
+   | condition: 34% chance
+   | (36296:83) ゲーミングビーム + スタートポイント
+   | Change the 2nd and 4th rows to Dark orbs and the 1st and 3rd rows to Wood orbs + Fix orb movement starting point to random position on the board
+ | group:
+ | condition: turns 3-4
+   | (36297:92) ゲーミングバースト
+   | Spawn 9 random Fire, Water, Wood, and Dark orbs
+ | group:
+   | (36298:85) パープルエンド
+   | Change all orbs to Dark, Deal 100% damage

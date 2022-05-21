@@ -1,0 +1,39 @@
+#8810 - 手折正弦
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 8810
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37713:118) ＿手折神悪魔半減
+ | Reduce damage from God and Devil types by 50%
+ type: PREEMPT
+ | (37714:53) ……やあ
+ | Absorb Water damage for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | (37716:83) 違うな + こうでもない
+   | No skyfall for 5 turns + Absorb Water, Light, and Dark damage for 1 turn, Deal 95% damage
+ | group:
+ | condition: turn 2
+   | (37715:53) いや、違うな、こうじゃない
+   | Absorb Water and Dark damage for 1 turn, Deal 85% damage
+ | group:
+ | condition: turn 3
+   | (37719:83) 私は一体 + どうしてここにいるんだ？
+   | RCV 25% for 3 turns + Void damage >= 5,000,000 for 3 turns
+ | group:
+ | condition: turn 4
+   | (37722:83) じゃあそろそろ始めようか + というより、終わらすのだが
+   | Increase damage to 150% for the next 999 turns + Reduce damage from all sources by 75% for 5 turns
+ | group:
+ | condition: turn 5
+   | (37725:83) もう待てないな + 私はうんざりだ
+   | Leader changes to random sub for 1 turn + Deal 75% damage (3 hits, 25% each), Deal 75% damage (3 hits, 25% each)
+ | group:
+   | (37728:94) アドリブは許されていない
+   | Lock 15 random orbs, Deal 80% damage
