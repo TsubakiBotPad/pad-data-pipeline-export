@@ -1,0 +1,22 @@
+#500645 - 奈落の狂皇子・ベルゼブブ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500645
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36568:83) お前にこのオレ様が倒せるかぁ？ + おらおらぁ！！
+ | Void damage >= 150,000 for 3 turns + Change 3 random orbs to Poison orbs, Deal 50% damage
+ group:
+ | group:
+   | (36575:108) デッドリーホイール
+   | Change all Jammer and Poison orbs to Dark orbs, Deal 120% damage
+   | (36574:92) デッドリーポイズン
+   | Spawn 3 random Dark and Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36571:83) まだまだいくぜぇ！ + おらおらおらぁ！！
+   | Reduce damage from all sources by 50% for 2 turns + Change 3 random orbs to Poison orbs, Deal 100% damage

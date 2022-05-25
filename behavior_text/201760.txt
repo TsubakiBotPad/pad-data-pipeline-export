@@ -1,0 +1,51 @@
+#201760 - 裏始まりの龍喚士・ソニア＝グラン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 201760
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1829:73) パッシブ
+ | Survive attacks with 1 HP when HP > 50%
+ | (1740:72) 光闇耐性
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (35981:83) よく来たのう、勇ましき者よ + 龍刃障壁
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (1834:66) 継界召龍陣・屍霊龍
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (1835:64) ヘルポイズンブレス
+     | Change 9 random orbs to Poison orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (1836:66) 継界召龍陣・星龍帝
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (1837:15) ディバインスター
+     | Deal 250% damage (5 hits, 50% each)
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (1838:66) 継界召龍陣・真龍王
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (1839:50) ゼロ・ブラスト
+     | Player -100% HP
+ | group:
+ | condition: turn 1, hp <= 49
+   | (1833:17) ドラりんのエンハンス！
+   | Increase damage to 250% for the next 999 turns
+ | group:
+ | condition: hp <= 1
+   | (1831:7) 龍の雫
+   | Enemy recover 100% HP

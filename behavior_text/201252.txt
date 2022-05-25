@@ -1,0 +1,21 @@
+#201252 - 真覚醒ゼウス・ヴァルカン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 201252
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (35974:83) 神王の試練 + ヴァルカンフィールド
+ | Absorb damage when combos <= 8 for 10 turns + No skyfall for 10 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2, hp <= 100
+   | (1171:48) ドラゴニックブレード
+   | Change all Water orbs to Fire orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 29
+   | (1173:15) マーズディライト
+   | Deal 150% damage (3 hits, 50% each)

@@ -1,0 +1,33 @@
+#200645 - 真奈落の狂皇子・ベルゼブブ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 200645
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (35967:83) どけどけどけぇ～！！ + 俺様のお通りだ！！
+ | Deal 200% damage + Voids status ailments for 999 turns, Deal 200% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (35968:68) くらいやがれっ！
+   | Poison skyfall +25% for 1 turn, Deal 100% damage
+ | group:
+   | condition: 50% chance
+   | (35971:48) もう容赦しねぇ！
+   | Change a random attribute to Dark orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 74
+   | condition: 70% chance
+   | (35969:15) デッドリードライブ！
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 50% chance
+   | (35971:48) もう容赦しねぇ！
+   | Change a random attribute to Dark orbs, Deal 90% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (35970:92) 毒の海に沈めぇ！！
+   | Change all orbs to Poison

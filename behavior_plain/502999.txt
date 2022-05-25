@@ -1,0 +1,48 @@
+#502999 - 冥瞳の魔神爵・グレモリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:36601) -> ここで脱走劇は終わりよ！
+	Void damage >= 150,000 for 4 turns
+	[1] ESDebuffATK(130:36602) -> 私が捕まえてあげる！
+	ATK -50% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESSpinnersRandom(109:36607) -> ミステリーサイス
+Condition: 33% chance (ai:0 rnd:33)
+Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+
+#5: ESRandomSpawn(92:36608) -> ミステリーダーク
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 3 random Dark orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:36606) -> ミステリーワード
+Condition: 34% chance (ai:0 rnd:34)
+Spawn 3 random Dark and Heal orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDamageShield(74:36604) -> ふふ、お遊びは終わりよ！
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:36605) -> 本気で相手をしてあげる！
+	Increase damage to 150% for the next 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

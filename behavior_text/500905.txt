@@ -1,0 +1,24 @@
+#500905 - ファントムチェイサー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 500905
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36668:83) サーチ開始 + 脱走者発見！！
+ | Fix orb movement starting point to random position on the board + Void damage >= 100,000 for 2 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (36530:77) シャドウサイス
+   | Change the 1st column to Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (36531:77) シャドウサイス
+   | Change the 6th column to Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36527:83) モードチェンジ！ + 敵ヲ排除シマス！
+   | No skyfall for 3 turns + Increase damage to 150% for the next 3 turns

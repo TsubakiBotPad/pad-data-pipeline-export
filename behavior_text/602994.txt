@@ -1,0 +1,24 @@
+#602994 - 魔伯爵・ロノウェ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 602994
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36627:83) 我らが城主のお目覚めだぜ！ + ソウルをささげろ！
+ | Jammer skyfall +10% for 3 turns + Delay active skills by 2 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (36560:108) ハイトーンシャウト
+   | Change all Jammer orbs to Dark orbs, Deal 120% damage
+   | condition: 50% chance, when required attributes on board
+   | (36561:92) デスヴォイス
+   | Spawn 3 random Wood, Dark, and Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36630:83) 生意気な奴らめ！ + ビートに酔いしれろ！
+   | Reduce damage from all sources by 75% for 2 turns + ATK -75% for 2 turns

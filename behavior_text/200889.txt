@@ -1,0 +1,32 @@
+#200889 - 裏狂荒の戦軍神・アレス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 200889
+approved: False
+
+level: 3
+ type: PREEMPT
+ | (35975:128) クルーエルウォー
+ | For 5 turns, 10% chance for skyfall orbs to be blinded for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1167:50) 破壊の炎槍
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1166:48) 狂乱の闇槍
+     | Change a random attribute to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (1169:15) ウォールブレイカー
+     | Deal 150% damage (2 hits, 75% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (1168:62) クルーエルウォー
+     | Blind all orbs on the board, Deal 50% damage

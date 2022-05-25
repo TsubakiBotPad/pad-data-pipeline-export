@@ -1,0 +1,27 @@
+#502999 - 冥瞳の魔神爵・グレモリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 502999
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36600:83) ここで脱走劇は終わりよ！ + 私が捕まえてあげる！
+ | Void damage >= 150,000 for 4 turns + ATK -50% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36607:109) ミステリーサイス
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+   | condition: 33% chance
+   | (36608:92) ミステリーダーク
+   | Spawn 3 random Dark orbs, Deal 100% damage
+   | condition: 34% chance
+   | (36606:92) ミステリーワード
+   | Spawn 3 random Dark and Heal orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (36603:83) ふふ、お遊びは終わりよ！ + 本気で相手をしてあげる！
+   | Reduce damage from all sources by 75% for 3 turns + Increase damage to 150% for the next 3 turns
