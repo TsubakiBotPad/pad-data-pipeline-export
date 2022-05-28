@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBindAwoken(88:34673) -> このオレが、闇から引きずり出してやる!!!!
+	[0] ESBindAwoken(88:34673) -> I'll drag you out of the shadows!!
 	Bind awoken skills for 1 turn
-	[1] ESBindRandomSub(65:34674) -> 腕時計型麻酔銃
+	[1] ESBindRandomSub(65:34674) -> Stun-Gun Wristwatch
 	Bind 2 random subs for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,12 +24,12 @@ end_turn
 
 #6: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESAttackUPRemainingEnemies(17:34678) -> キック力増強シューズ
+	[0] ESAttackUPRemainingEnemies(17:34678) -> Power-Enhancing Kick Shoes
 	Increase damage to 300% for the next 999 turns
-	[1] ESVoidShield(71:34679) -> 伸縮サスペンダー
+	[1] ESVoidShield(71:34679) -> Elasticity Suspenders
 	Void damage >= 50,000,000 for 5 turns
 
-#7: ESBoardChangeAttackBits(85:34680) -> これなら…どぉだーっ!!!
+#7: ESBoardChangeAttackBits(85:34680) -> How do you like...this!!
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Change all orbs to Water, Deal 65% damage
 
@@ -39,7 +39,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESFixedStart(101:34675) -> 犯人追跡メガネ
+#10: ESFixedStart(101:34675) -> Culprit-Tracking Glasses
 Fix orb movement starting point to random position on the board, Deal 95% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -48,11 +48,11 @@ end_turn
 #12: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#13: ESAttributeBlock(107:34676) -> よめたぞ このトリック!!
+#13: ESAttributeBlock(107:34676) -> I saw through your trick!
 Unable to match Water and Light orbs for 1 turn, Deal 105% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:34671) -> ＿コナン超根性
+#15: ESSuperResolve(129:34671) -> ＿Conan Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
