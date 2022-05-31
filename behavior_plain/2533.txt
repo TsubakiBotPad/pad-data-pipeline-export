@@ -1,0 +1,90 @@
+#2533 - Excursion Dancing Goddess, Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:38024) -> 一緒に遊びませんか？
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:38025) -> 天舞神の祈り
+	Light and Dark skyfall +15% for 5 turns
+	[2] ESAbsorbCombo(67:38026) -> 光明の導き
+	Absorb damage when combos <= 7 for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 10
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 16
+
+#6: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESDebuffRCV(105:38038) -> 失光
+	RCV 50% for 1 turn
+	[1] ESAttackMultihit(15:38039) -> 天舞
+	Deal 102% damage (3 hits, 34% each)
+
+#7: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:38041) -> 照輝
+	Spawn 5 random Light orbs
+	[1] ESAttackMultihit(15:38042) -> 天舞
+	Deal 102% damage (3 hits, 34% each)
+
+#8: SkillSet:
+	[0] ESOrbLock(94:38044) -> 光錠
+	Lock 7 random orbs
+	[1] ESAttackMultihit(15:38045) -> 天舞
+	Deal 102% damage (3 hits, 34% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESBoardChangeAttackBits(85:38028) -> 天舞陣
+	Change all orbs to Light, Dark, Heal, Jammer, and Poison, Deal 103% damage
+	[1] ESAbsorbCombo(67:38029) -> 光明の導き
+	Absorb damage when combos <= 9 for 1 turn
+	[2] ESAttackUPRemainingEnemies(17:38030) -> 遊びは終わりです
+	Increase damage to 500% for the next 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESChangeAttribute(46:38032) -> 神座の煌めき
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:38033) -> 天舞神の憤怒
+	Deal 175% damage (7 hits, 25% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESRecoverEnemy86(86:38035) -> 神座の光明
+	Enemy recover 45% HP
+	[1] ESDebuffMovetime(39:38036) -> これはどうでしょう？
+	Movetime 25% for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESTypeResist(118:38046) -> 悪魔半減
+Reduce damage from Devil types by 50%
+
+#19: ESResolve(73:38047) -> 根性
+Survive attacks with 1 HP when HP > 50%

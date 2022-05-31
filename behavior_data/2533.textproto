@@ -1,0 +1,102 @@
+  monster_id: 2533
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 38046
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 38047
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 38023
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          condition {
+            trigger_turn: 5
+            always_trigger_above: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 38027
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                trigger_turn_end: 4
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 33
+                  }
+                  enemy_skill_id: 38037
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 38040
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 38043
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  enemy_skill_id: 38031
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 1
+            trigger_turn: 1
+            trigger_turn_end: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 38034
+            }
+          }
+        }
+      }
+    }
+  }

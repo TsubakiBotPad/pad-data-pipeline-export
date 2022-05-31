@@ -1,0 +1,40 @@
+#2533 - Excursion Dancing Goddess, Amaterasu Ohkami
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 2533
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38046:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ | (38047:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (38023:83) 一緒に遊びませんか？ + 天舞神の祈り + 光明の導き
+ | Voids status ailments for 999 turns + Light and Dark skyfall +15% for 5 turns + Absorb damage when combos <= 7 for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (38027:83) 天舞陣 + 光明の導き + 遊びは終わりです
+   | Change all orbs to Light, Dark, Heal, Jammer, and Poison + Absorb damage when combos <= 9 for 1 turn + Increase damage to 500% for the next 999 turns, Deal 103% damage
+ | group:
+   | group:
+   | condition: turns 1-4
+     | condition: 33% chance
+     | (38037:83) 失光 + 天舞
+     | RCV 50% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | condition: 50% chance
+     | (38040:83) 照輝 + 天舞
+     | Spawn 5 random Light orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (38043:83) 光錠 + 天舞
+     | Lock 7 random orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+     | (38031:83) 神座の煌めき + 天舞神の憤怒
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 175% damage (7 hits, 25% each), Deal 175% damage (7 hits, 25% each)
+ | group:
+ | condition: turns 1-4, hp <= 1
+   | (38034:83) 神座の光明 + これはどうでしょう？
+   | Enemy recover 45% HP + Movetime 25% for 1 turn

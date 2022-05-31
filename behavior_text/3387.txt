@@ -1,0 +1,38 @@
+#3387 - Reincarnated Susano no Mikoto
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3387
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38082:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 3 when HP <= 50%
+ type: PREEMPT
+ | (38077:83) 荒嵐神の魂 + 灼嵐の剛壁 + 力を見せてみろ
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 1 turn + Poison skyfall +15% for 5 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (38088:83) 灼嵐の剛壁 + 討滅の神念
+   | Reduce damage from all sources by 75% for 1 turn + Lock all Wood and Heal orbs, Deal 100% damage
+   | condition: 25% chance
+   | (38091:83) 灼嵐の剛壁 + 暗嵐
+   | Reduce damage from all sources by 75% for 1 turn + Blind random 6 orbs for 2 turns, Deal 101% damage
+   | condition: 25% chance
+   | (38094:83) 灼嵐の剛壁 + 消嵐
+   | Reduce damage from all sources by 50% for 1 turn + Unable to match Fire orbs for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (38097:83) 灼嵐の剛壁 + 鉄壁の神念
+   | Reduce damage from all sources by 50% for 1 turn + Void damage >= 100,000,000 for 1 turn, Deal 101% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (38081:83) 突破できるか？ + 灼嵐の剛壁
+     | Movetime -2s for 3 turns + Reduce damage from all sources by 90% for 3 turns
+   | group:
+     | (38085:83) 荒嵐 + 天叢雲剣
+     | Bind awoken skills for 1 turn + Deal 910% damage (7 hits, 130% each), Deal 910% damage (7 hits, 130% each)

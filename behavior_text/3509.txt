@@ -1,0 +1,46 @@
+#3509 - Awoken Yamato Takeru
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 3509
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38076:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (38048:83) 勝負だ + 武皇神の領域 + 炎盾
+ | Voids status ailments for 999 turns + Change board size to 7x6 for 3 turns + Void damage >= 100,000,000 for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (38070:83) 炎一閃 + 草薙の剣
+   | Change the 3rd row to Fire orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (38073:83) 癒炎剣 + 不滅の炎剣
+   | Spawn 5 random Heal orbs + Change all Water orbs to Fire orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (38058:83) 草薙の双神剣 + 拘束の炎剣
+     | Change all orbs to Fire and Water + Lock all Fire orbs
+   | group:
+     | condition: 33% chance
+     | (38061:83) 毒焔 + 草薙の剣
+     | Change 5 random orbs to Poison orbs + Deal 102% damage (3 hits, 34% each), Deal 10% damage
+     | condition: 50% chance
+     | (38064:83) 草薙の炎剣 + 草薙の水剣
+     | Change the 1st row to Fire and Heal orbs + Change the 1st column to Water and Heal orbs, Deal 51% damage
+     | (38067:83) 永久の焔 + 草薙の剣
+     | Absorb damage when combos <= 7 for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (38052:83) 抗うといい + 火廻
+     | Movetime 50% for 1 turn + Random 1 orbs change every 0.5s for 1 turn
+   | group:
+     | (38055:83) 消え去れ + 終焉の剣
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 910% damage (7 hits, 130% each), Deal 910% damage (7 hits, 130% each)

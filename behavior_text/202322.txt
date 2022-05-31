@@ -1,0 +1,44 @@
+#202322 - 裏覚醒ヤマタノオロチ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202322
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38121:73) 根性50％
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (38100:83) 八相の封印 + 八相の神力 + 破滅の眼差し
+ | Bind active skills for 5 turns + No skyfall for 3 turns + Absorb damage when damage >= 80,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2
+     | condition: 33% chance
+     | (38112:83) 八相の導き + 八相の拘束
+     | Fix orb movement starting point to random position on the board + Lock all Water and Heal orbs, Deal 100% damage
+     | condition: 50% chance
+     | (38115:83) 八界の神魂 + 破壊の渦
+     | Spawn 4 random Water and Poison orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (38118:83) 八相の呪縛 + 暗黒の吐息
+     | Bind 2 random subs for 2 turns + Blind all orbs on the board, Deal 10% damage
+   | group:
+   | condition: turn 3
+     | (38108:83) 堅牢の龍鱗 + 八相の威圧 + 八相の昂揚
+     | Reduce damage from all sources by 50% for 99 turns + ATK -50% for 5 turns + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 33% chance
+     | (38112:83) 八相の導き + 八相の拘束
+     | Fix orb movement starting point to random position on the board + Lock all Water and Heal orbs, Deal 100% damage
+     | condition: 50% chance
+     | (38115:83) 八界の神魂 + 破壊の渦
+     | Spawn 4 random Water and Poison orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (38118:83) 八相の呪縛 + 暗黒の吐息
+     | Bind 2 random subs for 2 turns + Blind all orbs on the board, Deal 10% damage
+ | group:
+ | condition: hp <= 1
+   | (38104:83) 八相の眼光 + 八相の置き土産 + ゴゴゴゴゴ…
+   | Bind awoken skills for 1 turn + For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Reduce self HP to 0
