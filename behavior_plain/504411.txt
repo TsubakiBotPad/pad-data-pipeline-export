@@ -1,0 +1,41 @@
+#504411 - 炎鎖の大魔女・マドゥ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:36721) -> アタシと勝負だ！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 150,000 for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:36725) -> ブレイズフレア
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Fire and Light orbs, Deal 100% damage
+
+#5: ESColumnSpawnMulti(77:36726) -> ブレイズフレイム
+Condition: 50% chance (ai:0 rnd:50)
+Change the 1st column to Fire orbs and the 6th column to Light orbs, Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESDebuffRCV(105:36723) -> いいねぇ！
+	RCV 50% for 2 turns
+	[1] ESDamageShield(74:36724) -> もっとアタシと戦おう！
+	Reduce damage from all sources by 50% for 3 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

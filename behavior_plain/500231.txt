@@ -1,0 +1,34 @@
+#500231 - エンシェントドラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESNoSkyfall(127:36706) -> 龍騎士の守り
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No skyfall for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESRandomSpawn(92:36708) -> エンシェントソード
+Spawn 3 random Wood and Light orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#7: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#8: ESAttackUPRemainingEnemies(17:36707) -> 龍騎士の怒り
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 3 turns
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

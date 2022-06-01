@@ -1,0 +1,34 @@
+#805297 - 究毒の魔学者・ガスロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 805297
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36844:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (36815:83) 君たちを倒して… + 魔力を全て奪ってやろう！
+ | ATK -75% for 3 turns + Absorb damage when damage >= 200,000 for 4 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (36821:92) リキッドポーション
+   | Spawn 4 random Fire, Water, Wood, Light, Dark, Heal, and Poison orbs, Deal 100% damage
+   | condition: 33% chance
+   | (36823:85) カオスポーション
+   | Change all orbs to Light, Dark, Heal, and Poison, Deal 80% damage
+   | condition: 34% chance
+   | (36822:109) スフィアポーション
+   | Random 1 orbs change every 1.0s for 1 turn, Deal 120% damage
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (36818:83) 魔導機械を起動させて… + 私の願いを叶えるのだ！
+   | Voids status ailments for 4 turns + Reduce damage from all sources by 50% for 4 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 4
+   | (36824:15) フハハハハハハハ！！
+   | Deal 120% damage (3 hits, 40% each)

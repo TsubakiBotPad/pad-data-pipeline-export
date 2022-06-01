@@ -1,0 +1,25 @@
+#502337 - 光の機甲龍・アクルックス
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 502337
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (36773:109) ゴールドカウル
+ | Random 1 orbs change every 1.0s for 3 turns
+ group:
+ | (36775:77) ライトビーム
+ | Change the 1st column to Light orbs, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (36774:17) メタルチャージ
+   | Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: execute repeatedly, turn 2-4 of 4
+   | (36775:77) ライトビーム
+   | Change the 1st column to Light orbs, Deal 100% damage

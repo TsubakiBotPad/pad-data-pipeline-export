@@ -1,0 +1,38 @@
+#507777 - 零次元の創造主・ビッグバン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 507777
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (36844:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (36833:83) グゴァァアアアアアッ！！ + グォォオオオッ！
+ | Void damage >= 3,000,000 for 4 turns + Voids status ailments for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (36851:83) グゴァ！ + グゴォ！ + グオォ！
+     | Change all orbs to Light, Heal, Jammer, and Poison + Player -1% HP + Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (36852:83) グゴォ！ + グオォ！
+     | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison + Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (36836:83) ググググ… + グゴォォォオオオオオッ！！
+     | Absorb Light damage for 3 turns + Reduce damage from all sources by 80% for 3 turns, Deal 100% damage
+   | group:
+   | condition: turn 2
+     | (36861:17) グググググググ…
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | (36853:83) グルルルル… + グゴァ！ + グゴォ！ + グオォ！ + グオァ！ + グガァァアアアアアアアッ！！
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Change the 1st and 2nd columns to Fire orbs + Change the 5th and 6th columns to Water orbs + Change the 3rd and 4th columns to Dark orbs + Change the 3rd row to Light orbs + Deal 100% damage (10 hits, 10% each), Deal 100% damage (10 hits, 10% each)

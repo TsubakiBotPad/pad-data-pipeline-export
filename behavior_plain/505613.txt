@@ -1,0 +1,44 @@
+#505613 - 迷森の金駒龍・ジャバウォック
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:36794) -> キョエエエエエエッ！
+	Void damage >= 500,000 for 3 turns
+	[1] ESAbsorbAttribute(53:36795) -> キィエエッ！
+	Absorb Water damage for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:36799) -> キョエッ！
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Fire and Water orbs, Deal 100% damage
+
+#5: ESBoardChangeAttackBits(85:36800) -> キィエッ！
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESDebuffATK(130:36797) -> キァエエエエエエッ！
+	ATK -50% for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:36798) -> ギョエエエッ！
+	Increase damage to 150% for the next 3 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

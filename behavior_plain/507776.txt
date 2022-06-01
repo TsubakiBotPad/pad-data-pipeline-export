@@ -1,0 +1,48 @@
+#507776 - 虚空にうごめくモノ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:36826) -> グ…グ…グ…
+	Absorb damage when combos <= 5 for 3 turns
+	[1] ESBlindStickySkyfall(128:36827) -> グ…ゴ…ゴ…ゴ…
+	For 3 turns, 10% chance for skyfall orbs to be blinded for turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:36831) -> ググ…
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Fire, Water, Wood, Light, Dark, Heal, and Jammer orbs, Deal 100% damage
+
+#5: ESSpinnersRandom(109:36832) -> ゴゴ…
+Condition: 50% chance (ai:0 rnd:50)
+Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESStatusShield(20:36829) -> ガ…ガ…ガ……
+	Voids status ailments for 2 turns
+	[1] ESDamageShield(74:36830) -> ガ…ギ…ギ…ギ……
+	Reduce damage from all sources by 75% for 2 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESDeathCry(69:36843) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: グ……ゴ……ゴ……|ゴ……ゴ……ァ……

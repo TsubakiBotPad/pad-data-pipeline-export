@@ -1,0 +1,44 @@
+#502128 - 闇の機神将・ハイスフェルゼン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:36777) -> ピ…ガ…ガ……
+	Absorb Light damage for 3 turns
+	[1] ESDamageShield(74:36778) -> ピガガガガガガガ
+	Reduce damage from all sources by 50% for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:36782) -> ピガガッ！
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Light and Dark orbs, Deal 100% damage
+
+#5: ESColumnSpawnMulti(77:36783) -> ギガガッ！
+Condition: 50% chance (ai:0 rnd:50)
+Change the 3rd column to Dark orbs and the 4th column to Light orbs, Deal 80% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#8: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#9: SkillSet:
+	[0] ESStatusShield(20:36780) -> ガ…ビ…ビ…ビ……
+	Voids status ailments for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:36781) -> ギガガガガガガガガ
+	Increase damage to 150% for the next 3 turns
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
