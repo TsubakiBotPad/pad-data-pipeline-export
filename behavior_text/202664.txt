@@ -1,0 +1,57 @@
+#202664 - 裏万象の皇妃神・イザナミ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202664
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (8261:72) 光イザナミ光水半減
+ | Reduce damage from Water and Light attrs by 50%
+ type: PREEMPT
+ | (6439:83) 万象の加護 + 慈愛の擁護 + 幼龍神の縛炎
+ | Voids status ailments for 10 turns + Reduce damage from all sources by 75% for 1 turn + Bind 6 random cards for 1~3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (6443:83) 儚き夢想 + 太平の願い
+   | Change 3 random orb types to Jammer orbs + Bind active skills for 10 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (6452:48) 清めの超神効
+     | Change all Jammer orbs to Heal orbs, Deal 360% damage
+     | (6453:83) 創世の漣 + 幼龍神の爆陣
+     | Change a random attribute to Jammer orbs + Spawn Bomb orbs in the specified positions, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (6452:48) 清めの超神効
+     | Change all Jammer orbs to Heal orbs, Deal 360% damage
+     | (6473:83) 慈愛の擁護 + 儚き夢想
+     | Reduce damage from all sources by 75% for 1 turn + Change 3 random orb types to Jammer orbs
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (6452:48) 清めの超神効
+     | Change all Jammer orbs to Heal orbs, Deal 360% damage
+     | (6474:83) 創世の漣 + 幼龍神の波動
+     | Change a random attribute to Jammer orbs + Delay active skills by 0~4 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 2
+     | (6446:83) 慈愛の擁護 + 安眠の抱き
+     | Reduce damage from all sources by 75% for 1 turn + Bind awoken skills for 1 turn
+   | group:
+   | condition: always turn 3
+     | (6448:14) 太平の願い
+     | Bind active skills for 10 turns
+ | group:
+ | condition: hp <= 29
+   | (6451:15) 森羅万象
+   | Deal 500% damage (5 hits, 100% each)
+ type: UNKNOWN_USE
+ | condition: at most 3 times
+ | (6449:83) 儚き夢想 + 現世の祓
+ | Change 3 random orb types to Jammer orbs + Lock all orbs

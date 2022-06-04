@@ -1,0 +1,88 @@
+#8903 - 鈴蘭一年の覇者・花澤三郎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESGravity(50:33976) -> 花澤三郎只今参上!!
+Player -99% HP
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPRemainingEnemies(17:33978) -> こ　このやどー
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 200% for the next 999 turns
+
+#7: ESAttackMultihit(15:33977) -> この裏切り者死ねー!
+Condition: When < 1% HP (ai:100 rnd:0)
+Deal 240% damage (6 hits, 40% each)
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESSkyfallLocked(96:33979) -> うおりゃー
+Locked random skyfall +100% for 1 turn, Deal 95% damage
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 23
+
+#12: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 20
+
+#13: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 17
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESDebuffATK(130:33980) -> てめーぶっとばされてーのか…
+ATK -75% for 1 turn, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: ESSkillDelay(89:33981) -> もらった!!
+Delay active skills by 1 turn, Deal 95% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: ESFixedStart(101:33982) -> オレは飼い犬なんかじゃねー
+Fix orb movement starting point to random position on the board, Deal 103% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#24: ESRowSpawnMulti(79:33983) -> しゃあらー
+Change the 1st and 2nd rows to Light orbs, Deal 110% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESResolve(73:33974) -> ＿花澤根性
+Survive attacks with 1 HP when HP > 50%
+
+#27: ESTypeResist(118:33975) -> ＿花澤回復半減
+Reduce damage from Healer types by 50%

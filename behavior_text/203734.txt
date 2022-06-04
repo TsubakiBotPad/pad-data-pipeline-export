@@ -1,0 +1,43 @@
+#203734 - 裏覚醒からくり五右衛門
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203734
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (7598:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (15326:17) イグナイトブースト
+ | Increase damage to 120% for the next 999 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (7587:103) 十文字HANABI
+     | Spawn Bomb orbs in the specified positions, Deal 400% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | condition: 50% chance
+     | (7588:1) AZK‐大縛網
+     | Bind 6 random cards for 1 turn
+     | (7589:89) 大太刀ブン回し
+     | Delay active skills by 2 turns, Deal 450% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 50% chance
+     | (7590:50) ロケット張り手
+     | Player -99% HP
+     | (7591:15) 大判小判マシンガン
+     | Deal 400~500% damage (8~10 hits, 50% each)
+ | group:
+ | condition: hp <= 9
+   | (7597:83) カラクリ変化 + 五式カラクリ大砲
+   | Change own attribute to random one of Fire or Light + Change all orbs to Fire, Deal 10,000% damage
+ type: UNKNOWN_USE
+ | condition: one time only
+ | (7594:83) 簡易修復 + キセルデインパクト
+ | Enemy recover 51% HP + Leader changes to random sub for 99 turns

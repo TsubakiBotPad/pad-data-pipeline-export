@@ -1,0 +1,79 @@
+#203734 - 裏覚醒からくり五右衛門
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAttackUPRemainingEnemies(17:15326) -> イグナイトブースト
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 120% for the next 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 1% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:7592) -> 簡易修復
+	Enemy recover 51% HP
+	[1] ESLeaderSwap(75:7593) -> キセルデインパクト
+	Leader changes to random sub for 99 turns
+
+#7: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESChangeAttribute(46:7595) -> カラクリ変化
+	Change own attribute to random one of Fire or Light
+	[1] ESBoardChangeAttackBits(85:7596) -> 五式カラクリ大砲
+	Change all orbs to Fire, Deal 10,000% damage
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBombFixedSpawn(103:7587) -> 十文字HANABI
+Spawn Bomb orbs in the specified positions, Deal 400% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 17
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESBindRandom(1:7588) -> AZK‐大縛網
+Condition: 50% chance (ai:50 rnd:0)
+Bind 6 random cards for 1 turn
+
+#15: ESSkillDelay(89:7589) -> 大太刀ブン回し
+Delay active skills by 2 turns, Deal 450% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b110
+
+#18: ESGravity(50:7590) -> ロケット張り手
+Condition: 50% chance (ai:50 rnd:0)
+Player -99% HP
+
+#19: ESAttackMultihit(15:7591) -> 大判小判マシンガン
+Deal 400~500% damage (8~10 hits, 50% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESResolve(73:7598) -> 根性
+Survive attacks with 1 HP when HP > 50%

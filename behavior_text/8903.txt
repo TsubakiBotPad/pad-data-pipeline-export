@@ -1,0 +1,53 @@
+#8903 - 鈴蘭一年の覇者・花澤三郎
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8903
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33974:73) ＿花澤根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (33975:118) ＿花澤回復半減
+ | Reduce damage from Healer types by 50%
+ type: PREEMPT
+ | (33976:50) 花澤三郎只今参上!!
+ | Player -99% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (33979:96) うおりゃー
+     | Locked random skyfall +100% for 1 turn, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (33980:130) てめーぶっとばされてーのか…
+     | ATK -75% for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (33981:89) もらった!!
+     | Delay active skills by 1 turn, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (33982:101) オレは飼い犬なんかじゃねー
+     | Fix orb movement starting point to random position on the board, Deal 103% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (33983:79) しゃあらー
+     | Change the 1st and 2nd rows to Light orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (33978:17) こ　このやどー
+     | Increase damage to 200% for the next 999 turns
+   | group:
+   | condition: turn 2
+     | (33979:96) うおりゃー
+     | Locked random skyfall +100% for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 1
+   | (33977:15) この裏切り者死ねー!
+   | Deal 240% damage (6 hits, 40% each)

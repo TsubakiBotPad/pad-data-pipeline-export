@@ -1,0 +1,45 @@
+#3471 - 七代目武装戦線副頭・藤代拓海
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 3471
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33963:73) ＿藤代根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (33964:118) ＿藤代体力半減
+ | Reduce damage from Physical types by 50%
+ type: PREEMPT
+ | (33965:97) オレが行くよ
+ | Blind random 7 orbs for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (33966:83) ムダなケンカで血を + 流してる場合じゃねー
+     | Reduce damage from all sources by 50% for 3 turns + Lock all orbs, Deal 115% damage
+   | group:
+     | (33970:6) こんなもんしてちゃー危ねーだろう
+     | Voids player buff effects, Deal 90% damage
+     | condition: 33% chance
+     | (33971:53) 合気道
+     | Absorb Water and Light damage for 1 turn, Deal 95% damage
+     | condition: 33% chance
+     | (33972:77) 武装は決してゆるがない
+     | Change the 1st column to Dark orbs and the 6th column to Fire orbs, Deal 105% damage
+     | condition: 34% chance
+     | (33973:105) ケリつけましょうか
+     | RCV 25% for 1 turn, Deal 85% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (33969:67) オレたちが七代目武装戦線だ
+     | Absorb damage when combos <= 7 for 7 turns, Deal 120% damage
+   | group:
+   | condition: turn 2
+     | (33966:83) ムダなケンカで血を + 流してる場合じゃねー
+     | Reduce damage from all sources by 50% for 3 turns + Lock all orbs, Deal 115% damage

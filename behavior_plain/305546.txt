@@ -1,0 +1,139 @@
+#305546 - 神門の狛犬姫・センリ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:14351) -> あなた手は空いてる？
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:14352) -> よかったらこの子達と遊んでよ
+	Void damage >= 25,000,000 for 999 turns
+	[2] ESLeaderSwap(75:14353) -> 二対の戯れ
+	Leader changes to random sub for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 27
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 14
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 24
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESColumnSpawnMulti(77:14362) -> やっちゃえ！あーちゃん
+	Change the 2nd column to Fire orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:14363) -> うーちゃんも頑張れ
+	Change the 2nd row to Fire and Jammer orbs, Deal 50% damage
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESColumnSpawnMulti(77:14365) -> やっちゃえ！あーちゃん
+	Change the 5th column to Fire orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:14366) -> うーちゃんも頑張れ
+	Change the 4th row to Fire and Jammer orbs, Deal 50% damage
+
+#11: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:14368) -> 噛みついちゃえ
+	Deal 50% damage (2 hits, 25% each)
+	[1] ESAttackMultihit(15:14369) -> ガブガブー
+	Deal 60% damage (2 hits, 30% each)
+
+#12: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESRecoverEnemy86(86:14371) -> 助けて！あーちゃん
+	Enemy recover 5% HP
+	[1] ESDamageShield(74:14372) -> うーちゃん守って
+	Reduce damage from all sources by 50% for 1 turn, Deal 95% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#16: SkillSet:
+	[0] ESSkyfall(68:14355) -> お焚き上げ
+	Jammer skyfall +10% for 99 turns
+	[1] ESAttributeBlock(107:14356) -> 灰燼の傷痕
+	Unable to match Jammer orbs for 5 turns
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 8
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 8
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#22: SkillSet:
+	[0] ESBoardChange(84:14358) -> 天陣の施し
+	Change all orbs to Heal
+	[1] ESSkyfallLocked(96:14359) -> いたずら雨
+	Locked random skyfall +15% for 10 turns
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#25: SkillSet:
+	[0] ESOrbChangeAttack(48:14374) -> 焦がしちゃえ
+	Change a random attribute to Jammer orbs, Deal 50% damage
+	[1] ESAttributeBlock(107:14375) -> 隠しちゃえ
+	Unable to match Jammer orbs for 1 turn, Deal 55% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 31
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#29: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:14377) -> 守護者の逆鱗
+	Increase damage to 200% for the next 999 turns
+	[1] ESAbsorbCombo(67:14378) -> 神域の遊技場
+	Absorb damage when combos <= 6 for 999 turns
+	[2] ESDebuffMovetime(39:14379) -> 終焉の遊び
+	Movetime 25% for 5 turns
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: SkillSet:
+	[0] ESChangeAttribute(46:14381) -> 狛犬変化
+	Change own attribute to random one of Fire, Water, Wood, or Dark
+	[1] ESAttackMultihit(15:14382) -> 終わりなき戯れ
+	Deal 2,000% damage (10 hits, 200% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
