@@ -1,0 +1,29 @@
+#502939 - 宝剣龍・ドラクリスト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 502939
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37838:83) アンチフィールド + 百剣装
+ | Absorb Fire and Wood damage for 3 turns + Voids status ailments for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (37843:97) ガトリングエッジ
+   | Blind random 8 orbs for 3 turns
+ | group:
+ | condition: turn 2
+   | (37844:85) ナノブレイドシャープン
+   | Change all orbs to Fire, Wood, Light, Dark, Heal, and Jammer, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (37841:79) アンリミテッドソード
+   | Change the 1st row to Fire orbs and the 5th row to Wood orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (37842:15) 阿修羅斬り
+   | Deal 90% damage (6 hits, 15% each)

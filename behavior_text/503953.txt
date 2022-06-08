@@ -1,0 +1,43 @@
+#503953 - 熱狂の雷虎龍・バリドゥーラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 503953
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37954:129) ＿バリ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (37955:83) ヴァンドの生命力 + 雷虎龍の轟咆 + グルガァ!! + ライトニングフィールド
+ | Player recover 100% HP + Change all orbs to Light and Dark + Absorb damage when combos <= 4 for 5 turns + Seal the 5th row for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (37962:83) 抗魔 + サンダープリズマ
+     | Absorb Light damage for 1 turn + Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (37965:83) 抗魔 + ボルテックファング
+     | Absorb Dark damage for 1 turn + Lock all Light and Dark orbs
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (37968:83) 雷禅光 + ギャリイィイイイイ!!
+     | Change the 1st column to Light orbs + Deal 60% damage (3 hits, 20% each), Deal 35% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (37959:83) 破刻雷 + バリアントフィールド
+     | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + No skyfall for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (37971:83) 雷牙爆閃 + パラライズロア
+     | Change all Heal, Jammer, and Poison orbs to Light orbs + RCV 50% for 1 turn, Deal 40% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (37974:83) 狂爪爆雷 + サンダースティング
+     | Change all orbs to Fire, Light, Dark, Heal, Jammer, and Poison + Specific orbs change every 2.0s for 1 turn, Deal 115% damage

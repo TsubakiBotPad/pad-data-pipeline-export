@@ -1,0 +1,29 @@
+#601096 - 風天双極星・ファフニール
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 601096
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37781:66) いびきをかいている
+ | Do nothing
+ group:
+ | group:
+ | condition: turns 1-2
+   | (37781:66) いびきをかいている
+   | Do nothing
+ | group:
+ | condition: turn 3
+   | (37782:83) 目を覚ました！ + ヘヴィタックル
+   | Do nothing + Player -50% HP
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (37785:79) ゲイルネイル
+   | Change the 1st row to Wood and Jammer orbs and the 5th row to Wood and Jammer orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (37784:50) ヘヴィタックル
+   | Player -50% HP

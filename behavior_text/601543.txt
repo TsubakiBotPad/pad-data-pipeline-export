@@ -1,0 +1,40 @@
+#601543 - イエローシードラ
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 601543
+approved: False
+
+level: 1
+ group:
+ | condition: 50% chance
+ | (37788:74) ガードシック
+ | Reduce damage from all sources by 25% for 1 turn, Deal 100% damage
+ | condition: 50% chance
+ | (37789:15) キラキラ
+ | Deal 100% damage (4 hits, 25% each)
+
+level: 2
+ group:
+ | group:
+ | condition: turn 1
+   | (37786:53) リフレクト
+   | Absorb Light damage for 2 turns
+ | group:
+   | condition: 50% chance
+   | (37788:74) ガードシック
+   | Reduce damage from all sources by 25% for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (37789:15) キラキラ
+   | Deal 100% damage (4 hits, 25% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (37786:53) リフレクト
+   | Absorb Light damage for 2 turns
+ | group:
+ | condition: turn 2
+   | (37787:52) リザレクト
+   | Enemy ally recover 100% HP

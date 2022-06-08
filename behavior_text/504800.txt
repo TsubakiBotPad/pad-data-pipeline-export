@@ -1,0 +1,52 @@
+#504800 - 転戦の師龍喚士・ヴァレリア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 504800
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37845:83) まとめて来い！ + まずは準備運動 + 手は抜くなよ
+ | No skyfall for 4 turns + Absorb damage when combos <= 5 for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+ type: DEATH
+ condition: when defeated
+ | (37865:95) いいだろう、そこまで！
+ | Reduce self HP to 0
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 98
+     | (37858:83) なまってるんじゃないか？ + 加減はしないぞ + さあ消して見せろ！
+     | RCV 50% for 5 turns + Seal the 1st row for 1 turn + Spawn 12 random Jammer orbs
+   | group:
+   | condition: turn 2 while HP > 98
+     | (37860:83) 気合を入れなおせ + 休む暇はない + さあ消して見せろ！
+     | Blind random 3 orbs for 5 turns + Specific orbs change every 1.0s for 1 turn + Spawn 15 random Jammer orbs
+   | group:
+   | condition: turn 3 while HP > 98
+     | (37869:83) 鍛え直してやろう + 全力でかかってこい！
+     | Absorb damage when combos <= 4 for 3 turns + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+   | group:
+     | (37871:85) 全力でかかってこい！
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+ | group:
+ | condition: hp <= 98
+   | group:
+   | condition: turn 1
+     | (37858:83) なまってるんじゃないか？ + 加減はしないぞ + さあ消して見せろ！
+     | RCV 50% for 5 turns + Seal the 1st row for 1 turn + Spawn 12 random Jammer orbs
+     | (37849:83) 加減はしないぞ + さあ消して見せろ！
+     | Seal the 1st row for 1 turn + Spawn 12 random Jammer orbs
+   | group:
+   | condition: turn 2
+     | (37860:83) 気合を入れなおせ + 休む暇はない + さあ消して見せろ！
+     | Blind random 3 orbs for 5 turns + Specific orbs change every 1.0s for 1 turn + Spawn 15 random Jammer orbs
+     | (37852:83) 休む暇はない + さあ消して見せろ！
+     | Specific orbs change every 1.0s for 1 turn + Spawn 15 random Jammer orbs
+   | group:
+     | (37869:83) 鍛え直してやろう + 全力でかかってこい！
+     | Absorb damage when combos <= 4 for 3 turns + Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+     | (37867:83) 鍛錬は怠っていないようだな！ + いいだろう、そこまで！
+     | Do nothing + Reduce self HP to 0

@@ -1,0 +1,34 @@
+#505615 - サザーイル
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbThreshold(87:37904) -> 神域の波音
+Absorb damage when damage >= 5,000 for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:37906) -> バリアウェーブ
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 1 turn
+
+#7: ESRandomSpawn(92:37908) -> ドラッグプール
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 3 random Jammer orbs, Deal 90% damage
+
+#8: ESRandomSpawn(92:37910) -> スプラッシュ
+Spawn 5 random Water orbs, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

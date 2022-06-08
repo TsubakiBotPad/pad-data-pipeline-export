@@ -1,0 +1,26 @@
+#601095 - 水天双極星・リヴァイアサン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 601095
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37885:83) 荒れる大海 + シーバイト
+ | Water skyfall +15% for 5 turns + Unable to match Water orbs for 2 turns
+ group:
+ | group:
+   | (37888:92) タイダルバレット
+   | Spawn 4 random Water orbs, Deal 85% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (37889:83) 魔海の龍鱗 + クルエルテンペスト
+     | Reduce damage from all sources by 75% for 1 turn + Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 2
+     | (37892:105) 破滅の大渦
+     | RCV 0% for 1 turn

@@ -1,0 +1,21 @@
+#601592 - 水の蟲龍・デッドジャンパー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 601592
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37926:83) ハイジャンプ + デスシーカー
+ | Absorb damage when combos <= 4 for 1 turn + No skyfall for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (37929:83) 蟲龍の鋼甲殻 + メテオストライク
+   | Reduce damage from all sources by 50% for 1 turn + Change all orbs to Fire, Water, Light, and Dark, Deal 110% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (37932:83) ハイパージャンプ + サイレントシックル
+   | Absorb damage when combos <= 5 for 1 turn + Change the 1st row to Water orbs, Deal 100% damage

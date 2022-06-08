@@ -1,0 +1,79 @@
+#503951 - 歪想の妖龍契士・クーリア
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESGravity(50:37936) -> デスモルムフィン
+	Player -50% HP
+	[1] ESInactivity66(66:37937) -> よそ見はいけませんわね
+	Do nothing
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:37939) -> 気持ちが悪い…
+	Voids status ailments for 10 turns
+	[1] ESAbsorbAttribute(53:37940) -> 近づかないでくださいな
+	Absorb Fire and Dark damage for 5 turns
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfall(68:37943) -> 楽に逝けると、
+	Dark skyfall +15% for 5 turns
+	[1] ESSkyfallLocked(96:37944) -> 思わないでくださる？
+	Locked Dark skyfall +100% for 5 turns
+	[2] ESDebuffATK(130:37942) -> デリュージョンアイ
+	ATK -75% for 1 turn, Deal 105% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESFixedStart(101:37946) -> あくびが出ますわね
+	Fix orb movement starting point to random position on the board
+	[1] ESSpinnersRandom(109:37947) -> もっと…もがいてみなさいな
+	Random 3 orbs change every 1.0s for 2 turns
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:37949) -> ご自分の立場がお分かり？
+	Bind awoken skills for 3 turns
+	[1] ESBoardChange(84:37950) -> 傷つけちゃおうかしら
+	Change all orbs to Water, Wood, Dark, Heal, and Jammer
+	[2] ESAttributeBlock(107:37951) -> あなたの…大切なモノ
+	Unable to match Heal orbs for 1 turn
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESDebuffATK(130:37942) -> デリュージョンアイ
+ATK -75% for 1 turn, Deal 105% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESGravity(50:37936) -> デスモルムフィン
+Player -50% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:37982) -> ＿クーリア根性
+Survive attacks with 1 HP when HP > 50%

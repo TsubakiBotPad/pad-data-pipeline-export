@@ -1,0 +1,40 @@
+#503951 - 歪想の妖龍契士・クーリア
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 503951
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37982:73) ＿クーリア根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (37935:83) デスモルムフィン + よそ見はいけませんわね
+ | Player -50% HP + Do nothing
+ group:
+ | group:
+ | condition: turn 1
+   | (37938:83) 気持ちが悪い… + 近づかないでくださいな
+   | Voids status ailments for 10 turns + Absorb Fire and Dark damage for 5 turns
+ | group:
+ | condition: turn 2
+   | (37941:83) 楽に逝けると、 + 思わないでくださる？ + デリュージョンアイ
+   | Dark skyfall +15% for 5 turns + Locked Dark skyfall +100% for 5 turns + ATK -75% for 1 turn, Deal 105% damage
+ | group:
+ | condition: turn 3
+   | (37945:83) あくびが出ますわね + もっと…もがいてみなさいな
+   | Fix orb movement starting point to random position on the board + Random 3 orbs change every 1.0s for 2 turns
+ | group:
+ | condition: turn 4
+   | (37948:83) ご自分の立場がお分かり？ + 傷つけちゃおうかしら + あなたの…大切なモノ
+   | Bind awoken skills for 3 turns + Change all orbs to Water, Wood, Dark, Heal, and Jammer + Unable to match Heal orbs for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (37942:130) デリュージョンアイ
+   | ATK -75% for 1 turn, Deal 105% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (37936:50) デスモルムフィン
+   | Player -50% HP
