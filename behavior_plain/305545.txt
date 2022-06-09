@@ -1,4 +1,4 @@
-#305545 - 裏センリ
+#305545 - Alt. Senri
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:22444) -> 修羅の境界
+	[0] ESStatusShield(20:22444) -> Bounds of Carnage
 	Voids status ailments for 999 turns
-	[1] ESBoardChangeAttackBits(85:22476) -> 天陣の焔
+	[1] ESBoardChangeAttackBits(85:22476) -> Heavenly Flames
 	Change all orbs to Fire, Deal 80% damage
-	[2] ESSkyfall(68:22477) -> お焚き上げ
+	[2] ESSkyfall(68:22477) -> Burning Up
 	Jammer and Poison skyfall +15% for 10 turns
 
 #3: ESBranchCounter(32:22) -> ESBranchCounter
@@ -28,10 +28,10 @@ Branch on hp < 5, target rnd 14
 #6: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 10, target rnd 10
 
-#7: ESOrbChangeAttackBits(108:22478) -> 灰燼の延焼
+#7: ESOrbChangeAttackBits(108:22478) -> Ash Embers
 Change all Jammer and Poison orbs to Fire orbs, Deal 150% damage
 
-#8: ESAttackMultihit(15:22479) -> 双犬突撃
+#8: ESAttackMultihit(15:22479) -> Twin Dogs' Charge
 Deal 100% damage (2 hits, 50% each)
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -44,31 +44,31 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:22481) -> 守護者の逆鱗
+	[0] ESAttackUPRemainingEnemies(17:22481) -> Guardian's Wrath
 	Increase damage to 150% for the next 999 turns
-	[1] ESSkyfall(68:22477) -> お焚き上げ
+	[1] ESSkyfall(68:22477) -> Burning Up
 	Jammer and Poison skyfall +15% for 10 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:22482) -> 終わりなき戯れ
+#14: ESAttackMultihit(15:22482) -> Forever Frolicking
 Deal 600% damage (6 hits, 100% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	[0] ESChangeAttribute(46:22439) -> Transformation of Carnage
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	[1] ESAttackMultihit(15:22440) -> Bloody Carnage
 	Deal 3,500% damage (7 hits, 500% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:22474) -> 根性
+#18: ESResolve(73:22474) -> Resolve
 Survive attacks with 1 HP when HP > 7%
 
-#19: ESTypeResist(118:33922) -> バランス半減
+#19: ESTypeResist(118:33922) -> Balance Halved
 Reduce damage from Balanced types by 50%

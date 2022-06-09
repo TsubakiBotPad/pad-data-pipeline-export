@@ -1,4 +1,4 @@
-#202666 - 裏深紅の宝石姫・シルク
+#202666 - Alt. Scarlet Jewel Princess, Silk
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:36863) -> 深紅の守り
+	[0] ESStatusShield(20:36863) -> Scarlet Protection
 	Voids status ailments for 999 turns
-	[1] ESTargetedSkillDelay(140:36864) -> ピジョンチャーム
+	[1] ESTargetedSkillDelay(140:36864) -> Pigeon Charm
 	Delay random sub's skills by 5 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,22 +22,22 @@ Branch on hp < 50, target rnd 9
 
 #5: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESColumnSpawnMulti(77:36871) -> 慈愛のレイピア
+	[0] ESColumnSpawnMulti(77:36871) -> Rapier of Affection
 	Change the 1st and 6th columns to Fire orbs, Deal 15% damage
-	[1] ESAttackMultihit(15:36872) -> ルビーストライク
+	[1] ESAttackMultihit(15:36872) -> Ruby Strike
 	Deal 102% damage (3 hits, 34% each)
 
 #6: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESOrbLock(94:36874) -> 深紅の拘束
+	[0] ESOrbLock(94:36874) -> Scarlet Shackles
 	Lock all Fire orbs
-	[1] ESAttackMultihit(15:36875) -> ルビーストライク
+	[1] ESAttackMultihit(15:36875) -> Ruby Strike
 	Deal 108% damage (3 hits, 36% each)
 
 #7: SkillSet:
-	[0] ESColumnSpawnMulti(76:36877) -> 慈愛の祈り
+	[0] ESColumnSpawnMulti(76:36877) -> Prayer of Affection
 	Change the 3rd and 4th columns to Heal orbs
-	[1] ESAttackMultihit(15:36878) -> ルビーストライク
+	[1] ESAttackMultihit(15:36878) -> Ruby Strike
 	Deal 105% damage (3 hits, 35% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -50,23 +50,23 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESDisableAssists(141:36868) -> 宝石姫の秘技
+	[0] ESDisableAssists(141:36868) -> Jewel Princess' Secret Technique
 	Disable active skills for 3 turns
-	[1] ESCloud(104:36869) -> シルクスペシャル
+	[1] ESCloud(104:36869) -> Silk's Special
 	A 2×2 square of clouds appears for 3 turns at a random location
 
-#12: ESSkillDelay(89:36865) -> 宝石が輝いた
+#12: ESSkillDelay(89:36865) -> The jewel shined
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Delay active skills by 6 turns
 
-#13: ESAttackMultihit(15:36866) -> ミラクルルビー
+#13: ESAttackMultihit(15:36866) -> Miraculous Ruby
 Deal 700% damage (7 hits, 100% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:36879) -> 超根性50％
+#15: ESSuperResolve(129:36879) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified
 
-#16: ESAttributeResist(72:36880) -> 火軽減
+#16: ESAttributeResist(72:36880) -> Fire Reduced Damage
 Reduce damage from Fire attrs by 50%

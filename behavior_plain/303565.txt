@@ -1,4 +1,4 @@
-#303565 - 真山神の風龍喚士・カエデ
+#303565 - True Mountain God's Wind Dragon Caller, Kaede
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESOrbSealRow(100:25311) -> 神風の山道
+	[0] ESOrbSealRow(100:25311) -> Divine Wind's Mountain Road
 	Seal the 5th row for 5 turns
-	[1] ESAbsorbCombo(67:31998) -> 舞風伊吹
+	[1] ESAbsorbCombo(67:31998) -> Juniper Whirlwind
 	Absorb damage when combos <= 7 for 999 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -23,7 +23,7 @@ Branch on counter >= 5, target rnd 8
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 1, target rnd 12
 
-#6: ESRandomSpawn(92:25376) -> 風牙斬
+#6: ESRandomSpawn(92:25376) -> Wind Fang Slash
 Spawn 6 random Wood orbs, Deal 100% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -35,7 +35,7 @@ Branch on flag & 1, target rnd 5
 #9: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#10: ESVoidShieldBig(137:31999) -> 神山の聖護符
+#10: ESVoidShieldBig(137:31999) -> Holy Mountain's Sacred Talisman
 Void damage >= 100,000,000 for 5 turns
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -43,19 +43,19 @@ end_turn
 
 #12: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRecoverEnemy86(86:25378) -> 吹花護柳
+	[0] ESRecoverEnemy86(86:25378) -> Willow Blossom Protection
 	Enemy recover 50% HP
-	[1] ESDebuffMovetime(39:25379) -> 千鳥風輪
+	[1] ESDebuffMovetime(39:25379) -> Windmill of a Thousand Birds
 	Movetime 25% for 3 turns
 
-#13: ESAttackMultihit(15:25380) -> 神風八百万ノ太刀
+#13: ESAttackMultihit(15:25380) -> Holy Wind's Endless Blades
 Deal 1,000% damage (4 hits, 250% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:25381) -> 根性
+#15: ESResolve(73:25381) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#16: ESAttributeResist(72:31996) -> ＿カエデ火半減
+#16: ESAttributeResist(72:31996) -> ＿Kaede Fire Halved
 Reduce damage from Fire attrs by 50%

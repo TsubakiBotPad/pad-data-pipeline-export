@@ -1,4 +1,4 @@
-#306803 - 裏超転生アンドロメダ
+#306803 - Alt. Super Reincarnated Andromeda
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:22444) -> 修羅の境界
+	[0] ESStatusShield(20:22444) -> Bounds of Carnage
 	Voids status ailments for 999 turns
-	[1] ESGravity(50:22298) -> 蒼翠の抱擁
+	[1] ESGravity(50:22298) -> Turquoise Embrace
 	Player -150% HP
-	[2] ESRandomSpawn(92:22299) -> 星海の導き
+	[2] ESRandomSpawn(92:22299) -> Starsea Guidance
 	Spawn 3 random Water orbs
 
 #3: ESBranchCounter(32:22) -> ESBranchCounter
@@ -28,11 +28,11 @@ Branch on hp < 5, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESOrbLock(94:22302) -> 蒼鎖閃
+#7: ESOrbLock(94:22302) -> Blue Chain Flash
 Condition: 50% chance (ai:0 rnd:50)
 Lock all orbs, Deal 100% damage
 
-#8: ESRandomSpawn(92:22303) -> 星海の煌き
+#8: ESRandomSpawn(92:22303) -> Starsea Glimmer
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 1 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orb, Deal 95% damage
 
@@ -46,31 +46,31 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESBoardChangeAttackBits(85:22301) -> 蒼翠の星鎖
+	[0] ESBoardChangeAttackBits(85:22301) -> The Turquoise Star Chains
 	Change all orbs to Heal, Jammer, Poison, and Mortal Poison, Deal 80% damage
-	[1] ESRandomSpawn(92:22299) -> 星海の導き
+	[1] ESRandomSpawn(92:22299) -> Starsea Guidance
 	Spawn 3 random Water orbs
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:22304) -> 星海輪輝
+#14: ESAttackMultihit(15:22304) -> Starsea Halo
 Deal 400% damage (4 hits, 100% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	[0] ESChangeAttribute(46:22439) -> Transformation of Carnage
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	[1] ESAttackMultihit(15:22440) -> Bloody Carnage
 	Deal 3,500% damage (7 hits, 500% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:22296) -> 根性
+#18: ESResolve(73:22296) -> Resolve
 Survive attacks with 1 HP when HP > 20%
 
-#19: ESTypeResist(118:33926) -> 神半減
+#19: ESTypeResist(118:33926) -> God Halved
 Reduce damage from God types by 50%

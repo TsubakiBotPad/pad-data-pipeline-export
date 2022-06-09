@@ -1,4 +1,4 @@
-#601214 - 冥界の闇番犬・ケルベロス
+#601214 - Underworld Guard Dog, Cerberus
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,18 +9,18 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:36183) -> 旨そうな匂いがするぜ！
+	[0] ESSkyfall(68:36183) -> You smell tasty!!
 	Jammer skyfall +10% for 3 turns
-	[1] ESJammerChangeRandom(13:36184) -> 食ってやる！
+	[1] ESJammerChangeRandom(13:36184) -> I'm gonna eat ya!
 	Change 1 random orb type to Jammer orbs
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESOrbChangeAttack(48:36188) -> ヘルフレイム
+#4: ESOrbChangeAttack(48:36188) -> Hell Flame
 Change all Jammer orbs to Fire orbs, Deal 120% damage
 
-#5: ESRandomSpawn(92:36189) -> マッドハウリング
+#5: ESRandomSpawn(92:36189) -> Mad Howling
 Spawn 6 random Jammer orbs, Deal 100% damage
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -33,9 +33,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESDamageShield(74:36186) -> 腹減ったぜ…
+	[0] ESDamageShield(74:36186) -> I'm starving...
 	Reduce damage from all sources by 50% for 3 turns
-	[1] ESJammerChangeRandom(13:36187) -> 食ってやる！
+	[1] ESJammerChangeRandom(13:36187) -> I'm gonna eat ya!
 	Change 1 random orb type to Jammer orbs
 
 #10: ESEndPath(36:26) -> ESEndPath

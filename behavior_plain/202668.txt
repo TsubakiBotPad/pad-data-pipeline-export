@@ -1,4 +1,4 @@
-#202668 - 裏深蒼の宝石姫・カラット
+#202668 - Alt. Azure Jewel Princess, Carat
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:36882) -> 深蒼の守り
+	[0] ESStatusShield(20:36882) -> Azure Protection
 	Voids status ailments for 999 turns
-	[1] ESBindAwoken(88:36883) -> パンサーチャーム
+	[1] ESBindAwoken(88:36883) -> Snow Leopard Charm
 	Bind awoken skills for 5 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,22 +22,22 @@ Branch on hp < 50, target rnd 9
 
 #5: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESDamageShield(74:36890) -> カラットシールド
+	[0] ESDamageShield(74:36890) -> Carat's Shield
 	Reduce damage from all sources by 75% for 1 turn
-	[1] ESAttackMultihit(15:36891) -> サファイアスイング
+	[1] ESAttackMultihit(15:36891) -> Sapphire Swing
 	Deal 102% damage (3 hits, 34% each)
 
 #6: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESBindAttack(63:36893) -> 深蒼の束縛
+	[0] ESBindAttack(63:36893) -> Azure Shackles
 	Bind 2 random subs for 2 turns, Deal 10% damage
-	[1] ESAttackMultihit(15:36894) -> サファイアスイング
+	[1] ESAttackMultihit(15:36894) -> Sapphire Swing
 	Deal 108% damage (3 hits, 36% each)
 
 #7: SkillSet:
-	[0] ESBombRandomSpawn(102:36896) -> マジカルロッド
+	[0] ESBombRandomSpawn(102:36896) -> Magical Scepter
 	Spawn 5 random Bomb orbs
-	[1] ESAttackMultihit(15:36897) -> サファイアスイング
+	[1] ESAttackMultihit(15:36897) -> Sapphire Swing
 	Deal 105% damage (3 hits, 35% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -50,23 +50,23 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESDisableAssists(141:36887) -> 宝石姫の秘技
+	[0] ESDisableAssists(141:36887) -> Jewel Princess' Secret Technique
 	Disable active skills for 3 turns
-	[1] ESAbsorbAttribute(53:36888) -> カラットスペシャル
+	[1] ESAbsorbAttribute(53:36888) -> ＿HP50% or less 2 actions once
 	Absorb Water damage for 3 turns
 
-#12: ESSkillDelay(89:36884) -> 宝石が輝いた
+#12: ESSkillDelay(89:36884) -> The jewel shined
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Delay active skills by 6 turns
 
-#13: ESAttackMultihit(15:36885) -> ミラクルサファイア
+#13: ESAttackMultihit(15:36885) -> Miraculous Sapphire
 Deal 700% damage (7 hits, 100% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:36898) -> 超根性50％
+#15: ESSuperResolve(129:36898) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified
 
-#16: ESAttributeResist(72:36899) -> 水軽減
+#16: ESAttributeResist(72:36899) -> Water Reduced Damage
 Reduce damage from Water attrs by 50%

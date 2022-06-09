@@ -1,4 +1,4 @@
-#505297 - 究毒の魔学者・ガスロ
+#505297 - Experimental Poison Demon Scientist, Gaslowe
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:36175) -> 私と一戦まじえよう！
+	[0] ESSkyfall(68:36175) -> Come and face me in battle!
 	Poison skyfall +10% for 2 turns
-	[1] ESBindAwoken(88:36176) -> いくぞ！
+	[1] ESBindAwoken(88:36176) -> Here I come!
 	Bind awoken skills for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -23,7 +23,7 @@ Branch on counter >= 3, target rnd 8
 #5: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#6: ESRandomSpawn(92:36181) -> リキッドポーション
+#6: ESRandomSpawn(92:36181) -> Liquid Potion
 Spawn 5 random Fire, Wood, Light, Dark, Heal, and Poison orbs, Deal 80% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -32,7 +32,7 @@ end_turn
 #8: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#9: ESRandomSpawn(92:36180) -> ポイズンポーション
+#9: ESRandomSpawn(92:36180) -> Poisonous Potion
 Spawn 3 random Poison orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -45,9 +45,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESDamageShield(74:36178) -> 私の思った通り！
+	[0] ESDamageShield(74:36178) -> Just as I expected!
 	Reduce damage from all sources by 50% for 3 turns
-	[1] ESAbsorbCombo(67:36179) -> 強敵と戦えて嬉しいぞ！
+	[1] ESAbsorbCombo(67:36179) -> It makes me happy to fight such a strong opponent!
 	Absorb damage when combos <= 4 for 3 turns
 
 #14: ESEndPath(36:26) -> ESEndPath

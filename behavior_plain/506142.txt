@@ -1,4 +1,4 @@
-#506142 - 昂魔王・ベレト
+#506142 - Ascendant Demon King, Beleth
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:36233) -> 我が名は昂魔王・ベレト！
+	[0] ESStatusShield(20:36233) -> I am the Ascendant Demon King, Beleth!
 	Voids status ailments for 3 turns
-	[1] ESVoidShield(71:36234) -> 貴様を屠る者の名だ
+	[1] ESVoidShield(71:36234) -> Know the name of your slaughterer!
 	Void damage >= 1,000,000 for 3 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,15 +20,15 @@ Branch on hp < 5, target rnd 13
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESRowSpawnMulti(79:36239) -> 燃焼ブレード
+#5: ESRowSpawnMulti(79:36239) -> Flameblaze Blade
 Condition: 33% chance (ai:0 rnd:33)
 Change the 3rd row to Fire orbs, Deal 100% damage
 
-#6: ESRowSpawnMulti(79:36240) -> 燃焼ブレード
+#6: ESRowSpawnMulti(79:36240) -> Flameblaze Blade
 Condition: 33% chance (ai:0 rnd:33)
 Change the 4th row to Fire orbs, Deal 100% damage
 
-#7: ESRandomSpawn(92:36238) -> 凍燃ソード
+#7: ESRandomSpawn(92:36238) -> Freezeblaze Sword
 Condition: 34% chance (ai:0 rnd:34)
 Spawn 4 random Fire and Water orbs, Deal 80% damage
 
@@ -42,24 +42,24 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESDamageShield(74:36236) -> 人間如きが我を追い詰めるだと！！
+	[0] ESDamageShield(74:36236) -> A mere human is wearing me down!?
 	Reduce damage from all sources by 75% for 3 turns
-	[1] ESAttackUPRemainingEnemies(17:36237) -> 許さん！！
+	[1] ESAttackUPRemainingEnemies(17:36237) -> Outrageous!
 	Increase damage to 150% for the next 3 turns
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESRandomSpawn(92:36241) -> 消し炭となれ！！
+#13: ESRandomSpawn(92:36241) -> I'll turn you to ashes!
 Spawn 6 random Fire orbs, Deal 120% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:36252) -> 超根性
+#15: ESSuperResolve(129:36252) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #16: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:36258) -> 人間如きがぁ……！
+	[0] ESInactivity66(66:36258) -> You damn humans...!
 	Do nothing

@@ -1,4 +1,4 @@
-#306656 - 裏妖精王・アルバート
+#306656 - Alt. King of the Fairies, Albrecht
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:22444) -> 修羅の境界
+	[0] ESStatusShield(20:22444) -> Bounds of Carnage
 	Voids status ailments for 999 turns
-	[1] ESBlindStickySkyfall(128:22485) -> 眩惑の緑陰樹
+	[1] ESBlindStickySkyfall(128:22485) -> Dazzling Tree Canopy
 	For 5 turns, 20% chance for skyfall orbs to be blinded for turn
-	[2] ESBindAwoken(88:22486) -> 妖精の森域
+	[2] ESBindAwoken(88:22486) -> Fairy Woodland
 	Bind awoken skills for 1 turn, Deal 90% damage
 
 #3: ESBranchCounter(32:22) -> ESBranchCounter
@@ -28,11 +28,11 @@ Branch on hp < 5, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESBindAwoken(88:22486) -> 妖精の森域
+#7: ESBindAwoken(88:22486) -> Fairy Woodland
 Condition: 50% chance (ai:0 rnd:50)
 Bind awoken skills for 1 turn, Deal 90% damage
 
-#8: ESBombRandomSpawn(102:22487) -> フェアリープランク
+#8: ESBombRandomSpawn(102:22487) -> Fae Prank
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 4 random Bomb orbs, Deal 100% damage
 
@@ -46,31 +46,31 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESSpinnersRandom(109:22489) -> 妖精輪舞
+	[0] ESSpinnersRandom(109:22489) -> Dance of the Fairies
 	Random 4 orbs change every 1.0s for 10 turns
-	[1] ESNoSkyfall(127:22490) -> フォレストライト
+	[1] ESNoSkyfall(127:22490) -> Forest Light
 	No skyfall for 10 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:22491) -> フェアリーシャインブラスト
+#14: ESAttackMultihit(15:22491) -> Fae Light Blast
 Deal 500% damage (5 hits, 100% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESChangeAttribute(46:22439) -> 修羅の変貌
+	[0] ESChangeAttribute(46:22439) -> Transformation of Carnage
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:22440) -> 修羅の殄戮
+	[1] ESAttackMultihit(15:22440) -> Bloody Carnage
 	Deal 3,500% damage (7 hits, 500% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:22483) -> 根性
+#18: ESResolve(73:22483) -> Resolve
 Survive attacks with 1 HP when HP > 9%
 
-#19: ESTypeResist(118:33924) -> 回復半減
+#19: ESTypeResist(118:33924) -> Healer Halved
 Reduce damage from Healer types by 50%

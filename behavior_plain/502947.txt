@@ -1,4 +1,4 @@
-#502947 - 夜行の屍霊龍・ドラゴンゾンビ
+#502947 - Nocturnal Corpse Wyrm, Dragon Zombie
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,17 +7,17 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESRandomSpawn(92:36168) -> 立ち去れ…
+#2: ESRandomSpawn(92:36168) -> Get out of here...
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Spawn 3 random Poison orbs
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESOrbChangeAttack(48:36173) -> デッドスピリットブレス
+#4: ESOrbChangeAttack(48:36173) -> Deathly Spirits' Breath
 Change all Poison orbs to Fire orbs, Deal 120% damage
 
-#5: ESRandomSpawn(92:36172) -> デッドポイズンブレス
+#5: ESRandomSpawn(92:36172) -> Deathly Poison Breath
 Spawn 3 random Poison orbs, Deal 100% damage
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -30,9 +30,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESBlind5(5:36170) -> とまれ…
+	[0] ESBlind5(5:36170) -> Stop...
 	Blind all orbs on the board
-	[1] ESSpinnersRandom(109:36171) -> 考え直せ…
+	[1] ESSpinnersRandom(109:36171) -> Reconsider...
 	Random 1 orbs change every 1.0s for 3 turns
 
 #10: ESEndPath(36:26) -> ESEndPath
