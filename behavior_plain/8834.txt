@@ -1,0 +1,55 @@
+#8834 - R2-D2＆C-3PO
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:34964) -> 私は通訳機のC-3PO
+	Voids status ailments for 2 turns
+	[1] ESAbsorbCombo(67:34965) -> こいつは相棒のR2-D2です
+	Absorb damage when combos <= 5 for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDamageShield(74:34966) -> R2、イヤな予感がするよ
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Reduce damage from all sources by 50% for 5 turns
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:34968) -> もしも戻れなかったときのために
+	Movetime 50% for 1 turn
+	[1] ESColumnSpawnMulti(77:34969) -> 知っておいて欲しいんだ
+	Change the 1st column to Water orbs and the 6th column to Light orbs, Deal 100% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESSpinnersFixed(110:34970) -> 君は本当の友だちだったよ、R2
+Specific orbs change every 1.0s for 1 turn
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESRowSpawnMulti(79:34971) -> 本当に最高の友だちだ
+Change the 1st and 2nd rows to Water, Light, and Heal orbs and the 4th and 5th rows to Water, Light, and Heal orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

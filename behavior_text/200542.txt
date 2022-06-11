@@ -1,0 +1,38 @@
+#200542 - 裏独眼竜・マサムネ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 200542
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38269:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | condition: when 7846 on team
+ | (38250:83) 弾切れだ！ + 独眼の竜紋 + 鋭い眼光
+ | Voids status ailments for 999 turns + Bind awoken skills for 3 turns + Movetime 50% for 3 turns
+ | (38246:83) 独眼竜の守り + 独眼の竜紋 + 鋭い眼光
+ | Voids status ailments for 999 turns + Bind awoken skills for 3 turns + Movetime 50% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (38260:83) 独眼竜の刀 + 消刀
+   | Change all Heal orbs to Wood orbs + Unable to match Wood orbs for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (38263:83) 風切り + 旋風斬
+   | Seal the 1st row for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (38266:83) 回転斬 + 旋風斬
+   | Random 2 orbs change every 1.0s for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (38254:83) 独眼の鉄壁 + 突風が巻き起こる
+     | Reduce damage from all sources by 75% for 1 turn + Do nothing
+   | group:
+   | condition: turn 2
+     | (38257:83) 大地の息吹 + 烈空一閃・改
+     | Bind awoken skills for 1 turn + Blind random 4 orbs for 2 turns, Deal 300% damage

@@ -1,0 +1,39 @@
+#208395 - 裏超ブラックファイター
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:37458) -> 闇盾
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 99% for 6 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 7
+
+#5: ESUnknown(143:37459) -> シールドブレイク
+No description set, Deal 50% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESDispel(6:37460) -> シールドフラッシュ
+Voids player buff effects
+
+#8: ESAttackMultihit(15:37461) -> シールドクラッシュ
+Deal 200% damage (2 hits, 100% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSuperResolve(129:37518) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#11: ESAttributeResist(72:37521) -> 光軽減
+Reduce damage from Light attrs by 50%

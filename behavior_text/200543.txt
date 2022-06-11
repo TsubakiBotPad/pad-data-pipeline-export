@@ -1,0 +1,32 @@
+#200543 - 裏太閤龍・ヒデヨシ
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 200543
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38245:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | condition: when 8460 on team
+ | (38229:83) 小気味よし！ + さらに一服所望じゃ + 超ドロップ狩り
+ | Voids status ailments for 999 turns + Delay active skills by 3 turns + Spawn 4 random Jammer and Poison orbs
+ | (38225:83) 太閤龍の守り + 太閤の龍紋 + 超ドロップ狩り
+ | Voids status ailments for 999 turns + Delay active skills by 3 turns + Spawn 4 random Jammer and Poison orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (38236:83) 黄金の翼 + 天下統一
+   | Change all Heal orbs to Light orbs + Bind 3 random subs for 2 turns, Deal 101% damage
+   | condition: 50% chance
+   | (38239:83) 幻惑の光 + 雷雲の息吹
+   | RCV 50% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (38242:83) 太閤龍の拘束 + 雷雲の息吹
+   | Lock all Light orbs + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: hp <= 1
+   | (38233:83) 光の雫 + 雷陣
+   | Enemy recover 100% HP + Change all orbs to Light, Deal 100% damage

@@ -1,0 +1,27 @@
+#208395 - 裏超ブラックファイター
+monster size: 1
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208395
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37518:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (37521:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (37458:74) 闇盾
+ | Reduce damage from all sources by 99% for 6 turns
+ group:
+ | group:
+ | condition: turns 1-6
+   | (37459:143) シールドブレイク
+   | No description set, Deal 50% damage
+ | group:
+   | (37460:6) シールドフラッシュ
+   | Voids player buff effects
+   | (37461:15) シールドクラッシュ
+   | Deal 200% damage (2 hits, 100% each)

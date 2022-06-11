@@ -1,0 +1,45 @@
+#401469 - 裏神輝の代行者・メタトロンたまドラ
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 401469
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37519:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (37452:137) まもるたまぁ～！
+ | Void damage >= 1,000,000,000 for 6 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (37454:46) ちぇんじたまぁ！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (37454:46) ちぇんじたまぁ！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (37454:46) ちぇんじたまぁ！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (29725:15) 次元の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (29726:17) 次元の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turn 3
+   | (37454:46) ちぇんじたまぁ！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (37454:46) ちぇんじたまぁ！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

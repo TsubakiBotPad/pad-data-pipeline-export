@@ -1,0 +1,33 @@
+#208836 - 最も危険な賞金稼ぎ・ボバ・フェット
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208836
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34982:72) ＿ボバ火木半減
+ | Reduce damage from Fire and Wood attrs by 50%
+ type: PREEMPT
+ | (34983:83) オレは生まれつき疑い深いたちでな + 10万クレジット出すなら引き受けよう
+ | ATK -75% for 3 turns + Change player HP to 100,000 for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (34989:15) MM9小型震盪ロケット・ランチャー
+   | Deal 108% damage (6 hits, 18% each)
+   | condition: 25% chance
+   | (34990:74) マンダロリアン・アーマー
+   | Reduce damage from all sources by 75% for 1 turn
+   | condition: 25% chance
+   | (34991:65) ファイバーコード・ウィップ
+   | Bind 4 random subs for 2 turns
+   | condition: 25% chance
+   | (34992:101) レンジファインダー
+   | Fix orb movement starting point to random position on the board
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34986:83) 気に入ったぜ + いつでもかかってこい
+   | Player recover 100% HP + Increase damage to 200% for the next 999 turns

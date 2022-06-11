@@ -1,0 +1,30 @@
+#8836 - 最も危険な賞金稼ぎ・ボバ・フェット
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8836
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (34972:83) オレは生まれつき疑い深いたちでな + 10万クレジット出すなら引き受けよう
+ | ATK -50% for 3 turns + Change player HP to 100,000 for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (34978:15) MM9小型震盪ロケット・ランチャー
+   | Deal 90% damage (5 hits, 18% each)
+   | condition: 25% chance
+   | (34979:74) マンダロリアン・アーマー
+   | Reduce damage from all sources by 50% for 1 turn
+   | condition: 25% chance
+   | (34980:65) ファイバーコード・ウィップ
+   | Bind 2 random subs for 3 turns
+   | condition: 25% chance
+   | (34981:101) レンジファインダー
+   | Fix orb movement starting point to random position on the board
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34975:83) 気に入ったぜ + いつでもかかってこい
+   | Player recover 100% HP + Increase damage to 150% for the next 999 turns

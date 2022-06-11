@@ -1,0 +1,34 @@
+#7683 - 極醒の日龍喚士・カンナの希石
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7683
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37518:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (37510:20) 神秘の輝石
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | (37513:46) オーロラフラッシュ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: 33% chance
+   | (37516:137) 神秘の光源
+   | Void damage >= 2,000,000,000 for 6 turns, Deal 170% damage
+   | condition: 33% chance
+   | (37517:74) 神秘の光源
+   | Reduce damage from all sources by 50% for 6 turns, Deal 170% damage
+   | condition: 34% chance
+   | (37515:143) 神秘の光源
+   | No description set, Deal 170% damage
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (37514:17) 希石の奇跡
+ | Increase damage to 1,000% for the next 999 turns
