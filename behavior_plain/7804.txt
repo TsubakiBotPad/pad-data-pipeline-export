@@ -1,4 +1,4 @@
-#7804 - ルーク・スカイウォーカー
+#7804 - Luke Skywalker
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDamageShield(74:27751) -> 準備はできています
+	[0] ESDamageShield(74:27751) -> I'm ready.
 	Reduce damage from all sources by 90% for 2 turns
-	[1] ESAbsorbCombo(67:27752) -> ぼくは恐れません
+	[1] ESAbsorbCombo(67:27752) -> I'm not afraid.
 	Absorb damage when combos <= 7 for 2 turns, Deal 75% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,9 +24,9 @@ end_turn
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSpinnersRandom(109:27754) -> やってみます
+	[0] ESSpinnersRandom(109:27754) -> All right, I'll give it a try.
 	Random 1 orbs change every 1.0s for 1 turn
-	[1] ESOrbLock(94:27755) -> 信じられません
+	[1] ESOrbLock(94:27755) -> I don't believe it.
 	Lock 15 random orbs, Deal 100% damage
 
 #7: ESBranchCounter(31:21) -> ESBranchCounter
@@ -38,7 +38,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESRandomSpawn(92:27756) -> フォース・プッシュ
+#10: ESRandomSpawn(92:27756) -> Force Push
 Spawn 5 random Light orbs, Deal 95% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -47,7 +47,7 @@ end_turn
 #12: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#13: ESAttributeBlock(107:27757) -> テレパシー
+#13: ESAttributeBlock(107:27757) -> Telepathy
 Unable to match Light orbs for 1 turn, Deal 80% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -56,7 +56,7 @@ end_turn
 #15: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#16: ESColumnSpawnMulti(77:27758) -> 切りつける
+#16: ESColumnSpawnMulti(77:27758) -> Slash
 Change the 6th column to Light orbs, Deal 110% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -64,7 +64,7 @@ end_turn
 
 #18: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:27760) -> フォースと共にあらんことを
+	[0] ESInactivity66(66:27760) -> May the Force be with you.
 	Do nothing
 
 #19: ESEndPath(36:26) -> ESEndPath

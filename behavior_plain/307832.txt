@@ -1,4 +1,4 @@
-#307832 - ストームトルーパー
+#307832 - Stormtrooper
 monster size: 4
 new AI: True
 start/max counter: 1
@@ -19,7 +19,7 @@ Branch on flag & 1, target rnd 8
 #5: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#6: ESSkillDelay(89:27650) -> 動くな！
+#6: ESSkillDelay(89:27650) -> Freeze! Don't move!
 Delay active skills by 1 turn
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -28,22 +28,22 @@ end_turn
 #8: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#9: ESAttackMultihit(15:27651) -> 撃て！
+#9: ESAttackMultihit(15:27651) -> Blast them!
 Condition: 50% chance (ai:0 rnd:50)
 Deal 105% damage (3 hits, 35% each)
 
-#10: ESRandomSpawn(92:27652) -> ブラスター・ライフル
+#10: ESRandomSpawn(92:27652) -> Blaster Rifle
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 2 random Fire orbs, Deal 95% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESOrbLock(94:27653) -> ブラスターをスタンモードにセットしろ
+#12: ESOrbLock(94:27653) -> There's one. Set for stun.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Lock 15 random orbs, Deal 100% damage
 
-#13: ESBindRandomSub(65:27654) -> スタン・ビーム
+#13: ESBindRandomSub(65:27654) -> Stun beam
 Bind 1 random sub for 2 turns, Deal 95% damage
 
 #14: ESEndPath(36:26) -> ESEndPath

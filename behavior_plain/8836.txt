@@ -1,4 +1,4 @@
-#8836 - 最も危険な賞金稼ぎ・ボバ・フェット
+#8836 - The Deadliest Bounty Hunter, Boba Fett
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDebuffATK(130:34973) -> オレは生まれつき疑い深いたちでな
+	[0] ESDebuffATK(130:34973) -> I am suspicious by nature.
 	ATK -50% for 3 turns
-	[1] ESMaxHPChange(111:34974) -> 10万クレジット出すなら引き受けよう
+	[1] ESMaxHPChange(111:34974) -> My price will be a hundred thousand.
 	Change player HP to 100,000 for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,24 +24,24 @@ end_turn
 
 #6: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRecoverPlayer(55:34976) -> 気に入ったぜ
+	[0] ESRecoverPlayer(55:34976) -> The terms are to my liking.
 	Player recover 100% HP
-	[1] ESAttackUPRemainingEnemies(17:34977) -> いつでもかかってこい
+	[1] ESAttackUPRemainingEnemies(17:34977) -> Let us be done with it.
 	Increase damage to 150% for the next 999 turns
 
-#7: ESAttackMultihit(15:34978) -> MM9小型震盪ロケット・ランチャー
+#7: ESAttackMultihit(15:34978) -> MM9 Mini Concussion Rocket Launcher
 Condition: 25% chance (ai:0 rnd:25)
 Deal 90% damage (5 hits, 18% each)
 
-#8: ESDamageShield(74:34979) -> マンダロリアン・アーマー
+#8: ESDamageShield(74:34979) -> Mandalorian Armor
 Condition: 25% chance (ai:0 rnd:25)
 Reduce damage from all sources by 50% for 1 turn
 
-#9: ESBindRandomSub(65:34980) -> ファイバーコード・ウィップ
+#9: ESBindRandomSub(65:34980) -> Fibercord Whip
 Condition: 25% chance (ai:0 rnd:25)
 Bind 2 random subs for 3 turns
 
-#10: ESFixedStart(101:34981) -> レンジファインダー
+#10: ESFixedStart(101:34981) -> Rangefinder
 Condition: 25% chance (ai:0 rnd:25)
 Fix orb movement starting point to random position on the board
 

@@ -1,4 +1,4 @@
-#7818 - ベイダーの崇拝者・カイロ・レン
+#7818 - Vader Admirer, Kylo Ren
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:27919) -> フォースへの道を教えてやる
+	[0] ESStatusShield(20:27919) -> I could show you the ways of the force.
 	Voids status ailments for 999 turns
-	[1] ESAttributeBlock(107:27920) -> フォース・プッシュ
+	[1] ESAttributeBlock(107:27920) -> Force Push
 	Unable to match Jammer and Poison orbs for 10 turns
-	[2] ESSkyfall(68:27921) -> 過去を葬るんだ
+	[2] ESSkyfall(68:27921) -> Let the past die. Kill it, if you have to.
 	Jammer and Poison skyfall +15% for 10 turns, Deal 75% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -34,9 +34,9 @@ Branch on counter = 1, target rnd 11
 counter + 1
 
 #9: SkillSet:
-	[0] ESDebuffMovetime(39:27923) -> テレパシー
+	[0] ESDebuffMovetime(39:27923) -> Telepathy
 	Movetime 50% for 1 turn
-	[1] ESSpinnersRandom(109:27924) -> 俺たちはフォースの一対なんだ
+	[1] ESSpinnersRandom(109:27924) -> What Palpatine doesn't know is we're a dyad in the Force, Rey. 
 	Random 1 orbs change every 1.0s for 1 turn, Deal 115% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -45,7 +45,7 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESBlindStickyFixed(98:27925) -> 切りつける
+#12: ESBlindStickyFixed(98:27925) -> Slash
 Blind orbs in specific positions for 1 turn, Deal 105% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -53,9 +53,9 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:27927) -> 俺はもうズタズタなんだ
+	[0] ESAbsorbCombo(67:27927) -> I'm being torn apart.
 	Absorb damage when combos <= 7 for 999 turns
-	[1] ESVoidShield(71:27928) -> この苦痛から解放されたいんだ
+	[1] ESVoidShield(71:27928) -> I want to be free of this pain.
 	Void damage >= 5,000,000 for 5 turns, Deal 125% damage
 
 #15: ESBranchFlag(43:10) -> ESBranchFlag
@@ -64,10 +64,10 @@ Branch on flag & 1, target rnd 7
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESSuperResolve(129:27916) -> ＿カイロ超根性
+#17: ESSuperResolve(129:27916) -> ＿Kylo Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
-#18: ESAttributeResist(72:27917) -> ＿カイロ光半減
+#18: ESAttributeResist(72:27917) -> ＿Kylo Light Halved
 Reduce damage from Light attrs by 50%
 
 #19: ESEndPath(36:26) -> ESEndPath

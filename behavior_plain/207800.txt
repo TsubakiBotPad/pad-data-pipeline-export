@@ -1,4 +1,4 @@
-#207800 - アナキン・スカイウォーカー
+#207800 - Anakin Skywalker
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSkyfall(68:27862) -> お説教はたくさんだ
+	[0] ESSkyfall(68:27862) -> Don't lecture me, Obi-Wan. 
 	Water and Light skyfall +15% for 5 turns
-	[1] ESAttributeBlock(107:27863) -> ジェダイの嘘はお見通しだ
+	[1] ESAttributeBlock(107:27863) -> I see through the lies of the Jedi. 
 	Unable to match Light orbs for 5 turns
-	[2] ESRowSpawnMulti(79:27864) -> フォース・プッシュ
+	[2] ESRowSpawnMulti(79:27864) -> Force Push
 	Change the 1st, 2nd, 3rd, 4th, and 5th rows to Water orbs, Deal 65% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -26,19 +26,19 @@ end_turn
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESAbsorbAttribute(53:27866) -> 僕は暗黒面を恐れない
+	[0] ESAbsorbAttribute(53:27866) -> I do not fear the dark side as you do.
 	Absorb Water, Light, and Dark damage for 3 turns
-	[1] ESDamageShield(74:27867) -> 僕の力を見くびるな
-	Reduce damage from all sources by 50% for 1 turn, Deal 105% damage
+	[1] ESDamageShield(74:27867) -> You underestimate my power.
+	Reduce damage from all sources by 50% for 3 turns, Deal 105% damage
 
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#8: ESOrbLock(94:27872) -> 僕に殺させるな
+#8: ESOrbLock(94:27872) -> Don't make me kill you.
 Condition: 50% chance (ai:0 rnd:50)
 Lock 10 random orbs, Deal 115% damage
 
-#9: ESAttackMultihit(15:27871) -> 切りつける
+#9: ESAttackMultihit(15:27871) -> Slash
 Condition: 50% chance (ai:0 rnd:50)
 Deal 90% damage (3 hits, 30% each)
 
@@ -47,9 +47,9 @@ end_turn
 
 #11: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESChangeAttribute(46:27869) -> お前が憎い！
+	[0] ESChangeAttribute(46:27869) -> I hate you!
 	Change own attribute to Dark
-	[1] ESRowSpawnMulti(79:27870) -> フォース・プッシュ
+	[1] ESRowSpawnMulti(79:27870) -> Force Push
 	Change the 5th row to Dark orbs, Deal 95% damage
 
 #12: ESBranchFlag(43:10) -> ESBranchFlag

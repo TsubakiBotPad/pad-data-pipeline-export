@@ -1,4 +1,4 @@
-#507801 - ダース・ベイダー
+#507801 - Darth Vader
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbThreshold(87:27898) -> 恐怖をコントロールできているな
+	[0] ESAbsorbThreshold(87:27898) -> Obi-Wan has taught you well. You have controlled your fear.
 	Absorb damage when damage >= 20,000,000 for 5 turns
-	[1] ESSkyfallLocked(96:27900) -> お前を殺したくない
+	[1] ESSkyfallLocked(96:27900) -> Don't make me destroy you.
 	Locked Dark skyfall +100% for 5 turns, Deal 65% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -32,9 +32,9 @@ Branch on counter = 1, target rnd 11
 counter + 1
 
 #9: SkillSet:
-	[0] ESAttributeBlock(107:27902) -> 逆らっても無駄だ
+	[0] ESAttributeBlock(107:27902) -> It is pointless to resist, my son.
 	Unable to match Heal orbs for 1 turn
-	[1] ESRowSpawnMulti(79:27903) -> フォース・プッシュ
+	[1] ESRowSpawnMulti(79:27903) -> Force Push
 	Change the 4th and 5th rows to Fire and Dark orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,15 +44,15 @@ end_turn
 counter = 0
 
 #12: SkillSet:
-	[0] ESOrbLock(94:27905) -> わしの元へ来るのだ
+	[0] ESOrbLock(94:27905) -> Join me...
 	Lock 15 random orbs
-	[1] ESSpinnersRandom(109:27906) -> フォース・チョーク
+	[1] ESSpinnersRandom(109:27906) -> Force Choke
 	Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackUPRemainingEnemies(17:27907) -> 修行を完成させてやる
+#14: ESAttackUPRemainingEnemies(17:27907) -> I will complete your training.
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 300% for the next 999 turns
 
@@ -62,7 +62,7 @@ Branch on flag & 1, target rnd 7
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:27896) -> ＿ベイダー根性
+#17: ESResolve(73:27896) -> ＿Vader Resolve
 Survive attacks with 1 HP when HP > 50%
 
 #18: ESEndPath(36:26) -> ESEndPath

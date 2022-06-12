@@ -1,4 +1,4 @@
-#207807 - ハン・ソロ
+#207807 - Han Solo
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSkyfall(68:27881) -> お楽しみの始まりだ
+	[0] ESSkyfall(68:27881) -> Here's where the fun begins.
 	Fire skyfall +20% for 1 turn
-	[1] ESSkyfallLocked(96:27882) -> さっさと片付けて帰ろうぜ！
+	[1] ESSkyfallLocked(96:27882) -> You're all clear, kid. Now let's blow this thing and go home!
 	Locked Fire skyfall +100% for 1 turn
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,21 +24,21 @@ end_turn
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESSpinnersRandom(109:27884) -> 確率なんかクソくらえだ
+	[0] ESSpinnersRandom(109:27884) -> Never tell me the odds.
 	Random 3 orbs change every 1.0s for 1 turn
-	[1] ESTargetedSkillHaste(139:27885) -> 百万回に一度の奇跡だぜ
+	[1] ESTargetedSkillHaste(139:27885) -> That was one in a million.
 	Haste all cards' skills by 7 turns, Deal 100% damage
 
 #7: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#8: ESRandomSpawn(92:27887) -> ブラスター
+#8: ESRandomSpawn(92:27887) -> Blaster
 Spawn 3 random Fire and Heal orbs, Deal 105% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESAttackUPRemainingEnemies(17:27886) -> フォースがついてるぜ！
+#10: ESAttackUPRemainingEnemies(17:27886) -> May the Force be with you!
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 200% for the next 999 turns
 

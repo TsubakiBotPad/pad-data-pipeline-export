@@ -1,4 +1,4 @@
-#7800 - アナキン・スカイウォーカー
+#7800 - Anakin Skywalker
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -13,7 +13,7 @@ Branch on flag & 1, target rnd 6
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESVoidShield(71:27762) -> はい、マスター
+#4: ESVoidShield(71:27762) -> Yes, Master.
 Void damage >= 1,000,000 for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -22,18 +22,18 @@ end_turn
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#7: ESStatusShield(20:27763) -> それはジェダイコードに反しています
+#7: ESStatusShield(20:27763) -> You're asking me to do something against the Jedi Code.
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Voids status ailments for 999 turns, Deal 90% damage
 
-#8: ESBlindStickySkyfall(128:27764) -> こんなの不公平です
+#8: ESBlindStickySkyfall(128:27764) -> It's unfair.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 For 5 turns, 15% chance for skyfall orbs to be blinded for 1 turn, Deal 100% damage
 
 #9: SkillSet:
-	[0] ESRandomSpawn(92:27766) -> フォース・プッシュ
+	[0] ESRandomSpawn(92:27766) -> Force Push
 	Spawn 3 random Water, Light, and Dark orbs
-	[1] ESAttackMultihit(15:27767) -> 切りつける
+	[1] ESAttackMultihit(15:27767) -> Slash
 	Deal 120% damage (4 hits, 30% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -48,7 +48,7 @@ Branch on counter = 1, target rnd 16
 #13: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#14: ESChangeAttribute(46:27768) -> 全てオビ＝ワンのせいだ
+#14: ESChangeAttribute(46:27768) -> It's all Obi-Wan's fault.
 Change own attribute to Dark, Deal 85% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -57,7 +57,7 @@ end_turn
 #16: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#17: ESAttackUPRemainingEnemies(17:27769) -> 僕から見ればジェダイこそ悪だ
+#17: ESAttackUPRemainingEnemies(17:27769) -> From my point of view, the Jedi are evil.
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 300% for the next 999 turns
 
@@ -65,15 +65,15 @@ Increase damage to 300% for the next 999 turns
 end_turn
 
 #19: SkillSet:
-	[0] ESRandomSpawn(92:27766) -> フォース・プッシュ
+	[0] ESRandomSpawn(92:27766) -> Force Push
 	Spawn 3 random Water, Light, and Dark orbs
-	[1] ESAttackMultihit(15:27767) -> 切りつける
+	[1] ESAttackMultihit(15:27767) -> Slash
 	Deal 120% damage (4 hits, 30% each)
 
 #20: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#21: ESSuperResolve(129:27761) -> ＿アナキン超根性
+#21: ESSuperResolve(129:27761) -> ＿Anakin Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
 #22: ESEndPath(36:26) -> ESEndPath

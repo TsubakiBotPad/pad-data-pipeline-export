@@ -1,4 +1,4 @@
-#207801 - ダース・ベイダー
+#207801 - Darth Vader
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -20,9 +20,9 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESStatusShield(20:27695) -> 私に任せておけ
+	[0] ESStatusShield(20:27695) -> Leave that to me.
 	Voids status ailments for 999 turns
-	[1] ESAbsorbThreshold(87:27696) -> 陛下は私ほど寛大ではないぞ
+	[1] ESAbsorbThreshold(87:27696) -> The Emperor is not as forgiving as I am.
 	Absorb damage when damage >= 10,000,000 for 3 turns
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -41,9 +41,9 @@ Branch on counter = 1, target rnd 14
 counter + 1
 
 #12: SkillSet:
-	[0] ESDamageShield(74:27698) -> 惑星を破壊する力もフォースには勝てん
+	[0] ESDamageShield(74:27698) -> The ability to destroy a planet is insigni- ficant next to the power of the Force.
 	Reduce damage from all sources by 95% for 1 turn
-	[1] ESRowSpawnMulti(79:27699) -> フォース・プッシュ
+	[1] ESRowSpawnMulti(79:27699) -> Force Push
 	Change the 4th and 5th rows to Fire, Dark, and Mortal Poison orbs, Deal 110% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -53,9 +53,9 @@ end_turn
 counter + 1
 
 #15: SkillSet:
-	[0] ESSpinnersRandom(109:27702) -> フォース・チョーク
+	[0] ESSpinnersRandom(109:27702) -> Force Choke
 	Random 2 orbs change every 1.0s for 1 turn
-	[1] ESSkyfall(68:27701) -> フォースを侮るな
+	[1] ESSkyfall(68:27701) -> Don't underestimate the Force.
 	Dark skyfall +25% for 1 turn, Deal 115% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -65,15 +65,15 @@ end_turn
 counter = 0
 
 #18: SkillSet:
-	[0] ESBindAwoken(88:27704) -> お前は致命的なミスを犯した
+	[0] ESBindAwoken(88:27704) -> You have failed me for the last time.
 	Bind awoken skills for 1 turn
-	[1] ESDebuffRCV(105:27705) -> 切りつける
+	[1] ESDebuffRCV(105:27705) -> Slash
 	RCV 0% for 1 turn, Deal 95% damage
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESAttackUPRemainingEnemies(17:27706) -> ついに宿命の環が閉じる
+#20: ESAttackUPRemainingEnemies(17:27706) -> At last. The circle is now complete.
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 200% for the next 999 turns
 
@@ -83,10 +83,10 @@ Branch on flag & 1, target rnd 9
 #22: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#23: ESSuperResolve(129:27692) -> ＿ベイダー超根性
+#23: ESSuperResolve(129:27692) -> ＿Vader Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
-#24: ESAttributeResist(72:27693) -> ＿ベイダー光半減
+#24: ESAttributeResist(72:27693) -> ＿Vader Light Halved
 Reduce damage from Light attrs by 50%
 
 #25: ESEndPath(36:26) -> ESEndPath

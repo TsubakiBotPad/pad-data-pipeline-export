@@ -1,4 +1,4 @@
-#7813 - ヨーダ
+#7813 - Yoda
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,30 +14,30 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESFixedStart(101:27708) -> 人探しか？では見つけた訳だ
+	[0] ESFixedStart(101:27708) -> Looking? Found someone you have, I would say.
 	Fix orb movement starting point to random position on the board
-	[1] ESSkyfallLocked(96:27709) -> こらこら、なぜ？はなしだ
+	[1] ESSkyfallLocked(96:27709) -> No, no, there is no why.
 	Locked random skyfall +100% for 2 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESCloud(104:27710) -> わしを大きさで判断するのか？
+#6: ESCloud(104:27710) -> Judge me by my size, do you?
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 A row of clouds appears for 2 turns at 1st row, 1st column, Deal 80% damage
 
 #7: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSpinnersRandom(109:27712) -> フォースを使え、感じるのだ
+	[0] ESSpinnersRandom(109:27712) -> Use the force. Feel it.
 	Random 3 orbs change every 1.0s for 2 turns
-	[1] ESSkyfall(68:27713) -> 輝く存在なのだ、わしらの本質は
+	[1] ESSkyfall(68:27713) -> Luminous beings are we, not this crude matter.
 	Heal skyfall +15% for 5 turns, Deal 90% damage
 
-#8: ESDebuffATK(130:27714) -> サイコキネシス
+#8: ESDebuffATK(130:27714) -> Psychokinesis
 Condition: 50% chance (ai:0 rnd:50)
 ATK -50% for 1 turn, Deal 95% damage
 
-#9: ESDebuffMovetime(39:27715) -> テレパシー
+#9: ESDebuffMovetime(39:27715) -> Telepathy
 Condition: 50% chance (ai:0 rnd:50)
 Movetime 50% for 1 turn, Deal 100% damage
 
@@ -46,7 +46,7 @@ end_turn
 
 #11: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESInactivity66(66:27717) -> フォースと共にあらんことを
+	[0] ESInactivity66(66:27717) -> May the Force be with you.
 	Do nothing
 
 #12: ESEndPath(36:26) -> ESEndPath

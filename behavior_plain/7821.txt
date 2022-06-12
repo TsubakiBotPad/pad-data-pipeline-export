@@ -1,4 +1,4 @@
-#7821 - 最後のジェダイ・レイ
+#7821 - The Last Jedi, Rey
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -13,27 +13,27 @@ Branch on flag & 1, target rnd 6
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESDebuffRCV(105:27909) -> 私の頭から出て行って
+#4: ESDebuffRCV(105:27909) -> Get out of my head!
 RCV 50% for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESBindAwoken(88:27910) -> あなたには何も教えない
+#6: ESBindAwoken(88:27910) -> I'm not giving you anything.
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Bind awoken skills for 3 turns, Deal 90% damage
 
 #7: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindSkill(14:27912) -> あなたは恐れている
+	[0] ESBindSkill(14:27912) -> You're afraid...
 	Bind active skills for 2 turns
-	[1] ESBlind62(62:27913) -> ダースベイダーの様に強くなれない事を
+	[1] ESBlind62(62:27913) -> ...that you'll never be as strong as Darth Vader.
 	Blind all orbs on the board, Deal 120% damage
 
 #8: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#9: ESAttackMultihit(15:27915) -> フォース・プッシュ
+#9: ESAttackMultihit(15:27915) -> Force Push
 Deal 120% damage (3 hits, 40% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -45,13 +45,13 @@ Branch on counter = 1, target rnd 9
 #12: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#13: ESDebuffMovetime(39:27914) -> 手を取りたかった、ベンの手を
+#13: ESDebuffMovetime(39:27914) -> I wanted to take your hand, Ben's hand.
 Movetime 25% for 1 turn
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttributeResist(72:27908) -> ＿レイ闇半減
+#15: ESAttributeResist(72:27908) -> ＿Rey Dark Halved
 Reduce damage from Dark attrs by 50%
 
 #16: ESEndPath(36:26) -> ESEndPath

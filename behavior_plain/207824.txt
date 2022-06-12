@@ -1,4 +1,4 @@
-#207824 - チューバッカ
+#207824 - Chewbacca
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDebuffATK(130:27874) -> GGWWRGHH！（驚き）
+	[0] ESDebuffATK(130:27874) -> GGWWRGHH! (surprised)
 	ATK -50% for 3 turns
-	[1] ESSkillDelay(89:27875) -> GGWWRGHH？（文句）
+	[1] ESSkillDelay(89:27875) -> GGWWRGHH? (complaining)
 	Delay active skills by 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -25,22 +25,22 @@ end_turn
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESDebuffMovetime(39:27876) -> GGWWRGHH…（イライラ）
+#7: ESDebuffMovetime(39:27876) -> GGWWRGHH... (irritated)
 Condition: 50% chance (ai:0 rnd:50)
 Movetime 50% for 1 turn, Deal 85% damage
 
-#8: ESOrbChangeAttack(48:27877) -> ボウキャスター
+#8: ESOrbChangeAttack(48:27877) -> Bowcaster
 Condition: 50% chance (ai:0 rnd:50)
 Change a random attribute to Wood orbs, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESAttackUPRemainingEnemies(17:27878) -> GGWWRGHH！！（怒り）
+#10: ESAttackUPRemainingEnemies(17:27878) -> GGWWRGHH!! (angry)
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 200% for the next 999 turns
 
-#11: ESAttackMultihit(15:27879) -> GGWWRGHH！！！！（激怒）
+#11: ESAttackMultihit(15:27879) -> GGWWRGHH!!!! (enraged)
 Deal 90% damage (2 hits, 45% each)
 
 #12: ESEndPath(36:26) -> ESEndPath

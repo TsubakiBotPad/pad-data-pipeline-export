@@ -1,4 +1,4 @@
-#7817 - カイロ・レン
+#7817 - Kylo Ren
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:27732) -> 快適かな？
+	[0] ESStatusShield(20:27732) -> Are you comfortable?
 	Voids status ailments for 999 turns
-	[1] ESBindSkill(14:27733) -> この日がくることを待ちわびていた
+	[1] ESBindSkill(14:27733) -> I've been waiting for this day for a long time.
 	Bind active skills for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -25,15 +25,15 @@ end_turn
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 11
 
-#7: ESSkillDelay(89:27738) -> フォース・プッシュ
+#7: ESSkillDelay(89:27738) -> Force Push
 Condition: 34% chance (ai:0 rnd:34)
 Delay active skills by 2 turns, Deal 90% damage
 
-#8: ESSkyfall(68:27739) -> テレパシー
+#8: ESSkyfall(68:27739) -> Telepathy
 Condition: 33% chance (ai:0 rnd:33)
 Fire skyfall +25% for 1 turn, Deal 90% damage
 
-#9: ESBlindStickyFixed(98:27740) -> 切りつける
+#9: ESBlindStickyFixed(98:27740) -> Slash
 Condition: 33% chance (ai:0 rnd:33)
 Blind orbs in specific positions for 1 turn, Deal 95% damage
 
@@ -42,11 +42,11 @@ end_turn
 
 #11: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESColumnSpawnMulti(76:27735) -> あんたの息子はもう死んだよ
+	[0] ESColumnSpawnMulti(76:27735) -> Your son is gone.
 	Change the 1st column to Dark orbs and the 6th column to Dark orbs
-	[1] ESOrbLock(94:27736) -> 父親のように弱く愚かだったから…
+	[1] ESOrbLock(94:27736) -> He was weak and foolish like his father.
 	Lock all Dark orbs
-	[2] ESBlind62(62:27737) -> おれが葬り去った！
+	[2] ESBlind62(62:27737) -> So I destroyed him.
 	Blind all orbs on the board, Deal 120% damage
 
 #12: ESBranchFlag(43:10) -> ESBranchFlag

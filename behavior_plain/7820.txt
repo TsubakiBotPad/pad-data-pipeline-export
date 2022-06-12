@@ -1,4 +1,4 @@
-#7820 - レイ
+#7820 - Rey
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:27743) -> レジスタンスに会うのは初めてだわ
+	[0] ESStatusShield(20:27743) -> I've never met a Resistance Fighter before.
 	Voids status ailments for 999 turns
-	[1] ESOrbSealRow(100:27744) -> 待つことには慣れっこなの
+	[1] ESOrbSealRow(100:27744) -> I know all about waiting.
 	Seal the 5th row for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -31,7 +31,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESRowSpawnMulti(79:27745) -> 何をそんなに急いでいるの？
+#9: ESRowSpawnMulti(79:27745) -> What's your hurry, thief?
 Change the 5th row to Water orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -40,28 +40,28 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESDebuffATK(130:27746) -> ジェダイは実在したの？
+#12: ESDebuffATK(130:27746) -> The Jedi were real?
 ATK -75% for 1 turn, Deal 85% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackUPRemainingEnemies(17:27747) -> できる。きっとできる
+#14: ESAttackUPRemainingEnemies(17:27747) -> I can do this. I can do this.
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 150% for the next 999 turns
 
-#15: ESGravity(50:27748) -> フォース・プッシュ
+#15: ESGravity(50:27748) -> Force Push
 Condition: 50% chance (ai:0 rnd:50)
 Player -70% HP
 
-#16: ESDebuffRCV(105:27749) -> テレパシー
+#16: ESDebuffRCV(105:27749) -> Telepathy
 Condition: 50% chance (ai:0 rnd:50)
 RCV 25% for 1 turn, Deal 110% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESTypeResist(118:27741) -> ＿レイ根性
+#18: ESTypeResist(118:27741) -> ＿Rey Resolve
 Reduce damage from Attacker and Devil types by 50%
 
 #19: ESEndPath(36:26) -> ESEndPath
