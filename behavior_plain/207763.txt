@@ -1,0 +1,24 @@
+#207763 - 無二の漢道・アモン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:20825) -> パワーisパワー
+	Increase damage to 1,000% for the next 999 turns
+	[1] ESUnknown(143:20826) -> マッスルディクリース
+	No description set
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESAttackMultihit(15:20828) -> アモンボンバー
+Deal 300% damage (3 hits, 100% each)

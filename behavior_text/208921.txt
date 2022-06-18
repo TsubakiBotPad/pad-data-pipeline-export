@@ -1,0 +1,38 @@
+#208921 - 聖焔の花嫁・ブリギッド
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208921
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37425:83) みんなお祝いしてくれるの～！？ + シープドウール + ひつじ大行進
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 95% for 1 turn + A row of clouds appears for 5 turns at 6th row, 1st column
+ group:
+ | group:
+   | (37429:83) シープドウール + ひつじ大渋滞
+   | Reduce damage from all sources by 95% for 1 turn + Void damage >= 100,000,000 for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 74
+   | (37432:83) 私、今日のこと忘れません！ + シープドウール + ひつじ大喝采
+   | Change the 1st and 2nd rows to Light orbs + Reduce damage from all sources by 75% for 1 turn + Absorb damage when combos <= 8 for 1 turn, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (37436:83) シャイニーブーケ + 次はどなたに… + 幸せが訪れるでしょう？
+     | Light skyfall +15% for 3 turns + Reduce damage from all sources by 50% for 3 turns + Movetime 50% for 3 turns, Deal 107% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (37440:83) ブライダルアーチ + 花吹雪
+     | Change the 1st and 6th columns to Heal orbs + Spawn 4 random Fire, Water, Wood, Light, and Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (37443:83) ブライトネスアーチ + 祝福の鐘
+     | Change the 1st and 6th columns to Light orbs + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (37446:83) 幸せ爆発！ + フォージインボルク
+     | Change all orbs to Light + Deal 125% damage (5 hits, 25% each), Deal 35% damage
