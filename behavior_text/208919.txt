@@ -1,0 +1,29 @@
+#208919 - 交響の花嫁・吹龍楽士フェノン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208919
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34780:129) ＿フェノン超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (34781:83) 愛のオーヴァチュア + この日の約束が + 永遠に続きますよう…
+ | Voids status ailments for 999 turns + Lock all orbs + Locked random skyfall +100% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (34788:83) ブライダルマーチ + 超幸福の音色
+     | Absorb Light and Dark damage for 1 turn + Specific orbs change every 1.0s for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (34791:83) では、目を閉じて… + なにかに噛みつかれた！
+     | Blind all orbs on the board + Deal 60% damage (3 hits, 20% each), Deal 50% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34785:83) 誓いの言葉を… + 手を、握ってください
+   | ATK -75% for 1 turn + Movetime 25% for 1 turn

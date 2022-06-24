@@ -1,0 +1,29 @@
+#405382 - 孤峰の花嫁・ゼラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 405382
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34765:129) ＿ゼラ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (34766:83) あぁ、本当にしあわせっ！ + 黒堅の守り手 + ブルーミングラブ
+ | Void damage >= 100,000,000 for 3 turns + Reduce damage from all sources by 75% for 3 turns + Heal skyfall +15% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (34774:83) もう！ + ジロジロ見すぎだよ！
+     | Change a random attribute to Light orbs + Leader changes to random sub for 1 turn, Deal 55% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (34777:83) 魔人の指圧 + 魔帽子の視圧
+     | Player -99% HP + RCV 25% for 1 turn
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34770:83) 花の絨毯 + ブリスフルストーム + もっとしあわせにしてよね！
+   | A row of clouds appears for 5 turns at 5th row, 1st column + Change all orbs to Light and Heal + Lock all Heal orbs, Deal 105% damage
