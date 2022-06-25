@@ -1,4 +1,4 @@
-#8743 - 上鳴電気
+#8743 - Denki Kaminari
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,18 +7,18 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESSkyfall(68:35776) -> 俺に触ると痺れるぜ
+#2: ESSkyfall(68:35776) -> If you touch me... you'll get shocked!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Light skyfall +15% for 5 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESFixedStart(101:35780) -> ターゲットエレクト
+#4: ESFixedStart(101:35780) -> Target Electo
 Condition: 50% chance (ai:50 rnd:0)
 Fix orb movement starting point to random position on the board, Deal 101% damage
 
-#5: ESAttackMultihit(15:35781) -> うェ～～い
+#5: ESAttackMultihit(15:35781) -> Wooohoo!
 Deal 102% damage (3 hits, 34% each)
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -31,9 +31,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESDamageShield(74:35778) -> これなら俺は…
+	[0] ESDamageShield(74:35778) -> In that case...
 	Reduce damage from all sources by 50% for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:35779) -> クソ強え！
+	[1] ESAttackUPRemainingEnemies(17:35779) -> ...I can be really strong!
 	Increase damage to 150% for the next 999 turns
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -41,8 +41,8 @@ end_turn
 
 #11: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESBoardChange(84:35782) -> 無差別放電130万V
+	[0] ESBoardChange(84:35782) -> Indiscriminate Discharge 1,300,000 Volts
 	Change all orbs to Light
 
-#12: ESAttributeResist(72:35784) -> 光半減
+#12: ESAttributeResist(72:35784) -> Light Halved
 Reduce damage from Light attrs by 50%

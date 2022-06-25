@@ -1,0 +1,137 @@
+#9001 - 超転生シヴァ＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:38387) -> 破壊神龍の真魂
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:38388) -> 破壊神龍の輝眼
+	Bind awoken skills for 1 turn
+	[2] ESRandomSpawn(92:38389) -> 絶望の導き
+	Spawn 2 random Jammer orbs
+	[3] ESAttackUPRemainingEnemies(17:38390) -> 滅亡への一手
+	Increase damage to 700% for the next 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 19
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 13
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: SkillSet:
+	[0] ESRandomSpawn(92:38415) -> 滅世の浄火
+	Spawn 4 random Fire orbs
+	[1] ESAttackMultihit(15:38416) -> 真・ルドラークシャ
+	Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESVoidShield(71:38418) -> 滅世の神炎
+	Void damage >= 200,000,000 for 1 turn
+	[1] ESAttackMultihit(15:38419) -> 業火の舞
+	Deal 102% damage (3 hits, 34% each)
+
+#10: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESDamageShield(74:38421) -> 破壊神龍の天鱗
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESOrbSealRow(100:38422) -> 火炎領域
+	Seal the 1st row for 1 turn, Deal 100% damage
+
+#11: SkillSet:
+	[0] ESOrbLock(94:38424) -> 残刻炎
+	Lock all Fire and Dark orbs
+	[1] ESAttackMultihit(15:38425) -> 業火の舞
+	Deal 102% damage (3 hits, 34% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESMaxHPChange(111:38398) -> 破壊神龍の試練
+	Change player HP to 500,000 for 2 turns
+	[1] ESDamageShield(74:38399) -> 破壊神龍の天鱗
+	Reduce damage from all sources by 95% for 1 turn
+	[2] ESColumnSpawnMulti(77:38400) -> 癒炎
+	Change the 1st column to Fire orbs and the 6th column to Heal orbs, Deal 100% damage
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:38402) -> 獄炎の輝き
+	Absorb Fire and Dark damage for 2 turns
+	[1] ESChangeAttribute(46:38403) -> 闇炎鱗
+	Change own attribute to Dark
+	[2] ESAttackMultihit(15:38404) -> 滅・ルドラークシャ
+	Deal 840% damage (7 hits, 120% each)
+
+#15: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESSpinnersFixed(110:38406) -> 破壊神龍の威光
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESOrbLock(94:38407) -> 破滅の炎
+	Lock 10 random orbs, Deal 101% damage
+
+#16: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESTargetedSkillDelay(140:38409) -> 破壊神龍の暴圧
+	Delay random sub's skills by 2 turns
+	[1] ESRowSpawnMulti(79:38410) -> 癒炎
+	Change the 2nd row to Fire orbs and the 4th row to Heal orbs, Deal 101% damage
+
+#17: SkillSet:
+	[0] ESTargetedSkillHaste(139:38412) -> ルドラークシャ
+	Haste random sub's skills by 2 turns
+	[1] ESColumnSpawnMulti(77:38413) -> 呪炎
+	Change the 3rd column to Heal and Jammer orbs and the 4th column to Fire orbs, Deal 101% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: SkillSet:
+	[0] ESDebuffMovetime(39:38392) -> 終焉の焔
+	Movetime 25% for 1 turn
+	[1] ESRandomSpawn(92:38393) -> 滅世の浄火
+	Spawn 4 random Fire orbs
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: SkillSet:
+	[0] ESBindAwoken(88:38395) -> 破壊神龍の輝眼
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:38396) -> ダマル
+	Deal 707% damage (7 hits, 101% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESSuperResolve(129:38426) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#26: ESTypeResist(118:38427) -> バランス半減
+Reduce damage from Balanced types by 50%
+
+#27: ESNone(136:38428) -> ESNone
+nothing

@@ -1,0 +1,86 @@
+#201062 - 裏屍霊龍・ドラゴンゾンビ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:38279) -> 屍霊龍の守り
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:38280) -> 深淵の防護
+	Reduce damage from all sources by 75% for 3 turns
+	[2] ESSpinnersRandom(109:38281) -> 混沌の呪い
+	Random 2 orbs change every 0.5s for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 80, target rnd 11
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:38287) -> 屍霊龍の咆哮
+	Bind awoken skills for 1 turn
+	[1] ESSkyfall(68:38288) -> ヘルワールド
+	Jammer and Poison skyfall +15% for 5 turns
+	[2] ESColumnSpawnMulti(77:38289) -> ポイズンブラスト
+	Change the 1st column to Poison orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:38429) -> カースブラスト
+Deal 700% damage (7 hits, 100% each)
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRandomSpawn(92:38291) -> カースウイング
+	Spawn 4 random Jammer orbs
+	[1] ESAttackMultihit(15:38292) -> カーステール
+	Deal 102% damage (3 hits, 34% each)
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBindAttack(63:38294) -> 屍龍の怨念
+	Bind 2 random subs for 2 turns, Deal 15% damage
+	[1] ESAttackMultihit(15:38295) -> カーステール
+	Deal 102% damage (3 hits, 34% each)
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:38297) -> 超アシッドブレス
+	Change the 1st and 6th rows to Dark and Jammer orbs, Deal 100% damage
+	[1] ESOrbLock(94:38298) -> 屍霊龍の邪眼
+	Lock all Dark orbs
+
+#9: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESSkillDelay(89:38300) -> ヘルオーラ
+	Delay active skills by 1 turn
+	[1] ESGravity(50:38301) -> カースタックル
+	Player -99% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESDebuffMovetime(39:38283) -> 死の入り口
+	Movetime 25% for 1 turn
+	[1] ESAttributeBlock(107:38284) -> 地獄への導き
+	Unable to match Heal orbs for 2 turns
+	[2] ESBoardChangeAttackBits(85:38285) -> デッドライズ
+	Change all orbs to Fire, Wood, Dark, Heal, Jammer, and Poison, Deal 101% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESTypeResist(118:38302) -> 体力半減
+Reduce damage from Balanced types by 50%
+
+#16: ESTurnChangePassive(106:38303) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 80%

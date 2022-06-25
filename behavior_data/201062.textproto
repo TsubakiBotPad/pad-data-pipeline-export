@@ -1,0 +1,114 @@
+  monster_id: 201062
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 38302
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 38303
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 38278
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 79
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 38286
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  enemy_skill_id: 38429
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 79
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 38282
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  condition {
+                    use_chance: 25
+                  }
+                  enemy_skill_id: 38290
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 25
+                  }
+                  enemy_skill_id: 38293
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 25
+                  }
+                  enemy_skill_id: 38296
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 25
+                  }
+                  enemy_skill_id: 38299
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

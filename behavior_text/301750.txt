@@ -1,0 +1,49 @@
+#301750 - True Red Ring Sorceress, Theurgia
+monster size: 5
+new AI: False
+start/max counter: 1
+counter increment: 1
+monster_id: 301750
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (1740:72) Light & Dark Resistance
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (28977:83) Secret Key of Solomon + Glowing Appearance + Sorcerous Zone Expansion
+ | Blind all orbs for 3 turns + Reduce damage from all sources by 75% for 5 turns + Absorb damage when combos <= 7 for 5 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (1726:48) Grimoire of Flame
+   | Change all Heal orbs to Fire orbs, Deal 50% damage
+   | (10930:15) Pentacle of the Demonic Sword
+   | Deal 60% damage (2 hits, 30% each)
+ | group:
+ | condition: hp <= 74
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 30% chance
+     | (1726:48) Grimoire of Flame
+     | Change all Heal orbs to Fire orbs, Deal 50% damage
+     | (1727:62) Volcanic Smoke
+     | Blind all orbs on the board, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 30% chance
+     | (1726:48) Grimoire of Flame
+     | Change all Heal orbs to Fire orbs, Deal 50% damage
+     | (10930:15) Pentacle of the Demonic Sword
+     | Deal 60% damage (2 hits, 30% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (1725:68) Flame Evocation
+   | Fire skyfall +25% for 99 turns
+ | group:
+ | condition: hp <= 29
+   | condition: 50% chance
+   | (1728:48) Burning Blizzard
+   | Change a random attribute to Fire orbs, Deal 200% damage
+   | (1729:48) Burning Blizzard
+   | Change a random attribute to Water orbs, Deal 200% damage

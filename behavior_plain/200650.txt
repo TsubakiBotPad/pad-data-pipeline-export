@@ -1,0 +1,39 @@
+#200650 - True Zeus-Dios
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBoardChangeAttackBits(85:28986) -> Jupiter Genesis
+	Change all orbs to Wood and Jammer, Deal 120% damage
+	[1] ESCloud(104:28988) -> Raging Stormy Clouds
+	A row of clouds appears for 5 turns at 4th row, 1st column
+	[2] ESStatusShield(20:9325) -> Protection of the Gods
+	Voids status ailments for 999 turns
+
+#3: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBindAwoken(88:9327) -> Jupiter Power
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:9328) -> Dios Blade
+	Deal 120~180% damage (4~6 hits, 30% each)
+
+#4: ESBindTyping(3:9330) -> Glare of Zeus
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind God cards for 2~4 turns
+
+#5: ESBoardChangeAttackBits(85:28987) -> Jupiter Genesis
+Condition: 80% chance when < 30% HP (ai:80 rnd:0)
+Change all orbs to Wood and Jammer, Deal 120% damage
+
+#6: ESAttackMultihit(15:9328) -> Dios Blade
+Condition: When < 70% HP (ai:100 rnd:0)
+Deal 120~180% damage (4~6 hits, 30% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

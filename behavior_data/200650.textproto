@@ -1,0 +1,104 @@
+  monster_id: 200650
+  levels {
+    level: 1
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 28985
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 69
+          }
+          children {
+            behavior {
+              enemy_skill_id: 9328
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 9329
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 2
+                always_trigger_above: 29
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 9330
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 9328
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 29
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 2
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 9330
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  condition {
+                    use_chance: 80
+                  }
+                  enemy_skill_id: 28987
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 9328
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

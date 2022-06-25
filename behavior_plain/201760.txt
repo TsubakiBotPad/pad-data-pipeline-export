@@ -1,4 +1,4 @@
-#201760 - 裏始まりの龍喚士・ソニア＝グラン
+#201760 - Alt. Dawning Dragon Caller, Sonia Gran
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,33 +14,33 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:35979) -> よく来たのう、勇ましき者よ
+	[0] ESStatusShield(20:35979) -> You've come far, brave one!
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:35980) -> 龍刃障壁
+	[1] ESDamageShield(74:35980) -> Dracoblade Barrier
 	Reduce damage from all sources by 75% for 4 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESRecoverEnemy7(7:1831) -> 龍の雫
+#6: ESRecoverEnemy7(7:1831) -> Dragon Dew
 Condition: When < 1% HP (ai:100 rnd:0)
 Enemy recover 100% HP
 
-#7: ESAttackUPRemainingEnemies(17:1833) -> ドラりんのエンハンス！
+#7: ESAttackUPRemainingEnemies(17:1833) -> Draggie's Dragon Enhancement
 Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 250% for the next 999 turns
 
 #8: ESBranchFlag(43:10) -> ESBranchFlag
 Branch on flag & 2, target rnd 13
 
-#9: ESInactivity66(66:1834) -> 継界召龍陣・屍霊龍
+#9: ESInactivity66(66:1834) -> Draco Summon - Corpse Wyrm
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Do nothing
 
 #10: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#11: ESPoisonChangeRandomAttack(64:1835) -> ヘルポイズンブレス
+#11: ESPoisonChangeRandomAttack(64:1835) -> Hell Poison Breath
 Change 9 random orbs to Poison orbs, Deal 100% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -49,27 +49,27 @@ end_turn
 #13: ESBranchFlag(43:10) -> ESBranchFlag
 Branch on flag & 4, target rnd 18
 
-#14: ESInactivity66(66:1836) -> 継界召龍陣・星龍帝
+#14: ESInactivity66(66:1836) -> Draco Summon - Star Dragon Emperor
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Do nothing
 
 #15: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b111
 
-#16: ESAttackMultihit(15:1837) -> ディバインスター
+#16: ESAttackMultihit(15:1837) -> Divine Star
 Deal 250% damage (5 hits, 50% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESInactivity66(66:1838) -> 継界召龍陣・真龍王
+#18: ESInactivity66(66:1838) -> Draco Summon - Dragon Lord
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Do nothing
 
 #19: ESFlagOperation(24:14) -> ESFlagOperation
 flag UNSET 0b110
 
-#20: ESGravity(50:1839) -> ゼロ・ブラスト
+#20: ESGravity(50:1839) -> Zero Blast
 Player -100% HP
 
 #21: ESEndPath(36:26) -> ESEndPath
@@ -78,5 +78,5 @@ end_turn
 #22: ESResolve(73:1829) -> パッシブ
 Survive attacks with 1 HP when HP > 50%
 
-#23: ESAttributeResist(72:1740) -> 光闇耐性
+#23: ESAttributeResist(72:1740) -> Light & Dark Resistance
 Reduce damage from Light and Dark attrs by 50%

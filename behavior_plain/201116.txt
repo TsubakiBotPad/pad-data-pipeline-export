@@ -1,0 +1,94 @@
+#201116 - 裏白火の舞女神・パールヴァティー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:38363) -> トラちゃん！出撃！
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:38364) -> 防御態勢
+	Void damage >= 100,000,000 for 3 turns
+	[2] ESComboSkyfall(131:38365) -> トラの咆哮
+	For 10 turns, None% chance for combo orb skyfall.
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 19
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESGravity(50:38380) -> トラの噛みつき
+	Player -99% HP
+	[1] ESOrbLock(94:38381) -> 大地の拘束
+	Lock all Wood orbs
+
+#6: SkillSet:
+	[0] ESBlind5(5:38383) -> 舞女神の目隠し
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:38384) -> 大地の力
+	Deal 102% damage (3 hits, 34% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESBoardSizeChange(126:38371) -> まだまだこれからですっ！
+	Change board size to 7x6 for 2 turns
+	[1] ESAbsorbCombo(67:38372) -> トラちゃん！全力だよ！
+	Absorb damage when combos <= 10 for 2 turns, Deal 101% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESNoSkyfall(127:38374) -> 舞女神の天力
+	No skyfall for 1 turn
+	[1] ESRowSpawnMulti(79:38375) -> 激励の山風
+	Change the 2nd row to Fire orbs and the 3rd row to Wood orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: SkillSet:
+	[0] ESSpinnersRandom(109:38377) -> トラちゃん！走って！
+	Random 2 orbs change every 1.0s for 1 turn
+	[1] ESAttackMultihit(15:38378) -> 大地の力
+	Deal 102% damage (3 hits, 34% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSkillDelay(89:38366) -> トラの気迫
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Delay active skills by 5 turns
+
+#20: SkillSet:
+	[0] ESChangeAttribute(46:38368) -> ヒマラヤの奇跡
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:38369) -> トラの逆鱗
+	Deal 700% damage (7 hits, 100% each)
+
+#21: ESSuperResolve(129:38385) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified

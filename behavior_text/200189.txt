@@ -1,0 +1,32 @@
+#200189 - True Hera
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 200189
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (28980:118) ＿True Hera God Halved
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (28981:83) Dark Matter + Majesty of Dominion and Beauty + Holy Rite
+ | Absorb damage when combos <= 10 for 2 turns + Delay active skills by 5 turns + Deal 100% damage, Deal 100% damage
+ group:
+ | group:
+   | condition: 10% chance
+   | (4770:13) Mischief by God
+   | Change 2 random orb types to Jammer orbs
+   | condition: 50% chance
+   | (4767:15) Double Slap
+   | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (4768:88) Gathering Energy
+     | Bind awoken skills for 1 turn
+   | group:
+     | (4769:15) Graviton Bomb
+     | Deal 600% damage
