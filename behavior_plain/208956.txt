@@ -1,0 +1,92 @@
+#208956 - 麃公
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBoardSizeChange(126:39390) -> さァて　首をもらおうか
+	Change board size to 7x6 for 3 turns
+	[1] ESAbsorbCombo(67:39391) -> いくぞ小童ァ
+	Absorb damage when combos <= 11 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESRowSpawnMulti(78:39393) -> フン　貴様がこのくらいやることは
+	Change the 5th row to Fire orbs
+	[1] ESGravity(50:39394) -> 分かっておったわ！
+	Player -99% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: SkillSet:
+	[0] ESAttributeBlock(107:39396) -> なかなか見つからんのォ
+	Unable to match Fire orbs for 1 turn
+	[1] ESOrbLock(94:39397) -> この戦況の火のつけ所が…
+	Lock all Fire and Heal orbs, Deal 85% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:39399) -> さァて　待たせたの
+	Fire skyfall +15% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:39400) -> そろそろしめといくか
+	Increase damage to 150% for the next 999 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: SkillSet:
+	[0] ESDebuffATK(130:39402) -> 何も分かっておらぬな
+	ATK -50% for 1 turn
+	[1] ESOrbLock(94:39403) -> このど阿呆が!!
+	Lock all orbs, Deal 75% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: ESRowSpawnMulti(79:39404) -> 首を持っていくぞ
+Change the 1st and 2nd rows to Fire orbs, Deal 80% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESSkillSet(83:39429) -> では腕くらいに + まけてやるかのォ
+	Seal the 1st column for 5 turns + Reduce self HP to 0
+
+#23: ESAttributeResist(72:39432) -> ＿麃公水半減
+Reduce damage from Water attrs by 50%

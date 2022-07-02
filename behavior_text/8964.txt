@@ -1,0 +1,26 @@
+#8964 - 蒙恬
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8964
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39177:39) もっと気楽に行こーよ
+ | Movetime 200% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (39178:71) 気高く冷静な戦い方
+     | Void damage >= 5,000,000 for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (39179:74) 血みどろの泥臭い戦い方
+     | Reduce damage from all sources by 75% for 1 turn
+ | group:
+ | condition: turn 1, hp <= 49
+   | (39180:83) この陣は + そう簡単には崩れない！
+   | Change all orbs to Light and Heal + Lock all orbs, Deal 65% damage

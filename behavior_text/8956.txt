@@ -1,0 +1,28 @@
+#8956 - 麃公
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8956
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39252:73) ＿麃公根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (39244:126) さァて　首をもらおうか
+ | Change board size to 7x6 for 2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (39245:67) いくぞ小童ァ
+   | Absorb damage when combos <= 6 for 2 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (39246:83) 何も分かっておらぬな + このど阿呆が!!
+   | ATK -50% for 1 turn + Lock all orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (39249:83) フン　貴様がこのくらいやることは + 分かっておったわ！
+   | Change the 5th row to Fire orbs + Player -99% HP

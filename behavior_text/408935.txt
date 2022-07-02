@@ -1,0 +1,56 @@
+#408935 - 龐煖
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 408935
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39154:129) ＿龐煖超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+
+level: 4
+ type: PASSIVE
+ | (39154:129) ＿龐煖超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39155:83) 天の畏るるは地上に唯一人 + 我だけだ
+ | A row of clouds appears for 5 turns at 1st row, 1st column + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (39160:83) 行くぞ + お前を殺す
+     | Movetime 50% for 1 turn + Bind active skills for 5 turns, Deal 90% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (39163:83) ……この + まとわり続ける　苛立ち
+     | Delay active skills by 2 turns + Fire and Dark skyfall +15% for 3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (39166:94) ほざくな
+     | Lock all orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (39167:15) 語るに足らぬ
+     | Deal 90% damage (2 hits, 45% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (39168:83) だから戦などは + つまらぬと言うのだ
+     | No skyfall for 3 turns + RCV 50% for 3 turns, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (39158:71) 我 武神 龐煖也
+     | Void damage >= 100,000,000 for 3 turns, Deal 110% damage
+   | group:
+   | condition: turn 2
+     | (39160:83) 行くぞ + お前を殺す
+     | Movetime 50% for 1 turn + Bind active skills for 5 turns, Deal 90% damage
+   | group:
+   | condition: turn 3
+     | (39163:83) ……この + まとわり続ける　苛立ち
+     | Delay active skills by 2 turns + Fire and Dark skyfall +15% for 3 turns, Deal 100% damage

@@ -1,0 +1,39 @@
+#8941 - 河了貂
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:39207) -> 本番は…これからだ
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Absorb Wood damage for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSkyfall(68:39208) -> これが戦場の空気か
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Wood skyfall +15% for 3 turns
+
+#7: ESBlind62(62:39209) -> 呑まれるものか
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Blind all orbs on the board, Deal 100% damage
+
+#8: ESBlindStickySkyfall(128:39210) -> オレが戦場を呑んでやるんだ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+For 2 turns, 15% chance for skyfall orbs to be blinded for 1 turn
+
+#9: ESAttackMultihit(15:39211) -> 一撃必殺の奇襲攻撃
+Deal 160% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

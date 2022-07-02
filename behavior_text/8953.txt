@@ -1,0 +1,30 @@
+#8953 - 蒙武
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 8953
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39234:17) 全軍　突撃だァ!!
+ | Increase damage to 200% for the next 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (39231:76) 左から順次突撃
+     | Change the 6th column to Wood orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (39232:110) 斜陣がけ
+     | Specific orbs change every 1.0s for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (39233:101) 全て作戦通りだ
+     | Fix orb movement starting point to random position on the board
+ | group:
+ | condition: turn 1, hp <= 49
+   | (39235:83) 貴様の頭は + この蒙武自ら叩きつぶす
+   | Bind player leader for 2 turns + Player -99% HP

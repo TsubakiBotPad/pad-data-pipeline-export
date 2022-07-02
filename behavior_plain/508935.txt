@@ -1,0 +1,61 @@
+#508935 - 龐煖
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfallLocked(96:39062) -> 行くぞ
+	Locked random skyfall +25% for 5 turns
+	[1] ESColumnSpawnMulti(76:39063) -> お前を殺す
+	Change the 1st and 6th columns to Fire orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESCloud(104:39065) -> 天の畏るるは地上に唯一人
+	A row of clouds appears for 1 turn at 1st row, 1st column
+	[1] ESBlind62(62:39066) -> 我だけだ
+	Blind all orbs on the board, Deal 100% damage
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:39069) -> だから戦などは
+	No skyfall for 3 turns
+	[1] ESDebuffRCV(105:39070) -> つまらぬと言うのだ
+	RCV 50% for 3 turns, Deal 75% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAttackMultihit(15:39067) -> 語るに足らぬ
+Deal 90% damage (2 hits, 45% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESAttributeBlock(107:39071) -> 文句は言わせぬ
+Unable to match Water orbs for 1 turn, Deal 80% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:39434) -> ＿固定チーム超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

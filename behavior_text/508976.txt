@@ -1,0 +1,40 @@
+#508976 - 汗明
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 508976
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39434:129) ＿固定チーム超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39081:83) ドドドドッドッドッドン + 誰が至強か！？ + 汗明!!
+ | Do nothing + Haste both leaders' skills by 99 turns + Change all orbs to Wood, Light, and Heal
+ group:
+ | group:
+ | condition: turn 1
+   | (39085:83) その息吹で巨石は砕け + その一振りで山は地に沈む！
+   | Absorb Wood damage for 2 turns + Change the 4th and 5th rows to Wood and Light orbs, Deal 80% damage
+ | group:
+ | condition: turn 2
+   | (39088:83) 天下最強 + 漢の中の漢!!
+   | Absorb damage when combos <= 4 for 2 turns + Lock all orbs, Deal 90% damage
+ | group:
+ | condition: turn 3
+   | (39091:83) それは誰か！？ + 汗明!!
+   | Fix orb movement starting point to random position on the board + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turn 4
+   | (39094:130) 楚の巨人 汗明である！
+   | ATK -50% for 3 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (39095:83) 至強を決する舞台だぞ + 汚すな下郎がァ
+   | Random 1 orbs change every 1.0s for 1 turn + Change all orbs to Wood, Light, and Jammer, Deal 50% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (39098:83) 勝負はまだ + ついておらぬぞォ
+   | Reduce damage from all sources by 75% for 1 turn + Change all orbs to Wood and Jammer, Deal 65% damage

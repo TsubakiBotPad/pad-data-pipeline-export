@@ -1,0 +1,47 @@
+#408976 - 汗明
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 408976
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39138:73) ＿汗明根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (39138:73) ＿汗明根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (39139:83) ドドドドッドッドッドン + 誰が至強か！？ + 汗明!!
+ | Do nothing + Delay active skills by 2 turns + Change all orbs to Wood, Light, and Heal
+ group:
+ | group:
+   | group:
+   | condition: turn 1
+     | (39143:83) その息吹で巨石は砕け + その一振りで山は地に沈む！
+     | ATK -50% for 3 turns + Change the 4th and 5th rows to Wood and Light orbs, Deal 80% damage
+   | group:
+   | condition: turn 2
+     | (39146:83) 天下最強 + 漢の中の漢!!
+     | Absorb damage when combos <= 8 for 1 turn + Lock all orbs, Deal 90% damage
+   | group:
+   | condition: turn 3
+     | (39149:83) それは誰か！？ + 汗明!!
+     | Fix orb movement starting point to random position on the board + Increase damage to 200% for the next 999 turns
+   | group:
+     | (39171:48) 楚の巨人 汗明である！
+     | Change a random attribute to Wood orbs, Deal 55% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (39152:88) 許さぬ　許さぬぞ！
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (39153:15) 幕だ
+     | Deal 150% damage (5 hits, 30% each)

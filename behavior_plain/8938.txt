@@ -1,0 +1,41 @@
+#8938 - 信
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDebuffMovetime(39:39218) -> やることは一つだけだ――!!
+Movetime 50% for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:39220) -> この俺のしょってるもの
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESBoardChangeAttackBits(85:39221) -> 全部をっ
+	Change all orbs to Water, Light, and Heal, Deal 110% damage
+
+#7: ESAttackUPRemainingEnemies(17:39222) -> この俺の全てをっ
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
+Increase damage to 200% for the next 999 turns
+
+#8: ESDebuffATK(130:39223) -> 叩きつける!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+ATK -50% for 1 turn, Deal 65% damage
+
+#9: ESBoardChangeAttackBits(85:39224) -> ルアアッ
+Change all orbs to Water and Light, Deal 65% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

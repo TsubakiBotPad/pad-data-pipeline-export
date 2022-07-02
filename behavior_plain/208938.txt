@@ -1,0 +1,66 @@
+#208938 - 信
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESFixedStart(101:39359) -> そいつとは
+	Fix orb movement starting point to random position on the board
+	[1] ESOrbLock(94:39360) -> 俺が戦んなきゃあならねェんだ
+	Lock all orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:39362) -> 効かねェなァ
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESDebuffRCV(105:39363) -> そんなんじゃ
+	RCV 25% for 2 turns
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBindAwoken(88:39364) -> 逃がすか…
+Bind awoken skills for 1 turn, Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESAbsorbThreshold(87:39365) -> お前の刃は軽いんだよ
+Absorb damage when damage >= 30,000,000 for 1 turn, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESRandomSpawn(92:39366) -> ずああっ
+Spawn 6 random Water and Light orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:39367) -> ＿信根性
+Survive attacks with 1 HP when HP > 50%

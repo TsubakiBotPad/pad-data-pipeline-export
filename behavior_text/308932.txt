@@ -1,0 +1,58 @@
+#308932 - 王騎
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 308932
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39315:129) ＿王騎超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39316:83) いたしかたないでしょう + ンフフ + 決着をつけるとしましょうか
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 5 turns + Change all orbs to Water and Dark
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (39320:83) ンフフフフ + お見事です
+     | Reduce damage from all sources by 75% for 1 turn + ATK -50% for 3 turns, Deal 85% damage
+   | group:
+   | condition: turn 2 while HP > 49
+     | (39323:83) ココココ + 久しぶりですよォこの感じィ
+     | Reduce damage from all sources by 90% for 1 turn + Absorb damage when combos <= 10 for 3 turns, Deal 90% damage
+   | group:
+   | condition: turn 3 while HP > 49
+     | (39326:83) 本当に久しぶりに + 血が沸き立ちます
+     | Reduce damage from all sources by 95% for 1 turn + Increase damage to 200% for the next 999 turns, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 49
+     | (39329:83) やはり　あなたはここで + 正面から斬り伏せる!!
+     | Delay active skills by 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 70% damage
+   | group:
+     | (39333:15) 幕です!!
+     | Deal 150% damage (5 hits, 30% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (39332:71) 我　正に　死線に在り
+     | Void damage >= 1,500,000,000 for 5 turns, Deal 90% damage
+   | group:
+   | condition: turn 2
+     | (39320:83) ンフフフフ + お見事です
+     | Reduce damage from all sources by 75% for 1 turn + ATK -50% for 3 turns, Deal 85% damage
+   | group:
+   | condition: turn 3
+     | (39323:83) ココココ + 久しぶりですよォこの感じィ
+     | Reduce damage from all sources by 90% for 1 turn + Absorb damage when combos <= 10 for 3 turns, Deal 90% damage
+   | group:
+   | condition: turn 4
+     | (39326:83) 本当に久しぶりに + 血が沸き立ちます
+     | Reduce damage from all sources by 95% for 1 turn + Increase damage to 200% for the next 999 turns, Deal 100% damage
+   | group:
+   | condition: turn 5
+     | (39329:83) やはり　あなたはここで + 正面から斬り伏せる!!
+     | Delay active skills by 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 70% damage

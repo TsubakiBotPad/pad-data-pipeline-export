@@ -1,0 +1,97 @@
+#408935 - 龐煖
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESCloud(104:39156) -> 天の畏るるは地上に唯一人
+	A row of clouds appears for 5 turns at 1st row, 1st column
+	[1] ESBlindStickySkyfall(128:39157) -> 我だけだ
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:39161) -> 行くぞ
+	Movetime 50% for 1 turn
+	[1] ESBindSkill(14:39162) -> お前を殺す
+	Bind active skills for 5 turns, Deal 90% damage
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:39164) -> ……この
+	Delay active skills by 2 turns
+	[1] ESSkyfall(68:39165) -> まとわり続ける　苛立ち
+	Fire and Dark skyfall +15% for 3 turns, Deal 100% damage
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 19
+
+#12: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESOrbLock(94:39166) -> ほざくな
+Lock all orbs, Deal 90% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESAttackMultihit(15:39167) -> 語るに足らぬ
+Deal 90% damage (2 hits, 45% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: SkillSet:
+	[0] ESNoSkyfall(127:39169) -> だから戦などは
+	No skyfall for 3 turns
+	[1] ESDebuffRCV(105:39170) -> つまらぬと言うのだ
+	RCV 50% for 3 turns, Deal 90% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#23: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#24: ESVoidShield(71:39158) -> 我 武神 龐煖也
+Void damage >= 100,000,000 for 3 turns, Deal 110% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESSuperResolve(129:39154) -> ＿龐煖超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

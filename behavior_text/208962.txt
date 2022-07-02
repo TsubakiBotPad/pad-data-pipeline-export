@@ -1,0 +1,29 @@
+#208962 - 王賁
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208962
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39343:83) 玉鳳隊　行くぞ + 防陣　円！
+ | Change the 1st and 6th columns to Fire orbs + Specific orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (39346:75) こいつは俺の獲物だ
+   | Leader changes to random sub for 1 turn, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (39347:101) 全力の突き
+   | Fix orb movement starting point to random position on the board, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (39348:79) 龍指
+   | Change the 5th row to Fire orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (39349:94) 次は外さぬ
+   | Lock all orbs

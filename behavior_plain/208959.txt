@@ -1,0 +1,51 @@
+#208959 - 楊端和
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESNoSkyfall(127:39369) -> 全軍　血祭りだ
+	No skyfall for 5 turns
+	[1] ESBlind62(62:39370) -> 山の民の急襲
+	Blind all orbs on the board, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:39374) -> 黙って貴様らは
+	Bind awoken skills for 1 turn
+	[1] ESRandomSpawn(92:39375) -> 敗者として歴史に名を刻め
+	Spawn 8 random Wood and Jammer orbs
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESDebuffATK(130:39371) -> それ以上さえずるな
+ATK -75% for 1 turn, Deal 95% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESAttackMultihit(15:39372) -> 全員殺せ
+Deal 105% damage (3 hits, 35% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

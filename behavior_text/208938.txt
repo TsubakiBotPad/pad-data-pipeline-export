@@ -1,0 +1,33 @@
+#208938 - 信
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208938
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39367:73) ＿信根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (39358:83) そいつとは + 俺が戦んなきゃあならねェんだ
+ | Fix orb movement starting point to random position on the board + Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (39364:88) 逃がすか…
+     | Bind awoken skills for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (39365:87) お前の刃は軽いんだよ
+     | Absorb damage when damage >= 30,000,000 for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (39366:92) ずああっ
+     | Spawn 6 random Water and Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (39361:83) 効かねェなァ + そんなんじゃ
+   | Reduce damage from all sources by 75% for 2 turns + RCV 25% for 2 turns

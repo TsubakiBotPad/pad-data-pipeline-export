@@ -1,0 +1,30 @@
+#208964 - 蒙恬
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208964
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39336:83) 気高く冷静な戦い方 + 血みどろの泥臭い戦い方
+ | Void damage >= 10,000,000 for 2 turns + Reduce damage from all sources by 75% for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (39340:48) 攻めの組み立て
+     | Change a random attribute to Light orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (39341:77) 突き抜けるぞ
+     | Change the 1st and 2nd columns to Light orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (39342:87) 受け流し
+     | Absorb damage when damage >= 10,000,000 for 3 turns, Deal 95% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (39339:17) よし　行ける
+   | Increase damage to 150% for the next 999 turns

@@ -1,0 +1,66 @@
+#508970 - 呉慶
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESTargetedSkillHaste(139:39050) -> 九重槍壁
+Haste both leaders' skills by 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDebuffATK(130:39051) -> 愚かな！
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+ATK -50% for 3 turns, Deal 80% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkillDelay(89:39053) -> この呉慶の本軍に
+	Delay active skills by 1 turn
+	[1] ESOrbChangeAttack(48:39054) -> 奇襲は通用せぬ！
+	Change a random attribute to Water orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:39056) -> 人の感情とは
+	Spawn 5 random Water and Heal orbs
+	[1] ESDebuffRCV(105:39057) -> ままならぬものだな
+	RCV 50% for 3 turns, Deal 90% damage
+
+#9: ESAttackUPRemainingEnemies(17:39059) -> 狩りの時間だ
+Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 150% for the next 999 turns
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESGravity(50:39058) -> 我は　退かぬ!!!
+Player -30% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESAttackMultihit(15:39060) -> すり潰せィ
+Deal 90% damage (3 hits, 30% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSuperResolve(129:39434) -> ＿固定チーム超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

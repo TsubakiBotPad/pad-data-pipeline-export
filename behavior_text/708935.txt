@@ -1,0 +1,33 @@
+#708935 - 龐煖
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 708935
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39110:129) ＿龐煖超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39111:71) 我 武神 龐煖也
+ | Void damage >= 50,000 for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (39112:139) ほざくな
+   | Haste both leaders' skills by 99 turns, Deal 90% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (39116:48) 邪魔をするな
+     | Change a random attribute to Fire orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (39117:15) 語るに足らぬ
+     | Deal 90% damage (2 hits, 45% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (39113:83) ……この + まとわり続ける　苛立ち
+   | Delay active skills by 2 turns + Fire and Dark skyfall +15% for 3 turns, Deal 100% damage
