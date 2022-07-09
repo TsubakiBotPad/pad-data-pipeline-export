@@ -1,0 +1,38 @@
+#201846 - 幻龍王・ゼローグ∞
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 201846
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2321:83) さぁ、戦いましょう + 6コンボしないと地獄行きですよ
+ | Delay active skills by 2 turns + Absorb damage when combos <= 5 for 1 turn
+ group:
+ | group:
+ | condition: when hp is full
+   | (2322:15) まだまだですね
+   | Deal 600% damage (3 hits, 200% each)
+ | group:
+ | condition: hp <= 99
+   | group:
+   | condition: turn 1 while HP > 49
+     | (2325:83) なるほど、ではもう一度 + 先程の様にはいきませんよ
+     | Absorb damage when combos <= 5 for 1 turn + Movetime -1s for 1 turn
+   | group:
+     | (2326:62) ダメージが足りませんね
+     | Blind all orbs on the board, Deal 600% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (2327:17) さて、いきますよ
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 50% chance
+     | (2328:15) カオティックボール
+     | Deal 105% damage (3 hits, 35% each)
+     | (2329:63) スティールテイル
+     | Bind 1 random card for 2 turns, Deal 60% damage
