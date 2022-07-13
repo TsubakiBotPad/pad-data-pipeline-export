@@ -1,4 +1,4 @@
-#305546 - 神門の狛犬姫・センリ
+#305546 - Shrine Komainu Princess, Senri
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:14351) -> あなた手は空いてる？
+	[0] ESStatusShield(20:14351) -> Are you busy right now?
 	Voids status ailments for 999 turns
-	[1] ESVoidShield(71:14352) -> よかったらこの子達と遊んでよ
+	[1] ESVoidShield(71:14352) -> Could you play with these two?
 	Void damage >= 25,000,000 for 999 turns
-	[2] ESLeaderSwap(75:14353) -> 二対の戯れ
+	[2] ESLeaderSwap(75:14353) -> Playing in Pairs
 	Leader changes to random sub for 2 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -35,30 +35,30 @@ Branch on counter >= 5, target rnd 24
 
 #9: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESColumnSpawnMulti(77:14362) -> やっちゃえ！あーちゃん
+	[0] ESColumnSpawnMulti(77:14362) -> A-Gyo, get them!
 	Change the 2nd column to Fire orbs, Deal 50% damage
-	[1] ESRowSpawnMulti(79:14363) -> うーちゃんも頑張れ
+	[1] ESRowSpawnMulti(79:14363) -> Un-Gyo, you too!
 	Change the 2nd row to Fire and Jammer orbs, Deal 50% damage
 
 #10: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESColumnSpawnMulti(77:14365) -> やっちゃえ！あーちゃん
+	[0] ESColumnSpawnMulti(77:14365) -> A-Gyo, get them!
 	Change the 5th column to Fire orbs, Deal 50% damage
-	[1] ESRowSpawnMulti(79:14366) -> うーちゃんも頑張れ
+	[1] ESRowSpawnMulti(79:14366) -> Un-Gyo, you too!
 	Change the 4th row to Fire and Jammer orbs, Deal 50% damage
 
 #11: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESAttackMultihit(15:14368) -> 噛みついちゃえ
+	[0] ESAttackMultihit(15:14368) -> Take a bite out of them!
 	Deal 50% damage (2 hits, 25% each)
-	[1] ESAttackMultihit(15:14369) -> ガブガブー
+	[1] ESAttackMultihit(15:14369) -> Chomp! Chomp!
 	Deal 60% damage (2 hits, 30% each)
 
 #12: SkillSet:
 	Condition: One-time use (ai:0 rnd:25) (cost: 1)
-	[0] ESRecoverEnemy86(86:14371) -> 助けて！あーちゃん
+	[0] ESRecoverEnemy86(86:14371) -> A-Gyo, help!
 	Enemy recover 5% HP
-	[1] ESDamageShield(74:14372) -> うーちゃん守って
+	[1] ESDamageShield(74:14372) -> Un-Gyo, protect me!
 	Reduce damage from all sources by 50% for 1 turn, Deal 95% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -71,9 +71,9 @@ Branch on flag & 2, target rnd 18
 flag SET 0b11
 
 #16: SkillSet:
-	[0] ESSkyfall(68:14355) -> お焚き上げ
+	[0] ESSkyfall(68:14355) -> Bonfire
 	Jammer skyfall +10% for 99 turns
-	[1] ESAttributeBlock(107:14356) -> 灰燼の傷痕
+	[1] ESAttributeBlock(107:14356) -> Ash Scar
 	Unable to match Jammer orbs for 5 turns
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -92,9 +92,9 @@ Branch on flag & 4, target rnd 8
 flag SET 0b111
 
 #22: SkillSet:
-	[0] ESBoardChange(84:14358) -> 天陣の施し
+	[0] ESBoardChange(84:14358) -> God's Almsgiving
 	Change all orbs to Heal
-	[1] ESSkyfallLocked(96:14359) -> いたずら雨
+	[1] ESSkyfallLocked(96:14359) -> Trick Rain
 	Locked random skyfall +15% for 10 turns
 
 #23: ESEndPath(36:26) -> ESEndPath
@@ -104,9 +104,9 @@ end_turn
 counter = 0
 
 #25: SkillSet:
-	[0] ESOrbChangeAttack(48:14374) -> 焦がしちゃえ
+	[0] ESOrbChangeAttack(48:14374) -> Burn them!
 	Change a random attribute to Jammer orbs, Deal 50% damage
-	[1] ESAttributeBlock(107:14375) -> 隠しちゃえ
+	[1] ESAttributeBlock(107:14375) -> Hide them!
 	Unable to match Jammer orbs for 1 turn, Deal 55% damage
 
 #26: ESEndPath(36:26) -> ESEndPath
@@ -119,20 +119,20 @@ Branch on flag & 8, target rnd 31
 flag SET 0b1111
 
 #29: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:14377) -> 守護者の逆鱗
+	[0] ESAttackUPRemainingEnemies(17:14377) -> Guardians' Wrath
 	Increase damage to 200% for the next 999 turns
-	[1] ESAbsorbCombo(67:14378) -> 神域の遊技場
+	[1] ESAbsorbCombo(67:14378) -> Holy Playground
 	Absorb damage when combos <= 6 for 999 turns
-	[2] ESDebuffMovetime(39:14379) -> 終焉の遊び
+	[2] ESDebuffMovetime(39:14379) -> Final Game
 	Movetime 25% for 5 turns
 
 #30: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #31: SkillSet:
-	[0] ESChangeAttribute(46:14381) -> 狛犬変化
+	[0] ESChangeAttribute(46:14381) -> Komainu Transformation
 	Change own attribute to random one of Fire, Water, Wood, or Dark
-	[1] ESAttackMultihit(15:14382) -> 終わりなき戯れ
+	[1] ESAttackMultihit(15:14382) -> Forever Frolicking
 	Deal 2,000% damage (10 hits, 200% each)
 
 #32: ESEndPath(36:26) -> ESEndPath

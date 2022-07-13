@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:38024) -> 一緒に遊びませんか？
+	[0] ESStatusShield(20:38024) -> Will you play with me?
 	Voids status ailments for 999 turns
-	[1] ESSkyfall(68:38025) -> 天舞神の祈り
+	[1] ESSkyfall(68:38025) -> Prayer of the Dancing Goddess
 	Light and Dark skyfall +15% for 5 turns
-	[2] ESAbsorbCombo(67:38026) -> 光明の導き
+	[2] ESAbsorbCombo(67:38026) -> Shining Guidance
 	Absorb damage when combos <= 7 for 5 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -27,22 +27,22 @@ Branch on hp < 1, target rnd 16
 
 #6: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESDebuffRCV(105:38038) -> 失光
+	[0] ESDebuffRCV(105:38038) -> Lost Light
 	RCV 50% for 1 turn
-	[1] ESAttackMultihit(15:38039) -> 天舞
+	[1] ESAttackMultihit(15:38039) -> Heavenly Dance
 	Deal 102% damage (3 hits, 34% each)
 
 #7: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESRandomSpawn(92:38041) -> 照輝
+	[0] ESRandomSpawn(92:38041) -> Luminous Gleam
 	Spawn 5 random Light orbs
-	[1] ESAttackMultihit(15:38042) -> 天舞
+	[1] ESAttackMultihit(15:38042) -> Heavenly Dance
 	Deal 102% damage (3 hits, 34% each)
 
 #8: SkillSet:
-	[0] ESOrbLock(94:38044) -> 光錠
+	[0] ESOrbLock(94:38044) -> Shining Locks
 	Lock 7 random orbs
-	[1] ESAttackMultihit(15:38045) -> 天舞
+	[1] ESAttackMultihit(15:38045) -> Heavenly Dance
 	Deal 102% damage (3 hits, 34% each)
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -55,36 +55,36 @@ Branch on flag & 1, target rnd 14
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESBoardChangeAttackBits(85:38028) -> 天舞陣
+	[0] ESBoardChangeAttackBits(85:38028) -> Dancing Formation
 	Change all orbs to Light, Dark, Heal, Jammer, and Poison, Deal 103% damage
-	[1] ESAbsorbCombo(67:38029) -> 光明の導き
+	[1] ESAbsorbCombo(67:38029) -> Shining Guidance
 	Absorb damage when combos <= 9 for 1 turn
-	[2] ESAttackUPRemainingEnemies(17:38030) -> 遊びは終わりです
+	[2] ESAttackUPRemainingEnemies(17:38030) -> Playtime is over.
 	Increase damage to 500% for the next 999 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESChangeAttribute(46:38032) -> 神座の煌めき
+	[0] ESChangeAttribute(46:38032) -> Divine Glimmer
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:38033) -> 天舞神の憤怒
+	[1] ESAttackMultihit(15:38033) -> Rage of the Dancing Goddess
 	Deal 175% damage (7 hits, 25% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESRecoverEnemy86(86:38035) -> 神座の光明
+	[0] ESRecoverEnemy86(86:38035) -> Divine Illumination
 	Enemy recover 45% HP
-	[1] ESDebuffMovetime(39:38036) -> これはどうでしょう？
+	[1] ESDebuffMovetime(39:38036) -> How about this?
 	Movetime 25% for 1 turn
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESTypeResist(118:38046) -> 悪魔半減
+#18: ESTypeResist(118:38046) -> Devil Halved
 Reduce damage from Devil types by 50%
 
-#19: ESResolve(73:38047) -> 根性
+#19: ESResolve(73:38047) -> Resolve
 Survive attacks with 1 HP when HP > 50%

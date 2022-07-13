@@ -1,4 +1,4 @@
-#500905 - ファントムチェイサー
+#500905 - Phantom Chaser
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,19 +9,19 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESFixedStart(101:36669) -> サーチ開始
+	[0] ESFixedStart(101:36669) -> Beginning Search
 	Fix orb movement starting point to random position on the board
-	[1] ESVoidShield(71:36526) -> 脱走者発見！！
+	[1] ESVoidShield(71:36526) -> Fugitives detected!!
 	Void damage >= 100,000 for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESColumnSpawnMulti(77:36530) -> シャドウサイス
+#4: ESColumnSpawnMulti(77:36530) -> Shadow Scythe
 Condition: 50% chance (ai:0 rnd:50)
 Change the 1st column to Dark orbs, Deal 100% damage
 
-#5: ESColumnSpawnMulti(77:36531) -> シャドウサイス
+#5: ESColumnSpawnMulti(77:36531) -> Shadow Scythe
 Condition: 50% chance (ai:0 rnd:50)
 Change the 6th column to Dark orbs, Deal 100% damage
 
@@ -35,9 +35,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESNoSkyfall(127:36528) -> モードチェンジ！
+	[0] ESNoSkyfall(127:36528) -> Mode change!
 	No skyfall for 3 turns
-	[1] ESAttackUPRemainingEnemies(17:36529) -> 敵ヲ排除シマス！
+	[1] ESAttackUPRemainingEnemies(17:36529) -> Eliminating enemies!
 	Increase damage to 150% for the next 3 turns
 
 #10: ESEndPath(36:26) -> ESEndPath

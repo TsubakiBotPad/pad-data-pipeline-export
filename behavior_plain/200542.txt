@@ -1,4 +1,4 @@
-#200542 - 裏独眼竜・マサムネ
+#200542 - Alt. Wood Samurai Dragon, Masamune
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -17,22 +17,22 @@ flag SET 0b1
 Branch on player_cards HAS [7846], target rnd 7
 
 #5: SkillSet:
-	[0] ESStatusShield(20:38247) -> 独眼竜の守り
+	[0] ESStatusShield(20:38247) -> Wood Samurai Dragon's Protection
 	Voids status ailments for 999 turns
-	[1] ESBindAwoken(88:38248) -> 独眼の竜紋
+	[1] ESBindAwoken(88:38248) -> Masamune's Wood Emblem
 	Bind awoken skills for 3 turns
-	[2] ESDebuffMovetime(39:38249) -> 鋭い眼光
+	[2] ESDebuffMovetime(39:38249) -> Sharp Look
 	Movetime 50% for 3 turns
 
 #6: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #7: SkillSet:
-	[0] ESStatusShield(20:38251) -> 弾切れだ！
+	[0] ESStatusShield(20:38251) -> I'm out of ammo!
 	Voids status ailments for 999 turns
-	[1] ESBindAwoken(88:38252) -> 独眼の竜紋
+	[1] ESBindAwoken(88:38252) -> Masamune's Wood Emblem
 	Bind awoken skills for 3 turns
-	[2] ESDebuffMovetime(39:38253) -> 鋭い眼光
+	[2] ESDebuffMovetime(39:38253) -> Sharp Look
 	Movetime 50% for 3 turns
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -43,22 +43,22 @@ Branch on hp < 50, target rnd 14
 
 #10: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESOrbChangeAttackBits(108:38261) -> 独眼竜の刀
+	[0] ESOrbChangeAttackBits(108:38261) -> Wood Samurai Dragon's Blade
 	Change all Heal orbs to Wood orbs, Deal 100% damage
-	[1] ESAttributeBlock(107:38262) -> 消刀
+	[1] ESAttributeBlock(107:38262) -> Vanishing Blade
 	Unable to match Wood orbs for 1 turn
 
 #11: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESOrbSealRow(100:38264) -> 風切り
+	[0] ESOrbSealRow(100:38264) -> Cutting Wind
 	Seal the 1st row for 1 turn
-	[1] ESAttackMultihit(15:38265) -> 旋風斬
+	[1] ESAttackMultihit(15:38265) -> Whirlwind Slice
 	Deal 102% damage (3 hits, 34% each)
 
 #12: SkillSet:
-	[0] ESSpinnersRandom(109:38267) -> 回転斬
+	[0] ESSpinnersRandom(109:38267) -> Rotation Slice
 	Random 2 orbs change every 1.0s for 1 turn
-	[1] ESAttackMultihit(15:38268) -> 旋風斬
+	[1] ESAttackMultihit(15:38268) -> Whirlwind Slice
 	Deal 102% damage (3 hits, 34% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -66,40 +66,40 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESDamageShield(74:38255) -> 独眼の鉄壁
+	[0] ESDamageShield(74:38255) -> Masamune's Iron Wall
 	Reduce damage from all sources by 75% for 1 turn
-	[1] ESInactivity66(66:38256) -> 突風が巻き起こる
+	[1] ESInactivity66(66:38256) -> A Sudden Gust of Wind
 	Do nothing
 
 #15: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:38258) -> 大地の息吹
+	[0] ESBindAwoken(88:38258) -> Gaia Wind
 	Bind awoken skills for 1 turn
-	[1] ESBlindStickyRandom(97:38259) -> 烈空一閃・改
+	[1] ESBlindStickyRandom(97:38259) -> Improved Celestial Tempest
 	Blind random 4 orbs for 2 turns, Deal 300% damage
 
 #16: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESOrbChangeAttackBits(108:38261) -> 独眼竜の刀
+	[0] ESOrbChangeAttackBits(108:38261) -> Wood Samurai Dragon's Blade
 	Change all Heal orbs to Wood orbs, Deal 100% damage
-	[1] ESAttributeBlock(107:38262) -> 消刀
+	[1] ESAttributeBlock(107:38262) -> Vanishing Blade
 	Unable to match Wood orbs for 1 turn
 
 #17: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESOrbSealRow(100:38264) -> 風切り
+	[0] ESOrbSealRow(100:38264) -> Cutting Wind
 	Seal the 1st row for 1 turn
-	[1] ESAttackMultihit(15:38265) -> 旋風斬
+	[1] ESAttackMultihit(15:38265) -> Whirlwind Slice
 	Deal 102% damage (3 hits, 34% each)
 
 #18: SkillSet:
-	[0] ESSpinnersRandom(109:38267) -> 回転斬
+	[0] ESSpinnersRandom(109:38267) -> Rotation Slice
 	Random 2 orbs change every 1.0s for 1 turn
-	[1] ESAttackMultihit(15:38268) -> 旋風斬
+	[1] ESAttackMultihit(15:38268) -> Whirlwind Slice
 	Deal 102% damage (3 hits, 34% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESSuperResolve(129:38269) -> 超根性
+#20: ESSuperResolve(129:38269) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

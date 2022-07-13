@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:38049) -> 勝負だ
+	[0] ESStatusShield(20:38049) -> I challenge you.
 	Voids status ailments for 999 turns
-	[1] ESBoardSizeChange(126:38050) -> 武皇神の領域
+	[1] ESBoardSizeChange(126:38050) -> God-Emperor's Domain
 	Change board size to 7x6 for 3 turns
-	[2] ESVoidShield(71:38051) -> 炎盾
+	[2] ESVoidShield(71:38051) -> Flaming Shield
 	Void damage >= 100,000,000 for 3 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -24,15 +24,15 @@ Branch on hp < 50, target rnd 8
 
 #5: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESRowSpawnMulti(78:38071) -> 炎一閃
+	[0] ESRowSpawnMulti(78:38071) -> Flaming Slash
 	Change the 3rd row to Fire orbs
-	[1] ESAttackMultihit(15:38072) -> 草薙の剣
+	[1] ESAttackMultihit(15:38072) -> The Sword Kusanagi
 	Deal 102% damage (3 hits, 34% each)
 
 #6: SkillSet:
-	[0] ESRandomSpawn(92:38074) -> 癒炎剣
+	[0] ESRandomSpawn(92:38074) -> Healing Flame Sword
 	Spawn 5 random Heal orbs
-	[1] ESOrbChangeAttackBits(108:38075) -> 不滅の炎剣
+	[1] ESOrbChangeAttackBits(108:38075) -> Immortal Flame Sword
 	Change all Water orbs to Fire orbs, Deal 101% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -45,9 +45,9 @@ Branch on flag & 1, target rnd 12
 flag SET 0b1
 
 #10: SkillSet:
-	[0] ESBoardChange(84:38059) -> 草薙の双神剣
+	[0] ESBoardChange(84:38059) -> The Divine Swordset, Kusanagi
 	Change all orbs to Fire and Water
-	[1] ESOrbLock(94:38060) -> 拘束の炎剣
+	[1] ESOrbLock(94:38060) -> Restraining Flame Sword
 	Lock all Fire orbs
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -55,22 +55,22 @@ end_turn
 
 #12: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESPoisonChangeRandomAttack(64:38062) -> 毒焔
+	[0] ESPoisonChangeRandomAttack(64:38062) -> Poisonous Blaze
 	Change 5 random orbs to Poison orbs, Deal 10% damage
-	[1] ESAttackMultihit(15:38063) -> 草薙の剣
+	[1] ESAttackMultihit(15:38063) -> The Sword Kusanagi
 	Deal 102% damage (3 hits, 34% each)
 
 #13: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESRowSpawnMulti(79:38065) -> 草薙の炎剣
+	[0] ESRowSpawnMulti(79:38065) -> The Flame Sword Kusanagi
 	Change the 1st row to Fire and Heal orbs, Deal 51% damage
-	[1] ESColumnSpawnMulti(77:38066) -> 草薙の水剣
+	[1] ESColumnSpawnMulti(77:38066) -> The Water Sword Kusanagi
 	Change the 1st column to Water and Heal orbs, Deal 51% damage
 
 #14: SkillSet:
-	[0] ESAbsorbCombo(67:38068) -> 永久の焔
+	[0] ESAbsorbCombo(67:38068) -> Eternal Blaze
 	Absorb damage when combos <= 7 for 1 turn
-	[1] ESAttackMultihit(15:38069) -> 草薙の剣
+	[1] ESAttackMultihit(15:38069) -> The Sword Kusanagi
 	Deal 102% damage (3 hits, 34% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -78,19 +78,19 @@ end_turn
 
 #16: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDebuffMovetime(39:38053) -> 抗うといい
+	[0] ESDebuffMovetime(39:38053) -> Fight back.
 	Movetime 50% for 1 turn
-	[1] ESSpinnersRandom(109:38054) -> 火廻
+	[1] ESSpinnersRandom(109:38054) -> Fire Spiral
 	Random 1 orbs change every 0.5s for 1 turn
 
 #17: SkillSet:
-	[0] ESChangeAttribute(46:38056) -> 消え去れ
+	[0] ESChangeAttribute(46:38056) -> Begone.
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:38057) -> 終焉の剣
+	[1] ESAttackMultihit(15:38057) -> Sword of Demise
 	Deal 910% damage (7 hits, 130% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESSuperResolve(129:38076) -> 超根性50％
+#19: ESSuperResolve(129:38076) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

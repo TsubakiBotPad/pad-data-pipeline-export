@@ -1,4 +1,4 @@
-#206809 - ドット・火の魔法使い・ライラ
+#206809 - Pixel Fire Wizard, Laila
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDebuffATKTarget(143:37462) -> ダウンマジック
+#2: ESDebuffATKTarget(143:37462) -> Down Magic
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 For 6 turns, 1% ATK for 2 random subs
 
@@ -17,7 +17,7 @@ counter + 1
 #4: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 6, target rnd 10
 
-#5: ESAttackUPRemainingEnemies(17:29726) -> 次元の解放
+#5: ESAttackUPRemainingEnemies(17:29726) -> Dimension Liberation
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 1,000% for the next 999 turns
 
@@ -27,17 +27,17 @@ Branch on counter = 4, target rnd 9
 #7: ESBranchCounter(31:21) -> ESBranchCounter
 Branch on counter = 2, target rnd 9
 
-#8: ESChangeAttribute(46:37465) -> チェンジマジック
+#8: ESChangeAttribute(46:37465) -> Change Magic
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESAttackMultihit(15:29725) -> 次元の殲滅
+#10: ESAttackMultihit(15:29725) -> Dimension Destruction
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESSuperResolve(129:37518) -> 超根性
+#12: ESSuperResolve(129:37518) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

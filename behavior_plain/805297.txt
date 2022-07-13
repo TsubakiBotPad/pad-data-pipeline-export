@@ -1,4 +1,4 @@
-#805297 - 究毒の魔学者・ガスロ
+#805297 - Experimental Poison Demon Scientist, Gaslowe
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDebuffATK(130:36816) -> 君たちを倒して…
+	[0] ESDebuffATK(130:36816) -> I will defeat you all...
 	ATK -75% for 3 turns
-	[1] ESAbsorbThreshold(87:36817) -> 魔力を全て奪ってやろう！
+	[1] ESAbsorbThreshold(87:36817) -> ...and take all your magic for myself!
 	Absorb damage when damage >= 200,000 for 4 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,15 +20,15 @@ Branch on hp < 5, target rnd 13
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESRandomSpawn(92:36821) -> リキッドポーション
+#5: ESRandomSpawn(92:36821) -> Liquid Potion
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 4 random Fire, Water, Wood, Light, Dark, Heal, and Poison orbs, Deal 100% damage
 
-#6: ESBoardChangeAttackBits(85:36823) -> カオスポーション
+#6: ESBoardChangeAttackBits(85:36823) -> Chaos Potion
 Condition: 33% chance (ai:0 rnd:33)
 Change all orbs to Light, Dark, Heal, and Poison, Deal 80% damage
 
-#7: ESSpinnersRandom(109:36822) -> スフィアポーション
+#7: ESSpinnersRandom(109:36822) -> Sphere Potion
 Condition: 34% chance (ai:0 rnd:34)
 Random 1 orbs change every 1.0s for 1 turn, Deal 120% damage
 
@@ -42,19 +42,19 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESStatusShield(20:36819) -> 魔導機械を起動させて…
+	[0] ESStatusShield(20:36819) -> Thanks to my Magic Machine...
 	Voids status ailments for 4 turns
-	[1] ESDamageShield(74:36820) -> 私の願いを叶えるのだ！
+	[1] ESDamageShield(74:36820) -> ...my wish will be granted!
 	Reduce damage from all sources by 50% for 4 turns, Deal 100% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:36824) -> フハハハハハハハ！！
+#13: ESAttackMultihit(15:36824) -> Fwahahahahahahaha!!
 Deal 120% damage (3 hits, 40% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:36844) -> 超根性
+#15: ESSuperResolve(129:36844) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

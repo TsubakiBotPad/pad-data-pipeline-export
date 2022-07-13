@@ -1,4 +1,4 @@
-#507550 - 闇霧の凶禍龍・アマージュ
+#507550 - Darkmist Calamity Dragon, Amaj
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBlindStickySkyfall(128:37912) -> カースドロップ
+	[0] ESBlindStickySkyfall(128:37912) -> Curse Fall
 	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
-	[1] ESBlindStickyRandom(97:37913) -> 闇霧のいざない
+	[1] ESBlindStickyRandom(97:37913) -> Dark Mist Invitation
 	Blind random 5 orbs for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESBlind62(62:37917) -> 連鎖する恐怖
+#6: ESBlind62(62:37917) -> Chaining Fear
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Blind all orbs on the board, Deal 100% damage
 
@@ -35,7 +35,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESOrbSealColumn(99:37914) -> ノロイ…
+#10: ESOrbSealColumn(99:37914) -> Curse...
 Seal the 1st column for 1 turn, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -44,7 +44,7 @@ end_turn
 #12: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#13: ESRandomSpawn(92:37915) -> サイカ…
+#13: ESRandomSpawn(92:37915) -> Calamity...
 Spawn 2 random Jammer and Poison orbs, Deal 105% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -53,7 +53,7 @@ end_turn
 #15: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#16: ESSpinnersRandom(109:37916) -> ドウコク…
+#16: ESSpinnersRandom(109:37916) -> Scream...
 Random 2 orbs change every 1.0s for 1 turn, Deal 95% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -61,5 +61,5 @@ end_turn
 
 #18: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:37919) -> シンエン…
+	[0] ESInactivity66(66:37919) -> Abyss...
 	Do nothing

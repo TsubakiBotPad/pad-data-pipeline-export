@@ -1,4 +1,4 @@
-#606451 - 灼月夜の魔王・ジル＝レガート
+#606451 - Blood Moon Demon Lord, Gilles Legato
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,23 +9,23 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:36429) -> 遠慮はいらんぞ
+	[0] ESDamageShield(74:36429) -> No need to hold back.
 	Reduce damage from all sources by 50% for 3 turns
-	[1] ESAbsorbThreshold(87:36430) -> 全力でかかってくるがよい
+	[1] ESAbsorbThreshold(87:36430) -> Come at me with all you've got!
 	Absorb damage when damage >= 1,000,000 for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#4: ESOrbLock(94:36434) -> ブラッディチェイン
+#4: ESOrbLock(94:36434) -> Bloody Chain
 Condition: 33% chance (ai:0 rnd:33)
 Lock 5 random orbs, Deal 80% damage
 
-#5: ESColumnSpawnMulti(77:36435) -> インフェルノソード
+#5: ESColumnSpawnMulti(77:36435) -> Inferno Sword
 Condition: 33% chance (ai:0 rnd:33)
 Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage
 
-#6: ESColumnSpawnMulti(77:36436) -> アビスフリーズブレード
+#6: ESColumnSpawnMulti(77:36436) -> Abyssal Freeze Blade
 Condition: 34% chance (ai:0 rnd:34)
 Change the 6th column to Dark orbs and the 1st column to Water orbs, Deal 100% damage
 
@@ -39,9 +39,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #10: SkillSet:
-	[0] ESDebuffATK(130:36432) -> ははははは！
+	[0] ESDebuffATK(130:36432) -> Mwahahahaha!
 	ATK -50% for 3 turns
-	[1] ESAbsorbAttribute(53:36433) -> もっと魔法をみせるがよい！
+	[1] ESAbsorbAttribute(53:36433) -> Show me more of your magic!
 	Absorb Water damage for 2 turns
 
 #11: ESEndPath(36:26) -> ESEndPath

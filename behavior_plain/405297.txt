@@ -1,4 +1,4 @@
-#405297 - 究毒の魔学者・ガスロ
+#405297 - Experimental Poison Demon Scientist, Gaslowe
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,18 +9,18 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:36610) -> 魔力を取り返したくば…
+	[0] ESSkyfall(68:36610) -> If you want your magic power back...
 	Jammer and Poison skyfall +10% for 3 turns
-	[1] ESDebuffATK(130:36611) -> 力ずくで奪い返してみたまえ！
+	[1] ESDebuffATK(130:36611) -> ...then you'll have to take it by force!
 	ATK -90% for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESOrbChangeAttackBits(108:36615) -> リキッドポーション
+#4: ESOrbChangeAttackBits(108:36615) -> Liquid Potion
 Change all Jammer and Poison orbs to Dark orbs, Deal 120% damage
 
-#5: ESRandomSpawn(92:36616) -> ダークポーション
+#5: ESRandomSpawn(92:36616) -> Dark Potion
 Spawn 4 random Dark orbs, Deal 100% damage
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -33,9 +33,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESDamageShield(74:36613) -> フフ…
+	[0] ESDamageShield(74:36613) -> Heehee...
 	Reduce damage from all sources by 90% for 3 turns
-	[1] ESAbsorbCombo(67:36614) -> 楽しませてもらおうか！
+	[1] ESAbsorbCombo(67:36614) -> Entertain me, why don't you!
 	Absorb damage when combos <= 4 for 3 turns
 
 #10: ESEndPath(36:26) -> ESEndPath

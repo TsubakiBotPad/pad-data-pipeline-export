@@ -1,4 +1,4 @@
-#501106 - 漆黒夜の魔姫・リリス
+#501106 - Pitch Black Night Princess, Lilith
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:36438) -> 私がジル様をお守りするわ！
+	[0] ESDamageShield(74:36438) -> I shall protect Lord Gilles!
 	Reduce damage from all sources by 75% for 3 turns
-	[1] ESAbsorbAttribute(53:36439) -> ジル様を消させない！
+	[1] ESAbsorbAttribute(53:36439) -> You cannot extinguish Lord Gilles!
 	Absorb Dark damage for 3 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,14 +20,14 @@ Branch on hp < 5, target rnd 13
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESOrbChangeAttackBits(108:36445) -> アクアイービルアイ
+#5: ESOrbChangeAttackBits(108:36445) -> Aqua Evil Eye
 Change all Poison orbs to Water orbs, Deal 120% damage
 
-#6: ESBoardChangeAttackBits(85:36443) -> ポイズンミスト
+#6: ESBoardChangeAttackBits(85:36443) -> Poison Mist
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison, Deal 100% damage
 
-#7: ESRandomSpawn(92:36444) -> ポイズンテンプテーション
+#7: ESRandomSpawn(92:36444) -> Poison Temptation
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 3 random Water and Poison orbs, Deal 100% damage
 
@@ -41,19 +41,19 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #11: SkillSet:
-	[0] ESNoSkyfall(127:36441) -> あなたたちのせいでジル様が…
+	[0] ESNoSkyfall(127:36441) -> Because of you, Lord Gilles...
 	No skyfall for 3 turns
-	[1] ESAttackUPRemainingEnemies(17:36442) -> 許さない…！
+	[1] ESAttackUPRemainingEnemies(17:36442) -> I'll never forgive you...!
 	Increase damage to 150% for the next 3 turns
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESRandomSpawn(92:36446) -> あなたたちを排除する！！
+#13: ESRandomSpawn(92:36446) -> I'll eliminate you all!
 Spawn 4 random Water and Dark orbs, Deal 130% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESSuperResolve(129:36466) -> 超根性
+#15: ESSuperResolve(129:36466) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

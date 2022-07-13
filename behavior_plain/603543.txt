@@ -1,4 +1,4 @@
-#603543 - 峰角の大賢龍・バッケス
+#603543 - Summit Horn Wisedragon, Bacches
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,18 +7,18 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDebuffRCV(105:36333) -> いますぐ立ち去れ！
+#2: ESDebuffRCV(105:36333) -> Leave now!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 RCV 50% for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESGravity(50:36337) -> 突き上げ
+#4: ESGravity(50:36337) -> Toss
 Condition: 50% chance (ai:0 rnd:50)
 Player -30% HP
 
-#5: ESRandomSpawn(92:36338) -> ラッシュホーン
+#5: ESRandomSpawn(92:36338) -> Horn Rush
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 3 random Fire, Water, Wood, Light, Dark, and Heal orbs, Deal 100% damage
 
@@ -32,9 +32,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:36335) -> 侵入者め！
+	[0] ESAttackUPRemainingEnemies(17:36335) -> Intruders!
 	Increase damage to 150% for the next 3 turns
-	[1] ESGravity(50:36336) -> お前らの好きにはさせんぞ！！
+	[1] ESGravity(50:36336) -> I won't let you have it your way!
 	Player -50% HP
 
 #10: ESEndPath(36:26) -> ESEndPath

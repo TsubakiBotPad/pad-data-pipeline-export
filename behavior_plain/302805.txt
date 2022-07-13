@@ -1,4 +1,4 @@
-#302805 - 裏悪鬼の首領・酒呑童子
+#302805 - Alt. Demon Leader, Shuten-doji
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -15,68 +15,68 @@ flag SET 0b1
 
 #4: SkillSet:
 	Condition: 5% chance (ai:0 rnd:5)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESAbsorbAttribute(53:3847) -> 熱鬼の酒
+	[1] ESAbsorbAttribute(53:3847) -> Heat Demon's Sake
 	Absorb Fire damage for 1 turn
 
 #5: SkillSet:
 	Condition: 5% chance (ai:0 rnd:5)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESAbsorbAttribute(53:3848) -> 凍鬼の酒
+	[1] ESAbsorbAttribute(53:3848) -> Ice Demon's Sake
 	Absorb Water damage for 1 turn
 
 #6: SkillSet:
 	Condition: 5% chance (ai:0 rnd:5)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESAbsorbAttribute(53:3849) -> 嵐鬼の酒
+	[1] ESAbsorbAttribute(53:3849) -> Storm Demon's Sake
 	Absorb Wood damage for 1 turn
 
 #7: SkillSet:
 	Condition: 5% chance (ai:0 rnd:5)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESAbsorbAttribute(53:3850) -> 陽鬼の酒
+	[1] ESAbsorbAttribute(53:3850) -> Sunlight Demon's Sake
 	Absorb Light damage for 1 turn
 
 #8: SkillSet:
 	Condition: 5% chance (ai:0 rnd:5)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESAbsorbAttribute(53:3851) -> 陰鬼の酒
+	[1] ESAbsorbAttribute(53:3851) -> Shadow Demon's Sake
 	Absorb Dark damage for 1 turn
 
 #9: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESVoidShield(71:3852) -> 鋼鬼の酒
+	[1] ESVoidShield(71:3852) -> Steel Demon's Sake
 	Void damage >= 3,000,000 for 1 turn
 
 #10: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESDamageShield(74:3853) -> 鎧鬼の酒
+	[1] ESDamageShield(74:3853) -> Armored Demon's Sake
 	Reduce damage from all sources by 75% for 1 turn
 
 #11: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESStatusShield(20:3846) -> 大江山の霊護
+	[0] ESStatusShield(20:3846) -> Mount Ooe's Spiritual Protection
 	Voids status ailments for 5 turns
-	[1] ESAbsorbCombo(67:3854) -> 錬鬼の酒
+	[1] ESAbsorbCombo(67:3854) -> Refined Demon's Sake
 	Absorb damage when combos <= 7 for 1 turn
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:3869) -> 百鬼夜行
+#13: ESAttackMultihit(15:3869) -> Night Parade of One Hundred Demons
 Condition: When < 20% HP (ai:100 rnd:0)
 Deal 1,000% damage (10 hits, 100% each)
 
-#14: ESResolve(73:3868) -> 酒呑童子根性
+#14: ESResolve(73:3868) -> Shuten-doji Resolve
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Survive attacks with 1 HP when HP > 50%
 
@@ -86,23 +86,23 @@ Branch on flag & 2, target rnd 23
 #16: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#17: ESSkillDelay(89:3863) -> 鬼相の暴圧
+#17: ESSkillDelay(89:3863) -> Demon's Violent Suppression
 Condition: 20% chance (ai:0 rnd:20)
 Delay active skills by 1 turn, Deal 100% damage
 
-#18: ESBindSkill(14:3864) -> 呪面の封術
+#18: ESBindSkill(14:3864) -> Cursed Mask's Sealing Technique
 Condition: 20% chance (ai:0 rnd:20)
 Bind active skills for 1 turn, Deal 100% damage
 
-#19: ESBindAwoken(88:3865) -> 忌才の大太刀
+#19: ESBindAwoken(88:3865) -> Abominable Genius' Odachi
 Condition: 20% chance (ai:0 rnd:20)
 Bind awoken skills for 1 turn, Deal 100% damage
 
-#20: ESBlind62(62:3866) -> 怨恨の瘴気
+#20: ESBlind62(62:3866) -> Grudge Miasma
 Condition: 20% chance (ai:0 rnd:20)
 Blind all orbs on the board, Deal 100% damage
 
-#21: ESDebuffMovetime(39:3867) -> 破骸の拳
+#21: ESDebuffMovetime(39:3867) -> Corpse Crushing Fist
 Condition: 20% chance (ai:0 rnd:20)
 Movetime -2s for 1 turn, Deal 100% damage
 
@@ -112,35 +112,35 @@ end_turn
 #23: ESFlagOperation(24:14) -> ESFlagOperation
 flag UNSET 0b10
 
-#24: ESAbsorbAttribute(53:3847) -> 熱鬼の酒
+#24: ESAbsorbAttribute(53:3847) -> Heat Demon's Sake
 Condition: 5% chance (ai:0 rnd:5)
 Absorb Fire damage for 1 turn
 
-#25: ESAbsorbAttribute(53:3848) -> 凍鬼の酒
+#25: ESAbsorbAttribute(53:3848) -> Ice Demon's Sake
 Condition: 5% chance (ai:0 rnd:5)
 Absorb Water damage for 1 turn
 
-#26: ESAbsorbAttribute(53:3849) -> 嵐鬼の酒
+#26: ESAbsorbAttribute(53:3849) -> Storm Demon's Sake
 Condition: 5% chance (ai:0 rnd:5)
 Absorb Wood damage for 1 turn
 
-#27: ESAbsorbAttribute(53:3850) -> 陽鬼の酒
+#27: ESAbsorbAttribute(53:3850) -> Sunlight Demon's Sake
 Condition: 5% chance (ai:0 rnd:5)
 Absorb Light damage for 1 turn
 
-#28: ESAbsorbAttribute(53:3851) -> 陰鬼の酒
+#28: ESAbsorbAttribute(53:3851) -> Shadow Demon's Sake
 Condition: 5% chance (ai:0 rnd:5)
 Absorb Dark damage for 1 turn
 
-#29: ESVoidShield(71:3852) -> 鋼鬼の酒
+#29: ESVoidShield(71:3852) -> Steel Demon's Sake
 Condition: 25% chance (ai:0 rnd:25)
 Void damage >= 3,000,000 for 1 turn
 
-#30: ESDamageShield(74:3853) -> 鎧鬼の酒
+#30: ESDamageShield(74:3853) -> Armored Demon's Sake
 Condition: 25% chance (ai:0 rnd:25)
 Reduce damage from all sources by 75% for 1 turn
 
-#31: ESAbsorbCombo(67:3854) -> 錬鬼の酒
+#31: ESAbsorbCombo(67:3854) -> Refined Demon's Sake
 Condition: 25% chance (ai:0 rnd:25)
 Absorb damage when combos <= 7 for 1 turn
 

@@ -1,4 +1,4 @@
-#504413 - 氷華の大魔女・リーチェ
+#504413 - Great Witch of the Ice Flowers, Reeche
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,18 +7,18 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDebuffATK(130:36736) -> 選定を開始します
+#2: ESDebuffATK(130:36736) -> Let the trials begin.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 ATK -90% for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESBoardChangeAttackBits(85:36740) -> フラジールフラワー
+#4: ESBoardChangeAttackBits(85:36740) -> Fragile Flower
 Condition: 50% chance (ai:0 rnd:50)
 Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
 
-#5: ESRandomSpawn(92:36741) -> アイシングコールド
+#5: ESRandomSpawn(92:36741) -> Freezing Cold
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 3 random Water and Light orbs, Deal 100% damage
 
@@ -32,9 +32,9 @@ Branch on flag & 1, target rnd 4
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESAbsorbCombo(67:36738) -> やるわね…
+	[0] ESAbsorbCombo(67:36738) -> Not bad...
 	Absorb damage when combos <= 4 for 3 turns
-	[1] ESAttackUPRemainingEnemies(17:36739) -> もっと力を見せてちょうだい
+	[1] ESAttackUPRemainingEnemies(17:36739) -> Let me see more of your skill!
 	Increase damage to 150% for the next 3 turns
 
 #10: ESEndPath(36:26) -> ESEndPath

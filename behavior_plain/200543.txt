@@ -1,4 +1,4 @@
-#200543 - 裏太閤龍・ヒデヨシ
+#200543 - Alt. Light Samurai Dragon, Hideyoshi
 monster size: 5
 new AI: True
 start/max counter: 0
@@ -17,22 +17,22 @@ flag SET 0b1
 Branch on player_cards HAS [8460], target rnd 7
 
 #5: SkillSet:
-	[0] ESStatusShield(20:38226) -> 太閤龍の守り
+	[0] ESStatusShield(20:38226) -> Light Samurai Dragon's Protection
 	Voids status ailments for 999 turns
-	[1] ESSkillDelay(89:38227) -> 太閤の龍紋
+	[1] ESSkillDelay(89:38227) -> Hideyoshi's Light Emblem
 	Delay active skills by 3 turns
-	[2] ESRandomSpawn(92:38228) -> 超ドロップ狩り
+	[2] ESRandomSpawn(92:38228) -> Extreme Sword Hunt!
 	Spawn 4 random Jammer and Poison orbs
 
 #6: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #7: SkillSet:
-	[0] ESStatusShield(20:38230) -> 小気味よし！
+	[0] ESStatusShield(20:38230) -> What a delight!
 	Voids status ailments for 999 turns
-	[1] ESSkillDelay(89:38231) -> さらに一服所望じゃ
+	[1] ESSkillDelay(89:38231) -> Here's one extra request for you.
 	Delay active skills by 3 turns
-	[2] ESRandomSpawn(92:38232) -> 超ドロップ狩り
+	[2] ESRandomSpawn(92:38232) -> Extreme Sword Hunt!
 	Spawn 4 random Jammer and Poison orbs
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -43,32 +43,32 @@ Branch on hp < 1, target rnd 14
 
 #10: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESOrbChangeAttackBits(108:38237) -> 黄金の翼
+	[0] ESOrbChangeAttackBits(108:38237) -> Golden Wings
 	Change all Heal orbs to Light orbs, Deal 101% damage
-	[1] ESBindRandomSub(65:38238) -> 天下統一
+	[1] ESBindRandomSub(65:38238) -> Unification
 	Bind 3 random subs for 2 turns
 
 #11: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESDebuffRCV(105:38240) -> 幻惑の光
+	[0] ESDebuffRCV(105:38240) -> Bewitching Light
 	RCV 50% for 1 turn
-	[1] ESAttackMultihit(15:38241) -> 雷雲の息吹
+	[1] ESAttackMultihit(15:38241) -> Breath of the Thundercloud
 	Deal 102% damage (3 hits, 34% each)
 
 #12: SkillSet:
-	[0] ESOrbLock(94:38243) -> 太閤龍の拘束
+	[0] ESOrbLock(94:38243) -> Light Samurai Dragon's Restraints
 	Lock all Light orbs
-	[1] ESAttackMultihit(15:38244) -> 雷雲の息吹
+	[1] ESAttackMultihit(15:38244) -> Breath of the Thundercloud
 	Deal 105% damage (3 hits, 35% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESRecoverEnemy86(86:38234) -> 光の雫
+	[0] ESRecoverEnemy86(86:38234) -> Light Drops
 	Enemy recover 100% HP
-	[1] ESBoardChangeAttackBits(85:38235) -> 雷陣
+	[1] ESBoardChangeAttackBits(85:38235) -> Lightning Formation
 	Change all orbs to Light, Deal 100% damage
 
-#15: ESResolve(73:38245) -> 根性
+#15: ESResolve(73:38245) -> Resolve
 Survive attacks with 1 HP when HP > 50%

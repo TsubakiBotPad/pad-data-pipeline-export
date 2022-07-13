@@ -1,4 +1,4 @@
-#204358 - 裏灼林の魔獄獣・マンティコア
+#204358 - Alt. Firespike Hell Beast, Manticore
 monster size: 5
 new AI: True
 start/max counter: 15
@@ -9,18 +9,18 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 8)
-	[0] ESAbsorbCombo(67:13726) -> 紅蓮の巨体
+	[0] ESAbsorbCombo(67:13726) -> Crimson Giant
 	Absorb damage when combos <= 8 for 10 turns
-	[1] ESDebuffMovetime(39:13727) -> 獄下の施し
+	[1] ESDebuffMovetime(39:13727) -> Underworld Charity
 	Movetime 200% for 10 turns
-	[2] ESSpinnersRandom(109:13728) -> 渦炎
+	[2] ESSpinnersRandom(109:13728) -> Swirling Fire
 	Random 1 orbs change every 1.5s for 10 turns
 
 #3: SkillSet:
 	Condition: When < 1% HP (ai:100 rnd:0)
-	[0] ESRecoverEnemy86(86:13730) -> 自己治癒
+	[0] ESRecoverEnemy86(86:13730) -> Self Healing
 	Enemy recover 100% HP
-	[1] ESAttackUPRemainingEnemies(17:13731) -> 燃え上がる
+	[1] ESAttackUPRemainingEnemies(17:13731) -> Flare Up
 	Increase damage to 150% for the next 99 turns
 
 #4: ESBranchCounter(32:22) -> ESBranchCounter
@@ -31,28 +31,28 @@ counter + 1
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESStatusShield(20:9506) -> 興奮状態
+	[0] ESStatusShield(20:9506) -> Excited State
 	Voids status ailments for 4 turns
-	[1] ESBlind62(62:9507) -> 棘翼撃
+	[1] ESBlind62(62:9507) -> Thornwing Attack
 	Blind all orbs on the board, Deal 210% damage
 
-#7: ESCloud(104:9511) -> 噴煙
+#7: ESCloud(104:9511) -> Erupting Smoke
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
 A 2×3 rectangle of clouds appears for 4 turns at 2nd row, 3rd column, Deal 120% damage
 
-#8: ESOrbSealRow(100:9512) -> 熱波
+#8: ESOrbSealRow(100:9512) -> Heat Wave
 Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Seal the 1st and 5th rows for 2 turns
 
-#9: ESAttackMultihit(15:9513) -> 魔獣の猛撃
+#9: ESAttackMultihit(15:9513) -> Hell Beast's Furious Attack
 Condition: When < 20% HP (ai:100 rnd:0)
 Deal 1,200% damage (10 hits, 120% each)
 
-#10: ESRandomSpawn(92:9509) -> 毒槍
+#10: ESRandomSpawn(92:9509) -> Poison Spear
 Condition: 50% chance (ai:50 rnd:0)
 Spawn 3 random Poison orbs, Deal 220% damage
 
-#11: ESAttackMultihit(15:9510) -> 翠連爪
+#11: ESAttackMultihit(15:9510) -> Green Thrashing Claws
 Deal 240% damage (4 hits, 60% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -65,16 +65,16 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #15: SkillSet:
-	[0] ESLeaderSwap(75:9503) -> 弾き飛ばし
+	[0] ESLeaderSwap(75:9503) -> Swoop Shot
 	Leader changes to random sub for 10 turns
-	[1] ESVoidShield(71:9504) -> 硬殻の翼
+	[1] ESVoidShield(71:9504) -> Hardened Wings
 	Void damage >= 5,000,000 for 10 turns
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:9517) -> 根性
+#17: ESResolve(73:9517) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#18: ESTurnChangePassive(106:9518) -> 怒りで敵の行動ターンが変化した
+#18: ESTurnChangePassive(106:9518) -> Enemy's next turn changed in anger
 Enemy turn counter change to 1 when HP <= 20%

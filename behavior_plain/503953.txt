@@ -1,4 +1,4 @@
-#503953 - 熱狂の雷虎龍・バリドゥーラ
+#503953 - Thundershock Tiger Dragon, Balidoora
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,13 +14,13 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESRecoverPlayer(55:37983) -> ヴァンドの生命力
+	[0] ESRecoverPlayer(55:37983) -> Vand's Vital Force
 	Player recover 100% HP
-	[1] ESBoardChange(84:37956) -> 雷虎龍の轟咆
+	[1] ESBoardChange(84:37956) -> Thundershock Tiger Dragon's Rumbling Roar
 	Change all orbs to Light and Dark
-	[2] ESAbsorbCombo(67:37957) -> グルガァ!!
+	[2] ESAbsorbCombo(67:37957) -> GRRRGAAAAH!!
 	Absorb damage when combos <= 4 for 5 turns
-	[3] ESOrbSealRow(100:37958) -> ライトニングフィールド
+	[3] ESOrbSealRow(100:37958) -> Lightning Field
 	Seal the 5th row for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -39,9 +39,9 @@ Branch on counter = 1, target rnd 12
 counter + 1
 
 #10: SkillSet:
-	[0] ESAbsorbAttribute(53:37963) -> 抗魔
+	[0] ESAbsorbAttribute(53:37963) -> Antimagic
 	Absorb Light damage for 1 turn
-	[1] ESBoardChangeAttackBits(85:37964) -> サンダープリズマ
+	[1] ESBoardChangeAttackBits(85:37964) -> Thunder Prisma
 	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 85% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -51,9 +51,9 @@ end_turn
 counter + 1
 
 #13: SkillSet:
-	[0] ESAbsorbAttribute(53:37966) -> 抗魔
+	[0] ESAbsorbAttribute(53:37966) -> Antimagic
 	Absorb Dark damage for 1 turn
-	[1] ESOrbLock(94:37967) -> ボルテックファング
+	[1] ESOrbLock(94:37967) -> Vortex Fang
 	Lock all Light and Dark orbs
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -63,9 +63,9 @@ end_turn
 counter = 0
 
 #16: SkillSet:
-	[0] ESColumnSpawnMulti(77:37969) -> 雷禅光
+	[0] ESColumnSpawnMulti(77:37969) -> Lightning Zen
 	Change the 1st column to Light orbs, Deal 35% damage
-	[1] ESAttackMultihit(15:37970) -> ギャリイィイイイイ!!
+	[1] ESAttackMultihit(15:37970) -> Gyaayyyy!!
 	Deal 60% damage (3 hits, 20% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -73,9 +73,9 @@ end_turn
 
 #18: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBlindStickySkyfall(128:37960) -> 破刻雷
+	[0] ESBlindStickySkyfall(128:37960) -> Destructive Thunder
 	For 3 turns, 15% chance for skyfall orbs to be blinded for turn
-	[1] ESNoSkyfall(127:37961) -> バリアントフィールド
+	[1] ESNoSkyfall(127:37961) -> Variant Field
 	No skyfall for 3 turns
 
 #19: ESBranchFlag(43:10) -> ESBranchFlag
@@ -86,9 +86,9 @@ flag SET 0b11
 
 #21: SkillSet:
 	Condition: When < 50% HP (ai:100 rnd:0)
-	[0] ESOrbChangeAttackBits(108:37972) -> 雷牙爆閃
+	[0] ESOrbChangeAttackBits(108:37972) -> Bursting Thunderfang Flash
 	Change all Heal, Jammer, and Poison orbs to Light orbs, Deal 40% damage
-	[1] ESDebuffRCV(105:37973) -> パラライズロア
+	[1] ESDebuffRCV(105:37973) -> Paralyzing Roar
 	RCV 50% for 1 turn, Deal 40% damage
 
 #22: ESEndPath(36:26) -> ESEndPath
@@ -99,13 +99,13 @@ flag SET 0b1
 
 #24: SkillSet:
 	Condition: When < 50% HP (ai:100 rnd:0)
-	[0] ESBoardChangeAttackBits(85:37975) -> 狂爪爆雷
+	[0] ESBoardChangeAttackBits(85:37975) -> Berserk Claw Charge
 	Change all orbs to Fire, Light, Dark, Heal, Jammer, and Poison, Deal 115% damage
-	[1] ESSpinnersFixed(110:37976) -> サンダースティング
+	[1] ESSpinnersFixed(110:37976) -> Thunder Sting
 	Specific orbs change every 2.0s for 1 turn
 
 #25: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#26: ESSuperResolve(129:37954) -> ＿バリ超根性
+#26: ESSuperResolve(129:37954) -> ＿ Bali Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

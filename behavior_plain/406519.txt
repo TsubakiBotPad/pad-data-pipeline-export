@@ -1,4 +1,4 @@
-#406519 - 孔雀王・ユリシャ
+#406519 - Peacock Queen, Yurisha
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:32420) -> 孔雀の守り
+	[0] ESStatusShield(20:32420) -> Peacock's Protection
 	Voids status ailments for 999 turns
-	[1] ESBlindStickySkyfall(128:32421) -> 満願成就の羽根
+	[1] ESBlindStickySkyfall(128:32421) -> Fulfillment's Feather
 	For 1 turn, 30% chance for skyfall orbs to be blinded for turn
-	[2] ESAbsorbCombo(67:32422) -> 誓願の方陣
+	[2] ESAbsorbCombo(67:32422) -> Vow's Formation
 	Absorb damage when combos <= 9 for 4 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -33,16 +33,16 @@ Branch on hp < 50, target rnd 11
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBlindStickyFixed(98:32432) -> 眼状紋
+	[0] ESBlindStickyFixed(98:32432) -> Eyespots
 	Blind orbs in specific positions for 1 turn
-	[1] ESColumnSpawnMulti(77:32433) -> 火変の大祓
+	[1] ESColumnSpawnMulti(77:32433) -> Purifying Flames of Change
 	Change the 1st column to Fire and Jammer orbs, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBlindStickyFixed(98:32435) -> 眼状紋
+	[0] ESBlindStickyFixed(98:32435) -> Eyespots
 	Blind orbs in specific positions for 1 turn
-	[1] ESColumnSpawnMulti(77:32436) -> 闇変の大祓
+	[1] ESColumnSpawnMulti(77:32436) -> Purifying Darkness of Change
 	Change the 6th column to Dark and Jammer orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -55,11 +55,11 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESVoidShieldBig(137:32424) -> 孔雀障壁
+	[0] ESVoidShieldBig(137:32424) -> Peacock Barricade
 	Void damage >= 2,000,000,000 for 999 turns
-	[1] ESBlindStickyFixed(98:32425) -> 眼状紋
+	[1] ESBlindStickyFixed(98:32425) -> Eyespots
 	Blind orbs in specific positions for 1 turn
-	[2] ESBoardChangeAttackBits(85:32426) -> 転変の大祓
+	[2] ESBoardChangeAttackBits(85:32426) -> Purification of Change
 	Change all orbs to Fire, Dark, Heal, Jammer, and Poison, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -70,28 +70,28 @@ Branch on counter >= 5, target rnd 5
 
 #16: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRecoverEnemy86(86:32428) -> 再生の紅蓮
+	[0] ESRecoverEnemy86(86:32428) -> Lotus Flame of Resurrection
 	Enemy recover 100% HP
-	[1] ESBlindStickySkyfall(128:32429) -> 満願成就の羽根
+	[1] ESBlindStickySkyfall(128:32429) -> Fulfillment's Feather
 	For 1 turn, 35% chance for skyfall orbs to be blinded for turn
-	[2] ESDamageShield(74:32430) -> 孔雀の鉄壁
+	[2] ESDamageShield(74:32430) -> Peacock's Iron Wall
 	Reduce damage from all sources by 50% for 6 turns
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #18: SkillSet:
-	[0] ESBindAwoken(88:32439) -> 孔雀の波動
+	[0] ESBindAwoken(88:32439) -> Peacock Pulse
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:32440) -> 孔雀の大転変
+	[1] ESAttackMultihit(15:32440) -> Peacock's Great Upheaval
 	Deal 1,000% damage (10 hits, 100% each)
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESResolve(73:31387) -> 根性
+#20: ESResolve(73:31387) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#21: ESDeathCry(69:37520) -> ユリシャ変身
+#21: ESDeathCry(69:37520) -> Yurisha Transformation
 Condition: On death (ai:0 rnd:0)
 Show message: 飾り羽が広がっていく…|仲間を呼び出し真の姿を現した

@@ -1,4 +1,4 @@
-#202587 - イエローキーパー
+#202587 - Yellow Keeper
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,13 +9,13 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:36283) -> イエローコート
+	[0] ESSkyfall(68:36283) -> Yellow Coat
 	Light skyfall +100% for 10 turns
-	[1] ESDebuffMovetime(39:36299) -> タイムブースト
+	[1] ESDebuffMovetime(39:36299) -> Time Boost
 	Movetime 400% for 10 turns
-	[2] ESSkillDelay(89:36280) -> レディ
+	[2] ESSkillDelay(89:36280) -> Ready...
 	Delay active skills by 4 turns
-	[3] ESRandomSpawn(92:36281) -> ゴー！
+	[3] ESRandomSpawn(92:36281) -> ...go!
 	Spawn 14 random Fire, Water, and Wood orbs
 
 #3: ESBranchFlag(43:10) -> ESBranchFlag
@@ -26,23 +26,23 @@ flag SET 0b1
 
 #5: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESColumnSpawnMulti(76:36285) -> ゲーミングビーム
+	[0] ESColumnSpawnMulti(76:36285) -> Gaming Beam
 	Change the 1st, 3rd, and 4th columns to Fire orbs and the 2nd and 5th columns to Dark orbs
-	[1] ESFixedStart(101:36284) -> スタートポイント
+	[1] ESFixedStart(101:36284) -> Starting Point
 	Fix orb movement starting point to random position on the board
 
 #6: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESColumnSpawnMulti(76:36286) -> ゲーミングビーム
+	[0] ESColumnSpawnMulti(76:36286) -> Gaming Beam
 	Change the 1st, 3rd, and 4th columns to Water orbs and the 2nd and 5th columns to Dark orbs
-	[1] ESFixedStart(101:36284) -> スタートポイント
+	[1] ESFixedStart(101:36284) -> Starting Point
 	Fix orb movement starting point to random position on the board
 
 #7: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESColumnSpawnMulti(76:36287) -> ゲーミングビーム
+	[0] ESColumnSpawnMulti(76:36287) -> Gaming Beam
 	Change the 1st, 3rd, and 4th columns to Wood orbs and the 2nd and 5th columns to Dark orbs
-	[1] ESFixedStart(101:36284) -> スタートポイント
+	[1] ESFixedStart(101:36284) -> Starting Point
 	Fix orb movement starting point to random position on the board
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -56,23 +56,23 @@ flag SET 0b11
 
 #11: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESRowSpawnMulti(78:36288) -> ゲーミングビーム
+	[0] ESRowSpawnMulti(78:36288) -> Gaming Beam
 	Change the 2nd and 4th rows to Dark orbs and the 1st and 3rd rows to Fire orbs
-	[1] ESFixedStart(101:36284) -> スタートポイント
+	[1] ESFixedStart(101:36284) -> Starting Point
 	Fix orb movement starting point to random position on the board
 
 #12: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESRowSpawnMulti(78:36289) -> ゲーミングビーム
+	[0] ESRowSpawnMulti(78:36289) -> Gaming Beam
 	Change the 2nd and 4th rows to Dark orbs and the 1st and 3rd rows to Water orbs
-	[1] ESFixedStart(101:36284) -> スタートポイント
+	[1] ESFixedStart(101:36284) -> Starting Point
 	Fix orb movement starting point to random position on the board
 
 #13: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESRowSpawnMulti(78:36290) -> ゲーミングビーム
+	[0] ESRowSpawnMulti(78:36290) -> Gaming Beam
 	Change the 2nd and 4th rows to Dark orbs and the 1st and 3rd rows to Wood orbs
-	[1] ESFixedStart(101:36284) -> スタートポイント
+	[1] ESFixedStart(101:36284) -> Starting Point
 	Fix orb movement starting point to random position on the board
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -84,7 +84,7 @@ Branch on flag & 4, target rnd 19
 #16: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b111
 
-#17: ESRandomSpawn(92:36297) -> ゲーミングバースト
+#17: ESRandomSpawn(92:36297) -> Gaming Burst
 Spawn 9 random Fire, Water, Wood, and Dark orbs
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -96,11 +96,11 @@ Branch on flag & 8, target rnd 23
 #20: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1111
 
-#21: ESRandomSpawn(92:36297) -> ゲーミングバースト
+#21: ESRandomSpawn(92:36297) -> Gaming Burst
 Spawn 9 random Fire, Water, Wood, and Dark orbs
 
 #22: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#23: ESBoardChangeAttackBits(85:36298) -> パープルエンド
+#23: ESBoardChangeAttackBits(85:36298) -> Purple End
 Change all orbs to Dark, Deal 100% damage
