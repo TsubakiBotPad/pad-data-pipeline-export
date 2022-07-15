@@ -1,0 +1,87 @@
+#203955 - 裏煩忙の灯龍喚士・マイネ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBoardSizeChange(126:37063) -> 先にはお通ししませんよぉ…！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change board size to 6x5 for 5 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESLeaderSwap(75:37129) -> 先にはお通ししませんよぉ…！
+	Leader changes to random sub for 1 turn
+	[1] ESVoidShieldBig(137:37130) -> 博愛の本壁
+	Void damage >= 200,000,000 for 7 turns
+	[2] ESSkillDelay(89:37131) -> 羽巾箒
+	Delay active skills by 1~2 turns
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESCloud(104:37138) -> 雑巾箒
+	A column of clouds appears for 1 turn at a random location
+	[1] ESChangeAttribute(46:37139) -> リトルドラゴンチェンジ
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESCloud(104:37141) -> 雑巾箒
+	A 3×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
+	[1] ESSpinnersFixed(110:37142) -> リトルドラゴンキャノン
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESStatusShield(20:37134) -> 博愛の龍護守
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:37135) -> 博愛の本壁
+	Reduce damage from all sources by 50% for 999 turns
+	[2] ESSkillDelay(89:37136) -> 羽巾箒
+	Delay active skills by 2 turns
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:37132) -> リトルドラゴンブラスト
+Deal 1,000% damage
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:37144) -> ふぇえええええっ…
+	Do nothing
+
+#19: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%

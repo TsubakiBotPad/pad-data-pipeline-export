@@ -1,0 +1,39 @@
+#204200 - 遊興の魔領主・ルネリス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204200
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37039:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (37211:83) 魔結界 + 誘起の魔香 + ブルーイングダウン
+ | Voids status ailments for 999 turns + Water and Wood skyfall +20% for 3 turns + For 3 turns, 50% ATK for 3 random cards, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 33% chance
+     | (37223:83) 変香 + ダークネスジェイル
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Blind random 8~12 orbs for 1 turn, Deal 100% damage
+     | condition: 33% chance
+     | (37226:83) 木香 + チェインジェイル
+     | Absorb Wood damage for 1 turn + Lock all Wood orbs, Deal 100% damage
+     | condition: 34% chance
+     | (37220:83) 蛇香 + ダークネスジェイル
+     | No skyfall for 1 turn + Blind random 10 orbs for 1 turn, Deal 100% damage
+   | group:
+     | (37040:83) 業炎の波動 + 業炎の焔滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (37216:83) 誘起の邪香 + 蛇香 + ブルーイングダウン
+   | Jammer skyfall +20% for 3 turns + Bind 6 random cards for 3 turns + For 3 turns, 1% ATK for 2 random subs, Deal 100% damage
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (37215:15) ジェイルストリーム
+   | Deal 1,000% damage (4 hits, 250% each)

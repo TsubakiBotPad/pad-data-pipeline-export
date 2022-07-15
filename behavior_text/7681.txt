@@ -1,0 +1,27 @@
+#7681 - 極醒の威女神・カーリーの希石
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 7681
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37038:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (37362:92) 闇輝の希石
+ | Spawn 15 random Dark orbs
+ group:
+ | group:
+   | (37363:46) オーロラフラッシュ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (37365:143) 神秘の光源
+   | For 3 turns, 1% ATK for 1 random card, Deal 125% damage
+ type: REMAINING
+ condition: when 1 enemies remain, always turn 1
+ | (37364:17) 希石の奇跡
+ | Increase damage to 1,000% for the next 999 turns

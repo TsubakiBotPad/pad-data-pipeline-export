@@ -1,0 +1,55 @@
+#302068 - 裏アーミル
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302068
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37039:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (37019:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (37396:143) 魅惑のパフューム
+ | For 3 turns, 1% ATK for 2 random subs
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 50% chance
+   | (37397:46) パルファムチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (37398:92) ポイズンパルファム
+   | Spawn 7 random Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (37399:137) 獄幻魔の障壁
+   | Void damage >= 500,000,000 for 999 turns
+ | group:
+ | condition: turns 4-6
+   | condition: 50% chance
+   | (37397:46) パルファムチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (37398:92) ポイズンパルファム
+   | Spawn 7 random Poison orbs, Deal 100% damage
+ | group:
+   | (37042:15) 業炎の焔滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (37400:83) エンハンスパルファム + 獄幻魔の防壁 + 魅惑のパフューム
+   | Increase damage to 1,000% for the next 1 turn + Reduce damage from all sources by 50% for 1 turn + For 1 turn, 50% ATK for 2 random subs
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (37397:46) パルファムチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (37398:92) ポイズンパルファム
+   | Spawn 7 random Poison orbs, Deal 100% damage

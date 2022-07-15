@@ -1,0 +1,52 @@
+#307123 - 裏アイビー
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 307123
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37039:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (37020:72) 闇軽減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (37404:83) きらめきの守護 + エイミングターゲット
+ | Voids status ailments for 999 turns + Forces attacks to hit this enemy for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (37407:109) コンフュージョン
+     | Random 2 orbs change every 0.5s for 1 turn, Deal 90% damage
+     | condition: 50% chance
+     | (37408:46) チェンジアロー
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | group:
+     | (37042:15) 業炎の焔滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (37413:88) ダストアロー
+   | Bind awoken skills for 1 turn, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (37409:83) エイミングキュア + ダウンアイ + ダストアロー
+   | Enemy ally recover 100% HP + For 3 turns, 1% ATK for 1 random sub + Unable to match Heal orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: always turn 2
+   | (37414:17) エイミングチャージ
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 3-6 while HP > 49, hp <= 100
+   | condition: 50% chance
+   | (37407:109) コンフュージョン
+   | Random 2 orbs change every 0.5s for 1 turn, Deal 90% damage
+   | condition: 50% chance
+   | (37408:46) チェンジアロー
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

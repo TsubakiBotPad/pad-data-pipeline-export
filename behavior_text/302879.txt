@@ -1,0 +1,52 @@
+#302879 - 裏滅雷龍・ドルヴァ
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 302879
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37039:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (37019:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (37369:83) 契約龍の結界 + デュアルハウル
+ | Voids status ailments for 999 turns + For 5 turns, 1% ATK for both leaders
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 50% chance
+     | (37372:46) ヴェスペラルチェンジ
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 150% damage
+     | condition: 50% chance
+     | (37373:15) デュアルバイト
+     | Deal 200% damage (2 hits, 100% each)
+   | group:
+     | (37042:15) 業炎の焔滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (37374:137) 契約龍の鱗壁
+   | Void damage >= 500,000,000 for 5 turns
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (37375:83) 超克の意志 + ヴェスペラルアイ + ダメージディバイド
+   | Enemy ally recover 100% HP + Forces attacks to hit this enemy for 99 turns + Reduce damage from all sources by 50% for 4 turns, Deal 200% damage
+ | group:
+ | condition: turn 2
+   | (37385:17) 契約龍の激鱗
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 3-4
+   | condition: 50% chance
+   | (37372:46) ヴェスペラルチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 150% damage
+   | condition: 50% chance
+   | (37373:15) デュアルバイト
+   | Deal 200% damage (2 hits, 100% each)

@@ -1,0 +1,54 @@
+#206720 - 裏エンケラス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206720
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37039:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (37045:105) 清浄の炎
+ | RCV 50% for 5 turns
+ group:
+ | group:
+ | condition: always turns 2-6
+   | condition: 50% chance
+   | (37046:77) バーニングアーム
+   | Change the 1st column to Fire orbs and the 6th column to Jammer orbs, Deal 100% damage
+   | condition: 50% chance
+   | (37047:46) シフトフレア
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (37051:67) 剛腕の炎纏
+     | Absorb damage when combos <= 9 for 6 turns
+   | group:
+     | (37042:15) 業炎の焔滅
+     | Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (37052:74) 剛腕の炎壁
+   | Reduce damage from all sources by 50% for 6 turns
+ type: REMAINING
+ condition: when 1 enemies remain
+ | group:
+ | condition: always turn 1
+   | (37048:83) 不滅の焔 + 弱体の炎
+   | Increase damage to 200% for the next 999 turns + For 3 turns, 25% ATK for 2 random subs, Deal 100% damage
+ | group:
+ | condition: always turns 3-6
+   | condition: 50% chance
+   | (37046:77) バーニングアーム
+   | Change the 1st column to Fire orbs and the 6th column to Jammer orbs, Deal 100% damage
+   | condition: 50% chance
+   | (37047:46) シフトフレア
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 2 while HP > 49, hp <= 100
+   | (37051:67) 剛腕の炎纏
+   | Absorb damage when combos <= 9 for 6 turns

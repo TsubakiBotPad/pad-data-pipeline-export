@@ -1,0 +1,61 @@
+#302875 - 裏浄雷龍・セディン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkillDelay(89:37379) -> 契約龍の咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 1~3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 12
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 10
+
+#6: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 5 if counter == 0
+
+#7: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#8: ESAttackMultihit(15:37380) -> ツインプロミネンスバースト
+Deal 1,000% damage (5 hits, 200% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATKTarget(143:37382) -> 契約龍の咆哮
+	For 1 turn, 1% ATK for 1 random sub
+	[1] ESAttackUPRemainingEnemies(17:37383) -> 契約龍の激鱗
+	Increase damage to 1,000% for the next 1 turn
+	[2] ESDamageShield(74:37384) -> ダメージディバイド
+	Reduce damage from all sources by 50% for 1 turn
+
+#11: ESAttackMultihit(15:37380) -> ツインプロミネンスバースト
+Deal 1,000% damage (5 hits, 200% each)
+
+#12: ESAttackMultihit(15:37042) -> 業炎の焔滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#15: ESTurnChangeRemainingEnemies(122:37033) -> 敵の行動ターンが変化した
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1
+
+#16: ESAttributeResist(72:37020) -> 闇軽減
+Reduce damage from Dark attrs by 50%

@@ -1,0 +1,79 @@
+#308914 - 封印されし百式龍
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:37318) -> 百式結界
+	Voids status ailments for 999 turns
+	[1] ESDebuffATKTarget(143:37319) -> 業炎熱風
+	For 5 turns, 25% ATK for both leaders
+	[2] ESNoSkyfall(127:37320) -> 紅蓮水晶
+	No skyfall for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#5: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESChangeAttribute(46:37329) -> 焔晶
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESDebuffATKTarget(143:37330) -> 灼熱息吹
+	For 1 turn, 1% ATK for 1 random sub, Deal 100% damage
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESSpinnersFixed(110:37332) -> 螺旋炎晶
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESDebuffATKTarget(143:37333) -> 灼熱息吹
+	For 1 turn, 1% ATK for 1 random sub, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDamageShield(74:37322) -> 百式鉄壁
+	Reduce damage from all sources by 75% for 4 turns
+	[1] ESDebuffATKTarget(143:37323) -> 業炎の波動
+	For 4 turns, 50% ATK for 2 random subs
+	[2] ESSpinnersRandom(109:37324) -> 螺旋炎晶
+	Random 3 orbs change every 1.0s for 4 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#13: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#14: SkillSet:
+	[0] ESChangeAttribute(46:37326) -> 焔晶
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:37327) -> 百式爆炎波
+	Deal 1,000% damage (5 hits, 200% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#17: ESDeathCry(69:37359) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: 水晶が割れていく…|水晶からなにかが現れた！

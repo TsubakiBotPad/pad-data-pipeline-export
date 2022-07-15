@@ -1,0 +1,47 @@
+#308915 - 百式龍・ビャクレンコウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 308915
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37035:73) 根性
+ | Survive attacks with 1 HP when HP > 10%
+ type: PREEMPT
+ | (37335:83) クリムゾンバリア + インフェルノゲート + ヴォルケーノウォール
+ | Voids status ailments for 999 turns + Jammer and Poison skyfall +15% for 10 turns + Void damage >= 500,000,000 for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (37353:83) ヒートクリムゾン + ヴォルカニックバースト
+   | Change own attribute to random one of Wood, Light, or Dark + Change the 3rd and 4th columns to Fire and Jammer orbs, Deal 100% damage
+   | condition: 50% chance
+   | (37347:83) ヒートクリムゾン + ヴォルカニックバースト
+   | Change own attribute to random one of Water, Light, or Dark + Change the 1st column to Fire orbs and the 6th column to Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (37339:83) ヴォルケーノバニッシュ + インフェルノオーラ + ヒートクリムゾン
+     | Unable to match Water orbs for 10 turns + For 10 turns, 50% ATK for 4 random subs + Change own attribute to Fire, Deal 150% damage
+   | group:
+     | (37368:108) ヴォルカニックフレイム
+     | Change all Jammer and Poison orbs to Fire orbs, Deal 120% damage
+     | condition: 50% chance
+     | (37350:83) マグマスパイラル + ブレイズメテオ
+     | Specific orbs change every 1.0s for 1 turn + Fix orb movement starting point to random position on the board, Deal 90% damage
+     | condition: 50% chance
+     | (37356:83) インフェルノオーラ + ダークブレイズ
+     | For 1 turn, 25% ATK for both leaders + Blind random 10~12 orbs for 1 turn, Deal 90% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (37343:83) ヴォルカニックエンハンス + ニルヴァーナハウル
+     | Increase damage to 1,000% for the next 999 turns + Bind awoken skills for 1 turn
+   | group:
+     | (37346:15) エクスプロージョンノヴァ
+     | Deal 1,000% damage (10 hits, 100% each)

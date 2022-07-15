@@ -1,0 +1,89 @@
+#307123 - 裏アイビー
+monster size: 4
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:37405) -> きらめきの守護
+	Voids status ailments for 999 turns
+	[1] ESFixedTarget(112:37406) -> エイミングターゲット
+	Forces attacks to hit this enemy for 99 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 20
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESSpinnersRandom(109:37407) -> コンフュージョン
+Condition: 50% chance (ai:0 rnd:50)
+Random 2 orbs change every 0.5s for 1 turn, Deal 90% damage
+
+#8: ESChangeAttribute(46:37408) -> チェンジアロー
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESBindAwoken(88:37413) -> ダストアロー
+Bind awoken skills for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemyAlly(52:37410) -> エイミングキュア
+	Enemy ally recover 100% HP
+	[1] ESDebuffATKTarget(143:37411) -> ダウンアイ
+	For 3 turns, 1% ATK for 1 random sub
+	[2] ESAttributeBlock(107:37412) -> ダストアロー
+	Unable to match Heal orbs for 1 turn, Deal 100% damage
+
+#15: ESAttackUPRemainingEnemies(17:37414) -> エイミングチャージ
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#16: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#17: ESSpinnersRandom(109:37407) -> コンフュージョン
+Condition: 50% chance (ai:0 rnd:50)
+Random 2 orbs change every 0.5s for 1 turn, Deal 90% damage
+
+#18: ESChangeAttribute(46:37408) -> チェンジアロー
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESAttackMultihit(15:37042) -> 業炎の焔滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#23: ESAttributeResist(72:37020) -> 闇軽減
+Reduce damage from Dark attrs by 50%

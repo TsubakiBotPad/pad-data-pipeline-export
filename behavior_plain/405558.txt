@@ -1,0 +1,79 @@
+#405558 - ロミアのぬいぐるみ
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:37387) -> 獄幻魔の縫包
+	Absorb Light and Dark damage for 3 turns
+	[1] ESSpinnersFixed(110:37388) -> カオティックスフィア
+	Specific orbs change every 1.0s for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 18
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 14
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#7: ESChangeAttribute(46:37389) -> カオティックカラー
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#8: ESRandomSpawn(92:37390) -> デモンコール
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 7 random Jammer orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESDamageShield(74:37391) -> 獄幻魔の鉄壁
+Reduce damage from all sources by 50% for 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:37393) -> デモンエンハンス
+	Increase damage to 200% for the next 999 turns
+	[1] ESStatusShield(20:37394) -> 奈落の結界
+	Voids status ailments for 999 turns
+	[2] ESDebuffATKTarget(143:37395) -> カオティックフィアー
+	For 3 turns, 1% ATK for both leaders
+
+#15: ESChangeAttribute(46:37389) -> カオティックカラー
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#16: ESRandomSpawn(92:37390) -> デモンコール
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 7 random Jammer orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:37042) -> 業炎の焔滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,88 @@
+#203192 - 裏煌雷神・ヘラ＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:37300) -> 煌雷神の守り
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:37301) -> サンダーガード
+	Void damage >= 500,000,000 for 999 turns
+	[2] ESBoardChangeAttackBits(85:37302) -> サイン・オブ・ライト
+	Change all orbs to Light, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:37309) -> サイン・オブ・カラー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESColumnSpawnMulti(77:37310) -> 雷爪
+	Change the 1st and 6th columns to Light and Poison orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESColumnSpawnMulti(77:37312) -> サイン・オブ・ライフ
+	Change the 3rd and 4th columns to Heal and Jammer orbs, Deal 50% damage
+	[1] ESOrbLock(94:37313) -> 豪爪
+	Lock all Heal orbs, Deal 50% damage
+
+#9: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAbsorbAttribute(53:37315) -> サンダーボディ
+	Absorb Light damage for 1 turn
+	[1] ESOrbLock(94:37316) -> 豪爪
+	Lock all Light orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESSpinnersRandom(109:37305) -> サンダーボール
+	Random 3 orbs change every 1.0s for 1 turn
+	[1] ESNoSkyfall(127:37306) -> 傾慕の吐息
+	No skyfall for 1 turn
+	[2] ESBoardChangeAttackBits(85:37307) -> サイン・オブ・ライフ
+	Change all orbs to Heal, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:37303) -> ギガグラビトンサンダー
+Deal 600% damage (6 hits, 100% each)
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESAttributeResist(72:37020) -> 闇軽減
+Reduce damage from Dark attrs by 50%

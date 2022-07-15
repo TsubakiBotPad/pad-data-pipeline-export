@@ -1,0 +1,79 @@
+#302068 - 裏アーミル
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffATKTarget(143:37396) -> 魅惑のパフューム
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+For 3 turns, 1% ATK for 2 random subs
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 18
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 14
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#7: ESChangeAttribute(46:37397) -> パルファムチェンジ
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#8: ESRandomSpawn(92:37398) -> ポイズンパルファム
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 7 random Poison orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESVoidShieldBig(137:37399) -> 獄幻魔の障壁
+Void damage >= 500,000,000 for 999 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:37401) -> エンハンスパルファム
+	Increase damage to 1,000% for the next 1 turn
+	[1] ESDamageShield(74:37402) -> 獄幻魔の防壁
+	Reduce damage from all sources by 50% for 1 turn
+	[2] ESDebuffATKTarget(143:37403) -> 魅惑のパフューム
+	For 1 turn, 50% ATK for 2 random subs
+
+#15: ESChangeAttribute(46:37397) -> パルファムチェンジ
+Condition: 50% chance (ai:0 rnd:50)
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#16: ESRandomSpawn(92:37398) -> ポイズンパルファム
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 7 random Poison orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:37042) -> 業炎の焔滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#21: ESAttributeResist(72:37019) -> 光軽減
+Reduce damage from Light attrs by 50%
