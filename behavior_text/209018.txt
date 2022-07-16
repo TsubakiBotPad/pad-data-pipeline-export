@@ -1,0 +1,33 @@
+#209018 - ウルトラマンメビウス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209018
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38566:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (38556:83) メビウスディフェンサークル + メビュームピンガー
+ | Absorb Fire and Light damage for 3 turns + Random 2 orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (38559:83) ライトニングカウンター + メビウスパンチ
+   | Light skyfall +15% for 10 turns + Player -99% HP
+ | group:
+   | condition: 25% chance
+   | (38565:15) メビュームブレード
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (38564:92) メビウスキック
+   | Spawn 7 random Fire orbs, Deal 100% damage
+   | condition: 25% chance
+   | (38562:77) メビュームシュート
+   | Change the 3rd and 4th columns to Fire and Light orbs, Deal 100% damage
+   | condition: 25% chance
+   | (38563:79) ライトニングスラッシャー
+   | Change the 2nd and 4th rows to Fire and Light orbs, Deal 100% damage

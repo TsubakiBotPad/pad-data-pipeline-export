@@ -1,0 +1,36 @@
+#9024 - ウルトラマンゼット アルファエッジ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9024
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38518:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (38510:83) ゼットバリア + アルファチェインブレード
+ | Voids status ailments for 999 turns + Change the 1st row to Fire orbs and the 2nd row to Water orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (38516:15) アルファパンチ
+   | Deal 102% damage (3 hits, 34% each)
+   | (38517:62) アルファキック
+   | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (38514:75) ゼスティウムメーザー
+     | Leader changes to random sub for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (38515:94) アルファバーンキック
+     | Lock 5 random orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | (38513:15) ゼスティウム光線
+   | Deal 180% damage (3 hits, 60% each)
