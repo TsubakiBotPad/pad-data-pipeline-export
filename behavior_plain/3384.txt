@@ -1,0 +1,114 @@
+#3384 - Reincarnated Bastet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:38681) -> 愛猫神の魂
+	Voids status ailments for 999 turns
+	[1] ESBoardChangeAttackBits(85:38682) -> キャッツタックル
+	Change all orbs to Wood and Heal, Deal 100% damage
+	[2] ESSkyfall(68:38683) -> にゃにゃにゃー♪
+	Wood skyfall +15% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 20
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#8: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESRandomSpawn(92:38698) -> 子猫のいたずら
+	Spawn 4 random Jammer orbs
+	[1] ESFixedStart(101:38699) -> ニャン♪
+	Fix orb movement starting point to random position on the board, Deal 101% damage
+
+#9: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbLock(94:38701) -> 子猫のいたずら
+	Lock all Wood and Heal orbs
+	[1] ESAttackMultihit(15:38702) -> キャットコンビネーション
+	Deal 102% damage (3 hits, 34% each)
+
+#10: SkillSet:
+	Condition: One-time use (ai:0 rnd:33) (cost: 1)
+	[0] ESAttributeBlock(107:38704) -> 子猫のいたずら
+	Unable to match Heal orbs for 1 turn
+	[1] ESAttackMultihit(15:38705) -> キャットコンビネーション
+	Deal 102% damage (3 hits, 34% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#14: SkillSet:
+	[0] ESRecoverEnemy86(86:38685) -> 癒しの鳴き声
+	Enemy recover 100% HP
+	[1] ESColumnSpawnMulti(77:38686) -> スプレッドキャッツ
+	Change the 1st column to Wood orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 8
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#18: SkillSet:
+	[0] ESAbsorbAttribute(53:38695) -> 子猫のおねだり
+	Absorb Wood damage for 1 turn
+	[1] ESOrbChangeAttackBits(108:38696) -> ニャン！
+	Change all Heal orbs to Wood orbs, Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#22: SkillSet:
+	[0] ESAttributeBlock(107:38688) -> 甘える子猫
+	Unable to match Light orbs for 1 turn
+	[1] ESBoardChangeAttackBits(85:38689) -> ワイルドキャッツ
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: SkillSet:
+	[0] ESBindAwoken(88:38691) -> 愛猫神の一手
+	Bind awoken skills for 1 turn
+	[1] ESCloud(104:38692) -> 子猫の群れ
+	A row of clouds appears for 3 turns at 5th row, 1st column
+	[2] ESEndBattle(40:38693) -> 一斉に逃げ去った…
+	Reduce self HP to 0
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESAttributeResist(72:38706) -> 木半減
+Reduce damage from Wood attrs by 50%

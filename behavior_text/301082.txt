@@ -1,0 +1,39 @@
+#301082 - 裏黄天の果実・レモンドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 301082
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (38610:83) レモンバリアー + レモンシャワー + 黄果の恵み
+ | Voids status ailments for 999 turns + Locked Wood and Light skyfall +100% for 5 turns + Absorb Wood and Light damage for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (38621:83) 黄果のいたずら + レモンブレス
+   | Spawn 4 random Wood orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (38624:83) 黄果のいたずら + レモンブレス
+   | Spawn 4 random Light orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (38627:83) レモンボム + レモンブレス
+   | Spawn 5 random Bomb orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (38630:83) レモンオーラ + レモンフラッシュ
+   | Absorb damage when combos <= 7 for 1 turn + Bind 1 random sub for 3 turns, Deal 101% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (38618:83) 黄天の守り + 魅惑のレモン
+   | Reduce damage from all sources by 50% for 3 turns + Bind active skills for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (38614:66) 飛び跳ねた！
+     | Do nothing
+   | group:
+     | (38615:83) 色づく果実 + 黄天の怒り
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 910% damage (7 hits, 130% each), Deal 910% damage (7 hits, 130% each)

@@ -1,0 +1,57 @@
+#202007 - 裏スフィンクス
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESBindRandomSub(65:38591) -> ファラオの威光
+	Bind 2 random subs for 2 turns
+	[1] ESDebuffMovetime(39:38592) -> ファラオの眼光
+	Movetime 50% for 1 turn
+	[2] ESDebuffATK(130:38593) -> 不動の威圧
+	ATK -50% for 4 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESRandomSpawn(92:38595) -> ファラオの威厳
+	Spawn 3 random Fire orbs
+	[1] ESSpinnersFixed(110:38596) -> ミスティックレーザー
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESRandomSpawn(92:38598) -> ファラオの威厳
+	Spawn 4 random Fire orbs
+	[1] ESSpinnersFixed(110:38599) -> ミスティックレーザー
+	Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:38601) -> ファラオの威厳
+	Spawn 5 random Fire orbs
+	[1] ESSpinnersFixed(110:38602) -> ミスティックレーザー
+	Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:38604) -> ミスティックレーザー
+	Specific orbs change every 0.5s for 1 turn, Deal 115% damage
+	[1] ESInactivity66(66:38605) -> 激しい炎が舞い始めた
+	Do nothing
+
+#7: SkillSet:
+	[0] ESBindAwoken(88:38607) -> ファラオの決断
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:38608) -> 憤怒の猛進
+	Deal 910% damage (7 hits, 130% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttributeResist(72:38609) -> 火半減
+Reduce damage from Fire attrs by 50%

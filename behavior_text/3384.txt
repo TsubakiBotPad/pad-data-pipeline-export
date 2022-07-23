@@ -1,0 +1,45 @@
+#3384 - Reincarnated Bastet
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 3384
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38706:72) 木半減
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (38680:83) 愛猫神の魂 + キャッツタックル + にゃにゃにゃー♪
+ | Voids status ailments for 999 turns + Change all orbs to Wood and Heal + Wood skyfall +15% for 3 turns, Deal 100% damage
+ group:
+ | group:
+   | condition: 34% chance
+   | (38697:83) 子猫のいたずら + ニャン♪
+   | Spawn 4 random Jammer orbs + Fix orb movement starting point to random position on the board, Deal 101% damage
+   | condition: 33% chance
+   | (38700:83) 子猫のいたずら + キャットコンビネーション
+   | Lock all Wood and Heal orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 33% chance
+   | (38703:83) 子猫のいたずら + キャットコンビネーション
+   | Unable to match Heal orbs for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (38684:83) 癒しの鳴き声 + スプレッドキャッツ
+     | Enemy recover 100% HP + Change the 1st column to Wood orbs, Deal 100% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (38694:83) 子猫のおねだり + ニャン！
+     | Absorb Wood damage for 1 turn + Change all Heal orbs to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (38687:83) 甘える子猫 + ワイルドキャッツ
+     | Unable to match Light orbs for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+   | group:
+     | (38690:83) 愛猫神の一手 + 子猫の群れ + 一斉に逃げ去った…
+     | Bind awoken skills for 1 turn + A row of clouds appears for 3 turns at 5th row, 1st column + Reduce self HP to 0

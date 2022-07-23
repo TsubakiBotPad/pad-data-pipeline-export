@@ -1,0 +1,133 @@
+#9051 - 超転生ラー＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:38708) -> 太陽神龍の真魂
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:38709) -> サンプレッシャー
+	Movetime 25% for 4 turns
+	[2] ESNoSkyfall(127:38710) -> サンワールド
+	No skyfall for 4 turns
+	[3] ESDamageShield(74:38711) -> 全能の守り
+	Reduce damage from all sources by 90% for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 18
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#6: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#7: ESAttackMultihit(15:38743) -> サンライトフェザー
+Deal 1,190% damage (7 hits, 170% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBindAwoken(88:38719) -> 良いだろう
+	Bind awoken skills for 1 turn
+	[1] ESBindRandom(1:38720) -> 試練を与える
+	Bind 6 random cards for 1 turn
+	[2] ESBoardChange(84:38721) -> この盤面で
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[3] ESBlindStickyRandom(97:38722) -> 6色消して見せよ
+	Blind random 4 orbs for 1 turn
+
+#10: ESBranchEraseAttr(117:38756) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 12
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESOrbSealRow(100:38728) -> その程度か
+	Seal the 1st row for 2 turns
+	[1] ESBoardChange(84:38729) -> 真シャイニングブラスト
+	Change all orbs to Water, Light, Heal, and Jammer
+	[2] ESGravity(50:38730) -> サンインパクト
+	Player -75% HP
+
+#12: SkillSet:
+	Condition: One-time use & Fire, Water, Wood, Light, Dark, and Heal are erased (ai:100 rnd:0) (cost: 2)
+	[0] ESTargetedSkillHaste(139:38724) -> 素晴らしい
+	Haste all cards' skills by 2 turns
+	[1] ESBoardChange(84:38725) -> シャイニングブラスト
+	Change all orbs to Water, Light, and Heal
+	[2] ESGravity(50:38726) -> サンインパクト
+	Player -50% HP
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShield(71:38741) -> 全能の神盾
+	Void damage >= 200,000,000 for 1 turn
+	[1] ESAttackMultihit(15:38742) -> サンライトクラウン
+	Deal 102% damage (3 hits, 34% each)
+
+#14: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESDamageShield(74:38732) -> 全能の守り
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESOrbLock(94:38733) -> シャイニングロック
+	Lock all Water and Light orbs, Deal 100% damage
+
+#15: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDamageShield(74:38735) -> 全能の守り
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESCloud(104:38736) -> シャイニングクラウド
+	A 2×2 square of clouds appears for 1 turn at a random location, Deal 101% damage
+
+#16: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDamageShield(74:38738) -> 全能の守り
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESSpinnersRandom(109:38739) -> 自転
+	Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 22
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: SkillSet:
+	[0] ESAttributeBlock(107:38713) -> 迫り来る終焉
+	Unable to match Heal orbs for 1 turn
+	[1] ESOrbLock(94:38714) -> 太陽神龍の神眼
+	Lock all orbs
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: SkillSet:
+	[0] ESChangeAttribute(46:38716) -> 色づく太陽
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:38717) -> サンライトフェザー
+	Deal 1,190% damage (7 hits, 170% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESSuperResolve(129:38744) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#25: ESTypeResist(118:38745) -> 回復半減
+Reduce damage from Healer types by 50%
+
+#26: ESNone(136:38746) -> ESNone
+nothing

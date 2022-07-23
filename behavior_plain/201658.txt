@@ -1,0 +1,57 @@
+#201658 - 裏蒼対剣の鎧騎士・クレーゼ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:38661) -> 実力を見せてもらおうか
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:38662) -> 鋼の鎧
+	Reduce damage from all sources by 90% for 1 turn
+	[2] ESRandomSpawn(92:38663) -> ポイズンソード・極
+	Spawn 5 random Mortal Poison orbs
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardChangeAttackBits(85:38665) -> ダークネスソード
+	Change all orbs to Dark, Deal 101% damage
+	[1] ESSpinnersFixed(110:38666) -> 藍玉の騎士道
+	Specific orbs change every 1.0s for 1 turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:38668) -> 鋼の鎧
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESAttributeBlock(107:38669) -> ダークスラッシュ
+	Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#5: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESRandomSpawn(92:38671) -> ポイズンソード
+	Spawn 3 random Dark and Mortal Poison orbs
+	[1] ESAttackMultihit(15:38672) -> イービルクレスト・改
+	Deal 102% damage (3 hits, 34% each)
+
+#6: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAbsorbAttribute(53:38674) -> ダークバリアー
+	Absorb Dark damage for 1 turn
+	[1] ESAttackMultihit(15:38675) -> イービルクレスト・改
+	Deal 102% damage (3 hits, 34% each)
+
+#7: SkillSet:
+	[0] ESOrbSealColumn(99:38677) -> イービルスラッシュ
+	Seal the 1st column for 1 turn
+	[1] ESAttackMultihit(15:38678) -> イービルクレスト・改
+	Deal 102% damage (3 hits, 34% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESTypeResist(118:38679) -> 攻撃半減
+Reduce damage from Attacker types by 50%
