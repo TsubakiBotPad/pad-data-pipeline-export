@@ -1,4 +1,4 @@
-#8991 - 牛飼の星河神・彦星
+#8991 - Cowherd Milky Way God, Hikoboshi
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -12,20 +12,20 @@ Branch on player_cards HAS [8987, 8988], target rnd 4
 
 #3: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:38466) -> よく来てくれた。
+	[0] ESStatusShield(20:38466) -> I'm so glad that you're here.
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:38467) -> さぁ、はじめよう
+	[1] ESAbsorbCombo(67:38467) -> Now, let's begin.
 	Absorb damage when combos <= 7 for 3 turns
-	[2] ESBlindStickyRandom(97:38468) -> 彦星の戯れ
+	[2] ESBlindStickyRandom(97:38468) -> Hikoboshi's Caprice
 	Blind random 12 orbs for 3 turns
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:38470) -> よく来てくれた。
+	[0] ESStatusShield(20:38470) -> I'm so glad that you're here.
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:38471) -> 今日をどんなに楽しみにしていたことか。
+	[1] ESAbsorbCombo(67:38471) -> I've waited for this day so long...
 	Absorb damage when combos <= 7 for 3 turns
-	[2] ESBlindStickyRandom(97:38472) -> 愛しの君。
+	[2] ESBlindStickyRandom(97:38472) -> My love.
 	Blind random 12 orbs for 3 turns
 
 #5: ESBranchHP(28:18) -> ESBranchHP
@@ -36,30 +36,30 @@ Branch on hp < 50, target rnd 12
 
 #7: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESDamageShield(74:38482) -> 星盾
+	[0] ESDamageShield(74:38482) -> Star Shield
 	Reduce damage from all sources by 50% for 1 turn
-	[1] ESSpinnersRandom(109:38483) -> スタールーレット
+	[1] ESSpinnersRandom(109:38483) -> Star Roulette
 	Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESDamageShield(74:38485) -> 星盾
+	[0] ESDamageShield(74:38485) -> Star Shield
 	Reduce damage from all sources by 75% for 1 turn
-	[1] ESAbsorbAttribute(53:38486) -> 牛飼いの責務
+	[1] ESAbsorbAttribute(53:38486) -> Cowherd's Duty
 	Absorb Water and Light damage for 1 turn, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESDamageShield(74:38488) -> 星盾
+	[0] ESDamageShield(74:38488) -> Star Shield
 	Reduce damage from all sources by 50% for 1 turn
-	[1] ESColumnSpawnMulti(77:38489) -> 星渡りの邂逅
+	[1] ESColumnSpawnMulti(77:38489) -> Encounter Across the Stars
 	Change the 2nd column to Water orbs and the 6th column to Light orbs, Deal 100% damage
 
 #10: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESDamageShield(74:38491) -> 星盾
+	[0] ESDamageShield(74:38491) -> Star Shield
 	Reduce damage from all sources by 25% for 1 turn
-	[1] ESDebuffATK(130:38492) -> 光害
+	[1] ESDebuffATK(130:38492) -> Light Pollution
 	ATK -75% for 1 turn, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -72,11 +72,11 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESBoardChangeAttackBits(85:38478) -> 星合いの欣幸
+	[0] ESBoardChangeAttackBits(85:38478) -> Reunited Lovers' Felicity
 	Change all orbs to Water and Light, Deal 101% damage
-	[1] ESAttributeBlock(107:38479) -> 牛飼いの星祭
+	[1] ESAttributeBlock(107:38479) -> Cowherd's Star Festival
 	Unable to match Water orbs for 1 turn
-	[2] ESOrbLock(94:38480) -> アルタイルの輝き
+	[2] ESOrbLock(94:38480) -> Twinkle of Altair
 	Lock all Light orbs
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -84,19 +84,19 @@ end_turn
 
 #16: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:38474) -> 幻惑のアルタイル
+	[0] ESBindAwoken(88:38474) -> Bewitching Altair
 	Bind awoken skills for 1 turn
-	[1] ESOrbLock(94:38475) -> 彦星の憂鬱
+	[1] ESOrbLock(94:38475) -> Hikoboshi's Melancholy
 	Lock all orbs
 
-#17: ESAttackMultihit(15:38476) -> 絶望の催涙雨
+#17: ESAttackMultihit(15:38476) -> Tearful Rain of Despair
 Deal 700% damage (7 hits, 100% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESAttributeResist(72:38493) -> 水光半減
+#19: ESAttributeResist(72:38493) -> Water Light Halved
 Reduce damage from Water and Light attrs by 50%
 
-#20: ESSuperResolve(129:38494) -> 超根性50％
+#20: ESSuperResolve(129:38494) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified
