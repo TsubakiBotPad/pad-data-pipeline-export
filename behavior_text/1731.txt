@@ -1,0 +1,38 @@
+#1731 - Black-Winged Goddess, Valkyrie Claire
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 1731
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38783:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (38760:83) クレールワールド + 黒翼姫神の慈悲 + ダークライトブレイブ
+ | No skyfall for 6 turns + Movetime 150% for 6 turns + Absorb damage when combos <= 13 for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 25% chance
+     | (38771:83) ダークライトブレイブ + 漆黒の舞
+     | Absorb damage when combos <= 11 for 1 turn + Absorb Fire damage for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (38774:83) ダークライトブレイブ + 漆黒の舞
+     | Absorb damage when combos <= 11 for 1 turn + Absorb Dark damage for 1 turn, Deal 100% damage
+     | condition: 25% chance
+     | (38777:83) ダークライトブレイブ + 黒翼の拘束
+     | Absorb damage when combos <= 12 for 1 turn + Lock all Fire orbs, Deal 100% damage
+     | condition: 25% chance
+     | (38780:83) ダークライトブレイブ + 黒翼の拘束
+     | Absorb damage when combos <= 12 for 1 turn + Lock all Dark orbs, Deal 100% damage
+   | group:
+     | (38764:83) 攻撃態勢 + ヴァルキリーエンド
+     | Bind awoken skills for 1 turn + Deal 1,400% damage (7 hits, 200% each), Deal 1,400% damage (7 hits, 200% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (38767:83) クレールシャワー + ブレッシングフェザー + ダークライトブレイブ
+   | Fire and Dark skyfall +15% for 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Absorb damage when combos <= 11 for 1 turn

@@ -1,0 +1,31 @@
+#305967 - 焔猛龍の戦士・グリゴリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 305967
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39500:83) 祖国の誇り + わしと勝負じゃ + ゆくぞ小童ども！
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 1 turn + Bind active skills for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (39508:83) 神器宿装・ダリオン + 焔廻斧
+   | Reduce damage from all sources by 75% for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (39511:83) 神器宿装・ダリオン + 焔廻斧
+   | Reduce damage from all sources by 75% for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 34% chance
+   | (39514:83) 神器宿装・ダリオン + ギガントスラッシュ
+   | Reduce damage from all sources by 80% for 1 turn + Change all orbs to Fire, Wood, and Heal, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (39504:83) まだまだこれからじゃ！ + 神器宿装・ダリオン + ギガントスラッシュ
+   | Bind 6 random cards for 5 turns + Reduce damage from all sources by 80% for 1 turn + Change all orbs to Fire, Wood, and Heal, Deal 150% damage
+ | group:
+ | condition: hp <= 4
+   | (39517:85) ギガントアックスクラッシュ
+   | Change all orbs to Fire, Wood, and Heal, Deal 1,000% damage

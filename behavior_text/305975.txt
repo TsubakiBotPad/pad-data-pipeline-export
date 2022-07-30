@@ -1,0 +1,61 @@
+#305975 - 魔滅龍の魔法使い・エレメイ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305975
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39630:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39604:83) ほっほっほ！ + よく来られましたな！ + ブラックサンダーゾーン
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 1,000,000,000 for 10 turns + For 10 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-9 while HP > 49
+     | condition: 25% chance
+     | (39617:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 6 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+     | condition: 25% chance
+     | (39620:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 7 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+     | condition: 25% chance
+     | (39623:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 8 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+     | condition: 25% chance
+     | (39626:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 9 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+   | group:
+   | condition: turn 10 while HP > 49
+     | (39608:83) ふむ、やりますな + ここからが本番ですぞ！ + ブラックサンダーボルト
+     | Reduce damage from all sources by 75% for 999 turns + Leader changes to random sub for 1 turn + For 1 turn, 1% ATK for both leaders, Deal 150% damage
+   | group:
+     | condition: 25% chance
+     | (39617:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 6 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+     | condition: 25% chance
+     | (39620:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 7 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+     | condition: 25% chance
+     | (39623:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 8 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+     | condition: 25% chance
+     | (39626:83) 神器宿装・トリニタス + ブラックサンダーボルト
+     | Absorb damage when combos <= 9 for 1 turn + For 1 turn, 25% ATK for 2 random cards, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (39608:83) ふむ、やりますな + ここからが本番ですぞ！ + ブラックサンダーボルト
+   | Reduce damage from all sources by 75% for 999 turns + Leader changes to random sub for 1 turn + For 1 turn, 1% ATK for both leaders, Deal 150% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (39612:83) ほっほっほ！ + これはまずいですな + 全力で行きますぞ！
+     | For 1 turn, 1% ATK for 4 random subs + Bind awoken skills for 1 turn + Increase damage to 1,000% for the next 999 turns
+   | group:
+     | (39616:15) ダークネスライトニング
+     | Deal 1,000% damage (10 hits, 100% each)

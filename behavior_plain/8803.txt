@@ -1,4 +1,4 @@
-#8803 - ミステリーマニア・忍野扇
+#8803 - Mystery Nerd, Ougi Oshino
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSkyfall(68:37745) -> 随分と早いですねえ
+	[0] ESSkyfall(68:37745) -> Well, that was fast.
 	Dark skyfall +15% for 5 turns
-	[1] ESAbsorbAttribute(53:37746) -> ――もう真打のご登場ですか
+	[1] ESAbsorbAttribute(53:37746) -> The main attraction, already on stage?
 	Absorb Dark damage for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -31,7 +31,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESVoidShield(71:37754) -> 私は逃げも隠れもしませんよ
+#9: ESVoidShield(71:37754) -> I won't run or hide.
 Void damage >= 100,000,000 for 1 turn, Deal 105% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -40,32 +40,32 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESBindAwoken(88:37755) -> 愚か者ですかあなたは？
+#12: ESBindAwoken(88:37755) -> What are you, a fool?
 Bind awoken skills for 1 turn, Deal 95% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESSkillDelay(89:37747) -> 愚かですねえ
+#14: ESSkillDelay(89:37747) -> You really are such a fool.
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
 Delay active skills by 3 turns
 
 #15: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDebuffRCV(105:37749) -> 青春の終わり、ですね
+	[0] ESDebuffRCV(105:37749) -> The end of youth, we might say.
 	RCV 25% for 1 turn
-	[1] ESDebuffATK(130:37750) -> あるいは物語の終わり、ですか
+	[1] ESDebuffATK(130:37750) -> Or maybe of a tale.
 	ATK -75% for 1 turn
 
 #16: SkillSet:
 	Condition: When < 50% HP (ai:100 rnd:0)
-	[0] ESChangeAttribute(46:37752) -> お疲れさまでした
+	[0] ESChangeAttribute(46:37752) -> Great work.
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:37753) -> さようなら
+	[1] ESAttackMultihit(15:37753) -> Bye.
 	Deal 150% damage (6 hits, 25% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:37743) -> ＿扇超根性
+#18: ESSuperResolve(129:37743) -> ＿Ougi Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

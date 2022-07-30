@@ -1,0 +1,28 @@
+#309062 - 穿弾龍の銃士・リズレット
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309062
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39561:83) 銃装結界 + 神器宿装・ブレン + スフィアバラージ
+ | Voids status ailments for 999 turns + Void damage >= 500,000,000 for 999 turns + Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (39569:83) エネミーサーチ + スフィアバラージ
+   | Fix orb movement starting point to random position on the board + Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (39572:83) エネミーガード + ダークバラージ
+   | Seal the 1st column for 1 turn + Blind random 10~15 orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (39565:83) 弾薬の雨 + 硝雲の煙幕 + スフィアバラージ
+   | Jammer and Poison skyfall +15% for 5 turns + A 3×1 rectangle of clouds appears for 5 turns at 1st row, 1st column + Specific orbs change every 0.5s for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 4
+   | (39575:15) ストームデスバラージ
+   | Deal 1,000% damage (10 hits, 100% each)

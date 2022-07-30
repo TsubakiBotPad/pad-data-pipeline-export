@@ -1,0 +1,43 @@
+#305971 - 樹望龍の癒し手・アリナ
+monster size: 5
+new AI: True
+start/max counter: 127
+counter increment: 0
+monster_id: 305971
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39629:73) 根性
+ | Survive attacks with 1 HP when HP > 1%
+ type: PREEMPT
+ | (39518:83) 和平の願い + ナチュラルウッド + いきますよ～
+ | Voids status ailments for 999 turns + Bind awoken skills for 4 turns + Void damage >= 500,000,000 for 999 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (39527:83) ライトバタフライ + ナチュラルコール
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal + Unable to match Fire orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (39530:83) ライトバタフライ + ナチュラルコール
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal + Unable to match Water orbs for 1 turn, Deal 125% damage
+ | group:
+ | condition: turn 3
+   | (39533:83) ライトバタフライ + ナチュラルコール
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal + Unable to match Wood orbs for 1 turn, Deal 150% damage
+ | group:
+ | condition: turn 4
+   | (39536:83) ライトバタフライ + ナチュラルコール
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal + Unable to match Light orbs for 1 turn, Deal 175% damage
+ | group:
+ | condition: turn 5
+   | (39539:83) ライトバタフライ + ナチュラルコール
+   | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal + Unable to match Dark orbs for 1 turn, Deal 200% damage
+ | group:
+ | condition: turn 6
+   | (39522:83) はわわ～っ + がんばりますよ～ + バタフライガード
+   | RCV 50% for 5 turns + Bind awoken skills for 1 turn + Reduce damage from all sources by 75% for 1 turn
+ | group:
+   | (39526:15) ナチュラルフォレスト
+   | Deal 1,000% damage (10 hits, 100% each)

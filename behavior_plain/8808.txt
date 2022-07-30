@@ -1,4 +1,4 @@
-#8808 - エピソード
+#8808 - Episode
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,27 +14,27 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDebuffATK(130:37703) -> オッケ。
+	[0] ESDebuffATK(130:37703) -> 'Kay.
 	ATK -50% for 5 turns
-	[1] ESSkillDelay(89:37704) -> 早い者勝ちってこったな
+	[1] ESSkillDelay(89:37704) -> So first takes it?
 	Delay active skills by 2 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESAttackMultihit(15:37705) -> はい、俺の勝ちぃ
+#6: ESAttackMultihit(15:37705) -> There, I win.
 Condition: When < 1% HP (ai:100 rnd:0)
 Deal 130% damage (5 hits, 26% each)
 
-#7: ESAttackUPRemainingEnemies(17:37709) -> 手加減してもらえるとか思うなよ
+#7: ESAttackUPRemainingEnemies(17:37709) -> Don't think I'll go easy.
 Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 2)
 Increase damage to 150% for the next 999 turns
 
 #8: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESCloud(104:37711) -> 霧の俺に
+	[0] ESCloud(104:37711) -> You think such a sloppy kick...
 	A row of clouds appears for 3 turns at 1st row, 1st column
-	[1] ESBlindStickyRandom(97:37712) -> 当たるわけねえだろうが！
+	[1] ESBlindStickyRandom(97:37712) -> ...would hit me when I'm a cloud of mist?!
 	Blind random 5 orbs for 3 turns, Deal 80% damage
 
 #9: ESBranchCounter(31:21) -> ESBranchCounter
@@ -46,7 +46,7 @@ Branch on counter = 1, target rnd 14
 #11: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#12: ESRandomSpawn(92:37706) -> 超ウケる
+#12: ESRandomSpawn(92:37706) -> Gotta love it.
 Spawn 4 random Light and Dark orbs
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -55,7 +55,7 @@ end_turn
 #14: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#15: ESBoardChangeAttackBits(85:37707) -> 手間が省けて助かるぜ
+#15: ESBoardChangeAttackBits(85:37707) -> Saves me some work.
 Change all orbs to Light, Dark, and Heal, Deal 110% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -64,11 +64,11 @@ end_turn
 #17: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#18: ESTargetedSkillHaste(139:37708) -> 今日は特別サービスだ
+#18: ESTargetedSkillHaste(139:37708) -> You get a special treat.
 Haste all cards' skills by 2 turns, Deal 97% damage
 
 #19: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#20: ESResolve(73:37701) -> ＿エピソード根性
+#20: ESResolve(73:37701) -> ＿Episode Resolve
 Survive attacks with 1 HP when HP > 50%
