@@ -1,0 +1,66 @@
+#704906 - 純翼の石蛇龍・ケツァルコアトル
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 704906
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37649:83) ハウリングストーム + ハウリングエアー
+ | Void damage >= 3,000,000,000 for 3 turns + Delay active skills by 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 4
+     | condition: 50% chance
+     | (37659:85) サイクロントルネード
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+     | condition: 50% chance
+     | (37660:1) ハリケーンケージ
+     | Bind 3 random cards for 1 turn, Deal 95% damage
+   | group:
+   | condition: turn 3 while HP > 4
+     | (37653:74) フォローウィンド
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+   | condition: turns 4-5 while HP > 4
+     | condition: 50% chance
+     | (37655:4) サイクロンウイング
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 50% chance
+     | (37654:15) バーストウイング
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: turn 6 while HP > 4
+     | (37661:137) ハウリングストーム
+     | Void damage >= 3,000,000,000 for 3 turns
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 6
+     | condition: 50% chance
+     | (37659:85) サイクロントルネード
+     | Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 100% damage
+     | condition: 50% chance
+     | (37660:1) ハリケーンケージ
+     | Bind 3 random cards for 1 turn, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (37651:89) ハウリングエアー
+     | Delay active skills by 1 turn
+   | group:
+   | condition: execute repeatedly, turn 4-5 of 6
+     | condition: 50% chance
+     | (37655:4) サイクロンウイング
+     | Change a random attribute to Wood orbs, Deal 100% damage
+     | condition: 50% chance
+     | (37654:15) バーストウイング
+     | Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (37651:89) ハウリングエアー
+     | Delay active skills by 1 turn
+ | group:
+ | condition: hp <= 4
+   | (37652:15) サイクロンバーストエンド
+   | Deal 350% damage (5 hits, 70% each)

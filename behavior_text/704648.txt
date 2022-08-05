@@ -1,0 +1,32 @@
+#704648 - 輝門の大魔女・サレーネ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 704648
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (37626:83) ライトクラウド + 古光霊の航術
+ | A row of clouds appears for 2 turns at 1st row, 1st column + ATK -50% for 5 turns
+ group:
+ | group:
+ | condition: turns 1-9
+   | condition: 50% chance
+   | (37632:15) ディスパーチャーライトニング
+   | Deal 120% damage (4 hits, 30% each)
+   | condition: 50% chance
+   | (37633:4) ディスパーライト
+   | Change a random attribute to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 10
+   | (37629:83) 古光霊の怒術 + ディスパーライト + ディスパーチャーライトニング
+   | Increase damage to 200% for the next 99 turns + Spawn 15 random Light orbs + Deal 120% damage (4 hits, 30% each), Deal 120% damage (4 hits, 30% each)
+ | group:
+   | condition: 50% chance
+   | (37632:15) ディスパーチャーライトニング
+   | Deal 120% damage (4 hits, 30% each)
+   | condition: 50% chance
+   | (37633:4) ディスパーライト
+   | Change a random attribute to Light orbs, Deal 100% damage

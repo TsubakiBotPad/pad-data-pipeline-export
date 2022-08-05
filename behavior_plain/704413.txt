@@ -1,0 +1,50 @@
+#704413 - 氷華の大魔女・リーチェ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindSkill(14:37604) -> 古水霊の転術
+	Bind active skills for 4 turns
+	[1] ESDebuffATK(130:37605) -> フラジールダウン
+	ATK -50% for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 10, target rnd 9
+
+#5: ESBindRandom(1:37609) -> フラジールバインド
+Condition: 33% chance (ai:0 rnd:33)
+Bind 2 random cards for 1 turn, Deal 90% damage
+
+#6: ESSkillDelay(89:37610) -> フラジールダウン
+Condition: 33% chance (ai:0 rnd:33)
+Delay active skills by 0~1 turns, Deal 100% damage
+
+#7: ESAttackMultihit(15:37611) -> フラジールフラワー
+Condition: 34% chance (ai:0 rnd:34)
+Deal 120% damage (4 hits, 30% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 11, target rnd 5
+
+#10: SkillSet:
+	[0] ESAttackUPCooldown(19:37607) -> 古水霊の怒術
+	Increase damage to 200% for the next 99 turns
+	[1] ESRandomSpawn(92:37608) -> フラジールコールド
+	Spawn 15 random Water orbs
+	[2] ESAttackMultihit(15:37611) -> フラジールフラワー
+	Deal 120% damage (4 hits, 30% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
