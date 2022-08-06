@@ -1,0 +1,50 @@
+#207568 - 漁獲の雷戦神・トール
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 207568
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (25896:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ | (25897:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (25871:83) さぁ、いくぞ！ + 我の邪魔はさせん！ + 雷戦神の威光 + 蠢く海月
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 7 for 999 turns + Locked Water and Light skyfall +100% for 99 turns + Spawn 9 random Water and Light orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (25894:83) 海洋生物の群れ + うおおおお！
+     | Blind random 15 orbs for 1 turn + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (25891:83) 夏の水飛沫 + うおおおお！
+     | Bind 2 random subs for 3 turns + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (25881:83) こんなもんか！？ + まだまだいくぞ！ + 盛り上がれ！
+     | Reduce damage from all sources by 50% for 99 turns + Leader changes to random sub for 3 turns + Haste random sub's skills by 20 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (25885:83) よく見ろ！ + これが手本だ！
+     | Change the 1st column to Light orbs and the 5th column to Light orbs + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (25888:83) 狙いを定めるぞ！ + くらえ！
+     | Fix orb movement starting point to random position on the board + RCV 25% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (25877:83) さて・・・ + 帰ってもらおうか！ + ルーンエンハンス
+     | Bind awoken skills for 1 turn + Bind player leader for 1 turn + Increase damage to 250% for the next 999 turns
+   | group:
+     | (25876:15) 受けてみよ！！！！
+     | Deal 539% damage (7 hits, 77% each)

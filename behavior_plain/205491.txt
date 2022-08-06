@@ -1,0 +1,35 @@
+#205491 - 夏空の双星神・イズン＆イズーナ
+monster size: 5
+new AI: True
+start/max counter: 19
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 10)
+	[0] ESAttributeBlock(107:18981) -> 一緒に遊びませんか？
+	Unable to match Fire and Wood orbs for 5 turns
+	[1] ESSpinnersFixed(110:18982) -> ぐるぐるしよーよ
+	Specific orbs change every 1.0s for 5 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESOrbChangeAttack(48:18984) -> いきますよ～！
+	Change a random attribute to Water orbs, Deal 60% damage
+	[1] ESAttackMultihit(15:18985) -> それ～い！
+	Deal 60% damage
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:18987) -> もう時間のようですね
+	Movetime 50% for 10 turns
+	[1] ESAbsorbCombo(67:18988) -> 帰りの準備しなきゃだね
+	Absorb damage when combos <= 7 for 10 turns
+
+#5: ESAttackMultihit(15:18989) -> 楽しかったですね
+Deal 300% damage (2 hits, 150% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

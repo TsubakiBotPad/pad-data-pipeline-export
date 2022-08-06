@@ -1,0 +1,90 @@
+#202286 - お忍びの王女・アルビダ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202286
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (3154:83) 久しぶりですわね + もう一度踏んで差し上げますわ
+ | Player recover 100% HP + Player -80% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 69
+     | condition: when 978 on team
+     | (3162:15) じゃ、じゃきがん…？？
+     | Deal 80% damage
+     | condition: when 977 on team
+     | (3158:15) 二人とも一緒にお茶でもいかがかしら？
+     | Deal 70% damage
+     | condition: when 976 on team
+     | (3156:15) そのお髭、剃ってしまいますわよ
+     | Deal 80% damage
+     | condition: when 974 on team
+     | (3160:15) ち、近いですわ！
+     | Deal 90% damage
+   | group:
+     | (3165:15) どこ見てますの！
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 978 on team
+     | (3162:15) じゃ、じゃきがん…？？
+     | Deal 80% damage
+     | condition: when 977 on team
+     | (3158:15) 二人とも一緒にお茶でもいかがかしら？
+     | Deal 70% damage
+     | condition: when 976 on team
+     | (3156:15) そのお髭、剃ってしまいますわよ
+     | Deal 80% damage
+     | condition: when 974 on team
+     | (3160:15) ち、近いですわ！
+     | Deal 90% damage
+   | group:
+     | condition: 30% chance
+     | (3163:92) サマーポイズン
+     | Spawn 4 random Poison orbs, Deal 80% damage
+     | (3165:15) どこ見てますの！
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: turn 1 while HP > 29, hp <= 49
+   | condition: when 978 on team
+   | (3162:15) じゃ、じゃきがん…？？
+   | Deal 80% damage
+   | condition: when 977 on team
+   | (3158:15) 二人とも一緒にお茶でもいかがかしら？
+   | Deal 70% damage
+   | condition: when 976 on team
+   | (3156:15) そのお髭、剃ってしまいますわよ
+   | Deal 80% damage
+   | condition: when 974 on team
+   | (3160:15) ち、近いですわ！
+   | Deal 90% damage
+   | (3164:54) 真夏の抱擁
+   | Bind player leader for 3 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | condition: when 978 on team
+     | (3162:15) じゃ、じゃきがん…？？
+     | Deal 80% damage
+     | condition: when 977 on team
+     | (3158:15) 二人とも一緒にお茶でもいかがかしら？
+     | Deal 70% damage
+     | condition: when 976 on team
+     | (3156:15) そのお髭、剃ってしまいますわよ
+     | Deal 80% damage
+     | condition: when 974 on team
+     | (3160:15) ち、近いですわ！
+     | Deal 90% damage
+     | (3166:66) サマープリンセスの号令
+     | Do nothing
+   | group:
+     | (3167:15) 海龍夏進撃
+     | Deal 500% damage (5 hits, 100% each)
