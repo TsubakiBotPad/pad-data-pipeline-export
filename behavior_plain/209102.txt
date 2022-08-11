@@ -1,0 +1,71 @@
+#209102 - ドクター・ドゥーム
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:38785) -> 余はドゥーム
+	Voids status ailments for 999 turns
+	[1] ESBoardChangeAttackBits(85:38786) -> よかろう、全力で臨もうぞ
+	Change all orbs to Wood and Heal, Deal 100% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESAttackMultihit(15:38791) -> 貴様の語る未来とは夢だ
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESOrbLock(94:38792) -> 自分が上だと思っておるな？
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood orbs, Deal 100% damage
+
+#8: ESOrbLock(94:38793) -> 自分が上だと思っておるな？
+Lock all Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:38788) -> 痛むが……苦痛は思考を明晰にする
+	Enemy recover 100% HP
+	[1] ESRandomSpawn(92:38789) -> いつも余の邪魔をしおる
+	Spawn 4 random Jammer orbs
+
+#11: ESAttackUPRemainingEnemies(17:38790) -> 余を怒らせるな
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#12: ESAttackMultihit(15:38791) -> 貴様の語る未来とは夢だ
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#13: ESOrbLock(94:38792) -> 自分が上だと思っておるな？
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood orbs, Deal 100% damage
+
+#14: ESOrbLock(94:38793) -> 自分が上だと思っておるな？
+Lock all Heal orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:38794) -> 木半減
+Reduce damage from Wood attrs by 50%
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:38807) -> そして夢は……　もはや終わった
+	Do nothing

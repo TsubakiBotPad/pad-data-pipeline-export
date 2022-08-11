@@ -1,0 +1,33 @@
+#406974 - 磁界王・マグニートー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 406974
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38970:129) ＿マグニートー超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (38971:83) 次世代人種ことミュータントが、 + この世界を支配する
+ | Voids status ailments for 999 turns + Blind all orbs on the board, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (38975:137) マグネトキネシス
+     | Void damage >= 2,000,000,000 for 1 turn, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (38976:130) マグネトキネシス
+     | ATK -75% for 1 turn, Deal 105% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (38974:128) いい気になられては困るな、小僧
+   | For 5 turns, 15% chance for skyfall orbs to be blinded for 2 turns, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 19
+   | (38977:85) 地球そのものに殴られた気分は？
+   | Change all orbs to Fire, Deal 120% damage

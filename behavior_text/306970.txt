@@ -1,0 +1,47 @@
+#306970 - ヴェノム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 306970
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (22512:83) 俺たち…はヴェノムだ！ + おやつがたくさんありすぎるぜ
+ | Poison skyfall +10% for 4 turns + Change 1 random orb type to Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (22516:50) 破裂するまで抱きしめてやる！
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (22517:15) …そしてすぐに死ね！
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22515:74) 選んでる場合じゃねえな！
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+     | condition: 25% chance
+     | (22518:75) お前は我々のものだ！
+     | Leader changes to random sub for 1 turn, Deal 80% damage
+     | condition: 25% chance
+     | (22520:105) 苦しめ！
+     | RCV 50% for 1 turn, Deal 70% damage
+     | condition: 25% chance
+     | (22521:92) 燃やしちまえ！
+     | Spawn 5 random Fire orbs, Deal 90% damage
+     | condition: 25% chance
+     | (22519:15) クズを料理しろ！
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (22523:108) 貪り食ってやる！！！
+   | Change all Jammer and Poison orbs to Dark orbs, Deal 120% damage
+   | (22522:57) お前の脳みそを食ってやる！
+   | Change a random attribute to Poison orbs, Deal 100% damage

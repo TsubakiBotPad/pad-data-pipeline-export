@@ -1,0 +1,41 @@
+#306967 - ロキ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 306967
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (22500:83) ロキの御前だ、頭が高いぞ + では参れ
+ | Player -50% HP + Bind active skills for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (22506:92) もうよい！
+   | Spawn 3 random Wood orbs, Deal 80% damage
+   | condition: 50% chance
+   | (22505:15) 黙れ！黙れ！
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22507:105) ロキはロキでしかない…孤独だ
+     | RCV 50% for 3 turns
+   | group:
+     | condition: 50% chance
+     | (22504:94) ローフェイサンの前にひざまずけ
+     | Lock all Dark orbs, Deal 90% damage
+     | condition: 50% chance
+     | (22503:92) ローフェイの復讐だ！
+     | Spawn 4 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | condition: 50% chance
+   | (22509:97) ありえない勝利で神の意志をくじく
+   | Blind random 4~6 orbs for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (22508:15) 破壊せよ
+   | Deal 120% damage

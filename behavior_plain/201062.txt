@@ -1,4 +1,4 @@
-#201062 - 裏屍霊龍・ドラゴンゾンビ
+#201062 - Alt. Corpse Wyrm, Dragon Zombie
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:38279) -> 屍霊龍の守り
+	[0] ESStatusShield(20:38279) -> Corpse Wyrm's Protection
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:38280) -> 深淵の防護
+	[1] ESDamageShield(74:38280) -> Abyssal Guard
 	Reduce damage from all sources by 75% for 3 turns
-	[2] ESSpinnersRandom(109:38281) -> 混沌の呪い
+	[2] ESSpinnersRandom(109:38281) -> Curse of Chaos
 	Random 2 orbs change every 0.5s for 3 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -21,42 +21,42 @@ Branch on hp < 80, target rnd 11
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:38287) -> 屍霊龍の咆哮
+	[0] ESBindAwoken(88:38287) -> Corpse Wyrm's Roar
 	Bind awoken skills for 1 turn
-	[1] ESSkyfall(68:38288) -> ヘルワールド
+	[1] ESSkyfall(68:38288) -> Hell World
 	Jammer and Poison skyfall +15% for 5 turns
-	[2] ESColumnSpawnMulti(77:38289) -> ポイズンブラスト
+	[2] ESColumnSpawnMulti(77:38289) -> Poison Blast
 	Change the 1st column to Poison orbs, Deal 100% damage
 
-#5: ESAttackMultihit(15:38429) -> カースブラスト
+#5: ESAttackMultihit(15:38429) -> Curse Blast
 Deal 700% damage (7 hits, 100% each)
 
 #6: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESRandomSpawn(92:38291) -> カースウイング
+	[0] ESRandomSpawn(92:38291) -> Cursed Wings
 	Spawn 4 random Jammer orbs
-	[1] ESAttackMultihit(15:38292) -> カーステール
+	[1] ESAttackMultihit(15:38292) -> Cursed Tail
 	Deal 102% damage (3 hits, 34% each)
 
 #7: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESBindAttack(63:38294) -> 屍龍の怨念
+	[0] ESBindAttack(63:38294) -> Corpse Dragon's Grudge
 	Bind 2 random subs for 2 turns, Deal 15% damage
-	[1] ESAttackMultihit(15:38295) -> カーステール
+	[1] ESAttackMultihit(15:38295) -> Cursed Tail
 	Deal 102% damage (3 hits, 34% each)
 
 #8: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESRowSpawnMulti(79:38297) -> 超アシッドブレス
+	[0] ESRowSpawnMulti(79:38297) -> Super Acid Breath
 	Change the 1st and 6th rows to Dark and Jammer orbs, Deal 100% damage
-	[1] ESOrbLock(94:38298) -> 屍霊龍の邪眼
+	[1] ESOrbLock(94:38298) -> Corpse Wyrm's Evil Stare
 	Lock all Dark orbs
 
 #9: SkillSet:
 	Condition: 25% chance (ai:0 rnd:25)
-	[0] ESSkillDelay(89:38300) -> ヘルオーラ
+	[0] ESSkillDelay(89:38300) -> Hell Aura
 	Delay active skills by 1 turn
-	[1] ESGravity(50:38301) -> カースタックル
+	[1] ESGravity(50:38301) -> Curse Tackle
 	Player -99% HP
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -69,18 +69,18 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESDebuffMovetime(39:38283) -> 死の入り口
+	[0] ESDebuffMovetime(39:38283) -> Gate of Death
 	Movetime 25% for 1 turn
-	[1] ESAttributeBlock(107:38284) -> 地獄への導き
+	[1] ESAttributeBlock(107:38284) -> Guidance to Hell
 	Unable to match Heal orbs for 2 turns
-	[2] ESBoardChangeAttackBits(85:38285) -> デッドライズ
+	[2] ESBoardChangeAttackBits(85:38285) -> Deadrise
 	Change all orbs to Fire, Wood, Dark, Heal, Jammer, and Poison, Deal 101% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESTypeResist(118:38302) -> 体力半減
+#15: ESTypeResist(118:38302) -> Physical Halved
 Reduce damage from Balanced types by 50%
 
-#16: ESTurnChangePassive(106:38303) -> 敵の行動ターンが変化した
+#16: ESTurnChangePassive(106:38303) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 80%

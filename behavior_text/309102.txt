@@ -1,0 +1,41 @@
+#309102 - ドクター・ドゥーム
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 309102
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38806:72) 木半減
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (38795:83) 余はドゥーム + よかろう、全力で臨もうぞ
+ | Voids status ailments for 999 turns + Change all orbs to Wood, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (38804:94) 自分が上だと思っておるな？
+   | Lock all Wood and Heal orbs, Deal 100% damage
+   | (38805:15) 貴様の語る未来とは夢だ
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (38798:83) 痛むが……苦痛は思考を明晰にする + いつも余の邪魔をしおる
+     | Enemy recover 100% HP + Spawn 5 random Bomb orbs
+   | group:
+   | condition: turn 2 while HP > 14
+     | (38803:17) 余を怒らせるな
+     | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (38801:89) 貴様は敗北も自覚できぬ愚か者だ
+     | Delay active skills by 3 turns
+   | group:
+     | (38802:15) 敗北を味わえ！
+     | Deal 300% damage (5 hits, 60% each)

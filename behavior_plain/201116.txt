@@ -1,4 +1,4 @@
-#201116 - 裏白火の舞女神・パールヴァティー
+#201116 - Alt. White Hot Dancing Goddess, Parvati
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:38363) -> トラちゃん！出撃！
+	[0] ESStatusShield(20:38363) -> Tiggie! Are you ready?!
 	Voids status ailments for 999 turns
-	[1] ESVoidShield(71:38364) -> 防御態勢
+	[1] ESVoidShield(71:38364) -> Guard Stance
 	Void damage >= 100,000,000 for 3 turns
-	[2] ESComboSkyfall(131:38365) -> トラの咆哮
+	[2] ESComboSkyfall(131:38365) -> Tiger's Roar
 	For 10 turns, None% chance for combo orb skyfall.
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -24,15 +24,15 @@ Branch on hp < 50, target rnd 8
 
 #5: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESGravity(50:38380) -> トラの噛みつき
+	[0] ESGravity(50:38380) -> Tiger's Bite
 	Player -99% HP
-	[1] ESOrbLock(94:38381) -> 大地の拘束
+	[1] ESOrbLock(94:38381) -> Earth Restraints
 	Lock all Wood orbs
 
 #6: SkillSet:
-	[0] ESBlind5(5:38383) -> 舞女神の目隠し
+	[0] ESBlind5(5:38383) -> Dancing Goddess' Blindfold
 	Blind all orbs on the board
-	[1] ESAttackMultihit(15:38384) -> 大地の力
+	[1] ESAttackMultihit(15:38384) -> Earth Power
 	Deal 102% damage (3 hits, 34% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -45,9 +45,9 @@ Branch on flag & 1, target rnd 12
 flag SET 0b1
 
 #10: SkillSet:
-	[0] ESBoardSizeChange(126:38371) -> まだまだこれからですっ！
+	[0] ESBoardSizeChange(126:38371) -> We're just getting started!
 	Change board size to 7x6 for 2 turns
-	[1] ESAbsorbCombo(67:38372) -> トラちゃん！全力だよ！
+	[1] ESAbsorbCombo(67:38372) -> Let's go at full power, Tiggie!
 	Absorb damage when combos <= 10 for 2 turns, Deal 101% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -60,9 +60,9 @@ Branch on counter >= 1, target rnd 16
 counter + 1
 
 #14: SkillSet:
-	[0] ESNoSkyfall(127:38374) -> 舞女神の天力
+	[0] ESNoSkyfall(127:38374) -> Dancing Goddess' Divine Power
 	No skyfall for 1 turn
-	[1] ESRowSpawnMulti(79:38375) -> 激励の山風
+	[1] ESRowSpawnMulti(79:38375) -> Cheering Mountain Wind
 	Change the 2nd row to Fire orbs and the 3rd row to Wood orbs, Deal 100% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -72,23 +72,23 @@ end_turn
 counter = 0
 
 #17: SkillSet:
-	[0] ESSpinnersRandom(109:38377) -> トラちゃん！走って！
+	[0] ESSpinnersRandom(109:38377) -> Tiggie! Run!
 	Random 2 orbs change every 1.0s for 1 turn
-	[1] ESAttackMultihit(15:38378) -> 大地の力
+	[1] ESAttackMultihit(15:38378) -> Earth Power
 	Deal 102% damage (3 hits, 34% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESSkillDelay(89:38366) -> トラの気迫
+#19: ESSkillDelay(89:38366) -> Tiger's Vigor
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Delay active skills by 5 turns
 
 #20: SkillSet:
-	[0] ESChangeAttribute(46:38368) -> ヒマラヤの奇跡
+	[0] ESChangeAttribute(46:38368) -> Himalayan Miracle
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:38369) -> トラの逆鱗
+	[1] ESAttackMultihit(15:38369) -> Tiger's Wrath
 	Deal 700% damage (7 hits, 100% each)
 
-#21: ESSuperResolve(129:38385) -> 超根性50％
+#21: ESSuperResolve(129:38385) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

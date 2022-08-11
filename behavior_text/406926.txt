@@ -1,0 +1,24 @@
+#406926 - モンスター・ハルク
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406926
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38916:72) ＿ハルク火水木半減
+ | Reduce damage from Fire, Water, and Wood attrs by 50%
+ type: PREEMPT
+ | (38917:17) グラアアアア！
+ | Increase damage to 200% for the next 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38918:94) よけてみろ！
+   | Lock all orbs, Deal 50% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38919:79) ハルクスマッシュ！
+   | Change the 4th and 5th rows to Wood orbs, Deal 55% damage

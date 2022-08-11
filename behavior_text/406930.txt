@@ -1,0 +1,27 @@
+#406930 - ソーサラー・スプリーム・ドクター・ストレンジ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406930
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38938:72) ＿ストレンジ光闇半減
+ | Reduce damage from Light and Dark attrs by 50%
+ type: PREEMPT
+ | (38939:75) クローク・オブ・レビテーション
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38940:137) セラフィムの盾
+   | Void damage >= 2,000,000,000 for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38941:39) アガモットの目
+   | Movetime 25% for 1 turn, Deal 105% damage
+ type: UNKNOWN_USE
+ | (38998:89) クローク・オブ・レビテーション
+ | Delay active skills by 15 turns

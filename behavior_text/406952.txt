@@ -1,0 +1,26 @@
+#406952 - ソー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406952
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38908:118) ＿ソー神半減
+ | Reduce damage from God types by 50%
+ | (38909:73) ＿ソー根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (38910:20) そこをどいてはもらえまいか？
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38911:39) 身の程を知れ
+   | Movetime 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38912:50) ムジョルニア
+   | Player -300% HP

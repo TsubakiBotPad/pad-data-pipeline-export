@@ -1,0 +1,37 @@
+#406978 - 全知全能・サノス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 406978
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38978:129) ＿サノス超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (38979:83) サノス！　全知全能の者なり！！ + アニヒレーション
+ | Voids status ailments for 999 turns + Jammer and Poison skyfall +15% for 5 turns, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (38986:15) パワーストーン
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (38987:110) マインドストーン
+     | Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (38988:137) スペースストーン
+     | Void damage >= 3,000,000,000 for 2 turns, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (38982:107) 我が神性は絶対なり！
+   | Unable to match Heal orbs for 1 turn, Deal 90% damage
+ | group:
+ | condition: turn 2, hp <= 19
+   | (38983:83) 今こそ宇宙を正しい姿に変えん！ + （指を鳴らす）
+   | Bind awoken skills for 1 turn + Bind 3 random subs for 99 turns

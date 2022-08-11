@@ -1,0 +1,78 @@
+#309102 - ドクター・ドゥーム
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:38796) -> 余はドゥーム
+	Voids status ailments for 999 turns
+	[1] ESBoardChangeAttackBits(85:38797) -> よかろう、全力で臨もうぞ
+	Change all orbs to Wood, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: ESOrbLock(94:38804) -> 自分が上だと思っておるな？
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood and Heal orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:38805) -> 貴様の語る未来とは夢だ
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:38799) -> 痛むが……苦痛は思考を明晰にする
+	Enemy recover 100% HP
+	[1] ESBombRandomSpawn(102:38800) -> いつも余の邪魔をしおる
+	Spawn 5 random Bomb orbs
+
+#9: ESAttackUPRemainingEnemies(17:38803) -> 余を怒らせるな
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#10: ESOrbLock(94:38804) -> 自分が上だと思っておるな？
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood and Heal orbs, Deal 100% damage
+
+#11: ESAttackMultihit(15:38805) -> 貴様の語る未来とは夢だ
+Deal 102% damage (3 hits, 34% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: ESSkillDelay(89:38801) -> 貴様は敗北も自覚できぬ愚か者だ
+Delay active skills by 3 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttackMultihit(15:38802) -> 敗北を味わえ！
+Deal 300% damage (5 hits, 60% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESAttributeResist(72:38806) -> 木半減
+Reduce damage from Wood attrs by 50%
+
+#20: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:38807) -> そして夢は……　もはや終わった
+	Do nothing

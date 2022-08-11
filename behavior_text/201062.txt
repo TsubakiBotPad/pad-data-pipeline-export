@@ -1,4 +1,4 @@
-#201062 - 裏屍霊龍・ドラゴンゾンビ
+#201062 - Alt. Corpse Wyrm, Dragon Zombie
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -8,38 +8,38 @@ approved: False
 
 level: 1
  type: PASSIVE
- | (38302:118) 体力半減
+ | (38302:118) Physical Halved
  | Reduce damage from Balanced types by 50%
- | (38303:106) 敵の行動ターンが変化した
+ | (38303:106) Enemy's next turn changed
  | Enemy turn counter change to 1 when HP <= 80%
  type: PREEMPT
- | (38278:83) 屍霊龍の守り + 深淵の防護 + 混沌の呪い
+ | (38278:83) Corpse Wyrm's Protection + Abyssal Guard + Curse of Chaos
  | Voids status ailments for 999 turns + Reduce damage from all sources by 75% for 3 turns + Random 2 orbs change every 0.5s for 3 turns
  group:
  | group:
    | group:
    | condition: turn 1 while HP > 79
-     | (38286:83) 屍霊龍の咆哮 + ヘルワールド + ポイズンブラスト
+     | (38286:83) Corpse Wyrm's Roar + Hell World + Poison Blast
      | Bind awoken skills for 1 turn + Jammer and Poison skyfall +15% for 5 turns + Change the 1st column to Poison orbs, Deal 100% damage
    | group:
-     | (38429:15) カースブラスト
+     | (38429:15) Curse Blast
      | Deal 700% damage (7 hits, 100% each)
  | group:
  | condition: hp <= 79
    | group:
    | condition: turn 1
-     | (38282:83) 死の入り口 + 地獄への導き + デッドライズ
+     | (38282:83) Gate of Death + Guidance to Hell + Deadrise
      | Movetime 25% for 1 turn + Unable to match Heal orbs for 2 turns + Change all orbs to Fire, Wood, Dark, Heal, Jammer, and Poison, Deal 101% damage
    | group:
      | condition: 25% chance
-     | (38290:83) カースウイング + カーステール
+     | (38290:83) Cursed Wings + Cursed Tail
      | Spawn 4 random Jammer orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
      | condition: 25% chance
-     | (38293:83) 屍龍の怨念 + カーステール
+     | (38293:83) Corpse Dragon's Grudge + Cursed Tail
      | Bind 2 random subs for 2 turns + Deal 102% damage (3 hits, 34% each), Deal 15% damage
      | condition: 25% chance
-     | (38296:83) 超アシッドブレス + 屍霊龍の邪眼
+     | (38296:83) Super Acid Breath + Corpse Wyrm's Evil Stare
      | Change the 1st and 6th rows to Dark and Jammer orbs + Lock all Dark orbs, Deal 100% damage
      | condition: 25% chance
-     | (38299:83) ヘルオーラ + カースタックル
+     | (38299:83) Hell Aura + Curse Tackle
      | Delay active skills by 1 turn + Player -99% HP

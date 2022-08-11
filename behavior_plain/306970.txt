@@ -1,0 +1,85 @@
+#306970 - ヴェノム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:22513) -> 俺たち…はヴェノムだ！
+	Poison skyfall +10% for 4 turns
+	[1] ESJammerChangeRandom(13:22514) -> おやつがたくさんありすぎるぜ
+	Change 1 random orb type to Jammer orbs
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 20
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESGravity(50:22516) -> 破裂するまで抱きしめてやる！
+Player -50% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESAttackMultihit(15:22517) -> …そしてすぐに死ね！
+Deal 100% damage (2 hits, 50% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESDamageShield(74:22515) -> 選んでる場合じゃねえな！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 3 turns
+
+#15: ESLeaderSwap(75:22518) -> お前は我々のものだ！
+Condition: 25% chance (ai:0 rnd:25)
+Leader changes to random sub for 1 turn, Deal 80% damage
+
+#16: ESDebuffRCV(105:22520) -> 苦しめ！
+Condition: 25% chance (ai:0 rnd:25)
+RCV 50% for 1 turn, Deal 70% damage
+
+#17: ESRandomSpawn(92:22521) -> 燃やしちまえ！
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 5 random Fire orbs, Deal 90% damage
+
+#18: ESAttackMultihit(15:22519) -> クズを料理しろ！
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESOrbChangeAttackBits(108:22523) -> 貪り食ってやる！！！
+Change all Jammer and Poison orbs to Dark orbs, Deal 120% damage
+
+#21: ESPoisonChangeRandom(57:22522) -> お前の脳みそを食ってやる！
+Change a random attribute to Poison orbs, Deal 100% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:22524) -> ガアアアアア！！
+	Do nothing

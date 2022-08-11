@@ -1,4 +1,4 @@
-#200395 - 裏慈愛神・カオスヴィーナス
+#200395 - Alt. Love Deity, Chaos Venus
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,13 +9,13 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:38431) -> いらっしゃ～い♪
+	[0] ESStatusShield(20:38431) -> Welcome♪
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:38432) -> 聖邪の神壁
+	[1] ESDamageShield(74:38432) -> Godly Wall of Holy Evil
 	Reduce damage from all sources by 75% for 3 turns
-	[2] ESBlindStickyFixed(98:38433) -> 混沌の迷路
+	[2] ESBlindStickyFixed(98:38433) -> Chaotic Maze
 	Blind orbs in specific positions for 3 turns
-	[3] ESFixedStart(101:38434) -> ヴィーナスターゲット
+	[3] ESFixedStart(101:38434) -> Venus' Target
 	Fix orb movement starting point to random position on the board
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -23,37 +23,37 @@ Branch on hp < 2, target rnd 10
 
 #4: SkillSet:
 	Condition: 20% chance (ai:0 rnd:20)
-	[0] ESAbsorbAttribute(53:38448) -> マジカルオーラ
+	[0] ESAbsorbAttribute(53:38448) -> Magical Aura
 	Absorb Fire and Dark damage for 1 turn
-	[1] ESSkyfall(68:38449) -> ラブリーレイン
+	[1] ESSkyfall(68:38449) -> Lovely Rain
 	Fire and Dark skyfall +15% for 1 turn, Deal 100% damage
 
 #5: SkillSet:
 	Condition: 20% chance (ai:0 rnd:20)
-	[0] ESAbsorbAttribute(53:38451) -> マジカルオーラ
+	[0] ESAbsorbAttribute(53:38451) -> Magical Aura
 	Absorb Water and Light damage for 1 turn
-	[1] ESSkyfall(68:38452) -> ラブリーレイン
+	[1] ESSkyfall(68:38452) -> Lovely Rain
 	Water and Light skyfall +15% for 1 turn, Deal 100% damage
 
 #6: SkillSet:
 	Condition: 20% chance (ai:0 rnd:20)
-	[0] ESAbsorbAttribute(53:38454) -> マジカルオーラ
+	[0] ESAbsorbAttribute(53:38454) -> Magical Aura
 	Absorb Fire and Wood damage for 1 turn
-	[1] ESSkyfall(68:38455) -> ラブリーレイン
+	[1] ESSkyfall(68:38455) -> Lovely Rain
 	Fire and Wood skyfall +15% for 1 turn, Deal 100% damage
 
 #7: SkillSet:
 	Condition: 20% chance (ai:0 rnd:20)
-	[0] ESAbsorbAttribute(53:38457) -> マジカルオーラ
+	[0] ESAbsorbAttribute(53:38457) -> Magical Aura
 	Absorb Water and Dark damage for 1 turn
-	[1] ESSkyfall(68:38458) -> ラブリーレイン
+	[1] ESSkyfall(68:38458) -> Lovely Rain
 	Water and Dark skyfall +15% for 1 turn, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 20% chance (ai:0 rnd:20)
-	[0] ESAbsorbAttribute(53:38460) -> マジカルオーラ
+	[0] ESAbsorbAttribute(53:38460) -> Magical Aura
 	Absorb Wood and Light damage for 1 turn
-	[1] ESSkyfall(68:38461) -> ラブリーレイン
+	[1] ESSkyfall(68:38461) -> Lovely Rain
 	Wood and Light skyfall +15% for 1 turn, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -66,15 +66,15 @@ Branch on flag & 1, target rnd 14
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESBindAwoken(88:38436) -> あなたに試練です♪
+	[0] ESBindAwoken(88:38436) -> Here's a trial for you♪
 	Bind awoken skills for 9 turns
-	[1] ESBindRandom(1:38437) -> お邪魔ドロップを～♪
+	[1] ESBindRandom(1:38437) -> Please erase...♪
 	Bind 3 random cards for 1 turn
-	[2] ESRandomSpawn(92:38438) -> 残さずに消してくださいね♪
+	[2] ESRandomSpawn(92:38438) -> ...all of the Jammers♪
 	Spawn 15 random Jammer orbs
-	[3] ESSpinnersRandom(109:38439) -> これはプレゼントです♪
+	[3] ESSpinnersRandom(109:38439) -> This is a present for you♪
 	Random 1 orbs change every 2.0s for 1 turn
-	[4] ESBombRandomSpawn(102:38440) -> キューピッドのいたずら
+	[4] ESBombRandomSpawn(102:38440) -> Cupid's Mischief
 	Spawn 2 random Bomb orbs
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -84,22 +84,22 @@ end_turn
 Branch on attributes on board HAS 64, target rnd 17
 
 #15: SkillSet:
-	[0] ESInactivity66(66:38442) -> 素晴らしいです♪
+	[0] ESInactivity66(66:38442) -> Wonderful♪
 	Do nothing
-	[1] ESEndBattle(40:38443) -> さようなら♪
+	[1] ESEndBattle(40:38443) -> Goodbye♪
 	Reduce self HP to 0
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #17: SkillSet:
-	[0] ESChangeAttribute(46:38445) -> 愛の煌めき
+	[0] ESChangeAttribute(46:38445) -> Sparkle of Love
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:38446) -> おわりです♪
+	[1] ESAttackMultihit(15:38446) -> That's it♪
 	Deal 700% damage (7 hits, 100% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESSuperResolve(129:38462) -> 超根性2%
+#19: ESSuperResolve(129:38462) -> Super Resolve 2%
 Damage which would reduce HP from above 2% to below 2% is nullified

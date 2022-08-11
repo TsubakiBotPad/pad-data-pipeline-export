@@ -1,0 +1,24 @@
+#506964 - ホークアイ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506964
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38904:72) ＿ホークアイ闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (38905:110) トリック・アロー
+ | Specific orbs change every 1.0s for 2 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38906:101) アネリング・エイム
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38907:109) トリック・アロー
+   | Random 3 orbs change every 1.0s for 1 turn, Deal 95% damage

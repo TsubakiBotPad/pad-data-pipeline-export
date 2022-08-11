@@ -1,0 +1,28 @@
+#409110 - シニスター・ストレンジ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409110
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38942:118) ＿闇ストレンジ悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (38943:128) 我々の宇宙の最大の脅威は、お前だ
+ | For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (38944:77) ダークホールド
+   | Change the 1st and 6th columns to Dark orbs, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (38945:98) ダークホールド
+   | Blind orbs in specific positions for 1 turn, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (38946:94) ダークホールド
+   | Lock all orbs, Deal 100% damage
