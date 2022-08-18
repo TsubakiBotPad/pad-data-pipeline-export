@@ -1,4 +1,4 @@
-#205430 - 克明の援龍喚士・ミラ
+#205430 - Careful Rescue Dragon Caller, Mira
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:37110) -> 刻射の召龍守
+	[0] ESStatusShield(20:37110) -> Time Shot Draco Summoning Guard
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:37111) -> テムペートオンブル
+	[1] ESDamageShield(74:37111) -> Tempête d'Ombre
 	Reduce damage from all sources by 85% for 1 turn
-	[2] ESBindRandom(1:37112) -> ショットガンバレット
+	[2] ESBindRandom(1:37112) -> Shotgun Bullet
 	Bind 6 random cards for 5 turns, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,50 +30,50 @@ Branch on hp < 50, target rnd 8
 
 #7: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:37115) -> テムペートオンブル
+	[0] ESDamageShield(74:37115) -> Tempête d'Ombre
 	Reduce damage from all sources by 85% for 1 turn
-	[1] ESAttackUPRemainingEnemies(17:37116) -> ブラックチャージ
+	[1] ESAttackUPRemainingEnemies(17:37116) -> Black Charge
 	Increase damage to 150% for the next 999 turns
-	[2] ESOrbLock(94:37117) -> ロックガンバレット
+	[2] ESOrbLock(94:37117) -> Lockgun Bullet
 	Lock all orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESDamageShield(74:37119) -> テムペートオンブル
+	[0] ESDamageShield(74:37119) -> Tempête d'Ombre
 	Reduce damage from all sources by 90% for 1 turn
-	[1] ESFixedStart(101:37120) -> ブラックスコープ
+	[1] ESFixedStart(101:37120) -> Black Scope
 	Fix orb movement starting point to random position on the board
-	[2] ESSpinnersFixed(110:37121) -> ショットガンキャノン
+	[2] ESSpinnersFixed(110:37121) -> Shotgun Cannon
 	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESDamageShield(74:37123) -> テムペートオンブル
+	[0] ESDamageShield(74:37123) -> Tempête d'Ombre
 	Reduce damage from all sources by 80% for 1 turn
-	[1] ESOrbLock(94:37124) -> ロックガンバレット
+	[1] ESOrbLock(94:37124) -> Lockgun Bullet
 	Lock all Dark orbs, Deal 100% damage
 
 #10: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESDamageShield(74:37126) -> テムペートオンブル
+	[0] ESDamageShield(74:37126) -> Tempête d'Ombre
 	Reduce damage from all sources by 80% for 1 turn
-	[1] ESOrbLock(94:37127) -> ロックガンバレット
+	[1] ESOrbLock(94:37127) -> Lockgun Bullet
 	Lock all Wood orbs, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESAttackMultihit(15:37113) -> 無限の弾丸
+#12: ESAttackMultihit(15:37113) -> Infinite Bullets
 Deal 1,000% damage (10 hits, 100% each)
 
 #13: SkillSet:
-	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	[0] ESBindAwoken(88:37041) -> Hellfire Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	[1] ESAttackMultihit(15:37042) -> Hellfire Blaze
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:37039) -> 根性
+#15: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -1,4 +1,4 @@
-#204803 - 裏猛護の滾龍喚士・アルファ
+#204803 - Alt. Manic-Guard Seething Dragon Caller, Alpha
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:37065) -> 昂翼の召龍守
+	[0] ESStatusShield(20:37065) -> Rising Wings' Draco Summoning Guard
 	Voids status ailments for 999 turns
-	[1] ESOrbSealColumn(99:37066) -> 炎翼
+	[1] ESOrbSealColumn(99:37066) -> Wings of Flame
 	Seal the 6th column for 3 turns
-	[2] ESDebuffATKTarget(143:37067) -> ガウルバドリシェ
+	[2] ESDebuffATKTarget(143:37067) -> Gowl Badorishe
 	For 3 turns, 50% ATK for both leaders, Deal 15% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,23 +30,23 @@ Branch on hp < 50, target rnd 11
 
 #7: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESOrbLock(94:37074) -> 剛毅
+	[0] ESOrbLock(94:37074) -> Determination
 	Lock 15 random orbs
-	[1] ESBoardChangeAttackBits(85:37075) -> バドリシェ・ド・ジェルト
+	[1] ESBoardChangeAttackBits(85:37075) -> Badorishe de Jelut
 	Change all orbs to Fire and Jammer, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESOrbLock(94:37077) -> 剛毅
+	[0] ESOrbLock(94:37077) -> Determination
 	Lock 15 random orbs
-	[1] ESBoardChangeAttackBits(85:37078) -> バドリシェ・ド・ジェルト
+	[1] ESBoardChangeAttackBits(85:37078) -> Badorishe de Jelut
 	Change all orbs to Fire and Poison, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESOrbLock(94:37054) -> 剛毅
+	[0] ESOrbLock(94:37054) -> Determination
 	Lock 10 random orbs
-	[1] ESChangeAttribute(46:37055) -> エキサイトチェンジ
+	[1] ESChangeAttribute(46:37055) -> Excited Change
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -59,27 +59,27 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESVoidShieldBig(137:37070) -> 昂翼の召龍壁
+	[0] ESVoidShieldBig(137:37070) -> Rising Wings' Draco Summoning Barrier
 	Void damage >= 200,000,000 for 999 turns
-	[1] ESOrbLock(94:37071) -> 剛毅
+	[1] ESOrbLock(94:37071) -> Determination
 	Lock all orbs
-	[2] ESAttackMultihit(15:37072) -> グァリバドシア
+	[2] ESAttackMultihit(15:37072) -> Gualiva Doshia
 	Deal 120% damage (3 hits, 40% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackMultihit(15:37068) -> バドリシェバドシア
+#15: ESAttackMultihit(15:37068) -> Badorishe Vadoshia
 Deal 1,050% damage (3 hits, 350% each)
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	[0] ESBindAwoken(88:37041) -> Hellfire Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	[1] ESAttackMultihit(15:37042) -> Hellfire Blaze
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:37039) -> 根性
+#18: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%

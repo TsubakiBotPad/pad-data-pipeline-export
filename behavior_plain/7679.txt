@@ -1,4 +1,4 @@
-#7679 - 極醒の黒龍契士・ティフォンの希石
+#7679 - Mega Awoken Black Dragonbound, Typhon's Gem
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,18 +7,18 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESRandomSpawn(92:37512) -> 闇輝の希石
+#2: ESRandomSpawn(92:37512) -> Dark Shining Gem
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Spawn 5 random Dark and Poison orbs
 
-#3: ESAttackUPRemainingEnemies(17:37514) -> 希石の奇跡
+#3: ESAttackUPRemainingEnemies(17:37514) -> Gem's Miracle
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 1,000% for the next 999 turns
 
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#5: ESChangeAttribute(46:37513) -> オーロラフラッシュ
+#5: ESChangeAttribute(46:37513) -> Aurora Flash
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -30,20 +30,20 @@ Branch on flag & 1, target rnd 5
 #8: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#9: ESVoidShieldBig(137:37516) -> 神秘の光源
+#9: ESVoidShieldBig(137:37516) -> Mystic Light Source
 Condition: 33% chance (ai:0 rnd:33)
 Void damage >= 2,000,000,000 for 6 turns, Deal 170% damage
 
-#10: ESDamageShield(74:37517) -> 神秘の光源
+#10: ESDamageShield(74:37517) -> Mystic Light Source
 Condition: 33% chance (ai:0 rnd:33)
 Reduce damage from all sources by 50% for 6 turns, Deal 170% damage
 
-#11: ESDebuffATKTarget(143:37515) -> 神秘の光源
+#11: ESDebuffATKTarget(143:37515) -> Mystic Light Source
 Condition: 34% chance (ai:0 rnd:34)
 For 6 turns, 1% ATK for 1 random sub, Deal 170% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESSuperResolve(129:37518) -> 超根性
+#13: ESSuperResolve(129:37518) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,4 +1,4 @@
-#302879 - 裏滅雷龍・ドルヴァ
+#302879 - Alt. Destroying Thunder Dragon, Dorva
 monster size: 4
 new AI: True
 start/max counter: 7
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESStatusShield(20:37370) -> 契約龍の結界
+	[0] ESStatusShield(20:37370) -> Contract Dragon's Barrier
 	Voids status ailments for 999 turns
-	[1] ESDebuffATKTarget(143:37371) -> デュアルハウル
+	[1] ESDebuffATKTarget(143:37371) -> Dual Howl
 	For 5 turns, 1% ATK for both leaders
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -26,11 +26,11 @@ Branch on remaining enemies <= 1, target rnd 14
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#7: ESChangeAttribute(46:37372) -> ヴェスペラルチェンジ
+#7: ESChangeAttribute(46:37372) -> Vesperal Change
 Condition: 50% chance (ai:0 rnd:50)
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 150% damage
 
-#8: ESAttackMultihit(15:37373) -> デュアルバイト
+#8: ESAttackMultihit(15:37373) -> Dual Bite
 Condition: 50% chance (ai:0 rnd:50)
 Deal 200% damage (2 hits, 100% each)
 
@@ -43,7 +43,7 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESVoidShieldBig(137:37374) -> 契約龍の鱗壁
+#12: ESVoidShieldBig(137:37374) -> Contract Dragon's Scale Wall
 Void damage >= 500,000,000 for 5 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -51,36 +51,36 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESRecoverEnemyAlly(52:37376) -> 超克の意志
+	[0] ESRecoverEnemyAlly(52:37376) -> Overcoming Will
 	Enemy ally recover 100% HP
-	[1] ESFixedTarget(112:37377) -> ヴェスペラルアイ
+	[1] ESFixedTarget(112:37377) -> Vesperal Eye
 	Forces attacks to hit this enemy for 99 turns
-	[2] ESDamageShield(74:37378) -> ダメージディバイド
+	[2] ESDamageShield(74:37378) -> Dividing Damage
 	Reduce damage from all sources by 50% for 4 turns, Deal 200% damage
 
-#15: ESAttackUPRemainingEnemies(17:37385) -> 契約龍の激鱗
+#15: ESAttackUPRemainingEnemies(17:37385) -> Contract Dragon's Devastating Scales
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 1,000% for the next 999 turns
 
-#16: ESChangeAttribute(46:37372) -> ヴェスペラルチェンジ
+#16: ESChangeAttribute(46:37372) -> Vesperal Change
 Condition: 50% chance (ai:0 rnd:50)
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 150% damage
 
-#17: ESAttackMultihit(15:37373) -> デュアルバイト
+#17: ESAttackMultihit(15:37373) -> Dual Bite
 Condition: 50% chance (ai:0 rnd:50)
 Deal 200% damage (2 hits, 100% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESAttackMultihit(15:37042) -> 業炎の焔滅
+#19: ESAttackMultihit(15:37042) -> Hellfire Blaze
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #20: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#21: ESResolve(73:37039) -> 根性
+#21: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#22: ESAttributeResist(72:37019) -> 光軽減
+#22: ESAttributeResist(72:37019) -> Light reduced
 Reduce damage from Light attrs by 50%

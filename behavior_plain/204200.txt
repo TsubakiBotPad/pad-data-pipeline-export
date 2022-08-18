@@ -1,4 +1,4 @@
-#204200 - 遊興の魔領主・ルネリス
+#204200 - Merrymaking Countess, Runelis
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:37212) -> 魔結界
+	[0] ESStatusShield(20:37212) -> Magical Barrier
 	Voids status ailments for 999 turns
-	[1] ESSkyfall(68:37213) -> 誘起の魔香
+	[1] ESSkyfall(68:37213) -> Evil Aroma Conjuration
 	Water and Wood skyfall +20% for 3 turns
-	[2] ESDebuffATKTarget(143:37214) -> ブルーイングダウン
+	[2] ESDebuffATKTarget(143:37214) -> Blowing Down
 	For 3 turns, 50% ATK for 3 random cards, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,23 +30,23 @@ Branch on hp < 50, target rnd 11
 
 #7: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESChangeAttribute(46:37224) -> 変香
+	[0] ESChangeAttribute(46:37224) -> Changing Aroma
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESBlindStickyRandom(97:37225) -> ダークネスジェイル
+	[1] ESBlindStickyRandom(97:37225) -> Darkness Jail
 	Blind random 8~12 orbs for 1 turn, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESAbsorbAttribute(53:37227) -> 木香
+	[0] ESAbsorbAttribute(53:37227) -> Wood Aroma
 	Absorb Wood damage for 1 turn
-	[1] ESOrbLock(94:37228) -> チェインジェイル
+	[1] ESOrbLock(94:37228) -> Chain Jail
 	Lock all Wood orbs, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESNoSkyfall(127:37221) -> 蛇香
+	[0] ESNoSkyfall(127:37221) -> Serpent Aroma
 	No skyfall for 1 turn
-	[1] ESBlindStickyRandom(97:37222) -> ダークネスジェイル
+	[1] ESBlindStickyRandom(97:37222) -> Darkness Jail
 	Blind random 10 orbs for 1 turn, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -59,27 +59,27 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESSkyfall(68:37217) -> 誘起の邪香
+	[0] ESSkyfall(68:37217) -> Wicked Aroma Conjuration
 	Jammer skyfall +20% for 3 turns
-	[1] ESBindRandom(1:37218) -> 蛇香
+	[1] ESBindRandom(1:37218) -> Serpent Aroma
 	Bind 6 random cards for 3 turns
-	[2] ESDebuffATKTarget(143:37219) -> ブルーイングダウン
+	[2] ESDebuffATKTarget(143:37219) -> Blowing Down
 	For 3 turns, 1% ATK for 2 random subs, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackMultihit(15:37215) -> ジェイルストリーム
+#15: ESAttackMultihit(15:37215) -> Jailing Stream
 Deal 1,000% damage (4 hits, 250% each)
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	[0] ESBindAwoken(88:37041) -> Hellfire Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	[1] ESAttackMultihit(15:37042) -> Hellfire Blaze
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:37039) -> 根性
+#18: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%

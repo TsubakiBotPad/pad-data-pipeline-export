@@ -1,4 +1,4 @@
-#204297 - 裏冥黒神・ラー＝ドラゴン
+#204297 - Alt. Dusk Shadow God, Ra Dragon
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:37282) -> 冥黒神の風格
+	[0] ESStatusShield(20:37282) -> Aura of the Dusk Shadow God
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:37283) -> 全能の闇力
+	[1] ESAbsorbCombo(67:37283) -> Almighty Dark Power
 	Absorb damage when combos <= 9 for 5 turns
-	[2] ESBlindStickySkyfall(128:37284) -> 冥陽の霹靂
+	[2] ESBlindStickySkyfall(128:37284) -> Dark Sun Thunderclap
 	For 7 turns, 20% chance for skyfall orbs to be blinded for turn
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,23 +30,23 @@ Branch on hp < 50, target rnd 11
 
 #7: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESBoardChange(84:37291) -> ダーククラウンフォース
+	[0] ESBoardChange(84:37291) -> Dark Crown Force
 	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
-	[1] ESOrbLock(94:37292) -> グロウインパクト
+	[1] ESOrbLock(94:37292) -> Glowing Impact
 	Lock 10 random orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESBoardChange(84:37294) -> ダーククラウンフォース
+	[0] ESBoardChange(84:37294) -> Dark Crown Force
 	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
-	[1] ESBlindStickyRandom(97:37295) -> ダークインパクト
+	[1] ESBlindStickyRandom(97:37295) -> Darkening Impact
 	Blind random 10~12 orbs for 1 turn, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESAbsorbAttribute(53:37297) -> サンダークオーラ
+	[0] ESAbsorbAttribute(53:37297) -> Sundark Aura
 	Absorb Dark damage for 1 turn
-	[1] ESOrbLock(94:37298) -> ダークグロウインパクト
+	[1] ESOrbLock(94:37298) -> Dark Glowing Impact
 	Lock all Dark orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -59,30 +59,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESOrbLock(94:37287) -> 冥黒神の咆哮
+	[0] ESOrbLock(94:37287) -> Roar of the Dusk Shadow God
 	Lock all orbs
-	[1] ESBindAwoken(88:37288) -> 全能の波動
+	[1] ESBindAwoken(88:37288) -> Almighty Wave
 	Bind awoken skills for 1 turn
-	[2] ESBlind62(62:37289) -> ダークインパクト
+	[2] ESBlind62(62:37289) -> Darkening Impact
 	Blind all orbs on the board, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackMultihit(15:37285) -> ダークネスディザスター
+#15: ESAttackMultihit(15:37285) -> Darkness Disaster
 Deal 600% damage (6 hits, 100% each)
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	[0] ESBindAwoken(88:37041) -> Hellfire Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	[1] ESAttackMultihit(15:37042) -> Hellfire Blaze
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:37039) -> 根性
+#18: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#19: ESAttributeResist(72:37019) -> 光軽減
+#19: ESAttributeResist(72:37019) -> Light reduced
 Reduce damage from Light attrs by 50%
