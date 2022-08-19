@@ -1,0 +1,29 @@
+#302991 - 狂面の魔公爵・ダンタリオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBoardChangeAttackBits(85:38867) -> パラレルマスクス
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBoardChangeAttackBits(85:38868) -> コンフリクトマスクス
+Change all orbs to Fire, Water, Wood, Light, Dark, Jammer, and Poison, Deal 5% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSuperResolve(129:38866) -> ＿ダンタリオン超根性
+Damage which would reduce HP from above 70% to below 70% is nullified
