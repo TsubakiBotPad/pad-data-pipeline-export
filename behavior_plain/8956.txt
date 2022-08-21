@@ -1,4 +1,4 @@
-#8956 - 麃公
+#8956 - Lord Biao
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -13,13 +13,13 @@ Branch on flag & 1, target rnd 6
 #3: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#4: ESBoardSizeChange(126:39244) -> さァて　首をもらおうか
+#4: ESBoardSizeChange(126:39244) -> Now, then... I'll just be taking your head.
 Change board size to 7x6 for 2 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESAbsorbCombo(67:39245) -> いくぞ小童ァ
+#6: ESAbsorbCombo(67:39245) -> Then here goes, boy.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Absorb damage when combos <= 6 for 2 turns
 
@@ -30,9 +30,9 @@ Branch on counter = 1, target rnd 11
 counter + 1
 
 #9: SkillSet:
-	[0] ESDebuffATK(130:39247) -> 何も分かっておらぬな
+	[0] ESDebuffATK(130:39247) -> You understand nothing...
 	ATK -50% for 1 turn
-	[1] ESOrbLock(94:39248) -> このど阿呆が!!
+	[1] ESOrbLock(94:39248) -> ...you imbecile!!
 	Lock all orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -42,13 +42,13 @@ end_turn
 counter = 0
 
 #12: SkillSet:
-	[0] ESRowSpawnMulti(78:39250) -> フン　貴様がこのくらいやることは
+	[0] ESRowSpawnMulti(78:39250) -> I knew you'd be capable...
 	Change the 5th row to Fire orbs
-	[1] ESGravity(50:39251) -> 分かっておったわ！
+	[1] ESGravity(50:39251) -> ...of this much at least!
 	Player -99% HP
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESResolve(73:39252) -> ＿麃公根性
+#14: ESResolve(73:39252) -> ＿Lord Biao Resolve
 Survive attacks with 1 HP when HP > 50%

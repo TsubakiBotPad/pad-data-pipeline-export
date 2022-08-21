@@ -1,4 +1,4 @@
-#208959 - 楊端和
+#208959 - Yang Duanhe
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESNoSkyfall(127:39369) -> 全軍　血祭りだ
+	[0] ESNoSkyfall(127:39369) -> All troops: slaughter them!
 	No skyfall for 5 turns
-	[1] ESBlind62(62:39370) -> 山の民の急襲
+	[1] ESBlind62(62:39370) -> Mountain Folk's Surprise Attack
 	Blind all orbs on the board, Deal 100% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,9 +24,9 @@ end_turn
 
 #6: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:39374) -> 黙って貴様らは
+	[0] ESBindAwoken(88:39374) -> Be silent, and let your names go down in history...
 	Bind awoken skills for 1 turn
-	[1] ESRandomSpawn(92:39375) -> 敗者として歴史に名を刻め
+	[1] ESRandomSpawn(92:39375) -> ...as the losers you are.
 	Spawn 8 random Wood and Jammer orbs
 
 #7: ESBranchCounter(31:21) -> ESBranchCounter
@@ -35,7 +35,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESDebuffATK(130:39371) -> それ以上さえずるな
+#9: ESDebuffATK(130:39371) -> Enough of your chattering.
 ATK -75% for 1 turn, Deal 95% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,7 +44,7 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESAttackMultihit(15:39372) -> 全員殺せ
+#12: ESAttackMultihit(15:39372) -> Kill them all!
 Deal 105% damage (3 hits, 35% each)
 
 #13: ESEndPath(36:26) -> ESEndPath

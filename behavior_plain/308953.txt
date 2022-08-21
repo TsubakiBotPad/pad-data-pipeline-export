@@ -1,4 +1,4 @@
-#308953 - 蒙武
+#308953 - Meng Wu
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBoardChange(84:39279) -> 俺が全中華最強の男
+	[0] ESBoardChange(84:39279) -> I am Meng Wu...
 	Change all orbs to Wood, Heal, and Jammer
-	[1] ESAbsorbAttribute(53:39280) -> 蒙武だ!!
+	[1] ESAbsorbAttribute(53:39280) -> ...the Middle Kingdom's mightiest man!!
 	Absorb Wood damage for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,23 +24,23 @@ end_turn
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESBindTarget(54:39282) -> 貴様の頭は
+	[0] ESBindTarget(54:39282) -> I, Meng Wu...
 	Bind both leaders for 3 turns
-	[1] ESGravity(50:39283) -> この蒙武自ら叩きつぶす
+	[1] ESGravity(50:39283) -> ...will crush your head by my own hand!
 	Player -150% HP
 
 #7: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESNoSkyfall(127:39291) -> 貴様ほどの強者と
+	[0] ESNoSkyfall(127:39291) -> Never before have I fought...
 	No skyfall for 5 turns
-	[1] ESDebuffMovetime(39:39292) -> 戦うのは初めてだ
+	[1] ESDebuffMovetime(39:39292) -> ...someone as mighty as you.
 	Movetime 50% for 5 turns, Deal 100% damage
 
-#8: ESBindAwoken(88:39293) -> 中華最強はこの俺だ!!
+#8: ESBindAwoken(88:39293) -> I am the strongest in the Middle Kingdom!!
 Condition: When < 1% HP (ai:100 rnd:0)
 Bind awoken skills for 5 turns
 
-#9: ESAttackMultihit(15:39294) -> 目の前の相手を叩き潰す
+#9: ESAttackMultihit(15:39294) -> Crush the enemies that stand before you.
 Condition: When < 1% HP (ai:100 rnd:0)
 Deal 160% damage (2 hits, 80% each)
 
@@ -51,9 +51,9 @@ Branch on counter = 1, target rnd 14
 counter + 1
 
 #12: SkillSet:
-	[0] ESColumnSpawnMulti(77:39285) -> この俺を止める者など
+	[0] ESColumnSpawnMulti(77:39285) -> There is no one under the sun...
 	Change the 1st and 6th columns to Wood orbs, Deal 45% damage
-	[1] ESAttackMultihit(15:39286) -> 天下に存在せぬ
+	[1] ESAttackMultihit(15:39286) -> ...who can stop me!
 	Deal 60% damage (4 hits, 15% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -63,13 +63,13 @@ end_turn
 counter = 0
 
 #15: SkillSet:
-	[0] ESColumnSpawnMulti(76:39288) -> 左から順次突撃
+	[0] ESColumnSpawnMulti(76:39288) -> Starting from the left, charge!
 	Change the 5th and 6th columns to Wood orbs
-	[1] ESSpinnersFixed(110:39289) -> 斜陣がけ
+	[1] ESSpinnersFixed(110:39289) -> Echelon Sweep
 	Specific orbs change every 1.0s for 1 turn, Deal 85% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:39277) -> ＿蒙武根性
+#17: ESResolve(73:39277) -> ＿Meng Wu Resolve
 Survive attacks with 1 HP when HP > 50%

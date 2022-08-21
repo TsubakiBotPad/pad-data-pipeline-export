@@ -1,4 +1,4 @@
-#308976 - 汗明
+#308976 - Han Ming
 monster size: 5
 new AI: True
 start/max counter: 7
@@ -20,11 +20,11 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESInactivity66(66:39140) -> ドドドドッドッドッドン
+	[0] ESInactivity66(66:39140) -> Ba-ba-ba-ba Ba Ba Bum
 	Do nothing
-	[1] ESSkillDelay(89:39141) -> 誰が至強か！？
+	[1] ESSkillDelay(89:39141) -> Who's the strongest!?
 	Delay active skills by 2 turns
-	[2] ESBoardChange(84:39142) -> 汗明!!
+	[2] ESBoardChange(84:39142) -> Han Ming!!
 	Change all orbs to Wood, Light, and Heal
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -35,26 +35,26 @@ Branch on hp < 1, target rnd 14
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESDebuffATK(130:39144) -> その息吹で巨石は砕け
+	[0] ESDebuffATK(130:39144) -> He shatters great boulders at breath!
 	ATK -50% for 3 turns
-	[1] ESRowSpawnMulti(79:39145) -> その一振りで山は地に沈む！
+	[1] ESRowSpawnMulti(79:39145) -> He flattens mountains into the earth with a single swing!
 	Change the 4th and 5th rows to Wood and Light orbs, Deal 80% damage
 
 #10: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESAbsorbCombo(67:39147) -> 天下最強
+	[0] ESAbsorbCombo(67:39147) -> The world's strongest.
 	Absorb damage when combos <= 8 for 1 turn
-	[1] ESOrbLock(94:39148) -> 漢の中の漢!!
+	[1] ESOrbLock(94:39148) -> A man among men!
 	Lock all orbs, Deal 90% damage
 
 #11: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESFixedStart(101:39150) -> それは誰か！？
+	[0] ESFixedStart(101:39150) -> Who is he!?
 	Fix orb movement starting point to random position on the board
-	[1] ESAttackUPRemainingEnemies(17:39151) -> 汗明!!
+	[1] ESAttackUPRemainingEnemies(17:39151) -> Han Ming!!
 	Increase damage to 200% for the next 999 turns
 
-#12: ESOrbChangeAttack(48:39171) -> 楚の巨人 汗明である！
+#12: ESOrbChangeAttack(48:39171) -> Han Ming, Giant of Chu!
 Change a random attribute to Wood orbs, Deal 55% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -66,7 +66,7 @@ Branch on counter = 1, target rnd 18
 #15: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#16: ESBindAwoken(88:39152) -> 許さぬ　許さぬぞ！
+#16: ESBindAwoken(88:39152) -> You'll pay. You'll pay for this!
 Bind awoken skills for 1 turn
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -75,11 +75,11 @@ end_turn
 #18: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#19: ESAttackMultihit(15:39153) -> 幕だ
+#19: ESAttackMultihit(15:39153) -> It's over.
 Deal 150% damage (5 hits, 30% each)
 
 #20: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#21: ESResolve(73:39138) -> ＿汗明根性
+#21: ESResolve(73:39138) -> ＿Han Ming Resolve
 Survive attacks with 1 HP when HP > 50%

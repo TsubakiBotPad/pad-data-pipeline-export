@@ -1,4 +1,4 @@
-#308956 - 麃公
+#308956 - Lord Biao
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBoardSizeChange(126:39297) -> さァて　首をもらおうか
+	[0] ESBoardSizeChange(126:39297) -> Now, then... I'll just be taking your head.
 	Change board size to 7x6 for 3 turns
-	[1] ESAbsorbCombo(67:39298) -> いくぞ小童ァ
+	[1] ESAbsorbCombo(67:39298) -> Then here goes, boy.
 	Absorb damage when combos <= 11 for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -32,9 +32,9 @@ Branch on counter = 1, target rnd 11
 counter + 1
 
 #9: SkillSet:
-	[0] ESRowSpawnMulti(78:39300) -> フン　貴様がこのくらいやることは
+	[0] ESRowSpawnMulti(78:39300) -> I knew you'd be capable...
 	Change the 5th row to Fire orbs
-	[1] ESGravity(50:39301) -> 分かっておったわ！
+	[1] ESGravity(50:39301) -> ...of this much at least!
 	Player -150% HP
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,9 +44,9 @@ end_turn
 counter = 0
 
 #12: SkillSet:
-	[0] ESAttributeBlock(107:39303) -> なかなか見つからんのォ
+	[0] ESAttributeBlock(107:39303) -> I'm having trouble finding...
 	Unable to match Fire orbs for 1 turn
-	[1] ESOrbLock(94:39304) -> この戦況の火のつけ所が…
+	[1] ESOrbLock(94:39304) -> ...the right place to light the fire.
 	Lock all Fire and Heal orbs, Deal 85% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -54,9 +54,9 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:39306) -> さァて　待たせたの
+	[0] ESSkyfall(68:39306) -> Now, then. Sorry about the wait.
 	Fire skyfall +15% for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:39307) -> そろそろしめといくか
+	[1] ESAttackUPRemainingEnemies(17:39307) -> Let's finish this up, shall we?
 	Increase damage to 150% for the next 999 turns
 
 #15: ESBranchFlag(43:10) -> ESBranchFlag
@@ -66,9 +66,9 @@ Branch on flag & 2, target rnd 19
 flag SET 0b11
 
 #17: SkillSet:
-	[0] ESDebuffATK(130:39309) -> 何も分かっておらぬな
+	[0] ESDebuffATK(130:39309) -> You understand nothing...
 	ATK -50% for 1 turn
-	[1] ESOrbLock(94:39310) -> このど阿呆が!!
+	[1] ESOrbLock(94:39310) -> ...you imbecile!!
 	Lock all orbs, Deal 75% damage
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -77,7 +77,7 @@ end_turn
 #19: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#20: ESRowSpawnMulti(79:39311) -> 首を持っていくぞ
+#20: ESRowSpawnMulti(79:39311) -> I'm taking your head with me.
 Change the 1st and 2nd rows to Fire orbs, Deal 80% damage
 
 #21: ESEndPath(36:26) -> ESEndPath
@@ -85,8 +85,8 @@ end_turn
 
 #22: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESSkillSet(83:39430) -> では腕くらいに + まけてやるかのォ
+	[0] ESSkillSet(83:39430) -> Then your arm can be... + ...my consolation prize.
 	Seal the 1st column for 5 turns + Reduce self HP to 0
 
-#23: ESSuperResolve(129:39295) -> ＿麃公超根性
+#23: ESSuperResolve(129:39295) -> ＿Lord Biao Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,4 +1,4 @@
-#208964 - 蒙恬
+#208964 - Meng Tian
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESVoidShield(71:39337) -> 気高く冷静な戦い方
+	[0] ESVoidShield(71:39337) -> Noble and Cool-headed Fighting
 	Void damage >= 10,000,000 for 2 turns
-	[1] ESDamageShield(74:39338) -> 血みどろの泥臭い戦い方
+	[1] ESDamageShield(74:39338) -> Crude and Bloody Brawling
 	Reduce damage from all sources by 75% for 2 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESAttackUPRemainingEnemies(17:39339) -> よし　行ける
+#6: ESAttackUPRemainingEnemies(17:39339) -> All right. We can do this.
 Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 150% for the next 999 turns
 
@@ -35,7 +35,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESOrbChangeAttack(48:39340) -> 攻めの組み立て
+#10: ESOrbChangeAttack(48:39340) -> Attack Framework
 Change a random attribute to Light orbs, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -44,7 +44,7 @@ end_turn
 #12: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#13: ESColumnSpawnMulti(77:39341) -> 突き抜けるぞ
+#13: ESColumnSpawnMulti(77:39341) -> Break on through!
 Change the 1st and 2nd columns to Light orbs, Deal 110% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -53,7 +53,7 @@ end_turn
 #15: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#16: ESAbsorbThreshold(87:39342) -> 受け流し
+#16: ESAbsorbThreshold(87:39342) -> Parry
 Absorb damage when damage >= 10,000,000 for 3 turns, Deal 95% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
