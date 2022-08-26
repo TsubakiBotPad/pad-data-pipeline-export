@@ -1,4 +1,4 @@
-#1001116 - 白火の舞女神・パールヴァティー
+#1001116 - White Hot Dancing Goddess, Parvati
 monster size: 5
 new AI: True
 start/max counter: 0
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBindAttack(63:7824) -> そこまでですっ！
+	[0] ESBindAttack(63:7824) -> That's as far as you'll get!
 	Bind 1 random sub for 6 turns, Deal 120% damage
-	[1] ESAbsorbThreshold(87:7825) -> 私だって修行してきたんですよ！
+	[1] ESAbsorbThreshold(87:7825) -> I've been training hard!
 	Absorb damage when damage >= 1,000,000 for 6 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -28,10 +28,10 @@ Branch on counter >= 5, target rnd 11
 #7: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#8: ESOrbChangeAttackBits(108:7827) -> ソナーハヴァー
+#8: ESOrbChangeAttackBits(108:7827) -> Sonar Havar
 Change all Light orbs to Wood orbs, Deal 150% damage
 
-#9: ESAttackUPRemainingEnemies(17:7828) -> スンダルプール
+#9: ESAttackUPRemainingEnemies(17:7828) -> Sundar Pool
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 200% for the next 1 turn
 
@@ -42,9 +42,9 @@ end_turn
 counter = 0
 
 #12: SkillSet:
-	[0] ESBindAwoken(88:7829) -> いけっ！トラちゃん！
+	[0] ESBindAwoken(88:7829) -> Go, Tiggie!
 	Bind awoken skills for 1 turn
-	[1] ESColumnSpawnMulti(77:7830) -> タグラーアーグ
+	[1] ESColumnSpawnMulti(77:7830) -> Tagrah Ahgu
 	Change the 3rd and 4th columns to Fire orbs, Deal 500% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
