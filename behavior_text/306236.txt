@@ -1,0 +1,33 @@
+#306236 - 裏転生武田信玄
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306236
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40086:83) 虎将神の魂 + 武田菱の護紋 + 封炎
+ | Voids status ailments for 999 turns + Void damage >= 500,000,000 for 7 turns + Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 2
+     | (40091:83) 虎将神の猛進 + 風林火山 + 封炎
+     | Increase damage to 200% for the next 1 turn + Change all orbs to Fire, Wood, and Heal + Lock all orbs
+   | group:
+   | condition: turns 2-6 while HP > 2
+     | condition: 50% chance
+     | (40095:83) 烈虎長船 + 炎獅子
+     | Change the 3rd column to Fire orbs + No description set, Deal 100% damage
+     | condition: 50% chance
+     | (40098:83) 烈虎長船 + 炎獅子
+     | Change the 4th column to Fire orbs + Lock all Fire orbs, Deal 100% damage
+   | group:
+     | (39739:83) 蒼穹の波動 + 終焉の千滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (40090:77) 宗三左文字
+   | Change the 2nd and 3rd columns to Fire orbs, Deal 1,000% damage

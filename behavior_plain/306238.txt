@@ -1,0 +1,75 @@
+#306238 - 転生上杉謙信
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:40027) -> 龍将神の怒り
+	Increase damage to 200% for the next 1 turn
+	[1] ESDebuffATKTarget(143:40028) -> 上杉笹の護紋
+	For 3 turns, 1% ATK for 2 random subs
+	[2] ESAbsorbThresholdBig(138:40029) -> 不惜身命
+	Absorb damage when damage >= 2,000,000,000 for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 13
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:40036) -> 静龍銀月
+	Change the 2nd column to Water orbs, Deal 100% damage
+	[1] ESUnknown(151:40037) -> 氷結
+	No description set
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:40039) -> 静龍銀月
+	Change the 5th column to Water orbs, Deal 100% damage
+	[1] ESOrbLock(94:40040) -> 氷結
+	Lock all Water orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 7
+
+#11: SkillSet:
+	[0] ESStatusShield(20:40032) -> 龍将神の魂
+	Voids status ailments for 999 turns
+	[1] ESDebuffATKTarget(143:40033) -> 上杉笹の護紋
+	For 4 turns, 1% ATK for both leaders
+	[2] ESUnknown(152:40034) -> 乱れ氷雪
+	No description set, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:40030) -> 山鳥毛一文字
+Deal 1,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

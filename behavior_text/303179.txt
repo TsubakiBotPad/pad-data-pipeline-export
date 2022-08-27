@@ -1,0 +1,31 @@
+#303179 - 真紅蓮の逆刃・炎鉄双角
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303179
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39821:137) 灰燼と化す骸壁
+ | Void damage >= 500,000,000 for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (39824:83) 燃え立つ炎 + 弱火の灯 + 虚偽
+   | Increase damage to 1,000% for the next 1 turn + No description set + No description set
+ | group:
+ | condition: turns 2-6
+   | (39822:48) 命炎の灯
+   | Change all Heal orbs to Fire orbs, Deal 100% damage
+   | (39823:92) バーニングホーン
+   | Spawn 6 random Fire orbs, Deal 120% damage
+ | group:
+   | (39741:15) 終焉の千滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (39828:20) 燃え盛る炎盾
+ | Voids status ailments for 999 turns
+ | (39829:74) 燃え盛る炎盾
+ | Reduce damage from all sources by 50% for 999 turns

@@ -1,0 +1,66 @@
+#303176 - 真ヤマツカミノミコ・カミヌエ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:39849) -> 大地の実り
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire, Water, and Wood damage for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: ESOrbLock(94:39850) -> 収奪する自由
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Lock all orbs, Deal 100% damage
+
+#8: ESUnknown(151:39762) -> 虎蛇爪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set, Deal 100% damage
+
+#9: ESUnknown(151:39852) -> 虎蛇爪
+Condition: 50% chance (ai:0 rnd:50)
+No description set, Deal 100% damage
+
+#10: ESOrbLock(94:39851) -> 収奪する自由
+Condition: 50% chance (ai:0 rnd:50)
+Lock 15 random orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESStatusShield(20:39854) -> 大地の守り
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:39855) -> 身を固める
+	Reduce damage from all sources by 50% for 999 turns
+	[2] ESDebuffMovetime(39:39856) -> 限られた時の秒針
+	Movetime 50% for 3 turns
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:39741) -> 終焉の千滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

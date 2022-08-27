@@ -1,0 +1,75 @@
+#306236 - 裏転生武田信玄
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:40087) -> 虎将神の魂
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:40088) -> 武田菱の護紋
+	Void damage >= 500,000,000 for 7 turns
+	[2] ESOrbLock(94:40089) -> 封炎
+	Lock all orbs
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 13
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:40096) -> 烈虎長船
+	Change the 3rd column to Fire orbs, Deal 100% damage
+	[1] ESUnknown(151:40097) -> 炎獅子
+	No description set
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:40099) -> 烈虎長船
+	Change the 4th column to Fire orbs, Deal 100% damage
+	[1] ESOrbLock(94:40100) -> 炎獅子
+	Lock all Fire orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 7
+
+#11: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:40092) -> 虎将神の猛進
+	Increase damage to 200% for the next 1 turn
+	[1] ESBoardChange(84:40093) -> 風林火山
+	Change all orbs to Fire, Wood, and Heal
+	[2] ESOrbLock(94:40094) -> 封炎
+	Lock all orbs
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESColumnSpawnMulti(77:40090) -> 宗三左文字
+Change the 2nd and 3rd columns to Fire orbs, Deal 1,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

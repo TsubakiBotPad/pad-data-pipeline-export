@@ -1,0 +1,32 @@
+#305432 - 真転生明智光秀
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESMaxHPChange(111:40017) -> 謀略神の策略
+	Change player HP to 50% for 4 turns
+	[1] ESDisableAssists(141:40018) -> 4ターンの猶予をやろう
+	Disable active skills for 4 turns
+	[2] ESUnknown(150:40019) -> 仕掛けさせてもらう
+	No description set
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESAttackMultihit(15:40020) -> 神剣羅刹刃
+Deal 300% damage (5 hits, 60% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttributeResist(72:39730) -> 光軽減
+Reduce damage from Light attrs by 50%

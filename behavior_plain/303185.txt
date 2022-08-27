@@ -1,0 +1,64 @@
+#303185 - 真氷樹槌・ハンマートロール
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESUnknown(152:39792) -> フローズンダンス
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No description set, Deal 40% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: ESStatusShield(20:39800) -> トロールバリア
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids status ailments for 999 turns
+
+#8: ESDamageShield(74:39801) -> トロールバリア
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 999 turns
+
+#9: ESOrbLock(94:39794) -> 氷漬け
+Lock 10 random orbs, Deal 100% damage
+
+#10: ESSkillDelay(89:39793) -> トロールダンス
+Delay active skills by 1~2 turns, Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:39796) -> フロストエンハンス
+	Increase damage to 1,000% for the next 1 turn
+	[1] ESNoSkyfall(127:39797) -> 叩き割り
+	No skyfall for 1 turn
+	[2] ESOrbLock(94:39798) -> 絶対氷結
+	Lock all orbs
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:39741) -> 終焉の千滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

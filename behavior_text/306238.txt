@@ -1,0 +1,41 @@
+#306238 - 転生上杉謙信
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306238
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40026:83) 龍将神の怒り + 上杉笹の護紋 + 不惜身命
+ | Increase damage to 200% for the next 1 turn + For 3 turns, 1% ATK for 2 random subs + Absorb damage when damage >= 2,000,000,000 for 7 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 2
+     | condition: 50% chance
+     | (40035:83) 静龍銀月 + 氷結
+     | Change the 2nd column to Water orbs + No description set, Deal 100% damage
+     | condition: 50% chance
+     | (40038:83) 静龍銀月 + 氷結
+     | Change the 5th column to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 2
+     | (40031:83) 龍将神の魂 + 上杉笹の護紋 + 乱れ氷雪
+     | Voids status ailments for 999 turns + For 4 turns, 1% ATK for both leaders + No description set, Deal 100% damage
+   | group:
+   | condition: turns 4-6 while HP > 2
+     | condition: 50% chance
+     | (40035:83) 静龍銀月 + 氷結
+     | Change the 2nd column to Water orbs + No description set, Deal 100% damage
+     | condition: 50% chance
+     | (40038:83) 静龍銀月 + 氷結
+     | Change the 5th column to Water orbs + Lock all Water orbs, Deal 100% damage
+   | group:
+     | (39739:83) 蒼穹の波動 + 終焉の千滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (40030:15) 山鳥毛一文字
+   | Deal 1,000% damage

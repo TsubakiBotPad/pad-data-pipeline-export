@@ -1,0 +1,66 @@
+#303181 - 真煉獄の乱刃・冥鉄弐角
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbThresholdBig(138:39839) -> 冥府への蹊
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when damage >= 2,000,000,000 for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: ESUnknown(151:39847) -> ヘルダウン
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set
+
+#8: ESUnknown(152:39848) -> ヘルダウン
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set
+
+#9: ESOrbLock(94:39841) -> ホールドタックル
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 100% damage
+
+#10: ESUnknown(151:39842) -> 獣鉄連撃
+Condition: 50% chance (ai:0 rnd:50)
+No description set, Deal 120% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:39844) -> 力の解放
+	Increase damage to 200% for the next 999 turns
+	[1] ESUnknown(152:39845) -> ヘルダウン
+	No description set
+	[2] ESBoardChangeAttackBits(85:39846) -> 命獄の乱刃
+	Change all orbs to Dark, Heal, and Poison, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:39741) -> 終焉の千滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

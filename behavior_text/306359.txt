@@ -1,0 +1,45 @@
+#306359 - 転生お市
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 306359
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39983:83) 賢姫神の魂 + 木瓜の神紋 + 賢徳姫の祈念
+ | Voids status ailments for 999 turns + Bind awoken skills for 3 turns + Absorb damage when combos <= 10 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 2
+     | condition: 50% chance
+     | (39995:83) 賢徳姫の仁慈 + 黒い頭蓋骨
+     | Haste all cards' skills by 1 turn + Blind random 6~8 orbs for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (39998:83) 不気味な骸骨 + 硬い頭蓋骨
+     | Delay both leaders' skills by 1~2 turns + Lock 15 random orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 2
+     | (39988:83) 賢徳姫の祈念 + 賢徳姫の苦悩 + 不気味な頭蓋骨
+     | Absorb damage when combos <= 9 for 3 turns + Void damage >= 500,000,000 for 3 turns + No description set
+   | group:
+   | condition: turns 4-5 while HP > 2
+     | condition: 50% chance
+     | (39995:83) 賢徳姫の仁慈 + 黒い頭蓋骨
+     | Haste all cards' skills by 1 turn + Blind random 6~8 orbs for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (39998:83) 不気味な骸骨 + 硬い頭蓋骨
+     | Delay both leaders' skills by 1~2 turns + Lock 15 random orbs, Deal 100% damage
+   | group:
+   | condition: turn 6 while HP > 2
+     | (39992:83) 不気味な骸骨 + 賢徳姫の怒り
+     | Delay random sub's skills by 2~4 turns + Increase damage to 1,000% for the next 1 turn
+   | group:
+     | (39739:83) 蒼穹の波動 + 終焉の千滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (39987:15) 邪悪醜骨紋
+   | Deal 1,000% damage (2 hits, 500% each)

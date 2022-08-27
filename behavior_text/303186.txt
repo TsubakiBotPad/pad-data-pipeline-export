@@ -1,0 +1,49 @@
+#303186 - 真樹炎刃・サムライトロール
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303186
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: 20% chance
+ | (39802:107) 封印の型
+ | Unable to match Fire orbs for 3 turns
+ | condition: 20% chance
+ | (40171:107) 封印の型
+ | Unable to match Water orbs for 3 turns
+ | condition: 20% chance
+ | (40172:107) 封印の型
+ | Unable to match Wood orbs for 3 turns
+ | condition: 20% chance
+ | (40173:107) 封印の型
+ | Unable to match Light orbs for 3 turns
+ | condition: 20% chance
+ | (40174:107) 封印の型
+ | Unable to match Dark orbs for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (39806:83) 鯉口を切り裂く + 切迫した戦場 + 同刻の戦い
+   | Increase damage to 250% for the next 999 turns + No description set + Movetime 25% for 2 turns
+ | group:
+ | condition: turns 2-6
+   | condition: 33% chance
+   | (39803:62) 闇討ち
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 33% chance
+   | (39804:77) 炎の一振り
+   | Change the 4th column to Fire orbs, Deal 100% damage
+   | condition: 34% chance
+   | (39805:79) 風の一太刀
+   | Change the 3rd row to Wood orbs, Deal 100% damage
+ | group:
+   | (39741:15) 終焉の千滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (39810:151) 剣圧
+ | No description set, Deal 50% damage
+ | (39811:151) 剣圧
+ | No description set, Deal 100% damage

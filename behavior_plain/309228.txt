@@ -1,0 +1,106 @@
+#309228 - 千手龍・センキョウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:40146) -> サハスラブジャバリア
+	Voids status ailments for 999 turns
+	[1] ESUnknown(152:40147) -> サウザンドフォール
+	No description set
+	[2] ESAbsorbCombo(67:40148) -> インブレイスマーシー
+	Absorb damage when combos <= 10 for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 17
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDebuffATKTarget(143:40159) -> サハスラブジャオーラ
+	For 3 turns, 25% ATK for 1 random card
+	[1] ESUnknown(151:40160) -> サウザンドウォッシュ
+	No description set, Deal 85% damage
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESUnknown(151:40162) -> サウザンドウォッシュ
+	No description set
+	[1] ESAttackMultihit(15:40163) -> インブレイスメディテーション
+	Deal 110% damage (5 hits, 22% each)
+
+#7: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESCloud(104:39701) -> サウザンドフォッグ
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESOrbLock(94:39702) -> インブレイスチェイン
+	Lock 8 random orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESAttributeBlock(107:40150) -> サハスラブジャバニッシュ
+	Unable to match Wood orbs for 10 turns
+	[1] ESUnknown(150:40151) -> インブレイスダウン
+	No description set
+	[2] ESUnknown(151:40152) -> サウザンドウォッシャ―
+	No description set, Deal 180% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDebuffATKTarget(143:40168) -> サハスラブジャオーラ
+	For 3 turns, 1% ATK for 1 random card
+	[1] ESColumnSpawnMulti(77:40169) -> インブレイスアクア
+	Change the 2nd column to Jammer orbs and the 5th column to Water orbs, Deal 100% damage
+
+#14: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbSealRow(100:39704) -> サウザンドハンド
+	Seal the 1st row for 1 turn
+	[1] ESColumnSpawnMulti(77:39705) -> インブレイスアクア
+	Change the 3rd column to Water orbs and the 4th column to Poison orbs, Deal 100% damage
+
+#15: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESUnknown(151:40165) -> サウザンドウォッシュ
+	No description set
+	[1] ESAttackMultihit(15:40166) -> インブレイスメディテーション
+	Deal 120% damage (4 hits, 30% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:40154) -> サウザンドエンハンス
+	Increase damage to 1,000% for the next 999 turns
+	[1] ESTargetedSkillHaste(139:40155) -> サハスラブジャストリーム
+	Haste both leaders' skills by 99 turns
+	[2] ESUnknown(150:40156) -> インブレイスダウン
+	No description set
+
+#18: ESAttackMultihit(15:40157) -> サウザンドノヴァ
+Deal 1,000% damage (10 hits, 100% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:39737) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

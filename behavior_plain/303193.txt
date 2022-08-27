@@ -1,0 +1,85 @@
+#303193 - 真帝都の守護神・アテナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:39876) -> 守護神の天恵
+	Voids status ailments for 999 turns
+	[1] ESBlindStickySkyfall(128:39877) -> 影なる帝国
+	For 1 turn, 30% chance for skyfall orbs to be blinded for turn
+	[2] ESAbsorbCombo(67:39878) -> サンクチュアリ
+	Absorb damage when combos <= 10 for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttributeBlock(107:39883) -> 全てを見透かす邪闇
+	Unable to match Dark orbs for 5 turns
+	[1] ESUnknown(151:39884) -> 冥界の怨讐
+	No description set
+	[2] ESDebuffMovetime(39:39885) -> ゴルゴンの睨み
+	Movetime 25% for 1 turn, Deal 100% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttributeBlock(107:39887) -> 全てを見透かす邪光
+	Unable to match Light orbs for 5 turns
+	[1] ESUnknown(151:39888) -> 冥界の怨讐
+	No description set
+	[2] ESDebuffRCV(105:39889) -> ゴルゴンの睨み
+	RCV 25% for 1 turn, Deal 75% damage
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESSpinnersFixed(110:39891) -> 包囲網
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESDebuffATKTarget(143:39892) -> 凱旋歌
+	For 1 turn, 1% ATK for both leaders, Deal 100% damage
+
+#10: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbLock(94:39894) -> 包囲陣
+	Lock 15 random orbs
+	[1] ESDebuffATKTarget(143:39895) -> 凱旋歌
+	For 1 turn, 1% ATK for both leaders, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:39880) -> 終戦の契り
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39881) -> エイジスティ・クレセンダ
+	Deal 1,000% damage (8 hits, 125% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:39730) -> 光軽減
+Reduce damage from Light attrs by 50%

@@ -1,0 +1,34 @@
+#300691 - 真重戦士・ホブゴブリン
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300691
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39718:53) 防御陣形
+ | Absorb Fire damage for 7 turns
+ group:
+ | group:
+ | condition: turn 2
+   | (39719:77) 叩き割り
+   | Change the 1st column to Wood orbs, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (39719:77) 叩き割り
+   | Change the 1st column to Wood orbs, Deal 100% damage
+ | group:
+   | (39741:15) 終焉の千滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (39743:19) 蒼穹の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-6
+   | (39719:77) 叩き割り
+   | Change the 1st column to Wood orbs, Deal 100% damage

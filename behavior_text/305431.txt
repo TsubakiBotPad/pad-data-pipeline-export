@@ -1,0 +1,25 @@
+#305431 - 真転生毛利元就
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305431
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40006:83) この私を倒せますか？ + 期待していますよ
+ | Absorb damage when combos <= 6 for 999 turns + No description set
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 98
+     | (40010:15) 神速二刀
+     | Deal 200% damage (4 hits, 50% each)
+   | group:
+     | (39739:83) 蒼穹の波動 + 終焉の千滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 98
+   | (40009:107) 智謀神の策略
+   | Unable to match Water and Wood orbs for 3 turns

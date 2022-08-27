@@ -1,0 +1,75 @@
+#306240 - 転生伊達政宗
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:40042) -> 捨て身の一太刀
+	Increase damage to 300% for the next 1 turn
+	[1] ESUnknown(150:40043) -> 仙台笹の護紋
+	No description set
+	[2] ESBlindStickyRandom(97:40044) -> 黒ん坊切景秀
+	Blind random 7~10 orbs for 1 turn, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 13
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRowSpawnMulti(79:40051) -> 振分髪正宗
+	Change the 1st row to Wood orbs, Deal 150% damage
+	[1] ESUnknown(151:40052) -> 大倶利伽羅広光
+	No description set
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRowSpawnMulti(79:40054) -> 振分髪正宗
+	Change the 5th row to Wood orbs, Deal 150% damage
+	[1] ESOrbLock(94:40055) -> 大倶利伽羅広光
+	Lock all Wood orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 7
+
+#11: SkillSet:
+	[0] ESStatusShield(20:40047) -> 独眼神の魂
+	Voids status ailments for 999 turns
+	[1] ESUnknown(150:40048) -> 仙台笹の護紋
+	No description set
+	[2] ESVoidShieldBig(137:40049) -> 大倶利伽羅
+	Void damage >= 500,000,000 for 6 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:40045) -> 燭台切光忠
+Deal 1,000% damage (2 hits, 500% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

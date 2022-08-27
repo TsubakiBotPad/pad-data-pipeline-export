@@ -1,0 +1,40 @@
+#303834 - 真空都の守護神・アテナ＝ヘリオス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303834
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39731:72) 闇軽減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (39917:83) 守護神の天恵 + 至高の戦局 + 朱く照らされた大地
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 10 for 1 turn + Change board size to 6x5 for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (39924:83) うごめく戦局 + ヘリオスチェイン + 大いなる太陽の意思
+     | No description set + Lock all orbs + Void damage >= 500,000,000 for 6 turns, Deal 125% damage
+   | group:
+   | condition: turns 2-6 while HP > 2
+     | condition: 50% chance
+     | (39932:83) 烈火尖槍 + 天空の支配者
+     | No skyfall for 1 turn + For 1 turn, 1% ATK for 2 random cards, Deal 100% damage
+     | condition: 50% chance
+     | (39935:83) 烈火尖槍 + ヘリオスガーディアン
+     | No skyfall for 1 turn + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | group:
+     | (39739:83) 蒼穹の波動 + 終焉の千滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (39928:83) うごめく戦局 + ヘリオスチェイン + 大いなる太陽の意思
+   | Absorb damage when combos <= 10 for 6 turns + Lock all orbs + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (39921:83) 終戦の契り + ヒュペリオン・ソルナム
+   | Bind awoken skills for 1 turn + Deal 1,000% damage (8 hits, 125% each), Deal 1,000% damage (8 hits, 125% each)

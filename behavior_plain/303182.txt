@@ -1,0 +1,70 @@
+#303182 - 真炎氷刃・サムライトロール
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:39763) -> 摺り足
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 10 for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 17
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: ESUnknown(151:39771) -> 剣圧
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set, Deal 50% damage
+
+#8: ESUnknown(151:39772) -> 剣圧
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set, Deal 100% damage
+
+#9: ESBombRandomSpawn(102:39764) -> 隠し玉
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 8 random Bomb orbs, Deal 80% damage
+
+#10: ESColumnSpawnMulti(77:39765) -> 赤の一閃
+Condition: 33% chance (ai:0 rnd:33)
+Change the 1st column to Fire orbs, Deal 100% damage
+
+#11: ESColumnSpawnMulti(77:39766) -> 青の一閃
+Condition: 34% chance (ai:0 rnd:34)
+Change the 6th column to Water orbs, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: SkillSet:
+	[0] ESStatusShield(20:39768) -> 剣士の覚悟
+	Voids status ailments for 999 turns
+	[1] ESUnknown(151:39769) -> 限られた活路
+	No description set
+	[2] ESDebuffMovetime(39:39770) -> 迫られる選択
+	Movetime 50% for 5 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttackMultihit(15:39741) -> 終焉の千滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn

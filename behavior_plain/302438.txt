@@ -1,0 +1,46 @@
+#302438 - 真ヒカシバマル
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:39709) -> ガルルルル
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 10 for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 12
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 10
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 9
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 9
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESChangeAttribute(46:39711) -> 変化の巻物
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#10: ESAttackUPCooldown(19:39743) -> 蒼穹の解放
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#11: ESChangeAttribute(46:39711) -> 変化の巻物
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#12: ESAttackMultihit(15:39741) -> 終焉の千滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

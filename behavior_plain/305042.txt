@@ -1,0 +1,38 @@
+#305042 - 真転生石田三成
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttributeBlock(107:40012) -> 諜報神の策略
+	Unable to match Fire and Wood orbs for 3 turns
+	[1] ESMaxHPChange(111:40013) -> 我が策に対処できるか？
+	Change player HP to 50% for 3 turns
+	[2] ESUnknown(151:40014) -> 実力を見せてみろ
+	No description set
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 7
+
+#5: ESAttackMultihit(15:40015) -> 忠義剣乱戟
+Deal 300% damage (5 hits, 60% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

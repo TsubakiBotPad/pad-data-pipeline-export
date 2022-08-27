@@ -1,0 +1,78 @@
+#306242 - 転生豊臣秀吉
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:40057) -> 天下神の魂
+	Voids status ailments for 999 turns
+	[1] ESSpinnersRandom(109:40058) -> 五七桐の護紋
+	Random 3 orbs change every 1.0s for 3 turns
+	[2] ESAbsorbCombo(67:40059) -> 豪猿の覇気
+	Absorb damage when combos <= 10 for 7 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 13
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBoardChangeAttackBits(85:40066) -> 秘儀の変わり玉
+	Change all orbs to Light and Jammer, Deal 100% damage
+	[1] ESUnknown(151:40067) -> 一天下吉光
+	No description set
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBoardChangeAttackBits(85:40069) -> 秘儀の変わり玉
+	Change all orbs to Light and Poison, Deal 100% damage
+	[1] ESOrbLock(94:40070) -> 一天下吉光
+	Lock all Light orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 7
+
+#11: SkillSet:
+	[0] ESCloud(104:40062) -> 豪猿の咆哮
+	A column of clouds appears for 4 turns at a random location
+	[1] ESSpinnersRandom(109:40063) -> 五七桐の護紋
+	Random 3 orbs change every 0.5s for 4 turns
+	[2] ESBoardChangeAttackBits(85:40064) -> 秘伝の変わり玉
+	Change all orbs to Water and Light, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESColumnSpawnMulti(77:40060) -> 太閤左文字
+Change the 1st and 2nd columns to Light orbs, Deal 1,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttributeResist(72:39731) -> 闇軽減
+Reduce damage from Dark attrs by 50%

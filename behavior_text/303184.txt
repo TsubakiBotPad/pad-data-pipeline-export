@@ -1,0 +1,36 @@
+#303184 - 真氷炎刃・サムライトロール
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303184
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39782:137) 摺り足
+ | Void damage >= 500,000,000 for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (39786:83) 剣士の覚悟 + 限られた活路 + 迫られる選択
+   | Voids status ailments for 999 turns + No description set + RCV 50% for 5 turns
+ | group:
+ | condition: turns 2-6
+   | condition: 33% chance
+   | (39783:92) 隠し玉
+   | Spawn 10 random Jammer orbs, Deal 80% damage
+   | condition: 33% chance
+   | (39784:77) 赤の一閃
+   | Change the 1st column to Fire orbs, Deal 100% damage
+   | condition: 34% chance
+   | (39785:77) 青の一閃
+   | Change the 6th column to Water orbs, Deal 100% damage
+ | group:
+   | (39741:15) 終焉の千滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (39790:151) 剣圧
+ | No description set, Deal 50% damage
+ | (39791:151) 剣圧
+ | No description set, Deal 100% damage

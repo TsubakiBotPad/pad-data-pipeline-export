@@ -1,0 +1,86 @@
+#303834 - 真空都の守護神・アテナ＝ヘリオス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:39918) -> 守護神の天恵
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:39919) -> 至高の戦局
+	Absorb damage when combos <= 10 for 1 turn
+	[2] ESBoardSizeChange(126:39920) -> 朱く照らされた大地
+	Change board size to 6x5 for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 14
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESUnknown(150:39925) -> うごめく戦局
+	No description set
+	[1] ESOrbLock(94:39926) -> ヘリオスチェイン
+	Lock all orbs
+	[2] ESVoidShieldBig(137:39927) -> 大いなる太陽の意思
+	Void damage >= 500,000,000 for 6 turns, Deal 125% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:39929) -> うごめく戦局
+	Absorb damage when combos <= 10 for 6 turns
+	[1] ESOrbLock(94:39930) -> ヘリオスチェイン
+	Lock all orbs
+	[2] ESAttackUPRemainingEnemies(17:39931) -> 大いなる太陽の意思
+	Increase damage to 150% for the next 999 turns
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESNoSkyfall(127:39933) -> 烈火尖槍
+	No skyfall for 1 turn
+	[1] ESDebuffATKTarget(143:39934) -> 天空の支配者
+	For 1 turn, 1% ATK for 2 random cards, Deal 100% damage
+
+#10: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESNoSkyfall(127:39936) -> 烈火尖槍
+	No skyfall for 1 turn
+	[1] ESDamageShield(74:39937) -> ヘリオスガーディアン
+	Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: When < 5% HP (ai:100 rnd:0)
+	[0] ESBindAwoken(88:39922) -> 終戦の契り
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39923) -> ヒュペリオン・ソルナム
+	Deal 1,000% damage (8 hits, 125% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:39740) -> 蒼穹の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:39741) -> 終焉の千滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:39731) -> 闇軽減
+Reduce damage from Dark attrs by 50%

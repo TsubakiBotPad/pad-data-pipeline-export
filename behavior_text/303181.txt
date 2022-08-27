@@ -1,0 +1,33 @@
+#303181 - 真煉獄の乱刃・冥鉄弐角
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303181
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39839:138) 冥府への蹊
+ | Absorb damage when damage >= 2,000,000,000 for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (39843:83) 力の解放 + ヘルダウン + 命獄の乱刃
+   | Increase damage to 200% for the next 999 turns + No description set + Change all orbs to Dark, Heal, and Poison, Deal 100% damage
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (39841:94) ホールドタックル
+   | Lock 10 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (39842:151) 獣鉄連撃
+   | No description set, Deal 120% damage
+ | group:
+   | (39741:15) 終焉の千滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (39847:151) ヘルダウン
+ | No description set
+ | (39848:152) ヘルダウン
+ | No description set

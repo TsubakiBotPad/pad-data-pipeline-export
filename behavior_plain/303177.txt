@@ -1,0 +1,70 @@
+#303177 - 真ユミツカミノミコ・カゲヌエ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESCloud(104:39857) -> 蛇雲咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+A 2×2 square of clouds appears for 5 turns at a random location, Deal 100% damage
+
+#3: ESBindRandom(1:39734) -> 虎蛇咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind 6 random cards for 5 turns
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 17
+
+#6: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#8: ESDispel(6:39864) -> 虎蛇咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids player buff effects, Deal 100% damage
+
+#9: ESTargetedSkillHaste(139:39865) -> 虎蛇咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Haste both leaders' skills by 15 turns, Deal 100% damage
+
+#10: ESUnknown(151:39859) -> 命弱癒変転
+Condition: 50% chance (ai:0 rnd:50)
+No description set, Deal 100% damage
+
+#11: ESTargetedSkillHaste(139:39858) -> 虎蛇咆哮
+Condition: 50% chance (ai:0 rnd:50)
+Haste random sub's skills by 2 turns, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 10
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:39861) -> 虎蛇怒号
+	Increase damage to 1,000% for the next 1 turn
+	[1] ESTargetedSkillHaste(139:39862) -> 虎蛇の遠吠え
+	Haste random sub's skills by 10 turns
+	[2] ESUnknown(151:39863) -> 双弱の威嚇
+	No description set
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESAttackMultihit(15:39741) -> 終焉の千滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
