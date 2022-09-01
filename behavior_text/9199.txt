@@ -1,0 +1,39 @@
+#9199 - シャーロット・カタクリ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9199
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40897:118) ＿カタクリ攻撃半減
+ | Reduce damage from Attacker types by 50%
+ | (40898:73) ＿カタクリ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40899:83) お前にできて + おれにできない事はない
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000,000 for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (40902:83) 言っておくがおれは + お前を見くびっちゃいない!!!
+   | Absorb damage when combos <= 9 for 3 turns + Haste both leaders' skills by 99 turns, Deal 100% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40908:85) モチ突
+     | Change all orbs to Dark and Jammer, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40909:74) 角モチ
+     | Reduce damage from all sources by 90% for 1 turn, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40910:15) 雨垂モチ!!!
+     | Deal 108% damage (6 hits, 18% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (40905:83) おれはもう… + お前を格下とは思わねェ
+   | Locked random skyfall +25% for 10 turns + Increase damage to 150% for the next 999 turns

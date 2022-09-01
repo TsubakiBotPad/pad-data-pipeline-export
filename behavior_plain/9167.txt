@@ -1,0 +1,60 @@
+#9167 - フランキー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:40726) -> ん～～～～～…!!
+	Voids status ailments for 999 turns
+	[1] ESDebuffATK(130:40727) -> スーパ～!!!
+	ATK -50% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:40729) -> フ～～ルルルァンキィ～
+	Fire and Water skyfall +15% for 5 turns
+	[1] ESAttributeBlock(107:40730) -> ストロン～～～グ
+	Unable to match Fire and Water orbs for 3 turns
+	[2] ESAttackMultihit(15:40731) -> ハンマ――!!!!
+	Deal 160% damage
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:40733) -> 全ての技を受け切って!!
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:40734) -> そして勝つ!!!
+	Increase damage to 150% for the next 999 turns
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAttackMultihit(15:40735) -> フランキ―アイアンBOXING!!!!
+Deal 120% damage (4 hits, 30% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESBoardChangeAttackBits(85:40736) -> フランキ―ラディカルビ～～ム
+Change all orbs to Fire and Water, Deal 105% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

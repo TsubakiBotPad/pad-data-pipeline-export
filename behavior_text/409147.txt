@@ -1,0 +1,37 @@
+#409147 - カイドウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 409147
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40926:72) ＿カイドウ光闇半減
+ | Reduce damage from Light and Dark attrs by 50%
+ | (40927:129) ＿カイドウ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (40928:83) 始めよう“暴力の世界”!!! + 来い!!
+ | Void damage >= 1,000,000,000 for 5 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40937:83) 降三世 + 引奈落!!!
+     | Deal 30% damage + Blind orbs in specific positions for 1 turn, Deal 30% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40940:128) 目障りな世代だな
+     | For 1 turn, 50% chance for skyfall orbs to be blinded for turn, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40931:83) 雷鳴八卦 + 何の王になるだと………？
+     | Change the 4th and 5th rows to Water and Dark orbs + Absorb damage when combos <= 10 for 1 turn, Deal 300% damage
+   | group:
+   | condition: turn 2
+     | (40934:83) “敗北”とはいつも + 信じ難いものだ!!!
+     | Bind awoken skills for 1 turn + Delay active skills by 1 turn, Deal 90% damage

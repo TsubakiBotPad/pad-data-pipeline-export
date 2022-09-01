@@ -1,0 +1,40 @@
+#209151 - “ビッグ・マム”シャーロット・リンリン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209151
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40974:73) ＿ビッグマム根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (40974:73) ＿ビッグマム根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40975:138) 食いわずらい
+ | Absorb damage when damage >= 100,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40983:83) 天上の……!!! + 火ァ～～!!!
+     | Deal 30% damage + Change the 1st and 2nd rows to Fire orbs, Deal 30% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40986:77) 雷霆!!!!
+     | Change the 1st and 2nd columns to Fire and Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40976:83) いくよ + 皇帝剣 + 破々刃ァ～～!!!
+     | RCV 50% for 1 turn + Change the 1st and 6th columns to Fire orbs + Deal 125% damage, Deal 50% damage
+   | group:
+   | condition: turn 2
+     | (40980:83) 力で勝てると… + 思うなァ!!!
+     | For 1 turn, 50% ATK for 4 random subs + Change all orbs to Fire and Jammer, Deal 120% damage

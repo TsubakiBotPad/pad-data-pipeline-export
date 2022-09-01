@@ -1,0 +1,69 @@
+#209199 - シャーロット・カタクリ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:40607) -> 言っておくがおれは
+	Absorb damage when combos <= 9 for 3 turns
+	[1] ESTargetedSkillHaste(139:40608) -> お前を見くびっちゃいない!!!
+	Haste both leaders' skills by 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:40610) -> おれはもう…
+	Locked random skyfall +25% for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:40611) -> お前を格下とは思わねェ
+	Increase damage to 150% for the next 1 turn
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBoardChangeAttackBits(85:40612) -> モチ突
+Change all orbs to Dark and Jammer, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESBombRandomSpawn(102:40613) -> 焼餅!!!
+Spawn 5 random locked Bomb orbs, Deal 95% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESSpinnersFixed(110:40614) -> 斬・切・餅!!!!
+Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:40605) -> ＿カタクリ根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESTypeResist(118:40604) -> ＿カタクリ攻撃半減
+Reduce damage from Attacker types by 50%

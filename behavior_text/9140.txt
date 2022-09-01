@@ -1,0 +1,36 @@
+#9140 - モンキー・D・ルフィ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 9140
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40856:73) ＿ルフィ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40857:20) 海賊王に!!!おれはなるっ!!!!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (40858:83) ギア2 + ゴムゴムの…… + JET銃!!!!
+   | Delay active skills by 5 turns + Fix orb movement starting point to random position on the board + Change the 6th column to Fire orbs, Deal 95% damage
+ | group:
+ | condition: turn 2
+   | (40862:83) ゴムゴムのォ～～!!! + 火拳銃!!!!
+   | Movetime 25% for 1 turn + Change the 1st and 6th columns to Fire orbs, Deal 105% damage
+ | group:
+ | condition: turn 3
+   | (40865:71) ギア3!!
+   | Void damage >= 1,500,000,000 for 5 turns, Deal 105% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (40866:83) ゴムゴムのォ!!! + 象銃乱打～～!!!!
+   | Reduce damage from all sources by 75% for 1 turn + Deal 105% damage (7 hits, 15% each), Deal 105% damage (7 hits, 15% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (40869:83) ゴムゴムのォ!!! + 業火拳銃!!!
+   | Unable to match Fire and Heal orbs for 1 turn + Bind awoken skills for 1 turn, Deal 120% damage

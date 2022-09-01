@@ -1,0 +1,38 @@
+#209192 - サカズキ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209192
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40952:73) ＿サカズキ根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (40952:73) ＿サカズキ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40953:53) とんだ腰抜けの集まりじゃのう
+ | Absorb Fire and Water damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40957:92) 流星火山
+     | Spawn 8 random Fire orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40958:85) 大噴火!!!!
+     | Change all orbs to Fire, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40959:68) 火山弾
+     | Fire skyfall +15% for 1 turn, Deal 75% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (40954:83) ア～～ + うっとうしいのォ………!!
+   | Absorb damage when combos <= 6 for 3 turns + Void damage >= 100,000,000 for 3 turns, Deal 85% damage

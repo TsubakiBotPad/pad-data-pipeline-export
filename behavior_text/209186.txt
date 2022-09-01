@@ -1,0 +1,36 @@
+#209186 - クロコダイル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209186
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (40941:130) さっさと潰れちまうがいい!!!
+ | ATK -50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40948:77) 砂漠の宝刀
+     | Change the 1st column to Wood orbs and the 6th column to Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40949:109) 砂嵐
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40950:100) 砂漠の向日葵!!!
+     | Seal the 5th row for 2 turns, Deal 105% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40942:83) …おれとお前では… + 海賊の格が違うんだ…!!!
+     | Fix orb movement starting point to random position on the board + Increase damage to 150% for the next 999 turns, Deal 100% damage
+   | group:
+   | condition: turn 2
+     | (40945:83) 砂漠の… + 金剛宝刀!!!!
+     | Blind all orbs on the board + Deal 140% damage (4 hits, 35% each), Deal 140% damage (4 hits, 35% each)

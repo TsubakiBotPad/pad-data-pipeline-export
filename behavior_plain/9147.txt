@@ -1,0 +1,67 @@
+#9147 - カイドウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShieldBig(137:40618) -> 始めよう“暴力の世界”!!!
+	Void damage >= 1,000,000,000 for 5 turns
+	[1] ESDamageShield(74:40619) -> 来い!!
+	Reduce damage from all sources by 50% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRowSpawnMulti(79:40621) -> 雷鳴八卦
+	Change the 4th and 5th rows to Water and Dark orbs, Deal 215% damage
+	[1] ESAbsorbCombo(67:40622) -> 何の王になるだと………？
+	Absorb damage when combos <= 10 for 1 turn
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:40624) -> “敗北”とはいつも
+	Bind awoken skills for 1 turn
+	[1] ESSkillDelay(89:40625) -> 信じ難いものだ!!!
+	Delay active skills by 1 turn, Deal 90% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESAttackMultihit(15:40627) -> 降三世
+	Deal 30% damage
+	[1] ESBlindStickyFixed(98:40628) -> 引奈落!!!
+	Blind orbs in specific positions for 1 turn, Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESBlindStickySkyfall(128:40629) -> 目障りな世代だな
+For 1 turn, 30% chance for skyfall orbs to be blinded for turn, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:40616) -> ＿カイドウ超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#16: ESAttributeResist(72:40615) -> ＿カイドウ光闇半減
+Reduce damage from Light and Dark attrs by 50%

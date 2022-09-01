@@ -1,0 +1,65 @@
+#209179 - トラファルガー・ロー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffRCV(105:40534) -> ROOM
+	RCV 25% for 1 turn
+	[1] ESLeaderSwap(75:40535) -> シャンブルズ
+	Leader changes to random sub for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttributeBlock(107:40537) -> この“オペ”は
+	Unable to match Heal orbs for 1 turn
+	[1] ESMaxHPChange(111:40538) -> お前を体内から破壊する
+	Change player HP to 50% for 1 turn
+	[2] ESAttackMultihit(15:40539) -> ガンマナイフ!!!!
+	Deal 60% damage (4 hits, 15% each)
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESChangeAttribute(46:40540) -> タクト
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 80% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESFixedStart(101:40541) -> 注射ショット!!!
+Fix orb movement starting point to random position on the board, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESDebuffATKTarget(143:40542) -> カウンターショック!!!
+For 2 turns, 50% ATK for both leaders, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

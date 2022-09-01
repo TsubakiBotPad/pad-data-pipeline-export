@@ -1,0 +1,41 @@
+#9177 - 革命軍の参謀総長・サボ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 9177
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40842:129) ＿サボ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (40843:72) ＿サボ火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (40844:83) この先 + 通すわけにはいかない
+ | Seal the 5th row for 5 turns + Void damage >= 1,000,000,000 for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (40847:83) 物には必ず… + 「核」がある
+   | Fire skyfall +15% for 5 turns + No description set, Deal 105% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40852:83) 竜爪拳 + 竜の息吹!!!!
+     | Deal 60% damage (3 hits, 20% each) + Change the 5th row to Fire orbs, Deal 60% damage (3 hits, 20% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40855:143) 竜の鉤爪
+     | For 1 turn, 1% ATK for 1 random sub, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (40850:53) 燃える竜爪拳…!!
+     | Absorb Fire damage for 2 turns
+   | group:
+   | condition: turn 3
+     | (40851:92) 「火炎」竜王
+     | Spawn 10 random Fire orbs, Deal 160% damage

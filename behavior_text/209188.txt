@@ -1,0 +1,39 @@
+#209188 - ボア・ハンコック
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209188
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40553:73) ＿ハンコック根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40552:118) ＿ハンコック回復半減
+ | Reduce damage from Healer types by 50%
+ type: PREEMPT
+ | (40554:83) ――何をしようとも + わらわは許される!!
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 1,000,000,000 for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (40557:83) そうよわらわが + 美しいから!!!
+   | RCV 50% for 3 turns + Heal skyfall +15% for 3 turns, Deal 100% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40563:94) メロメロ甘風!!!
+     | Lock all orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40564:96) 虜の矢
+     | Locked random skyfall +100% for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40565:15) 芳香脚
+     | Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (40560:83) 生かしてはおかぬ + こんなに怒りを覚えた事はない!!!
+   | Bind awoken skills for 1 turn + Change all orbs to Heal, Deal 80% damage

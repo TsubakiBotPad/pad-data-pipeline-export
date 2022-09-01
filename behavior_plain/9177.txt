@@ -1,0 +1,68 @@
+#9177 - 革命軍の参謀総長・サボ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESOrbSealRow(100:40845) -> この先
+	Seal the 5th row for 5 turns
+	[1] ESVoidShield(71:40846) -> 通すわけにはいかない
+	Void damage >= 1,000,000,000 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfall(68:40848) -> 物には必ず…
+	Fire skyfall +15% for 5 turns
+	[1] ESUnknown(151:40849) -> 「核」がある
+	No description set, Deal 105% damage
+
+#7: ESAbsorbAttribute(53:40850) -> 燃える竜爪拳…!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire damage for 2 turns
+
+#8: ESRandomSpawn(92:40851) -> 「火炎」竜王
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Spawn 10 random Fire orbs, Deal 160% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESAttackMultihit(15:40853) -> 竜爪拳
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESRowSpawnMulti(79:40854) -> 竜の息吹!!!!
+	Change the 5th row to Fire orbs, Deal 105% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESDebuffATKTarget(143:40855) -> 竜の鉤爪
+For 1 turn, 1% ATK for 1 random sub, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:40842) -> ＿サボ超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#17: ESAttributeResist(72:40843) -> ＿サボ火半減
+Reduce damage from Fire attrs by 50%

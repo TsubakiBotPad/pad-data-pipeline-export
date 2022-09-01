@@ -1,0 +1,34 @@
+#209144 - エドワード・ニューゲート
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209144
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40885:129) ＿白ひげ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (40884:118) ＿白ひげバランス半減
+ | Reduce damage from Balanced types by 50%
+ type: PREEMPT
+ | (40886:83) 振動 + 海震
+ | Unable to match Dark orbs for 5 turns + Change board size to 7x6 for 5 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (40889:83) グララララララ!!! + 若僧が……!!!
+   | Movetime 50% for 3 turns + Absorb damage when combos <= 13 for 3 turns
+ | group:
+ | condition: turn 2
+   | (40892:83) まだまだ!!! + おれァ“白ひげ”だァア!!!!
+   | Reduce damage from all sources by 75% for 2 turns + No description set, Deal 265% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (40895:85) 邪魔だなおい…!!
+   | Change all orbs to Water, Wood, Light, and Heal, Deal 110% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (40896:143) 勝機アリだ…!!
+   | For 1 turn, 1% ATK for 1 random sub, Deal 105% damage

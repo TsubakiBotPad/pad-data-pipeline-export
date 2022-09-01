@@ -1,0 +1,35 @@
+#309201 - マルコ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309201
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40567:73) ＿マルコ根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40566:72) ＿マルコ火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (40568:83) いきなり“キング”は + 取れねェだろうよい
+ | Delay active skills by 3 turns + Absorb Water and Dark damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40575:85) 青炎雁
+     | Change all orbs to Fire, Water, and Light, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40576:86) 炎と共に再生する
+     | Enemy recover 20% HP
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40577:143) 鶴爪
+     | For 1 turn, 50% ATK for 1 random sub, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (40571:83) ――じゃあ退場してくれ!! + 鳳凰!! + 印!!!
+   | Change the 1st, 2nd, 5th, and 6th columns to Water orbs + Change the 1st and 6th columns to Fire orbs + Lock all orbs, Deal 20% damage

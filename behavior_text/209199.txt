@@ -1,0 +1,35 @@
+#209199 - シャーロット・カタクリ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209199
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40605:73) ＿カタクリ根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40604:118) ＿カタクリ攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (40606:83) 言っておくがおれは + お前を見くびっちゃいない!!!
+ | Absorb damage when combos <= 9 for 3 turns + Haste both leaders' skills by 99 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40612:85) モチ突
+     | Change all orbs to Dark and Jammer, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40613:102) 焼餅!!!
+     | Spawn 5 random locked Bomb orbs, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40614:110) 斬・切・餅!!!!
+     | Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (40609:83) おれはもう… + お前を格下とは思わねェ
+   | Locked random skyfall +25% for 10 turns + Increase damage to 150% for the next 1 turn

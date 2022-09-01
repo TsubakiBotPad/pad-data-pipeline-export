@@ -1,0 +1,72 @@
+#309151 - “ビッグ・マム”シャーロット・リンリン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbThresholdBig(138:40975) -> 食いわずらい
+Absorb damage when damage >= 100,000,000 for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffRCV(105:40977) -> いくよ
+	RCV 50% for 1 turn
+	[1] ESColumnSpawnMulti(77:40978) -> 皇帝剣
+	Change the 1st and 6th columns to Fire orbs, Deal 50% damage
+	[2] ESAttackMultihit(15:40979) -> 破々刃ァ～～!!!
+	Deal 125% damage
+
+#9: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATKTarget(143:40981) -> 力で勝てると…
+	For 1 turn, 50% ATK for 4 random subs
+	[1] ESBoardChangeAttackBits(85:40982) -> 思うなァ!!!
+	Change all orbs to Fire and Jammer, Deal 120% damage
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESAttackMultihit(15:40984) -> 天上の……!!!
+	Deal 30% damage
+	[1] ESRowSpawnMulti(79:40985) -> 火ァ～～!!!
+	Change the 1st and 2nd rows to Fire orbs, Deal 80% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESColumnSpawnMulti(77:40986) -> 雷霆!!!!
+Change the 1st and 2nd columns to Fire and Dark orbs, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:40974) -> ＿ビッグマム根性
+Survive attacks with 1 HP when HP > 50%
+
+#18: ESTypeResist(118:40973) -> ＿ビッグマム回復半減
+Reduce damage from Healer types by 50%

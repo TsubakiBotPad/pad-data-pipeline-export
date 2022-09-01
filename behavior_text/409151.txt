@@ -1,0 +1,41 @@
+#409151 - “ビッグ・マム”シャーロット・リンリン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 409151
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40912:129) ＿ビッグマム超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (40911:118) ＿ビッグマム回復半減
+ | Reduce damage from Healer types by 50%
+ type: PREEMPT
+ | (40913:138) 食いわずらい
+ | Absorb damage when damage >= 1,000,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40921:83) くらえよ…!! + エルバフの槍…
+     | Unable to match Heal orbs for 1 turn + Movetime 25% for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40924:151) 威国!!!
+     | No description set, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40925:85) もう…おなかペコペコ
+     | Change all orbs to Jammer and Poison, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40914:83) いくよ + 皇帝剣 + 破々刃ァ～～!!!
+     | RCV 50% for 1 turn + Change the 1st and 6th columns to Fire orbs + Deal 245% damage, Deal 50% damage
+   | group:
+   | condition: turn 2
+     | (40918:83) 力で勝てると… + 思うなァ!!!
+     | For 3 turns, 50% ATK for 4 random subs + Change all orbs to Fire and Jammer, Deal 120% damage

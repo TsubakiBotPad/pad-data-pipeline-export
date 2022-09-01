@@ -1,0 +1,79 @@
+#9156 - サンジ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:40764) -> まずおれを通して貰おうか!!
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:40765) -> 空中歩行!!!
+	A row of clouds appears for 5 turns at 1st row, 1st column
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:40767) -> 焼け焦げろ
+	Absorb damage when combos <= 6 for 3 turns
+	[1] ESDebuffRCV(105:40768) -> あんな思い出
+	RCV 50% for 3 turns, Deal 85% damage
+
+#7: ESBoardChangeAttackBits(85:40769) -> 地獄の思い出!!!
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Deal 140% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESAbsorbAttribute(53:40771) -> 悪魔風脚
+	Absorb Fire damage for 1 turn
+	[1] ESAttackMultihit(15:40772) -> 焼鉄鍋スペクトル!!!!
+	Deal 100% damage (4 hits, 25% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESAbsorbAttribute(53:40774) -> 悪魔風脚…
+	Absorb Fire and Light damage for 1 turn
+	[1] ESRowSpawnMulti(79:40775) -> 一級挽き肉!!!
+	Change the 4th and 5th rows to Fire and Light orbs, Deal 105% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: SkillSet:
+	[0] ESAbsorbAttribute(53:40777) -> 悪魔風脚!!
+	Absorb Fire and Water damage for 1 turn
+	[1] ESLeaderSwap(75:40778) -> 首肉ストライク!!!!
+	Leader changes to random sub for 1 turn, Deal 115% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESResolve(73:40762) -> ＿サンジ根性
+Survive attacks with 1 HP when HP > 50%

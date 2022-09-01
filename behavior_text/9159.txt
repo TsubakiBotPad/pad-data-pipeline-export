@@ -1,0 +1,36 @@
+#9159 - ナミ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9159
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40670:68) ブラックボール
+ | Jammer skyfall +15% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40675:108) 雷雲＝ロッド!!!!
+     | Change all Heal and Jammer orbs to Water and Light orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40676:98) 天候の卵
+     | Blind orbs in specific positions for 3 turns, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40677:85) ゼウス・ブリーズ・テンポ
+     | Change all orbs to Water, Light, and Jammer, Deal 120% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40671:83) かかれ～～ + かかれ～～
+     | Lock all orbs + A row of clouds appears for 3 turns at 1st row, 1st column, Deal 100% damage
+   | group:
+   | condition: turn 2
+     | (40674:107) 雷雲の罠!!!
+     | Unable to match Light and Jammer orbs for 3 turns, Deal 110% damage

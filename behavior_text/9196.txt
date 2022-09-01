@@ -1,0 +1,35 @@
+#9196 - ユースタス・キッド
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9196
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40807:118) ＿キッドマシン半減
+ | Reduce damage from Machine types by 50%
+ | (40808:73) ＿キッド根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40809:87) どけザコ共!!!
+ | Absorb damage when damage >= 200,000,000 for 5 turns, Deal 30% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40814:74) 反発
+     | Reduce damage from all sources by 75% for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40815:15) 磁気ピストルズ!!
+     | Deal 96% damage (6 hits, 16% each)
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (40810:83) スキを見せたら + 死ぬと思えェ!!!
+   | Jammer skyfall +15% for 3 turns + Bind active skills for 3 turns, Deal 80% damage
+ | group:
+ | condition: hp <= 9
+   | (40813:92) 磁気弦!!!
+   | Spawn 15 random Jammer orbs, Deal 120% damage

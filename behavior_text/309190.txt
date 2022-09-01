@@ -1,0 +1,42 @@
+#309190 - ドンキホーテ・ドフラミンゴ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309190
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40961:73) ＿ドフラ根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40960:72) ＿ドフラ光半減
+ | Reduce damage from Light attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (40961:73) ＿ドフラ根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40960:72) ＿ドフラ光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (40962:83) 鳥カゴ + フッフッフッ!!
+ | Change the 1st and 6th columns to Poison orbs + For 2 turns, 50% ATK for both leaders, Deal 50% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40968:83) 千本の矢 + 羽撃糸!!!
+     | Blind random 5 orbs for 1 turn + Deal 102% damage (6 hits, 17% each), Deal 102% damage (6 hits, 17% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40971:92) 弾糸
+     | Spawn 8 random Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40972:74) 蜘蛛の巣がき
+     | Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (40965:83) 16発の聖なる凶弾…!!! + 神誅殺!!!
+   | Spawn 16 random Dark orbs + Deal 150% damage, Deal 150% damage

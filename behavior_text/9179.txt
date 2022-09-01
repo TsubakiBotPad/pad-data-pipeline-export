@@ -1,0 +1,33 @@
+#9179 - トラファルガー・ロー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9179
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40829:73) ＿ロー根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40830:83) 弱ェ奴は + 死に方も選べねェ
+ | Locked random skyfall +25% for 10 turns + Lock all orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (40833:83) ROOM + シャンブルズ
+   | RCV 25% for 1 turn + Leader changes to random sub for 2 turns
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40840:46) タクト
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40841:101) 注射ショット!!!
+     | Fix orb movement starting point to random position on the board, Deal 90% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (40836:83) この“オペ”は + お前を体内から破壊する + ガンマナイフ!!!!
+   | Unable to match Heal orbs for 1 turn + Change player HP to 50% for 1 turn + Deal 60% damage (4 hits, 15% each), Deal 60% damage (4 hits, 15% each)

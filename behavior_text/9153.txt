@@ -1,0 +1,40 @@
+#9153 - ロロノア・ゾロ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9153
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40752:73) ＿ゾロ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40753:83) 降参が先か… + 全滅が先か…
+ | Void damage >= 300,000,000 for 3 turns + Absorb Fire, Water, and Wood damage for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (40758:99) 一刀流　厄港鳥
+   | Seal the 1st column for 5 turns, Deal 95% damage
+   | condition: 33% chance
+   | (40759:143) 一刀流　三百六十煩悩鳳!!!
+   | For 1 turn, 1% ATK for 1 random sub, Deal 100% damage
+   | condition: 34% chance
+   | (40760:77) 一刀流 馬鬼!!!
+   | Change the 1st column to Water orbs and the 6th column to Wood orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: always turn 1
+     | (40756:88) 一刀流 居合……!!
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: always turn 2
+     | (40757:110) 死・獅子歌歌!!!!
+     | Specific orbs change every 1.0s for 5 turns, Deal 120% damage
+ | group:
+ | condition: hp <= 9
+   | (40761:77) 一刀流　大辰撼
+   | Change the 1st, 2nd, and 3rd columns to Water orbs and the 4th, 5th, and 6th columns to Wood orbs, Deal 145% damage

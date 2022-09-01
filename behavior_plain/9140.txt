@@ -1,0 +1,70 @@
+#9140 - モンキー・D・ルフィ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESStatusShield(20:40857) -> 海賊王に!!!おれはなるっ!!!!
+Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkillDelay(89:40859) -> ギア2
+	Delay active skills by 5 turns
+	[1] ESFixedStart(101:40860) -> ゴムゴムの……
+	Fix orb movement starting point to random position on the board
+	[2] ESColumnSpawnMulti(77:40861) -> JET銃!!!!
+	Change the 6th column to Fire orbs, Deal 95% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:40863) -> ゴムゴムのォ～～!!!
+	Movetime 25% for 1 turn
+	[1] ESColumnSpawnMulti(77:40864) -> 火拳銃!!!!
+	Change the 1st and 6th columns to Fire orbs, Deal 105% damage
+
+#8: ESVoidShield(71:40865) -> ギア3!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Void damage >= 1,500,000,000 for 5 turns, Deal 105% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESDamageShield(74:40867) -> ゴムゴムのォ!!!
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESAttackMultihit(15:40868) -> 象銃乱打～～!!!!
+	Deal 105% damage (7 hits, 15% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	[0] ESAttributeBlock(107:40870) -> ゴムゴムのォ!!!
+	Unable to match Fire and Heal orbs for 1 turn
+	[1] ESBindAwoken(88:40871) -> 業火拳銃!!!
+	Bind awoken skills for 1 turn, Deal 120% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:40856) -> ＿ルフィ根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,33 @@
+#9171 - ジンベエ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9171
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40779:73) ＿ジンベエ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40780:83) 止まる気がないんなら… + 仕方ないのう……!!!
+ | Reduce damage from all sources by 75% for 5 turns + Void damage >= 1,000,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40789:83) 魚人空手 + 鮫瓦正拳!!!
+     | Water skyfall +15% for 10 turns + Deal 105% damage, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40792:83) 魚人柔術 + 引潮一本背負い!!!
+     | ATK -75% for 1 turn + Change the 5th and 6th columns to Water orbs, Deal 110% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (40783:83) 修行の成果は + こんなモノか!!?
+   | Delay active skills by 3 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 9
+   | (40786:83) 魚人空手「奥義」……!!! + 武頼貫!!!!
+   | Bind awoken skills for 1 turn + Change all orbs to Water, Deal 120% damage

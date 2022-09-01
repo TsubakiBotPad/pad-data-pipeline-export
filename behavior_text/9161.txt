@@ -1,0 +1,36 @@
+#9161 - ウソップ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 9161
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40737:73) ＿ウソップ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40738:110) 今全部罠は仕掛け終わった
+ | Specific orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (40739:151) おれは“狙撃手”援護が花道!!
+   | No description set
+ | group:
+ | condition: turn 2
+   | (40740:83) 人知れず敵を打ち抜き + 仲間を守る!!!
+   | Movetime 25% for 1 turn + Absorb damage when combos <= 7 for 5 turns
+ | group:
+ | condition: turn 3
+   | (40743:83) 必殺 緑星… + 「デビル」!!!
+   | Change the 1st and 6th columns to Wood orbs + Blind random 5 orbs for 3 turns, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (40746:83) 必殺 緑星 + 「ドクロ爆発草」!!!
+   | Change the 5th row to Wood orbs + Spawn 5 random Bomb orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (40749:83) 必殺 緑星!! + 「衝撃狼草」!!!!
+   | Change the 4th and 5th rows to Wood orbs + Deal 110% damage, Deal 100% damage

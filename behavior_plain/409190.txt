@@ -1,0 +1,67 @@
+#409190 - ドンキホーテ・ドフラミンゴ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:40592) -> ほう…強そうなのが来たな
+	Voids status ailments for 999 turns
+	[1] ESColumnSpawnMulti(77:40593) -> 鳥カゴ
+	Change the 1st and 6th columns to Poison orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESMaxHPChange(111:40594) -> 従えねェなら殺すだけ
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
+Change player HP to 50% for 3 turns
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:40596) -> 16発の聖なる凶弾…!!!
+	Spawn 16 random Dark orbs
+	[1] ESAttackMultihit(15:40597) -> 神誅殺!!!
+	Deal 105% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESDebuffATKTarget(143:40599) -> フッフッフッ!!
+	For 1 turn, 1% ATK for both leaders
+	[1] ESRowSpawnMulti(79:40600) -> 超過鞭糸
+	Change the 5th row to Dark orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: SkillSet:
+	[0] ESBlindStickyRandom(97:40602) -> 千本の矢
+	Blind random 10 orbs for 3 turns
+	[1] ESAttackMultihit(15:40603) -> 羽撃糸!!!
+	Deal 102% damage (6 hits, 17% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:40590) -> ＿ドフラ根性
+Survive attacks with 1 HP when HP > 50%
+
+#16: ESAttributeResist(72:40589) -> ＿ドフラ光半減
+Reduce damage from Light attrs by 50%

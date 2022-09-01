@@ -1,0 +1,31 @@
+#409192 - サカズキ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409192
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40579:73) ＿サカズキ根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40578:72) ＿サカズキ火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (40580:83) 大噴火!!!! + 火山弾
+ | Change all orbs to Fire + Fire skyfall +15% for 5 turns, Deal 90% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40586:151) 冥狗
+     | No description set, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40587:92) 流星火山
+     | Spawn 8 random Fire orbs, Deal 110% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (40583:83) ア～～ + うっとうしいのォ………!!
+   | Absorb damage when combos <= 7 for 3 turns + Void damage >= 2,000,000,000 for 3 turns, Deal 85% damage

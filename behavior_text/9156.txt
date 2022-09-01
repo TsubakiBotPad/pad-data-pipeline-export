@@ -1,0 +1,39 @@
+#9156 - サンジ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9156
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40762:73) ＿サンジ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40763:83) まずおれを通して貰おうか!! + 空中歩行!!!
+ | Voids status ailments for 999 turns + A row of clouds appears for 5 turns at 1st row, 1st column
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40770:83) 悪魔風脚 + 焼鉄鍋スペクトル!!!!
+     | Absorb Fire damage for 1 turn + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40773:83) 悪魔風脚… + 一級挽き肉!!!
+     | Absorb Fire and Light damage for 1 turn + Change the 4th and 5th rows to Fire and Light orbs, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40776:83) 悪魔風脚!! + 首肉ストライク!!!!
+     | Absorb Fire and Water damage for 1 turn + Leader changes to random sub for 1 turn, Deal 115% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40766:83) 焼け焦げろ + あんな思い出
+     | Absorb damage when combos <= 6 for 3 turns + RCV 50% for 3 turns, Deal 85% damage
+   | group:
+   | condition: turn 2
+     | (40769:85) 地獄の思い出!!!
+     | Change all orbs to Fire, Deal 140% damage

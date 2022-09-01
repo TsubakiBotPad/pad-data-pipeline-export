@@ -1,0 +1,78 @@
+#309190 - ドンキホーテ・ドフラミンゴ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESColumnSpawnMulti(77:40963) -> 鳥カゴ
+	Change the 1st and 6th columns to Poison orbs, Deal 50% damage
+	[1] ESDebuffATKTarget(143:40964) -> フッフッフッ!!
+	For 2 turns, 50% ATK for both leaders
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:40966) -> 16発の聖なる凶弾…!!!
+	Spawn 16 random Dark orbs
+	[1] ESAttackMultihit(15:40967) -> 神誅殺!!!
+	Deal 150% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 17
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESBlindStickyRandom(97:40969) -> 千本の矢
+	Blind random 5 orbs for 1 turn
+	[1] ESAttackMultihit(15:40970) -> 羽撃糸!!!
+	Deal 102% damage (6 hits, 17% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESRandomSpawn(92:40971) -> 弾糸
+Spawn 8 random Dark orbs, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: ESDamageShield(74:40972) -> 蜘蛛の巣がき
+Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESResolve(73:40961) -> ＿ドフラ根性
+Survive attacks with 1 HP when HP > 50%
+
+#21: ESAttributeResist(72:40960) -> ＿ドフラ光半減
+Reduce damage from Light attrs by 50%

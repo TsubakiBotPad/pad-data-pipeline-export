@@ -1,0 +1,41 @@
+#9173 - ポートガス・D・エース
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 9173
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40795:129) ＿エース超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (40796:72) ＿エース火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (40797:83) 陽炎 + やめときな
+ | Change the 1st and 2nd rows to Fire orbs + Delay active skills by 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (40805:48) 火拳
+     | Change a random attribute to Fire orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (40806:92) 蛍火 火達磨!!!
+     | Spawn 6 random Fire and Jammer orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40800:83) おれは決して + 人生に“くい”は残さない…!!!
+     | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Absorb damage when damage >= 300,000,000 for 3 turns
+   | group:
+   | condition: turn 2
+     | (40803:74) 大炎戒!!
+     | Reduce damage from all sources by 95% for 1 turn
+   | group:
+   | condition: turn 3
+     | (40804:85) 炎帝!!!
+     | Change all orbs to Fire, Deal 160% damage

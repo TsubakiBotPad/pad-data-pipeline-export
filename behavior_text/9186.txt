@@ -1,0 +1,34 @@
+#9186 - クロコダイル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9186
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40706:83) 少々… + フザケが過ぎたな
+ | Movetime 50% for 3 turns + For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40715:77) 砂漠の宝刀
+     | Change the 1st column to Wood orbs and the 6th column to Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40716:109) 砂嵐
+     | Random 1 orbs change every 1.0s for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40717:100) 砂漠の向日葵!!!
+     | Seal the 5th row for 1 turn, Deal 105% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (40709:83) …おれとお前では… + 海賊の格が違うんだ…!!!
+   | Fix orb movement starting point to random position on the board + Increase damage to 150% for the next 999 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 9
+   | (40712:83) 砂漠の… + 金剛宝刀!!!!
+   | Blind all orbs on the board + Deal 140% damage (4 hits, 35% each), Deal 140% damage (4 hits, 35% each)

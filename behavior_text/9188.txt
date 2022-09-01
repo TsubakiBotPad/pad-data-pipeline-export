@@ -1,0 +1,34 @@
+#9188 - ボア・ハンコック
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9188
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40658:83) ――何をしようとも + わらわは許される!!
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 100,000,000 for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (40661:83) そうよわらわが + 美しいから!!!
+   | RCV 25% for 1 turn + Heal skyfall +30% for 1 turn, Deal 100% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40667:94) メロメロ甘風!!!
+     | Lock all orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40668:96) 虜の矢
+     | Locked random skyfall +100% for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40669:15) 芳香脚
+     | Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: turn 2, hp <= 49
+   | (40664:83) 生かしてはおかぬ + こんなに怒りを覚えた事はない!!!
+   | Bind awoken skills for 1 turn + Change all orbs to Fire and Heal, Deal 120% damage

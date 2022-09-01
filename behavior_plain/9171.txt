@@ -1,0 +1,67 @@
+#9171 - ジンベエ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:40781) -> 止まる気がないんなら…
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESVoidShield(71:40782) -> 仕方ないのう……!!!
+	Void damage >= 1,000,000,000 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkillDelay(89:40784) -> 修行の成果は
+	Delay active skills by 3 turns
+	[1] ESAttackUPRemainingEnemies(17:40785) -> こんなモノか!!?
+	Increase damage to 150% for the next 999 turns
+
+#7: SkillSet:
+	Condition: When < 10% HP (ai:100 rnd:0)
+	[0] ESBindAwoken(88:40787) -> 魚人空手「奥義」……!!!
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:40788) -> 武頼貫!!!!
+	Change all orbs to Water, Deal 120% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESSkyfall(68:40790) -> 魚人空手
+	Water skyfall +15% for 10 turns
+	[1] ESAttackMultihit(15:40791) -> 鮫瓦正拳!!!
+	Deal 105% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: SkillSet:
+	[0] ESDebuffATK(130:40793) -> 魚人柔術
+	ATK -75% for 1 turn
+	[1] ESColumnSpawnMulti(77:40794) -> 引潮一本背負い!!!
+	Change the 5th and 6th columns to Water orbs, Deal 110% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:40779) -> ＿ジンベエ根性
+Survive attacks with 1 HP when HP > 50%

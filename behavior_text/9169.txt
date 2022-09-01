@@ -1,0 +1,36 @@
+#9169 - ブルック
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9169
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (40678:71) パーティーミュージック!!
+ | Void damage >= 100,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (40683:98) ハイ もう斬っちゃいました!!
+     | Blind orbs in specific positions for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (40684:83) キントーティアス + 幻想曲
+     | Specific orbs change every 1.0s for 1 turn + Deal 140% damage (4 hits, 35% each), Deal 140% damage (4 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (40687:83) 「凍える剣」!! + コツとご覧あれ!!!
+     | Lock all orbs + Locked random skyfall +100% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (40679:83) お寒うござんす + お気をつけて
+     | Blind orbs in specific positions for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 60% damage
+   | group:
+   | condition: turn 2
+     | (40682:92) 掠り唄 吹雪斬り
+     | Spawn 12 random Water orbs, Deal 120% damage
