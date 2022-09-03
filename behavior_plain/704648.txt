@@ -1,4 +1,4 @@
-#704648 - 輝門の大魔女・サレーネ
+#704648 - Great Witch of the Glowing Gates, Saline
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESCloud(104:37627) -> ライトクラウド
+	[0] ESCloud(104:37627) -> Airy Cloud
 	A row of clouds appears for 2 turns at 1st row, 1st column
-	[1] ESDebuffATK(130:37628) -> 古光霊の航術
+	[1] ESDebuffATK(130:37628) -> Ancient Light Spirit's Navigation Technique
 	ATK -50% for 5 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -20,11 +20,11 @@ counter + 1
 #4: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 10, target rnd 8
 
-#5: ESAttackMultihit(15:37632) -> ディスパーチャーライトニング
+#5: ESAttackMultihit(15:37632) -> Dispatcher's Lightning
 Condition: 50% chance (ai:0 rnd:50)
 Deal 120% damage (4 hits, 30% each)
 
-#6: ESOrbChangeSingle(4:37633) -> ディスパーライト
+#6: ESOrbChangeSingle(4:37633) -> Dispatching Light
 Condition: 50% chance (ai:0 rnd:50)
 Change a random attribute to Light orbs, Deal 100% damage
 
@@ -35,11 +35,11 @@ end_turn
 Branch on counter >= 11, target rnd 5
 
 #9: SkillSet:
-	[0] ESAttackUPCooldown(19:37630) -> 古光霊の怒術
+	[0] ESAttackUPCooldown(19:37630) -> Ancient Light Spirit's Raging Technique
 	Increase damage to 200% for the next 99 turns
-	[1] ESRandomSpawn(92:37631) -> ディスパーライト
+	[1] ESRandomSpawn(92:37631) -> Dispatching Light
 	Spawn 15 random Light orbs
-	[2] ESAttackMultihit(15:37632) -> ディスパーチャーライトニング
+	[2] ESAttackMultihit(15:37632) -> Dispatcher's Lightning
 	Deal 120% damage (4 hits, 30% each)
 
 #10: ESEndPath(36:26) -> ESEndPath

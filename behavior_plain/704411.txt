@@ -1,4 +1,4 @@
-#704411 - 炎鎖の大魔女・マドゥ
+#704411 - Great Witch of the Flame Chains, Madoo
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:37593) -> 古炎霊の変術
+	[0] ESSkyfall(68:37593) -> Ancient Fire Spirit's Alteration Technique
 	Jammer skyfall +10% for 5 turns
-	[1] ESDebuffATK(130:37594) -> ダウンブレイズ
+	[1] ESDebuffATK(130:37594) -> Blazing Decrease
 	ATK -50% for 5 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -20,14 +20,14 @@ counter + 1
 #4: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 10, target rnd 9
 
-#5: ESOrbChangeAttackBits(108:37598) -> ブレイズフレア
+#5: ESOrbChangeAttackBits(108:37598) -> Blazing Flare
 Change all Jammer orbs to Fire orbs, Deal 130% damage
 
-#6: ESRandomSpawn(92:37599) -> ブレイズフレア
+#6: ESRandomSpawn(92:37599) -> Blazing Flare
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 5 random Fire and Jammer orbs, Deal 100% damage
 
-#7: ESRandomSpawn(92:37599) -> ブレイズフレア
+#7: ESRandomSpawn(92:37599) -> Blazing Flare
 Condition: 50% chance (ai:0 rnd:50)
 Spawn 5 random Fire and Jammer orbs, Deal 100% damage
 
@@ -38,11 +38,11 @@ end_turn
 Branch on counter = 11, target rnd 5
 
 #10: SkillSet:
-	[0] ESAttackUPCooldown(19:37596) -> 古炎霊の怒術
+	[0] ESAttackUPCooldown(19:37596) -> Ancient Fire Spirit's Raging Technique
 	Increase damage to 200% for the next 99 turns
-	[1] ESRandomSpawn(92:37597) -> フィーバーフレイム
+	[1] ESRandomSpawn(92:37597) -> Fever Flame
 	Spawn 15 random Fire orbs
-	[2] ESAttackMultihit(15:37600) -> ブレイズキャノン
+	[2] ESAttackMultihit(15:37600) -> Blazing Cannon
 	Deal 120% damage (4 hits, 30% each)
 
 #11: ESEndPath(36:26) -> ESEndPath

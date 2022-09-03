@@ -1,4 +1,4 @@
-#307568 - 漁獲の雷戦神・トール
+#307568 - Fishing God of Thunder, Thor
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -15,13 +15,13 @@ flag SET 0b1
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:25872) -> さぁ、いくぞ！
+	[0] ESStatusShield(20:25872) -> Here I come!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:25873) -> 我の邪魔はさせん！
+	[1] ESAbsorbCombo(67:25873) -> You can't stop me!
 	Absorb damage when combos <= 7 for 999 turns
-	[2] ESSkyfallLocked(96:25874) -> 雷戦神の威光
+	[2] ESSkyfallLocked(96:25874) -> Thunder God's Might
 	Locked Water and Light skyfall +100% for 99 turns
-	[3] ESRandomSpawn(92:25875) -> 蠢く海月
+	[3] ESRandomSpawn(92:25875) -> Squirming Jellyfish
 	Spawn 9 random Water and Light orbs
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -35,15 +35,15 @@ Branch on hp < 50, target rnd 11
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindRandomSub(65:25892) -> 夏の水飛沫
+	[0] ESBindRandomSub(65:25892) -> Summer Spray
 	Bind 2 random subs for 3 turns
-	[1] ESAttackMultihit(15:25893) -> うおおおお！
+	[1] ESAttackMultihit(15:25893) -> Raaargh!
 	Deal 99% damage (3 hits, 33% each)
 
 #9: SkillSet:
-	[0] ESBlindStickyRandom(97:25895) -> 海洋生物の群れ
+	[0] ESBlindStickyRandom(97:25895) -> Shoal of Ocean Creatures
 	Blind random 15 orbs for 1 turn
-	[1] ESAttackMultihit(15:25893) -> うおおおお！
+	[1] ESAttackMultihit(15:25893) -> Raaargh!
 	Deal 99% damage (3 hits, 33% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -62,11 +62,11 @@ flag SET 0b11
 counter = 0
 
 #15: SkillSet:
-	[0] ESDamageShield(74:25882) -> こんなもんか！？
+	[0] ESDamageShield(74:25882) -> Is that all you've got?!
 	Reduce damage from all sources by 50% for 99 turns
-	[1] ESLeaderSwap(75:25883) -> まだまだいくぞ！
+	[1] ESLeaderSwap(75:25883) -> I'm not done yet!
 	Leader changes to random sub for 3 turns
-	[2] ESTargetedSkillHaste(139:25884) -> 盛り上がれ！
+	[2] ESTargetedSkillHaste(139:25884) -> You better get fired up!
 	Haste random sub's skills by 20 turns
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -74,15 +74,15 @@ end_turn
 
 #17: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESColumnSpawnMulti(76:25886) -> よく見ろ！
+	[0] ESColumnSpawnMulti(76:25886) -> Watch closely!
 	Change the 1st column to Light orbs and the 5th column to Light orbs
-	[1] ESAttackMultihit(15:25887) -> これが手本だ！
+	[1] ESAttackMultihit(15:25887) -> This is how you do it!
 	Deal 120% damage (3 hits, 40% each)
 
 #18: SkillSet:
-	[0] ESFixedStart(101:25889) -> 狙いを定めるぞ！
+	[0] ESFixedStart(101:25889) -> Pick out your target!
 	Fix orb movement starting point to random position on the board
-	[1] ESDebuffRCV(105:25890) -> くらえ！
+	[1] ESDebuffRCV(105:25890) -> Take this!
 	RCV 25% for 1 turn, Deal 100% damage
 
 #19: ESEndPath(36:26) -> ESEndPath
@@ -98,24 +98,24 @@ flag SET 0b111
 counter + 1
 
 #23: SkillSet:
-	[0] ESBindAwoken(88:25878) -> さて・・・
+	[0] ESBindAwoken(88:25878) -> Now...
 	Bind awoken skills for 1 turn
-	[1] ESBindTarget(54:25879) -> 帰ってもらおうか！
+	[1] ESBindTarget(54:25879) -> I'll make you leave!
 	Bind player leader for 1 turn
-	[2] ESAttackUPRemainingEnemies(17:25880) -> ルーンエンハンス
+	[2] ESAttackUPRemainingEnemies(17:25880) -> Rune Enhance
 	Increase damage to 250% for the next 999 turns
 
 #24: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#25: ESAttackMultihit(15:25876) -> 受けてみよ！！！！
+#25: ESAttackMultihit(15:25876) -> Let's see how you like this!!
 Deal 539% damage (7 hits, 77% each)
 
 #26: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#27: ESAttributeResist(72:25896) -> 闇半減
+#27: ESAttributeResist(72:25896) -> Dark halved
 Reduce damage from Dark attrs by 50%
 
-#28: ESSuperResolve(129:25897) -> 超根性
+#28: ESSuperResolve(129:25897) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

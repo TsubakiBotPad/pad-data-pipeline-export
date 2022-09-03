@@ -1,4 +1,4 @@
-#704650 - 幻命の大魔女・ヴェロア
+#704650 - Great Witch of the Phantom Souls, Veroah
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSkyfall(68:37640) -> ダンシングポイズン
+	[0] ESSkyfall(68:37640) -> Dancing Poison
 	Poison skyfall +10% for 5 turns
-	[1] ESDebuffATK(130:37641) -> 古影霊の操術
+	[1] ESDebuffATK(130:37641) -> Ancient Shadow Spirit's Guiding Technique
 	ATK -50% for 5 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -20,11 +20,11 @@ counter + 1
 #4: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 10, target rnd 8
 
-#5: ESBlind62(62:37646) -> ダンシングブラックロンド
+#5: ESBlind62(62:37646) -> Dancing Black Rondo
 Condition: 50% chance (ai:0 rnd:50)
 Blind all orbs on the board, Deal 100% damage
 
-#6: ESAttackMultihit(15:37645) -> ダンシングダークロンド
+#6: ESAttackMultihit(15:37645) -> Dancing Dark Rondo
 Condition: 50% chance (ai:0 rnd:50)
 Deal 120% damage (4 hits, 30% each)
 
@@ -35,11 +35,11 @@ end_turn
 Branch on counter >= 11, target rnd 5
 
 #9: SkillSet:
-	[0] ESAttackUPCooldown(19:37643) -> 古影霊の怒術
+	[0] ESAttackUPCooldown(19:37643) -> Ancient Shadow Spirit's Raging Technique
 	Increase damage to 200% for the next 99 turns
-	[1] ESRandomSpawn(92:37644) -> ダンシングシャドウ
+	[1] ESRandomSpawn(92:37644) -> Dancing Shadow
 	Spawn 15 random Dark orbs
-	[2] ESAttackMultihit(15:37645) -> ダンシングダークロンド
+	[2] ESAttackMultihit(15:37645) -> Dancing Dark Rondo
 	Deal 120% damage (4 hits, 30% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
