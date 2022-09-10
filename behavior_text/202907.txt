@@ -1,0 +1,30 @@
+#202907 - 時女神・ミニうるど
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202907
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (40283:73) ＿時女神根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (40284:72) ＿ウルド火水半減
+ | Reduce damage from Fire and Water attrs by 50%
+ type: PREEMPT
+ | (40285:137) じくうしょうへき
+ | Void damage >= 2,000,000,000 for 5 turns, Deal 50% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (40286:6) じげんめつ
+   | Voids player buff effects, Deal 70% damage
+   | (40287:89) むかしばなし
+   | Delay active skills by 4 turns, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (40286:6) じげんめつ
+   | Voids player buff effects, Deal 70% damage
+   | (40288:77) ちょうりつ
+   | Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage

@@ -1,0 +1,45 @@
+#202314 - 覚醒・ミニへらうるず↑↑
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSkyfall(68:40275) -> ↑ふぃーばー↑
+Jammer skyfall +15% for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttributeBlock(107:40276) -> でびるちゅーん
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Jammer orbs for 5 turns, Deal 100% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBombFixedSpawn(103:40277) -> だぶりっとぼむ
+Spawn Bomb orbs in the specified positions, Deal 85% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESColumnSpawnMulti(77:40278) -> じょう☆ねつ
+Change the 1st and 2nd columns to Fire orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

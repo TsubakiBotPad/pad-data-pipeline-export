@@ -1,0 +1,38 @@
+#9261 - ドット・パズドロイド
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9261
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41649:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41640:83) ドットメタリックボディ + マモル
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 90% for 2 turns
+ group:
+ | group:
+ | condition: always turn 2
+   | (41646:17) ドロイドチャージ
+   | Increase damage to 150% for the next 999 turns
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: 50% chance
+     | (41647:15) ドットドロイドダンス
+     | Deal 102% damage (3 hits, 34% each)
+     | (41648:94) ドロイドロック
+     | Lock 5 random orbs, Deal 100% damage
+   | group:
+     | condition: 50% chance
+     | (41647:15) ドットドロイドダンス
+     | Deal 102% damage (3 hits, 34% each)
+     | (41648:94) ドロイドロック
+     | Lock 5 random orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (41643:83) ドロイドルーレット + ドロップヘンカン
+   | Specific orbs change every 1.0s for 3 turns + Change the 1st and 6th columns to Wood orbs, Deal 100% damage
