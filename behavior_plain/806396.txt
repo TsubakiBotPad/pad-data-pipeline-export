@@ -1,0 +1,23 @@
+#806396 - 氷の鍵の継承者・メニット
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:40219) -> フローズンインパクト
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 6 random Water and Heal orbs, Deal 130% damage
+
+#3: ESRandomSpawn(92:40221) -> フローズンタワー
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Water orbs, Deal 100% damage
+
+#4: ESAttackMultihit(15:40220) -> アイシクルキー
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (2 hits, 60% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,31 @@
+#805067 - ゼラの魔帽子・スモック
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#2: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 7
+
+#3: ESGravity(50:37575) -> ハウリングフィアー
+Condition: 40% chance (ai:0 rnd:40)
+Player -50% HP
+
+#4: ESOrbChangeSingle(4:37576) -> ウッドストーム
+Condition: 60% chance (ai:0 rnd:60)
+Change a random attribute to Wood orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#7: ESRandomSpawn(92:37574) -> ウッドストーム
+Spawn 10 random Wood orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

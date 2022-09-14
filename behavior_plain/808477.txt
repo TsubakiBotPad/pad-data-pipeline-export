@@ -1,0 +1,67 @@
+#808477 - 彩妖精の水彩幻画師・アトリ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbCombo(67:40223) -> カラーリングフェアリーズ
+	Absorb damage when combos <= 6 for 5 turns
+	[1] ESBlindStickySkyfall(128:40224) -> シャドウフラワー
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESBlind62(62:40233) -> ウォッシュシャドウ
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 100% damage
+
+#6: ESColumnSpawnMulti(77:40234) -> カラーリングパレット
+Condition: 33% chance (ai:0 rnd:33)
+Change the 3rd column to Water orbs and the 4th column to Wood orbs, Deal 95% damage
+
+#7: ESAttackMultihit(15:40232) -> フェアリーズアタック
+Condition: 34% chance (ai:0 rnd:34)
+Deal 105% damage (3 hits, 35% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESDamageShield(74:40230) -> フェアリーズガード
+	Reduce damage from all sources by 50% for 99 turns
+	[1] ESAttackUPRemainingEnemies(17:40231) -> パワーグラデーション
+	Increase damage to 150% for the next 99 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:40226) -> カラーリングハート
+	Change all orbs to Heal
+	[1] ESBlind5(5:40227) -> ブラッシングシャドウ
+	Blind all orbs on the board
+
+#14: ESBoardChangeAttackBits(85:40228) -> フェアリーズフラワーパレット
+Change all orbs to Water and Wood, Deal 300% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:40235) -> 根性
+Survive attacks with 1 HP when HP > 50%
