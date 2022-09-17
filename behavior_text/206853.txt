@@ -1,0 +1,47 @@
+#206853 - エマ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206853
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21483:110) ハーイ！元気？
+ | Specific orbs change every 1.0s for 4 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (21486:92) はぁっ！
+   | Spawn 3 random Water orbs, Deal 80% damage
+   | (21485:15) しゅっ！
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (21490:17) アップテンポ
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | condition: 33% chance
+     | (21487:92) ガムランチャー
+     | Spawn 5 random Light orbs, Deal 90% damage
+     | condition: 33% chance
+     | (21489:48) せ～、えいっ！
+     | Change a random attribute to Water orbs, Deal 80% damage
+     | condition: 34% chance
+     | (21488:15) は～、ふんっ！
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21492:50) せぇぇっ…らああっ！
+     | Player -30% HP
+   | group:
+     | condition: 50% chance
+     | (21493:1) ヤマビコスクリーム
+     | Bind 2 random cards for 3 turns, Deal 80% damage
+     | (21491:79) ドラゴンロード
+     | Change the 2nd row to Water orbs and the 4th row to Light orbs, Deal 70% damage

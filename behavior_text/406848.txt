@@ -1,0 +1,44 @@
+#406848 - ルーシー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 406848
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21529:83) 皆さんこんにちわわわわー！ + リラックスタイム
+ | Voids status ailments for 999 turns + ATK -50% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (21534:101) ガムサーチャー
+   | Fix orb movement starting point to random position on the board, Deal 90% damage
+   | condition: 33% chance
+   | (21533:92) やっ
+   | Spawn 4 random Dark orbs, Deal 80% damage
+   | condition: 34% chance
+   | (21532:15) ほっ
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (21537:83) ビヨンドフィーバー + テンチムヨウ
+     | Increase damage to 150% for the next 5 turns + Player -75% HP
+   | group:
+     | condition: 50% chance
+     | (21536:48) む～、やああっ！
+     | Change a random attribute to Dark orbs, Deal 75% damage
+     | (21535:15) でぇ～、せいっ！
+     | Deal 80% damage (2 hits, 40% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21540:88) 邪魔なんだヨーー！！
+     | Bind awoken skills for 1 turn
+   | group:
+     | (21541:92) ビヨンド・ザ・ガム
+     | Spawn 6 random Dark orbs, Deal 190% damage

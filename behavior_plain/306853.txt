@@ -1,0 +1,75 @@
+#306853 - エマ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESSpinnersFixed(110:21483) -> ハーイ！元気？
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 4 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESRandomSpawn(92:21486) -> はぁっ！
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 3 random Water orbs, Deal 80% damage
+
+#8: ESAttackMultihit(15:21485) -> しゅっ！
+Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttackUPRemainingEnemies(17:21490) -> アップテンポ
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#11: ESRandomSpawn(92:21487) -> ガムランチャー
+Condition: 33% chance (ai:0 rnd:33)
+Spawn 5 random Light orbs, Deal 90% damage
+
+#12: ESOrbChangeAttack(48:21489) -> せ～、えいっ！
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Water orbs, Deal 80% damage
+
+#13: ESAttackMultihit(15:21488) -> は～、ふんっ！
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (2 hits, 50% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#17: ESGravity(50:21492) -> せぇぇっ…らああっ！
+Player -30% HP
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBindRandom(1:21493) -> ヤマビコスクリーム
+Condition: 50% chance (ai:50 rnd:0)
+Bind 2 random cards for 3 turns, Deal 80% damage
+
+#20: ESRowSpawnMulti(79:21491) -> ドラゴンロード
+Change the 2nd row to Water orbs and the 4th row to Light orbs, Deal 70% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,87 @@
+#206849 - バーン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:21517) -> ハッローッ！
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:21518) -> アイアンボディ
+	Reduce damage from all sources by 50% for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 19
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 12
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESRandomSpawn(92:21520) -> ていっ
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Fire orbs, Deal 80% damage
+
+#10: ESAttackMultihit(15:21519) -> たぁっ
+Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESOrbLock(94:21521) -> ガムネット
+Lock all orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:21525) -> ハイパーブースト
+	Increase damage to 150% for the next 5 turns
+	[1] ESGravity(50:21526) -> テンチムヨウ
+	Player -75% HP
+
+#16: ESRandomSpawn(92:21523) -> え～い、ヤアッ
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 5 random Dark orbs, Deal 75% damage
+
+#17: ESAttackMultihit(15:21522) -> ふ～、デリャッ
+Deal 80% damage (2 hits, 40% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 23
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#21: ESSkillDelay(89:21527) -> どーーーっ…りゃあっ！！
+Delay active skills by 2 turns
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttackMultihit(15:21528) -> ゴウリキバスター
+Deal 200% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

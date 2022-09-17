@@ -1,0 +1,42 @@
+#6650 - Super Reincarnated Uriel
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6650
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41678:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41655:83) 炎天使の真魂 + フレイムオーラ + 聖炎の目覚め
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 13 for 99 turns + No description set
+ group:
+ | group:
+   | condition: 25% chance
+   | (41666:83) 聖炎の舞 + フレイムソード
+   | ATK -50% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (41669:83) フレイムバリアー + フレイムフィールド
+   | Reduce damage from all sources by 75% for 1 turn + Change all Water orbs to Fire orbs, Deal 100% damage
+   | condition: 25% chance
+   | (41672:83) 聖炎の舞 + フレイムソード
+   | RCV 50% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (41675:83) 聖炎の審判 + フレイムソード
+   | Lock all Fire orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41663:83) 聖炎盾 + 炎天使の気迫
+   | Void damage >= 200,000,000 for 3 turns + For 3 turns, 5% ATK for both leaders
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41659:83) 聖炎の煌めき + 火炎爆弾
+     | Bind awoken skills for 1 turn + Spawn 7 random Bomb orbs
+   | group:
+     | (41662:15) ファイナルフレイムソード
+     | Deal 1,400% damage (7 hits, 200% each)

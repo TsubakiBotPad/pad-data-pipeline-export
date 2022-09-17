@@ -1,0 +1,48 @@
+#306851 - ロン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 306851
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21461:14) いざ、尋常に
+ | Bind active skills for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21465:92) ガムバルーン
+     | Spawn 5 random Wood and Jammer orbs
+   | group:
+     | condition: 50% chance
+     | (21464:92) ていっ！
+     | Spawn 3 random Wood orbs, Deal 80% damage
+     | (21463:15) はっ！
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (21468:109) インサイドループ
+     | Random 2 orbs change every 1.5s for 2 turns
+   | group:
+     | condition: 50% chance
+     | (21467:48) むーっ、せやっ！
+     | Change a random attribute to Water orbs, Deal 90% damage
+     | (21466:15) ほーっ、だあっ！
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21470:5) くらえっ！
+     | Blind all orbs on the board
+   | group:
+     | condition: 50% chance
+     | (21469:79) カンツーミキサー
+     | Change the 5th row to Water orbs, Deal 100% damage
+     | (21471:109) ヨーヨーリープ
+     | Random 2 orbs change every 1.0s for 1 turn, Deal 120% damage

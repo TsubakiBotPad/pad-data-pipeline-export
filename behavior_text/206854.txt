@@ -1,0 +1,48 @@
+#206854 - カッペイ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 206854
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (21494:100) よろしくっ！
+ | Seal the 1st row for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (21498:103) ガムグレネード
+     | Spawn Bomb orbs in the specified positions
+   | group:
+     | condition: 50% chance
+     | (21497:92) とぉっ！
+     | Spawn 3 random Light orbs, Deal 80% damage
+     | (21496:15) やぁっ！
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (21501:62) ステルスアタック
+     | Blind all orbs on the board, Deal 80% damage
+   | group:
+     | condition: 50% chance
+     | (21500:48) え～い、やあっ！
+     | Change a random attribute to Water orbs, Deal 90% damage
+     | (21499:15) ほ～っ、せやっ！
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (21503:50) そーーーっ、りゃーーっ！！
+     | Player -50% HP
+   | group:
+     | condition: 50% chance
+     | (21502:77) オシオキブレード
+     | Change the 3rd and 4th columns to Water and Light orbs, Deal 90% damage
+     | (21504:104) シンシュツキボツ
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 120% damage
