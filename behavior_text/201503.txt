@@ -1,0 +1,44 @@
+#201503 - 裏ファイアドラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201503
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41699:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ | (41700:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41679:83) 騎士の誓い + 火龍の紋章
+ | Leader changes to random sub for 3 turns + Bind active skills for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (41698:95) 騎士の呪い
+ | No skyfall for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (41691:83) フレイムレイン + 龍撃斬
+     | Fire skyfall +30% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (41694:83) フレイムウィンド + 龍撃斬
+     | Delay random sub's skills by 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41688:83) 火龍斬 + 追撃斬
+   | Change the 2nd and 5th columns to Fire orbs + Change the 2nd and 4th rows to Fire orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41682:83) ファイアウェーブ + 龍撃態勢・火
+     | Bind awoken skills for 1 turn + Spawn 13 random Fire orbs
+   | group:
+     | (41685:83) 武器を構えた + 滅龍撃
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)

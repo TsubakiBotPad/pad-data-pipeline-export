@@ -1,0 +1,79 @@
+#201505 - 裏ウォータードラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:41702) -> 騎士の誓い
+	Movetime 25% for 3 turns
+	[1] ESSkyfallLocked(96:41703) -> 水龍の紋章
+	Locked random skyfall +25% for 10 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 10
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESOrbChangeAttackBits(108:41714) -> 氷水斬
+	Change all Wood orbs to Water orbs, Deal 50% damage
+	[1] ESOrbLock(94:41715) -> 騎士の拘束
+	Lock all Water and Heal orbs, Deal 50% damage
+
+#6: SkillSet:
+	[0] ESOrbLock(94:41717) -> 騎士の拘束
+	Lock 10 random orbs
+	[1] ESAttackMultihit(15:41718) -> 龍撃斬
+	Deal 102% damage (3 hits, 34% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESColumnSpawnMulti(77:41711) -> 水龍斬
+	Change the 1st, 3rd, and 5th columns to Water orbs, Deal 100% damage
+	[1] ESOrbLock(94:41712) -> 騎士の拘束
+	Lock all orbs
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 5
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 14
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:41705) -> ウォーターウェーブ
+	Bind awoken skills for 1 turn
+	[1] ESRandomSpawn(92:41706) -> 龍撃態勢・水
+	Spawn 13 random Water orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESChangeAttribute(46:41708) -> 武器を構えた
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:41709) -> 滅龍撃
+	Deal 490% damage (7 hits, 70% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:41721) -> 水半減
+Reduce damage from Water attrs by 50%
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(150:41719) -> 騎士の呪い
+	No description set

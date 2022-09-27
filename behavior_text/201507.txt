@@ -1,0 +1,36 @@
+#201507 - 裏シャインドラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201507
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (41747:83) 騎士の誓い + 輝龍の紋章
+ | Voids status ailments for 999 turns + No description set
+ type: DEATH
+ condition: when defeated
+ | (41766:95) 騎士の呪い
+ | Light skyfall +15% for 5 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (41759:83) シャインフィールド + 光輝斬
+   | Seal the 1st row for 1 turn + Change all Heal orbs to Light orbs, Deal 100% damage
+   | (41762:83) サンダークラウド + 龍撃斬
+   | A 2×2 square of clouds appears for 1 turn at a random location + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41756:83) 騎士の束縛 + 輝龍斬
+   | Bind 6 random cards for 3 turns + Change the 1st, 2nd, 5th, and 6th columns to Light orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41750:83) シャインウェーブ + 龍撃態勢・光
+     | Bind awoken skills for 1 turn + Spawn 13 random Light orbs
+   | group:
+     | (41753:83) 武器を構えた + 滅龍撃
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)

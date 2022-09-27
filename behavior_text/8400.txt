@@ -1,0 +1,53 @@
+#8400 - 超ブラックナイト
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8400
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41898:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41878:20) 黒騎士の気骨
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (41895:74) 騎士の鎧
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (41896:151) ダークドロップ
+   | No description set, Deal 100% damage
+   | (41897:130) 黒騎士の威圧
+   | ATK -75% for 1 turn, Deal 105% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41885:151) ダークドロップ
+   | No description set, Deal 105% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41879:88) 騎士の波動
+     | Bind awoken skills for 1 turn
+   | group:
+     | (41880:15) ガードブレイク・ダーク
+     | Deal 700% damage (7 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1 while HP > 14
+   | (41881:83) 騎士の波動 + ダーククラウド + ダークフィールド
+   | Bind awoken skills for 1 turn + A column of clouds appears for 5 turns at 1st row, 1st column + Seal the 6th column for 5 turns
+ | group:
+   | condition: 33% chance
+   | (41886:83) ダークウェーブ + ダークドロップ
+   | For 1 turn, 5% ATK for 4 random cards + No description set, Deal 100% damage
+   | condition: 50% chance
+   | (41889:83) 黒騎士の威圧 + ダークドロップ
+   | ATK -75% for 1 turn + No description set, Deal 100% damage
+   | (41892:83) 黒騎士の威圧 + ダークウェーブ
+   | ATK -75% for 1 turn + For 1 turn, 5% ATK for 4 random cards, Deal 105% damage

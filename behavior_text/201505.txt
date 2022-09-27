@@ -1,0 +1,39 @@
+#201505 - 裏ウォータードラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201505
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41721:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (41701:83) 騎士の誓い + 水龍の紋章
+ | Movetime 25% for 3 turns + Locked random skyfall +25% for 10 turns
+ type: DEATH
+ condition: when defeated
+ | (41720:95) 騎士の呪い
+ | No description set
+ group:
+ | group:
+   | condition: 50% chance
+   | (41713:83) 氷水斬 + 騎士の拘束
+   | Change all Wood orbs to Water orbs + Lock all Water and Heal orbs, Deal 50% damage
+   | (41716:83) 騎士の拘束 + 龍撃斬
+   | Lock 10 random orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41710:83) 水龍斬 + 騎士の拘束
+   | Change the 1st, 3rd, and 5th columns to Water orbs + Lock all orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41704:83) ウォーターウェーブ + 龍撃態勢・水
+     | Bind awoken skills for 1 turn + Spawn 13 random Water orbs
+   | group:
+     | (41707:83) 武器を構えた + 滅龍撃
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)

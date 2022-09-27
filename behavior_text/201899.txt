@@ -1,0 +1,42 @@
+#201899 - 裏シャドウドラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201899
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41788:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ | (41789:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41768:83) 騎士の誓い + 影龍の紋章
+ | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Increase damage to 300% for the next 1 turn
+ type: DEATH
+ condition: when defeated
+ | (41787:95) 騎士の呪い
+ | Poison skyfall +15% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 14
+     | (41777:83) 影龍の守り + 龍撃斬
+     | Voids status ailments for 999 turns + Deal 75% damage (3 hits, 25% each), Deal 75% damage (3 hits, 25% each)
+   | group:
+     | condition: 50% chance
+     | (41780:83) 影龍の心眼 + シャドウポイズン
+     | For 1 turn, 5% ATK for 4 random subs + Change 7 random orbs to Poison orbs, Deal 100% damage
+     | (41783:83) シャドウボム + 影龍の闇斬
+     | Spawn 7 random locked Bomb orbs + Change the 5th and 6th columns to Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41771:83) シャドウウェーブ + 龍撃態勢・闇
+     | Bind awoken skills for 1 turn + Spawn 13 random Dark orbs
+   | group:
+     | (41774:83) 武器を構えた + 滅龍撃
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)

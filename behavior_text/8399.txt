@@ -1,0 +1,53 @@
+#8399 - 超ホワイトナイト
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8399
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41877:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41860:110) 白騎士の気骨
+ | Specific orbs change every 1.0s for 1 turn
+ group:
+ | group:
+   | condition: 33% chance
+   | (41874:74) 騎士の鎧
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (41875:109) 光斬
+   | Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | (41876:110) 光斬
+   | Specific orbs change every 0.5s for 1 turn, Deal 105% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41864:110) 光斬
+   | Specific orbs change every 1.0s for 1 turn, Deal 110% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41861:88) 騎士の波動
+     | Bind awoken skills for 1 turn
+   | group:
+     | (41862:15) ガードブレイク・ライト
+     | Deal 700% damage (7 hits, 100% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1 while HP > 14
+   | (41863:52) ライトリザレクション
+   | Enemy ally recover 50% HP
+ | group:
+   | condition: 33% chance
+   | (41865:83) 白騎士の定め + 光斬
+   | Fix orb movement starting point to random position on the board + Random 3 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (41868:83) ライトフィールド + 光斬
+   | Change all orbs to Light and Heal + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+   | (41871:83) 光斬 + 白騎士の盾
+   | Specific orbs change every 1.0s for 1 turn + Void damage >= 1,000,000,000 for 1 turn, Deal 100% damage

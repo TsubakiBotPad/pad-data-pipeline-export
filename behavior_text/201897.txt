@@ -1,0 +1,42 @@
+#201897 - 裏アースドラゴンナイト
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 201897
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41746:72) 木半減
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (41723:83) 騎士の誓い + 地龍の紋章
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 8 for 1 turn
+ type: DEATH
+ condition: when defeated
+ | (41745:95) 騎士の呪い
+ | Jammer skyfall +15% for 5 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (41735:83) アースオーラ + 地龍斬
+   | Absorb damage when combos <= 8 for 1 turn + Change all Heal orbs to Wood orbs, Deal 100% damage
+   | condition: 50% chance
+   | (41738:83) アースオーラ + 地龍斬
+   | Absorb damage when combos <= 9 for 1 turn + Change all Fire orbs to Wood orbs, Deal 101% damage
+   | (41741:83) アースオーラ + 地龍の盾
+   | Absorb damage when combos <= 7 for 1 turn + Void damage >= 500,000,000 for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41732:83) アースオーラ + 地龍の領域
+   | Absorb damage when combos <= 12 for 1 turn + Change board size to 7x6 for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41726:83) アースウェーブ + 龍撃態勢・木
+     | Bind awoken skills for 1 turn + Spawn 13 random Wood orbs
+   | group:
+     | (41729:83) 武器を構えた + 滅龍撃
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 490% damage (7 hits, 70% each), Deal 490% damage (7 hits, 70% each)
