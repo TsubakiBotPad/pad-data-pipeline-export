@@ -1,0 +1,33 @@
+#409272 - 彩龍喚士・イデアルシナモン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409272
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41359:129) ＿シナモン超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41360:130) メモリーズ・オブ・シナモン
+ | ATK -75% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (41362:85) ハピネス・オブ・シナモン
+     | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (41363:46) 彩龍の心
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (41364:104) フライングシナモン
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 90% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (41361:89) お昼寝
+   | Delay active skills by 3 turns, Deal 110% damage

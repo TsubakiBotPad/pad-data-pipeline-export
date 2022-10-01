@@ -1,0 +1,29 @@
+#405281 - ウミキキヤマララ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 405281
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41331:129) ＿キキララ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41332:83) しあわせスターズ + 海と山のきらきら星
+ | Specific orbs change every 1.0s for 3 turns + Water and Light skyfall +15% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (41336:77) ツインスター
+     | Change the 1st column to Water orbs and the 6th column to Light orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (41337:15) リトルスターライト
+     | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (41335:75) フィッシングスター
+   | Leader changes to random sub for 1 turn, Deal 105% damage

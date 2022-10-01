@@ -1,0 +1,33 @@
+#402089 - たまドラプリン☆アラモード
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 402089
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41366:129) ＿プリン超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41367:88) ポムプリダンス☆
+ | Bind awoken skills for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (41369:97) プリンのたまご
+     | Blind random 5 orbs for 3 turns, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (41370:143) ポムポムスマイル
+     | For 1 turn, 1% ATK for 1 random card, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (41371:15) ポムポムスター
+     | Deal 95% damage (5 hits, 19% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (41368:74) プリン体操
+   | Reduce damage from all sources by 50% for 3 turns, Deal 110% damage
