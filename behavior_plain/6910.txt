@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESOrbLock(94:22600) -> I've been waiting for you.
+	[0] ESOrbLock(94:22600) -> Ground Attack
 	Lock all orbs
-	[1] ESDamageShield(74:22601) -> You've got guts, I'll give you that.
+	[1] ESDamageShield(74:22601) -> You've got some nerve.
 	Reduce damage from all sources by 50% for 3 turns
 
 #3: ESBranchCounter(32:22) -> ESBranchCounter
@@ -23,15 +23,15 @@ counter + 1
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#6: ESLeaderSwap(75:22605) -> If you want to negotiate, come back with an appointment.
+#6: ESLeaderSwap(75:22605) -> Lightning Speed Movement
 Condition: 33% chance (ai:0 rnd:33)
 Leader changes to random sub for 1 turn, Deal 80% damage
 
-#7: ESBlind62(62:22606) -> ...What's happening?
+#7: ESBlind62(62:22606) -> Bestowing Weakness
 Condition: 33% chance (ai:0 rnd:33)
 Blind all orbs on the board, Deal 90% damage
 
-#8: ESAttackMultihit(15:22607) -> That can't be right!
+#8: ESAttackMultihit(15:22607) -> Fireworks and Lanterns
 Condition: 34% chance (ai:0 rnd:34)
 Deal 100% damage
 
@@ -44,7 +44,7 @@ Branch on flag & 1, target rnd 6
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESDebuffRCV(105:22608) -> You're smarter than I gave you credit.
+#12: ESDebuffRCV(105:22608) -> Flash of Lightning
 RCV 50% for 5 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -57,9 +57,9 @@ Branch on counter >= 3, target rnd 5
 counter + 1
 
 #16: SkillSet:
-	[0] ESDamageShield(74:22603) -> This armor was designed to fight you.
+	[0] ESDamageShield(74:22603) -> Flaming Blade and Gunfire
 	Reduce damage from all sources by 75% for 5 turns
-	[1] ESGravity(50:22604) -> It'll wipe the floor with you.
+	[1] ESGravity(50:22604) -> Spectral Extermination!
 	Player -99% HP
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -67,5 +67,5 @@ end_turn
 
 #18: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:22609) -> How embarrassing... I owe you an apology.
+	[0] ESInactivity66(66:22609) -> I'll surpass you!
 	Do nothing
