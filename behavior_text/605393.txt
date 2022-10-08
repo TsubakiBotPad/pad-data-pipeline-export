@@ -1,0 +1,32 @@
+#605393 - 超転生サクヤ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 605393
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34043:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34112:83) 麒麟円舞 + 時限の舞 + 四源砲
+ | Absorb damage when damage >= 2,000,000,000 for 6 turns + Movetime 25% for 1 turn + Locked random skyfall +100% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (34121:83) 流焔双錘 + 烈閃轟
+     | Change the 6th column to Water orbs and the 1st column to Light orbs + A 2×2 square of clouds appears for 1 turn at a random location, Deal 50% damage
+     | condition: 50% chance
+     | (34124:83) 流焔双錘 + 烈閃轟
+     | Change the 1st column to Water orbs and the 6th column to Light orbs + Seal the 5th row for 1 turn, Deal 50% damage
+   | group:
+     | (34044:83) 宇宙の波動 + 宇宙の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34117:83) 麒麟神の真魂 + 時限の舞 + 烈閃轟
+   | Voids status ailments for 999 turns + Movetime 50% for 3 turns + A 6×2 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage

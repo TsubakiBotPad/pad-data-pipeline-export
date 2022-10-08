@@ -1,0 +1,105 @@
+#604283 - 極醒の青龍喚士・ソニア＝クレア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34234) -> 晶龍族の加護
+	Voids status ailments for 999 turns
+	[1] ESCloud(104:34235) -> 晶龍召喚・雲水
+	A 3×2 rectangle of clouds appears for 3 turns at a random location
+	[2] ESGravity(50:34236) -> アビスサイス
+	Player -300% HP
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 18
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34243) -> 晶化の邪波
+	Change the 2nd and 5th columns to Dark and Jammer orbs, Deal 50% damage
+	[1] ESOrbChangeAttack(48:34244) -> ブルースフィア
+	Change a random attribute to Water orbs, Deal 50% damage
+
+#9: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34246) -> 晶化の毒波
+	Change the 2nd and 5th columns to Water and Poison orbs, Deal 50% damage
+	[1] ESOrbChangeAttack(48:34247) -> ダークスフィア
+	Change a random attribute to Dark orbs, Deal 50% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:34239) -> 晶龍召喚・邪水
+	Jammer skyfall +25% for 3 turns
+	[1] ESVoidShieldBig(137:34240) -> 晶龍障壁
+	Void damage >= 3,000,000,000 for 3 turns
+	[2] ESBoardChangeAttackBits(85:34241) -> 継界護星陣・水闇
+	Change all orbs to Water and Dark, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:34237) -> コールドアウト・ネメシス
+Deal 1,000% damage (5 hits, 200% each)
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 8
+
+#19: ESChangeAttribute(46:34038) -> 宇宙の光源
+Change own attribute to Dark, Deal 100% damage
+
+#20: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34243) -> 晶化の邪波
+	Change the 2nd and 5th columns to Dark and Jammer orbs, Deal 50% damage
+	[1] ESOrbChangeAttack(48:34244) -> ブルースフィア
+	Change a random attribute to Water orbs, Deal 50% damage
+
+#21: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:34246) -> 晶化の毒波
+	Change the 2nd and 5th columns to Water and Poison orbs, Deal 50% damage
+	[1] ESOrbChangeAttack(48:34247) -> ダークスフィア
+	Change a random attribute to Dark orbs, Deal 50% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,32 @@
+#609336 - 超アースドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 609336
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34042:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (40386:20) アースバリア
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (40389:83) ドラゴンチャージ + アーススケイル
+   | Increase damage to 250% for the next 5 turns + Reduce damage from all sources by 50% for 5 turns
+ | group:
+ | condition: turns 2-5
+   | (40392:46) エレメントアース
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (34046:15) 宇宙の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (40387:139) ドラゴンヘイスト
+ | Haste both leaders' skills by 99 turns
+ | (40388:94) グラビトンロック
+ | Lock all orbs, Deal 100% damage

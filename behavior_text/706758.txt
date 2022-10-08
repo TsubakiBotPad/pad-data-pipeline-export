@@ -1,0 +1,41 @@
+#706758 - 裏超アメジストカーバンクル
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 706758
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34043:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (40372:138) アメジストジュエリー
+ | Absorb damage when damage >= 2,000,000,000 for 6 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (40373:46) チェンジカーバンクル
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (40373:46) チェンジカーバンクル
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 5
+   | (40373:46) チェンジカーバンクル
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (34046:15) 宇宙の殲滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (34037:19) 宇宙の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (40373:46) チェンジカーバンクル
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

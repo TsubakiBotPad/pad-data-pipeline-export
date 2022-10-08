@@ -1,0 +1,73 @@
+#605135 - 超転生ハク
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbThresholdBig(138:34098) -> 白虎円舞
+	Absorb damage when damage >= 2,000,000,000 for 6 turns
+	[1] ESDebuffRCV(105:34099) -> 睥睨の瞳
+	RCV 0% for 1 turn
+	[2] ESBlindStickySkyfall(128:34100) -> 虎闇眼
+	For 1 turn, 30% chance for skyfall orbs to be blinded for turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESGravity(50:34107) -> 不割の牙
+	Player -99% HP
+	[1] ESBlindStickyRandom(97:34108) -> 虎暗爪
+	Blind random 10~17 orbs for 1 turn, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESGravity(50:34110) -> 不割の牙
+	Player -99% HP
+	[1] ESBoardChangeAttackBits(85:34111) -> 西方七星陣
+	Change all orbs to Fire, Water, and Dark, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:34103) -> 白虎神の真魂
+	Voids status ailments for 999 turns
+	[1] ESDebuffRCV(105:34104) -> 睥睨の瞳
+	RCV 0% for 1 turn
+	[2] ESGravity(50:34105) -> 不割の牙
+	Player -99% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%

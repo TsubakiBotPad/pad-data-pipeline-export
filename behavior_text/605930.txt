@@ -1,0 +1,44 @@
+#605930 - 極醒の日龍喚士・カンナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 605930
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34043:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (34185:83) 天鏡鱗 + 千鍵札 + 絶招閃
+ | Absorb damage when damage >= 2,000,000,000 for 6 turns + Locked random skyfall +100% for 1 turn + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+ | condition: always turn 2
+   | (34205:83) 千水札 + 水鍵閃
+   | Water skyfall +30% for 1 turn + Locked Water skyfall +100% for 1 turn, Deal 100% damage
+ | group:
+ | condition: always turn 3
+   | (34206:83) 千木札 + 木鍵閃
+   | Wood skyfall +30% for 1 turn + Locked Wood skyfall +100% for 1 turn, Deal 100% damage
+ | group:
+ | condition: always turn 4
+   | (34207:83) 千光札 + 光鍵閃
+   | Light skyfall +30% for 1 turn + Locked Light skyfall +100% for 1 turn, Deal 100% damage
+ | group:
+ | condition: always turn 5
+   | (34208:83) 千闇札 + 闇鍵閃
+   | Dark skyfall +30% for 1 turn + Locked Dark skyfall +100% for 1 turn, Deal 100% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (34204:83) 千火札 + 火鍵閃
+     | Fire skyfall +30% for 1 turn + Locked Fire skyfall +100% for 1 turn, Deal 100% damage
+   | group:
+     | (34044:83) 宇宙の波動 + 宇宙の殲滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (34190:83) 壁符 + 薄霞 + 絶招閃
+   | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Lock all orbs, Deal 100% damage

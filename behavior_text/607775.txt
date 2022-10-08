@@ -1,0 +1,24 @@
+#607775 - 混沌よりいでしモノ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 607775
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34040:73) 根性
+ | Survive attacks with 1 HP when HP > 3%
+ type: PREEMPT
+ | (34452:83) コスモバリア + グラビティゾーン + 降着円盤 + 超重力
+ | Voids status ailments for 4 turns + For 10 turns, 20% chance for skyfall orbs to be blinded for turn + Void damage >= 3,000,000,000 for 999 turns + Disable active skills for 4 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-4 of 5
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (34457:83) 事象の地平面 + カオスブラックホール
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)

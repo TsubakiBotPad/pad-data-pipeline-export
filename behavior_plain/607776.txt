@@ -1,0 +1,83 @@
+#607776 - 虚空にうごめくモノ
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESStatusShield(20:34462) -> コズミックバリア
+	Voids status ailments for 999 turns
+	[1] ESComboSkyfall(131:34463) -> ギャラクシーゾーン
+	For 15 turns, None% chance for combo orb skyfall.
+	[2] ESDamageShield(74:34464) -> 超質量
+	Reduce damage from all sources by 95% for 1 turn
+	[3] ESAbsorbCombo(67:34465) -> 超引力
+	Absorb damage when combos <= 15 for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 9
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESDamageShield(74:34467) -> 超質量
+	Reduce damage from all sources by 90% for 1 turn
+	[1] ESAbsorbCombo(67:34468) -> 超引力
+	Absorb damage when combos <= 14 for 1 turn
+	[2] ESGravity(50:34469) -> ギャラクシーノヴァ
+	Player -100% HP
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESDamageShield(74:34471) -> 超質量
+	Reduce damage from all sources by 85% for 1 turn
+	[1] ESAbsorbCombo(67:34472) -> 超引力
+	Absorb damage when combos <= 13 for 1 turn
+	[2] ESGravity(50:34473) -> ギャラクシーノヴァ
+	Player -150% HP
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:34475) -> 超質量
+	Reduce damage from all sources by 80% for 1 turn
+	[1] ESAbsorbCombo(67:34476) -> 超引力
+	Absorb damage when combos <= 12 for 1 turn
+	[2] ESGravity(50:34477) -> ギャラクシーノヴァ
+	Player -200% HP
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:34479) -> 超質量
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESAbsorbCombo(67:34480) -> 超引力
+	Absorb damage when combos <= 11 for 1 turn
+	[2] ESGravity(50:34481) -> ギャラクシーノヴァ
+	Player -300% HP
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:34483) -> 超質量
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESAbsorbCombo(67:34484) -> 超引力
+	Absorb damage when combos <= 10 for 1 turn
+	[2] ESGravity(50:34485) -> ギャラクシーノヴァ
+	Player -500% HP
+
+#9: SkillSet:
+	[0] ESBindAwoken(88:34487) -> ゼログラビティ
+	Bind awoken skills for 1 turn
+	[1] ESGravity(50:34488) -> カオスギャラクシーノヴァ
+	Player -5,000% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:34040) -> 根性
+Survive attacks with 1 HP when HP > 3%
+
+#12: ESDeathCry(69:34489) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: 次元がねじれていく…|特異点から真の姿を現した！
