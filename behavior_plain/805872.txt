@@ -1,4 +1,4 @@
-#805872 - ドット・白虎の化身・ハク
+#805872 - Pixel Incarnation of Byakko, Haku
 monster size: 4
 new AI: True
 start/max counter: 1
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBoardChangeAttackBits(85:40210) -> 西方七宿陣
+#2: ESBoardChangeAttackBits(85:40210) -> Seven Western Encampments
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change all orbs to Fire, Water, and Dark, Deal 50% damage
 
@@ -17,15 +17,15 @@ Branch on hp < 1, target rnd 13
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESOrbChangeAttackBits(108:40214) -> 虎闇爪
+#5: ESOrbChangeAttackBits(108:40214) -> Shadow Tiger Claws
 Condition: 33% chance (ai:0 rnd:33)
 Change all Light orbs to Dark orbs, Deal 100% damage
 
-#6: ESRandomSpawn(92:40215) -> 虎闇爪
+#6: ESRandomSpawn(92:40215) -> Shadow Tiger Claws
 Condition: 33% chance (ai:0 rnd:33)
 Spawn 4 random Dark orbs, Deal 100% damage
 
-#7: ESAttackMultihit(15:40213) -> 猛虎裂爪
+#7: ESAttackMultihit(15:40213) -> Ferocious Tiger Claws
 Condition: 34% chance (ai:0 rnd:34)
 Deal 120% damage (2 hits, 60% each)
 
@@ -38,17 +38,17 @@ Branch on flag & 1, target rnd 5
 #10: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#11: ESBlind62(62:40212) -> 虎暗爪
+#11: ESBlind62(62:40212) -> Dark Tiger Claw
 Blind all orbs on the board, Deal 180% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESBoardChangeAttackBits(85:40211) -> 西方七宿陣
+#13: ESBoardChangeAttackBits(85:40211) -> Seven Western Encampments
 Change all orbs to Fire, Water, and Dark, Deal 240% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:40235) -> 根性
+#15: ESResolve(73:40235) -> Resolve
 Survive attacks with 1 HP when HP > 50%
