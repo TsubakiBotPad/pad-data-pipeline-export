@@ -1,0 +1,30 @@
+#205625 - 収穫祭の名物・カボデビ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:41409) -> カボデビドレイン
+	Absorb Fire, Water, and Wood damage for 3 turns
+	[1] ESFixedTarget(112:41410) -> 視線が奪われる…
+	Forces attacks to hit this enemy for 99 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRecoverEnemyAlly(52:41411) -> よみがえりの光
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Enemy ally recover 100% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

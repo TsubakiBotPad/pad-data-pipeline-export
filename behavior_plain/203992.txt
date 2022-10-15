@@ -1,0 +1,38 @@
+#203992 - ハロウィンガチャドラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffATKTarget(143:41417) -> さげてね
+	For 3 turns, 50% ATK for 4 random subs
+	[1] ESTargetedSkillHaste(139:41418) -> 気分はあげてね！
+	Haste both leaders' skills by 15 turns, Deal 15% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBlindStickyRandom(97:41419) -> ガチャボチャトリック
+Condition: 33% chance (ai:0 rnd:33)
+Blind random 2 orbs for 5 turns, Deal 90% damage
+
+#7: ESBoardChangeAttackBits(85:41420) -> ガチャボチャトリート
+Condition: 33% chance (ai:0 rnd:33)
+Change all orbs to Fire, Dark, and Heal, Deal 105% damage
+
+#8: ESAttackMultihit(15:41421) -> ハロウィンガチャドラパワー
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage (4 hits, 25% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

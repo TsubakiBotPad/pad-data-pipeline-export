@@ -1,0 +1,32 @@
+#406617 - 古城の幻想・龍喚士ソニア＝グラン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 406617
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41434:73) ＿グラン根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (41435:83) 宴は終わり、だが… + 夜はこれからじゃろ？
+ | Void damage >= 2,000,000,000 for 3 turns + Blind all orbs on the board, Deal 30% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (41438:68) アシッドシュガー
+   | Mortal Poison skyfall +10% for 1 turn, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (41439:89) タイムキャンディ
+   | Delay active skills by 2 turns, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (41440:85) カメレオンホイップ
+   | Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Poison, Deal 105% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (41441:77) 仮装召龍陣・甘宵
+   | Change the 1st, 2nd, 5th, and 6th columns to Heal orbs, Deal 100% damage

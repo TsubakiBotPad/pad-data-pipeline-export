@@ -1,0 +1,32 @@
+#404833 - 真古城の灯龍喚士・マイネ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 404833
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41451:129) ＿マイネ超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (41452:83) 残りのお菓子… + だ、大放出です！！
+ | Voids status ailments for 999 turns + Movetime 50% for 5 turns, Deal 50% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (41455:83) カボチャにつまづいた + ほわぁあ～～～！！ + だ、大放出です…
+   | Bind awoken skills for 1 turn + Fire and Dark skyfall +15% for 5 turns + Deal 112% damage (4 hits, 28% each), Deal 112% damage (4 hits, 28% each)
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (41459:83) チ、チビドラさん～ + お菓子持っていかないで…
+   | Fix orb movement starting point to random position on the board + Blind random 5 orbs for 1 turn, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (41462:83) このキャンディ… + め、目が回りますです～
+   | Lock 10 random orbs + Random 4 orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (41465:83) ま、まだお菓子ありますから！ + 粉々になってました…
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + ATK -75% for 1 turn, Deal 95% damage
