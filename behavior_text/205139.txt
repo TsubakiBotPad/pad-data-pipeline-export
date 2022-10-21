@@ -1,0 +1,23 @@
+#205139 - 極醒の未来神・スクルド
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205139
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42468:129) 超根性
+ | Damage which would reduce HP from above 40% to below 40% is nullified
+ type: PREEMPT
+ | (42463:83) 時女神の守り + 未来予知
+ | Void damage >= 300,000,000 for 2 turns + Absorb Water, Light, and Dark damage for 2 turns
+ group:
+ | group:
+   | (42467:92) ウォーターラッシュ
+   | Spawn 3 random Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (42466:85) 時空断裂陣
+   | Change all orbs to Water, Deal 100% damage

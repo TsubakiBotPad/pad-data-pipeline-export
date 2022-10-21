@@ -1,0 +1,64 @@
+#203661 - タマミツネ
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESAbsorbCombo(67:42021) -> 泡ブレスの構え
+	Absorb damage when combos <= 8 for 2 turns
+	[1] ESCloud(104:42022) -> 泡ブレス
+	A 2×1 rectangle of clouds appears for 2 turns at 1st row, 2nd column
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESColumnSpawnMulti(77:42024) -> 水圧レーザーブレス
+	Change the 1st and 3rd columns to Water orbs, Deal 50% damage
+	[1] ESDebuffMovetime(39:42025) -> スピンアタック
+	Movetime 25% for 1 turn, Deal 51% damage
+
+#4: ESCloud(104:42026) -> 泡ブレス
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+A 3×4 rectangle of clouds appears for 2 turns at 1st row, 2nd column, Deal 110% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#6: ESAttackMultihit(15:42030) -> 連続かみつき
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESRandomSpawn(92:42031) -> ボディプレス
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 7 random Water orbs, Deal 101% damage
+
+#8: ESBindAttack(63:42032) -> 咆哮
+Condition: 25% chance (ai:0 rnd:25)
+Bind 2 random subs for 2 turns, Deal 100% damage
+
+#9: ESGravity(50:42033) -> 突進
+Condition: 25% chance (ai:0 rnd:25)
+Player -99% HP
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESTargetedSkillDelay(140:42029) -> 尻尾サマーソルト
+	Delay random sub's skills by 3 turns
+	[1] ESAttackUPRemainingEnemies(17:42028) -> 怒り
+	Increase damage to 150% for the next 999 turns
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTypeResist(118:42034) -> 回復半減
+Reduce damage from Healer types by 50%

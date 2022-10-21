@@ -1,0 +1,44 @@
+#409319 - プケプケ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRandomSpawn(92:42265) -> 突進
+	Spawn 3 random Wood orbs
+	[1] ESRandomSpawn(92:42266) -> 毒液吐き
+	Spawn 3 random Poison orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESAttackMultihit(15:42270) -> 滑空連続ひっかき
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESPoisonChangeRandomAttack(64:42271) -> 活性化毒霧噴射
+Change 3 random orbs to Poison orbs, Deal 101% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:42268) -> 活性化特大毒液まき
+	Change all orbs to Wood, Light, Dark, Heal, and Poison
+	[1] ESBindAttack(63:42269) -> 舌伸ばし攻撃
+	Bind 1 random sub for 1 turn, Deal 100% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttributeResist(72:42272) -> 木軽減
+Reduce damage from Wood attrs by 50%

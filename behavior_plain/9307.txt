@@ -1,0 +1,71 @@
+#9307 - メル・ゼナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:42157) -> 咆哮
+	Voids status ailments for 999 turns
+	[1] ESSpinnersFixed(110:42158) -> 回転突進
+	Specific orbs change every 1.0s for 3 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 10
+
+#5: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbChangeAttackBits(108:42164) -> 飛び込み翼旋斬
+	Change all Light and Heal orbs to Dark orbs, Deal 50% damage
+	[1] ESOrbLock(94:42165) -> 尻尾突き刺し
+	Lock 9 random orbs, Deal 55% damage
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESRowSpawnMulti(79:42167) -> 翼一閃 【血氣】
+	Change the 4th and 5th rows to Dark orbs, Deal 50% damage
+	[1] ESAttackMultihit(15:42168) -> キュリア使役攻撃
+	Deal 51% damage (3 hits, 17% each)
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombRandomSpawn(102:42170) -> 龍炎爆破
+	Spawn 8 random locked Bomb orbs
+	[1] ESBlind62(62:42171) -> ダークロードブリス
+	Blind all orbs on the board, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:42173) -> ひっかき
+	Deal 75% damage (3 hits, 25% each)
+	[1] ESOrbLock(94:42174) -> 翼爪突き
+	Lock all Dark and Heal orbs, Deal 30% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:42161) -> ナイトメアクレイドル
+	Change all orbs to Dark and Heal, Deal 110% damage
+	[1] ESUnknown(151:42162) -> 血爵波動・拡散
+	No description set
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 5
+
+#12: ESAttackMultihit(15:42159) -> 狂血爵波動・流
+Deal 195% damage (3 hits, 65% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSuperResolve(129:42175) -> 超根性70％
+Damage which would reduce HP from above 70% to below 70% is nullified

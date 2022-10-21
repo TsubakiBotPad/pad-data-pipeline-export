@@ -1,0 +1,39 @@
+#203660 - ライゼクス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203660
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42059:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (42037:71) 電荷状態
+ | Void damage >= 700,000,000 for 3 turns
+ group:
+ | group:
+   | condition: 17% chance
+   | (42041:83) 突進かみつき + 翼爪薙ぎ払い攻撃
+   | Deal 78% damage (3 hits, 26% each) + Lock all Light, Dark, and Heal orbs, Deal 78% damage (3 hits, 26% each)
+   | condition: 17% chance
+   | (42044:83) 突進かみつき + 尻尾回転攻撃
+   | Deal 78% damage (3 hits, 26% each) + Lock all Fire, Wood, and Heal orbs, Deal 78% damage (3 hits, 26% each)
+   | condition: 17% chance
+   | (42047:83) 突進かみつき + トサカ振りぬき攻撃
+   | Deal 78% damage (3 hits, 26% each) + Lock all Fire, Water, and Dark orbs, Deal 78% damage (3 hits, 26% each)
+   | condition: 17% chance
+   | (42050:83) 突進かみつき + 翼爪叩き付け攻撃
+   | Deal 75% damage (3 hits, 25% each) + Lock all Water, Dark, and Heal orbs, Deal 75% damage (3 hits, 25% each)
+   | condition: 16% chance
+   | (42053:83) 突進かみつき + 尻尾叩き付け放電
+   | Deal 75% damage (3 hits, 25% each) + Lock all Fire, Wood, and Light orbs, Deal 75% damage (3 hits, 25% each)
+   | condition: 16% chance
+   | (42056:83) 飛翔回転ダイブ + 咆哮
+   | Spawn 8 random Light and Dark orbs + Bind 2 random subs for 3 turns, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (42038:83) 電気ブレス + 怒り
+   | Lock all orbs + Increase damage to 150% for the next 999 turns

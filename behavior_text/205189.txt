@@ -1,0 +1,33 @@
+#205189 - セルレギオス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205189
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42095:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (42085:128) 尻尾刃鱗飛ばし
+ | For 5 turns, 15% chance for skyfall orbs to be blinded for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (42092:15) 脚爪ひっかき
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (42093:50) 体当たり
+   | Player -99% HP
+   | (42094:92) 斜め飛び攻撃
+   | Spawn 7 random Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (42089:83) 破裂刃鱗 + 滞空脚爪ひっかき
+   | Change all orbs to Light and Heal + RCV 25% for 3 turns, Deal 50% damage
+ | group:
+ | condition: hp <= 1
+   | (42086:83) 刃鱗飛ばし + 飛びかかり攻撃
+   | Delay active skills by 6 turns + ATK -75% for 3 turns, Deal 100% damage

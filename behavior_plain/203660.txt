@@ -1,0 +1,76 @@
+#203660 - ライゼクス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESVoidShield(71:42037) -> 電荷状態
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Void damage >= 700,000,000 for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#4: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESAttackMultihit(15:42042) -> 突進かみつき
+	Deal 78% damage (3 hits, 26% each)
+	[1] ESOrbLock(94:42043) -> 翼爪薙ぎ払い攻撃
+	Lock all Light, Dark, and Heal orbs, Deal 30% damage
+
+#5: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESAttackMultihit(15:42045) -> 突進かみつき
+	Deal 78% damage (3 hits, 26% each)
+	[1] ESOrbLock(94:42046) -> 尻尾回転攻撃
+	Lock all Fire, Wood, and Heal orbs, Deal 30% damage
+
+#6: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESAttackMultihit(15:42048) -> 突進かみつき
+	Deal 78% damage (3 hits, 26% each)
+	[1] ESOrbLock(94:42049) -> トサカ振りぬき攻撃
+	Lock all Fire, Water, and Dark orbs, Deal 30% damage
+
+#7: SkillSet:
+	Condition: 17% chance (ai:0 rnd:17)
+	[0] ESAttackMultihit(15:42051) -> 突進かみつき
+	Deal 75% damage (3 hits, 25% each)
+	[1] ESOrbLock(94:42052) -> 翼爪叩き付け攻撃
+	Lock all Water, Dark, and Heal orbs, Deal 30% damage
+
+#8: SkillSet:
+	Condition: 16% chance (ai:0 rnd:16)
+	[0] ESAttackMultihit(15:42054) -> 突進かみつき
+	Deal 75% damage (3 hits, 25% each)
+	[1] ESOrbLock(94:42055) -> 尻尾叩き付け放電
+	Lock all Fire, Wood, and Light orbs, Deal 30% damage
+
+#9: SkillSet:
+	Condition: 16% chance (ai:0 rnd:16)
+	[0] ESRandomSpawn(92:42057) -> 飛翔回転ダイブ
+	Spawn 8 random Light and Dark orbs
+	[1] ESBindAttack(63:42058) -> 咆哮
+	Bind 2 random subs for 3 turns, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:42039) -> 電気ブレス
+	Lock all orbs
+	[1] ESAttackUPRemainingEnemies(17:42040) -> 怒り
+	Increase damage to 150% for the next 999 turns
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttributeResist(72:42059) -> 光半減
+Reduce damage from Light attrs by 50%

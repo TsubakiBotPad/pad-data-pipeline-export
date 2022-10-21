@@ -1,0 +1,50 @@
+#303653 - リオレイア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:42273) -> 咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire damage for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESAttackMultihit(15:42277) -> 3連突進
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESAttackMultihit(15:42278) -> 回転尻尾攻撃
+Condition: 25% chance (ai:0 rnd:25)
+Deal 100% damage
+
+#6: ESRandomSpawn(92:42279) -> 滑空サマーソルト尻尾攻撃
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Poison orbs, Deal 100% damage
+
+#7: ESRandomSpawn(92:42280) -> 炎ブレス
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 3 random Fire orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESGravity(50:42275) -> 突進
+	Player -30% HP
+	[1] ESOrbChangeAttackBits(108:42276) -> 3連炎ブレス
+	Change all Dark orbs to Fire and Wood orbs, Deal 40% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESTypeResist(118:42281) -> バランス半減
+Reduce damage from Balanced types by 50%

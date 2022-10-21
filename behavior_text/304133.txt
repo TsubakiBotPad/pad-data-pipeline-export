@@ -1,0 +1,52 @@
+#304133 - ベリオロス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 304133
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42319:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (42308:74) 回り込む
+ | Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+ | condition: always turn 5
+   | (42309:83) 滞空氷ブレス + ショートタックル
+   | Specific orbs change every 1.0s for 2 turns + Delay random sub's skills by 2 turns, Deal 51% damage
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | condition: 25% chance
+     | (42315:15) 咆哮
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 25% chance
+     | (42316:94) 斜め飛びかかり攻撃
+     | Lock 4 random orbs, Deal 100% damage
+     | condition: 25% chance
+     | (42317:50) 突進
+     | Player -50% HP
+     | condition: 25% chance
+     | (42318:15) 滑空飛びかかり攻撃
+     | Deal 100% damage
+   | group:
+     | condition: 25% chance
+     | (42315:15) 咆哮
+     | Deal 102% damage (3 hits, 34% each)
+     | condition: 25% chance
+     | (42316:94) 斜め飛びかかり攻撃
+     | Lock 4 random orbs, Deal 100% damage
+     | condition: 25% chance
+     | (42317:50) 突進
+     | Player -50% HP
+     | condition: 25% chance
+     | (42318:15) 滑空飛びかかり攻撃
+     | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (42312:83) 尻尾攻撃 + 怒り
+   | Change the 4th and 5th rows to Water and Light orbs + Increase damage to 150% for the next 2 turns, Deal 102% damage

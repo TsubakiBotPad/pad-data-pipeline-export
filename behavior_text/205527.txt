@@ -1,0 +1,34 @@
+#205527 - 激昂したラージャン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205527
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (42406:83) 咆哮 + 闘気硬化状態
+ | Bind awoken skills for 2 turns + Reduce damage from all sources by 50% for 2 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (42419:15) ぶん殴り
+   | Deal 102% damage (3 hits, 34% each)
+   | (42420:101) 蛇行突進
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (42409:83) 急接近拘束攻撃 + 気光ブレス
+     | Bind 2 random subs for 1 turn + Change all orbs to Wood, Light, Heal, and Jammer, Deal 50% damage
+   | group:
+     | condition: 33% chance
+     | (42412:83) 雷弾 + バックステップ
+     | Change all Dark orbs to Light orbs + Void damage >= 15,000,000 for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (42415:83) 岩石ぶん投げ + ボディプレス
+     | Deal 50% damage + Blind random 6 orbs for 1 turn, Deal 50% damage
+     | (42418:100) ローリングアタック
+     | Seal the 1st row for 1 turn, Deal 100% damage

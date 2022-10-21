@@ -1,0 +1,41 @@
+#203661 - タマミツネ
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+monster_id: 203661
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42034:118) 回復半減
+ | Reduce damage from Healer types by 50%
+ type: PREEMPT
+ | (42020:83) 泡ブレスの構え + 泡ブレス
+ | Absorb damage when combos <= 8 for 2 turns + A 2×1 rectangle of clouds appears for 2 turns at 1st row, 2nd column
+ group:
+ | group:
+ | condition: always turn 1
+   | (42023:83) 水圧レーザーブレス + スピンアタック
+   | Change the 1st and 3rd columns to Water orbs + Movetime 25% for 1 turn, Deal 50% damage
+ | group:
+ | condition: always turn 2
+   | (42026:104) 泡ブレス
+   | A 3×4 rectangle of clouds appears for 2 turns at 1st row, 2nd column, Deal 110% damage
+ | group:
+   | condition: 25% chance
+   | (42030:15) 連続かみつき
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (42031:92) ボディプレス
+   | Spawn 7 random Water orbs, Deal 101% damage
+   | condition: 25% chance
+   | (42032:63) 咆哮
+   | Bind 2 random subs for 2 turns, Deal 100% damage
+   | condition: 25% chance
+   | (42033:50) 突進
+   | Player -99% HP
+ | group:
+ | condition: turn 3, hp <= 49
+   | (42027:83) 尻尾サマーソルト + 怒り
+   | Delay random sub's skills by 3 turns + Increase damage to 150% for the next 999 turns

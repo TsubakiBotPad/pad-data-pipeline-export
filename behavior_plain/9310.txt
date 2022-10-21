@@ -1,0 +1,59 @@
+#9310 - ルナガロン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESTargetedSkillDelay(140:42141) -> 咆哮
+	Delay random sub's skills by 3 turns
+	[1] ESTargetedSkillHaste(139:42142) -> 前脚振り上げ
+	Haste both leaders' skills by 20 turns
+	[2] ESAbsorbAttribute(53:42143) -> 氷衣織成
+	Absorb Water, Light, and Dark damage for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 11
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:33 rnd:0)
+	[0] ESOrbChangeAttackBits(108:42149) -> タックル
+	Change all Wood and Heal orbs to Water orbs, Deal 50% damage
+	[1] ESDebuffATK(130:42150) -> 突進かみつき
+	ATK -75% for 1 turn, Deal 55% damage
+
+#6: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESAttackMultihit(15:42153) -> 暴れ連続ひっかき
+	Deal 60% damage (3 hits, 20% each)
+	[1] ESDebuffRCV(105:42154) -> 急襲突き
+	RCV 25% for 1 turn, Deal 45% damage
+
+#7: ESRandomSpawn(92:42151) -> 蹴り払い
+Spawn 8 random Water and Jammer orbs, Deal 103% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:42146) -> ビーストスライス
+	Change all orbs to Water, Dark, and Heal, Deal 55% damage
+	[1] ESAttributeBlock(107:42147) -> ムーンサルト氷結ブレス
+	Unable to match Water orbs for 2 turns, Deal 50% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 5
+
+#11: ESAttackMultihit(15:42144) -> 連続ドリフト突進
+Deal 180% damage (3 hits, 60% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

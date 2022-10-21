@@ -1,0 +1,50 @@
+#203653 - リオレイア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:41968) -> 咆哮
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Fire damage for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESRandomSpawn(92:41973) -> 炎ブレス
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 5 random Fire orbs, Deal 101% damage
+
+#5: ESBindAttack(63:41974) -> 回り込みかみつき
+Condition: 25% chance (ai:0 rnd:25)
+Bind 1 random sub for 3 turns, Deal 100% damage
+
+#6: ESRowSpawnMulti(79:41975) -> 回転尻尾攻撃
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st and 5th rows to Wood and Poison orbs, Deal 100% damage
+
+#7: ESColumnSpawnMulti(77:41976) -> 滑空サマーソルト尻尾攻撃
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st and 6th columns to Poison orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbChangeAttackBits(108:41971) -> 3連炎ブレス
+	Change all Water, Wood, and Heal orbs to Fire orbs, Deal 50% damage
+	[1] ESSkillDelay(89:41972) -> 滑空攻撃
+	Delay active skills by 2 turns, Deal 50% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESTypeResist(118:41977) -> バランス半減
+Reduce damage from Balanced types by 50%

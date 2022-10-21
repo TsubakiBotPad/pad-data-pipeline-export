@@ -1,0 +1,41 @@
+#203656 - ナルガクルガ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 203656
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41992:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (41978:83) 威嚇 + 尻尾たたき付け
+ | Voids status ailments for 999 turns + Change all orbs to Dark, Deal 110% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (41981:83) 尻尾が刺さり動けなくなっている + 怒り
+   | Do nothing + Increase damage to 150% for the next 999 turns
+ | group:
+   | condition: 33% chance
+   | (41989:15) 刃翼
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (41990:62) 飛びかかり攻撃
+   | Blind all orbs on the board, Deal 102% damage
+   | (41991:63) 咆哮
+   | Bind 2 random subs for 2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 2
+     | (41984:83) なぎ払い尻尾 + 大回転尻尾攻撃
+     | Change the 2nd and 4th rows to Dark orbs + Deal 60% damage (3 hits, 20% each), Deal 50% damage
+   | group:
+     | condition: 50% chance
+     | (41987:74) ダッシュ
+     | Reduce damage from all sources by 75% for 1 turn, Deal 100% damage
+     | (41988:92) トゲ弾
+     | Spawn 7 random Jammer orbs, Deal 101% damage

@@ -1,0 +1,57 @@
+#205189 - セルレギオス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBlindStickySkyfall(128:42085) -> 尻尾刃鱗飛ばし
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+For 5 turns, 15% chance for skyfall orbs to be blinded for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESAttackMultihit(15:42092) -> 脚爪ひっかき
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESGravity(50:42093) -> 体当たり
+Condition: 50% chance (ai:50 rnd:0)
+Player -99% HP
+
+#7: ESRandomSpawn(92:42094) -> 斜め飛び攻撃
+Spawn 7 random Light orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:42090) -> 破裂刃鱗
+	Change all orbs to Light and Heal, Deal 50% damage
+	[1] ESDebuffRCV(105:42091) -> 滞空脚爪ひっかき
+	RCV 25% for 3 turns, Deal 55% damage
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 5
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESSkillDelay(89:42087) -> 刃鱗飛ばし
+	Delay active skills by 6 turns
+	[1] ESDebuffATK(130:42088) -> 飛びかかり攻撃
+	ATK -75% for 3 turns, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:42095) -> 根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,33 @@
+#303653 - リオレイア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303653
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42281:118) バランス半減
+ | Reduce damage from Balanced types by 50%
+ type: PREEMPT
+ | (42273:53) 咆哮
+ | Absorb Fire damage for 5 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (42277:15) 3連突進
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (42278:15) 回転尻尾攻撃
+   | Deal 100% damage
+   | condition: 25% chance
+   | (42279:92) 滑空サマーソルト尻尾攻撃
+   | Spawn 3 random Poison orbs, Deal 100% damage
+   | condition: 25% chance
+   | (42280:92) 炎ブレス
+   | Spawn 3 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (42274:83) 突進 + 3連炎ブレス
+   | Player -30% HP + Change all Dark orbs to Fire and Wood orbs, Deal 40% damage

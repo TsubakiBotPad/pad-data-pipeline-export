@@ -1,0 +1,39 @@
+#9316 - ゴシャハギ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9316
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (41995:87) 両前脚叩きつけ
+ | Absorb damage when damage >= 800,000,000 for 3 turns, Deal 50% damage
+ group:
+ | group:
+   | condition: 25% chance
+   | (42001:15) 前脚連続パンチ 【氷刃】
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (42002:109) 回転なぎ払い
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (42003:107) 氷ブレス
+   | Unable to match Water orbs for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (42004:108) ジャンプ前脚叩きつけ 【氷刃】
+   | Change all Heal orbs to Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (41998:83) 暴れ振り回し 【氷刃】 + 氷刃突き刺し
+   | Change the 1st and 2nd rows to Water orbs + Lock all Water orbs, Deal 50% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (41996:94) 暴れ振り回し
+     | Lock all orbs, Deal 100% damage
+   | group:
+     | (41997:15) 連続氷破片飛ばし
+     | Deal 180% damage (3 hits, 60% each)

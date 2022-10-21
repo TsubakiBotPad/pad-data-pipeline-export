@@ -1,0 +1,37 @@
+#9307 - メル・ゼナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9307
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42175:129) 超根性70％
+ | Damage which would reduce HP from above 70% to below 70% is nullified
+ type: PREEMPT
+ | (42156:83) 咆哮 + 回転突進
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 3 turns, Deal 100% damage
+ group:
+ | group:
+   | condition: 25% chance
+   | (42163:83) 飛び込み翼旋斬 + 尻尾突き刺し
+   | Change all Light and Heal orbs to Dark orbs + Lock 9 random orbs, Deal 50% damage
+   | condition: 25% chance
+   | (42166:83) 翼一閃 【血氣】 + キュリア使役攻撃
+   | Change the 4th and 5th rows to Dark orbs + Deal 51% damage (3 hits, 17% each), Deal 50% damage
+   | condition: 25% chance
+   | (42169:83) 龍炎爆破 + ダークロードブリス
+   | Spawn 8 random locked Bomb orbs + Blind all orbs on the board, Deal 100% damage
+   | condition: 25% chance
+   | (42172:83) ひっかき + 翼爪突き
+   | Deal 75% damage (3 hits, 25% each) + Lock all Dark and Heal orbs, Deal 75% damage (3 hits, 25% each)
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 69
+   | (42160:83) ナイトメアクレイドル + 血爵波動・拡散
+   | Change all orbs to Dark and Heal + No description set, Deal 110% damage
+ | group:
+ | condition: hp <= 9
+   | (42159:15) 狂血爵波動・流
+   | Deal 195% damage (3 hits, 65% each)
