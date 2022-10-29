@@ -1,0 +1,74 @@
+#303661 - タマミツネ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESAbsorbCombo(67:42235) -> 泡ブレスの構え
+	Absorb damage when combos <= 11 for 3 turns
+	[1] ESCloud(104:42236) -> 泡ブレス
+	A 2×1 rectangle of clouds appears for 3 turns at 1st row, 2nd column
+	[2] ESBoardSizeChange(126:42237) -> 攻撃して食い止めろ！
+	Change board size to 7x6 for 1 turn
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESColumnSpawnMulti(77:42239) -> 水圧レーザーブレス
+	Change the 1st and 3rd columns to Water orbs, Deal 50% damage
+	[1] ESDebuffMovetime(39:42240) -> スピンアタック
+	Movetime 25% for 1 turn, Deal 51% damage
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#7: ESAttackMultihit(15:42245) -> 連続かみつき
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#8: ESRandomSpawn(92:42246) -> ボディプレス
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 7 random Water orbs, Deal 101% damage
+
+#9: ESBindAttack(63:42247) -> 咆哮
+Condition: 25% chance (ai:0 rnd:25)
+Bind 2 random subs for 2 turns, Deal 100% damage
+
+#10: ESGravity(50:42248) -> 突進
+Condition: 25% chance (ai:0 rnd:25)
+Player -99% HP
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:42243) -> 怒り
+	Increase damage to 150% for the next 999 turns
+	[1] ESTargetedSkillDelay(140:42244) -> 尻尾サマーソルト
+	Delay random sub's skills by 3 turns, Deal 100% damage
+
+#13: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESCloud(104:42241) -> 泡ブレス
+A 3×4 rectangle of clouds appears for 3 turns at 1st row, 2nd column, Deal 110% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESTypeResist(118:42249) -> 回復半減
+Reduce damage from Healer types by 50%

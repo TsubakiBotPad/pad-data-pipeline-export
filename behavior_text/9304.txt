@@ -1,0 +1,43 @@
+#9304 - マガイマガド
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9304
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42193:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (42176:83) 咆哮 + 鬼火まとい + 鬼火飛ばし
+ | Voids status ailments for 999 turns + Absorb Fire and Dark damage for 5 turns + Disable active skills for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (42191:15) かみつき
+   | Deal 102% damage (3 hits, 34% each)
+   | (42192:92) 尾槍・小突き
+   | Spawn 5 random Fire and Dark orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (42184:83) 尾槍・鬼火螺旋突き + 前脚なぎ払い
+     | Change the 1st, 3rd, and 5th columns to Fire orbs and the 2nd, 4th, and 6th columns to Dark orbs + Specific orbs change every 1.0s for 3 turns, Deal 52% damage
+   | group:
+     | condition: 50% chance
+     | (42187:71) 寝転がり前脚攻撃
+     | Void damage >= 1,000,000,000 for 1 turn, Deal 100% damage
+     | (42188:83) 大回り飛びかかり + 前脚攻撃
+     | Blind all orbs on the board + For 1 turn, 5% ATK for 2 random cards, Deal 50% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (42180:83) 尾槍・突進突き + かち上げ鬼火かみ
+     | Bind awoken skills for 1 turn + Spawn 15 random Bomb orbs
+   | group:
+     | (42183:15) 大鬼火怨み返し
+     | Deal 240% damage (3 hits, 80% each)

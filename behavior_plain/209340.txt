@@ -1,0 +1,47 @@
+#209340 - Cat Witch of the Surprise Visit, Nelle
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBoardChange(84:39645) -> Nyow it's time for a candy party!
+	Change all orbs to Fire, Water, Wood, Light, and Dark
+	[1] ESDebuffRCV(105:39646) -> Do you have any cute candy?
+	RCV 50% for 5 turns
+	[2] ESRandomSpawn(92:39647) -> The pink ones are purrrfect for me!
+	Spawn 5 random Heal orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchEraseAttr(117:39654) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 9
+
+#7: SkillSet:
+	[0] ESInactivity66(66:39652) -> Purrretty pleeease!
+	Do nothing
+	[1] ESRandomSpawn(92:39653) -> The pink ones are purrrfect for me!
+	Spawn 5 random Heal orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: Heal are erased (ai:100 rnd:0)
+	[0] ESInactivity66(66:39649) -> Thank you, my fur-iend!
+	Do nothing
+	[1] ESEndBattle(40:39650) -> Here's a treat as thanks!
+	Reduce self HP to 0
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

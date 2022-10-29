@@ -1,0 +1,18 @@
+#206619 - Enraptured Devil Dragonbound, Suou
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 206619
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39631:83) I came to play tricks on you! + You wanna get tricked, right? + If you pass, you're in for a treat. + Extinguish all the BURNING lights!
+ | Change leader to [5625] for 10 turns + Fix orb movement starting point to random position on the board + Change all orbs to Heal + Spawn 5 random Fire orbs
+ group:
+ | condition: when all Fire orbs are matched last turn
+ | (39636:83) Well done! + Not too shabby.
+ | Do nothing + Reduce self HP to 0
+ | (39639:83) Tsk tsk, there's still some left... + Really knuckle down this time! + Extinguish ALL the BURNING lights!
+ | Lock all Fire orbs + Change all orbs to Heal + Spawn 5 random Fire orbs
