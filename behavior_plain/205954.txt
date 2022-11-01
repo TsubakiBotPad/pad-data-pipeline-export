@@ -1,0 +1,35 @@
+#205954 - 機神王・グランディス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:40442) -> 機神王の防壁
+	Voids status ailments for 4 turns
+	[1] ESSpinnersRandom(109:40443) -> ラーヴァフレイム
+	Random 3 orbs change every 0.5s for 4 turns
+	[2] ESVoidShieldBig(137:40444) -> キングスボディ
+	Void damage >= 3,000,000,000 for 999 turns
+	[3] ESDisableAssists(141:40445) -> オーバーヒートロード
+	Disable active skills for 4 turns
+
+#3: SkillSet:
+	[0] ESChangeAttribute(46:40447) -> 機神王の変防
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:40448) -> ラーヴァシュラーヒート
+	Deal 1,000% damage (5 hits, 200% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESSuperResolve(129:40440) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#6: ESTurnChangeRemainingEnemies(122:40460) -> 敵の行動ターンが変化した
+Condition: when <= 1 enemies remain (ai:0 rnd:0)
+Enemy turn counter change to 1
