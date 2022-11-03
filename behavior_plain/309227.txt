@@ -1,4 +1,4 @@
-#309227 - 瞑想せし千手龍
+#309227 - Meditating Thousand-Armed Dragon
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:40135) -> 守晶
+	[0] ESStatusShield(20:40135) -> Protection Crystal
 	Voids status ailments for 4 turns
-	[1] ESUnknown(150:40136) -> 青光
+	[1] ESUnknown(150:40136) -> Blue Sheen
 	No description set
-	[2] ESDebuffATKTarget(143:40137) -> 晶波
+	[2] ESDebuffATKTarget(143:40137) -> Crystal Wave
 	For 4 turns, 50% ATK for 4 random subs
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -26,9 +26,9 @@ set counter = 4 if counter == 0
 countdown
 
 #6: SkillSet:
-	[0] ESChangeAttribute(46:40143) -> 蒼晶
+	[0] ESChangeAttribute(46:40143) -> Azure Crystal
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:40144) -> 蒼穹瞑想
+	[1] ESAttackMultihit(15:40144) -> Azure Sky Flash
 	Deal 1,000% damage (5 hits, 200% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -36,17 +36,17 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbThresholdBig(138:40139) -> 吸晶
+	[0] ESAbsorbThresholdBig(138:40139) -> Absorption Crystal
 	Absorb damage when damage >= 2,000,000,000 for 4 turns
-	[1] ESNoSkyfall(127:40140) -> 蒼晶
+	[1] ESNoSkyfall(127:40140) -> Azure Crystal
 	No skyfall for 4 turns
-	[2] ESUnknown(151:40141) -> 藍石
+	[2] ESUnknown(151:40141) -> Indigo Stone
 	No description set
 
 #9: SkillSet:
-	[0] ESChangeAttribute(46:40143) -> 蒼晶
+	[0] ESChangeAttribute(46:40143) -> Azure Crystal
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:40144) -> 蒼穹瞑想
+	[1] ESAttackMultihit(15:40144) -> Azure Sky Flash
 	Deal 1,000% damage (5 hits, 200% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -55,6 +55,6 @@ end_turn
 #11: ESTurnChangePassive(106:39735) -> Enemy's next turn changed
 Enemy turn counter change to 4 when HP <= 50%
 
-#12: ESDeathCry(69:40170) -> 変身
+#12: ESDeathCry(69:40170) -> Transformation
 Condition: On death (ai:0 rnd:0)
-Show message: 水晶が割れていく…|水晶からなにかが現れた！
+Show message: The crystal is cracking...|Something emerges from the inside!
