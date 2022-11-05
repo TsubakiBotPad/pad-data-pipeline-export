@@ -1,0 +1,25 @@
+#201657 - 裏魔騎士・クレーゼ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 201657
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (41504:83) 騎士の誇り + スチルゲイズアーマー
+ | Reduce damage from all sources by 90% for 1 turn + Forces attacks to hit this enemy for 99 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (41507:83) 呪いの甲冑 + 溢れ出す闇
+   | Change player HP to 50% for 3 turns + Blind random 8 orbs for 3 turns, Deal 60% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (41510:83) イービルクレスト + 藍魔衝
+   | Movetime 50% for 1 turn + Change the 1st and 6th columns to Dark orbs, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (41513:83) 暗黒のマント + 藍魔閃
+   | Blind all orbs on the board + Change the 1st and 5th rows to Dark orbs, Deal 90% damage

@@ -1,0 +1,32 @@
+#209399 - 湖の守護者・エレイン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209399
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41583:73) ＿エレイン根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (41584:83) 剣聖の加護 + ディレイクシャロウ + 神水の鞘杯
+ | Voids status ailments for 15 turns + Movetime 50% for 5 turns + Seal the 5th row for 5 turns, Deal 55% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (41588:83) ビュールスサンツ + 満ちる神水
+   | Absorb damage when combos <= 8 for 1 turn + Change the 3rd, 4th, and 5th rows to Water and Heal orbs, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (41591:83) アンブロジアス + 満ちる神水
+   | Absorb Water damage for 1 turn + Change the 2nd, 3rd, 4th, and 5th rows to Water and Heal orbs, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (41594:83) アヴァロンブレス + 満ちる神水
+   | Haste all cards' skills by 2 turns + Change all orbs to Water and Heal, Deal 105% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (41597:83) 反転する福音 + 満ちる神水
+   | For 1 turn, 50% chance for skyfall orbs to be blinded for turn + Change all orbs to Water, Deal 110% damage

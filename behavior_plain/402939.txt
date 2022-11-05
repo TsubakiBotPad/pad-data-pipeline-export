@@ -1,0 +1,72 @@
+#402939 - 真宝剣龍・ドラクリスト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:41517) -> アンチフィールド
+	Absorb Fire and Wood damage for 2 turns
+	[1] ESAbsorbCombo(67:41518) -> 乱剣
+	Absorb damage when combos <= 12 for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:41520) -> ナノブレイドシャープン
+	Change all orbs to Fire, Wood, and Jammer, Deal 105% damage
+	[1] ESAttackUPRemainingEnemies(17:41521) -> 燃え盛るたてがみ
+	Increase damage to 150% for the next 999 turns
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESSkyfall(68:41523) -> ソードサモン
+	Fire and Wood skyfall +20% for 1 turn
+	[1] ESBoardSizeChange(126:41524) -> 百剣の円卓
+	Change board size to 6x5 for 5 turns, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESDebuffATKTarget(143:41526) -> ソードシール
+	For 1 turn, 1% ATK for 1 random card
+	[1] ESBoardSizeChange(126:41527) -> 千剣の戦陣
+	Change board size to 7x6 for 5 turns, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: SkillSet:
+	[0] ESColumnSpawnMulti(77:41529) -> 炎の烈刃
+	Change the 1st and 6th columns to Fire orbs, Deal 40% damage
+	[1] ESAttackMultihit(15:41530) -> ガトリングエッジ
+	Deal 70% damage (5 hits, 14% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

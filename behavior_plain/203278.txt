@@ -1,0 +1,83 @@
+#203278 - 裏蒼翼の閃龍喚士・ナヴィ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESUnknown(152:41533) -> ステルスエレメント
+	No description set
+	[1] ESVoidShieldBig(137:41534) -> 閃龍紋
+	Void damage >= 3,000,000,000 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:41536) -> ハーモニックフェザー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESBoardChangeAttackBits(85:41537) -> シクァンナ
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 85% damage
+
+#9: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:41536) -> ハーモニックフェザー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESOrbLock(94:41539) -> バリスク
+	Lock 10 random orbs, Deal 100% damage
+
+#10: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:41536) -> ハーモニックフェザー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESSpinnersRandom(109:41541) -> エカトール
+	Random 3 orbs change every 1.0s for 1 turn, Deal 95% damage
+
+#11: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:41536) -> ハーモニックフェザー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:41543) -> ヌファンガ
+	Deal 105% damage (5 hits, 21% each)
+
+#12: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:41536) -> ハーモニックフェザー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESUnknown(151:41545) -> ダハーカ
+	No description set, Deal 97% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:41547) -> 油断はいけません！
+	Voids status ailments for 15 turns
+	[1] ESAbsorbThresholdBig(138:41548) -> ドラファイズオーダー
+	Absorb damage when damage >= 1,000,000,000 for 3 turns, Deal 110% damage
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESTypeResist(118:41531) -> ＿ナヴィドラゴン半減
+Reduce damage from Dragon types by 50%

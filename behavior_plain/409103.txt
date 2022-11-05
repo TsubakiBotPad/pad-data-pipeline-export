@@ -1,4 +1,4 @@
-#409103 - Viridian Bony Empress, Skull Maiden
+#409103 - 悪のカリスマ ドクター・ドゥーム
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:38991) -> I am Skull Maiden...
+	[0] ESStatusShield(20:38991) -> 余はドゥーム
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:38992) -> ...brought into being by the Skull Curator...
+	[1] ESAbsorbAttribute(53:38992) -> よかろう、全力で臨もうぞ
 	Absorb Fire, Water, and Wood damage for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESAttackUPRemainingEnemies(17:38993) -> You saw my face, didn't you?
+#6: ESAttackUPRemainingEnemies(17:38993) -> 余を怒らせるな
 Condition: When < 50% HP, when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns, Deal 90% damage
 
@@ -35,7 +35,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESDebuffATKTarget(143:38994) -> There is only one who may see my face.
+#10: ESDebuffATKTarget(143:38994) -> 自分が上だと思っておるな？
 For 1 turn, 1% ATK for 1 random sub, Deal 85% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -44,7 +44,7 @@ end_turn
 #12: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#13: ESAttributeBlock(107:38995) -> Artificial Flame
+#13: ESAttributeBlock(107:38995) -> 敗北を味わえ！
 Unable to match Light and Dark orbs for 1 turn, Deal 80% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -53,11 +53,11 @@ end_turn
 #15: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#16: ESBoardChangeAttackBits(85:38996) -> I bring unto you eternal good tidings...
+#16: ESBoardChangeAttackBits(85:38996) -> ミスティカル・ブラスト
 Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 90% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:38989) -> ＿Super Resolve
+#18: ESSuperResolve(129:38989) -> ＿ドゥーム超根性
 Damage which would reduce HP from above 50% to below 50% is nullified

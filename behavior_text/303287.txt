@@ -1,0 +1,21 @@
+#303287 - パイロメア
+monster size: 2
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 303287
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (38464:15) 先手必勝！
+ | Deal 5% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3, hp <= 100
+   | (5918:102) これでもくらえっ！
+   | Spawn 3 random Bomb orbs
+ | group:
+ | condition: hp <= 19
+   | (5919:92) バーンヒットウィップ
+   | Spawn 5 random Fire orbs, Deal 200% damage

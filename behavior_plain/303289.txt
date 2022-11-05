@@ -1,0 +1,22 @@
+#303289 - タウロスメア
+monster size: 2
+new AI: True
+start/max counter: 2
+counter increment: 1
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 3
+
+#2: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#3: ESAttackMultihit(15:5923) -> シュタインメテオ
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 200% damage
+
+#4: ESSkillDelay(89:5922) -> ふん、ふ～ん♪
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Delay active skills by 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
