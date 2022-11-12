@@ -1,4 +1,4 @@
-#201897 - 裏アースドラゴンナイト
+#201897 - Alt. Earth Dragon Knight
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:41724) -> 騎士の誓い
+	[0] ESStatusShield(20:41724) -> Oath of the Knight
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:41725) -> 地龍の紋章
+	[1] ESAbsorbCombo(67:41725) -> Earth Dragon's Crest
 	Absorb damage when combos <= 8 for 1 turn
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,22 +22,22 @@ Branch on hp < 50, target rnd 9
 
 #5: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESAbsorbCombo(67:41736) -> アースオーラ
+	[0] ESAbsorbCombo(67:41736) -> Earth Aura
 	Absorb damage when combos <= 8 for 1 turn
-	[1] ESOrbChangeAttackBits(108:41737) -> 地龍斬
+	[1] ESOrbChangeAttackBits(108:41737) -> Earth Dragon's Slash
 	Change all Heal orbs to Wood orbs, Deal 100% damage
 
 #6: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESAbsorbCombo(67:41739) -> アースオーラ
+	[0] ESAbsorbCombo(67:41739) -> Earth Aura
 	Absorb damage when combos <= 9 for 1 turn
-	[1] ESOrbChangeAttackBits(108:41740) -> 地龍斬
+	[1] ESOrbChangeAttackBits(108:41740) -> Earth Dragon's Slash
 	Change all Fire orbs to Wood orbs, Deal 101% damage
 
 #7: SkillSet:
-	[0] ESAbsorbCombo(67:41742) -> アースオーラ
+	[0] ESAbsorbCombo(67:41742) -> Earth Aura
 	Absorb damage when combos <= 7 for 1 turn
-	[1] ESVoidShield(71:41743) -> 地龍の盾
+	[1] ESVoidShield(71:41743) -> Earth Dragon's Shield
 	Void damage >= 500,000,000 for 1 turn, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -45,9 +45,9 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:41733) -> アースオーラ
+	[0] ESAbsorbCombo(67:41733) -> Earth Aura
 	Absorb damage when combos <= 12 for 1 turn
-	[1] ESBoardSizeChange(126:41734) -> 地龍の領域
+	[1] ESBoardSizeChange(126:41734) -> Earth Dragon's Domain
 	Change board size to 7x6 for 1 turn, Deal 100% damage
 
 #10: ESBranchHP(28:18) -> ESBranchHP
@@ -60,27 +60,27 @@ Branch on flag & 1, target rnd 15
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESBindAwoken(88:41727) -> アースウェーブ
+	[0] ESBindAwoken(88:41727) -> Earth Wave
 	Bind awoken skills for 1 turn
-	[1] ESRandomSpawn(92:41728) -> 龍撃態勢・木
+	[1] ESRandomSpawn(92:41728) -> Dragon Strike Stance - Wood
 	Spawn 13 random Wood orbs
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #15: SkillSet:
-	[0] ESChangeAttribute(46:41730) -> 武器を構えた
+	[0] ESChangeAttribute(46:41730) -> He readies his weapon
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:41731) -> 滅龍撃
+	[1] ESAttackMultihit(15:41731) -> Destructive Dragon Strike
 	Deal 490% damage (7 hits, 70% each)
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESAttributeResist(72:41746) -> 木半減
+#17: ESAttributeResist(72:41746) -> Wood Halved
 Reduce damage from Wood attrs by 50%
 
 #18: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESSkyfall(68:41744) -> 騎士の呪い
+	[0] ESSkyfall(68:41744) -> Curse of the Knight
 	Jammer skyfall +15% for 5 turns

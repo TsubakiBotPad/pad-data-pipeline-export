@@ -1,0 +1,24 @@
+#409455 - 太古に刻まれし万寿龍
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 409455
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (42899:83) 龍碑結界 + 万龍石碑 + 太古の波動
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000,000 for 4 turns + For 3 turns, 1% ATK for 2 random cards
+ group:
+ | group:
+ | condition: turns 1-2
+   | (42905:143) 龍碑波
+   | For 3 turns, 1% ATK for 1 random card, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (42903:17) 太古の怒り
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+   | (42906:15) 万寿無疆
+   | Deal 1,000% damage (5 hits, 200% each)

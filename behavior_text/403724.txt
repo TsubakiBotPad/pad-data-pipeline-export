@@ -1,0 +1,38 @@
+#403724 - 真光の宝珠龍・ヨウビ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 403724
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (42616:72) 闇軽減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (42881:110) 光輪
+ | Specific orbs change every 1.0s for 7 turns, Deal 100% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (42884:83) 白麗の加護 + 憤怒の形相 + 艶龍咆哮
+   | Voids status ailments for 999 turns + Increase damage to 1,000% for the next 1 turn + Voids player buff effects
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (42882:94) 金輪棘
+   | Lock 10 random orbs, Deal 100% damage
+   | condition: 50% chance
+   | (42883:94) 金輪棘
+   | Lock 8 random orbs, Deal 100% damage
+ | group:
+   | (42624:15) 終焉の万象
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (42888:85) 金輪邪爪
+ | Change all orbs to Jammer, Deal 100% damage
+ | (42889:85) 金輪命爪
+ | Change all orbs to Heal, Deal 100% damage

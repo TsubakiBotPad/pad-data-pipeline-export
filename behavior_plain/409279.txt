@@ -1,4 +1,4 @@
-#409279 - ロイヤルオークハンギョドン
+#409279 - Royal Oak Hangyodon
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESVoidShieldBig(137:41326) -> ブリングスマイル
+	[0] ESVoidShieldBig(137:41326) -> Contagious Smile
 	Void damage >= 2,000,000,000 for 3 turns
-	[1] ESAbsorbCombo(67:41327) -> ヒーローへの憧れ
+	[1] ESAbsorbCombo(67:41327) -> Aspiration to Become a Hero
 	Absorb damage when combos <= 7 for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESRecoverEnemy86(86:41328) -> スマイルリペア
+#6: ESRecoverEnemy86(86:41328) -> Smile Repair
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Enemy recover 100% HP, Deal 90% damage
 
@@ -32,7 +32,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESFixedStart(101:41329) -> スマイルチェイン
+#9: ESFixedStart(101:41329) -> Smile Chain
 Fix orb movement starting point to random position on the board, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -41,7 +41,7 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESRowSpawnMulti(79:41330) -> サブマリンスマイル
+#12: ESRowSpawnMulti(79:41330) -> Submarine Smile
 Change the 4th and 5th rows to Water and Dark orbs, Deal 105% damage
 
 #13: ESEndPath(36:26) -> ESEndPath

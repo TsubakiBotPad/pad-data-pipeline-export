@@ -1,0 +1,65 @@
+#405553 - 転生貂蝉
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESStatusShield(20:42739) -> 歌姫神の魂
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:42740) -> 清風明月の秘舞
+	Delay active skills by 2 turns
+	[2] ESCloud(104:42741) -> 私と遊びましょう…
+	A 2×2 square of clouds appears for 4 turns at a random location
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 10
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESBombRandomSpawn(102:42745) -> 光舞
+	Spawn 6 random Bomb orbs
+	[1] ESBlindStickyRandom(97:42746) -> うふふ…
+	Blind random 6 orbs for 1 turn, Deal 75% damage
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBombRandomSpawn(102:42748) -> 光舞
+	Spawn 8 random Bomb orbs
+	[1] ESSpinnersFixed(110:42749) -> うふふふ…
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombRandomSpawn(102:42751) -> 光舞
+	Spawn 12 random locked Bomb orbs
+	[1] ESOrbSealColumn(99:42752) -> そろそろ遊びは終わりよ…
+	Seal the 6th column for 1 turn, Deal 125% damage
+
+#8: ESAttackMultihit(15:42742) -> 閃光蝶円舞
+Deal 1,000% damage (2 hits, 500% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	[0] ESBindAwoken(88:42623) -> 万寿の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:42624) -> 終焉の万象
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESAttributeResist(72:42616) -> 闇軽減
+Reduce damage from Dark attrs by 50%

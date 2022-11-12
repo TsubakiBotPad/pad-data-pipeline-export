@@ -1,0 +1,32 @@
+#401602 - 真蒼頂の華龍・スターリング
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 401602
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (42680:83) ゴシックローズ + トランスルーセントコールド + コールフローズン
+ | Voids status ailments for 999 turns + Absorb damage when damage >= 1,000,000,000 for 7 turns + Water and Wood skyfall +20% for 3 turns, Deal 230% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (42685:83) アイスアンドローゼズ + フローズンペイン
+     | Change the 3rd and 4th columns to Heal and Jammer orbs + Change all Jammer orbs to Water orbs, Deal 50% damage
+     | condition: 50% chance
+     | (42688:83) グラスフォーリング + フローズンペイン
+     | No skyfall for 1 turn + Change the 1st column to Jammer orbs, the 3rd column to Heal orbs, and the 5th column to Water orbs, Deal 50% damage
+   | group:
+     | (42622:83) 万寿の波動 + 終焉の万象
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (42684:105) ペインオブサッドネス
+   | RCV 50% for 3 turns

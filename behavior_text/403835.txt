@@ -1,0 +1,38 @@
+#403835 - 真火の戦武龍・ゴウラ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 403835
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (42854:6) 戦火の咆哮
+ | Voids player buff effects
+ | (42678:137) 業炎鱗
+ | Void damage >= 1,000,000,000 for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (42857:83) 戦火の結界 + 怒り火 + 業火の地維
+   | Voids status ailments for 999 turns + Increase damage to 1,000% for the next 1 turn + Absorb damage when combos <= 10 for 1 turn
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (42855:67) 焚火
+   | Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (42856:67) 焚火
+   | Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+ | group:
+   | (42624:15) 終焉の万象
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (42861:151) 戦火の咆哮
+ | No description set
+ | (42862:67) 焚火
+ | Absorb damage when combos <= 9 for 1 turn, Deal 100% damage

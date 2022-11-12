@@ -1,0 +1,24 @@
+#403499 - 真転生劉備
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 403499
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (42791:83) 英傑神の波動 + こいつはなかなか痛いぞ… + くらうがいい！
+ | Delay active skills by 3 turns + No skyfall for 1 turn + ATK -50% for 1 turn, Deal 95% damage
+ type: DEATH
+ condition: when defeated
+ | (42798:95) 冥土の土産にくれてやる…
+ | RCV 50% for 3 turns
+ group:
+ | group:
+ | condition: turns 1-6
+   | (42795:83) 今度はすごく痛いぞ… + 空烈嵐衝突
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 120% damage (4 hits, 30% each), Deal 120% damage (4 hits, 30% each)
+ | group:
+   | (42622:83) 万寿の波動 + 終焉の万象
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

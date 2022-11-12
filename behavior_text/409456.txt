@@ -1,0 +1,57 @@
+#409456 - 万寿龍・クーバンシェン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 409456
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42621:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (42907:83) 万寿の加護 + 柳暗花明 + 万龍石碑
+ | Voids status ailments for 999 turns + For 9 turns, 15% chance for skyfall orbs to be blinded for turn + Void damage >= 2,000,000,000 for 999 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (42920:83) 嵐影湖光 + 万龍風月の理
+   | No description set + Change all Fire orbs to Wood orbs, Deal 90% damage
+   | condition: 25% chance
+   | (42923:83) 風光明媚 + 万龍風月の理
+   | Absorb damage when combos <= 7 for 1 turn + No skyfall for 1 turn
+   | condition: 25% chance
+   | (42926:83) 満目荒涼 + 万龍風月の理
+   | For 1 turn, 25% ATK for both leaders + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+   | condition: 25% chance
+   | (42637:83) 満目蕭条 + 万龍風月の理
+   | No description set + Lock 10 random orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (42911:83) 太古の偉観 + 万龍碑風 + 柳暗花明の理
+     | No description set + Delay active skills by 3 turns + Blind random 15 orbs for 1 turn, Deal 225% damage
+   | group:
+     | condition: 25% chance
+     | (42929:83) 嵐影湖光 + 万龍風月の理
+     | No description set + Change all Fire orbs to Wood orbs, Deal 95% damage
+     | condition: 25% chance
+     | (42932:83) 風光明媚 + 万龍風月の理
+     | Absorb damage when combos <= 8 for 1 turn + No skyfall for 1 turn
+     | condition: 25% chance
+     | (42935:83) 満目荒涼 + 万龍風月の理
+     | For 1 turn, 1% ATK for 1 random card + Deal 110% damage (2 hits, 55% each), Deal 110% damage (2 hits, 55% each)
+     | condition: 25% chance
+     | (42640:83) 満目蕭条 + 万龍風月の理
+     | No description set + Lock 15 random orbs, Deal 95% damage
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (42915:83) 太古の怒り + 万龍碑風 + 柳暗花明
+     | Increase damage to 1,000% for the next 999 turns + Delay active skills by 4 turns + Blind all orbs for 1 turn
+   | group:
+     | (42919:85) 山紫水明の理
+     | Change all orbs to Wood, Deal 1,000% damage

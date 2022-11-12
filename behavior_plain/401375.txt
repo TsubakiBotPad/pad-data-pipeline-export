@@ -1,0 +1,79 @@
+#401375 - 天星の命龍神・諸葛亮
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:42644) -> 命龍神の守り
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:42645) -> 天界の八陣
+	Absorb Light and Dark damage for 7 turns
+	[2] ESCloud(104:42646) -> 水明星心の占術
+	A row of clouds appears for 3 turns at a random location, Deal 20% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRandomSpawn(92:42650) -> 羽毛扇
+	Spawn 4 random Dark orbs
+	[1] ESUnknown(151:42651) -> 反撃の闇計
+	No description set, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESRandomSpawn(92:42653) -> 羽毛扇
+	Spawn 4 random Dark orbs
+	[1] ESOrbChangeAttackBits(108:42654) -> 光呼びの祈り
+	Change all Dark orbs to Light orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESBindRandom(1:42648) -> 石兵八陣
+Bind 6 random cards for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:42647) -> 終計・命龍の矢の雨
+Deal 1,000% damage (10 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:42623) -> 万寿の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:42624) -> 終焉の万象
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESAttributeResist(72:42616) -> 闇軽減
+Reduce damage from Dark attrs by 50%

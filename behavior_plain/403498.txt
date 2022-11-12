@@ -1,0 +1,71 @@
+#403498 - 真転生孫権
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:42779) -> 明察の王威
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:42780) -> 雄渾
+	Reduce damage from all sources by 90% for 3 turns
+	[2] ESDebuffATK(130:42781) -> 将軍神の波動
+	ATK -50% for 3 turns, Deal 95% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 13
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 8
+
+#6: SkillSet:
+	[0] ESBoardChange(84:42783) -> 剣雨
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[1] ESUnknown(151:42784) -> 流水斬
+	No description set, Deal 45% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#9: ESAttackMultihit(15:42788) -> 虚空蒼流閃
+Deal 180% damage (6 hits, 30% each)
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShieldBig(137:42786) -> 将軍神の王道
+	Void damage >= 1,000,000,000 for 4 turns
+	[1] ESDebuffATK(130:42787) -> 虚心坦懐の慧眼
+	ATK -75% for 4 turns
+
+#11: SkillSet:
+	[0] ESBoardChange(84:42783) -> 剣雨
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
+	[1] ESUnknown(151:42784) -> 流水斬
+	No description set, Deal 45% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:42623) -> 万寿の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:42624) -> 終焉の万象
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESDebuffMovetime(39:42790) -> ただでは死にませんよ…
+	Movetime 50% for 4 turns

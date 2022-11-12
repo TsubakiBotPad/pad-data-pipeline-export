@@ -1,0 +1,70 @@
+#401601 - 真極艶の蝶龍・スワロウテイル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:42668) -> 空舞粉壁
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:42669) -> 吸収粉風
+	Absorb damage when damage >= 1,000,000,000 for 7 turns
+	[2] ESSkyfall(68:42670) -> 命鱗粉
+	Heal skyfall +20% for 3 turns, Deal 230% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbChangeAttack(48:42673) -> 命粉
+	Change a random attribute to Heal orbs, Deal 50% damage
+	[1] ESOrbLock(94:42674) -> 邪鱗粉
+	Lock all Heal orbs, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESOrbChangeAttack(48:42676) -> 邪粉
+	Change a random attribute to Jammer orbs, Deal 50% damage
+	[1] ESOrbLock(94:42677) -> 花邪爪
+	Lock all Jammer orbs, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESDebuffMovetime(39:42671) -> 極艶粉風
+Movetime 50% for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:42623) -> 万寿の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:42624) -> 終焉の万象
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#16: ESAttributeResist(72:42615) -> 光軽減
+Reduce damage from Light attrs by 50%

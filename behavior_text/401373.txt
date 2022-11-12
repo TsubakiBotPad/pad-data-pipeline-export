@@ -1,0 +1,38 @@
+#401373 - 俊才の臥龍神・諸葛亮
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 401373
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (42615:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (42655:83) 臥龍神の守り + 開化の兵法 + 百戦百勝の求道
+ | Voids status ailments for 999 turns + Absorb Fire and Wood damage for 7 turns + Seal the 6th column for 3 turns, Deal 20% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (42661:83) 羽毛扇 + 反撃の火計
+     | Spawn 4 random Fire orbs + No description set, Deal 100% damage
+     | condition: 50% chance
+     | (42664:83) 羽毛扇 + 風呼びの祈り
+     | Spawn 4 random Fire orbs + Change all Fire orbs to Wood orbs, Deal 100% damage
+   | group:
+     | (42622:83) 万寿の波動 + 終焉の万象
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (42660:14) 石兵八陣
+   | Bind active skills for 5 turns
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (42659:15) 終計・臥龍の矢の雨
+   | Deal 1,000% damage (10 hits, 100% each)

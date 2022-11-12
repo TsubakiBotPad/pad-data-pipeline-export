@@ -1,0 +1,36 @@
+#403836 - 真水の戦武龍・センシュ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 403836
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (42863:141) 流動砲
+ | Disable active skills for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (42866:83) 戦水の結界 + 水宝の怒り + 水面鏡
+   | Voids status ailments for 999 turns + Increase damage to 1,000% for the next 1 turn + No description set
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (42864:150) 漣水
+   | No description set, Deal 100% damage
+   | condition: 50% chance
+   | (42865:151) 滾龍爪
+   | No description set, Deal 100% damage
+ | group:
+   | (42624:15) 終焉の万象
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (42870:151) 流動砲
+ | No description set
+ | (42871:150) 漣水
+ | No description set, Deal 100% damage

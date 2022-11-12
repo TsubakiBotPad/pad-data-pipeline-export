@@ -1,0 +1,67 @@
+#401602 - 真蒼頂の華龍・スターリング
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:42681) -> ゴシックローズ
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:42682) -> トランスルーセントコールド
+	Absorb damage when damage >= 1,000,000,000 for 7 turns
+	[2] ESSkyfall(68:42683) -> コールフローズン
+	Water and Wood skyfall +20% for 3 turns, Deal 230% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 13
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESColumnSpawnMulti(77:42686) -> アイスアンドローゼズ
+	Change the 3rd and 4th columns to Heal and Jammer orbs, Deal 50% damage
+	[1] ESOrbChangeAttackBits(108:42687) -> フローズンペイン
+	Change all Jammer orbs to Water orbs, Deal 50% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESNoSkyfall(127:42689) -> グラスフォーリング
+	No skyfall for 1 turn
+	[1] ESColumnSpawnMulti(77:42690) -> フローズンペイン
+	Change the 1st column to Jammer orbs, the 3rd column to Heal orbs, and the 5th column to Water orbs, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESDebuffRCV(105:42684) -> ペインオブサッドネス
+RCV 50% for 3 turns
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	[0] ESBindAwoken(88:42623) -> 万寿の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:42624) -> 終焉の万象
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%

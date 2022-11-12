@@ -1,4 +1,4 @@
-#201614 - 裏火の魔法使い・ライラ
+#201614 - Alt. Fire Wizard, Laila
 monster size: 5
 new AI: True
 start/max counter: 63
@@ -9,24 +9,24 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 32)
-	[0] ESStatusShield(20:41951) -> いらっしゃい！
+	[0] ESStatusShield(20:41951) -> Welcome!
 	Voids status ailments for 999 turns
-	[1] ESInvulnerableOn(119:41926) -> 課題をクリアしてね！
+	[1] ESInvulnerableOn(119:41926) -> Pass my challenges!
 	Immune to damage from all sources for 999 turns
-	[2] ESDebuffMovetime(39:41927) -> ライラの瞳
+	[2] ESDebuffMovetime(39:41927) -> Laila's Eyes
 	Movetime 50% for 6 turns
-	[3] ESBlindStickySkyfall(128:41928) -> マジックレイン
+	[3] ESBlindStickySkyfall(128:41928) -> Magic Rain
 	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
-	[4] ESInactivity66(66:41929) -> 最初に準備していいよ！
+	[4] ESInactivity66(66:41929) -> You can get ready first!
 	Do nothing
 
 #3: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 16)
-	[0] ESBindAwoken(88:41931) -> それじゃあ、いくよ！
+	[0] ESBindAwoken(88:41931) -> Okay, here goes!
 	Bind awoken skills for 10 turns
-	[1] ESBindSkill(14:41932) -> まずは…
+	[1] ESBindSkill(14:41932) -> First up...
 	Bind active skills for 4 turns
-	[2] ESBoardChange(84:41933) -> 5色消してね！
+	[2] ESBoardChange(84:41933) -> Erase 5 colors in one go!
 	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
 
 #4: ESBranchFlag(43:10) -> ESBranchFlag
@@ -39,9 +39,9 @@ flag SET 0b1
 Branch on color erased == 0, target rnd 9
 
 #7: SkillSet:
-	[0] ESChangeAttribute(46:41949) -> 残念だったね！
+	[0] ESChangeAttribute(46:41949) -> Better luck next time!
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:41950) -> また挑戦してね！
+	[1] ESAttackMultihit(15:41950) -> Come challenge me again!
 	Deal 8,000% damage (8 hits, 1,000% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -49,9 +49,9 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use & Fire, Water, Wood, Light, and Dark are erased (ai:100 rnd:0) (cost: 8)
-	[0] ESBoardChange(84:41935) -> 次いくよ！
+	[0] ESBoardChange(84:41935) -> Next up...!
 	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal
-	[1] ESAbsorbCombo(67:41936) -> 5コンボできるかな？
+	[1] ESAbsorbCombo(67:41936) -> I wonder...can you make 5 combos?
 	Absorb damage when combos <= 4 for 1 turn
 
 #10: ESBranchFlag(43:10) -> ESBranchFlag
@@ -64,9 +64,9 @@ flag SET 0b11
 Branch on combo >= 5, target rnd 15
 
 #13: SkillSet:
-	[0] ESChangeAttribute(46:41949) -> 残念だったね！
+	[0] ESChangeAttribute(46:41949) -> Better luck next time!
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:41950) -> また挑戦してね！
+	[1] ESAttackMultihit(15:41950) -> Come challenge me again!
 	Deal 8,000% damage (8 hits, 1,000% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -74,11 +74,11 @@ end_turn
 
 #15: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESRandomSpawn(92:41938) -> 次いくよ！
+	[0] ESRandomSpawn(92:41938) -> Next up...!
 	Spawn 5 random Jammer orbs
-	[1] ESSpinnersFixed(110:41939) -> マジックルーレット
+	[1] ESSpinnersFixed(110:41939) -> Magical Roulette
 	Specific orbs change every 0.5s for 1 turn
-	[2] ESAttributeBlock(107:41940) -> お邪魔ドロップは残さないで！
+	[2] ESAttributeBlock(107:41940) -> Erase all the Jammers!
 	Unable to match Jammer orbs for 1 turn
 
 #16: ESBranchFlag(43:10) -> ESBranchFlag
@@ -92,9 +92,9 @@ Branch on attributes on board HAS 0, target rnd 7
 
 #19: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESInactivity66(66:41942) -> 次いくよ！
+	[0] ESInactivity66(66:41942) -> Next up...!
 	Do nothing
-	[1] ESBoardChange(84:41943) -> お邪魔と毒を…
+	[1] ESBoardChange(84:41943) -> See all the Poison Orbs and Jammers?
 	Change all orbs to Jammer and Poison
 
 #20: ESBranchFlag(43:10) -> ESBranchFlag
@@ -111,17 +111,17 @@ Branch on attributes on board HAS 0, target rnd 7
 
 #24: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESInvulnerableOff(121:41945) -> すごいね！
+	[0] ESInvulnerableOff(121:41945) -> Wowee!
 	Remove damage immunity effect
-	[1] ESBoardChange(84:41946) -> 最後は…
+	[1] ESBoardChange(84:41946) -> Last one...!
 	Change all orbs to Fire
-	[2] ESInactivity66(66:41947) -> 全力できてね！
+	[2] ESInactivity66(66:41947) -> Give it your all!
 	Do nothing
 
 #25: SkillSet:
-	[0] ESChangeAttribute(46:41949) -> 残念だったね！
+	[0] ESChangeAttribute(46:41949) -> Better luck next time!
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:41950) -> また挑戦してね！
+	[1] ESAttackMultihit(15:41950) -> Come challenge me again!
 	Deal 8,000% damage (8 hits, 1,000% each)
 
 #26: ESEndPath(36:26) -> ESEndPath
@@ -129,5 +129,5 @@ end_turn
 
 #27: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:41956) -> キミの勝ちだよ！
+	[0] ESInactivity66(66:41956) -> You win!
 	Do nothing

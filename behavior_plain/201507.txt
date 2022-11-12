@@ -1,4 +1,4 @@
-#201507 - 裏シャインドラゴンナイト
+#201507 - Alt. Shining Dragon Knight
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:41748) -> 騎士の誓い
+	[0] ESStatusShield(20:41748) -> Oath of the Knight
 	Voids status ailments for 999 turns
-	[1] ESUnknown(152:41749) -> 輝龍の紋章
+	[1] ESUnknown(152:41749) -> Shining Dragon's Crest
 	No description set
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,15 +22,15 @@ Branch on hp < 50, target rnd 8
 
 #5: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESOrbSealRow(100:41760) -> シャインフィールド
+	[0] ESOrbSealRow(100:41760) -> Shining Field
 	Seal the 1st row for 1 turn
-	[1] ESOrbChangeAttackBits(108:41761) -> 光輝斬
+	[1] ESOrbChangeAttackBits(108:41761) -> Bright Shining Slash
 	Change all Heal orbs to Light orbs, Deal 100% damage
 
 #6: SkillSet:
-	[0] ESCloud(104:41763) -> サンダークラウド
+	[0] ESCloud(104:41763) -> Thunderclouds
 	A 2×2 square of clouds appears for 1 turn at a random location
-	[1] ESAttackMultihit(15:41764) -> 龍撃斬
+	[1] ESAttackMultihit(15:41764) -> Dragon Strike Slash
 	Deal 102% damage (3 hits, 34% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -38,9 +38,9 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindRandom(1:41757) -> 騎士の束縛
+	[0] ESBindRandom(1:41757) -> Shackles of the Knight
 	Bind 6 random cards for 3 turns
-	[1] ESColumnSpawnMulti(77:41758) -> 輝龍斬
+	[1] ESColumnSpawnMulti(77:41758) -> Shining Dragon's Slash
 	Change the 1st, 2nd, 5th, and 6th columns to Light orbs, Deal 100% damage
 
 #9: ESBranchHP(28:18) -> ESBranchHP
@@ -53,18 +53,18 @@ Branch on flag & 1, target rnd 14
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESBindAwoken(88:41751) -> シャインウェーブ
+	[0] ESBindAwoken(88:41751) -> Shine Wave
 	Bind awoken skills for 1 turn
-	[1] ESRandomSpawn(92:41752) -> 龍撃態勢・光
+	[1] ESRandomSpawn(92:41752) -> Dragon Strike Stance - Light
 	Spawn 13 random Light orbs
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #14: SkillSet:
-	[0] ESChangeAttribute(46:41754) -> 武器を構えた
+	[0] ESChangeAttribute(46:41754) -> He readies his weapon
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:41755) -> 滅龍撃
+	[1] ESAttackMultihit(15:41755) -> Destructive Dragon Strike
 	Deal 490% damage (7 hits, 70% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -72,5 +72,5 @@ end_turn
 
 #16: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESSkyfall(68:41765) -> 騎士の呪い
+	[0] ESSkyfall(68:41765) -> Curse of the Knight
 	Light skyfall +15% for 5 turns

@@ -1,4 +1,4 @@
-#201899 - 裏シャドウドラゴンナイト
+#201899 - Alt. Shadow Dragon Knight
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESBlindStickySkyfall(128:41769) -> 騎士の誓い
+	[0] ESBlindStickySkyfall(128:41769) -> Oath of the Knight
 	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
-	[1] ESAttackUPRemainingEnemies(17:41770) -> 影龍の紋章
+	[1] ESAttackUPRemainingEnemies(17:41770) -> Shadow Dragon's Crest
 	Increase damage to 300% for the next 1 turn
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -19,22 +19,22 @@ Branch on hp < 15, target rnd 8
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:41778) -> 影龍の守り
+	[0] ESStatusShield(20:41778) -> Shadow Dragon's Protection
 	Voids status ailments for 999 turns
-	[1] ESAttackMultihit(15:41779) -> 龍撃斬
+	[1] ESAttackMultihit(15:41779) -> Dragon Strike Slash
 	Deal 75% damage (3 hits, 25% each)
 
 #5: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESDebuffATKTarget(143:41781) -> 影龍の心眼
+	[0] ESDebuffATKTarget(143:41781) -> Shadow Dragon's Insight
 	For 1 turn, 5% ATK for 4 random subs
-	[1] ESPoisonChangeRandomAttack(64:41782) -> シャドウポイズン
+	[1] ESPoisonChangeRandomAttack(64:41782) -> Shadow Poison
 	Change 7 random orbs to Poison orbs, Deal 100% damage
 
 #6: SkillSet:
-	[0] ESBombRandomSpawn(102:41784) -> シャドウボム
+	[0] ESBombRandomSpawn(102:41784) -> Shadow Bomb
 	Spawn 7 random locked Bomb orbs
-	[1] ESColumnSpawnMulti(77:41785) -> 影龍の闇斬
+	[1] ESColumnSpawnMulti(77:41785) -> Shadow Dragon's Dark Slash
 	Change the 5th and 6th columns to Dark orbs, Deal 100% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -47,27 +47,27 @@ Branch on flag & 1, target rnd 12
 flag SET 0b1
 
 #10: SkillSet:
-	[0] ESBindAwoken(88:41772) -> シャドウウェーブ
+	[0] ESBindAwoken(88:41772) -> Shadow Wave
 	Bind awoken skills for 1 turn
-	[1] ESRandomSpawn(92:41773) -> 龍撃態勢・闇
+	[1] ESRandomSpawn(92:41773) -> Dragon Strike Stance - Dark
 	Spawn 13 random Dark orbs
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #12: SkillSet:
-	[0] ESChangeAttribute(46:41775) -> 武器を構えた
+	[0] ESChangeAttribute(46:41775) -> He readies his weapon
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:41776) -> 滅龍撃
+	[1] ESAttackMultihit(15:41776) -> Destructive Dragon Strike
 	Deal 490% damage (7 hits, 70% each)
 
-#13: ESAttributeResist(72:41788) -> 闇半減
+#13: ESAttributeResist(72:41788) -> Dark Halved
 Reduce damage from Dark attrs by 50%
 
 #14: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESSkyfall(68:41786) -> 騎士の呪い
+	[0] ESSkyfall(68:41786) -> Curse of the Knight
 	Poison skyfall +15% for 5 turns
 
-#15: ESSuperResolve(129:41789) -> 超根性50％
+#15: ESSuperResolve(129:41789) -> Super Resolve 50％
 Damage which would reduce HP from above 50% to below 50% is nullified

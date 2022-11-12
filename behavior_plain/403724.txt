@@ -1,0 +1,72 @@
+#403724 - 真光の宝珠龍・ヨウビ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSpinnersFixed(110:42881) -> 光輪
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Specific orbs change every 1.0s for 7 turns, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 12
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#7: ESBoardChangeAttackBits(85:42888) -> 金輪邪爪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Jammer, Deal 100% damage
+
+#8: ESBoardChangeAttackBits(85:42889) -> 金輪命爪
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Heal, Deal 100% damage
+
+#9: ESOrbLock(94:42882) -> 金輪棘
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 100% damage
+
+#10: ESOrbLock(94:42883) -> 金輪棘
+Condition: 50% chance (ai:0 rnd:50)
+Lock 8 random orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESStatusShield(20:42885) -> 白麗の加護
+	Voids status ailments for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:42886) -> 憤怒の形相
+	Increase damage to 1,000% for the next 1 turn
+	[2] ESDispel(6:42887) -> 艶龍咆哮
+	Voids player buff effects
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:42624) -> 終焉の万象
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESAttributeResist(72:42616) -> 闇軽減
+Reduce damage from Dark attrs by 50%

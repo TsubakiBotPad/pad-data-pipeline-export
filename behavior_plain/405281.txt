@@ -1,4 +1,4 @@
-#405281 - ウミキキヤマララ
+#405281 - UmiKiki & YamaLala
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSpinnersFixed(110:41333) -> しあわせスターズ
+	[0] ESSpinnersFixed(110:41333) -> Happy Stars
 	Specific orbs change every 1.0s for 3 turns
-	[1] ESSkyfall(68:41334) -> 海と山のきらきら星
+	[1] ESSkyfall(68:41334) -> Sparkling Star of the Mountains and Seas
 	Water and Light skyfall +15% for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESLeaderSwap(75:41335) -> フィッシングスター
+#6: ESLeaderSwap(75:41335) -> Fishing Star
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Leader changes to random sub for 1 turn, Deal 105% damage
 
@@ -32,7 +32,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESColumnSpawnMulti(77:41336) -> ツインスター
+#9: ESColumnSpawnMulti(77:41336) -> Twin Star
 Change the 1st column to Water orbs and the 6th column to Light orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -41,11 +41,11 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESAttackMultihit(15:41337) -> リトルスターライト
+#12: ESAttackMultihit(15:41337) -> Little Starlight
 Deal 110% damage (2 hits, 55% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESSuperResolve(129:41331) -> ＿キキララ超根性
+#14: ESSuperResolve(129:41331) -> ＿UmiKiki & YamaLala Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

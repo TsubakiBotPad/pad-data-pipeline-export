@@ -1,0 +1,38 @@
+#403837 - 真木の戦武龍・ガンゾ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 403837
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (42872:6) 古龍風
+ | Voids player buff effects
+ | (42679:137) 堅甲羅
+ | Void damage >= 1,000,000,000 for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (42875:83) 万年の結界 + 古の怒り + 堅甲圧
+   | Voids status ailments for 999 turns + Increase damage to 1,000% for the next 1 turn + For 3 turns, 1% ATK for 2 random subs
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (42873:143) 瘴風
+   | For 1 turn, 25% ATK for both leaders, Deal 100% damage
+   | condition: 50% chance
+   | (42874:143) 瘴風
+   | For 1 turn, 25% ATK for 1 random sub, Deal 100% damage
+ | group:
+   | (42624:15) 終焉の万象
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: UNKNOWN_USE
+ | (42879:151) 古龍風
+ | No description set
+ | (42880:143) 瘴風
+ | For 3 turns, 25% ATK for both leaders, Deal 100% damage
