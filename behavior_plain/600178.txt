@@ -1,0 +1,50 @@
+#600178 - キングメタルドラゴン
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 5
+
+#2: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#3: ESInactivity66(66:39034) -> ぎゃう！
+Do nothing
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 9
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESInactivity66(66:39035) -> ぎゃう！ぎゃう！
+Do nothing
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESInactivity66(66:39036) -> ぎゃう！ぎゃう！ぎゃう！
+Do nothing
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESGravity(50:39023) -> メタルアタック
+Player -150% HP
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

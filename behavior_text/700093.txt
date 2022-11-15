@@ -1,0 +1,28 @@
+#700093 - アルラウネ
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 700093
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (39009:92) 助けてくださ～い
+ | Spawn 10 random Jammer orbs
+ group:
+ | group:
+ | condition: turns 1-9
+   | (39010:92) お助けを～
+   | Spawn 2 random Jammer orbs
+   | (39013:40) 助かりました～！
+   | Reduce self HP to 0
+ | group:
+ | condition: turn 10
+   | (39014:92) お助けを～
+   | Spawn 30 random Jammer orbs
+ | group:
+   | (39010:92) お助けを～
+   | Spawn 2 random Jammer orbs
+   | (39013:40) 助かりました～！
+   | Reduce self HP to 0

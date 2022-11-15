@@ -1,0 +1,51 @@
+#700093 - アルラウネ
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESRandomSpawn(92:39009) -> 助けてくださ～い
+Spawn 10 random Jammer orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 10, target rnd 13
+
+#8: ESBranchAttrOnBoard(133:39011) -> ESBranchAttrOnBoard
+Branch on attributes on board HAS 0, target rnd 11
+
+#9: ESEndBattle(40:39013) -> 助かりました～！
+Reduce self HP to 0
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESRandomSpawn(92:39010) -> お助けを～
+Spawn 2 random Jammer orbs
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESRandomSpawn(92:39014) -> お助けを～
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 30 random Jammer orbs
+
+#14: ESEndBattle(40:39013) -> 助かりました～！
+Reduce self HP to 0
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
