@@ -1,0 +1,77 @@
+#509412 - 旋律の奏龍楽士・ミオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESFixedStart(101:41101) -> 私にあわせて歌って
+	Fix orb movement starting point to random position on the board
+	[1] ESRandomSpawn(92:41102) -> 水の調べ
+	Spawn 5 random Water orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#7: ESBranchEraseAttr(117:41115) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 10
+
+#8: SkillSet:
+	[0] ESOrbLock(94:41107) -> もっと自信を持って
+	Lock all Water orbs
+	[1] ESRandomSpawn(92:41108) -> 水の調べ
+	Spawn 5 random Water orbs
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	Condition: Water are erased (ai:100 rnd:0)
+	[0] ESCloud(104:41104) -> 素敵よ、とっても
+	A row of clouds appears for 5 turns at 5th row, 1st column
+	[1] ESRandomSpawn(92:41105) -> 愛の調べ
+	Spawn 3 random Heal orbs
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchEraseAttr(117:41116) -> ESBranchEraseAttr
+Branch on color erased == 0, target rnd 16
+
+#14: SkillSet:
+	[0] ESOrbLock(94:41113) -> 肩の力を抜いて
+	Lock all Heal orbs
+	[1] ESRandomSpawn(92:41114) -> 愛の調べ
+	Spawn 3 random Heal orbs
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESInactivity66(66:41110) -> ふふ、やっぱりあなたの歌は
+	Do nothing
+	[1] ESEndBattle(40:41111) -> みんなを幸せにするわね
+	Reduce self HP to 0
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESSkillSet(83:41109) -> ふふ、やっぱりあなたの歌は + みんなを幸せにするわね
+	Do nothing + Reduce self HP to 0

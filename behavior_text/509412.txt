@@ -1,0 +1,27 @@
+#509412 - 旋律の奏龍楽士・ミオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 509412
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (41100:83) 私にあわせて歌って + 水の調べ
+ | Fix orb movement starting point to random position on the board + Spawn 5 random Water orbs
+ type: DEATH
+ condition: when defeated
+ | (41073:95) ふふ、やっぱりあなたの歌は + みんなを幸せにするわね
+ | Do nothing + Reduce self HP to 0
+ group:
+ | condition: when all Water orbs are matched last turn
+ | (41103:83) 素敵よ、とっても + 愛の調べ
+ | A row of clouds appears for 5 turns at 5th row, 1st column + Spawn 3 random Heal orbs
+ | (41106:83) もっと自信を持って + 水の調べ
+ | Lock all Water orbs + Spawn 5 random Water orbs
+ type: UNKNOWN_USE
+ | (41112:83) 肩の力を抜いて + 愛の調べ
+ | Lock all Heal orbs + Spawn 3 random Heal orbs
+ | (41109:83) ふふ、やっぱりあなたの歌は + みんなを幸せにするわね
+ | Do nothing + Reduce self HP to 0

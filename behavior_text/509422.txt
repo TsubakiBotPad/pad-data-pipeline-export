@@ -1,0 +1,40 @@
+#509422 - 熱狂のベーシスト・ロシェ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 509422
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (41170:83) アタシの音についてこられるか… + 見定めてアゲル！
+ | Blind all orbs on the board + Spawn 15 random Heal and Jammer orbs
+ type: DEATH
+ condition: when defeated
+ | (41077:95) 悪くないわね
+ | Reduce self HP to 0
+ group:
+ | group:
+ | condition: turn 1
+   | (41173:92) この程度なわけないわよねぇ？
+   | Spawn 15 random Heal and Jammer orbs, Deal 100% damage
+   | (41180:83) アタシと一緒に演りたいってぇ？ + ひとりで演るほうが気楽じゃない、ねぇ？
+   | Blind orbs in specific positions for 1 turn + Spawn 15 random Dark and Jammer orbs
+ | group:
+ | condition: turn 2
+   | (41175:85) この程度なわけないわよねぇ？
+   | Change all orbs to Wood, Dark, and Jammer, Deal 100% damage
+   | (41183:83) ついてこられるかしらぁ？ + クフフ、楽しくなってきたわねぇ
+   | Blind orbs in specific positions for 1 turn + Spawn 10 random Wood, Dark, and Jammer orbs
+ | group:
+ | condition: turn 3
+   | (41178:85) この程度なわけないわよねぇ？
+   | Change all orbs to Wood, Dark, and Jammer, Deal 100% damage
+   | (41186:40) 悪くないわね
+   | Reduce self HP to 0
+ | group:
+   | (41173:92) この程度なわけないわよねぇ？
+   | Spawn 15 random Heal and Jammer orbs, Deal 100% damage
+   | (41186:40) 悪くないわね
+   | Reduce self HP to 0

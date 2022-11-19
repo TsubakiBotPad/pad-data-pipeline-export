@@ -1,0 +1,95 @@
+#509460 - ガールズバンド・龍愛少女＜RAS＞
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:41082) -> 私たちの歌、聴いてください！
+	Reduce damage from all sources by 75% for 3 turns
+	[1] ESBoardSizeChange(126:41083) -> 開幕
+	Change board size to 7x6 for 99 turns
+	[2] ESBoardChange(84:41084) -> きらめくステージ
+	Change all orbs to Fire, Water, Wood, Light, and Dark
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSpinnersFixed(110:41086) -> まだまだいきます！
+	Specific orbs change every 1.0s for 2 turns
+	[1] ESAttributeBlock(107:41087) -> 盛り上がっていきましょう！
+	Unable to match Heal orbs for 2 turns, Deal 75% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESBoardChangeAttackBits(85:41089) -> きらめくステージ
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+	[1] ESUnknown(151:41090) -> 差し込む照明
+	No description set
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESBoardChangeAttackBits(85:41092) -> きらめくステージ
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 105% damage
+	[1] ESUnknown(152:41093) -> 星の紙吹雪
+	No description set
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: SkillSet:
+	[0] ESFixedStart(101:41095) -> サーチライト
+	Fix orb movement starting point to random position on the board
+	[1] ESAttackMultihit(15:41096) -> オーディエンスビート
+	Deal 108% damage (4 hits, 27% each)
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: SkillSet:
+	[0] ESOrbSealRow(100:41098) -> テープキャノン
+	Seal the 5th row for 1 turn
+	[1] ESUnknown(150:41099) -> 湧き上がる歓声
+	No description set, Deal 90% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESSuperResolve(129:41080) -> ＿RAS超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#23: SkillSet:
+	Condition: On death (ai:100 rnd:0)

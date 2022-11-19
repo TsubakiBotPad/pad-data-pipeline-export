@@ -1,0 +1,44 @@
+#9460 - ガールズバンド・龍愛少女＜RAS＞
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9460
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43279:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | condition: 33% chance
+ | (43267:83) いきましょう、私たちのステージに！ + 楽しいね + 最後まで全力でいくぞ！
+ | Voids status ailments for 999 turns + Change all orbs to Light, Dark, and Heal + Lock all orbs
+ | condition: 50% chance
+ | (43282:83) いきましょう、私たちのステージに！ + 楽しいね + デハ演奏シテミマショウ
+ | Voids status ailments for 999 turns + Change all orbs to Light, Dark, and Heal + No skyfall for 3 turns
+ | (43286:83) いきましょう、私たちのステージに！ + 楽しいね + アタシの本気、見せてアゲル
+ | Voids status ailments for 999 turns + Change all orbs to Light, Dark, and Heal + No description set
+ group:
+ | group:
+   | condition: 33% chance
+   | (43276:102) 少し強めでいく
+   | Spawn 7 random locked Bomb orbs, Deal 100% damage
+   | condition: 50% chance
+   | (43277:100) サラニ強ク！
+   | Seal the 1st row for 1 turn, Deal 100% damage
+   | (43278:79) 私たちの歌、聴いてください！
+   | Change the 1st and 5th rows to Light and Dark orbs, Deal 101% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (43273:83) もうバテてしまったか？ + ラストスパート、イキマスヨ
+   | Bind awoken skills for 2 turns + Reduce damage from all sources by 50% for 2 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43271:39) 最後まで全力だよ……！
+     | Movetime 25% for 1 turn, Deal 80% damage
+   | group:
+     | (43272:15) クフフ、ぶちかましてアゲル！
+     | Deal 315% damage (7 hits, 45% each)

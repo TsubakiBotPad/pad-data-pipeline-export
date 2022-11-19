@@ -1,0 +1,55 @@
+#509425 - 溌溂なドラマー・ヴァレリア
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffRCV(105:41158) -> まずは小手調べ
+	RCV 200% for 4 turns
+	[1] ESBombRandomSpawn(102:41159) -> 私についてこい！
+	Spawn 3 random Bomb orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESOrbSealRow(100:41161) -> どんどんいくぞ！
+	Seal the 1st row for 1 turn
+	[1] ESBombFixedSpawn(103:41162) -> もっと盛り上がれるだろう？
+	Spawn Bomb orbs in the specified positions
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESFixedStart(101:41164) -> よしっ！
+	Fix orb movement starting point to random position on the board
+	[1] ESBombRandomSpawn(102:41165) -> これで終わる私じゃないぞ！
+	Spawn 12 random Bomb orbs
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbSealRow(100:41167) -> いいぞ！
+	Seal the 1st and 5th rows for 1 turn
+	[1] ESBombFixedSpawn(103:41168) -> 最後まで全力でいくぞ！
+	Spawn Bomb orbs in the specified positions
+
+#9: ESEndBattle(40:41169) -> 満足だ！
+Reduce self HP to 0
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESEndBattle(40:41169) -> 満足だ！
+	Reduce self HP to 0

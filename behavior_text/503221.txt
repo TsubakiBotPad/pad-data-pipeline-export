@@ -1,0 +1,71 @@
+#503221 - 蒼響の龍楽士・ミオン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 503221
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (5669:72) 水木半減
+ | Reduce damage from Water and Wood attrs by 50%
+ type: UNKNOWN_USE
+ | (5647:83) さぁ、あなたのパズルを奏でて♪ + 緊張の幕開け
+ | Absorb damage when combos <= 4 for 1 turn + Movetime 25% for 1 turn
+ | (5671:83) さぁ、あなたのパズルを奏でて♪ + 緊張の幕開け
+ | Absorb damage when combos <= 5 for 1 turn + Movetime 25% for 1 turn
+
+level: 4
+ type: PASSIVE
+ | (5669:72) 水木半減
+ | Reduce damage from Water and Wood attrs by 50%
+ type: PREEMPT
+ | (13418:83) 一緒に奏でましょう♪ + 緊張の幕開け
+ | Absorb damage when combos <= 4 for 1 turn + Movetime 50% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 98
+     | (5642:20) トランスペアレントメロディ
+     | Voids status ailments for 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | condition: 50% chance
+     | (5653:83) ドロップの音色が聴こえるはずよ♪ + 虹のセプテット
+     | Blind orbs in specific positions for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 120% damage
+     | (5654:83) 心で音色を感じとって♪ + 虹のセプテット
+     | Blind orbs in specific positions for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, and Jammer, Deal 120% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | condition: 50% chance
+     | (5655:94) 氷剣のオブリガート
+     | Lock 10 random orbs, Deal 130% damage
+     | (5662:15) 氷華のカルテット
+     | Deal 160% damage (4 hits, 40% each)
+ | group:
+ | condition: always turn 1, hp <= 98
+   | (13419:63) 私も負けてられないわね♪
+   | Bind 1 random card for 4 turns, Deal 140% damage
+ | group:
+ | condition: turn 2 while HP > 29, hp <= 49
+   | (5672:17) 戦士達のマーチ
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 2
+     | (5656:67) 冥河へのバルカローラ
+     | Absorb damage when combos <= 6 for 2 turns
+   | group:
+   | condition: turn 3
+     | (5673:104) 次があなたの最後の演奏よ
+     | A row of clouds appears for 1 turn at a random location
+   | group:
+     | (5657:15) 千律のレクイエム
+     | Deal 5,000% damage (10 hits, 500% each)
+ type: UNKNOWN_USE
+ | (5647:83) さぁ、あなたのパズルを奏でて♪ + 緊張の幕開け
+ | Absorb damage when combos <= 4 for 1 turn + Movetime 25% for 1 turn
+ | (5671:83) さぁ、あなたのパズルを奏でて♪ + 緊張の幕開け
+ | Absorb damage when combos <= 5 for 1 turn + Movetime 25% for 1 turn

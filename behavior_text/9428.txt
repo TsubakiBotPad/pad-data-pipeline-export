@@ -1,0 +1,34 @@
+#9428 - 柔和なキーボーディスト・ミル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9428
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43222:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (43212:83) 私が音を飾ってみせる + 私たちの本当の音楽、聴いてくれる？
+ | Absorb Light damage for 3 turns + Light skyfall +25% for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (43220:92) まずはゆっくり
+   | Spawn 5 random Light orbs, Deal 100% damage
+   | (43221:63) これくらいで
+   | Bind 1 random card for 2 turns, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (43215:83) ここからが本番……！ + 激しいのいくよ
+     | Movetime 50% for 3 turns + Change the 1st and 2nd rows to Light orbs, Deal 110% damage
+   | group:
+     | condition: 50% chance
+     | (43218:101) もっと盛り上がっていくよ
+     | Fix orb movement starting point to random position on the board, Deal 100% damage
+     | (43219:130) ここで終わったりしないよね？
+     | ATK -50% for 1 turn, Deal 101% damage

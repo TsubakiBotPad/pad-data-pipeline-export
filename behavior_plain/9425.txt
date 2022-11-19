@@ -1,0 +1,63 @@
+#9425 - 溌溂なドラマー・ヴァレリア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:43240) -> 最高の音楽を奏でよう！
+	Absorb Fire and Light damage for 3 turns
+	[1] ESAttackMultihit(15:43241) -> まずは小手調べ
+	Deal 99% damage (3 hits, 33% each)
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 9
+
+#5: ESBlind62(62:43247) -> いいぞ！
+Condition: 33% chance (ai:33 rnd:0)
+Blind all orbs on the board, Deal 100% damage
+
+#6: ESSpinnersRandom(109:43248) -> 私についてこい！
+Condition: 50% chance (ai:50 rnd:0)
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#7: ESCloud(104:43249) -> よしっ！
+A 2×2 square of clouds appears for 1 turn at 2nd row, 3rd column, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESBoardSizeChange(126:43245) -> どんどんいくぞ！
+	Change board size to 7x6 for 1 turn
+	[1] ESAbsorbCombo(67:43246) -> もっと盛り上がれるだろう？
+	Absorb damage when combos <= 12 for 2 turns, Deal 101% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESDebuffATK(130:43242) -> これで終わる私じゃないぞ！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+ATK -75% for 1 turn
+
+#14: ESAttackMultihit(15:43243) -> はははっ！
+Deal 315% damage (7 hits, 45% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:43250) -> 超根性70％
+Damage which would reduce HP from above 70% to below 70% is nullified
