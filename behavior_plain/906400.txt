@@ -1,0 +1,23 @@
+#906400 - 星の鍵の継承者・フェルル
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESSkyfall(68:41016) -> トゥインクルフォール
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Light skyfall +15% for 3 turns
+
+#3: ESRandomSpawn(92:41017) -> トゥインクルスター
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Light orbs, Deal 100% damage
+
+#4: ESAttackMultihit(15:41018) -> トゥインクルフライ
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage (3 hits, 40% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,40 @@
+#905933 - 極醒の霊央神・カミムスビ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 905933
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (41002:92) 霊闇の輝き
+ | Spawn 9 random Heal orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (41003:83) 奇縁の霊力 + 霊闇の輝き
+     | Player -75% HP + Spawn 3 random Heal orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (41006:92) 輝きの闇撃
+     | Spawn 3 random Heal orbs, Deal 60% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (41007:92) 輝きの闇撃
+     | Spawn 3 random Heal orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (41008:83) 奇縁の霊力 + 霊闇の輝き
+     | Player -90% HP + Spawn 3 random Heal orbs
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (41011:92) 輝きの闇撃
+     | Spawn 3 random Heal orbs, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (41012:92) 輝きの闇撃
+     | Spawn 3 random Heal orbs, Deal 150% damage

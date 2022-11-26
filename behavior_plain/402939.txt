@@ -1,4 +1,4 @@
-#402939 - 真宝剣龍・ドラクリスト
+#402939 - True Treasure Blade Dragon, Drahklist
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbAttribute(53:41517) -> アンチフィールド
+	[0] ESAbsorbAttribute(53:41517) -> Antifield
 	Absorb Fire and Wood damage for 2 turns
-	[1] ESAbsorbCombo(67:41518) -> 乱剣
+	[1] ESAbsorbCombo(67:41518) -> Chaos Sword
 	Absorb damage when combos <= 12 for 2 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,9 +24,9 @@ end_turn
 
 #6: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:41520) -> ナノブレイドシャープン
+	[0] ESBoardChangeAttackBits(85:41520) -> Sharpening Nanoblade
 	Change all orbs to Fire, Wood, and Jammer, Deal 105% damage
-	[1] ESAttackUPRemainingEnemies(17:41521) -> 燃え盛るたてがみ
+	[1] ESAttackUPRemainingEnemies(17:41521) -> Blazing Mane
 	Increase damage to 150% for the next 999 turns
 
 #7: ESBranchCounter(31:21) -> ESBranchCounter
@@ -39,9 +39,9 @@ Branch on counter = 1, target rnd 12
 counter + 1
 
 #10: SkillSet:
-	[0] ESSkyfall(68:41523) -> ソードサモン
+	[0] ESSkyfall(68:41523) -> Sword Summon
 	Fire and Wood skyfall +20% for 1 turn
-	[1] ESBoardSizeChange(126:41524) -> 百剣の円卓
+	[1] ESBoardSizeChange(126:41524) -> Hundred-Sword Board
 	Change board size to 6x5 for 5 turns, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -51,9 +51,9 @@ end_turn
 counter + 1
 
 #13: SkillSet:
-	[0] ESDebuffATKTarget(143:41526) -> ソードシール
+	[0] ESDebuffATKTarget(143:41526) -> Sword Seal
 	For 1 turn, 1% ATK for 1 random card
-	[1] ESBoardSizeChange(126:41527) -> 千剣の戦陣
+	[1] ESBoardSizeChange(126:41527) -> Thousand-Sword Battle Formation
 	Change board size to 7x6 for 5 turns, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -63,9 +63,9 @@ end_turn
 counter = 0
 
 #16: SkillSet:
-	[0] ESColumnSpawnMulti(77:41529) -> 炎の烈刃
+	[0] ESColumnSpawnMulti(77:41529) -> Incandescent Sword of Flame
 	Change the 1st and 6th columns to Fire orbs, Deal 40% damage
-	[1] ESAttackMultihit(15:41530) -> ガトリングエッジ
+	[1] ESAttackMultihit(15:41530) -> Gatling Edge
 	Deal 70% damage (5 hits, 14% each)
 
 #17: ESEndPath(36:26) -> ESEndPath

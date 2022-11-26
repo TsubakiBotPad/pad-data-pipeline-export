@@ -1,0 +1,87 @@
+#905933 - 極醒の霊央神・カミムスビ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESRandomSpawn(92:41002) -> 霊闇の輝き
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 9 random Heal orbs
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 15
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESGravity(50:41004) -> 奇縁の霊力
+	Player -75% HP
+	[1] ESRandomSpawn(92:41005) -> 霊闇の輝き
+	Spawn 3 random Heal orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESRandomSpawn(92:41006) -> 輝きの闇撃
+Spawn 3 random Heal orbs, Deal 60% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b0
+
+#13: ESRandomSpawn(92:41007) -> 輝きの闇撃
+Spawn 3 random Heal orbs, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 19
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: SkillSet:
+	[0] ESGravity(50:41009) -> 奇縁の霊力
+	Player -90% HP
+	[1] ESRandomSpawn(92:41010) -> 霊闇の輝き
+	Spawn 3 random Heal orbs
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 23
+
+#20: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#21: ESRandomSpawn(92:41011) -> 輝きの闇撃
+Spawn 3 random Heal orbs, Deal 50% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#24: ESRandomSpawn(92:41012) -> 輝きの闇撃
+Spawn 3 random Heal orbs, Deal 150% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn

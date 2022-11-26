@@ -1,4 +1,4 @@
-#209399 - 湖の守護者・エレイン
+#209399 - Guardian of the Lake, Elaine
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESStatusShield(20:41585) -> 剣聖の加護
+	[0] ESStatusShield(20:41585) -> Sword Saint's Protection
 	Voids status ailments for 15 turns
-	[1] ESDebuffMovetime(39:41586) -> ディレイクシャロウ
+	[1] ESDebuffMovetime(39:41586) -> Shallowing Lake
 	Movetime 50% for 5 turns
-	[2] ESOrbSealRow(100:41587) -> 神水の鞘杯
+	[2] ESOrbSealRow(100:41587) -> Rising Waters of Divinity
 	Seal the 5th row for 5 turns, Deal 55% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -37,9 +37,9 @@ Branch on counter = 1, target rnd 12
 counter + 1
 
 #10: SkillSet:
-	[0] ESAbsorbCombo(67:41589) -> ビュールスサンツ
+	[0] ESAbsorbCombo(67:41589) -> Sainte des Sphère
 	Absorb damage when combos <= 8 for 1 turn
-	[1] ESRowSpawnMulti(79:41590) -> 満ちる神水
+	[1] ESRowSpawnMulti(79:41590) -> Rising Waters of Divinity
 	Change the 3rd, 4th, and 5th rows to Water and Heal orbs, Deal 80% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -49,9 +49,9 @@ end_turn
 counter + 1
 
 #13: SkillSet:
-	[0] ESAbsorbAttribute(53:41592) -> アンブロジアス
+	[0] ESAbsorbAttribute(53:41592) -> Ambrosius
 	Absorb Water damage for 1 turn
-	[1] ESRowSpawnMulti(79:41593) -> 満ちる神水
+	[1] ESRowSpawnMulti(79:41593) -> Rising Waters of Divinity
 	Change the 2nd, 3rd, 4th, and 5th rows to Water and Heal orbs, Deal 90% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -61,9 +61,9 @@ end_turn
 counter + 1
 
 #16: SkillSet:
-	[0] ESTargetedSkillHaste(139:41595) -> アヴァロンブレス
+	[0] ESTargetedSkillHaste(139:41595) -> Avalon's Blessing
 	Haste all cards' skills by 2 turns
-	[1] ESBoardChangeAttackBits(85:41596) -> 満ちる神水
+	[1] ESBoardChangeAttackBits(85:41596) -> Rising Waters of Divinity
 	Change all orbs to Water and Heal, Deal 105% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -73,17 +73,17 @@ end_turn
 counter = 0
 
 #19: SkillSet:
-	[0] ESBlindStickySkyfall(128:41598) -> 反転する福音
+	[0] ESBlindStickySkyfall(128:41598) -> Capsized Gospel
 	For 1 turn, 50% chance for skyfall orbs to be blinded for turn
-	[1] ESBoardChangeAttackBits(85:41599) -> 満ちる神水
+	[1] ESBoardChangeAttackBits(85:41599) -> Rising Waters of Divinity
 	Change all orbs to Water, Deal 110% damage
 
 #20: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#21: ESDeathCry(69:41600) -> ＿エレイン変身
+#21: ESDeathCry(69:41600) -> ＿Elaine transformation
 Condition: On death (ai:0 rnd:0)
-Show message: 命を賭して…|この戦いに終止符を打つ！
+Show message: I shall stake my life...|...and put an end to this battle!
 
-#22: ESResolve(73:41583) -> ＿エレイン根性
+#22: ESResolve(73:41583) -> ＿Elaine Resolve
 Survive attacks with 1 HP when HP > 50%

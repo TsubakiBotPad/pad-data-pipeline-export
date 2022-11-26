@@ -1,4 +1,4 @@
-#201657 - 裏魔騎士・クレーゼ
+#201657 - Alt. Evil Knight, Creuse
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESDamageShield(74:41505) -> 騎士の誇り
+	[0] ESDamageShield(74:41505) -> Knight's Pride
 	Reduce damage from all sources by 90% for 1 turn
-	[1] ESFixedTarget(112:41506) -> スチルゲイズアーマー
+	[1] ESFixedTarget(112:41506) -> Eye-Catching Armor
 	Forces attacks to hit this enemy for 99 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -32,9 +32,9 @@ Branch on counter = 1, target rnd 11
 counter + 1
 
 #9: SkillSet:
-	[0] ESDebuffMovetime(39:41511) -> イービルクレスト
+	[0] ESDebuffMovetime(39:41511) -> Evil Crest
 	Movetime 50% for 1 turn
-	[1] ESColumnSpawnMulti(77:41512) -> 藍魔衝
+	[1] ESColumnSpawnMulti(77:41512) -> Indigo Magic Thrust
 	Change the 1st and 6th columns to Dark orbs, Deal 90% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -44,9 +44,9 @@ end_turn
 counter = 0
 
 #12: SkillSet:
-	[0] ESBlind5(5:41514) -> 暗黒のマント
+	[0] ESBlind5(5:41514) -> Darkness Cloak
 	Blind all orbs on the board
-	[1] ESRowSpawnMulti(79:41515) -> 藍魔閃
+	[1] ESRowSpawnMulti(79:41515) -> Indigo Magic Flash
 	Change the 1st and 5th rows to Dark orbs, Deal 90% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -54,9 +54,9 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESMaxHPChange(111:41508) -> 呪いの甲冑
+	[0] ESMaxHPChange(111:41508) -> Cursed Armor
 	Change player HP to 50% for 3 turns
-	[1] ESBlindStickyRandom(97:41509) -> 溢れ出す闇
+	[1] ESBlindStickyRandom(97:41509) -> Overflowing Darkness
 	Blind random 8 orbs for 3 turns, Deal 60% damage
 
 #15: ESBranchFlag(43:10) -> ESBranchFlag
