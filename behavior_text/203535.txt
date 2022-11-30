@@ -1,0 +1,33 @@
+#203535 - 神理の裁断者・メタトロン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203535
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39459:129) ＿超根性
+ | Damage which would reduce HP from above 70% to below 70% is nullified
+ type: PREEMPT
+ | (39448:83) 神格の統制 + 滅魔 + 貴様のパズル力を見せてもらおうか
+ | Voids status ailments for 999 turns + Change board size to 5x4 for 1 turn + Absorb damage when combos <= 5 for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 6 combos last turn
+   | (39452:83) なかなかやるじゃないか… + 今度は乗り越えられるのか？
+   | No skyfall for 1 turn + Absorb damage when combos <= 13 for 1 turn
+   | (39455:15) 出直すがいい！！
+   | Deal 4,000% damage (2 hits, 2,000% each)
+ | group:
+ | condition: turn 2
+   | condition: when 14 combos last turn
+   | (39456:40) 素晴らしいコンボだったぞ
+   | Reduce self HP to 0
+   | (39455:15) 出直すがいい！！
+   | Deal 4,000% damage (2 hits, 2,000% each)
+ | group:
+   | (39455:15) 出直すがいい！！
+   | Deal 4,000% damage (2 hits, 2,000% each)

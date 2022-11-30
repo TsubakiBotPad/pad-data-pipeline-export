@@ -1,0 +1,24 @@
+#202300 - 裏ミズぷれドラ
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202300
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39457:129) ＿超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39436:1) ブリリアントアクア
+ | Bind 6 random cards for 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 2 of 2, hp <= 100
+   | (39438:46) ブリリアントチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (39439:143) ブリリアントアタック
+   | For 1 turn, 1% ATK for 2 random cards, Deal 1,000% damage

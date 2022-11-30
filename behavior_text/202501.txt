@@ -1,0 +1,23 @@
+#202501 - 創智の大天使・ラファエル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 202501
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39457:129) ＿超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39440:83) 輝天使の加護 + 消えよ！ + 滅びよ！
+ | Voids status ailments for 999 turns + Bind awoken skills for 1 turn + Player -150% HP
+ group:
+ | group:
+   | (39447:15) 裁きの雷撃
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (39444:83) 輝天使の怒り + 失せよ！ + 滅びよ！
+   | Increase damage to 1,000% for the next 999 turns + Voids player buff effects + Player -100% HP

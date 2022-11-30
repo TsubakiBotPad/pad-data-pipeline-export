@@ -1,0 +1,57 @@
+#203535 - 神理の裁断者・メタトロン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:39449) -> 神格の統制
+	Voids status ailments for 999 turns
+	[1] ESBoardSizeChange(126:39450) -> 滅魔
+	Change board size to 5x4 for 1 turn
+	[2] ESAbsorbCombo(67:39451) -> 貴様のパズル力を見せてもらおうか
+	Absorb damage when combos <= 5 for 1 turn
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 9
+
+#5: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 6, target rnd 7
+
+#6: ESAttackMultihit(15:39455) -> 出直すがいい！！
+Deal 4,000% damage (2 hits, 2,000% each)
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:39453) -> なかなかやるじゃないか…
+	No skyfall for 1 turn
+	[1] ESAbsorbCombo(67:39454) -> 今度は乗り越えられるのか？
+	Absorb damage when combos <= 13 for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 11
+
+#10: ESBranchCombo(113:6528) -> ESBranchCombo
+Branch on combo >= 14, target rnd 12
+
+#11: ESAttackMultihit(15:39455) -> 出直すがいい！！
+Deal 4,000% damage (2 hits, 2,000% each)
+
+#12: ESEndBattle(40:39456) -> 素晴らしいコンボだったぞ
+Reduce self HP to 0
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSuperResolve(129:39459) -> ＿超根性
+Damage which would reduce HP from above 70% to below 70% is nullified
