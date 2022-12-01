@@ -1,4 +1,4 @@
-#8400 - 超ブラックナイト
+#8400 - Super Black Knight
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESStatusShield(20:41878) -> 黒騎士の気骨
+#2: ESStatusShield(20:41878) -> Black Knight's Willpower
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Voids status ailments for 999 turns
 
@@ -20,21 +20,21 @@ Branch on remaining enemies <= 1, target rnd 13
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 10
 
-#6: ESDamageShield(74:41895) -> 騎士の鎧
+#6: ESDamageShield(74:41895) -> Armor of the Knight
 Condition: 33% chance (ai:33 rnd:0)
 Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
 
-#7: ESUnknown(151:41896) -> ダークドロップ
+#7: ESUnknown(151:41896) -> Dark Fall
 Condition: 50% chance (ai:50 rnd:0)
 No description set, Deal 100% damage
 
-#8: ESDebuffATK(130:41897) -> 黒騎士の威圧
+#8: ESDebuffATK(130:41897) -> Black Knight's Intimidation
 ATK -75% for 1 turn, Deal 105% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#10: ESUnknown(151:41885) -> ダークドロップ
+#10: ESUnknown(151:41885) -> Dark Fall
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 No description set, Deal 105% damage
 
@@ -51,11 +51,11 @@ Branch on counter >= 1, target rnd 17
 counter + 1
 
 #15: SkillSet:
-	[0] ESBindAwoken(88:41882) -> 騎士の波動
+	[0] ESBindAwoken(88:41882) -> Wave of the Knight
 	Bind awoken skills for 1 turn
-	[1] ESCloud(104:41883) -> ダーククラウド
+	[1] ESCloud(104:41883) -> Dark Clouds
 	A column of clouds appears for 5 turns at 1st row, 1st column
-	[2] ESOrbSealColumn(99:41884) -> ダークフィールド
+	[2] ESOrbSealColumn(99:41884) -> Dark Field
 	Seal the 6th column for 5 turns
 
 #16: ESEndPath(36:26) -> ESEndPath
@@ -66,22 +66,22 @@ Branch on hp < 50, target rnd 10
 
 #18: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESDebuffATKTarget(143:41887) -> ダークウェーブ
+	[0] ESDebuffATKTarget(143:41887) -> Dark Wave
 	For 1 turn, 5% ATK for 4 random cards
-	[1] ESUnknown(151:41888) -> ダークドロップ
+	[1] ESUnknown(151:41888) -> Dark Fall
 	No description set, Deal 100% damage
 
 #19: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESDebuffATK(130:41890) -> 黒騎士の威圧
+	[0] ESDebuffATK(130:41890) -> Black Knight's Intimidation
 	ATK -75% for 1 turn
-	[1] ESUnknown(151:41891) -> ダークドロップ
+	[1] ESUnknown(151:41891) -> Dark Fall
 	No description set, Deal 100% damage
 
 #20: SkillSet:
-	[0] ESDebuffATK(130:41893) -> 黒騎士の威圧
+	[0] ESDebuffATK(130:41893) -> Black Knight's Intimidation
 	ATK -75% for 1 turn
-	[1] ESDebuffATKTarget(143:41894) -> ダークウェーブ
+	[1] ESDebuffATKTarget(143:41894) -> Dark Wave
 	For 1 turn, 5% ATK for 4 random cards, Deal 105% damage
 
 #21: ESEndPath(36:26) -> ESEndPath
@@ -93,17 +93,17 @@ Branch on flag & 1, target rnd 26
 #23: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#24: ESBindAwoken(88:41879) -> 騎士の波動
+#24: ESBindAwoken(88:41879) -> Wave of the Knight
 Bind awoken skills for 1 turn
 
 #25: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#26: ESAttackMultihit(15:41880) -> ガードブレイク・ダーク
+#26: ESAttackMultihit(15:41880) -> Guard Break - Dark
 Deal 700% damage (7 hits, 100% each)
 
 #27: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#28: ESSuperResolve(129:41898) -> 超根性50％
+#28: ESSuperResolve(129:41898) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

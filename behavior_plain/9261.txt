@@ -1,4 +1,4 @@
-#9261 - ドット・パズドロイド
+#9261 - Pixel Puzzdroid
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:41641) -> ドットメタリックボディ
+	[0] ESStatusShield(20:41641) -> Pixel Metallic Body
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:41642) -> マモル
+	[1] ESDamageShield(74:41642) -> Defend
 	Reduce damage from all sources by 90% for 2 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -23,11 +23,11 @@ Branch on hp < 50, target rnd 9
 #5: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 2, target rnd 14
 
-#6: ESAttackMultihit(15:41647) -> ドットドロイドダンス
+#6: ESAttackMultihit(15:41647) -> Pixel Droidance
 Condition: 50% chance (ai:50 rnd:0)
 Deal 102% damage (3 hits, 34% each)
 
-#7: ESOrbLock(94:41648) -> ドロイドロック
+#7: ESOrbLock(94:41648) -> Droid Lock
 Lock 5 random orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -35,19 +35,19 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSpinnersFixed(110:41644) -> ドロイドルーレット
+	[0] ESSpinnersFixed(110:41644) -> Droid Roulette
 	Specific orbs change every 1.0s for 3 turns
-	[1] ESColumnSpawnMulti(77:41645) -> ドロップヘンカン
+	[1] ESColumnSpawnMulti(77:41645) -> Orb Transformation
 	Change the 1st and 6th columns to Wood orbs, Deal 100% damage
 
 #10: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 2, target rnd 14
 
-#11: ESAttackMultihit(15:41647) -> ドットドロイドダンス
+#11: ESAttackMultihit(15:41647) -> Pixel Droidance
 Condition: 50% chance (ai:50 rnd:0)
 Deal 102% damage (3 hits, 34% each)
 
-#12: ESOrbLock(94:41648) -> ドロイドロック
+#12: ESOrbLock(94:41648) -> Droid Lock
 Lock 5 random orbs, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -59,12 +59,12 @@ Branch on flag & 1, target rnd 11
 #15: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#16: ESAttackUPRemainingEnemies(17:41646) -> ドロイドチャージ
+#16: ESAttackUPRemainingEnemies(17:41646) -> Droid Load
 Condition: when <= 1 enemies remain (ai:100 rnd:0)
 Increase damage to 150% for the next 999 turns
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:41649) -> 超根性50％
+#18: ESSuperResolve(129:41649) -> Super Resolve 50％
 Damage which would reduce HP from above 50% to below 50% is nullified
