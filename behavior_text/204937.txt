@@ -1,0 +1,36 @@
+#204937 - シャドームーン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204937
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43362:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | condition: when 4910 on team
+ | (43412:68) 今度こそ地獄へ送ってやる
+ | Mortal Poison skyfall +15% for 3 turns
+ | (43354:68) 宣戦布告
+ | Mortal Poison skyfall +15% for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (43358:92) シャドービーム
+   | Spawn 5 random Wood orbs, Deal 100% damage
+   | condition: 25% chance
+   | (43359:108) サタンサーベル
+   | Change all Light orbs to Dark orbs, Deal 100% damage
+   | condition: 25% chance
+   | (43360:15) シャドーパンチ
+   | Deal 100% damage
+   | condition: 25% chance
+   | (43361:92) 強烈な黄色光弾
+   | Spawn 5 random Light orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 1
+   | (43355:83) 月の石・キングストーン + 破壊光線
+   | Enemy recover 45% HP + Change all Wood and Light orbs to Dark orbs, Deal 100% damage

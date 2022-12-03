@@ -1,0 +1,72 @@
+#404921 - 仮面ライダーＶ３
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 404921
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11696:65) Ｖ３電熱チョップ
+ | Bind 2 random subs for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (11697:15) Ｖ３チョップ
+     | Deal 95% damage
+     | condition: 34% chance
+     | (11698:15) Ｖ３パンチ
+     | Deal 100% damage
+     | condition: 33% chance
+     | (11699:15) ハリケーンラストダッシュ
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 3 while HP > 14
+     | (11701:83) Ｖ３キック + Ｖ３反転キック
+     | Deal 60% damage + Deal 60% damage, Deal 60% damage
+   | group:
+   | condition: turns 4-5 while HP > 14
+     | condition: 33% chance
+     | (11697:15) Ｖ３チョップ
+     | Deal 95% damage
+     | condition: 34% chance
+     | (11698:15) Ｖ３パンチ
+     | Deal 100% damage
+     | condition: 33% chance
+     | (11699:15) ハリケーンラストダッシュ
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: turn 6 while HP > 14
+     | (11704:83) Ｖ３きりもみキック + Ｖ３きりもみ反転キック
+     | Deal 60% damage + Random 2 orbs change every 1.0s for 1 turn, Deal 60% damage
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | condition: 33% chance
+     | (11697:15) Ｖ３チョップ
+     | Deal 95% damage
+     | condition: 34% chance
+     | (11698:15) Ｖ３パンチ
+     | Deal 100% damage
+     | condition: 33% chance
+     | (11699:15) ハリケーンラストダッシュ
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (11707:15) Ｖ３きりもみ回転３段キック
+     | Deal 180% damage (3 hits, 60% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (11700:50) レッドボーン・リング
+   | Player -99% HP
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (11708:83) レッドボーンパワー + レッドランプパワー
+     | Increase damage to 200% for the next 1 turn + Reduce damage from all sources by 50% for 1 turn
+   | group:
+     | (11711:15) Ｖ３回転ダブルキック
+     | Deal 100% damage (2 hits, 50% each)

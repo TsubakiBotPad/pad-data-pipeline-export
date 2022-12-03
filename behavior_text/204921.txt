@@ -1,0 +1,35 @@
+#204921 - 仮面ライダーＶ３
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204921
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (43322:127) Ｖ３キック
+ | No skyfall for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (43326:15) Ｖ３きりもみ回転3段キック
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (43327:74) レッドボーンパワー
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | (43328:92) レッドボーン・リング
+   | Spawn 3 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (43325:17) レッドランプパワー
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43323:150) Ｖ３電熱チョップ
+     | No description set, Deal 100% damage
+   | group:
+     | (43324:15) ハリケーンラストダッシュ
+     | Deal 180% damage (3 hits, 60% each)

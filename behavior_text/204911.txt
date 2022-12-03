@@ -1,0 +1,36 @@
+#204911 - 仮面ライダーＢＬＡＣＫ ＲＸ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 204911
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43383:129) 超根性70％
+ | Damage which would reduce HP from above 70% to below 70% is nullified
+ type: PREEMPT
+ | (43374:83) 俺は太陽の子！ + マクロアイ
+ | Voids status ailments for 999 turns + RCV 50% for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (43387:95) この世に光がある限り、 + 仮面ライダーBLACKRXは不滅だ！
+ | Do nothing + Jammer skyfall +15% for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (43381:15) リボルクラッシュ
+   | Deal 102% damage (3 hits, 34% each)
+   | (43382:92) RXキック
+   | Spawn 5 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 69
+   | group:
+   | condition: turn 1
+     | (43377:83) ライディングアロー + RXパンチ
+     | Change all orbs to Wood and Light + Lock all Wood orbs, Deal 50% damage
+   | group:
+   | condition: turn 2
+     | (43380:86) サンバスク
+     | Enemy recover 30% HP

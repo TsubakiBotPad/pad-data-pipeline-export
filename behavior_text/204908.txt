@@ -1,0 +1,38 @@
+#204908 - 仮面ライダー新１号＆仮面ライダー新２号
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204908
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43411:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (43400:83) いくぞ　隼人 + よしきた　本郷
+ | Voids status ailments for 999 turns + For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (43409:102) ライダーきりもみシュート
+   | Spawn 6 random locked Bomb orbs, Deal 100% damage
+   | (43410:77) ライダー反転スクリュー返し
+   | Change the 3rd and 4th columns to Fire, Wood, and Jammer orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (43404:83) ライダーダブルチョップ + ライダー車輪
+     | Unable to match Fire and Wood orbs for 2 turns + Absorb damage when combos <= 8 for 2 turns, Deal 50% damage
+   | group:
+     | condition: 50% chance
+     | (43407:79) ライダーヘッドクラッシャー
+     | Change the 4th and 5th rows to Fire, Wood, and Poison orbs, Deal 101% damage
+     | (43408:94) 背面ジャンプ
+     | Lock 7 random orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 9
+   | (43403:15) ライダーダブルキック
+   | Deal 240% damage (3 hits, 80% each)

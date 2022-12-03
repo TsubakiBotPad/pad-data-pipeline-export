@@ -1,0 +1,33 @@
+#204935 - 仮面ライダーストロンガー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204935
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43342:72) 水軽減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (43335:83) ストロンガーバリア + 悪を倒せと俺を呼ぶ。
+ | Voids status ailments for 999 turns + Bind 2 random subs for 2 turns
+ type: DEATH
+ condition: when defeated
+ | (43344:95) 電気ビーム
+ | Bind awoken skills for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (43339:15) 電パンチ
+   | Deal 100% damage
+   | condition: 50% chance
+   | (43340:100) エレクトロファイヤー
+   | Seal the 1st row for 1 turn, Deal 100% damage
+   | (43341:92) 電チョップ
+   | Spawn 4 random Wood and Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43338:94) ストロンガー電キック
+   | Lock 10 random orbs, Deal 101% damage

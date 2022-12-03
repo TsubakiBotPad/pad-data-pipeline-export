@@ -1,0 +1,38 @@
+#304929 - 仮面ライダーＷ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 304929
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (11749:83) ターミナルアイ + ダブルフィーラー
+ | Voids status ailments for 5 turns + Blind orbs in specific positions for 1 turn
+ group:
+ | group:
+   | condition: 50% chance
+   | (11752:92) サイクロンナックル
+   | Spawn 5 random Wood orbs, Deal 100% damage
+   | (11753:92) ジョーカーナックル
+   | Spawn 5 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 50
+   | group:
+   | condition: always turn 1
+     | (11754:67) 風操作
+     | Absorb damage when combos <= 4 for 5 turns
+   | group:
+     | condition: 33% chance
+     | (11755:79) 風の力をまとったキック
+     | Change the 3rd row to Wood orbs, Deal 110% damage
+     | condition: 50% chance
+     | (11752:92) サイクロンナックル
+     | Spawn 5 random Wood orbs, Deal 100% damage
+     | (11753:92) ジョーカーナックル
+     | Spawn 5 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | (11756:83) マキシマムドライブ + ジョーカーエクストリーム
+   | A 2×2 square of clouds appears for 1 turn at a random location + Deal 150% damage, Deal 150% damage

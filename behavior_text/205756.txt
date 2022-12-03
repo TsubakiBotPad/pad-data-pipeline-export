@@ -1,0 +1,33 @@
+#205756 - 仮面ライダースーパー1
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 205756
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43353:72) 火軽減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (43345:83) 赤心少林拳 + 梅花の型
+ | Voids status ailments for 999 turns + Spawn 4 random Fire and Heal orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (43348:139) レーダーアイ発射
+   | Haste both leaders' skills by 15 turns, Deal 101% damage
+ | group:
+   | condition: 33% chance
+   | (43350:104) スーパーライダー月面キック
+   | A 1×2 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage
+   | condition: 50% chance
+   | (43351:62) スーパーライダー旋風キック
+   | Blind all orbs on the board, Deal 100% damage
+   | (43352:15) スーパーパンチ
+   | Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (43349:75) チェンジ・レーダーハンド！
+   | Leader changes to random sub for 1 turn, Deal 102% damage
