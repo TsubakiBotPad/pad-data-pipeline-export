@@ -1,0 +1,35 @@
+#300517 - プチノエルドラゴン・ルージュ
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESDebuffATKTarget(143:42960) -> 赤い贈り物
+	For 1 turn, 1% ATK for both leaders
+	[1] ESAbsorbCombo(67:42961) -> ルージュランプ
+	Absorb damage when combos <= 8 for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRandomSpawn(92:42962) -> プチギフト
+Spawn 10 random Fire orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

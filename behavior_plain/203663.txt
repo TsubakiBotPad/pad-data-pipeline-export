@@ -1,4 +1,4 @@
-#203663 - 鏖魔ディアブロス
+#203663 - Massacre Demon Diablos
 monster size: 5
 new AI: True
 start/max counter: 15
@@ -20,9 +20,9 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESStatusShield(20:7251) -> 鏖魔の覇気
+	[0] ESStatusShield(20:7251) -> Massacre Force
 	Voids status ailments for 999 turns
-	[1] ESBindRandom(1:7252) -> 咆哮
+	[1] ESBindRandom(1:7252) -> Roar
 	Bind 1 random card for 2 turns
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -30,25 +30,25 @@ end_turn
 
 #8: SkillSet:
 	Condition: When < 1% HP , one-time use (ai:100 rnd:0) (cost: 8)
-	[0] ESBindSkill(14:7257) -> 咆哮
+	[0] ESBindSkill(14:7257) -> Roar
 	Bind active skills for 3 turns
-	[1] ESRecoverEnemy86(86:7326) -> 暴走状態へ移行
+	[1] ESRecoverEnemy86(86:7326) -> Enter Fury State
 	Enemy recover 60% HP
-	[2] ESDamageShield(74:7259) -> 地中潜り
+	[2] ESDamageShield(74:7259) -> Burrow
 	Reduce damage from all sources by 75% for 1 turn
 
 #9: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 90, target rnd 14
 
-#10: ESAttackMultihit(15:7254) -> 体当たり
+#10: ESAttackMultihit(15:7254) -> Body Slam
 Condition: 33% chance (ai:0 rnd:33)
 Deal 1,100% damage
 
-#11: ESAttackMultihit(15:7255) -> 尻尾振り攻撃
+#11: ESAttackMultihit(15:7255) -> Tail Swing
 Condition: 33% chance (ai:0 rnd:33)
 Deal 1,000% damage (2 hits, 500% each)
 
-#12: ESRandomSpawn(92:7256) -> 突進
+#12: ESRandomSpawn(92:7256) -> Dash Attack
 Condition: 34% chance (ai:0 rnd:34)
 Spawn 3 random Jammer orbs, Deal 1,000% damage
 
@@ -57,14 +57,14 @@ end_turn
 
 #14: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 8)
-	[0] ESBindSkill(14:7257) -> 咆哮
+	[0] ESBindSkill(14:7257) -> Roar
 	Bind active skills for 3 turns
-	[1] ESInactivity66(66:7258) -> 暴走状態へ移行
+	[1] ESInactivity66(66:7258) -> Enter Fury State
 	Do nothing
-	[2] ESDamageShield(74:7259) -> 地中潜り
+	[2] ESDamageShield(74:7259) -> Burrow
 	Reduce damage from all sources by 75% for 1 turn
 
-#15: ESAttackMultihit(15:7261) -> 地中からの強急襲
+#15: ESAttackMultihit(15:7261) -> Burrowed Assault
 Condition: One-time use (ai:100 rnd:0) (cost: 4)
 Deal 1,500% damage
 
@@ -73,111 +73,111 @@ Branch on hp < 20, target rnd 29
 
 #17: SkillSet:
 	Condition: 33% chance when < 40% HP (ai:33 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7268) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7268) -> Rage
 	Increase damage to 150% for the next 1 turn
-	[1] ESOrbChangeAttack(48:7262) -> 地表角抉り攻撃
+	[1] ESOrbChangeAttack(48:7262) -> Horn Gouge
 	Change a random attribute to Jammer orbs, Deal 1,200% damage
 
 #18: SkillSet:
 	Condition: 50% chance when < 40% HP (ai:50 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7268) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7268) -> Rage
 	Increase damage to 150% for the next 1 turn
-	[1] ESBlind62(62:7263) -> 飛びかかり潜り
+	[1] ESBlind62(62:7263) -> Springing Burrow
 	Blind all orbs on the board, Deal 1,200% damage
 
 #19: SkillSet:
 	Condition: When < 40% HP (ai:100 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7268) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7268) -> Rage
 	Increase damage to 150% for the next 1 turn
-	[1] ESAttackMultihit(15:7264) -> 連続角振り回し
+	[1] ESAttackMultihit(15:7264) -> Combo Horn Thrash
 	Deal 1,000~1,500% damage (2~3 hits, 500% each)
 
 #20: SkillSet:
 	Condition: 33% chance when < 60% HP (ai:33 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7267) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7267) -> Rage
 	Increase damage to 140% for the next 1 turn
-	[1] ESOrbChangeAttack(48:7262) -> 地表角抉り攻撃
+	[1] ESOrbChangeAttack(48:7262) -> Horn Gouge
 	Change a random attribute to Jammer orbs, Deal 1,200% damage
 
 #21: SkillSet:
 	Condition: 50% chance when < 60% HP (ai:50 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7267) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7267) -> Rage
 	Increase damage to 140% for the next 1 turn
-	[1] ESBlind62(62:7263) -> 飛びかかり潜り
+	[1] ESBlind62(62:7263) -> Springing Burrow
 	Blind all orbs on the board, Deal 1,200% damage
 
 #22: SkillSet:
 	Condition: When < 60% HP (ai:100 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7267) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7267) -> Rage
 	Increase damage to 140% for the next 1 turn
-	[1] ESAttackMultihit(15:7264) -> 連続角振り回し
+	[1] ESAttackMultihit(15:7264) -> Combo Horn Thrash
 	Deal 1,000~1,500% damage (2~3 hits, 500% each)
 
 #23: SkillSet:
 	Condition: 33% chance when < 70% HP (ai:33 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7266) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7266) -> Rage
 	Increase damage to 130% for the next 1 turn
-	[1] ESOrbChangeAttack(48:7262) -> 地表角抉り攻撃
+	[1] ESOrbChangeAttack(48:7262) -> Horn Gouge
 	Change a random attribute to Jammer orbs, Deal 1,200% damage
 
 #24: SkillSet:
 	Condition: 50% chance when < 70% HP (ai:50 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7266) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7266) -> Rage
 	Increase damage to 130% for the next 1 turn
-	[1] ESBlind62(62:7263) -> 飛びかかり潜り
+	[1] ESBlind62(62:7263) -> Springing Burrow
 	Blind all orbs on the board, Deal 1,200% damage
 
 #25: SkillSet:
 	Condition: When < 70% HP (ai:100 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7266) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7266) -> Rage
 	Increase damage to 130% for the next 1 turn
-	[1] ESAttackMultihit(15:7264) -> 連続角振り回し
+	[1] ESAttackMultihit(15:7264) -> Combo Horn Thrash
 	Deal 1,000~1,500% damage (2~3 hits, 500% each)
 
 #26: SkillSet:
 	Condition: 33% chance when < 90% HP (ai:33 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7265) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7265) -> Rage
 	Increase damage to 120% for the next 1 turn
-	[1] ESOrbChangeAttack(48:7262) -> 地表角抉り攻撃
+	[1] ESOrbChangeAttack(48:7262) -> Horn Gouge
 	Change a random attribute to Jammer orbs, Deal 1,200% damage
 
 #27: SkillSet:
 	Condition: 50% chance when < 90% HP (ai:50 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7265) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7265) -> Rage
 	Increase damage to 120% for the next 1 turn
-	[1] ESBlind62(62:7263) -> 飛びかかり潜り
+	[1] ESBlind62(62:7263) -> Springing Burrow
 	Blind all orbs on the board, Deal 1,200% damage
 
 #28: SkillSet:
 	Condition: When < 90% HP (ai:100 rnd:0)
-	[0] ESAttackUPRemainingEnemies(17:7265) -> 怒り
+	[0] ESAttackUPRemainingEnemies(17:7265) -> Rage
 	Increase damage to 120% for the next 1 turn
-	[1] ESAttackMultihit(15:7264) -> 連続角振り回し
+	[1] ESAttackMultihit(15:7264) -> Combo Horn Thrash
 	Deal 1,000~1,500% damage (2~3 hits, 500% each)
 
 #29: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESBindAwoken(88:7281) -> 咆哮
+	[0] ESBindAwoken(88:7281) -> Roar
 	Bind awoken skills for 3 turns
-	[1] ESInactivity66(66:7282) -> 狂暴走状態へ移行
+	[1] ESInactivity66(66:7282) -> Enter Rampaging State
 	Do nothing
-	[2] ESDamageShield(74:7283) -> 地中潜り
+	[2] ESDamageShield(74:7283) -> Burrow
 	Reduce damage from all sources by 75% for 1 turn
 
 #30: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAttackMultihit(15:7285) -> 地中からの強急襲
+	[0] ESAttackMultihit(15:7285) -> Burrowed Assault
 	Deal 1,500% damage
-	[1] ESGravity(50:7286) -> 狂暴走急降下攻撃
+	[1] ESGravity(50:7286) -> Rampaging Downstrike
 	Player -99% HP
-	[2] ESBoardChangeAttackBits(85:7287) -> 狂暴走水蒸気爆発
+	[2] ESBoardChangeAttackBits(85:7287) -> Rampaging Geyser
 	Change all orbs to Water, Deal 12,000% damage
 
 #31: SkillSet:
-	[0] ESAttackMultihit(15:7289) -> 狂暴走3連突進
+	[0] ESAttackMultihit(15:7289) -> Rampaging Triple Dash
 	Deal 3,000% damage (3 hits, 1,000% each)
-	[1] ESBoardChangeAttackBits(85:7290) -> 狂暴走水蒸気爆発
+	[1] ESBoardChangeAttackBits(85:7290) -> Rampaging Geyser
 	Change all orbs to Water, Deal 12,000% damage
 
-#32: ESResolve(73:7292) -> 根性90
+#32: ESResolve(73:7292) -> Resolve 90
 Survive attacks with 1 HP when HP > 90%

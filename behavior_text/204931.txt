@@ -1,0 +1,31 @@
+#204931 - 仮面ライダービルド
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204931
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43472:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (43465:83) さぁ、実験を始めようか + 凄いでしょ！最高でしょ！天才でしょ！！
+ | Jammer and Poison skyfall +15% for 5 turns + Unable to match Jammer and Poison orbs for 5 turns, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (43470:15) ドリルクラッシャー
+   | Deal 102% damage (3 hits, 34% each)
+   | (43471:143) ボルテックブレイク！
+   | For 1 turn, 5% ATK for 2 random subs, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43468:88) 勝利の法則は決まった！
+     | Bind awoken skills for 1 turn
+   | group:
+     | (43469:102) ボルテックフィニッシュ！
+     | Spawn 6 random Bomb orbs, Deal 270% damage

@@ -1,0 +1,55 @@
+#9516 - 仮面ライダーウィザード オールドラゴン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:43486) -> 全ての魔力を1つに…
+	Voids status ailments for 999 turns
+	[1] ESBoardChangeAttackBits(85:43487) -> これが最後の希望だ！
+	Change all orbs to Dark and Heal, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 25, target rnd 8
+
+#4: ESRowSpawnMulti(79:43493) -> ドラゴンスマッシュ
+Condition: 33% chance (ai:33 rnd:0)
+Change the 2nd and 4th rows to Water and Dark orbs, Deal 100% damage
+
+#5: ESColumnSpawnMulti(77:43494) -> ドラゴンソニック
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd and 5th columns to Wood and Dark orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:43495) -> ドラゴンリッパー
+Spawn 5 random Jammer and Poison orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:43489) -> 俺は諦めが悪くてね…
+	Reduce damage from all sources by 80% for 2 turns
+	[1] ESBoardChangeAttackBits(85:43490) -> ストライクドラゴン
+	Change all orbs to Dark, Deal 105% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:43491) -> お前にフィナーレはない。
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:43490) -> ストライクドラゴン
+	Change all orbs to Dark, Deal 105% damage
+
+#10: ESAttackMultihit(15:43492) -> 永遠に死と再生を繰り返せ
+Deal 300% damage (3 hits, 100% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSuperResolve(129:43496) -> 超根性25％
+Damage which would reduce HP from above 25% to below 25% is nullified

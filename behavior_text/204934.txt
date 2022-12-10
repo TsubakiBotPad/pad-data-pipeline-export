@@ -1,0 +1,30 @@
+#204934 - 仮面ライダージオウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 204934
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43484:73) 根性50％
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (43473:83) 最高最善の魔王になってみせる！ + タイムブレーク
+ | Locked Fire and Dark skyfall +100% for 3 turns + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (43482:92) ギリギリスラッシュ
+   | Spawn 4 random Fire and Dark orbs, Deal 100% damage
+   | (43483:130) スレスレシューティング
+   | ATK -50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43479:83) RIDER TIME + なんか、いける気がする。
+   | Movetime 25% for 2 turns + Bind active skills for 3 turns, Deal 101% damage
+ | group:
+ | condition: hp <= 1
+   | (43476:83) 時計の針はさ、 + 未来にしか進まない。
+   | Bind awoken skills for 1 turn + Seal the 1st row for 3 turns, Deal 100% damage

@@ -1,4 +1,4 @@
-#209232 - 魔王の懐刀ランマル
+#209232 - Ranmaru, Demon King's Confidant
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,11 +14,11 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESUnknown(152:41253) -> 彷徨える魂
+	[0] ESUnknown(152:41253) -> Wandering Soul
 	No description set
-	[1] ESAbsorbThresholdBig(138:41254) -> 朽腐の霧
+	[1] ESAbsorbThresholdBig(138:41254) -> Decaying Mist
 	Absorb damage when damage >= 1,000,000,000 for 3 turns
-	[2] ESBoardChangeAttackBits(85:41255) -> 憎
+	[2] ESBoardChangeAttackBits(85:41255) -> Hatred
 	Change all orbs to Jammer and Poison, Deal 65% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -26,23 +26,23 @@ end_turn
 
 #6: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESDebuffATKTarget(143:41257) -> 魔王の忠臣
+	[0] ESDebuffATKTarget(143:41257) -> Demon King's Loyal Retainer
 	For 2 turns, 50% ATK for 4 random subs
-	[1] ESBlind62(62:41258) -> 冥々奪魂
+	[1] ESBlind62(62:41258) -> Hell Soul Pillage
 	Blind all orbs on the board, Deal 100% damage
 
 #7: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESSpinnersFixed(110:41260) -> 煉獄の呪い火
+	[0] ESSpinnersFixed(110:41260) -> Purgatory's Cursing Flames
 	Specific orbs change every 1.0s for 2 turns
-	[1] ESColumnSpawnMulti(77:41261) -> 六道八苦
+	[1] ESColumnSpawnMulti(77:41261) -> Six Realms, Eight Sufferings
 	Change the 1st and 6th columns to Dark orbs, Deal 80% damage
 
 #8: SkillSet:
 	Condition: When < 50% HP (ai:100 rnd:0)
-	[0] ESBindAwoken(88:41263) -> 呪詛
+	[0] ESBindAwoken(88:41263) -> Malediction
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:41264) -> 死天刃・極
+	[1] ESAttackMultihit(15:41264) -> Reaping Blade - Ultimate
 	Deal 150% damage (6 hits, 25% each)
 
 #9: ESBranchCounter(31:21) -> ESBranchCounter
@@ -51,7 +51,7 @@ Branch on counter = 1, target rnd 13
 #10: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#11: ESSkyfall(68:41265) -> 魔凶刃
+#11: ESSkyfall(68:41265) -> Demonic Death Blade
 Jammer and Poison skyfall +15% for 1 turn, Deal 90% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -60,14 +60,14 @@ end_turn
 #13: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#14: ESAttackMultihit(15:41266) -> 死天刃
+#14: ESAttackMultihit(15:41266) -> Reaping Blade
 Deal 90% damage (3 hits, 30% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESSuperResolve(129:41251) -> ＿ランマル超根性
+#16: ESSuperResolve(129:41251) -> ＿Ranmaru Light Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified
 
-#17: ESAttributeResist(72:41250) -> ＿ランマル光半減
+#17: ESAttributeResist(72:41250) -> ＿Ranmaru Light Halved
 Reduce damage from Light attrs by 50%

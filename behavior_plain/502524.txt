@@ -1,0 +1,75 @@
+#502524 - 聖夜の使者・サンタクロース
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfallLocked(96:43001) -> メリーメリー…
+	Locked random skyfall +100% for 3 turns
+	[1] ESNoSkyfall(127:43002) -> メリークリスマス！！
+	No skyfall for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:43004) -> 良い子にしておれ、そうすれば
+	Bind awoken skills for 5 turns
+	[1] ESTargetedSkillHaste(139:43005) -> プレゼントはきっと届くぞ
+	Haste both leaders' skills by 99 turns, Deal 85% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESCloud(104:43007) -> おひげと雪景色
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESFixedStart(101:43008) -> アカハナホーン
+	Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESOrbSealRow(100:43011) -> 包装リボン
+	Seal the 1st row for 1 turn
+	[1] ESAttackMultihit(15:43010) -> 神速のトナカイ
+	Deal 105% damage (3 hits, 35% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: SkillSet:
+	[0] ESSkyfall(68:43013) -> こぼれ落ちるプレゼント
+	Fire and Light skyfall +25% for 1 turn
+	[1] ESSpinnersFixed(110:43014) -> さぁ鈴を鳴らすのじゃ！
+	Specific orbs change every 1.0s for 1 turn, Deal 99% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:42999) -> ＿サンタ超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

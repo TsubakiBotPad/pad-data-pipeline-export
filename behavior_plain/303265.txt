@@ -1,0 +1,31 @@
+#303265 - 全能神・ラー＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBoardChange(84:43104) -> 極光
+	Change all orbs to Heal
+	[1] ESRandomSpawn(92:43105) -> 神々の夜明け
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Jammer, and Poison orbs
+	[2] ESDebuffMovetime(39:43106) -> ヘリオケラウス
+	Movetime 500% for 10 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	[0] ESBoardChangeAttackBits(85:43108) -> 極光
+	Change all orbs to Heal, Deal 100% damage
+	[1] ESRandomSpawn(92:43109) -> 神々の夜明け
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Jammer, and Poison orbs

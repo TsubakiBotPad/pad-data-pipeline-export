@@ -1,0 +1,38 @@
+#9516 - 仮面ライダーウィザード オールドラゴン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 9516
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43496:129) 超根性25％
+ | Damage which would reduce HP from above 25% to below 25% is nullified
+ type: PREEMPT
+ | (43485:83) 全ての魔力を1つに… + これが最後の希望だ！
+ | Voids status ailments for 999 turns + Change all orbs to Dark and Heal, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (43493:79) ドラゴンスマッシュ
+   | Change the 2nd and 4th rows to Water and Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (43494:77) ドラゴンソニック
+   | Change the 2nd and 5th columns to Wood and Dark orbs, Deal 100% damage
+   | (43495:92) ドラゴンリッパー
+   | Spawn 5 random Jammer and Poison orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 24
+   | group:
+   | condition: turn 1
+     | (43488:83) 俺は諦めが悪くてね… + ストライクドラゴン
+     | Reduce damage from all sources by 80% for 2 turns + Change all orbs to Dark, Deal 105% damage
+   | group:
+   | condition: turn 2
+     | (43507:83) お前にフィナーレはない。 + ストライクドラゴン
+     | Bind awoken skills for 1 turn + Change all orbs to Dark, Deal 105% damage
+   | group:
+     | (43492:15) 永遠に死と再生を繰り返せ
+     | Deal 300% damage (3 hits, 100% each)

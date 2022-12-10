@@ -1,0 +1,32 @@
+#205768 - 仮面ライダーフォーゼ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205768
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (43435:83) 宇宙キターっ！ + ライダーロケットドリルキック
+ | Void damage >= 1,000,000,000 for 3 turns + Change the 3rd and 4th rows to Water and Light orbs
+ type: DEATH
+ condition: when defeated
+ | (43448:95) アンタに贈り物がある、 + 受け取ってもらうぜ！
+ | Do nothing + Random 3 orbs change every 1.0s for 3 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (43440:83) 俺たちの想いを + 受け取ってもらうぜ!!
+   | Blind all orbs on the board + Change the 5th row to Water and Jammer orbs, Deal 101% damage
+   | (43444:105) ライダーロケットドリル宇宙キック
+   | RCV 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43438:89) 最後の…タイマンはらせてもらうぜ!!
+     | Delay active skills by 4 turns
+   | group:
+     | (43439:15) 青春銀河大大大ドリルキック
+     | Deal 210% damage (3 hits, 70% each)
