@@ -1,4 +1,4 @@
-#502524 - 聖夜の使者・サンタクロース
+#502524 - Holy Night Messenger, Santa Claus
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESSkyfallLocked(96:43001) -> メリーメリー…
+	[0] ESSkyfallLocked(96:43001) -> Ho ho ho...
 	Locked random skyfall +100% for 3 turns
-	[1] ESNoSkyfall(127:43002) -> メリークリスマス！！
+	[1] ESNoSkyfall(127:43002) -> Merry Christmas!!
 	No skyfall for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -24,9 +24,9 @@ end_turn
 
 #6: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindAwoken(88:43004) -> 良い子にしておれ、そうすれば
+	[0] ESBindAwoken(88:43004) -> If you are a good, nice kid...
 	Bind awoken skills for 5 turns
-	[1] ESTargetedSkillHaste(139:43005) -> プレゼントはきっと届くぞ
+	[1] ESTargetedSkillHaste(139:43005) -> ...you'll get a present!
 	Haste both leaders' skills by 99 turns, Deal 85% damage
 
 #7: ESBranchCounter(31:21) -> ESBranchCounter
@@ -39,9 +39,9 @@ Branch on counter = 1, target rnd 12
 counter + 1
 
 #10: SkillSet:
-	[0] ESCloud(104:43007) -> おひげと雪景色
+	[0] ESCloud(104:43007) -> Beard White as Snow
 	A 2×2 square of clouds appears for 1 turn at a random location
-	[1] ESFixedStart(101:43008) -> アカハナホーン
+	[1] ESFixedStart(101:43008) -> Rudolph's Horn
 	Fix orb movement starting point to random position on the board, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -51,9 +51,9 @@ end_turn
 counter + 1
 
 #13: SkillSet:
-	[0] ESOrbSealRow(100:43011) -> 包装リボン
+	[0] ESOrbSealRow(100:43011) -> Wrapping Ribbon
 	Seal the 1st row for 1 turn
-	[1] ESAttackMultihit(15:43010) -> 神速のトナカイ
+	[1] ESAttackMultihit(15:43010) -> Super Swift Reindeer
 	Deal 105% damage (3 hits, 35% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -63,13 +63,13 @@ end_turn
 counter = 0
 
 #16: SkillSet:
-	[0] ESSkyfall(68:43013) -> こぼれ落ちるプレゼント
+	[0] ESSkyfall(68:43013) -> Scattering Presents
 	Fire and Light skyfall +25% for 1 turn
-	[1] ESSpinnersFixed(110:43014) -> さぁ鈴を鳴らすのじゃ！
+	[1] ESSpinnersFixed(110:43014) -> Let's ring the bells!
 	Specific orbs change every 1.0s for 1 turn, Deal 99% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:42999) -> ＿サンタ超根性
+#18: ESSuperResolve(129:42999) -> ＿Santa Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

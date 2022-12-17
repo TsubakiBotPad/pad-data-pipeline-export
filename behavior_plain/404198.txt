@@ -1,0 +1,81 @@
+#404198 - 星月の雲龍喚士・エリカ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:37161) -> 継界龍盾
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:37162) -> 静月の聖護符
+	Bind awoken skills for 1 turn
+	[2] ESCloud(104:37163) -> 星狐の月雲
+	A 3×1 rectangle of clouds appears for 1 turn at a random location
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESCloud(104:37170) -> 星狐の月雲
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESBoardChangeAttackBits(85:37171) -> 転界逢龍陣・五雲
+	Change all orbs to Wood, Light, Dark, Heal, and Jammer, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESCloud(104:37173) -> 星狐の月雲
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESBoardChangeAttackBits(85:37174) -> 転界逢龍陣・五雲
+	Change all orbs to Wood, Light, Dark, Heal, and Poison, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESDebuffRCV(105:37166) -> 静月の聖護印
+	RCV 50% for 3 turns
+	[1] ESVoidShieldBig(137:37167) -> 星盾
+	Void damage >= 500,000,000 for 6 turns
+	[2] ESCloud(104:37168) -> 星狐の月雲
+	A 3×2 rectangle of clouds appears for 1 turn at a random location
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESCloud(104:37164) -> 転界逢龍陣・月狐雲
+A 3×3 square of clouds appears for 1 turn at a random location, Deal 1,000% damage
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#18: ESAttributeResist(72:37020) -> 闇軽減
+Reduce damage from Dark attrs by 50%

@@ -1,0 +1,54 @@
+#408914 - 裏封印されし百式龍
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:42506) -> 百式結界
+	Voids status ailments for 4 turns
+	[1] ESAbsorbCombo(67:42507) -> 炎焼熱風
+	Absorb damage when combos <= 9 for 1 turn
+	[2] ESSkyfallLocked(96:42508) -> 灼熱息吹
+	Locked random skyfall +50% for 4 turns, Deal 80% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 9
+
+#5: ESUnknown(151:42509) -> 灼熱息吹
+Condition: 33% chance (ai:0 rnd:33)
+No description set, Deal 100% damage
+
+#6: ESDebuffATKTarget(143:42510) -> 灼熱息吹
+Condition: 33% chance (ai:0 rnd:33)
+For 1 turn, 1% ATK for both leaders, Deal 100% damage
+
+#7: ESAbsorbCombo(67:42511) -> 灼熱息吹
+Condition: 34% chance (ai:0 rnd:34)
+Absorb damage when combos <= 9 for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	[0] ESChangeAttribute(46:42513) -> 焔晶
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:42514) -> 百式爆炎波
+	Deal 1,000% damage (5 hits, 200% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#12: ESDeathCry(69:37359) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: 水晶が割れていく…|水晶からなにかが現れた！

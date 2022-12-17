@@ -1,0 +1,106 @@
+#408915 - 裏百式龍・ビャクレンコウ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:37336) -> クリムゾンバリア
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:37337) -> インフェルノゲート
+	Jammer and Poison skyfall +15% for 10 turns
+	[2] ESVoidShieldBig(137:37338) -> ヴォルケーノウォール
+	Void damage >= 500,000,000 for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 17
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDebuffATKTarget(143:42533) -> インフェルノオーラ
+	For 1 turn, 1% ATK for 1 random card
+	[1] ESColumnSpawnMulti(77:42534) -> ヴォルカニックバースト
+	Change the 1st column to Fire orbs and the 6th column to Poison orbs, Deal 105% damage
+
+#6: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESSpinnersFixed(110:42536) -> マグマスパイラル
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESFixedStart(101:42537) -> ブレイズメテオ
+	Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAbsorbCombo(67:42539) -> ヒートクリムゾン
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESUnknown(151:42540) -> ヴォルカニックブレイズ
+	No description set, Deal 90% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 13
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: SkillSet:
+	[0] ESRandomSpawn(92:42525) -> ニルヴァーナブレイズ
+	Spawn 3 random Fire and Poison orbs
+	[1] ESOrbChangeAttackBits(108:42526) -> ヘルクリムゾンブレス
+	Change all Fire, Jammer, and Poison orbs to Mortal Poison orbs, Deal 160% damage
+	[2] ESGravity(50:42527) -> ヴォルカニックメテオ
+	Player -200% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESUnknown(150:42542) -> ヒートクリムゾン
+	No description set
+	[1] ESColumnSpawnMulti(77:42543) -> ヴォルカニックバースト
+	Change the 3rd and 4th columns to Jammer and Poison orbs, Deal 110% damage
+
+#14: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESDebuffATKTarget(143:42545) -> インフェルノオーラ
+	For 1 turn, 1% ATK for 2 random cards
+	[1] ESBlindStickyRandom(97:42546) -> ダークブレイズ
+	Blind random 10~12 orbs for 1 turn, Deal 100% damage
+
+#15: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESAbsorbCombo(67:42548) -> ヒートクリムゾン
+	Absorb damage when combos <= 9 for 1 turn
+	[1] ESUnknown(152:42549) -> ヴォルカニックブレイズ
+	No description set, Deal 95% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:42529) -> ヴォルカニックエンハンス
+	Increase damage to 1,000% for the next 999 turns
+	[1] ESBindAwoken(88:42530) -> ニルヴァーナハウル
+	Bind awoken skills for 1 turn
+	[2] ESAbsorbCombo(67:42531) -> ヒートクリムゾン
+	Absorb damage when combos <= 10 for 1 turn
+
+#18: ESAttackMultihit(15:37346) -> エクスプロージョンノヴァ
+Deal 1,000% damage (10 hits, 100% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:37038) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

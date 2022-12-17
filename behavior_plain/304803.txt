@@ -1,0 +1,88 @@
+#304803 - 裏猛護の滾龍喚士・アルファ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:37065) -> 昂翼の召龍守
+	Voids status ailments for 999 turns
+	[1] ESOrbSealColumn(99:37066) -> 炎翼
+	Seal the 6th column for 3 turns
+	[2] ESDebuffATKTarget(143:42577) -> ガウルバドリシェ
+	For 3 turns, 50% ATK for both leaders, Deal 15% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbLock(94:37074) -> 剛毅
+	Lock 15 random orbs
+	[1] ESBoardChangeAttackBits(85:37075) -> バドリシェ・ド・ジェルト
+	Change all orbs to Fire and Jammer, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESOrbLock(94:37077) -> 剛毅
+	Lock 15 random orbs
+	[1] ESBoardChangeAttackBits(85:37078) -> バドリシェ・ド・ジェルト
+	Change all orbs to Fire and Poison, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESOrbLock(94:37054) -> 剛毅
+	Lock 10 random orbs
+	[1] ESChangeAttribute(46:37055) -> エキサイトチェンジ
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESVoidShieldBig(137:37070) -> 昂翼の召龍壁
+	Void damage >= 200,000,000 for 999 turns
+	[1] ESOrbLock(94:37071) -> 剛毅
+	Lock all orbs
+	[2] ESAttackMultihit(15:37072) -> グァリバドシア
+	Deal 120% damage (3 hits, 40% each)
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackMultihit(15:37068) -> バドリシェバドシア
+Deal 1,050% damage (3 hits, 350% each)
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESTypeResist(118:42520) -> ＿攻撃半減
+Reduce damage from Attacker types by 50%

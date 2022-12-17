@@ -1,0 +1,141 @@
+#303949 - 狂影の恐龍契士・リィ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESStatusShield(20:37250) -> 恐龍結界
+	Voids status ailments for 999 turns
+	[1] ESLeaderSwap(75:37251) -> ドラゴンシャドウシフト
+	Leader changes to random sub for 1 turn
+	[2] ESAbsorbAttribute(53:37252) -> エネルギーシフト
+	Absorb Fire and Water damage for 1 turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESStatusShield(20:37273) -> 恐龍結界
+	Voids status ailments for 999 turns
+	[1] ESLeaderSwap(75:37274) -> ドラゴンシャドウシフト
+	Leader changes to random sub for 1 turn
+	[2] ESAbsorbAttribute(53:37275) -> エネルギーシフト
+	Absorb Fire and Wood damage for 1 turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESStatusShield(20:37277) -> 恐龍結界
+	Voids status ailments for 999 turns
+	[1] ESLeaderSwap(75:37278) -> ドラゴンシャドウシフト
+	Leader changes to random sub for 1 turn
+	[2] ESAbsorbAttribute(53:37279) -> エネルギーシフト
+	Absorb Water and Wood damage for 1 turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:0 rnd:25) (cost: 1)
+	[0] ESStatusShield(20:37250) -> 恐龍結界
+	Voids status ailments for 999 turns
+	[1] ESLeaderSwap(75:37251) -> ドラゴンシャドウシフト
+	Leader changes to random sub for 1 turn
+	[2] ESAbsorbAttribute(53:37252) -> エネルギーシフト
+	Absorb Fire and Water damage for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 25
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 23
+
+#12: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#13: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:37258) -> エネルギーシフト
+	Absorb Fire damage for 1 turn
+	[1] ESChangeAttribute(46:37259) -> シャドウエナジークロー
+	Change own attribute to Wood, Deal 100% damage
+
+#14: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:37261) -> エネルギーシフト
+	Absorb Water damage for 1 turn
+	[1] ESChangeAttribute(46:37262) -> シャドウエナジークロー
+	Change own attribute to Fire, Deal 100% damage
+
+#15: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:37264) -> エネルギーシフト
+	Absorb Wood damage for 1 turn
+	[1] ESChangeAttribute(46:37265) -> シャドウエナジークロー
+	Change own attribute to Water, Deal 100% damage
+
+#16: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:37267) -> エネルギーシフト
+	Absorb Light damage for 1 turn
+	[1] ESChangeAttribute(46:37268) -> シャドウエナジークロー
+	Change own attribute to Dark, Deal 100% damage
+
+#17: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:37270) -> エネルギーシフト
+	Absorb Dark damage for 1 turn
+	[1] ESChangeAttribute(46:37271) -> シャドウエナジークロー
+	Change own attribute to Light, Deal 100% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 13
+
+#20: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#21: SkillSet:
+	[0] ESAbsorbAttribute(53:37254) -> エネルギーシフト
+	Absorb Light and Dark damage for 1 turn
+	[1] ESDamageShield(74:37255) -> 恐龍の守り
+	Reduce damage from all sources by 50% for 999 turns
+	[2] ESDebuffMovetime(39:37256) -> ドラゴンシャドウフィアー
+	Movetime 50% for 3 turns, Deal 150% damage
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#23: ESAttackMultihit(15:37280) -> シャドウエナジーバースト
+Deal 600% damage (3 hits, 200% each)
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: SkillSet:
+	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESResolve(73:34043) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#28: ESAttributeResist(72:37020) -> 闇軽減
+Reduce damage from Dark attrs by 50%

@@ -1,0 +1,55 @@
+#305558 - ロミアのぬいぐるみ
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 305558
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (37039:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (42521:118) ＿悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (37386:83) 獄幻魔の縫包 + カオティックスフィア
+ | Absorb Light and Dark damage for 3 turns + Specific orbs change every 1.0s for 3 turns
+ group:
+ | group:
+ | condition: turns 1-2
+   | condition: 50% chance
+   | (37389:46) カオティックカラー
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (37390:92) デモンコール
+   | Spawn 7 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (37391:74) 獄幻魔の鉄壁
+   | Reduce damage from all sources by 50% for 999 turns
+ | group:
+ | condition: turns 4-6
+   | condition: 50% chance
+   | (37389:46) カオティックカラー
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (37390:92) デモンコール
+   | Spawn 7 random Jammer orbs, Deal 100% damage
+ | group:
+   | (37042:15) 業炎の焔滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 1 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (37392:83) デモンエンハンス + 奈落の結界 + カオティックフィアー
+   | Increase damage to 200% for the next 999 turns + Voids status ailments for 999 turns + For 3 turns, 1% ATK for both leaders
+ | group:
+ | condition: turns 2-6
+   | condition: 50% chance
+   | (37389:46) カオティックカラー
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+   | condition: 50% chance
+   | (37390:92) デモンコール
+   | Spawn 7 random Jammer orbs, Deal 100% damage

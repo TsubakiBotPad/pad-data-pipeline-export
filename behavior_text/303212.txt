@@ -1,0 +1,41 @@
+#303212 - 真火の小鬼
+monster size: 3
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303212
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (34043:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (42481:110) 鬼火
+ | Specific orbs change every 1.0s for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (42484:46) 小鬼風
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (42484:46) 小鬼風
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turns 5-6
+   | (42484:46) 小鬼風
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (37042:15) 業炎の焔滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (37044:19) 業炎の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-6
+   | (42484:46) 小鬼風
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

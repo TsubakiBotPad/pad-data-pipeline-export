@@ -1,0 +1,51 @@
+#204836 - 裏怒雷の全能神・ゼウス -GIGA-
+monster size: 5
+new AI: True
+start/max counter: 4
+counter increment: 1
+monster_id: 204836
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (33289:83) 神々の守り + 怒雷の覇気 + 神王の鎧
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 10 for 10 turns + Void damage >= 100,000,000 for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turns 1-4 while HP > 49
+     | (33280:15) 神王の雷帝
+     | Deal 1,300% damage
+   | group:
+   | condition: turn 5 while HP > 6
+     | (33277:83) 神王の転衣 + 神王の雷帝
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,300% damage, Deal 1,300% damage
+   | group:
+   | condition: turns 6-9 while HP > 6
+     | (33280:15) 神王の雷帝
+     | Deal 1,300% damage
+   | group:
+   | condition: turn 10 while HP > 6
+     | (11684:74) 神王の雷衣
+     | Reduce damage from all sources by 75% for 999 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 5
+     | (33277:83) 神王の転衣 + 神王の雷帝
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,300% damage, Deal 1,300% damage
+   | group:
+   | condition: execute repeatedly, turn 2-5 of 5
+     | (33280:15) 神王の雷帝
+     | Deal 1,300% damage
+ | group:
+ | condition: turn 1 while HP > 6, hp <= 49
+   | (33278:83) 全能神の威厳 + 神王の雷帝
+   | Voids player buff effects + Deal 1,300% damage, Deal 1,300% damage
+ | group:
+ | condition: hp <= 6
+   | group:
+   | condition: turn 1
+     | (11683:17) 全能神の闘気
+     | Increase damage to 500% for the next 99 turns
+   | group:
+     | (33279:83) 神王の波動 + 神王の雷帝
+     | Bind awoken skills for 1 turn + Deal 1,300% damage, Deal 1,300% damage

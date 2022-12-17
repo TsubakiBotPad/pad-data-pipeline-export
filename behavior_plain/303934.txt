@@ -1,0 +1,88 @@
+#303934 - 荊龍喚士・ヴェルド
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:37194) -> 棘牙の召龍盾
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:37195) -> 水圧の牙雨
+	Fire and Water skyfall +20% for 3 turns
+	[2] ESBoardChangeAttackBits(85:37196) -> ハイドロスネーク
+	Change all orbs to Fire, Water, and Heal, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESChangeAttribute(46:37206) -> スネークチェンジ
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESColumnSpawnMulti(77:37207) -> 棘鞭
+	Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 33% chance (ai:0 rnd:33)
+	[0] ESAbsorbAttribute(53:37209) -> 鮫棘肌
+	Absorb Water damage for 1 turn
+	[1] ESOrbLock(94:37210) -> 棘鞭
+	Lock all Water orbs, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 34% chance (ai:0 rnd:34)
+	[0] ESRandomSpawn(92:37203) -> ハイドロウィップ
+	Spawn 4 random Fire and Water orbs
+	[1] ESOrbLock(94:37204) -> 棘牙
+	Lock 10 random orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESBindSkill(14:37199) -> 棘牙の水圧
+	Bind active skills for 3 turns
+	[1] ESDebuffATKTarget(143:37200) -> スネークウェット
+	For 3 turns, 50% ATK for 2 random subs
+	[2] ESOrbLock(94:37201) -> 棘牙
+	Lock all orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESBoardChangeAttackBits(85:37197) -> タイダルスネーク
+Change all orbs to Fire, Water, and Heal, Deal 1,000% damage
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:37039) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#19: ESTypeResist(118:42515) -> ＿バランス半減
+Reduce damage from Balanced types by 50%
