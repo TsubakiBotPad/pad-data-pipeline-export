@@ -1,0 +1,47 @@
+#509600 - エンリコ・プッチ＆ホワイトスネイク
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 509600
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43972:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (43954:83) 完全なる死の忘却へ…… + おまえを + 送り込んでおかなくては……
+ | Voids status ailments for 999 turns + Change all orbs to Jammer and Poison + Lock all orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (43970:92) ウリャアア!!
+   | Spawn 5 random Wood and Dark orbs, Deal 100% damage
+   | (43971:143) 対象のDISC化
+   | For 1 turn, 5% ATK for 2 random subs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (43962:83) 素数を数えろ + 素数は誰にも割る事はできない
+     | Specific orbs change every 1.0s for 3 turns + Change the 1st and 2nd rows to Dark and Heal orbs, Deal 101% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (43965:83) 一瞬考えたなッ!! + その差が命とりだぁぁぁぁぁぁぁぁぁぁぁ
+     | Bind 6 random cards for 3 turns + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+     | condition: 50% chance
+     | (43968:92) 人は「恥」のために死ぬ
+     | Spawn 5 random Dark and Mortal Poison orbs, Deal 102% damage
+     | (43969:151) ウオシャアアアア！
+     | No description set, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43959:88) きさまを逃がすわけにはいかないッ！
+     | Bind awoken skills for 1 turn
+   | group:
+     | (43961:15) 素数は誰にも砕けない…
+     | Deal 220% damage (4 hits, 55% each)

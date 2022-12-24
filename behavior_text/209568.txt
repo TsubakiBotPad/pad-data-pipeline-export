@@ -1,0 +1,43 @@
+#209568 - 吉良吉影＆キラークイーン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209568
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43561:73) 根性50％
+ | Survive attacks with 1 HP when HP > 50%
+ type: DEATH
+ condition: when defeated
+ | (43563:95) ＿死に際演出
+ | No description set
+
+level: 4
+ type: PASSIVE
+ | (43561:73) 根性50％
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (43552:83) キラークイーン + 第一の爆弾
+ | Bind active skills for 3 turns + Spawn 5 random locked Bomb orbs
+ type: DEATH
+ condition: when defeated
+ | (43563:95) ＿死に際演出
+ | No description set
+ group:
+ | group:
+   | condition: 50% chance
+   | (43559:15) くそったれがッ！
+   | Deal 102% damage (3 hits, 34% each)
+   | (43560:105) 必ず爆死させる
+   | RCV 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43558:102) シアーハートアタック
+   | Spawn 10 random locked Bomb orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 1
+   | (43555:83) それじゃあこっぱみじんに + 消し飛ばしてやるッ！
+   | Enemy recover 45% HP + Delay active skills by 3 turns, Deal 100% damage

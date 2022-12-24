@@ -1,0 +1,54 @@
+#309574 - ジャン・ピエール・ポルナレフ＆シルバーチャリオッツ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDamageShield(74:43837) -> シルバーチャリオッツ
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Reduce damage from all sources by 50% for 1 turn
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESChangeAttribute(46:43839) -> 甲冑を外す
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESSpinnersRandom(109:43840) -> スタンドの残像群
+	Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESAttackMultihit(15:43844) -> くたばりやがれッ！
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESRowSpawnMulti(79:43845) -> おれにあるのは闘志だけだ
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd row to Water orbs, Deal 100% damage
+
+#7: ESColumnSpawnMulti(77:43846) -> おれは逃げることはできねえッ！
+Change the 5th column to Light orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttackUPRemainingEnemies(17:43842) -> うおおおおおおおおおおおおあ――ッ!!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#10: ESAttackMultihit(15:43844) -> くたばりやがれッ！
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#11: ESRowSpawnMulti(79:43845) -> おれにあるのは闘志だけだ
+Condition: 50% chance (ai:50 rnd:0)
+Change the 2nd row to Water orbs, Deal 100% damage
+
+#12: ESColumnSpawnMulti(77:43846) -> おれは逃げることはできねえッ！
+Change the 5th column to Light orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,20 @@
+#202548 - ヤマツミ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChange(84:35576) -> 我が地に何用じゃ！！
+	Change all orbs to Poison
+	[1] ESInactivity66(66:35577) -> 不届き者には罰を与えてやろうぞ
+	Do nothing
+	[2] ESEndBattle(40:35578) -> 後悔するがよい…
+	Reduce self HP to 0
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn

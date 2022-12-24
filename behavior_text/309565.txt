@@ -1,0 +1,26 @@
+#309565 - 闇の一族・カーズ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 309565
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (43518:83) 花をつむように + きさまの命を刈り取るまで！
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (43524:92) これが『真の戦闘』だ!!
+   | Spawn 3 random Light and Dark orbs, Deal 100% damage
+   | condition: 50% chance
+   | (43525:15) ふざけるなよ！
+   | Deal 102% damage (3 hits, 34% each)
+   | (43526:79) 流法「輝彩滑刀」
+   | Change the 5th row to Dark and Heal orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43521:68) 勝てばよかろうなのだァァァァッ!!
+   | Poison skyfall +15% for 5 turns, Deal 101% damage

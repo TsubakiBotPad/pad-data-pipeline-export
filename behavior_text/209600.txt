@@ -1,0 +1,60 @@
+#209600 - エンリコ・プッチ＆ホワイトスネイク
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 209600
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43592:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: DEATH
+ condition: when defeated
+ | (43594:95) ＿死に際演出
+ | No description set
+
+level: 4
+ type: PASSIVE
+ | (43592:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (43575:83) 来ないのなら…… + こちらから向かわせてもらうッ！
+ | Voids status ailments for 999 turns + Change all orbs to Jammer and Poison
+ type: DEATH
+ condition: when defeated
+ | (43594:95) ＿死に際演出
+ | No description set
+ group:
+ | group:
+   | condition: 50% chance
+   | (43590:92) ウリャアア!!
+   | Spawn 4 random Wood and Dark orbs, Deal 100% damage
+   | (43591:143) 対象のDISC化
+   | For 2 turns, 50% ATK for 1 random sub, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (43582:83) 素数を数えろ + 素数は誰にも割る事はできない
+     | Specific orbs change every 1.0s for 3 turns + Change the 3rd row to Dark orbs, Deal 101% damage
+   | group:
+   | condition: turn 2 while HP > 14
+     | (43585:83) 一瞬考えたなッ!! + その差が命とりだぁぁぁぁぁぁぁぁぁぁぁ
+     | Bind 3 random cards for 2 turns + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | group:
+     | condition: 50% chance
+     | (43588:92) 人は「恥」のために死ぬ
+     | Spawn 4 random Dark and Mortal Poison orbs, Deal 101% damage
+     | (43589:151) ウオシャアアアア！
+     | No description set, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43579:88) きさまを逃がすわけにはいかないッ！
+     | Bind awoken skills for 1 turn
+   | group:
+     | (43581:15) 素数は誰にも砕けない…
+     | Deal 220% damage (5 hits, 44% each)

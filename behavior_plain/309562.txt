@@ -1,0 +1,63 @@
+#309562 - 空条徐倫＆ストーン・フリー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:43884) -> 『ストーン・フリー』
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Voids status ailments for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 90, target rnd 9
+
+#4: ESAttackMultihit(15:43888) -> オラァ!!
+Condition: 25% chance (ai:0 rnd:25)
+Deal 105% damage
+
+#5: ESDamageShield(74:43889) -> ヒモの防御
+Condition: 25% chance (ai:0 rnd:25)
+Reduce damage from all sources by 50% for 1 turn, Deal 99% damage
+
+#6: ESAttackMultihit(15:43890) -> オラオラオラオラオラオラオラ
+Condition: 25% chance (ai:0 rnd:25)
+Deal 110% damage (5 hits, 22% each)
+
+#7: ESDebuffATK(130:43891) -> 今だッ！
+Condition: 25% chance (ai:0 rnd:25)
+ATK -50% for 1 turn, Deal 90% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESColumnSpawnMulti(77:43886) -> ……かかったな
+	Change the 6th column to Heal orbs, Deal 100% damage
+	[1] ESBindAwoken(88:43887) -> 再起不能になってもらう
+	Bind awoken skills for 5 turns
+
+#10: ESAttackMultihit(15:43888) -> オラァ!!
+Condition: 25% chance (ai:0 rnd:25)
+Deal 105% damage
+
+#11: ESDamageShield(74:43889) -> ヒモの防御
+Condition: 25% chance (ai:0 rnd:25)
+Reduce damage from all sources by 50% for 1 turn, Deal 99% damage
+
+#12: ESAttackMultihit(15:43890) -> オラオラオラオラオラオラオラ
+Condition: 25% chance (ai:0 rnd:25)
+Deal 110% damage (5 hits, 22% each)
+
+#13: ESDebuffATK(130:43891) -> 今だッ！
+Condition: 25% chance (ai:0 rnd:25)
+ATK -50% for 1 turn, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:43892) -> 超根性90%
+Damage which would reduce HP from above 90% to below 90% is nullified

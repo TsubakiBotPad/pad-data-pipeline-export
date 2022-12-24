@@ -7,22 +7,22 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDebuffATK(130:42374) -> 咆哮
+#2: ESDebuffATK(130:42374) -> Roar
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 ATK -50% for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#4: ESAttackMultihit(15:42378) -> 岩飛ばし
+#4: ESAttackMultihit(15:42378) -> Boulder Blitz
 Condition: 33% chance (ai:33 rnd:0)
 Deal 102% damage (3 hits, 34% each)
 
-#5: ESBlind62(62:42379) -> 飛びつき
+#5: ESBlind62(62:42379) -> Jump Strike
 Condition: 50% chance (ai:50 rnd:0)
 Blind all orbs on the board, Deal 100% damage
 
-#6: ESAbsorbCombo(67:42380) -> 前方回転攻撃
+#6: ESAbsorbCombo(67:42380) -> Frontal Spin
 Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -30,9 +30,9 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:42376) -> 突進
+	[0] ESBoardChangeAttackBits(85:42376) -> Dash Attack
 	Change all orbs to Fire, Wood, Heal, and Jammer, Deal 102% damage
-	[1] ESAttackUPRemainingEnemies(17:42377) -> 怒り
+	[1] ESAttackUPRemainingEnemies(17:42377) -> Enraged
 	Increase damage to 150% for the next 2 turns
 
 #9: ESBranchHP(28:18) -> ESBranchHP
@@ -41,5 +41,5 @@ Branch on hp < 50, target rnd 4
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#11: ESTypeResist(118:42381) -> 神半減
+#11: ESTypeResist(118:42381) -> God Type Halved
 Reduce damage from God types by 50%

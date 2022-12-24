@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESVoidShield(71:42037) -> 電荷状態
+#2: ESVoidShield(71:42037) -> Thunder-charged
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Void damage >= 700,000,000 for 3 turns
 
@@ -16,44 +16,44 @@ Branch on hp < 50, target rnd 11
 
 #4: SkillSet:
 	Condition: 17% chance (ai:0 rnd:17)
-	[0] ESAttackMultihit(15:42042) -> 突進かみつき
+	[0] ESAttackMultihit(15:42042) -> Rushing Bite
 	Deal 78% damage (3 hits, 26% each)
-	[1] ESOrbLock(94:42043) -> 翼爪薙ぎ払い攻撃
+	[1] ESOrbLock(94:42043) -> Wingtalon Sweep
 	Lock all Light, Dark, and Heal orbs, Deal 30% damage
 
 #5: SkillSet:
 	Condition: 17% chance (ai:0 rnd:17)
-	[0] ESAttackMultihit(15:42045) -> 突進かみつき
+	[0] ESAttackMultihit(15:42045) -> Rushing Bite
 	Deal 78% damage (3 hits, 26% each)
-	[1] ESOrbLock(94:42046) -> 尻尾回転攻撃
+	[1] ESOrbLock(94:42046) -> Tailspin
 	Lock all Fire, Wood, and Heal orbs, Deal 30% damage
 
 #6: SkillSet:
 	Condition: 17% chance (ai:0 rnd:17)
-	[0] ESAttackMultihit(15:42048) -> 突進かみつき
+	[0] ESAttackMultihit(15:42048) -> Rushing Bite
 	Deal 78% damage (3 hits, 26% each)
-	[1] ESOrbLock(94:42049) -> トサカ振りぬき攻撃
+	[1] ESOrbLock(94:42049) -> Crest Swing
 	Lock all Fire, Water, and Dark orbs, Deal 30% damage
 
 #7: SkillSet:
 	Condition: 17% chance (ai:0 rnd:17)
-	[0] ESAttackMultihit(15:42051) -> 突進かみつき
+	[0] ESAttackMultihit(15:42051) -> Rushing Bite
 	Deal 75% damage (3 hits, 25% each)
-	[1] ESOrbLock(94:42052) -> 翼爪叩き付け攻撃
+	[1] ESOrbLock(94:42052) -> Wingtalon Strike
 	Lock all Water, Dark, and Heal orbs, Deal 30% damage
 
 #8: SkillSet:
 	Condition: 16% chance (ai:0 rnd:16)
-	[0] ESAttackMultihit(15:42054) -> 突進かみつき
+	[0] ESAttackMultihit(15:42054) -> Rushing Bite
 	Deal 75% damage (3 hits, 25% each)
-	[1] ESOrbLock(94:42055) -> 尻尾叩き付け放電
+	[1] ESOrbLock(94:42055) -> Charged Tail Strike
 	Lock all Fire, Wood, and Light orbs, Deal 30% damage
 
 #9: SkillSet:
 	Condition: 16% chance (ai:0 rnd:16)
-	[0] ESRandomSpawn(92:42057) -> 飛翔回転ダイブ
+	[0] ESRandomSpawn(92:42057) -> Spinning Dive
 	Spawn 8 random Light and Dark orbs
-	[1] ESBindAttack(63:42058) -> 咆哮
+	[1] ESBindAttack(63:42058) -> Roar
 	Bind 2 random subs for 3 turns, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -61,9 +61,9 @@ end_turn
 
 #11: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESOrbLock(94:42039) -> 電気ブレス
+	[0] ESOrbLock(94:42039) -> Lightning Breath
 	Lock all orbs
-	[1] ESAttackUPRemainingEnemies(17:42040) -> 怒り
+	[1] ESAttackUPRemainingEnemies(17:42040) -> Enraged
 	Increase damage to 150% for the next 999 turns
 
 #12: ESBranchHP(28:18) -> ESBranchHP
@@ -72,5 +72,5 @@ Branch on hp < 50, target rnd 4
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttributeResist(72:42059) -> 光半減
+#14: ESAttributeResist(72:42059) -> Light Halved
 Reduce damage from Light attrs by 50%

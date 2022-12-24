@@ -9,30 +9,30 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESSkyfallLocked(96:42360) -> 咆哮
+	[0] ESSkyfallLocked(96:42360) -> Roar
 	Locked random skyfall +25% for 3 turns
-	[1] ESAttackMultihit(15:42361) -> 垂直爪攻撃
+	[1] ESAttackMultihit(15:42361) -> Talon Strike
 	Deal 30% damage
 
 #3: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESOrbChangeAttackBits(108:42363) -> 滞空なぎ払い炎ブレス
+	[0] ESOrbChangeAttackBits(108:42363) -> Aerial Sweeping Fire Breath
 	Change all Water orbs to Fire orbs, Deal 51% damage
-	[1] ESBindSkill(14:42364) -> 突進
+	[1] ESBindSkill(14:42364) -> Dash
 	Bind active skills for 2 turns, Deal 50% damage
 
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESRandomSpawn(92:42368) -> 空中回転尻尾攻撃
+#5: ESRandomSpawn(92:42368) -> Aerial Tailspin
 Condition: 33% chance (ai:33 rnd:0)
 Spawn 3 random Fire orbs, Deal 100% damage
 
-#6: ESOrbChangeAttackBits(108:42369) -> 滞空炎ブレス
+#6: ESOrbChangeAttackBits(108:42369) -> Aerial Fire Breath
 Condition: 50% chance (ai:50 rnd:0)
 Change all Dark orbs to Fire orbs, Deal 100% damage
 
-#7: ESAttackMultihit(15:42370) -> 地上かみつきブレス
+#7: ESAttackMultihit(15:42370) -> Grounded Biting Fire Breath Combo
 Deal 102% damage (3 hits, 34% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -40,9 +40,9 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRowSpawnMulti(79:42366) -> バックジャンプ炎ブレス
+	[0] ESRowSpawnMulti(79:42366) -> Evading Fire Breath
 	Change the 4th row to Fire orbs, Deal 51% damage
-	[1] ESOrbLock(94:42367) -> 拘束攻撃
+	[1] ESOrbLock(94:42367) -> Binding Attack
 	Lock all Fire orbs, Deal 50% damage
 
 #10: ESBranchHP(28:18) -> ESBranchHP
@@ -51,5 +51,5 @@ Branch on hp < 50, target rnd 5
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESAttributeResist(72:42371) -> 火半減
+#12: ESAttributeResist(72:42371) -> Fire Halved
 Reduce damage from Fire attrs by 50%

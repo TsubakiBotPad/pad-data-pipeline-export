@@ -1,0 +1,63 @@
+#9587 - 虹村億泰＆ザ・ハンド
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:43655) -> おまえはこの虹村億泰の
+	Voids status ailments for 999 turns
+	[1] ESAttributeBlock(107:43656) -> 『ザ・ハンド』が消す！
+	Unable to match Water orbs for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#4: ESFixedStart(101:43660) -> 瞬間移動
+Condition: 25% chance (ai:0 rnd:25)
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#5: ESAttackMultihit(15:43661) -> いくぜ～～っ
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESRowSpawnMulti(79:43662) -> 行くぞコラーッ
+Condition: 25% chance (ai:0 rnd:25)
+Change the 4th row to Water and Dark orbs, Deal 100% damage
+
+#7: ESNoSkyfall(127:43663) -> 空間をけずりとる
+Condition: 25% chance (ai:0 rnd:25)
+No skyfall for 1 turn, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:43658) -> 逃げるヤツにゃあ
+	Reduce damage from all sources by 25% for 3 turns
+	[1] ESRowSpawnMulti(79:43659) -> こうゆうこともできるんだぜッ！
+	Change the 1st row to Jammer orbs, Deal 101% damage
+
+#10: ESFixedStart(101:43660) -> 瞬間移動
+Condition: 25% chance (ai:0 rnd:25)
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#11: ESAttackMultihit(15:43661) -> いくぜ～～っ
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#12: ESRowSpawnMulti(79:43662) -> 行くぞコラーッ
+Condition: 25% chance (ai:0 rnd:25)
+Change the 4th row to Water and Dark orbs, Deal 100% damage
+
+#13: ESNoSkyfall(127:43663) -> 空間をけずりとる
+Condition: 25% chance (ai:0 rnd:25)
+No skyfall for 1 turn, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

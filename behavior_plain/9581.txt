@@ -1,0 +1,75 @@
+#9581 - ロバート・E・O・スピードワゴン
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESUnknown(150:43604) -> ためしてやるッ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+No description set
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#4: ESPoisonChangeRandomAttack(64:43611) -> こいつはくせえッー！
+Condition: 20% chance (ai:0 rnd:20)
+Change 3 random orbs to Poison orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:43612) -> スキだらけだぜ――ッ!!
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESRandomSpawn(92:43613) -> ああ～ん？
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 4 random Light orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:43614) -> ハッタリぬかすなよ――ッ
+Condition: 20% chance (ai:0 rnd:20)
+Deal 101% damage
+
+#8: ESOrbLock(94:43615) -> こいつは生まれついての悪だッ！
+Condition: 20% chance (ai:0 rnd:20)
+Lock all Light orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:43606) -> ゲロ以下のにおいが
+	Light skyfall +15% for 3 turns
+	[1] ESPoisonChangeRandomAttack(64:43607) -> プンプンするぜッ――ッ!!
+	Change 3 random orbs to Poison orbs, Deal 100% damage
+
+#11: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:43609) -> こんな悪には
+	Jammer skyfall +15% for 3 turns
+	[1] ESPoisonChangeRandomAttack(64:43610) -> 出会ったことがねえほどなァ――ッ
+	Change 5 random orbs to Poison orbs, Deal 102% damage
+
+#12: ESPoisonChangeRandomAttack(64:43611) -> こいつはくせえッー！
+Condition: 20% chance (ai:0 rnd:20)
+Change 3 random orbs to Poison orbs, Deal 100% damage
+
+#13: ESAttackMultihit(15:43612) -> スキだらけだぜ――ッ!!
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage (3 hits, 34% each)
+
+#14: ESRandomSpawn(92:43613) -> ああ～ん？
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 4 random Light orbs, Deal 100% damage
+
+#15: ESAttackMultihit(15:43614) -> ハッタリぬかすなよ――ッ
+Condition: 20% chance (ai:0 rnd:20)
+Deal 101% damage
+
+#16: ESOrbLock(94:43615) -> こいつは生まれついての悪だッ！
+Condition: 20% chance (ai:0 rnd:20)
+Lock all Light orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

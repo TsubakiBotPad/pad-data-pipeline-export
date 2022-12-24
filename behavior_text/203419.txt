@@ -1,0 +1,28 @@
+#203419 - 裏参詣の星機姫・スピカ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 203419
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44117:129) ＿スピカ超根性
+ | Damage which would reduce HP from above 10% to below 10% is nullified
+ type: PREEMPT
+ | (44118:83) えへへ、似合ってますか？ + 一緒にお参り行きませんか？
+ | Change the 1st and 2nd columns to Wood orbs and the 5th and 6th columns to Light orbs + No description set, Deal 55% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (44121:143) シャー！！
+   | For 1 turn, 50% ATK for 4 random subs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (44122:68) あの、いつもより綺麗ですか？
+   | Wood and Light skyfall +15% for 1 turn, Deal 98% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (44123:101) もっと見てほしいです…
+   | Fix orb movement starting point to random position on the board, Deal 102% damage

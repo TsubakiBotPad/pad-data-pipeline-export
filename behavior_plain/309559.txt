@@ -1,0 +1,68 @@
+#309559 - ジョルノ・ジョバァーナ＆ゴールド・エクスペリエンス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkillDelay(89:43876) -> ゴールド・エクスペリエンス！
+	Delay active skills by 1 turn
+	[1] ESRecoverPlayer(55:43877) -> 「生命」を与える
+	Player recover 100% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#4: ESOrbLock(94:43879) -> やむを得ない…！
+Condition: 20% chance (ai:0 rnd:20)
+Lock all Light and Heal orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:43880) -> 無駄ァァアアッ！
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage
+
+#6: ESBindAttack(63:43881) -> あんたを逃がす事はできない
+Condition: 20% chance (ai:0 rnd:20)
+Bind 1 random sub for 2 turns, Deal 100% damage
+
+#7: ESTargetedSkillHaste(139:43882) -> 生命を与え続ける
+Condition: 20% chance (ai:0 rnd:20)
+Haste random sub's skills by 2 turns, Deal 100% damage
+
+#8: ESAttackMultihit(15:43883) -> 無駄無駄無駄無駄ァァァ！
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage (3 hits, 34% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESColumnSpawnMulti(77:43878) -> 無駄はやめた方がいい
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change the 3rd and 4th columns to Light orbs, Deal 101% damage
+
+#11: ESOrbLock(94:43879) -> やむを得ない…！
+Condition: 20% chance (ai:0 rnd:20)
+Lock all Light and Heal orbs, Deal 100% damage
+
+#12: ESAttackMultihit(15:43880) -> 無駄ァァアアッ！
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage
+
+#13: ESBindAttack(63:43881) -> あんたを逃がす事はできない
+Condition: 20% chance (ai:0 rnd:20)
+Bind 1 random sub for 2 turns, Deal 100% damage
+
+#14: ESTargetedSkillHaste(139:43882) -> 生命を与え続ける
+Condition: 20% chance (ai:0 rnd:20)
+Haste random sub's skills by 2 turns, Deal 100% damage
+
+#15: ESAttackMultihit(15:43883) -> 無駄無駄無駄無駄ァァァ！
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage (3 hits, 34% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

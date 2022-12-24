@@ -1,0 +1,42 @@
+#9585 - 花京院典明＆ハイエロファントグリーン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9585
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43653:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (43639:83) 『法皇の緑』こそ + ヤツを始末するのにふさわしい
+ | Voids status ailments for 999 turns + Unable to match Wood orbs for 2 turns, Deal 80% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (43650:15) お仕置の時間だよ
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (43651:108) これではどうだッ！
+   | Change all Dark orbs to Light orbs, Deal 100% damage
+   | (43652:92) ハイエロファントグリーン!!
+   | Spawn 3 random Wood and Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (43647:83) 法皇の触脚 + エメラルド・スプラッシュ
+   | Seal the 1st row for 3 turns + Change the 3rd row to Wood orbs, Deal 102% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (43642:88) 「法皇」の『結界』
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: turn 2
+     | (43643:83) 半径20メートル + エメラルド・スプラッシュ
+     | Change the 2nd column to Wood orbs + Change the 3rd row to Wood orbs, Deal 55% damage
+   | group:
+     | (43646:77) 最後のエメラルド・スプラッシュ
+     | Change the 1st, 2nd, and 3rd columns to Wood orbs, Deal 150% damage

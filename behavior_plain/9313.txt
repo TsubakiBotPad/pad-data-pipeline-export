@@ -1,4 +1,4 @@
-#9313 - ガランゴルム
+#9313 - Garangolm
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:42124) -> 両腕付着
+	[0] ESStatusShield(20:42124) -> Infusion
 	Voids status ailments for 999 turns
-	[1] ESUnknown(150:42125) -> 苔腕しぶき
+	[1] ESUnknown(150:42125) -> Moss-Infused Arm Slam
 	No description set
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -22,22 +22,22 @@ Branch on hp < 50, target rnd 9
 
 #5: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESRowSpawnMulti(79:42131) -> 岩盤投げ
+	[0] ESRowSpawnMulti(79:42131) -> Bedrock Throw
 	Change the 2nd row to Fire orbs and the 4th row to Water orbs, Deal 100% damage
-	[1] ESBombRandomSpawn(102:42132) -> 爆腕飛び
+	[1] ESBombRandomSpawn(102:42132) -> Rocket Jump
 	Spawn 8 random locked Bomb orbs
 
 #6: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESDebuffATKTarget(143:42134) -> 爆腕しぶき
+	[0] ESDebuffATKTarget(143:42134) -> Magma-Infused Arm Slam
 	For 1 turn, 25% ATK for 3 random subs
-	[1] ESAttackMultihit(15:42135) -> 岩飛ばし
+	[1] ESAttackMultihit(15:42135) -> Boulder Blitz
 	Deal 102% damage (3 hits, 34% each)
 
 #7: SkillSet:
-	[0] ESColumnSpawnMulti(77:42137) -> ボディプレス
+	[0] ESColumnSpawnMulti(77:42137) -> Body Press
 	Change the 3rd and 4th columns to Fire orbs, Deal 50% damage
-	[1] ESGravity(50:42138) -> 突進
+	[1] ESGravity(50:42138) -> Dash
 	Player -110% HP
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -45,9 +45,9 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:42128) -> スチームブレイク
+	[0] ESBoardChangeAttackBits(85:42128) -> Steam Break
 	Change all orbs to Fire, Water, and Heal, Deal 110% damage
-	[1] ESAbsorbCombo(67:42129) -> 憤怒状態移行
+	[1] ESAbsorbCombo(67:42129) -> Enraged State
 	Absorb damage when combos <= 8 for 3 turns
 
 #10: ESBranchHP(28:18) -> ESBranchHP
@@ -56,7 +56,7 @@ Branch on hp < 50, target rnd 5
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#12: ESAttackMultihit(15:42126) -> 連続叩きつけ
+#12: ESAttackMultihit(15:42126) -> Continuous Slam
 Deal 180% damage (3 hits, 60% each)
 
 #13: ESEndPath(36:26) -> ESEndPath

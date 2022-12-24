@@ -1,0 +1,33 @@
+#404999 - 裏財福の学問神・ガネーシャ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 404999
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44177:129) ＿ガネーシャ50超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (44178:83) やってきたな！新年！ + 今年も財運向上だ！！
+ | Reduce damage from all sources by 50% for 3 turns + Void damage >= 2,000,000,000 for 3 turns, Deal 50% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (44184:83) 千金一擲！ + おみくじルーレット！
+     | Change all orbs to Light + Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (44187:83) 商売繁盛！ + がま口は開けておけ！
+     | Change board size to 7x6 for 1 turn + No description set, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (44190:83) 長命富貴！ + 小槌を天に振るえ！
+     | Delay both leaders' skills by 2 turns + Deal 99% damage (3 hits, 33% each), Deal 99% damage (3 hits, 33% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (44181:83) まだ始まったばかりだ！ + 邪念を払ってみよ！
+   | Absorb damage when combos <= 8 for 3 turns + Mortal Poison skyfall +15% for 3 turns, Deal 100% damage

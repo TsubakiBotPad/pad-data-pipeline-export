@@ -9,30 +9,30 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 4)
-	[0] ESStatusShield(20:42207) -> 威嚇
+	[0] ESStatusShield(20:42207) -> Menace
 	Voids status ailments for 999 turns
-	[1] ESBoardChangeAttackBits(85:42208) -> 尻尾たたき付け
+	[1] ESBoardChangeAttackBits(85:42208) -> Tail Slam
 	Change all orbs to Dark, Deal 110% damage
 
 #3: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESInactivity66(66:42210) -> 尻尾が刺さり動けなくなっている
+	[0] ESInactivity66(66:42210) -> Its tail is stuck and can't move!
 	Do nothing
-	[1] ESAttackUPRemainingEnemies(17:42211) -> 怒り
+	[1] ESAttackUPRemainingEnemies(17:42211) -> Enraged
 	Increase damage to 150% for the next 999 turns
 
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESAttackMultihit(15:42217) -> 刃翼
+#5: ESAttackMultihit(15:42217) -> Cutwing
 Condition: 33% chance (ai:33 rnd:0)
 Deal 102% damage (3 hits, 34% each)
 
-#6: ESBlind62(62:42218) -> 飛びかかり攻撃
+#6: ESBlind62(62:42218) -> Springing Strike
 Condition: 50% chance (ai:50 rnd:0)
 Blind all orbs on the board, Deal 102% damage
 
-#7: ESBindAttack(63:42219) -> 咆哮
+#7: ESBindAttack(63:42219) -> Roar
 Bind 2 random subs for 2 turns, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -40,23 +40,23 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRowSpawnMulti(79:42213) -> なぎ払い尻尾
+	[0] ESRowSpawnMulti(79:42213) -> Tail Sweep
 	Change the 2nd and 4th rows to Dark orbs, Deal 50% damage
-	[1] ESSpinnersFixed(110:42214) -> 大回転尻尾攻撃
+	[1] ESSpinnersFixed(110:42214) -> Spiked Tail Slam
 	Specific orbs change every 0.5s for 5 turns, Deal 60% damage
 
-#10: ESDamageShield(74:42215) -> ダッシュ
+#10: ESDamageShield(74:42215) -> Dash
 Condition: 50% chance (ai:50 rnd:0)
 Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
 
-#11: ESRandomSpawn(92:42216) -> トゲ弾
+#11: ESRandomSpawn(92:42216) -> Tailspike Shot
 Spawn 7 random Jammer orbs, Deal 101% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttributeResist(72:42220) -> 闇半減
+#13: ESAttributeResist(72:42220) -> Dark Halved
 Reduce damage from Dark attrs by 50%
 
-#14: ESSuperResolve(129:42221) -> 超根性50％
+#14: ESSuperResolve(129:42221) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

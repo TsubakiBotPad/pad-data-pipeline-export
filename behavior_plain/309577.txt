@@ -1,0 +1,38 @@
+#309577 - 広瀬康一＆エコーズ ACT1
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:43831) -> エコーズ ACT1
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:43830) -> ゆるさない　ゆるさないぞ
+	Absorb damage when damage >= 5,000,000 for 3 turns
+
+#3: ESAttackMultihit(15:43832) -> バキ！
+Condition: 20% chance (ai:0 rnd:20)
+Deal 102% damage
+
+#4: ESOrbChangeAttackBits(108:43833) -> ビシ！
+Condition: 20% chance (ai:0 rnd:20)
+Change all Fire orbs to Wood orbs, Deal 100% damage
+
+#5: ESOrbChangeAttackBits(108:43834) -> ドヒュン
+Condition: 20% chance (ai:0 rnd:20)
+Change all Dark orbs to Light orbs, Deal 100% damage
+
+#6: ESRandomSpawn(92:43835) -> ボ！
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 3 random Jammer orbs, Deal 101% damage
+
+#7: ESRandomSpawn(92:43836) -> ドギャア！
+Condition: 20% chance (ai:0 rnd:20)
+Spawn 2 random Wood and Light orbs, Deal 101% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

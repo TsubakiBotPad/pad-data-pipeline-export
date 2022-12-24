@@ -1,0 +1,28 @@
+#202534 - 紅日の寿龍喚士・カンナ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 202534
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44134:118) ＿カンナドラゴン半減
+ | Reduce damage from Dragon types by 50%
+ type: PREEMPT
+ | (44135:83) 紅き日の龍宴 + 共に奏で、彩ってください
+ | Absorb damage when damage >= 1,000,000,000 for 3 turns + No description set
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (44138:83) 金華の和琴 + 煌びやかに、勇ましく…
+   | RCV 25% for 1 turn + Deal 105% damage (3 hits, 35% each), Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (44141:83) 静寂に響く笛の音 + 私と心を通わせましょう…
+   | Lock all orbs + No description set, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (44144:83) 龍と舞う神楽 + 願いと祈りをこめて…
+   | Change all orbs to Fire and Light + No description set, Deal 100% damage

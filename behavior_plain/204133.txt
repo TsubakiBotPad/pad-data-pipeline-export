@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDamageShield(74:42007) -> 回り込む
+#2: ESDamageShield(74:42007) -> Sneak Behind
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Reduce damage from all sources by 50% for 3 turns
 
@@ -20,19 +20,19 @@ Branch on counter = 3, target rnd 11
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 13
 
-#6: ESBindAttack(63:42014) -> 咆哮
+#6: ESBindAttack(63:42014) -> Roar
 Condition: 25% chance (ai:0 rnd:25)
 Bind 2 random cards for 2 turns, Deal 100% damage
 
-#7: ESOrbLock(94:42015) -> 斜め飛びかかり攻撃
+#7: ESOrbLock(94:42015) -> Diagonal Strike Attack
 Condition: 25% chance (ai:0 rnd:25)
 Lock 10 random orbs, Deal 100% damage
 
-#8: ESGravity(50:42017) -> 突進
+#8: ESGravity(50:42017) -> Dash
 Condition: 25% chance (ai:0 rnd:25)
 Player -99% HP
 
-#9: ESAttackMultihit(15:42018) -> 滑空飛びかかり攻撃
+#9: ESAttackMultihit(15:42018) -> Gliding Strike Attack
 Condition: 25% chance (ai:0 rnd:25)
 Deal 110% damage
 
@@ -40,9 +40,9 @@ Deal 110% damage
 end_turn
 
 #11: SkillSet:
-	[0] ESSpinnersFixed(110:42009) -> 滞空氷ブレス
+	[0] ESSpinnersFixed(110:42009) -> Gliding Ice Breath
 	Specific orbs change every 1.0s for 3 turns, Deal 51% damage
-	[1] ESTargetedSkillDelay(140:42010) -> ショートタックル
+	[1] ESTargetedSkillDelay(140:42010) -> Short Tackle
 	Delay random sub's skills by 3 turns, Deal 50% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -50,9 +50,9 @@ end_turn
 
 #13: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRowSpawnMulti(79:42012) -> 尻尾攻撃
+	[0] ESRowSpawnMulti(79:42012) -> Tail Attack
 	Change the 4th and 5th rows to Water and Light orbs, Deal 101% damage
-	[1] ESAttackUPRemainingEnemies(17:42013) -> 怒り
+	[1] ESAttackUPRemainingEnemies(17:42013) -> Enraged
 	Increase damage to 150% for the next 999 turns
 
 #14: ESBranchHP(28:18) -> ESBranchHP
@@ -61,5 +61,5 @@ Branch on hp < 50, target rnd 6
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESAttributeResist(72:42019) -> 水半減
+#16: ESAttributeResist(72:42019) -> Water Halved
 Reduce damage from Water attrs by 50%

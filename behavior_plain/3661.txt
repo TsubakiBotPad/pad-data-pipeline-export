@@ -20,7 +20,7 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESAbsorbCombo(67:7182) -> Bubble Breath Stance
+	[0] ESAbsorbCombo(67:7182) -> Bubble Shot Stance
 	Absorb damage when combos <= 5 for 1 turn
 	[1] ESInactivity66(66:7183) -> Interrupt it with an attack!
 	Do nothing
@@ -35,18 +35,18 @@ Branch on hp > 100, target rnd 17
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
 	[0] ESBindRandomSub(65:7194) -> Roar
 	Bind 1 random sub for 1 turn
-	[1] ESAttackUPRemainingEnemies(17:7195) -> Rage
+	[1] ESAttackUPRemainingEnemies(17:7195) -> Enraged
 	Increase damage to 120% for the next 10 turns
 
 #10: ESColumnSpawnMulti(77:7202) -> Water Jet
 Condition: When < 20% HP (ai:100 rnd:0)
 Change the 3rd column to Water orbs, Deal 200% damage
 
-#11: ESGravity(50:7197) -> Dash Attack
+#11: ESGravity(50:7197) -> Dash
 Condition: 20% chance (ai:0 rnd:20)
 Player -70% HP
 
-#12: ESAttackMultihit(15:7198) -> Combo Bite
+#12: ESAttackMultihit(15:7198) -> Continuous Bites
 Condition: 20% chance (ai:0 rnd:20)
 Deal 100% damage (2 hits, 50% each)
 
@@ -75,17 +75,17 @@ flag SET 0b11
 Branch on player_cards HAS [3706], target rnd 21
 
 #20: SkillSet:
-	[0] ESCloud(104:7185) -> Bubble Breath
+	[0] ESCloud(104:7185) -> Bubble Shot
 	A 1×1 square of clouds appears for 1 turn at a random location
-	[1] ESAbsorbCombo(67:7188) -> Second Bubble Breath Stance
+	[1] ESAbsorbCombo(67:7188) -> Second Bubble Shot Stance
 	Absorb damage when combos <= 6 for 1 turn
 	[2] ESInactivity66(66:7189) -> Interrupt it with an attack!
 	Do nothing
 
 #21: SkillSet:
-	[0] ESDebuffMovetime(39:7187) -> Bubble Breath
+	[0] ESDebuffMovetime(39:7187) -> Bubble Shot
 	Movetime 150% for 1 turn
-	[1] ESAbsorbCombo(67:7188) -> Second Bubble Breath Stance
+	[1] ESAbsorbCombo(67:7188) -> Second Bubble Shot Stance
 	Absorb damage when combos <= 6 for 1 turn
 	[2] ESInactivity66(66:7189) -> Interrupt it with an attack!
 	Do nothing
@@ -99,10 +99,10 @@ flag SET 0b111
 #24: ESBranchCard(90:7186) -> ESBranchCard
 Branch on player_cards HAS [3706], target rnd 26
 
-#25: ESCloud(104:7192) -> Bubble Breath
+#25: ESCloud(104:7192) -> Bubble Shot
 A 4×4 square of clouds appears for 3 turns at a random location, Deal 20% damage
 
-#26: ESAttackMultihit(15:7193) -> Bubble Breath
+#26: ESAttackMultihit(15:7193) -> Bubble Shot
 Deal 20% damage
 
 #27: ESEndPath(36:26) -> ESEndPath

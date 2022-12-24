@@ -1,0 +1,46 @@
+#209571 - ディアボロ＆キング・クリムゾン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209571
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43572:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: DEATH
+ condition: when defeated
+ | (43574:95) ＿死に際演出
+ | No description set
+
+level: 4
+ type: PASSIVE
+ | (43572:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (43564:39) キング・クリムゾン
+ | Movetime 50% for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (43574:95) ＿死に際演出
+ | No description set
+ group:
+ | group:
+   | condition: 25% chance
+   | (43568:15) ここまでだッ!!
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (43569:92) くらえッ！
+   | Spawn 5 random Jammer orbs, Deal 100% damage
+   | condition: 25% chance
+   | (43570:94) 動くなよッ！
+   | Lock all Dark orbs, Deal 100% damage
+   | condition: 25% chance
+   | (43571:101) 未来への動きの軌跡を読む
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43565:83) だがこのままで + 済ませるわけにはいかないッ！
+   | No description set + Reduce damage from all sources by 50% for 3 turns, Deal 101% damage

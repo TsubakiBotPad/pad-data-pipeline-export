@@ -1,0 +1,30 @@
+#309574 - ジャン・ピエール・ポルナレフ＆シルバーチャリオッツ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 309574
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (43837:74) シルバーチャリオッツ
+ | Reduce damage from all sources by 50% for 1 turn
+ group:
+ | group:
+ | condition: always turn 1
+   | (43838:83) 甲冑を外す + スタンドの残像群
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Random 1 orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+   | condition: 33% chance
+   | (43844:15) くたばりやがれッ！
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (43845:79) おれにあるのは闘志だけだ
+   | Change the 2nd row to Water orbs, Deal 100% damage
+   | (43846:77) おれは逃げることはできねえッ！
+   | Change the 5th column to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (43842:17) うおおおおおおおおおおおおあ――ッ!!
+   | Increase damage to 150% for the next 999 turns

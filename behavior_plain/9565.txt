@@ -1,0 +1,56 @@
+#9565 - 闇の一族・カーズ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:43519) -> 花をつむように
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:43520) -> きさまの命を刈り取るまで！
+	Absorb damage when combos <= 6 for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESRandomSpawn(92:43524) -> これが『真の戦闘』だ!!
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 3 random Light and Dark orbs, Deal 100% damage
+
+#7: ESAttackMultihit(15:43525) -> ふざけるなよ！
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#8: ESRowSpawnMulti(79:43526) -> 流法「輝彩滑刀」
+Change the 5th row to Dark and Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSkyfall(68:43521) -> 勝てばよかろうなのだァァァァッ!!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Poison skyfall +15% for 5 turns, Deal 101% damage
+
+#11: ESRandomSpawn(92:43524) -> これが『真の戦闘』だ!!
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 3 random Light and Dark orbs, Deal 100% damage
+
+#12: ESAttackMultihit(15:43525) -> ふざけるなよ！
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#13: ESRowSpawnMulti(79:43526) -> 流法「輝彩滑刀」
+Change the 5th row to Dark and Heal orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,33 @@
+#209556 - 東方仗助＆クレイジー・ダイヤモンド
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209556
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43779:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (43769:68) クレイジー・ダイヤモンドッ！
+ | Heal skyfall +15% for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (43776:92) ドラア！
+   | Spawn 6 random Heal orbs, Deal 100% damage
+   | condition: 50% chance
+   | (43777:15) ドララララララララ――ッ
+   | Deal 102% damage (3 hits, 34% each)
+   | (43778:105) ドラアーッ
+   | RCV 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43773:83) グレートに + おっぱじめよーじゃんか――っ
+   | Voids status ailments for 999 turns + Spawn 10 random Light and Heal orbs
+ | group:
+ | condition: hp <= 1
+   | (43770:83) 治す能力 + グレートだぜ…
+   | Enemy recover 45% HP + Change the 1st and 5th rows to Heal orbs, Deal 101% damage

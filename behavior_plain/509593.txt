@@ -1,0 +1,37 @@
+#509593 - F・F
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:43918) -> めんどくせえ～～～～～
+	Change all orbs to Water, Wood, and Heal, Deal 100% damage
+	[1] ESOrbLock(94:43919) -> 『フー・ファイターズ』
+	Lock all Water and Wood orbs
+
+#3: ESAttackMultihit(15:43920) -> ちくしょおお
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#4: ESOrbLock(94:43921) -> そうはさせるか――ッ
+Condition: 25% chance (ai:0 rnd:25)
+Lock 8 random orbs, Deal 101% damage
+
+#5: ESRandomSpawn(92:43922) -> 水が絶対必要だ
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 6 random Water orbs, Deal 100% damage
+
+#6: ESDebuffATKTarget(143:43923) -> くらいな
+Condition: 25% chance (ai:0 rnd:25)
+For 1 turn, 50% ATK for 2 random subs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttributeResist(72:43924) -> 木半減
+Reduce damage from Wood attrs by 50%

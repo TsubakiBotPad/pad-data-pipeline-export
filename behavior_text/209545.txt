@@ -1,0 +1,29 @@
+#209545 - 抜け目なき策士・ジョセフ・ジョースター
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209545
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43768:118) 体力半減
+ | Reduce damage from Physical types by 50%
+ type: PREEMPT
+ | (43763:152) この勝負ついてるぜ
+ | No description set
+ group:
+ | group:
+   | condition: 33% chance
+   | (43765:15) くらえッ！
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (43766:77) 波紋肘支疾走
+   | Change the 2nd and 5th columns to Wood and Dark orbs, Deal 100% damage
+   | (43767:50) うおおおおおッ～～～お
+   | Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 49
+   | (43764:67) つきも「実力」のうち！
+   | Absorb damage when combos <= 8 for 1 turn

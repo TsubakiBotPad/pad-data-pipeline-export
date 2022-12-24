@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBlindStickySkyfall(128:42384) -> 尻尾刃鱗飛ばし
+#2: ESBlindStickySkyfall(128:42384) -> Tail Bladescale Attack
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 For 3 turns, 15% chance for skyfall orbs to be blinded for 2 turns
 
@@ -17,15 +17,15 @@ Branch on hp < 1, target rnd 12
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#5: ESAttackMultihit(15:42391) -> 脚爪ひっかき
+#5: ESAttackMultihit(15:42391) -> Talon Slash
 Condition: 33% chance (ai:33 rnd:0)
 Deal 102% damage (3 hits, 34% each)
 
-#6: ESGravity(50:42392) -> 体当たり
+#6: ESGravity(50:42392) -> Tackle
 Condition: 50% chance (ai:50 rnd:0)
 Player -60% HP
 
-#7: ESRandomSpawn(92:42393) -> 斜め飛び攻撃
+#7: ESRandomSpawn(92:42393) -> Diagonal Dive Attack
 Spawn 4 random Light orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -33,9 +33,9 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:42389) -> 破裂刃鱗
+	[0] ESBoardChangeAttackBits(85:42389) -> Bladescale Burst
 	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 51% damage
-	[1] ESDebuffRCV(105:42390) -> 滞空脚爪ひっかき
+	[1] ESDebuffRCV(105:42390) -> Aerial Talon Slash
 	RCV 50% for 2 turns, Deal 50% damage
 
 #10: ESBranchHP(28:18) -> ESBranchHP
@@ -45,13 +45,13 @@ Branch on hp < 50, target rnd 5
 end_turn
 
 #12: SkillSet:
-	[0] ESSkillDelay(89:42386) -> 刃鱗飛ばし
+	[0] ESSkillDelay(89:42386) -> Bladescale Attack
 	Delay active skills by 2 turns
-	[1] ESDebuffATK(130:42387) -> 飛びかかり攻撃
+	[1] ESDebuffATK(130:42387) -> Lunging Strike
 	ATK -75% for 2 turns, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESResolve(73:42394) -> 根性
+#14: ESResolve(73:42394) -> Resolve
 Survive attacks with 1 HP when HP > 50%

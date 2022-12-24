@@ -1,0 +1,40 @@
+#209539 - 誇り高き紳士・ジョナサン・ジョースター
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 209539
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43762:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (43749:83) 信念さえあれば + 人間に不可能はない！
+ | Voids status ailments for 999 turns + For 3 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 6
+   | (43752:15) ふるえるぞハート！
+   | Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 6
+   | (43753:15) 燃えつきるほどヒート!!
+   | Deal 110% damage (2 hits, 55% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 6
+   | (43754:68) 刻むぞ血液のビート
+   | Fire and Light skyfall +15% for 1 turn, Deal 120% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 6
+   | (43755:15) 山吹き色の波紋疾走――ッ!!
+   | Deal 320% damage (8 hits, 40% each)
+ | group:
+ | condition: execute repeatedly, turn 5 of 6
+   | (43756:85) うっしゃああああッ
+   | Change all orbs to Fire and Light, Deal 320% damage
+ | group:
+ | condition: execute repeatedly, turn 6 of 6
+   | (43757:85) ぬああああ!!
+   | Change all orbs to Fire and Light, Deal 330% damage

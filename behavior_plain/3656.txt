@@ -20,9 +20,9 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESStatusShield(20:7215) -> Threaten
+	[0] ESStatusShield(20:7215) -> Menace
 	Voids status ailments for 5 turns
-	[1] ESRandomSpawn(92:7216) -> Spike Shot
+	[1] ESRandomSpawn(92:7216) -> Tailspike Shot
 	Spawn 5 random Jammer orbs
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -33,16 +33,16 @@ Branch on flag & 2, target rnd 18
 
 #9: SkillSet:
 	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBindRandomSub(65:42263) -> 咆哮
+	[0] ESBindRandomSub(65:42263) -> Roar
 	Bind 1 random sub for 1 turn
-	[1] ESAttackUPRemainingEnemies(17:7195) -> 怒り
+	[1] ESAttackUPRemainingEnemies(17:7195) -> Enraged
 	Increase damage to 120% for the next 10 turns
 
 #10: ESRowSpawnMulti(79:7224) -> Tail Sweep
 Condition: 14% chance (ai:14 rnd:0)
 Change the 3rd row to Dark orbs, Deal 80% damage
 
-#11: ESAttackMultihit(15:7227) -> Great Tailspin
+#11: ESAttackMultihit(15:7227) -> Spiked Tail Slam
 Condition: 16% chance (ai:16 rnd:0)
 Deal 130% damage (2 hits, 65% each)
 
@@ -70,7 +70,7 @@ end_turn
 #18: ESFlagOperation(24:14) -> ESFlagOperation
 flag UNSET 0b10
 
-#19: ESInactivity66(66:7223) -> Tail is stuck and can't move!
+#19: ESInactivity66(66:7223) -> Its tail is stuck and can't move!
 Do nothing
 
 #20: ESEndPath(36:26) -> ESEndPath

@@ -1,4 +1,4 @@
-#209319 - プケプケ
+#209319 - Pukei-Pukei
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,23 +9,23 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESRandomSpawn(92:41958) -> 毒液吐き
+	[0] ESRandomSpawn(92:41958) -> Poison Spit
 	Spawn 6 random Poison orbs
-	[1] ESUnknown(151:41959) -> 毒霧噴射
+	[1] ESUnknown(151:41959) -> Poison Cloud Spray
 	No description set
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#4: ESBindAttack(63:41963) -> 舌伸ばし攻撃
+#4: ESBindAttack(63:41963) -> Tongue Whip
 Condition: 33% chance (ai:33 rnd:0)
 Bind 2 random subs for 2 turns, Deal 100% damage
 
-#5: ESAttackMultihit(15:41964) -> 滑空連続ひっかき
+#5: ESAttackMultihit(15:41964) -> Gliding Claw Combo
 Condition: 50% chance (ai:50 rnd:0)
 Deal 102% damage (3 hits, 34% each)
 
-#6: ESPoisonChangeRandomAttack(64:41965) -> 活性化毒霧噴射
+#6: ESPoisonChangeRandomAttack(64:41965) -> Enraged Poison Cloud Spray
 Change 4 random orbs to Poison orbs, Deal 101% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -33,9 +33,9 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardChangeAttackBits(85:41961) -> 活性化特大毒液まき
+	[0] ESBoardChangeAttackBits(85:41961) -> Enraged Poison Triple Spit
 	Change all orbs to Wood, Dark, and Poison, Deal 105% damage
-	[1] ESGravity(50:41962) -> 突進
+	[1] ESGravity(50:41962) -> Dash
 	Player -99% HP
 
 #9: ESBranchHP(28:18) -> ESBranchHP
@@ -44,5 +44,5 @@ Branch on hp < 50, target rnd 4
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#11: ESAttributeResist(72:41966) -> 木半減
+#11: ESAttributeResist(72:41966) -> Wood Halved
 Reduce damage from Wood attrs by 50%
