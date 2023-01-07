@@ -1,4 +1,4 @@
-#500087 - ダークゴーレムMk-II
+#500087 - Dark Golem Mk.II
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,31 +7,31 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBindRandomSub(65:39033) -> ガガガ…ホソクスル…
+#2: ESBindRandomSub(65:39033) -> Ghghgh... Initiating capture...
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Bind 2 random subs for 3 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 6
 
-#4: ESRandomSpawn(92:39022) -> ゴーレムレーザー
+#4: ESRandomSpawn(92:39022) -> Golem Laser
 Spawn 2 random Jammer orbs, Deal 100% damage
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESStatusShield(20:39021) -> ゴーレムガード
+#6: ESStatusShield(20:39021) -> Golem Guard
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Voids status ailments for 3 turns
 
-#7: ESRandomSpawn(92:39022) -> ゴーレムレーザー
+#7: ESRandomSpawn(92:39022) -> Golem Laser
 Spawn 2 random Jammer orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#9: ESTurnChangePassive(106:39025) -> 敵の行動ターンが変化した
+#9: ESTurnChangePassive(106:39025) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 50%
 
-#10: ESSuperResolve(129:39006) -> 超根性50％
+#10: ESSuperResolve(129:39006) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

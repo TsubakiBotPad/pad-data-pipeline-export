@@ -1,4 +1,4 @@
-#600320 - ダークゴーレムMk-III
+#600320 - Dark Golem Mk.III
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbCombo(67:39007) -> ゴーレムバリアー
+	[0] ESAbsorbCombo(67:39007) -> Golem Barrier
 	Absorb damage when combos <= 8 for 1 turn
-	[1] ESDamageShield(74:39028) -> ゴーレムシールド
+	[1] ESDamageShield(74:39028) -> Golem Shield
 	Reduce damage from all sources by 25% for 3 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESBlindStickySkyfall(128:39024) -> ガガガガ…
+#6: ESBlindStickySkyfall(128:39024) -> Ghghgh...
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 For 1 turn, 15% chance for skyfall orbs to be blinded for 2 turns, Deal 100% damage
 
@@ -35,7 +35,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESRandomSpawn(92:39026) -> ゴーレムブラスト
+#10: ESRandomSpawn(92:39026) -> Golem Blast
 Spawn 4 random Jammer orbs, Deal 100% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -44,13 +44,13 @@ end_turn
 #12: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#13: ESPoisonChangeRandomAttack(64:39030) -> ゴーレムキャノン
+#13: ESPoisonChangeRandomAttack(64:39030) -> Golem Cannon
 Change 3 random orbs to Poison orbs, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackUPRemainingEnemies(17:39029) -> ゴーレムパワー
+#15: ESAttackUPRemainingEnemies(17:39029) -> Golem Power
 Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
 Increase damage to 700% for the next 1 turn
 
@@ -60,5 +60,5 @@ Branch on hp < 15, target rnd 8
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESSuperResolve(129:39006) -> 超根性50％
+#18: ESSuperResolve(129:39006) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified
