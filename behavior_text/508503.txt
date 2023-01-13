@@ -1,0 +1,29 @@
+#508503 - 漫画幻画師・パステル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 508503
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (43133:83) お願いします！ + 心強い味方です！
+ | Reduce damage from all sources by 50% for 3 turns + Spawn 4 random Heal orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (43136:83) 追い込まれるほど + やる気が湧いてきますね！ + ま、真面目にやります…
+   | Jammer skyfall +15% for 2 turns + No description set + ATK -50% for 2 turns
+ | group:
+ | condition: turn 2
+   | (43140:83) あざやかなお花で + ロマンスを飾ってください！
+   | Spawn 3 random Fire, Water, and Wood orbs + Specific orbs change every 1.0s for 2 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (43143:94) 急いでるときこそ慎重に…
+   | Lock 15 random orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (43144:46) うぐっ…間に合うかな…
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 80% damage

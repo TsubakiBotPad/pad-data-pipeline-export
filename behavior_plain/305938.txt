@@ -1,0 +1,40 @@
+#305938 - 超転生アマテラスオオカミ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDisableAssists(141:43996) -> 極光の輝き
+	Disable active skills for 3 turns
+	[1] ESAbsorbCombo(67:43997) -> 天舞神の守り
+	Absorb damage when combos <= 7 for 1 turn
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESRandomSpawn(92:44001) -> 極光撃
+Spawn 3 random Light orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlind5(5:43999) -> 天舞神のいたずら
+	Blind all orbs on the board
+	[1] ESRandomSpawn(92:44000) -> 極光の贈り物
+	Spawn 15 random Fire and Light orbs
+
+#7: ESRandomSpawn(92:44001) -> 極光撃
+Spawn 3 random Light orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSuperResolve(129:44002) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified

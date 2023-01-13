@@ -1,0 +1,68 @@
+#508488 - 水彩幻画師・ハンス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESEndBattle(40:43145) -> 行っておいで
+Reduce self HP to 0
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#6: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#7: SkillSet:
+	[0] ESAbsorbCombo(67:43111) -> 少々気恥ずかしいが
+	Absorb damage when combos <= 2 for 3 turns
+	[1] ESColumnSpawnMulti(76:43112) -> ご覧に入れよう
+	Change the 1st column to Light orbs and the 6th column to Water orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRandomSpawn(92:43114) -> 僕の“幻画”は…
+	Spawn 2 random Water and Light orbs
+	[1] ESRandomSpawn(92:43115) -> 自由に羽ばたき、
+	Spawn 2 random Water and Light orbs
+	[2] ESRandomSpawn(92:43116) -> 空を彩る鳥たちだ
+	Spawn 2 random Water and Light orbs
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESNoSkyfall(127:43118) -> “幻画”は
+	No skyfall for 1 turn
+	[1] ESOrbLock(94:43119) -> 思いの強さに呼応する
+	Lock 10 random orbs
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: SkillSet:
+	[0] ESAttributeBlock(107:43121) -> そして、思いとはなにか…
+	Unable to match Light orbs for 1 turn
+	[1] ESSkyfall(68:43122) -> それを形にするんだ
+	Light skyfall +15% for 1 turn, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

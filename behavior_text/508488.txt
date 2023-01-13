@@ -1,0 +1,30 @@
+#508488 - 水彩幻画師・ハンス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 508488
+approved: False
+
+level: 1
+ group:
+ | (43145:40) 行っておいで
+ | Reduce self HP to 0
+
+level: 4
+ type: PREEMPT
+ | (43110:83) 少々気恥ずかしいが + ご覧に入れよう
+ | Absorb damage when combos <= 2 for 3 turns + Change the 1st column to Light orbs and the 6th column to Water orbs
+ group:
+ | group:
+ | condition: turn 1
+   | (43113:83) 僕の“幻画”は… + 自由に羽ばたき、 + 空を彩る鳥たちだ
+   | Spawn 2 random Water and Light orbs + Spawn 2 random Water and Light orbs + Spawn 2 random Water and Light orbs
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (43117:83) “幻画”は + 思いの強さに呼応する
+   | No skyfall for 1 turn + Lock 10 random orbs
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (43120:83) そして、思いとはなにか… + それを形にするんだ
+   | Unable to match Light orbs for 1 turn + Light skyfall +15% for 1 turn, Deal 100% damage

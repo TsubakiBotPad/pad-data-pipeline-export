@@ -1,0 +1,35 @@
+#209137 - 感悦の画炎魔・アルヴァニス
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 209137
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (39655:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (39656:83) 幻画結界 + 幻画召喚 + アーティファクトガード
+ | Voids status ailments for 999 turns + Jammer and Poison skyfall +15% for 5 turns + Void damage >= 50,000,000 for 1 turn, Deal 100% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (39660:83) 芸術の凶蝕 + 芸術の焔喰 + アーティファクトスプレー
+   | Absorb Fire and Water damage for 1 turn + Absorb damage when combos <= 10 for 1 turn + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 125% damage
+ | group:
+ | condition: turn 2
+   | (39664:83) 芸術の凶蝕 + 画額障壁 + アーティファクトバーン
+   | Absorb Light and Dark damage for 1 turn + Void damage >= 50,000,000 for 1 turn + For 1 turn, 1% ATK for both leaders, Deal 150% damage
+ | group:
+ | condition: turn 3
+   | (39668:83) 芸術の凶蝕 + 芸術の焔喰 + アーティファクトスプレー
+   | Absorb Water and Wood damage for 1 turn + Absorb damage when combos <= 9 for 1 turn + Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 175% damage
+ | group:
+ | condition: turn 4
+   | (39672:83) 芸術の凶蝕 + 画額障壁 + アーティファクトバーン
+   | Absorb Light and Dark damage for 1 turn + Void damage >= 50,000,000 for 1 turn + For 1 turn, 1% ATK for 2 random cards, Deal 200% damage
+ | group:
+   | (39676:15) 絶望の晩餐会
+   | Deal 2,000% damage (10 hits, 200% each)

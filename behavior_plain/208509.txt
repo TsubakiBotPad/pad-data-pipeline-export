@@ -1,0 +1,28 @@
+#208509 - イエローペインター
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESOrbSealRow(100:35001) -> マーカーペン
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Seal the 5th row for 3 turns
+
+#5: ESAttackUPRemainingEnemies(17:35000) -> ペインターパワー
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#6: ESRandomSpawn(92:35002) -> イエローマーカー
+Spawn 3 random Light orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn

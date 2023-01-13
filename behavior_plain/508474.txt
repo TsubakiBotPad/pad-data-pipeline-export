@@ -1,0 +1,87 @@
+#508474 - 多角龍のデジタル幻画師・プリム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:43156) -> これがボクの“幻画”
+	Absorb damage when combos <= 4 for 3 turns
+	[1] ESBoardSizeChange(126:43157) -> ポリゴンドラゴン
+	Change board size to 7x6 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 22
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#9: ESOrbSealRow(100:43158) -> スリリングエッジ
+Condition: 25% chance (ai:0 rnd:25)
+Seal the 1st row for 1 turn
+
+#10: ESSpinnersRandom(109:43159) -> ラウンドピボット
+Condition: 25% chance (ai:0 rnd:25)
+Random 1 orbs change every 1.0s for 1 turn
+
+#11: ESOrbChangeAttackBits(108:43160) -> スムーズクレイ
+Condition: 25% chance (ai:0 rnd:25)
+Change all Heal orbs to Fire and Water orbs, Deal 100% damage
+
+#12: ESColumnSpawnMulti(77:43161) -> テクスチャリング
+Condition: 25% chance (ai:0 rnd:25)
+Change the 1st column to Water orbs and the 6th column to Fire orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverPlayer(55:43163) -> 楽しんでるかい？
+	Player recover 100% HP
+	[1] ESFixedStart(101:43164) -> 見とれてるうちに…
+	Fix orb movement starting point to random position on the board
+	[2] ESAttackUPRemainingEnemies(17:43165) -> 大事なものを見失うかもよ！
+	Increase damage to 150% for the next 999 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: ESBoardChangeAttackBits(85:43166) -> ハイポリゴンブレス
+Change all orbs to Fire, Water, Wood, and Light, Deal 70% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: ESRowSpawnMulti(79:43167) -> ローポリゴンファング
+Change the 1st and 5th rows to Heal orbs, Deal 80% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESRandomSpawn(92:43147) -> …ちゃんと4個消ししてる？
+Spawn 4 random Water, Wood, and Light orbs, Deal 50% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,36 @@
+#208504 - 虹貴紳の漫画幻画師・パステル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 208504
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (35143:83) 素敵なロマンスを考えました♪ + 完成を楽しみにしててください♪
+ | Bind awoken skills for 3 turns + Lock all orbs
+ group:
+ | group:
+   | condition: 33% chance
+   | (35028:97) ベタ塗り
+   | Blind random 6~8 orbs for 1 turn, Deal 100% damage
+   | condition: 33% chance
+   | (35029:94) トーン貼り
+   | Lock 8 random orbs, Deal 95% damage
+   | condition: 34% chance
+   | (35030:107) ホワイト修正
+   | Unable to match Heal orbs for 1 turn
+ | group:
+ | condition: turn 1 while HP > 9, hp <= 49
+   | (35031:83) うふふ♪ + 妄想が膨らみますね♪
+   | Unable to match Heal orbs for 1 turn + Reduce damage from all sources by 50% for 3 turns
+ | group:
+ | condition: hp <= 9
+   | group:
+   | condition: turn 1
+     | (35035:17) 仕上げです♪
+     | Increase damage to 150% for the next 999 turns
+   | group:
+     | (35034:15) 読んでみてください♪
+     | Deal 300% damage
