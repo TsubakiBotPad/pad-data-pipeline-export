@@ -1,0 +1,39 @@
+#309689 - 超転生オルファリオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309689
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (31386:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (44518:72) 闇軽減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (44819:83) 我が名はオルファリオン！ + アーラプロテットーレ + キアーヌーヴォラ
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000,000 for 999 turns + A 3×1 rectangle of clouds appears for 15 turns at a random location, Deal 135% damage
+ group:
+ | group:
+   | condition: 25% chance
+   | (44830:83) ディクラインキアー + キアーアルマトゥーラ
+   | No description set + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (44833:83) ディクラインキアー + キアーヴェスピーナ
+   | No description set + Lock 10 random orbs, Deal 80% damage
+   | condition: 25% chance
+   | (44836:83) パラディーソピューマ + アーラピィオーヴェレ
+   | Absorb damage when combos <= 8 for 1 turn + No skyfall for 1 turn
+   | condition: 25% chance
+   | (44839:83) パラディーソピューマ + キアーカンビャメント
+   | Absorb damage when combos <= 9 for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 4, hp <= 49
+   | (44823:83) アルマビアンカ + パラディーソピューマ + リストーロディクライン
+   | Player -99% HP + Absorb damage when combos <= 10 for 1 turn + RCV 50% for 1 turn, Deal 200% damage
+ | group:
+ | condition: hp <= 4
+   | (44827:83) ニエンテスパーツィオ + インヌメレーヴォレフェリータ
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (10 hits, 500% each), Deal 5,000% damage (10 hits, 500% each)

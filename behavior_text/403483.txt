@@ -1,0 +1,36 @@
+#403483 - 裏転生イズン＆イズーナ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 403483
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (44735:83) いらっしゃいませ + 私たちのキモチをあげる + ラブリーボム
+ | For 6 turns, 20% chance for skyfall orbs to be blinded for turn + Change all orbs to Heal + Spawn locked Bomb orbs in the specified positions, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (44741:83) ラブリーボム + ブロートガルドル
+     | Spawn 6 random Bomb orbs + Change the 1st column to Water orbs and the 6th column to Heal orbs, Deal 100% damage
+     | condition: 50% chance
+     | (44744:83) ラブリーボム + ブロートガルドル
+     | Spawn 6 random Bomb orbs + Change the 1st column to Poison orbs and the 6th column to Water orbs, Deal 100% damage
+   | group:
+     | (44524:83) 星機の波動 + 終焉の星壊
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (44740:88) 許さないからっ！
+   | Bind awoken skills for 3 turns
+ | group:
+ | condition: turns 1-5, hp <= 2
+   | (44739:85) この極上のヤツをあげる
+   | Change all orbs to Mortal Poison, Deal 1,000% damage

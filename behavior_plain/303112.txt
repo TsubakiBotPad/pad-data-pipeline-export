@@ -1,0 +1,60 @@
+#303112 - 休息の狙撃手・時龍契士ミル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:44890) -> 時空結界
+	Voids status ailments for 4 turns
+	[1] ESAbsorbCombo(67:44891) -> 時間は限られてるわよ…
+	Absorb damage when combos <= 10 for 4 turns
+	[2] ESBoardSizeChange(126:44892) -> マギアスペル
+	Change board size to 6x5 for 4 turns, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 11
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 99, target rnd 8
+
+#6: ESBoardChangeAttackBits(85:44893) -> タイム・オブ・サンダイヤル
+Change all orbs to Water and Heal, Deal 1,000% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESUnknown(150:44895) -> もう待ってあげないわ
+	No description set
+	[1] ESDebuffMovetime(39:44896) -> ラストチャンスよ
+	Movetime 25% for 1 turn
+
+#9: ESBoardChangeAttackBits(85:44893) -> タイム・オブ・サンダイヤル
+Change all orbs to Water and Heal, Deal 1,000% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESBindAwoken(88:44525) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#14: ESTurnChangePassive(106:44587) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 99%

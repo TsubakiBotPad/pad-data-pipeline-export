@@ -1,0 +1,36 @@
+#303586 - 瞬刀の星機神・アルゲディ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303586
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (44565:83) 私と戦ってもらうぞ + 舞え！ + 来るがいい
+ | Voids status ailments for 999 turns + Specific orbs change every 1.0s for 1 turn + Fix orb movement starting point to random position on the board
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (44570:83) 星機神の眼差し + その程度か + 鍛錬が足りてないな
+     | Player -99% HP + Increase damage to 150% for the next 6 turns + For 3 turns, 1% ATK for both leaders
+   | group:
+   | condition: turns 2-5 while HP > 2
+     | (44578:15) ファーヒルヤクトル
+     | Deal 100% damage (10 hits, 10% each)
+   | group:
+     | (44524:83) 星機の波動 + 終焉の星壊
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (44574:83) 星機神の眼差し + …いい腕をしているな + ここからだぞ
+   | Player -99% HP + Reduce damage from all sources by 75% for 6 turns + For 3 turns, 1% ATK for 2 random subs
+ | group:
+ | condition: turns 1-5, hp <= 2
+   | (44569:15) ファーヒルヤクトルゲシュルト
+   | Deal 1,000% damage (10 hits, 100% each)

@@ -1,0 +1,30 @@
+#303194 - 裏焔刻の時龍契士・ミル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303194
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (44587:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 99%
+ type: PREEMPT
+ | (44898:83) 時空結界 + 時間は限られてるよ… + マギアスペル
+ | Voids status ailments for 4 turns + Void damage >= 500,000,000 for 4 turns + No description set, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 98
+     | (44902:85) タイム・オブ・ツインバレル
+     | Change all orbs to Fire and Heal, Deal 1,000% damage
+   | group:
+     | (44524:83) 星機の波動 + 終焉の星壊
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 98
+   | (44903:83) もう待ったげない + 最後のチャンスだよ
+   | Absorb damage when combos <= 6 for 1 turn + Movetime 25% for 1 turn

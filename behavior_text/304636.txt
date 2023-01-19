@@ -1,0 +1,24 @@
+#304636 - 裏滅神機・ラグナロク＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304636
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (44877:83) フレアシールド + アーマードボディ + イグニッションバースト + アクセルチェイン
+ | Voids status ailments for 999 turns + Void damage >= 500,000,000 for 4 turns + Delay active skills by 5~8 turns + Locked random skyfall +25% for 10 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-3 of 4
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (44882:15) オーバーヒートバースト
+   | Deal 2,500% damage (5 hits, 500% each)

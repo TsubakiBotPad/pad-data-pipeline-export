@@ -1,0 +1,30 @@
+#303112 - 休息の狙撃手・時龍契士ミル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 303112
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (44587:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 99%
+ type: PREEMPT
+ | (44889:83) 時空結界 + 時間は限られてるわよ… + マギアスペル
+ | Voids status ailments for 4 turns + Absorb damage when combos <= 10 for 4 turns + Change board size to 6x5 for 4 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 98
+     | (44893:85) タイム・オブ・サンダイヤル
+     | Change all orbs to Water and Heal, Deal 1,000% damage
+   | group:
+     | (44524:83) 星機の波動 + 終焉の星壊
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 98
+   | (44894:83) もう待ってあげないわ + ラストチャンスよ
+   | No description set + Movetime 25% for 1 turn

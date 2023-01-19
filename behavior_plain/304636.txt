@@ -1,0 +1,34 @@
+#304636 - 裏滅神機・ラグナロク＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:44878) -> フレアシールド
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:44879) -> アーマードボディ
+	Void damage >= 500,000,000 for 4 turns
+	[2] ESSkillDelay(89:44880) -> イグニッションバースト
+	Delay active skills by 5~8 turns
+	[3] ESSkyfallLocked(96:44881) -> アクセルチェイン
+	Locked random skyfall +25% for 10 turns
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESAttackMultihit(15:44882) -> オーバーヒートバースト
+Deal 2,500% damage (5 hits, 500% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%

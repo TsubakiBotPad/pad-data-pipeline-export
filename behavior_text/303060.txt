@@ -1,0 +1,38 @@
+#303060 - 裏奏冥の星機神・ポルックス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 303060
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (44518:72) 闇軽減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (44541:83) 双児の光機星 + 星々の流星 + 双子星の陽
+ | Voids status ailments for 999 turns + Poison skyfall +20% for 3 turns + Absorb damage when combos <= 8 for 6 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-5 while HP > 49
+     | condition: 50% chance
+     | (44547:83) 星機神の策略 + アストロチャージ・ライト
+     | No skyfall for 1 turn + Change all Heal, Jammer, and Poison orbs to Light orbs, Deal 100% damage
+     | condition: 50% chance
+     | (44550:83) 星機神の策略 + アストロチャージ・ビーム
+     | No description set + Change a random attribute to Light orbs, Deal 100% damage
+   | group:
+     | (44524:83) 星機の波動 + 終焉の星壊
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (44546:109) ライトホール
+   | Random 3 orbs change every 1.0s for 3 turns, Deal 150% damage
+ | group:
+ | condition: turns 1-5, hp <= 2
+   | (44545:15) アストロチャージ・ライトニング
+   | Deal 1,050% damage (3 hits, 350% each)

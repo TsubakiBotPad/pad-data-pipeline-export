@@ -1,0 +1,37 @@
+#302576 - 裏木の古代龍・アノマロカリス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302576
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (44506:14) 龍木のゼンマイ
+ | Bind active skills for 3 turns
+ group:
+ | group:
+ | condition: turn 2
+   | (44510:46) ゼンマイチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (44510:46) ゼンマイチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (44526:15) 終焉の星壊
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (44528:19) 星機の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (44510:46) ゼンマイチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

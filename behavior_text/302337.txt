@@ -1,0 +1,37 @@
+#302337 - 裏光の機甲龍・アクルックス
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 302337
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44521:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (44513:104) ゴールドカウル
+ | A row of clouds appears for 3 turns at 1st row, 1st column
+ group:
+ | group:
+ | condition: turn 2
+   | (44515:46) コアチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (44515:46) コアチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (44526:15) 終焉の星壊
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (44528:19) 星機の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-5
+   | (44503:46) コアチェンジ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

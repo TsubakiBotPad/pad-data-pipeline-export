@@ -1,0 +1,76 @@
+#303495 - 転生アポロン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:44700) -> 光明神の魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:44701) -> セレスティアルプレリュード
+	Absorb damage when combos <= 9 for 3 turns
+	[2] ESAbsorbThresholdBig(138:44702) -> グランドシャイン
+	Absorb damage when damage >= 500,000,000 for 6 turns, Deal 50% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 15
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#6: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESUnknown(150:44706) -> シャインレイン
+	No description set
+	[1] ESOrbChangeAttackBits(108:44707) -> サンライトシャイン
+	Change all Dark orbs to Light orbs, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESUnknown(151:44709) -> シャドウシャイン
+	No description set
+	[1] ESOrbChangeAttack(48:44710) -> サンライトハーモニー
+	Change a random attribute to Light orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#10: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#11: ESOrbSealRow(100:44704) -> シャインロード
+Seal the 1st row for 3 turns, Deal 150% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttackMultihit(15:44703) -> グランド・サン
+Deal 1,000% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:44525) -> 星機の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#18: ESAttributeResist(72:44518) -> 闇軽減
+Reduce damage from Dark attrs by 50%

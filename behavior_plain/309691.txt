@@ -1,0 +1,86 @@
+#309691 - 超転生デスファリオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:44843) -> 刻め、デスファリオンという名を！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:44844) -> アーリプロテットーレ
+	Absorb damage when damage >= 2,000,000,000 for 999 turns
+	[2] ESBlindStickySkyfall(128:44845) -> オスクリタピィオーヴェレ
+	For 15 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 135% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 5, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffATKTarget(143:44854) -> エテルニタムーロ
+	For 1 turn, 1% ATK for both leaders
+	[1] ESOrbLock(94:44855) -> キアーヴェスピーナ
+	Lock 10 random orbs, Deal 80% damage
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffATKTarget(143:44857) -> エテルニタムーロ
+	For 1 turn, 50% ATK for 4 random subs
+	[1] ESSpinnersFixed(110:44858) -> キアーカンビャメント
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDamageShield(74:44860) -> エテルニタムーロ
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESDebuffRCV(105:44861) -> オスクリタウェスティオー
+	RCV 50% for 1 turn, Deal 80% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESDebuffATK(130:44863) -> エテルニタムーロ
+	ATK -75% for 1 turn
+	[1] ESNoSkyfall(127:44864) -> アーラピィオーヴェレ
+	No skyfall for 1 turn
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESTargetedSkillHaste(139:44847) -> アッチェレラツィオーネ
+	Haste both leaders' skills by 15 turns
+	[1] ESBoardChangeAttackBits(85:44848) -> キアーポルヴェレーノ
+	Change all orbs to Heal, Jammer, and Poison, Deal 200% damage
+	[2] ESGravity(50:44849) -> アルマビアンカ
+	Player -100% HP
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:44851) -> ニエンテスパーツィオ
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:44852) -> インヌメレーヴォレモルテ
+	Deal 5,000% damage (10 hits, 500% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:31386) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#17: ESAttributeResist(72:44517) -> 光軽減
+Reduce damage from Light attrs by 50%

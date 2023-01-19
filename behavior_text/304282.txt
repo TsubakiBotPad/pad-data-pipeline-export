@@ -1,0 +1,46 @@
+#304282 - 覚醒ネフティス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304282
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (44517:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (44807:83) ネベトヘウト + 冥界響 + 闇の牢獄
+ | Voids status ailments for 999 turns + ATK -99% for 3 turns + Absorb Light and Dark damage for 6 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 2
+     | condition: 50% chance
+     | (44813:83) 冥界響 + ネクロチェイン
+     | For 1 turn, 1% ATK for 2 random subs + Lock all Light and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (44816:83) 冥界響 + ネクロチェイン
+     | No description set + Lock 10 random orbs, Deal 100% damage
+   | group:
+   | condition: turn 3 while HP > 2
+     | (44812:143) 冥界響
+     | For 3 turns, 1% ATK for both leaders, Deal 150% damage
+   | group:
+   | condition: turns 4-5 while HP > 2
+     | condition: 50% chance
+     | (44813:83) 冥界響 + ネクロチェイン
+     | For 1 turn, 1% ATK for 2 random subs + Lock all Light and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (44816:83) 冥界響 + ネクロチェイン
+     | No description set + Lock 10 random orbs, Deal 100% damage
+   | group:
+     | (44524:83) 星機の波動 + 終焉の星壊
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-5, hp <= 2
+   | (44811:15) ネクロアビスホール
+   | Deal 996% damage (6 hits, 166% each)
