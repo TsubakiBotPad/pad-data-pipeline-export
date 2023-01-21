@@ -1,0 +1,25 @@
+#9654 - アルビナス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9654
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45000:67) ヒット・アンド・アウェー
+ | Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (45001:15) ニードルサウザンド
+   | Deal 100% damage (5 hits, 20% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (45002:105) こざかしいっ!!!
+   | RCV 25% for 1 turn, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (45003:85) 極大閃熱呪文(ベギラゴン)
+   | Change all orbs to Fire and Light, Deal 105% damage

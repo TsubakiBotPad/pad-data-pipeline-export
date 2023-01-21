@@ -1,0 +1,33 @@
+#308570 - 超魔生物・ハドラー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 308570
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45044:73) ＿ハドラー根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45045:83) オレの望みはひとつ…!!! + おまえとの一対一の決着っ!!!
+ | Absorb Fire and Dark damage for 2 turns + Lock all orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (45051:15) うおおおおおッ!!!!
+     | Deal 96% damage (4 hits, 24% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (45052:85) 超魔爆炎覇
+     | Change all orbs to Fire, Deal 104% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (45053:139) ヘドが出るわぁッ!!
+     | Haste all cards' skills by 1 turn, Deal 85% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (45048:83) はああッ!!!! + 生命の剣
+   | Reduce damage from all sources by 50% for 1 turn + Increase damage to 300% for the next 1 turn

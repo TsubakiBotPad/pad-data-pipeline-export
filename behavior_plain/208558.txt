@@ -1,0 +1,72 @@
+#208558 - 大魔王バーン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShieldBig(137:45075) -> …今この場で…!!
+	Void damage >= 2,000,000,000 for 3 turns
+	[1] ESUnknown(150:45076) -> 消えてもらおうッ!!!
+	No description set
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 18
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAbsorbCombo(67:45077) -> カラミティウォール!!!!
+Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESAttributeBlock(107:45078) -> カイザーフェニックス!!!!
+Unable to match Fire orbs for 1 turn, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESDebuffATK(130:45079) -> 図に乗るなああーっ!!!
+ATK -50% for 1 turn, Deal 95% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#19: ESAttackMultihit(15:45080) -> かあああーっ!!!!!
+Deal 96% damage (4 hits, 24% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESDeathCry(69:45081) -> ＿変身
+Condition: On death (ai:0 rnd:0)
+Show message: おっ…おのれっ…!!!|天よ叫べ!!!!地よ唸れ!!!!

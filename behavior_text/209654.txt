@@ -1,0 +1,25 @@
+#209654 - アルビナス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209654
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45024:83) 手間をかけさせずに + 一瞬で死んで下さい
+ | Voids status ailments for 999 turns + Increase damage to 200% for the next 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (45027:83) 極大閃熱呪文(ベギラゴン) + ニードルサウザンド
+   | Fire and Light skyfall +15% for 1 turn + Deal 90% damage (6 hits, 15% each), Deal 90% damage (6 hits, 15% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (45030:105) こざかしいっ!!!
+   | RCV 0% for 1 turn, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (45032:110) サウザンドボール
+   | Specific orbs change every 1.0s for 1 turn, Deal 105% damage

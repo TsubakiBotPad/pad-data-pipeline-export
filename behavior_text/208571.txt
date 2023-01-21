@@ -1,0 +1,29 @@
+#208571 - 魔軍司令・ミストバーン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208571
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45065:83) …お許し下さいバーン様…！ + 闘魔滅砕陣
+ | No description set + Bind awoken skills for 1 turn, Deal 75% damage
+ type: DEATH
+ condition: when defeated
+ | (45071:95) お返しいたします + 大魔王バーン様の肉体をっ…!!!
+ | Do nothing + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (45068:89) 掌圧
+   | Delay active skills by 1 turn, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (45069:94) 私が魔王軍最強なのだ!!!
+   | Lock all orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (45070:79) ……ちぎれろ！
+   | Change the 1st and 5th rows to Dark orbs, Deal 100% damage
