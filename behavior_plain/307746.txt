@@ -1,0 +1,41 @@
+#307746 - スライム
+monster size: 3
+new AI: True
+start/max counter: 2
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDebuffATKTarget(143:45101) -> ボク　わるいスライムじゃないよ。
+For 15 turns, 1% ATK for both leaders
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESRecoverEnemyAlly(52:45102) -> なかまをよんだ！
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Enemy ally recover 100% HP
+
+#7: ESOrbLock(94:45104) -> スラ・アタック
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 90% damage
+
+#8: ESRandomSpawn(92:45103) -> たいあたり
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Water orbs, Deal 85% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESNone(0:0) -> ESNone
+nothing
+
+#11: ESSuperResolve(129:45100) -> ＿スライム超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

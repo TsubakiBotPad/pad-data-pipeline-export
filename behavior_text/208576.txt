@@ -1,0 +1,28 @@
+#208576 - ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208576
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45129:73) ＿ドラゴン根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45130:83) すべてをすいこむ + ひのいき
+ | Absorb damage when damage >= 2,000,000,000 for 3 turns + Unable to match Fire orbs for 3 turns, Deal 75% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (45133:83) のしかかり + ほのお
+   | Delay active skills by 1 turn + Locked Fire skyfall +100% for 1 turn, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (45136:15) 通常攻撃
+   | Deal 105% damage (3 hits, 35% each)
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (45137:83) のしかかり + かえんのいき
+   | Delay active skills by 2 turns + Seal the 5th row for 2 turns, Deal 100% damage

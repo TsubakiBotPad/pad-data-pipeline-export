@@ -1,0 +1,37 @@
+#209679 - ブラス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209679
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45140:129) ＿ブラス超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (45141:83) 気を抜くと大暴れしてしまいそうで… + ぐうっ…!!
+ | ATK -50% for 5 turns + Disable active skills for 5 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (45145:83) メラ + かわいがる
+     | No description set + Bind 2 random subs for 1 turn, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (45148:83) メラミ + メダパニ
+     | Change the 1st and 5th rows to Fire orbs + Absorb damage when combos <= 10 for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (45151:83) メラ + スピンアタック
+     | No description set + Specific orbs change every 1.0s for 1 turn, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (45148:83) メラミ + メダパニ
+     | Change the 1st and 5th rows to Fire orbs + Absorb damage when combos <= 10 for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (45144:85) メラゾーマ
+   | Change all orbs to Fire, Deal 125% damage

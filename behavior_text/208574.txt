@@ -1,0 +1,21 @@
+#208574 - キラーパンサー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 208574
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45120:83) ようすをみている + しっぷうづき
+ | Fix orb movement starting point to random position on the board + Bind awoken skills for 5 turns, Deal 65% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (45123:83) おたけび + しんくうぎり
+   | Movetime 50% for 1 turn + Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (45126:83) おたけび + いなずま
+   | RCV 50% for 1 turn + Change the 1st and 6th columns to Light orbs, Deal 120% damage

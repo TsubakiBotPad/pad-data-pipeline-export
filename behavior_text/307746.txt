@@ -1,0 +1,26 @@
+#307746 - スライム
+monster size: 3
+new AI: True
+start/max counter: 2
+counter increment: 0
+monster_id: 307746
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45100:129) ＿スライム超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (45101:143) ボク　わるいスライムじゃないよ。
+ | For 15 turns, 1% ATK for both leaders
+ group:
+ | condition: 50% chance
+ | (45104:94) スラ・アタック
+ | Lock 10 random orbs, Deal 90% damage
+ | condition: 50% chance
+ | (45103:92) たいあたり
+ | Spawn 5 random Water orbs, Deal 85% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turns 1-2, hp <= 100
+ | (45102:52) なかまをよんだ！
+ | Enemy ally recover 100% HP

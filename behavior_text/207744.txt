@@ -1,0 +1,26 @@
+#207744 - ホイミスライム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207744
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45105:83) みかわしダンス + スカラ
+ | Void damage >= 2,000,000,000 for 5 turns + Reduce damage from all sources by 50% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (45108:109) スピンアタック
+     | Random 3 orbs change every 1.0s for 1 turn, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (45109:68) ホイミ
+     | Heal skyfall +25% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (45110:86) ベホイミ
+   | Enemy recover 100% HP
