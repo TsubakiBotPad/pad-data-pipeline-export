@@ -1,0 +1,25 @@
+#203532 - 覚醒アモン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 203532
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (43061:129) 超根性
+ | Damage which would reduce HP from above 1% to below 1% is nullified
+ | (43070:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 1%
+ type: PREEMPT
+ | (43050:83) 孤高の漢道 + オール・ホー・ミー + パーフェクトボディ
+ | Voids status ailments for 999 turns + Disable active skills for 4 turns + Reduce damage from all sources by 99% for 4 turns
+ group:
+ | group:
+   | (43058:83) ビューティフルボディ + グレートマッスルラッシュ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 4,000% damage (4 hits, 1,000% each), Deal 4,000% damage (4 hits, 1,000% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (43054:83) オール・ホー・ユー + ホーホーホーッ！ + わしを倒せるかな
+   | Change board size to 5x4 for 2 turns + Player -100% HP + ATK -99% for 2 turns

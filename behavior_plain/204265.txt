@@ -1,0 +1,26 @@
+#204265 - 転生熾天使ルシファー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:43063) -> 熾天使の魂
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:43064) -> 1ターン待ってやろう…
+	Void damage >= 4,000,000,000 for 1 turn
+	[2] ESUnknown(151:43065) -> さぁ、来るがよい！！
+	No description set
+
+#3: SkillSet:
+	[0] ESChangeAttribute(46:43067) -> 残念だったな
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:43068) -> 私の勝ちだ！！
+	Deal 10,000% damage (10 hits, 1,000% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
