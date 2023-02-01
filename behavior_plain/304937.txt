@@ -1,4 +1,4 @@
-#304937 - シャドームーン
+#304937 - Shadow Moon
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,26 +7,26 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESSkyfall(68:43502) -> 宣戦布告
+#2: ESSkyfall(68:43502) -> This is war.
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Poison skyfall +15% for 2 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 1, target rnd 9
 
-#4: ESRandomSpawn(92:43358) -> シャドービーム
+#4: ESRandomSpawn(92:43358) -> Shadow Beam
 Condition: 25% chance (ai:0 rnd:25)
 Spawn 5 random Wood orbs, Deal 100% damage
 
-#5: ESOrbChangeAttackBits(108:43359) -> サタンサーベル
+#5: ESOrbChangeAttackBits(108:43359) -> Satan Sabre
 Condition: 25% chance (ai:0 rnd:25)
 Change all Light orbs to Dark orbs, Deal 100% damage
 
-#6: ESAttackMultihit(15:43360) -> シャドーパンチ
+#6: ESAttackMultihit(15:43360) -> Shadow Punch
 Condition: 25% chance (ai:0 rnd:25)
 Deal 100% damage
 
-#7: ESRandomSpawn(92:43361) -> 強烈な黄色光弾
+#7: ESRandomSpawn(92:43361) -> Harsh Yellow Flare
 Condition: 25% chance (ai:0 rnd:25)
 Spawn 5 random Light orbs, Deal 101% damage
 
@@ -34,13 +34,13 @@ Spawn 5 random Light orbs, Deal 101% damage
 end_turn
 
 #9: SkillSet:
-	[0] ESRecoverEnemy86(86:43356) -> 月の石・キングストーン
+	[0] ESRecoverEnemy86(86:43356) -> Stone of the Moon, King Stone
 	Enemy recover 45% HP
-	[1] ESOrbChangeAttackBits(108:43357) -> 破壊光線
+	[1] ESOrbChangeAttackBits(108:43357) -> Destruction Ray
 	Change all Wood and Light orbs to Dark orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#11: ESResolve(73:43362) -> 根性
+#11: ESResolve(73:43362) -> Resolve
 Survive attacks with 1 HP when HP > 50%

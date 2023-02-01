@@ -1,4 +1,4 @@
-#303941 - 裏追跡の劾龍喚士・ニース
+#303941 - Alt. Investigation Pursuing Dragon Caller, Nees
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -8,43 +8,43 @@ approved: False
 
 level: 1
  type: PASSIVE
- | (37039:73) 根性
+ | (37039:73) Resolve
  | Survive attacks with 1 HP when HP > 50%
- | (37424:106) 敵の行動ターンが変化した
+ | (37424:106) Enemy's next turn changed
  | Enemy turn counter change to 1 when HP <= 50%
- | (42517:118) ＿回復半減
+ | (42517:118) ＿Healer Type halved
  | Reduce damage from Healer types by 50%
  type: PREEMPT
- | (37094:83) 刻裁の召龍印 + 黒龍鱗 + 黒き衝波
+ | (37094:83) Time Judgment's Draco Summoning Seal + Black Dragon Scales + Dark Wave
  | Voids status ailments for 999 turns + Void damage >= 500,000,000 for 8 turns + Bind active skills for 4 turns, Deal 100% damage
  group:
  | group:
    | group:
    | condition: turns 1-3 while HP > 49
      | condition: 50% chance
-     | (37103:83) 黒風 + ヴェントノワール
+     | (37103:83) Black Wind + Vent Noir
      | Blind random 4~8 orbs for 2 turns + No skyfall for 2 turns
      | condition: 50% chance
-     | (37106:83) 闇風 + ヴェントノワール
+     | (37106:83) Dark Wind + Vent Noir
      | Blind random 6 orbs for 2 turns + Specific orbs change every 1.0s for 2 turns, Deal 120% damage
    | group:
-     | (37040:83) 業炎の波動 + 業炎の焔滅
+     | (37040:83) Hellfire Wave + Hellfire Blaze
      | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
  | group:
  | condition: hp <= 49
    | group:
    | condition: turn 1 while HP > 2
-     | (37099:83) 黒き疾風 + 黒龍波動 + ヴェントダーク
+     | (37099:83) Dark Gale + Black Dragon Wave + Vent Dark
      | For 4 turns, 15% chance for skyfall orbs to be blinded for turn + For 4 turns, 50% ATK for 4 random subs + Blind all orbs on the board, Deal 130% damage
    | group:
    | condition: turns 2-3 while HP > 2
      | condition: 50% chance
-     | (37059:97) ヴェントダーク
+     | (37059:97) Vent Dark
      | Blind random 10 orbs for 1 turn, Deal 130% damage
      | condition: 50% chance
-     | (37102:62) ヴェントダーク
+     | (37102:62) Vent Dark
      | Blind all orbs on the board, Deal 130% damage
  | group:
  | condition: turns 1-3, hp <= 2
-   | (37098:79) ヴェントドラゴンブレス
+   | (37098:79) Vent Dragon Breath
    | Change the 1st and 5th rows to Dark orbs, Deal 1,000% damage

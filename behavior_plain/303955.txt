@@ -1,4 +1,4 @@
-#303955 - 裏煩忙の灯龍喚士・マイネ
+#303955 - Alt. Busy Illuminating Dragon Caller, Myne
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -7,17 +7,17 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESBoardSizeChange(126:37063) -> 先にはお通ししませんよぉ…！
+#2: ESBoardSizeChange(126:37063) -> I won't let you through...!
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Change board size to 6x5 for 5 turns
 
 #3: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESLeaderSwap(75:37129) -> 先にはお通ししませんよぉ…！
+	[0] ESLeaderSwap(75:37129) -> I won't let you through...!
 	Leader changes to random sub for 1 turn
-	[1] ESVoidShieldBig(137:37130) -> 博愛の本壁
+	[1] ESVoidShieldBig(137:37130) -> Benevolent Wall of Books
 	Void damage >= 200,000,000 for 7 turns
-	[2] ESSkillDelay(89:37131) -> 羽巾箒
+	[2] ESSkillDelay(89:37131) -> Feather Duster
 	Delay active skills by 1~2 turns
 
 #4: ESSetCounter(26:16) -> ESSetCounter
@@ -34,16 +34,16 @@ Branch on hp < 50, target rnd 11
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESCloud(104:37138) -> 雑巾箒
+	[0] ESCloud(104:37138) -> Cleaning Mop
 	A column of clouds appears for 1 turn at a random location
-	[1] ESChangeAttribute(46:37139) -> リトルドラゴンチェンジ
+	[1] ESChangeAttribute(46:37139) -> Little Dragon Change
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESCloud(104:37141) -> 雑巾箒
+	[0] ESCloud(104:37141) -> Cleaning Mop
 	A 3×1 rectangle of clouds appears for 1 turn at 1st row, 1st column
-	[1] ESSpinnersFixed(110:37142) -> リトルドラゴンキャノン
+	[1] ESSpinnersFixed(110:37142) -> Little Dragon Cannon
 	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -56,23 +56,23 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESStatusShield(20:37134) -> 博愛の龍護守
+	[0] ESStatusShield(20:37134) -> Benevolent Draco Guardian
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:37135) -> 博愛の本壁
+	[1] ESDamageShield(74:37135) -> Benevolent Wall of Books
 	Reduce damage from all sources by 50% for 999 turns
-	[2] ESSkillDelay(89:37136) -> 羽巾箒
+	[2] ESSkillDelay(89:37136) -> Feather Duster
 	Delay active skills by 2 turns
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackMultihit(15:37132) -> リトルドラゴンブラスト
+#15: ESAttackMultihit(15:37132) -> Little Dragon Blast
 Deal 1,000% damage
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	[0] ESBindAwoken(88:37041) -> Hellfire Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	[1] ESAttackMultihit(15:37042) -> Hellfire Blaze
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -80,11 +80,11 @@ end_turn
 
 #18: SkillSet:
 	Condition: On death (ai:0 rnd:0)
-	[0] ESInactivity66(66:37144) -> ふぇえええええっ…
+	[0] ESInactivity66(66:37144) -> Waaahhh...
 	Do nothing
 
-#19: ESResolve(73:37039) -> 根性
+#19: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#20: ESTypeResist(118:42521) -> ＿悪魔半減
+#20: ESTypeResist(118:42521) -> ＿Devil Type halved
 Reduce damage from Devil types by 50%

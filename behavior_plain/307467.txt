@@ -1,4 +1,4 @@
-#307467 - 裏クリオース
+#307467 - Alt. Clioth
 monster size: 4
 new AI: True
 start/max counter: 3
@@ -7,7 +7,7 @@ counter increment: 0
 #1: ESPreemptive(49:318) -> ESPreemptive
 Enable preempt if level 1
 
-#2: ESDisableAssists(141:42486) -> 氷腕の捕捉
+#2: ESDisableAssists(141:42486) -> Frozen Arms' Grasp
 Condition: One-time use (ai:100 rnd:0) (cost: 2)
 Disable active skills for 3 turns
 
@@ -23,19 +23,19 @@ Branch on remaining enemies <= 1, target rnd 12
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#7: ESDispel(6:42493) -> テンタクルスウィップ
+#7: ESDispel(6:42493) -> Tentacles Whip
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Voids player buff effects, Deal 300% damage
 
-#8: ESUnknown(150:42494) -> テンタクルスウィップ
+#8: ESUnknown(150:42494) -> Tentacles Whip
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 No description set, Deal 300% damage
 
-#9: ESChangeAttribute(46:42487) -> テンタクルスアロー
+#9: ESChangeAttribute(46:42487) -> Tentacles Arrow
 Condition: 50% chance (ai:0 rnd:50)
 Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
-#10: ESUnknown(151:42488) -> ウォーターアロー
+#10: ESUnknown(151:42488) -> Water Arrow
 Condition: 50% chance (ai:0 rnd:50)
 No description set, Deal 100% damage
 
@@ -49,24 +49,24 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESStatusShield(20:42490) -> 神秘の結界
+	[0] ESStatusShield(20:42490) -> Mystic Barrier
 	Voids status ailments for 999 turns
-	[1] ESAttackUPCooldown(19:42491) -> 精神統一
+	[1] ESAttackUPCooldown(19:42491) -> Complete Focus
 	Increase damage to 1,000% for the next 999 turns
-	[2] ESAttributeBlock(107:42492) -> アクアテンタクルス
+	[2] ESAttributeBlock(107:42492) -> Aqua Tentacles
 	Unable to match Heal orbs for 1 turn
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESAttackMultihit(15:37042) -> 業炎の焔滅
+#16: ESAttackMultihit(15:37042) -> Hellfire Blaze
 Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:37039) -> 根性
+#18: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#19: ESTypeResist(118:42518) -> ＿ドラゴン半減
+#19: ESTypeResist(118:42518) -> ＿Dragon Type halved
 Reduce damage from Dragon types by 50%

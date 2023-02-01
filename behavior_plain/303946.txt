@@ -1,4 +1,4 @@
-#303946 - 蛮龍契士・ターディス
+#303946 - Savage Dragonbound, Tardis
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:42567) -> 蛮龍の加護
+	[0] ESStatusShield(20:42567) -> Savage Dragon's Protection
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:42568) -> 継界龍操・オヌ
+	[1] ESAbsorbAttribute(53:42568) -> Eternal Dragon Control - Onhu
 	Absorb Fire and Wood damage for 4 turns
-	[2] ESAttributeBlock(107:42569) -> ドラゴニックエコー
+	[2] ESAttributeBlock(107:42569) -> Dragonic Echo
 	Unable to match Water orbs for 4 turns, Deal 150% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -25,7 +25,7 @@ Branch on counter >= 7, target rnd 11
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#6: ESBoardChangeAttackBits(85:42570) -> ドラゴニックモーメント
+#6: ESBoardChangeAttackBits(85:42570) -> Dragonic Moment
 Change all orbs to Wood, Deal 1,000% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -33,31 +33,31 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAttackUPCooldown(19:42572) -> エキサイトムーブ
+	[0] ESAttackUPCooldown(19:42572) -> Excited Movement
 	Increase damage to 1,000% for the next 999 turns
-	[1] ESAbsorbCombo(67:42573) -> エキサイティブモーメント
+	[1] ESAbsorbCombo(67:42573) -> Exciting Moment
 	Absorb damage when combos <= 10 for 1 turn
 
-#9: ESBoardChangeAttackBits(85:42570) -> ドラゴニックモーメント
+#9: ESBoardChangeAttackBits(85:42570) -> Dragonic Moment
 Change all orbs to Wood, Deal 1,000% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #11: SkillSet:
-	[0] ESBindAwoken(88:34045) -> 宇宙の波動
+	[0] ESBindAwoken(88:34045) -> Cosmic Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:34046) -> 宇宙の殲滅
+	[1] ESAttackMultihit(15:34046) -> Cosmic Destruction
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESResolve(73:34043) -> 根性
+#13: ESResolve(73:34043) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#14: ESTurnChangePassive(106:42574) -> 敵の行動ターンが変化した
+#14: ESTurnChangePassive(106:42574) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 50%
 
-#15: ESTypeResist(118:42519) -> ＿神半減
+#15: ESTypeResist(118:42519) -> ＿God Type halved
 Reduce damage from God types by 50%

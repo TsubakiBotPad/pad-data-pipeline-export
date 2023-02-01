@@ -1,4 +1,4 @@
-#303932 - 漂龍喚士・エンラ
+#303932 - Drifting Dragon Caller, Enra
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:37176) -> 灼顎の召龍盾
+	[0] ESStatusShield(20:37176) -> Flame Jaws' Draco Summoning Shield
 	Voids status ailments for 999 turns
-	[1] ESSkyfall(68:37177) -> 紅蓮の霧雨
+	[1] ESSkyfall(68:37177) -> Crimson Rain
 	Fire and Wood skyfall +20% for 3 turns
-	[2] ESOrbLock(94:37178) -> 灼顎
+	[2] ESOrbLock(94:37178) -> Flame Jaws
 	Lock 15 random orbs, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,23 +30,23 @@ Branch on hp < 50, target rnd 11
 
 #7: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESChangeAttribute(46:37188) -> 百足変化
+	[0] ESChangeAttribute(46:37188) -> Centipedification
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESOrbLock(94:37189) -> 灼顎
+	[1] ESOrbLock(94:37189) -> Flame Jaws
 	Lock 10 random orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESAbsorbAttribute(53:37191) -> 紅蓮甲
+	[0] ESAbsorbAttribute(53:37191) -> Crimson Exoskeleton
 	Absorb Fire damage for 1 turn
-	[1] ESOrbLock(94:37192) -> 灼顎
+	[1] ESOrbLock(94:37192) -> Flame Jaws
 	Lock all Fire orbs, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESRandomSpawn(92:37185) -> 火炎足
+	[0] ESRandomSpawn(92:37185) -> Blazing Legs
 	Spawn 4 random Fire and Wood orbs
-	[1] ESOrbLock(94:37186) -> 灼顎
+	[1] ESOrbLock(94:37186) -> Flame Jaws
 	Lock 10 random orbs, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -59,30 +59,30 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESBlindStickySkyfall(128:37181) -> 紅蓮の影雨
+	[0] ESBlindStickySkyfall(128:37181) -> Crimson Shadow Rain
 	For 3 turns, 30% chance for skyfall orbs to be blinded for turn
-	[1] ESDebuffATKTarget(143:37182) -> 百足延焼
+	[1] ESDebuffATKTarget(143:37182) -> Centipede Fire Expansion
 	For 3 turns, 50% ATK for both leaders
-	[2] ESOrbLock(94:37183) -> 灼顎
+	[2] ESOrbLock(94:37183) -> Flame Jaws
 	Lock all orbs, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESOrbLock(94:37179) -> 大顎
+#15: ESOrbLock(94:37179) -> Huge Jaws
 Lock all orbs, Deal 1,000% damage
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:37041) -> 業炎の波動
+	[0] ESBindAwoken(88:37041) -> Hellfire Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:37042) -> 業炎の焔滅
+	[1] ESAttackMultihit(15:37042) -> Hellfire Blaze
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:37039) -> 根性
+#18: ESResolve(73:37039) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#19: ESTypeResist(118:42522) -> ＿マシン半減
+#19: ESTypeResist(118:42522) -> ＿Machine Type halved
 Reduce damage from Machine types by 50%
