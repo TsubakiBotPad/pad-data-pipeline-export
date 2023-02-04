@@ -1,0 +1,40 @@
+#204205 - お菓子作りの魔神・アスタロト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:20563) -> 丹精込めて作ってあげる！
+	Movetime -3s for 3 turns
+	[1] ESSpinnersRandom(109:20564) -> 美味しくなーれ！
+	Random 2 orbs change every 1.5s for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 7
+
+#4: ESRandomSpawn(92:20565) -> スイートスパイス
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 5 random Wood orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:20566) -> ハートシェイク
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage (4 hits, 25% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSpinnersRandom(109:20568) -> もっと美味しくなーれ！
+Condition: 50% chance (ai:0 rnd:50)
+Random 2 orbs change every 1.0s for 1 turn, Deal 200% damage
+
+#8: ESRandomSpawn(92:20567) -> ギフトフラワー
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Wood and Light orbs, Deal 150% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

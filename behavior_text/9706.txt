@@ -1,0 +1,36 @@
+#9706 - 悦楽の恐龍契士・リィ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9706
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44211:118) ドラゴン半減
+ | Reduce damage from Dragon types by 50%
+ type: PREEMPT
+ | (44205:75) たくさん作ったよ！
+ | Leader changes to random sub for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 5
+   | (44206:79) これあげる！
+   | Change the 1st row to Light orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 5
+   | (44207:79) これもあげよう！
+   | Change the 1st row to Light orbs and the 5th row to Fire orbs, Deal 110% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 5
+   | (44208:79) それもあげる！
+   | Change the 1st and 2nd rows to Light orbs, Deal 115% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 5
+   | (44209:79) まだまだあるぞ！
+   | Change the 1st and 2nd rows to Light orbs and the 4th and 5th rows to Fire orbs, Deal 120% damage
+ | group:
+ | condition: execute repeatedly, turn 5 of 5
+   | (44210:85) 恐龍チョコレート！
+   | Change all orbs to Light, Deal 125% damage

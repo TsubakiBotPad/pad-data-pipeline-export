@@ -1,0 +1,42 @@
+#9701 - 親愛の武闘家・ディーナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9701
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44236:129) 超根性90％
+ | Damage which would reduce HP from above 90% to below 90% is nullified
+ type: PREEMPT
+ | (44222:83) 一生懸命作ったから + 受け取ってほしいなぁ
+ | Voids status ailments for 999 turns + Unable to match Fire and Water orbs for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (44232:108) ラブリージャンプ
+   | Change all Heal orbs to Fire orbs, Deal 100% damage
+   | condition: 25% chance
+   | (44233:79) 私の気持ちだよ！
+   | Change the 1st and 5th rows to Heal orbs, Deal 101% damage
+   | condition: 25% chance
+   | (44234:67) ぴょーんっ♪
+   | Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (44235:92) キミにあげる！
+   | Spawn 4 random Fire and Water orbs, Deal 101% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 89
+   | (44229:83) チョコレートステップ + 絡まるリボン
+   | Change all orbs to Fire and Water + Lock all Fire and Water orbs, Deal 103% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (44225:83) ほっぷ♪ + すてっぷ♪
+     | Bind awoken skills for 1 turn + Spawn 5 random locked Bomb orbs
+   | group:
+     | (44228:15) ぴょんぴょんチョコレート♪
+     | Deal 300% damage (5 hits, 60% each)

@@ -1,0 +1,77 @@
+#206995 - 裏親愛の紅龍刀士・アキネ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbThreshold(87:44238) -> どうぞ…
+	Absorb damage when damage >= 1,000,000,000 for 3 turns
+	[1] ESBoardChangeAttackBits(85:44239) -> お受け取りください…
+	Change all orbs to Fire, Dark, and Jammer, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 9
+
+#5: ESRandomSpawn(92:44245) -> 愛刃
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 4 random Fire and Dark orbs, Deal 100% damage
+
+#6: ESOrbLock(94:44246) -> 拘束刃
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Fire and Dark orbs, Deal 101% damage
+
+#7: ESBindAttack(63:44247) -> 束縛刃
+Bind 2 random subs for 2 turns, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESTargetedSkillHaste(139:44243) -> 甘いチョコレート
+	Haste both leaders' skills by 20 turns
+	[1] ESDebuffATKTarget(143:44244) -> 紅龍刀士の想い
+	For 2 turns, 50% ATK for 3 random subs, Deal 102% damage
+
+#10: ESRandomSpawn(92:44245) -> 愛刃
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 4 random Fire and Dark orbs, Deal 100% damage
+
+#11: ESOrbLock(94:44246) -> 拘束刃
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Fire and Dark orbs, Deal 101% damage
+
+#12: ESBindAttack(63:44247) -> 束縛刃
+Bind 2 random subs for 2 turns, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: ESDamageShield(74:44240) -> 紅龍刀士の守り
+Reduce damage from all sources by 50% for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESAttackMultihit(15:44241) -> 愛執螺旋刃
+Deal 300% damage (5 hits, 60% each)
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESSuperResolve(129:44248) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified
