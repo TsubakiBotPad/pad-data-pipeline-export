@@ -1,0 +1,100 @@
+#507462 - 水刻の時龍契士・ミル
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESStatusShield(20:29378) -> この姿もね
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:29379) -> 時間の障壁
+	Reduce damage from all sources by 95% for 2 turns
+	[2] ESAttributeBlock(107:29399) -> マギアドロップ
+	Unable to match Fire orbs for 2 turns, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 15
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESDamageShield(74:29382) -> 時間の障壁
+	Reduce damage from all sources by 90% for 2 turns
+	[1] ESAttackUPRemainingEnemies(17:29383) -> タイムストレンジ
+	Increase damage to 150% for the next 1 turn
+	[2] ESAttributeBlock(107:29400) -> マギアドロップ
+	Unable to match Water orbs for 2 turns, Deal 80% damage
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESDamageShield(74:29385) -> 時間の障壁
+	Reduce damage from all sources by 85% for 2 turns
+	[1] ESAttackUPRemainingEnemies(17:29386) -> タイムストレンジ
+	Increase damage to 200% for the next 1 turn
+	[2] ESAttributeBlock(107:29401) -> マギアドロップ
+	Unable to match Wood orbs for 2 turns, Deal 72% damage
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:29388) -> 時間の障壁
+	Reduce damage from all sources by 80% for 2 turns
+	[1] ESAttackUPRemainingEnemies(17:29389) -> タイムストレンジ
+	Increase damage to 250% for the next 1 turn
+	[2] ESAttributeBlock(107:29402) -> マギアドロップ
+	Unable to match Light orbs for 2 turns, Deal 72% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:29391) -> 時間の障壁
+	Reduce damage from all sources by 75% for 2 turns
+	[1] ESAttackUPRemainingEnemies(17:29392) -> タイムストレンジ
+	Increase damage to 300% for the next 1 turn
+	[2] ESAttributeBlock(107:29403) -> マギアドロップ
+	Unable to match Dark orbs for 2 turns, Deal 80% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:29397) -> 時間の障壁
+	Reduce damage from all sources by 50% for 999 turns
+	[1] ESAttackUPRemainingEnemies(17:29398) -> タイムストレンジ
+	Increase damage to 500% for the next 999 turns
+	[2] ESAttributeBlock(107:29404) -> マギアドロップ
+	Unable to match Heal orbs for 2 turns, Deal 72% damage
+
+#9: ESAttributeBlock(107:29339) -> マギアドロップ
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 2 turns, Deal 72% damage
+
+#10: ESAttributeBlock(107:29340) -> マギアドロップ
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 2 turns, Deal 72% damage
+
+#11: ESAttributeBlock(107:29341) -> マギアドロップ
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 2 turns, Deal 72% damage
+
+#12: ESAttributeBlock(107:29342) -> マギアドロップ
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 2 turns, Deal 72% damage
+
+#13: ESAttributeBlock(107:29343) -> マギアドロップ
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 2 turns, Deal 72% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	[0] ESBindAwoken(88:29375) -> ディストラクション
+	Bind awoken skills for 1 turn
+	[1] ESBoardChangeAttackBits(85:29376) -> タイム・オブ・ムーンフェイズ
+	Change all orbs to Heal, Deal 1,000% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESTurnChangePassive(106:29718) -> 敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 5%

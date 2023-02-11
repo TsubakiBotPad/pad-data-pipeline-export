@@ -1,0 +1,80 @@
+#204585 - 裏空無なるもの・ヨグ＝ソトース
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:11514) -> 無尽蔵な世界の排他的概念
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Voids status ailments for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#4: ESBindAwoken(88:11521) -> 構音禁戒せし真名
+Condition: When < 15% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 5 turns
+
+#5: ESAttackMultihit(15:11522) -> 窮極の原型的終古
+Condition: When < 10% HP (ai:100 rnd:0)
+Deal 3,000% damage (6 hits, 500% each)
+
+#6: ESDispel(6:11541) -> 忽焉に訪れる羽翼の寂滅
+Condition: 10% chance (ai:10 rnd:0)
+Voids player buff effects
+
+#7: ESAttackMultihit(15:11523) -> 宇宙が知らぬ囀りに酷似した音
+Condition: 60% chance (ai:60 rnd:0)
+Deal 100% damage (2 hits, 50% each)
+
+#8: ESBoardChangeAttackBits(85:11524) -> 三世を内包し万物を超越する神聖
+Condition: 20% chance (ai:20 rnd:0)
+Change all orbs to Light, Heal, Jammer, and Poison, Deal 90% damage
+
+#9: ESSpinnersRandom(109:13771) -> 悍ましき太陽の集積
+Condition: 20% chance (ai:20 rnd:0)
+Random 3 orbs change every 1.0s for 2 turns, Deal 90% damage
+
+#10: ESBlindStickyRandom(97:11525) -> 無窮に存在し唯一の虚
+Blind random 5 orbs for 2 turns, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: ESAbsorbAttribute(53:11516) -> 疾苦の螺旋で幻視する朦朧の夢
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Absorb Fire and Water damage for 5 turns
+
+#15: ESAbsorbAttribute(53:11517) -> 疾苦の螺旋で幻視する朦朧の夢
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Absorb Wood and Dark damage for 5 turns
+
+#16: ESAbsorbAttribute(53:11518) -> 疾苦の螺旋で幻視する朦朧の夢
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Absorb Water and Light damage for 5 turns
+
+#17: ESAbsorbAttribute(53:11519) -> 疾苦の螺旋で幻視する朦朧の夢
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Absorb Light and Dark damage for 5 turns
+
+#18: ESAbsorbAttribute(53:11520) -> 疾苦の螺旋で幻視する朦朧の夢
+Condition: One-time use (ai:0 rnd:20) (cost: 2)
+Absorb Fire and Wood damage for 5 turns
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESTurnChangePassive(106:11515) -> 怒りで敵の行動ターンが変化した
+Enemy turn counter change to 1 when HP <= 50%
+
+#21: ESAttributeResist(72:13770) -> 光闇半減
+Reduce damage from Light and Dark attrs by 50%

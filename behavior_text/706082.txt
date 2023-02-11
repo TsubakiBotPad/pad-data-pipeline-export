@@ -1,0 +1,63 @@
+#706082 - 白虹の魔導機士・メノア
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 706082
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (18113:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (18139:83) 魔導機装・マシンノア + 機工障壁 + 魔導ローブ
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 90% for 999 turns + Absorb Wood damage for 10 turns
+ group:
+ | group:
+ | condition: always turns 1-4
+   | condition: 33% chance
+   | (18141:6) 改機・鎮魂歌
+   | Voids player buff effects, Deal 100% damage
+   | condition: 33% chance
+   | (18142:15) 改機・テンペストレイン
+   | Deal 120% damage (10 hits, 12% each)
+   | condition: 34% chance
+   | (18125:92) ヒーリングシンドローム
+   | Spawn 10 random Heal orbs, Deal 110% damage
+ | group:
+   | group:
+   | condition: turn 5
+     | (18121:19) 魔導エネルギー解放
+     | Increase damage to 200% for the next 999 turns
+   | group:
+     | condition: 33% chance
+     | (18141:6) 改機・鎮魂歌
+     | Voids player buff effects, Deal 100% damage
+     | condition: 33% chance
+     | (18142:15) 改機・テンペストレイン
+     | Deal 120% damage (10 hits, 12% each)
+     | condition: 34% chance
+     | (18125:92) ヒーリングシンドローム
+     | Spawn 10 random Heal orbs, Deal 110% damage
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (18122:83) オートリペア作動 + タイムアウト
+     | Enemy recover 10% HP + Movetime 50% for 10 turns
+   | group:
+   | condition: turn 5
+     | condition: 33% chance
+     | (18141:6) 改機・鎮魂歌
+     | Voids player buff effects, Deal 100% damage
+     | condition: 33% chance
+     | (18142:15) 改機・テンペストレイン
+     | Deal 120% damage (10 hits, 12% each)
+     | condition: 34% chance
+     | (18125:92) ヒーリングシンドローム
+     | Spawn 10 random Heal orbs, Deal 110% damage
+   | group:
+   | condition: turn 6
+     | (18121:19) 魔導エネルギー解放
+     | Increase damage to 200% for the next 999 turns

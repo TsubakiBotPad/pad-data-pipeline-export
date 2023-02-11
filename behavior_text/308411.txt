@@ -1,0 +1,45 @@
+#308411 - 桂月夜の魔王・ジル＝レガート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 308411
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (21013:83) 戦魔の鎧 + 悠久の外套 + 楽しませてもらおうか + フェイトスカー
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 90% for 999 turns + Void damage >= 200,000,000 for 999 turns + Locked random skyfall +50% for 99 turns, Deal 80% damage
+ group:
+ | group:
+   | (19415:94) 邪剣
+   | Lock all Jammer orbs, Deal 130% damage
+   | condition: 10% chance
+   | (19388:15) アビスチェイス
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 25% chance
+   | (19388:15) アビスチェイス
+   | Deal 120% damage (3 hits, 40% each)
+   | condition: 33% chance
+   | (19389:94) シャドウファング
+   | Lock all orbs, Deal 100% damage
+   | condition: 50% chance
+   | (19390:127) ロストサクリファイス
+   | No skyfall for 1 turn
+   | (19391:109) ブラッディワルツ
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 9
+     | (25041:83) 小賢しいな… + 終わらせてやる + アビストルネード
+     | Bind awoken skills for 5 turns + Unable to match Light orbs for 5 turns + Deal 120% damage (3 hits, 40% each), Deal 120% damage (3 hits, 40% each)
+   | group:
+     | (19415:94) 邪剣
+     | Lock all Jammer orbs, Deal 130% damage
+     | (25047:46) ウィンドブレード
+     | Change own attribute to Wood, Deal 130% damage
+ | group:
+ | condition: hp <= 9
+   | (25048:83) 魔装 + カオスサイクロン
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 3,000% damage (10 hits, 300% each), Deal 3,000% damage (10 hits, 300% each)

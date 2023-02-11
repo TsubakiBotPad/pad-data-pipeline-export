@@ -1,0 +1,223 @@
+#607024 - 裏冥星龍・ヘキサゼオン
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESInvulnerableOn(119:22401) -> 輝石に守られ、ダメージを与えられない
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Immune to damage from all sources for 999 turns
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 14
+
+#4: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 9
+
+#5: ESDebuffATK(130:22402) -> ゲンレイ
+Condition: 33% chance (ai:0 rnd:33)
+ATK -50% for 1 turn
+
+#6: ESDebuffRCV(105:22403) -> セイショウ
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn
+
+#7: ESDebuffMovetime(39:22404) -> ハガシジ
+Condition: 34% chance (ai:0 rnd:34)
+Movetime 50% for 1 turn
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESStatusShield(20:22405) -> ヨロイ
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Voids status ailments for 999 turns
+
+#10: ESDebuffATK(130:22406) -> ゲンレイ
+Condition: 33% chance (ai:0 rnd:33)
+ATK -50% for 1 turn, Deal 40% damage
+
+#11: ESDebuffRCV(105:22407) -> セイショウ
+Condition: 33% chance (ai:0 rnd:33)
+RCV 50% for 1 turn, Deal 35% damage
+
+#12: ESDebuffMovetime(39:22408) -> ハガシジ
+Condition: 34% chance (ai:0 rnd:34)
+Movetime 50% for 1 turn, Deal 38% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInvulnerableOff(121:22410) -> 全ての輝石の破壊に成功
+	Remove damage immunity effect
+	[1] ESOrbLock(94:22411) -> セイガン
+	Lock all orbs
+
+#15: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 2, target rnd 42
+
+#16: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 65, target rnd 54
+
+#17: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#18: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 60, target rnd 53
+
+#19: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 52, target rnd 52
+
+#20: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 48, target rnd 51
+
+#21: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 42, target rnd 50
+
+#22: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 36, target rnd 49
+
+#23: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 30, target rnd 48
+
+#24: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 24, target rnd 47
+
+#25: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 18, target rnd 46
+
+#26: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 12, target rnd 45
+
+#27: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 44
+
+#28: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 35
+
+#29: ESSpinnersRandom(109:22689) -> クウキョウ
+Condition: 20% chance (ai:0 rnd:20)
+Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#30: ESDebuffRCV(105:22690) -> セイショウ
+Condition: 20% chance (ai:0 rnd:20)
+RCV 50% for 1 turn, Deal 95% damage
+
+#31: ESDebuffMovetime(39:22691) -> ハガシジ
+Condition: 20% chance (ai:0 rnd:20)
+Movetime 50% for 1 turn, Deal 100% damage
+
+#32: ESOrbLock(94:22412) -> セイガン
+Condition: 20% chance (ai:0 rnd:20)
+Lock 15 random orbs, Deal 105% damage
+
+#33: ESAttackMultihit(15:22413) -> ロクセン
+Condition: 20% chance (ai:0 rnd:20)
+Deal 120% damage (6 hits, 20% each)
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:33934) -> サザシノオリ
+	Bind awoken skills for 1 turn
+	[1] ESBlindStickySkyfall(128:33935) -> カゲノホドコシ
+	For 15 turns, 20% chance for skyfall orbs to be blinded for turn
+	[2] ESGravity(50:33936) -> ツラヌキ
+	Player -360% HP
+	[3] ESAttackMultihit(15:33937) -> イッセン
+	Deal 40% damage
+
+#36: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:22421) -> ウツシミ
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESSpinnersRandom(109:22689) -> クウキョウ
+	Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#37: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:22421) -> ウツシミ
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESDebuffRCV(105:22690) -> セイショウ
+	RCV 50% for 1 turn, Deal 95% damage
+
+#38: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:22421) -> ウツシミ
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESDebuffMovetime(39:22691) -> ハガシジ
+	Movetime 50% for 1 turn, Deal 100% damage
+
+#39: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:22421) -> ウツシミ
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESOrbLock(94:22412) -> セイガン
+	Lock 15 random orbs, Deal 105% damage
+
+#40: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESChangeAttribute(46:22421) -> ウツシミ
+	Change own attribute to random one of Fire, Water, or Wood
+	[1] ESAttackMultihit(15:22413) -> ロクセン
+	Deal 120% damage (6 hits, 20% each)
+
+#41: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#42: SkillSet:
+	[0] ESDispel(6:22423) -> メッショウ
+	Voids player buff effects
+	[1] ESChangeAttribute(46:22421) -> ウツシミ
+	Change own attribute to random one of Fire, Water, or Wood
+	[2] ESAttackMultihit(15:22424) -> メツムキョウロクセン
+	Deal 3,600% damage (6 hits, 600% each)
+
+#43: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#44: ESAttackMultihit(15:22677) -> 六天・修羅夢幻星龍波
+Deal 100% damage
+
+#45: ESAttackMultihit(15:22678) -> 六天・修羅夢幻星龍波
+Deal 105% damage
+
+#46: ESAttackMultihit(15:22679) -> 六天・修羅夢幻星龍波
+Deal 110% damage
+
+#47: ESAttackMultihit(15:22680) -> 六天・修羅夢幻星龍波
+Deal 120% damage
+
+#48: ESAttackMultihit(15:22681) -> 六天・修羅夢幻星龍波
+Deal 125% damage
+
+#49: ESAttackMultihit(15:22682) -> 六天・修羅夢幻星龍波
+Deal 130% damage
+
+#50: ESAttackMultihit(15:22683) -> 六天・修羅夢幻星龍波
+Deal 135% damage
+
+#51: ESAttackMultihit(15:22684) -> 六天・修羅夢幻星龍波
+Deal 140% damage
+
+#52: ESAttackMultihit(15:22685) -> 六天・修羅夢幻星龍波
+Deal 145% damage
+
+#53: ESAttackMultihit(15:22686) -> 六天・修羅夢幻星龍波
+Deal 150% damage
+
+#54: ESSetCounter(25:15) -> ESSetCounter
+counter = 60
+
+#55: ESAttackMultihit(15:22687) -> 六天・修羅夢幻星龍波
+Deal 1,500% damage
+
+#56: ESEndPath(36:26) -> ESEndPath
+end_turn

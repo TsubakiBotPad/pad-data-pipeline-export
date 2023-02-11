@@ -1,0 +1,102 @@
+#706451 - 裏灼月夜の魔王・ジル＝レガート
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:21014) -> 戦魔の鎧
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:21015) -> 悠久の外套
+	Reduce damage from all sources by 90% for 999 turns
+	[2] ESVoidShield(71:21016) -> 楽しませてもらおうか
+	Void damage >= 200,000,000 for 999 turns
+	[3] ESSkyfallLocked(96:21017) -> フェイトスカー
+	Locked random skyfall +50% for 99 turns, Deal 80% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 16
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#5: ESOrbLock(94:19415) -> 邪剣
+Lock all Jammer orbs, Deal 130% damage
+
+#6: ESChangeAttribute(46:19404) -> バニシングブレード
+Condition: 20% chance (ai:20 rnd:0)
+Change own attribute to random one of Fire, Water, Wood, or Light, Deal 115% damage
+
+#7: ESAttackMultihit(15:19388) -> アビスチェイス
+Condition: 25% chance (ai:25 rnd:0)
+Deal 120% damage (3 hits, 40% each)
+
+#8: ESOrbLock(94:19389) -> シャドウファング
+Condition: 33% chance (ai:33 rnd:0)
+Lock all orbs, Deal 100% damage
+
+#9: ESNoSkyfall(127:19390) -> ロストサクリファイス
+Condition: 50% chance (ai:50 rnd:0)
+No skyfall for 1 turn
+
+#10: ESSpinnersRandom(109:19391) -> ブラッディワルツ
+Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 18
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:21008) -> 小賢しいな…
+	Bind awoken skills for 5 turns
+	[1] ESAttributeBlock(107:21009) -> 終わらせてやる
+	Unable to match Light orbs for 5 turns
+	[2] ESChangeAttribute(46:21010) -> 魔装
+	Change own attribute to Dark
+	[3] ESAttackMultihit(15:21011) -> アビスフレイム
+	Deal 210% damage (10 hits, 21% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESChangeAttribute(46:19393) -> 魔装
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:19394) -> カオスフレイム
+	Deal 3,000% damage (10 hits, 300% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESOrbLock(94:19415) -> 邪剣
+Lock all Jammer orbs, Deal 130% damage
+
+#19: ESChangeAttribute(46:19416) -> バニシングブレード
+Change own attribute to Dark, Deal 130% damage
+
+#20: ESAttackMultihit(15:19388) -> アビスチェイス
+Condition: 25% chance (ai:25 rnd:0)
+Deal 120% damage (3 hits, 40% each)
+
+#21: ESOrbLock(94:19389) -> シャドウファング
+Condition: 33% chance (ai:33 rnd:0)
+Lock all orbs, Deal 100% damage
+
+#22: ESNoSkyfall(127:19390) -> ロストサクリファイス
+Condition: 50% chance (ai:50 rnd:0)
+No skyfall for 1 turn
+
+#23: ESSpinnersRandom(109:19391) -> ブラッディワルツ
+Random 2 orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn

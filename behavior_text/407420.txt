@@ -1,0 +1,57 @@
+#407420 - 霧翅の妖精王・アルバート
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 407420
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (24607:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (24608:83) 妖精の楽園 + 森域の変革
+ | Voids status ailments for 999 turns + No skyfall for 99 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (24611:83) 妖精王の領域 + 妖精王の招宴
+   | Change board size to 7x6 for 1 turn + Absorb damage when combos <= 12 for 1 turn
+   | condition: 25% chance
+   | (24614:83) 妖精王の領域 + 妖精王の招宴
+   | Change board size to 6x5 for 1 turn + Reduce damage from all sources by 50% for 1 turn
+   | condition: 25% chance
+   | (24617:83) プライマリーロック + フェアリーラッシュ
+   | Lock all orbs + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+   | condition: 25% chance
+   | (24620:83) プライマリーバースト + フェアリーラッシュ
+   | Locked random skyfall +100% for 1 turn + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 2
+     | (24622:83) 妖精王の招宴 + 妖精の牢獄
+     | Absorb damage when damage >= 1,000,000,000 for 999 turns + Bind awoken skills for 5 turns
+   | group:
+   | condition: turns 2-5 while HP > 2
+     | condition: 25% chance
+     | (24611:83) 妖精王の領域 + 妖精王の招宴
+     | Change board size to 7x6 for 1 turn + Absorb damage when combos <= 12 for 1 turn
+     | condition: 25% chance
+     | (24614:83) 妖精王の領域 + 妖精王の招宴
+     | Change board size to 6x5 for 1 turn + Reduce damage from all sources by 50% for 1 turn
+     | condition: 25% chance
+     | (24617:83) プライマリーロック + フェアリーラッシュ
+     | Lock all orbs + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+     | condition: 25% chance
+     | (24620:83) プライマリーバースト + フェアリーラッシュ
+     | Locked random skyfall +100% for 1 turn + Deal 105% damage (5 hits, 21% each), Deal 105% damage (5 hits, 21% each)
+   | group:
+   | condition: turn 6 while HP > 2
+     | (24625:17) 破壊の権化
+     | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 2
+   | (24599:83) 妖精の牢獄 + エーテルブラスト
+   | Bind awoken skills for 1 turn + Deal 1,000% damage (10 hits, 100% each), Deal 1,000% damage (10 hits, 100% each)

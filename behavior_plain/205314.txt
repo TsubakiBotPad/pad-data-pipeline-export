@@ -1,0 +1,33 @@
+#205314 - 影刻の時龍契士・ミル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESStatusShield(20:13014) -> 継界龍呼・トルヴィオ＝ブル
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids status ailments for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 7
+
+#5: ESAttackMultihit(15:13013) -> 黒針撃
+Deal 90% damage (3 hits, 30% each)
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#8: ESRecoverEnemy86(86:13012) -> オーバーホール
+Enemy recover 100% HP
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

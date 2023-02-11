@@ -1,0 +1,57 @@
+#507462 - 水刻の時龍契士・ミル
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 507462
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (29718:106) 敵の行動ターンが変化した
+ | Enemy turn counter change to 1 when HP <= 5%
+ type: PREEMPT
+ | (29377:83) この姿もね + 時間の障壁 + マギアドロップ
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 95% for 2 turns + Unable to match Fire orbs for 2 turns, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 2
+     | (29381:83) 時間の障壁 + タイムストレンジ + マギアドロップ
+     | Reduce damage from all sources by 90% for 2 turns + Increase damage to 150% for the next 1 turn + Unable to match Water orbs for 2 turns, Deal 80% damage
+   | group:
+   | condition: turn 2 while HP > 2
+     | (29384:83) 時間の障壁 + タイムストレンジ + マギアドロップ
+     | Reduce damage from all sources by 85% for 2 turns + Increase damage to 200% for the next 1 turn + Unable to match Wood orbs for 2 turns, Deal 72% damage
+   | group:
+   | condition: turn 3 while HP > 2
+     | (29387:83) 時間の障壁 + タイムストレンジ + マギアドロップ
+     | Reduce damage from all sources by 80% for 2 turns + Increase damage to 250% for the next 1 turn + Unable to match Light orbs for 2 turns, Deal 72% damage
+   | group:
+   | condition: turn 4 while HP > 2
+     | (29390:83) 時間の障壁 + タイムストレンジ + マギアドロップ
+     | Reduce damage from all sources by 75% for 2 turns + Increase damage to 300% for the next 1 turn + Unable to match Dark orbs for 2 turns, Deal 80% damage
+   | group:
+   | condition: turn 5 while HP > 2
+     | (29396:83) 時間の障壁 + タイムストレンジ + マギアドロップ
+     | Reduce damage from all sources by 50% for 999 turns + Increase damage to 500% for the next 999 turns + Unable to match Heal orbs for 2 turns, Deal 72% damage
+   | group:
+     | condition: 20% chance
+     | (29339:107) マギアドロップ
+     | Unable to match Fire orbs for 2 turns, Deal 72% damage
+     | condition: 20% chance
+     | (29340:107) マギアドロップ
+     | Unable to match Water orbs for 2 turns, Deal 72% damage
+     | condition: 20% chance
+     | (29341:107) マギアドロップ
+     | Unable to match Wood orbs for 2 turns, Deal 72% damage
+     | condition: 20% chance
+     | (29342:107) マギアドロップ
+     | Unable to match Light orbs for 2 turns, Deal 72% damage
+     | condition: 20% chance
+     | (29343:107) マギアドロップ
+     | Unable to match Dark orbs for 2 turns, Deal 72% damage
+ | group:
+ | condition: hp <= 2
+   | (29374:83) ディストラクション + タイム・オブ・ムーンフェイズ
+   | Bind awoken skills for 1 turn + Change all orbs to Heal, Deal 1,000% damage

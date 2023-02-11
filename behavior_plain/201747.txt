@@ -1,0 +1,83 @@
+#201747 - 裏綺羅の秘女神・カーリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:2404) -> 女神の舞踏
+	Voids status ailments for 999 turns
+	[1] ESDamageShield(74:8257) -> チャクラを解放した
+	Reduce damage from all sources by 75% for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackMultihit(15:2406) -> サハスラーラ
+Condition: When < 5% HP (ai:100 rnd:0)
+Deal 1,500% damage
+
+#7: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 65, target rnd 16
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 17
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:2412) -> スワーディシュターナ
+	Deal 180% damage (2 hits, 90% each)
+	[1] ESBindRandom(1:2413) -> マニプーラ
+	Bind 1 random card for 2 turns
+
+#11: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:2412) -> スワーディシュターナ
+	Deal 180% damage (2 hits, 90% each)
+	[1] ESBlind5(5:2414) -> アナーハタ
+	Blind all orbs on the board
+
+#12: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:2412) -> スワーディシュターナ
+	Deal 180% damage (2 hits, 90% each)
+	[1] ESPoisonChangeRandomCount(60:2415) -> ヴィシュッダ
+	Change 3 random orbs (excluding hearts) to Poison orbs
+
+#13: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESAttackMultihit(15:2412) -> スワーディシュターナ
+	Deal 180% damage (2 hits, 90% each)
+	[1] ESGravity(50:2416) -> アージュナー
+	Player -99% HP
+
+#14: ESBindSkill(14:2395) -> カーラ・マー
+Condition: 25% chance (ai:0 rnd:25)
+Bind active skills for 10 turns, Deal 150% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttackMultihit(15:2407) -> ムーラーダーラ
+Deal 1,200% damage (6 hits, 200% each)
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: ESVoidShield(71:8259) -> 黒の時
+Void damage >= 10,000,000 for 999 turns

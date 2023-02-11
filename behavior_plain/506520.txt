@@ -1,0 +1,83 @@
+#506520 - 破毒の孔雀王・ユリシャ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:32442) -> 孔雀王の結界
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:32443) -> 心願成就の羽根
+	Locked random skyfall +30% for 99 turns
+	[2] ESVoidShieldBig(137:32444) -> 孔雀障壁
+	Void damage >= 2,000,000,000 for 999 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 14
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombFixedSpawn(103:37548) -> 眼状爆
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:37549) -> 火変の大祓
+	Change the 1st and 2nd rows to Fire and Poison orbs, Deal 100% damage
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombFixedSpawn(103:37551) -> 眼状爆
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:37552) -> 闇変の大祓
+	Change the 1st and 5th rows to Dark and Poison orbs, Deal 100% damage
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombFixedSpawn(103:32456) -> 眼状爆
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:32457) -> 癒変の大祓
+	Change the 3rd and 4th rows to Heal and Poison orbs, Deal 100% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBombFixedSpawn(103:32459) -> 眼状爆
+	Spawn locked Bomb orbs in the specified positions
+	[1] ESRowSpawnMulti(79:32460) -> 転変の大祓
+	Change the 1st row to Fire orbs, the 3rd row to Dark orbs, and the 6th row to Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 5
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:32446) -> 孔雀の波動
+	Bind awoken skills for 1 turn
+	[1] ESSkyfall(68:32447) -> 大願成就の羽根
+	Heal and Jammer skyfall +15% for 20 turns
+	[2] ESBoardChangeAttackBits(85:32448) -> 毒変の大祓
+	Change all orbs to Poison, Deal 200% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	[0] ESBindAwoken(88:32462) -> 孔雀の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:32463) -> 孔雀王の大転変
+	Deal 10,000% damage (5 hits, 2,000% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSuperResolve(129:32498) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

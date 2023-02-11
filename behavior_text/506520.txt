@@ -1,0 +1,37 @@
+#506520 - 破毒の孔雀王・ユリシャ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 506520
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (32498:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (32441:83) 孔雀王の結界 + 心願成就の羽根 + 孔雀障壁
+ | Voids status ailments for 999 turns + Locked random skyfall +30% for 99 turns + Void damage >= 2,000,000,000 for 999 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (37547:83) 眼状爆 + 火変の大祓
+   | Spawn locked Bomb orbs in the specified positions + Change the 1st and 2nd rows to Fire and Poison orbs, Deal 100% damage
+   | condition: 25% chance
+   | (37550:83) 眼状爆 + 闇変の大祓
+   | Spawn locked Bomb orbs in the specified positions + Change the 1st and 5th rows to Dark and Poison orbs, Deal 100% damage
+   | condition: 25% chance
+   | (32455:83) 眼状爆 + 癒変の大祓
+   | Spawn locked Bomb orbs in the specified positions + Change the 3rd and 4th rows to Heal and Poison orbs, Deal 100% damage
+   | condition: 25% chance
+   | (32458:83) 眼状爆 + 転変の大祓
+   | Spawn locked Bomb orbs in the specified positions + Change the 1st row to Fire orbs, the 3rd row to Dark orbs, and the 6th row to Heal orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (32445:83) 孔雀の波動 + 大願成就の羽根 + 毒変の大祓
+   | Bind awoken skills for 1 turn + Heal and Jammer skyfall +15% for 20 turns + Change all orbs to Poison, Deal 200% damage
+ | group:
+ | condition: hp <= 2
+   | (32461:83) 孔雀の波動 + 孔雀王の大転変
+   | Bind awoken skills for 1 turn + Deal 10,000% damage (5 hits, 2,000% each), Deal 10,000% damage (5 hits, 2,000% each)

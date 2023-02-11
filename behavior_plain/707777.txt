@@ -1,0 +1,201 @@
+#707777 - 零次元の創造主・ビッグバン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:34491) -> ギャラクシーバリア
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:34492) -> グラビティガード
+	Void damage >= 3,000,000,000 for 999 turns
+	[2] ESAbsorbCombo(67:34493) -> コズミックエナジー
+	Absorb damage when combos <= 7 for 999 turns
+	[3] ESSkyfallLocked(96:34494) -> ミーティアダスト
+	Locked random skyfall +30% for 99 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 27
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 31
+
+#7: ESNone(142:34557) -> ESNone
+nothing
+
+#8: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRowSpawnMulti(78:34504) -> マーズパワー
+	Change the 1st row to Fire orbs
+	[1] ESGravity(50:34505) -> コメットクロー
+	Player -5% HP
+	[2] ESSpinnersFixed(110:34506) -> ギャラクシーブレス
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#9: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRowSpawnMulti(78:34508) -> マーキュリーパワー
+	Change the 3rd row to Water orbs
+	[1] ESGravity(50:34509) -> コメットクロー
+	Player -6% HP
+	[2] ESSpinnersFixed(110:34510) -> ギャラクシーブレス
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#10: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRowSpawnMulti(78:34512) -> ジュピターパワー
+	Change the 5th row to Wood orbs
+	[1] ESGravity(50:34513) -> コメットクロー
+	Player -7% HP
+	[2] ESSpinnersFixed(110:34514) -> ギャラクシーブレス
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#11: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRowSpawnMulti(78:34516) -> ヴィーナスパワー
+	Change the 2nd row to Light orbs
+	[1] ESGravity(50:34517) -> コメットクロー
+	Player -8% HP
+	[2] ESSpinnersFixed(110:34518) -> ギャラクシーブレス
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#12: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESRowSpawnMulti(78:34520) -> サターンパワー
+	Change the 4th row to Dark orbs
+	[1] ESGravity(50:34521) -> コメットクロー
+	Player -9% HP
+	[2] ESSpinnersFixed(110:34522) -> ギャラクシーブレス
+	Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 19
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#16: ESNone(142:34558) -> ESNone
+nothing
+
+#17: SkillSet:
+	[0] ESSpinnersRandom(109:34501) -> ギャラクシーホール
+	Random 4 orbs change every 0.5s for 1 turn
+	[1] ESBoardChange(84:34039) -> ブラックノヴァ
+	Change all orbs to Dark
+	[2] ESAttackMultihit(15:40396) -> メテオライトブレス
+	Deal 200% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 35
+
+#20: ESNone(142:34560) -> ESNone
+nothing
+
+#21: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESColumnSpawnMulti(76:34524) -> マーズエネルギー
+	Change the 1st column to Fire orbs
+	[1] ESOrbLock(94:34525) -> コズミックダスト
+	Lock all Fire orbs, Deal 100% damage
+
+#22: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESColumnSpawnMulti(76:34527) -> マーキュリーエネルギー
+	Change the 2nd column to Water orbs
+	[1] ESOrbLock(94:34528) -> コズミックダスト
+	Lock all Water orbs, Deal 100% damage
+
+#23: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESColumnSpawnMulti(76:34530) -> ジュピターエネルギー
+	Change the 3rd column to Wood orbs
+	[1] ESOrbLock(94:34531) -> コズミックダスト
+	Lock all Wood orbs, Deal 100% damage
+
+#24: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESColumnSpawnMulti(76:34533) -> ヴィーナスエネルギー
+	Change the 4th column to Light orbs
+	[1] ESOrbLock(94:34534) -> コズミックダスト
+	Lock all Light orbs, Deal 100% damage
+
+#25: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESColumnSpawnMulti(76:34536) -> サターンエネルギー
+	Change the 5th column to Dark orbs
+	[1] ESOrbLock(94:34537) -> コズミックダスト
+	Lock all Dark orbs, Deal 100% damage
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESAttackUPRemainingEnemies(17:34047) -> 宇宙の解放
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#28: ESNone(142:34559) -> ESNone
+nothing
+
+#29: SkillSet:
+	[0] ESChangeAttribute(46:34496) -> ワームホール
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESBindAwoken(88:34497) -> マーズライト
+	Bind awoken skills for 1 turn
+	[2] ESBindSkill(14:34498) -> マーキュリーレフト
+	Bind active skills for 1 turn
+	[3] ESAttackMultihit(15:34499) -> 超新星・スーパーノヴァ
+	Deal 1,000% damage (10 hits, 100% each)
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#32: ESNone(142:34560) -> ESNone
+nothing
+
+#33: SkillSet:
+	[0] ESBoardChange(84:34566) -> ギャラクシーパワー
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
+	[1] ESChangeAttribute(46:34567) -> ユニバースエネルギー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#34: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#35: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#36: ESNone(142:34557) -> ESNone
+nothing
+
+#37: SkillSet:
+	[0] ESBoardChange(84:34562) -> ギャラクシーパワー
+	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison
+	[1] ESGravity(50:34563) -> コメットクロー
+	Player -10% HP
+	[2] ESChangeAttribute(46:34564) -> ユニバースブレス
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#38: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#39: ESSuperResolve(129:34042) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

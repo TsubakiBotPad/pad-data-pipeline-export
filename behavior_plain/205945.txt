@@ -1,0 +1,160 @@
+#205945 - 転生ツクヨミ＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17256) -> 夜刻神の風格
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:17257) -> 桂月の輝き
+	Absorb Fire and Wood damage for 1 turn
+	[2] ESSpinnersFixed(110:17262) -> 廻り変わる月光
+	Specific orbs change every 2.0s for 10 turns
+	[3] ESDebuffATK(130:17263) -> 暗黒の息吹
+	ATK -75% for 5 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17256) -> 夜刻神の風格
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:17258) -> 桂月の輝き
+	Absorb Water and Light damage for 1 turn
+	[2] ESSpinnersFixed(110:17262) -> 廻り変わる月光
+	Specific orbs change every 2.0s for 10 turns
+	[3] ESDebuffATK(130:17263) -> 暗黒の息吹
+	ATK -75% for 5 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17256) -> 夜刻神の風格
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:17259) -> 桂月の輝き
+	Absorb Wood and Dark damage for 1 turn
+	[2] ESSpinnersFixed(110:17262) -> 廻り変わる月光
+	Specific orbs change every 2.0s for 10 turns
+	[3] ESDebuffATK(130:17263) -> 暗黒の息吹
+	ATK -75% for 5 turns
+
+#5: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17256) -> 夜刻神の風格
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:17260) -> 桂月の輝き
+	Absorb Fire and Light damage for 1 turn
+	[2] ESSpinnersFixed(110:17262) -> 廻り変わる月光
+	Specific orbs change every 2.0s for 10 turns
+	[3] ESDebuffATK(130:17263) -> 暗黒の息吹
+	ATK -75% for 5 turns
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:17256) -> 夜刻神の風格
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:17261) -> 桂月の輝き
+	Absorb Water and Dark damage for 1 turn
+	[2] ESSpinnersFixed(110:17262) -> 廻り変わる月光
+	Specific orbs change every 2.0s for 10 turns
+	[3] ESDebuffATK(130:17263) -> 暗黒の息吹
+	ATK -75% for 5 turns
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 10, target rnd 22
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 9, target rnd 11
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 16
+
+#11: SkillSet:
+	Condition: One-time use (ai:20 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:17269) -> 夜刻神の怒り
+	Increase damage to 200% for the next 999 turns
+	[1] ESAbsorbAttribute(53:17257) -> 桂月の輝き
+	Absorb Fire and Wood damage for 1 turn
+
+#12: SkillSet:
+	Condition: One-time use (ai:25 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:17269) -> 夜刻神の怒り
+	Increase damage to 200% for the next 999 turns
+	[1] ESAbsorbAttribute(53:17258) -> 桂月の輝き
+	Absorb Water and Light damage for 1 turn
+
+#13: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:17269) -> 夜刻神の怒り
+	Increase damage to 200% for the next 999 turns
+	[1] ESAbsorbAttribute(53:17259) -> 桂月の輝き
+	Absorb Wood and Dark damage for 1 turn
+
+#14: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:17269) -> 夜刻神の怒り
+	Increase damage to 200% for the next 999 turns
+	[1] ESAbsorbAttribute(53:17260) -> 桂月の輝き
+	Absorb Fire and Light damage for 1 turn
+
+#15: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:17269) -> 夜刻神の怒り
+	Increase damage to 200% for the next 999 turns
+	[1] ESAbsorbAttribute(53:17261) -> 桂月の輝き
+	Absorb Water and Dark damage for 1 turn
+
+#16: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:17257) -> 桂月の輝き
+	Absorb Fire and Wood damage for 1 turn
+	[1] ESOrbChangeAttack(48:17275) -> ヤミテラシ
+	Change a random attribute to Dark orbs, Deal 95% damage
+
+#17: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:17258) -> 桂月の輝き
+	Absorb Water and Light damage for 1 turn
+	[1] ESOrbChangeAttack(48:17275) -> ヤミテラシ
+	Change a random attribute to Dark orbs, Deal 95% damage
+
+#18: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:17259) -> 桂月の輝き
+	Absorb Wood and Dark damage for 1 turn
+	[1] ESBlindStickyRandom(97:17276) -> カゲリアメ
+	Blind all orbs for 1 turn, Deal 100% damage
+
+#19: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:17260) -> 桂月の輝き
+	Absorb Fire and Light damage for 1 turn
+	[1] ESBlindStickyRandom(97:17276) -> カゲリアメ
+	Blind all orbs for 1 turn, Deal 100% damage
+
+#20: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:17261) -> 桂月の輝き
+	Absorb Water and Dark damage for 1 turn
+	[1] ESAttackMultihit(15:17277) -> キョウラン
+	Deal 110% damage (5 hits, 22% each)
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESAttackMultihit(15:17278) -> ヨミノミチシルベ
+Deal 10,000% damage (10 hits, 1,000% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESSuperResolve(129:17250) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#25: ESTypeResist(118:16734) -> 神悪魔半減
+Reduce damage from God and Devil types by 50%
