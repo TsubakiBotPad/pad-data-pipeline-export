@@ -1,4 +1,4 @@
-#304282 - 覚醒ネフティス
+#304282 - Awoken Nephthys
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:44808) -> ネベトヘウト
+	[0] ESStatusShield(20:44808) -> Nebet-Het
 	Voids status ailments for 999 turns
-	[1] ESDebuffATK(130:44809) -> 冥界響
+	[1] ESDebuffATK(130:44809) -> Underworld's Echo
 	ATK -99% for 3 turns
-	[2] ESAbsorbAttribute(53:44810) -> 闇の牢獄
+	[2] ESAbsorbAttribute(53:44810) -> Dark Prison
 	Absorb Light and Dark damage for 6 turns, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on counter >= 3, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESDebuffATKTarget(143:44814) -> 冥界響
+	[0] ESDebuffATKTarget(143:44814) -> Underworld's Echo
 	For 1 turn, 1% ATK for 2 random subs
-	[1] ESOrbLock(94:44815) -> ネクロチェイン
+	[1] ESOrbLock(94:44815) -> Necro Chain
 	Lock all Light and Dark orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(151:44817) -> 冥界響
+	[0] ESUnknown(151:44817) -> Underworld's Echo
 	No description set
-	[1] ESOrbLock(94:44818) -> ネクロチェイン
+	[1] ESOrbLock(94:44818) -> Necro Chain
 	Lock 10 random orbs, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,29 +51,29 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESDebuffATKTarget(143:44812) -> 冥界響
+#12: ESDebuffATKTarget(143:44812) -> Underworld's Echo
 For 3 turns, 1% ATK for both leaders, Deal 150% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:44811) -> ネクロアビスホール
+#14: ESAttackMultihit(15:44811) -> Necro Abyss Hole
 Deal 996% damage (6 hits, 166% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#19: ESAttributeResist(72:44517) -> 光軽減
+#19: ESAttributeResist(72:44517) -> Light Reduced
 Reduce damage from Light attrs by 50%

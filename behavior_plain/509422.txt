@@ -1,4 +1,4 @@
-#509422 - 熱狂のベーシスト・ロシェ
+#509422 - Raving Bassist, Roche
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBlind5(5:41171) -> アタシの音についてこられるか…
+	[0] ESBlind5(5:41171) -> Let's see if you have what it takes...
 	Blind all orbs on the board
-	[1] ESRandomSpawn(92:41172) -> 見定めてアゲル！
+	[1] ESRandomSpawn(92:41172) -> ...to keep up with my sound!
 	Spawn 15 random Heal and Jammer orbs
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -30,19 +30,19 @@ counter + 1
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESBlindStickyFixed(98:41181) -> アタシと一緒に演りたいってぇ？
+	[0] ESBlindStickyFixed(98:41181) -> You say you wanna jam with me?
 	Blind orbs in specific positions for 1 turn
-	[1] ESRandomSpawn(92:41182) -> ひとりで演るほうが気楽じゃない、ねぇ？
+	[1] ESRandomSpawn(92:41182) -> Isn't it better to play solo?
 	Spawn 15 random Dark and Jammer orbs
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBlindStickyFixed(98:41185) -> ついてこられるかしらぁ？
+	[0] ESBlindStickyFixed(98:41185) -> I wonder if you can actually keep up.
 	Blind orbs in specific positions for 1 turn
-	[1] ESRandomSpawn(92:41184) -> クフフ、楽しくなってきたわねぇ
+	[1] ESRandomSpawn(92:41184) -> Hah, this is getting fun!
 	Spawn 10 random Wood, Dark, and Jammer orbs
 
-#10: ESEndBattle(40:41186) -> 悪くないわね
+#10: ESEndBattle(40:41186) -> ...Not too bad!
 Reduce self HP to 0
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -54,16 +54,16 @@ Branch on counter = 2, target rnd 17
 #13: ESBranchCounter(31:21) -> ESBranchCounter
 Branch on counter = 1, target rnd 16
 
-#14: ESRandomSpawn(92:41173) -> この程度なわけないわよねぇ？
+#14: ESRandomSpawn(92:41173) -> Don't tell me that's the best you got!
 Spawn 15 random Heal and Jammer orbs, Deal 100% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#16: ESBoardChangeAttackBits(85:41175) -> この程度なわけないわよねぇ？
+#16: ESBoardChangeAttackBits(85:41175) -> Don't tell me that's the best you got!
 Change all orbs to Wood, Dark, and Jammer, Deal 100% damage
 
-#17: ESBoardChangeAttackBits(85:41178) -> この程度なわけないわよねぇ？
+#17: ESBoardChangeAttackBits(85:41178) -> Don't tell me that's the best you got!
 Change all orbs to Wood, Dark, and Jammer, Deal 100% damage
 
 #18: ESEndPath(36:26) -> ESEndPath
@@ -71,5 +71,5 @@ end_turn
 
 #19: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESEndBattle(40:41186) -> 悪くないわね
+	[0] ESEndBattle(40:41186) -> ...Not too bad!
 	Reduce self HP to 0

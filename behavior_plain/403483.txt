@@ -1,4 +1,4 @@
-#403483 - 裏転生イズン＆イズーナ
+#403483 - Alt. Reincarnated Idunn & Idunna
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBlindStickySkyfall(128:44736) -> いらっしゃいませ
+	[0] ESBlindStickySkyfall(128:44736) -> Welcome!
 	For 6 turns, 20% chance for skyfall orbs to be blinded for turn
-	[1] ESBoardChangeAttackBits(85:44737) -> 私たちのキモチをあげる
+	[1] ESBoardChangeAttackBits(85:44737) -> We'll give you our hearts!
 	Change all orbs to Heal, Deal 100% damage
-	[2] ESBombFixedSpawn(103:44738) -> ラブリーボム
+	[2] ESBombFixedSpawn(103:44738) -> Lovely Bomb
 	Spawn locked Bomb orbs in the specified positions
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBombRandomSpawn(102:44742) -> ラブリーボム
+	[0] ESBombRandomSpawn(102:44742) -> Lovely Bomb
 	Spawn 6 random Bomb orbs
-	[1] ESColumnSpawnMulti(77:44743) -> ブロートガルドル
+	[1] ESColumnSpawnMulti(77:44743) -> Blót Gandr
 	Change the 1st column to Water orbs and the 6th column to Heal orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBombRandomSpawn(102:44745) -> ラブリーボム
+	[0] ESBombRandomSpawn(102:44745) -> Lovely Bomb
 	Spawn 6 random Bomb orbs
-	[1] ESColumnSpawnMulti(77:44746) -> ブロートガルドル
+	[1] ESColumnSpawnMulti(77:44746) -> Blót Gandr
 	Change the 1st column to Poison orbs and the 6th column to Water orbs, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,26 +51,26 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESBindAwoken(88:44740) -> 許さないからっ！
+#12: ESBindAwoken(88:44740) -> We won't forgive you!
 Bind awoken skills for 3 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESBoardChangeAttackBits(85:44739) -> この極上のヤツをあげる
+#14: ESBoardChangeAttackBits(85:44739) -> We'll give you something first-rate!
 Change all orbs to Mortal Poison, Deal 1,000% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%

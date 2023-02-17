@@ -1,4 +1,4 @@
-#208501 - 墨画獣の水墨幻画師・リクト
+#208501 - Feudal Ink Beast Illusionary Artist, Rikuto
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -15,9 +15,9 @@ end_turn
 
 #4: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESDebuffRCV(105:35141) -> あなたも気になりますよね？
+	[0] ESDebuffRCV(105:35141) -> Oh, you're interested in them too?
 	RCV 25% for 3 turns
-	[1] ESGravity(50:35142) -> 僕の筆コレクションを見せてあげる
+	[1] ESGravity(50:35142) -> Let me show you my brush collection.
 	Player -99% HP
 
 #5: ESBranchHP(28:18) -> ESBranchHP
@@ -26,19 +26,19 @@ Branch on hp < 1, target rnd 16
 #6: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 12
 
-#7: ESOrbLock(94:35037) -> 面相筆
+#7: ESOrbLock(94:35037) -> Fine Point Brush
 Condition: 25% chance (ai:0 rnd:25)
 Lock 8 random orbs, Deal 100% damage
 
-#8: ESBlindStickyRandom(97:35038) -> 隈取筆
+#8: ESBlindStickyRandom(97:35038) -> Shading Brush
 Condition: 25% chance (ai:0 rnd:25)
 Blind random 5~10 orbs for 1 turn, Deal 95% damage
 
-#9: ESAttackMultihit(15:35039) -> 連筆
+#9: ESAttackMultihit(15:35039) -> Multi-Stem Brush
 Condition: 25% chance (ai:0 rnd:25)
 Deal 105% damage (3 hits, 35% each)
 
-#10: ESSkillDelay(89:35040) -> 刷毛筆
+#10: ESSkillDelay(89:35040) -> Thick Brush
 Condition: 25% chance (ai:0 rnd:25)
 Delay active skills by 0~2 turns, Deal 90% damage
 
@@ -52,9 +52,9 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #14: SkillSet:
-	[0] ESDebuffATK(130:35042) -> ふーん、やるじゃん
+	[0] ESDebuffATK(130:35042) -> Heh, not bad.
 	ATK -50% for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:35043) -> 僕の筆コレクションが火を噴くよ
+	[1] ESAttackUPRemainingEnemies(17:35043) -> Watch out though, my brushes are lit!
 	Increase damage to 200% for the next 999 turns
 
 #15: ESEndPath(36:26) -> ESEndPath
@@ -62,29 +62,29 @@ end_turn
 
 #16: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:35234) -> へー、そんなに見たいんだ？
+	[0] ESAbsorbCombo(67:35234) -> Oh, you want to see more?
 	Absorb damage when combos <= 7 for 5 turns
-	[1] ESSpinnersFixed(110:35235) -> じゃー僕の一押しを紹介してあげる
+	[1] ESSpinnersFixed(110:35235) -> Then why don't I show you my favorite.
 	Specific orbs change every 1.0s for 3 turns
 
-#17: ESOrbLock(94:35037) -> 面相筆
+#17: ESOrbLock(94:35037) -> Fine Point Brush
 Condition: 25% chance (ai:0 rnd:25)
 Lock 8 random orbs, Deal 100% damage
 
-#18: ESBlindStickyRandom(97:35038) -> 隈取筆
+#18: ESBlindStickyRandom(97:35038) -> Shading Brush
 Condition: 25% chance (ai:0 rnd:25)
 Blind random 5~10 orbs for 1 turn, Deal 95% damage
 
-#19: ESAttackMultihit(15:35039) -> 連筆
+#19: ESAttackMultihit(15:35039) -> Multi-Stem Brush
 Condition: 25% chance (ai:0 rnd:25)
 Deal 105% damage (3 hits, 35% each)
 
-#20: ESSkillDelay(89:35040) -> 刷毛筆
+#20: ESSkillDelay(89:35040) -> Thick Brush
 Condition: 25% chance (ai:0 rnd:25)
 Delay active skills by 0~2 turns, Deal 90% damage
 
 #21: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#22: ESResolve(73:35026) -> 根性
+#22: ESResolve(73:35026) -> Resolve
 Survive attacks with 1 HP when HP > 50%

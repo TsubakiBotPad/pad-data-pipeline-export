@@ -1,4 +1,4 @@
-#304279 - 覚醒ヌト
+#304279 - Awoken Nut
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESTargetedSkillHaste(139:44772) -> ダーフィアマハジュール
+	[0] ESTargetedSkillHaste(139:44772) -> Dafiea Mahjur
 	Haste both leaders' skills by 10 turns
-	[1] ESBindAwoken(88:44773) -> 魔力の閃光
+	[1] ESBindAwoken(88:44773) -> Flash of Sorcery
 	Bind awoken skills for 3 turns
-	[2] ESAttackUPRemainingEnemies(17:44774) -> 魔導解放
+	[2] ESAttackUPRemainingEnemies(17:44774) -> Release of Black Magic
 	Increase damage to 300% for the next 3 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on counter >= 3, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESBombFixedSpawn(103:44778) -> 魔導爆裂
+	[0] ESBombFixedSpawn(103:44778) -> Exploding Black Magic
 	Spawn Bomb orbs in the specified positions
-	[1] ESBoardChangeAttackBits(85:44779) -> ノクタムジュール
+	[1] ESBoardChangeAttackBits(85:44779) -> Nuqta Mujur
 	Change all orbs to Water, Dark, and Heal, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESRandomSpawn(92:44781) -> 魔導炸裂
+	[0] ESRandomSpawn(92:44781) -> Bursting Black Magic
 	Spawn 5 random Jammer orbs
-	[1] ESBlindStickyRandom(97:44782) -> クンバラダーク
+	[1] ESBlindStickyRandom(97:44782) -> Khunbala Darkness
 	Blind random 6~8 orbs for 1 turn, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,26 +51,26 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESBlindStickyRandom(97:44776) -> 黒く渦巻く感情
+#12: ESBlindStickyRandom(97:44776) -> Swirling Black Feelings
 Blind random 6~8 orbs for 3 turns, Deal 50% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:44775) -> 魔力の奔流
+#14: ESAttackMultihit(15:44775) -> Torrent of Magical Powers
 Deal 999% damage (3 hits, 333% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%

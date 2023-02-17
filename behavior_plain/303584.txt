@@ -1,4 +1,4 @@
-#303584 - 紅鋏の星機神・アクベンス
+#303584 - Crimson Pincers Mechanical Star God, Acubens
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:44580) -> 巨蟹の結界
+	[0] ESStatusShield(20:44580) -> Cancer's Barrier
 	Voids status ailments for 4 turns
-	[1] ESBoardSizeChange(126:44581) -> オレを倒せるかな
+	[1] ESBoardSizeChange(126:44581) -> I wonder if you can strike me down...
 	Change board size to 5x4 for 4 turns
-	[2] ESSpinnersRandom(109:44582) -> バトルだ！
+	[2] ESSpinnersRandom(109:44582) -> Let's battle!
 	Random 1 orbs change every 0.5s for 4 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -25,7 +25,7 @@ Branch on counter >= 6, target rnd 11
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 99, target rnd 8
 
-#6: ESAttackMultihit(15:44586) -> 巨蟹鋏
+#6: ESAttackMultihit(15:44586) -> Pincers of Cancer
 Deal 1,000% damage (4 hits, 250% each)
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -33,28 +33,28 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESGravity(50:44584) -> かかったな
+	[0] ESGravity(50:44584) -> Gotcha!
 	Player -99% HP
-	[1] ESSkillDelay(89:44585) -> これでもくらえっ！
+	[1] ESSkillDelay(89:44585) -> Let's see if you can take this!
 	Delay active skills by 4 turns
 
-#9: ESAttackMultihit(15:44586) -> 巨蟹鋏
+#9: ESAttackMultihit(15:44586) -> Pincers of Cancer
 Deal 1,000% damage (4 hits, 250% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #11: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESResolve(73:42619) -> 根性
+#13: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#14: ESTurnChangePassive(106:44587) -> 敵の行動ターンが変化した
+#14: ESTurnChangePassive(106:44587) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 99%

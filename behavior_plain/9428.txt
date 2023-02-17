@@ -1,4 +1,4 @@
-#9428 - 柔和なキーボーディスト・ミル
+#9428 - Mellow Keyboardist, Mille
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,19 +9,19 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbAttribute(53:43213) -> 私が音を飾ってみせる
+	[0] ESAbsorbAttribute(53:43213) -> I'll embellish our sound.
 	Absorb Light damage for 3 turns
-	[1] ESSkyfall(68:43214) -> 私たちの本当の音楽、聴いてくれる？
+	[1] ESSkyfall(68:43214) -> This is our real sound... Would you give it a listen?
 	Light skyfall +25% for 3 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 7
 
-#4: ESRandomSpawn(92:43220) -> まずはゆっくり
+#4: ESRandomSpawn(92:43220) -> Let's start slowly...
 Condition: 50% chance (ai:50 rnd:0)
 Spawn 5 random Light orbs, Deal 100% damage
 
-#5: ESBindAttack(63:43221) -> これくらいで
+#5: ESBindAttack(63:43221) -> This should be about right.
 Bind 1 random card for 2 turns, Deal 100% damage
 
 #6: ESEndPath(36:26) -> ESEndPath
@@ -34,23 +34,23 @@ Branch on flag & 1, target rnd 11
 flag SET 0b1
 
 #9: SkillSet:
-	[0] ESDebuffMovetime(39:43216) -> ここからが本番……！
+	[0] ESDebuffMovetime(39:43216) -> Here's the real deal...!
 	Movetime 50% for 3 turns
-	[1] ESRowSpawnMulti(79:43217) -> 激しいのいくよ
+	[1] ESRowSpawnMulti(79:43217) -> Let's go higher...
 	Change the 1st and 2nd rows to Light orbs, Deal 110% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#11: ESFixedStart(101:43218) -> もっと盛り上がっていくよ
+#11: ESFixedStart(101:43218) -> Time to crank it up.
 Condition: 50% chance (ai:50 rnd:0)
 Fix orb movement starting point to random position on the board, Deal 100% damage
 
-#12: ESDebuffATK(130:43219) -> ここで終わったりしないよね？
+#12: ESDebuffATK(130:43219) -> Don't give up on me here, okay?
 ATK -50% for 1 turn, Deal 101% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESSuperResolve(129:43222) -> 超根性50％
+#14: ESSuperResolve(129:43222) -> Super Resolve 50%
 Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,4 +1,4 @@
-#302233 - デウス＝エクス＝マキナ
+#302233 - Deus ex Machina
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESDebuffRCV(105:44530) -> 演奏開始
+	[0] ESDebuffRCV(105:44530) -> Initiating battle...
 	RCV 50% for 4 turns
-	[1] ESNoSkyfall(127:44531) -> 機操の歯車
+	[1] ESNoSkyfall(127:44531) -> Mechanical Cogwheels
 	No skyfall for 4 turns
-	[2] ESGravity(50:44532) -> 鎮魂曲
+	[2] ESGravity(50:44532) -> Requiem
 	Player -99% HP
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -33,16 +33,16 @@ Branch on hp < 50, target rnd 11
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(150:44536) -> 追奏曲
+	[0] ESUnknown(150:44536) -> Canon
 	No description set
-	[1] ESChangeAttribute(46:44537) -> エレメンタルターン
+	[1] ESChangeAttribute(46:44537) -> Elemental Turn
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESAbsorbCombo(67:44539) -> 追想曲
+	[0] ESAbsorbCombo(67:44539) -> Ricordanza
 	Absorb damage when combos <= 9 for 1 turn
-	[1] ESChangeAttribute(46:44540) -> エレメンタルターン
+	[1] ESChangeAttribute(46:44540) -> Elemental Turn
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -54,27 +54,27 @@ Branch on flag & 1, target rnd 8
 #12: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#13: ESLeaderSwap(75:44534) -> 円舞曲
+#13: ESLeaderSwap(75:44534) -> Waltz
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Leader changes to random sub for 2 turns
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESAttackMultihit(15:44533) -> 唐突なる絶対的終演
+#15: ESAttackMultihit(15:44533) -> Sudden Curtain Call
 Deal 1,000% damage (5 hits, 200% each)
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #17: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESSuperResolve(129:42621) -> 超根性
+#19: ESSuperResolve(129:42621) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

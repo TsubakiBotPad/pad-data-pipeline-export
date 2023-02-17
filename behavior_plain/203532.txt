@@ -1,4 +1,4 @@
-#203532 - 覚醒アモン
+#203532 - Awoken Amon
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,20 +9,20 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:43051) -> 孤高の漢道
+	[0] ESStatusShield(20:43051) -> Path of Solitude
 	Voids status ailments for 999 turns
-	[1] ESDisableAssists(141:43052) -> オール・ホー・ミー
+	[1] ESDisableAssists(141:43052) -> All for me!
 	Disable active skills for 4 turns
-	[2] ESDamageShield(74:43053) -> パーフェクトボディ
+	[2] ESDamageShield(74:43053) -> Perfect Body
 	Reduce damage from all sources by 99% for 4 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 1, target rnd 6
 
 #4: SkillSet:
-	[0] ESChangeAttribute(46:43059) -> ビューティフルボディ
+	[0] ESChangeAttribute(46:43059) -> Beautiful Body
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:43060) -> グレートマッスルラッシュ
+	[1] ESAttackMultihit(15:43060) -> Great Muscle Rush
 	Deal 4,000% damage (4 hits, 1,000% each)
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -30,24 +30,24 @@ end_turn
 
 #6: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESBoardSizeChange(126:43055) -> オール・ホー・ユー
+	[0] ESBoardSizeChange(126:43055) -> All for you!
 	Change board size to 5x4 for 2 turns
-	[1] ESGravity(50:43056) -> ホーホーホーッ！
+	[1] ESGravity(50:43056) -> Hoo hoo hoo!
 	Player -100% HP
-	[2] ESDebuffATK(130:43057) -> わしを倒せるかな
+	[2] ESDebuffATK(130:43057) -> Can you overpower me?
 	ATK -99% for 2 turns
 
 #7: SkillSet:
-	[0] ESChangeAttribute(46:43059) -> ビューティフルボディ
+	[0] ESChangeAttribute(46:43059) -> Beautiful Body
 	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
-	[1] ESAttackMultihit(15:43060) -> グレートマッスルラッシュ
+	[1] ESAttackMultihit(15:43060) -> Great Muscle Rush
 	Deal 4,000% damage (4 hits, 1,000% each)
 
 #8: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#9: ESSuperResolve(129:43061) -> 超根性
+#9: ESSuperResolve(129:43061) -> Super Resolve
 Damage which would reduce HP from above 1% to below 1% is nullified
 
-#10: ESTurnChangePassive(106:43070) -> 敵の行動ターンが変化した
+#10: ESTurnChangePassive(106:43070) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 1%

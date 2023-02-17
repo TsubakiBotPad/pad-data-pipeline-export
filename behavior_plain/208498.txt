@@ -1,4 +1,4 @@
-#208498 - 蒼機甲のデジタル幻画師・レン
+#208498 - Azure Armor Illusionary Artist, Ren
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESBindSkill(14:35147) -> システム起動！
+	[0] ESBindSkill(14:35147) -> All systems online!
 	Bind active skills for 6 turns
-	[1] ESBindRandom(1:35148) -> レン！出撃する！
+	[1] ESBindRandom(1:35148) -> Okay Ren, it's go time!
 	Bind 6 random cards for 6 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -20,10 +20,10 @@ Branch on hp < 1, target rnd 12
 #4: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 8
 
-#5: ESOrbLock(94:35149) -> ロケットフィンガー
+#5: ESOrbLock(94:35149) -> Rocket Finger
 Lock 15 random orbs, Deal 100% damage
 
-#6: ESAttackMultihit(15:35150) -> ロケットナックル
+#6: ESAttackMultihit(15:35150) -> Rocket Punch
 Deal 120% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -36,9 +36,9 @@ Branch on flag & 1, target rnd 5
 flag SET 0b1
 
 #10: SkillSet:
-	[0] ESAbsorbCombo(67:35152) -> エンジン起動せよ！
+	[0] ESAbsorbCombo(67:35152) -> Starting engines!
 	Absorb damage when combos <= 5 for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:35153) -> デジタルサイバー発進！
+	[1] ESAttackUPRemainingEnemies(17:35153) -> Digital Mech, launch!
 	Increase damage to 200% for the next 999 turns
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -46,16 +46,16 @@ end_turn
 
 #12: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESLeaderSwap(75:35240) -> コクピット損傷！一旦離脱するぜ！
+	[0] ESLeaderSwap(75:35240) -> The cockpit's damaged! Fall back!
 	Leader changes to random sub for 2 turns
-	[1] ESRecoverEnemy86(86:35241) -> ドックに戻って回復だ！
+	[1] ESRecoverEnemy86(86:35241) -> Let's return to the dock for repairs!
 	Enemy recover 100% HP
 
-#13: ESAttackMultihit(15:35154) -> アルティメットフィンガー
+#13: ESAttackMultihit(15:35154) -> Ultimate Rocket Finger
 Deal 500% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:35026) -> 根性
+#15: ESResolve(73:35026) -> Resolve
 Survive attacks with 1 HP when HP > 50%

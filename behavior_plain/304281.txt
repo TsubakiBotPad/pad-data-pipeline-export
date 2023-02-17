@@ -1,4 +1,4 @@
-#304281 - 裏覚醒ハトホル
+#304281 - Alt. Awoken Hathor
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:44796) -> いきますよ～！
+	[0] ESStatusShield(20:44796) -> Here I come!
 	Voids status ailments for 999 turns
-	[1] ESAbsorbAttribute(53:44797) -> ヘブンマジック
+	[1] ESAbsorbAttribute(53:44797) -> Heaven Magic
 	Absorb Fire, Water, and Wood damage for 6 turns
-	[2] ESAttributeBlock(107:44798) -> 聖命の流転
+	[2] ESAttributeBlock(107:44798) -> Vicissitudes of Sacred Life
 	Unable to match Heal orbs for 2 turns, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on counter >= 2, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(151:44802) -> シャインフラッシュ
+	[0] ESUnknown(151:44802) -> Shine Flash
 	No description set
-	[1] ESOrbChangeAttackBits(108:44803) -> ハートフラッシュ
+	[1] ESOrbChangeAttackBits(108:44803) -> Heart Flash
 	Change all Light orbs to Heal orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(151:44805) -> ハートフラッシュ
+	[0] ESUnknown(151:44805) -> Heart Flash
 	No description set
-	[1] ESOrbChangeAttackBits(108:44806) -> ヘブンフラッシュ
+	[1] ESOrbChangeAttackBits(108:44806) -> Heaven Flash
 	Change all Heal, Jammer, and Poison orbs to Light orbs, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,29 +51,29 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESDebuffRCV(105:44800) -> 聖命の流転
+#12: ESDebuffRCV(105:44800) -> Vicissitudes of Sacred Life
 RCV 50% for 4 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESOrbChangeAttackBits(108:44799) -> ヘブンライトスプラッシュ
+#14: ESOrbChangeAttackBits(108:44799) -> Heaven Light Splash
 Change all Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs to Light and Heal orbs, Deal 1,000% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#19: ESAttributeResist(72:44518) -> 闇軽減
+#19: ESAttributeResist(72:44518) -> Dark Reduced
 Reduce damage from Dark attrs by 50%

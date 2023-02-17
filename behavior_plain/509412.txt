@@ -1,4 +1,4 @@
-#509412 - 旋律の奏龍楽士・ミオン
+#509412 - Melodic Draconic Songstress on Violin, Mion
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESFixedStart(101:41101) -> 私にあわせて歌って
+	[0] ESFixedStart(101:41101) -> Follow my lead and sing along.
 	Fix orb movement starting point to random position on the board
-	[1] ESRandomSpawn(92:41102) -> 水の調べ
+	[1] ESRandomSpawn(92:41102) -> Melody of Water
 	Spawn 5 random Water orbs
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -29,9 +29,9 @@ Branch on counter = 1, target rnd 13
 Branch on color erased == 0, target rnd 10
 
 #8: SkillSet:
-	[0] ESOrbLock(94:41107) -> もっと自信を持って
+	[0] ESOrbLock(94:41107) -> Have confidence, you can do it!
 	Lock all Water orbs
-	[1] ESRandomSpawn(92:41108) -> 水の調べ
+	[1] ESRandomSpawn(92:41108) -> Melody of Water
 	Spawn 5 random Water orbs
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -42,9 +42,9 @@ counter + 1
 
 #11: SkillSet:
 	Condition: Water are erased (ai:100 rnd:0)
-	[0] ESCloud(104:41104) -> 素敵よ、とっても
+	[0] ESCloud(104:41104) -> Wonderful, simply wonderful!
 	A row of clouds appears for 5 turns at 5th row, 1st column
-	[1] ESRandomSpawn(92:41105) -> 愛の調べ
+	[1] ESRandomSpawn(92:41105) -> Melody of Love
 	Spawn 3 random Heal orbs
 
 #12: ESEndPath(36:26) -> ESEndPath
@@ -54,18 +54,18 @@ end_turn
 Branch on color erased == 0, target rnd 16
 
 #14: SkillSet:
-	[0] ESOrbLock(94:41113) -> 肩の力を抜いて
+	[0] ESOrbLock(94:41113) -> Loosen up, relax your shoulders!
 	Lock all Heal orbs
-	[1] ESRandomSpawn(92:41114) -> 愛の調べ
+	[1] ESRandomSpawn(92:41114) -> Melody of Love
 	Spawn 3 random Heal orbs
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESInactivity66(66:41110) -> ふふ、やっぱりあなたの歌は
+	[0] ESInactivity66(66:41110) -> Hehe, I knew it...
 	Do nothing
-	[1] ESEndBattle(40:41111) -> みんなを幸せにするわね
+	[1] ESEndBattle(40:41111) -> You're a real crowd-pleaser!
 	Reduce self HP to 0
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -73,5 +73,5 @@ end_turn
 
 #18: SkillSet:
 	Condition: On death (ai:100 rnd:0)
-	[0] ESSkillSet(83:41109) -> ふふ、やっぱりあなたの歌は + みんなを幸せにするわね
+	[0] ESSkillSet(83:41109) -> Hehe, I knew it... + You're a real crowd-pleaser!
 	Do nothing + Reduce self HP to 0

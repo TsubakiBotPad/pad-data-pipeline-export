@@ -1,4 +1,4 @@
-#303495 - 転生アポロン
+#303495 - Reincarnated Apollo
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:44700) -> 光明神の魂
+	[0] ESStatusShield(20:44700) -> Spirit of the Solar Deity
 	Voids status ailments for 999 turns
-	[1] ESAbsorbCombo(67:44701) -> セレスティアルプレリュード
+	[1] ESAbsorbCombo(67:44701) -> Celestial Prelude
 	Absorb damage when combos <= 9 for 3 turns
-	[2] ESAbsorbThresholdBig(138:44702) -> グランドシャイン
+	[2] ESAbsorbThresholdBig(138:44702) -> Grand Shine
 	Absorb damage when damage >= 500,000,000 for 6 turns, Deal 50% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -27,16 +27,16 @@ Branch on hp < 50, target rnd 9
 
 #6: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(150:44706) -> シャインレイン
+	[0] ESUnknown(150:44706) -> Shining Rain
 	No description set
-	[1] ESOrbChangeAttackBits(108:44707) -> サンライトシャイン
+	[1] ESOrbChangeAttackBits(108:44707) -> Sunlight Shine
 	Change all Dark orbs to Light orbs, Deal 100% damage
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(151:44709) -> シャドウシャイン
+	[0] ESUnknown(151:44709) -> Shadowing Shine
 	No description set
-	[1] ESOrbChangeAttack(48:44710) -> サンライトハーモニー
+	[1] ESOrbChangeAttack(48:44710) -> Sunlight Harmony
 	Change a random attribute to Light orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -48,29 +48,29 @@ Branch on flag & 1, target rnd 6
 #10: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#11: ESOrbSealRow(100:44704) -> シャインロード
+#11: ESOrbSealRow(100:44704) -> Shining Road
 Seal the 1st row for 3 turns, Deal 150% damage
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESAttackMultihit(15:44703) -> グランド・サン
+#13: ESAttackMultihit(15:44703) -> Grand Sun
 Deal 1,000% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #15: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:42619) -> 根性
+#17: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#18: ESAttributeResist(72:44518) -> 闇軽減
+#18: ESAttributeResist(72:44518) -> Dark Reduced
 Reduce damage from Dark attrs by 50%

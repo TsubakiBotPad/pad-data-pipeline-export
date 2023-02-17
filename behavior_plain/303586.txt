@@ -1,4 +1,4 @@
-#303586 - 瞬刀の星機神・アルゲディ
+#303586 - Flashblade Mechanical Star God, Algedi
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:44566) -> 私と戦ってもらうぞ
+	[0] ESStatusShield(20:44566) -> You're gonna fight me now.
 	Voids status ailments for 999 turns
-	[1] ESSpinnersFixed(110:44567) -> 舞え！
+	[1] ESSpinnersFixed(110:44567) -> Let's see how you dance!
 	Specific orbs change every 1.0s for 1 turn
-	[2] ESFixedStart(101:44568) -> 来るがいい
+	[2] ESFixedStart(101:44568) -> Come at me anytime!
 	Fix orb movement starting point to random position on the board
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,42 +30,42 @@ Branch on hp < 50, target rnd 8
 
 #7: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESGravity(50:44571) -> 星機神の眼差し
+	[0] ESGravity(50:44571) -> Mechanical Star God's Gaze
 	Player -99% HP
-	[1] ESAttackUPRemainingEnemies(17:44572) -> その程度か
+	[1] ESAttackUPRemainingEnemies(17:44572) -> ...Is that really the best you can do?
 	Increase damage to 150% for the next 6 turns
-	[2] ESDebuffATKTarget(143:44573) -> 鍛錬が足りてないな
+	[2] ESDebuffATKTarget(143:44573) -> You lack training.
 	For 3 turns, 1% ATK for both leaders
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESGravity(50:44575) -> 星機神の眼差し
+	[0] ESGravity(50:44575) -> Mechanical Star God's Gaze
 	Player -99% HP
-	[1] ESDamageShield(74:44576) -> …いい腕をしているな
+	[1] ESDamageShield(74:44576) -> You're quite good, but...
 	Reduce damage from all sources by 75% for 6 turns
-	[2] ESDebuffATKTarget(143:44577) -> ここからだぞ
+	[2] ESDebuffATKTarget(143:44577) -> ...this is where the real fight begins!
 	For 3 turns, 1% ATK for 2 random subs
 
-#9: ESAttackMultihit(15:44578) -> ファーヒルヤクトル
+#9: ESAttackMultihit(15:44578) -> Fakhir Yuqtal
 Deal 100% damage (10 hits, 10% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#11: ESAttackMultihit(15:44569) -> ファーヒルヤクトルゲシュルト
+#11: ESAttackMultihit(15:44569) -> Fakhir Yuqtal Gestalt
 Deal 1,000% damage (10 hits, 100% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #13: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #14: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#15: ESResolve(73:42619) -> 根性
+#15: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%

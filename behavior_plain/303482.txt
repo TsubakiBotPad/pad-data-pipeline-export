@@ -1,4 +1,4 @@
-#303482 - 転生フレイ
+#303482 - Reincarnated Freyr
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:44724) -> 勝利神の魂
+	[0] ESStatusShield(20:44724) -> Spirit of the Blazing Swordsman
 	Voids status ailments for 999 turns
-	[1] ESSkyfall(68:44725) -> 丁度いい肩慣らしといこう
+	[1] ESSkyfall(68:44725) -> This'll be just right for a warm up.
 	Jammer skyfall +15% for 6 turns
-	[2] ESAbsorbCombo(67:44726) -> 果たして君に出来るかな？
+	[2] ESAbsorbCombo(67:44726) -> Will you really be able to do it?
 	Absorb damage when combos <= 9 for 6 turns, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESColumnSpawnMulti(76:44730) -> グラルスヴェル
+	[0] ESColumnSpawnMulti(76:44730) -> Glær Svalinn
 	Change the 1st and 6th columns to Fire and Water orbs
-	[1] ESNoSkyfall(127:44731) -> ドローミーコール
+	[1] ESNoSkyfall(127:44731) -> Drómi Call
 	No skyfall for 1 turn
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESColumnSpawnMulti(76:44733) -> グラルスヴェル
+	[0] ESColumnSpawnMulti(76:44733) -> Glær Svalinn
 	Change the 2nd and 5th columns to Fire and Water orbs
-	[1] ESNoSkyfall(127:44734) -> ドローミーコール
+	[1] ESNoSkyfall(127:44734) -> Drómi Call
 	No skyfall for 1 turn
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,26 +51,26 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESVoidShieldBig(137:44728) -> 勝利神の障壁
+#12: ESVoidShieldBig(137:44728) -> Blazing Swordsman's Barrier
 Void damage >= 500,000,000 for 3 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:44727) -> レギンナヘル
+#14: ESAttackMultihit(15:44727) -> Reginna Hel
 Deal 1,000% damage (4 hits, 250% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -1,4 +1,4 @@
-#303194 - 裏焔刻の時龍契士・ミル
+#303194 - Alt. Burning Time Dragonbound, Mille
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:44899) -> 時空結界
+	[0] ESStatusShield(20:44899) -> Space-Time Barrier
 	Voids status ailments for 4 turns
-	[1] ESVoidShieldBig(137:44900) -> 時間は限られてるよ…
+	[1] ESVoidShieldBig(137:44900) -> Your time is running out...
 	Void damage >= 500,000,000 for 4 turns
-	[2] ESUnknown(150:44901) -> マギアスペル
+	[2] ESUnknown(150:44901) -> Magia Spell
 	No description set, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -25,7 +25,7 @@ Branch on counter >= 6, target rnd 11
 #5: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 99, target rnd 8
 
-#6: ESBoardChangeAttackBits(85:44902) -> タイム・オブ・ツインバレル
+#6: ESBoardChangeAttackBits(85:44902) -> Time on the Double Barrel
 Change all orbs to Fire and Heal, Deal 1,000% damage
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -33,28 +33,28 @@ end_turn
 
 #8: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAbsorbCombo(67:44904) -> もう待ったげない
+	[0] ESAbsorbCombo(67:44904) -> I won't wait any longer.
 	Absorb damage when combos <= 6 for 1 turn
-	[1] ESDebuffMovetime(39:44905) -> 最後のチャンスだよ
+	[1] ESDebuffMovetime(39:44905) -> It's your last chance.
 	Movetime 25% for 1 turn
 
-#9: ESBoardChangeAttackBits(85:44902) -> タイム・オブ・ツインバレル
+#9: ESBoardChangeAttackBits(85:44902) -> Time on the Double Barrel
 Change all orbs to Fire and Heal, Deal 1,000% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #11: SkillSet:
-	[0] ESBindAwoken(88:44525) -> 星機の波動
+	[0] ESBindAwoken(88:44525) -> Star Machine's Wave
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:44526) -> 終焉の星壊
+	[1] ESAttackMultihit(15:44526) -> Apocalyptic Star Crushing
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESResolve(73:42619) -> 根性
+#13: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#14: ESTurnChangePassive(106:44587) -> 敵の行動ターンが変化した
+#14: ESTurnChangePassive(106:44587) -> Enemy's next turn changed
 Enemy turn counter change to 1 when HP <= 99%
