@@ -1,0 +1,42 @@
+#8882 - Lively Healer Dragon Caller, Highren
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 8882
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44370:118) 体力半減
+ | Reduce damage from Physical types by 50%
+ type: PREEMPT
+ | (44345:83) データダウンロード… + フィールド展開
+ | Void damage >= 1,000,000,000 for 5 turns + No skyfall for 5 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (44358:83) 対象排除 + コード:004
+   | Bind 2 random subs for 2 turns + Fix orb movement starting point to random position on the board, Deal 100% damage
+   | condition: 25% chance
+   | (44361:83) 異常発生 + コード:001
+   | Blind all orbs on the board + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (44364:83) コード:005 + コード:006
+   | Change the 3rd and 4th columns to Fire and Jammer orbs + Change the 3rd and 4th rows to Water and Heal orbs, Deal 50% damage
+   | condition: 25% chance
+   | (44367:83) 妨害発動 + コード:002
+   | Seal the 1st row for 1 turn + Lock 8 random orbs, Deal 101% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (44348:83) ライフマテリアライズ + カラーコード + バリア展開
+   | Enemy recover 30% HP + Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Reduce damage from all sources by 50% for 3 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (44352:83) 粒機の快龍印 + コード:003
+     | Change all orbs to Fire and Water + Random 3 orbs change every 1.0s for 3 turns, Deal 100% damage
+   | group:
+     | (44355:83) カラーコード + コード:999
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 546% damage (6 hits, 91% each), Deal 546% damage (6 hits, 91% each)

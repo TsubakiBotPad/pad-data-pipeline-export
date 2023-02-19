@@ -1,0 +1,48 @@
+#302391 - 真白虹の聖舶神・ノア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 302391
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45654:83) アークプロテクション + カルバリーアーク + 護世の神舟
+ | Void damage >= 1,000,000,000 for 7 turns + Change player HP to 50% for 3 turns + RCV 0% for 1 turn, Deal 50% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 50% chance
+     | (45661:83) 希望の水平線 + 蒼茫の来光
+     | Specific orbs change every 1.0s for 1 turn + Change all orbs to Heal, Deal 50% damage
+     | condition: 50% chance
+     | (45664:83) カルバリーチェイン + 蒼茫の来光
+     | Lock 15 random orbs + Change all orbs to Water, Deal 50% damage
+   | group:
+   | condition: turn 3 while HP > 2
+     | (45659:105) 護世の神舟
+     | RCV 50% for 4 turns, Deal 50% damage
+   | group:
+   | condition: turns 4-6 while HP > 2
+     | condition: 50% chance
+     | (45661:83) 希望の水平線 + 蒼茫の来光
+     | Specific orbs change every 1.0s for 1 turn + Change all orbs to Heal, Deal 50% damage
+     | condition: 50% chance
+     | (45664:83) カルバリーチェイン + 蒼茫の来光
+     | Lock 15 random orbs + Change all orbs to Water, Deal 50% damage
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (45660:20) アークプロテクトボルト
+   | Voids status ailments for 999 turns, Deal 75% damage
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45658:15) パニッシュメントボルト
+   | Deal 1,000% damage (2 hits, 500% each)

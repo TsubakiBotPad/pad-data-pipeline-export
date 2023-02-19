@@ -1,0 +1,83 @@
+  monster_id: 300923
+  levels {
+    level: 1
+    groups {
+      group_type: PASSIVE
+      children {
+        behavior {
+          enemy_skill_id: 42619
+        }
+      }
+      children {
+        behavior {
+          enemy_skill_id: 45525
+        }
+      }
+    }
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 45703
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 1
+            trigger_turn_end: 3
+          }
+          children {
+            behavior {
+              enemy_skill_id: -1
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            trigger_turn: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 45707
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 4
+            trigger_turn: 1
+            trigger_turn_end: 3
+          }
+          children {
+            behavior {
+              enemy_skill_id: -1
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 4
+            trigger_turn: 4
+          }
+          children {
+            behavior {
+              enemy_skill_id: 45532
+            }
+          }
+        }
+      }
+    }
+  }

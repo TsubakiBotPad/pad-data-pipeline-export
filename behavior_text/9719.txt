@@ -1,0 +1,55 @@
+#9719 - 破神機・ラグナロク＝ドラゴン -ELF-
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 9719
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44407:129) 50％超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ | (44408:118) 神ドラゴン半減
+ | Reduce damage from Dragon and God types by 50%
+ type: PREEMPT
+ | (44371:83) ラグナロクシールド + ジャミングレイン + カタストロフィソード + オールドロップリフレッシュ
+ | Voids status ailments for 999 turns + No description set + Deal 102% damage (3 hits, 34% each) + No description set, Deal 102% damage (3 hits, 34% each)
+ group:
+ | group:
+   | condition: 33% chance
+   | (44398:83) ダブルクラッシュ + カタストロフィソード
+   | For 1 turn, 5% ATK for 2 random subs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (44401:83) ドロップチャージ + カタストロフィソード
+   | Spawn 3 random Wood, Dark, and Jammer orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (44404:83) ダークネスエクスプロージョン + カタストロフィソード
+   | Spawn 7 random locked Bomb orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (44381:83) メタリックアーマー + ラグナロクアイズ + ダウンレーザー + イグナイトブースト
+     | Reduce damage from all sources by 90% for 1 turn + Change player HP to 3,000,000 for 2 turns + RCV 50% for 1 turn + Increase damage to 500% for the next 1 turn
+   | group:
+   | condition: turn 2 while HP > 14
+     | (44386:83) ダークネスバースト + カタストロフィソード
+     | Change all orbs to Wood and Dark + Deal 45% damage (3 hits, 15% each), Deal 46% damage
+   | group:
+     | condition: 33% chance
+     | (44389:83) ドロップチャージ・改 + カタストロフィキャノン
+     | Change the 2nd and 5th columns to Wood, Dark, and Poison orbs + No description set, Deal 101% damage
+     | condition: 50% chance
+     | (44392:83) グラビティウェーブ + カタストロフィソード
+     | Player -110% HP + Deal 60% damage (3 hits, 20% each), Deal 60% damage (3 hits, 20% each)
+     | (44395:83) ダークネスウィング + カタストロフィブラスト
+     | ATK -75% for 1 turn + Absorb damage when combos <= 8 for 1 turn, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (44375:83) タイムブレイク + オールドロップリフレッシュ
+     | Movetime 25% for 1 turn + No description set
+   | group:
+     | (44378:83) パワーデリート + カタストロフィミサイル
+     | Bind awoken skills for 1 turn + Deal 546% damage (7 hits, 78% each), Deal 546% damage (7 hits, 78% each)

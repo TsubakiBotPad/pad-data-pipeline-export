@@ -1,0 +1,49 @@
+#300039 - 裏デカアワりん
+monster size: 2
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESDebuffRCV(105:45501) -> ぶくぶく
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+RCV 25% for 3 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 12
+
+#5: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 2, target rnd 10
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 9
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 9
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESChangeAttribute(46:45505) -> デカりんフラッシュ
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#10: ESAttackUPCooldown(19:45536) -> 凶兆の解放
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Increase damage to 1,000% for the next 999 turns
+
+#11: ESChangeAttribute(46:45505) -> デカりんフラッシュ
+Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+
+#12: ESAttackMultihit(15:45534) -> 終焉の兆滅
+Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%

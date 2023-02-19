@@ -1,0 +1,56 @@
+#8896 - Super Reincarnated Ganesha
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESStatusShield(20:44327) -> 短期決戦です
+	Voids status ailments for 5 turns
+	[1] ESUnknown(150:44328) -> スパークノイズ
+	No description set
+	[2] ESAbsorbCombo(67:44329) -> ライトニングオーラ
+	Absorb damage when combos <= 7 for 1 turn
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESLeaderSwap(75:44331) -> サンダーチェンジ
+	Leader changes to random sub for 1 turn
+	[1] ESAbsorbCombo(67:44332) -> ライトニングオーラ
+	Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESDamageShield(74:44334) -> サンダープロテクション
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESAbsorbCombo(67:44335) -> ライトニングオーラ
+	Absorb damage when combos <= 7 for 1 turn, Deal 101% damage
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESCloud(104:44337) -> ライトニングクラウド
+	A 2×2 square of clouds appears for 1 turn at a random location
+	[1] ESAbsorbCombo(67:44338) -> ライトニングオーラ
+	Absorb damage when combos <= 6 for 1 turn, Deal 102% damage
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:44340) -> サンダーロック
+	Lock all orbs
+	[1] ESAbsorbCombo(67:44341) -> ライトニングオーラ
+	Absorb damage when combos <= 7 for 1 turn
+	[2] ESAttackUPRemainingEnemies(17:44342) -> サンダーエネルギー
+	Increase damage to 500% for the next 999 turns
+
+#7: ESAttackMultihit(15:44343) -> これで終わりです
+Deal 110% damage (5 hits, 22% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESTypeResist(118:44344) -> 悪魔半減
+Reduce damage from Devil types by 50%

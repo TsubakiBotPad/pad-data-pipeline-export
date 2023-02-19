@@ -1,0 +1,91 @@
+#8882 - Lively Healer Dragon Caller, Highren
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESVoidShield(71:44346) -> データダウンロード…
+	Void damage >= 1,000,000,000 for 5 turns
+	[1] ESNoSkyfall(127:44347) -> フィールド展開
+	No skyfall for 5 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 13
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#5: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBindAttack(63:44359) -> 対象排除
+	Bind 2 random subs for 2 turns, Deal 100% damage
+	[1] ESFixedStart(101:44360) -> コード:004
+	Fix orb movement starting point to random position on the board
+
+#6: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESBlind5(5:44362) -> 異常発生
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:44363) -> コード:001
+	Deal 102% damage (3 hits, 34% each)
+
+#7: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESColumnSpawnMulti(77:44365) -> コード:005
+	Change the 3rd and 4th columns to Fire and Jammer orbs, Deal 50% damage
+	[1] ESRowSpawnMulti(79:44366) -> コード:006
+	Change the 3rd and 4th rows to Water and Heal orbs, Deal 51% damage
+
+#8: SkillSet:
+	Condition: 25% chance (ai:0 rnd:25)
+	[0] ESOrbSealRow(100:44368) -> 妨害発動
+	Seal the 1st row for 1 turn
+	[1] ESOrbLock(94:44369) -> コード:002
+	Lock 8 random orbs, Deal 101% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:44349) -> ライフマテリアライズ
+	Enemy recover 30% HP
+	[1] ESChangeAttribute(46:44350) -> カラーコード
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[2] ESDamageShield(74:44351) -> バリア展開
+	Reduce damage from all sources by 50% for 3 turns
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 5
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 17
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#15: SkillSet:
+	[0] ESBoardChange(84:44353) -> 粒機の快龍印
+	Change all orbs to Fire and Water
+	[1] ESSpinnersRandom(109:44354) -> コード:003
+	Random 3 orbs change every 1.0s for 3 turns, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	[0] ESChangeAttribute(46:44356) -> カラーコード
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:44357) -> コード:999
+	Deal 546% damage (6 hits, 91% each)
+
+#18: ESTypeResist(118:44370) -> 体力半減
+Reduce damage from Physical types by 50%

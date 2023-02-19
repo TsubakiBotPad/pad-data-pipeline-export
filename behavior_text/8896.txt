@@ -1,0 +1,35 @@
+#8896 - Super Reincarnated Ganesha
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 8896
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (44344:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (44326:83) 短期決戦です + スパークノイズ + ライトニングオーラ
+ | Voids status ailments for 5 turns + No description set + Absorb damage when combos <= 7 for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | (44330:83) サンダーチェンジ + ライトニングオーラ
+   | Leader changes to random sub for 1 turn + Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (44333:83) サンダープロテクション + ライトニングオーラ
+   | Reduce damage from all sources by 50% for 1 turn + Absorb damage when combos <= 7 for 1 turn, Deal 101% damage
+ | group:
+ | condition: turn 3
+   | (44336:83) ライトニングクラウド + ライトニングオーラ
+   | A 2×2 square of clouds appears for 1 turn at a random location + Absorb damage when combos <= 6 for 1 turn, Deal 102% damage
+ | group:
+ | condition: turn 4
+   | (44339:83) サンダーロック + ライトニングオーラ + サンダーエネルギー
+   | Lock all orbs + Absorb damage when combos <= 7 for 1 turn + Increase damage to 500% for the next 999 turns
+ | group:
+   | (44343:15) これで終わりです
+   | Deal 110% damage (5 hits, 22% each)

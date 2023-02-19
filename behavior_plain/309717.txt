@@ -1,0 +1,67 @@
+#309717 - 再臨せし凶兆龍
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 32)
+	[0] ESStatusShield(20:45831) -> 兆龍結界
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:45832) -> トリリオンガード
+	Void damage >= 3,000,000,000 for 6 turns
+	[2] ESSpinnersFixed(110:45833) -> 破砕球
+	Specific orbs change every 1.0s for 6 turns
+	[3] ESBoardChangeAttackBits(85:45834) -> トリリオンダーク
+	Change all orbs to Dark, Deal 100% damage
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESDebuffMovetime(39:45836) -> 不吉な予兆
+	Movetime 50% for 1 turn
+	[1] ESAttackMultihit(15:45837) -> トリリオンメテオ
+	Deal 126% damage (3 hits, 42% each)
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESBlindStickyRandom(97:45839) -> 不吉な予兆
+	Blind random 8~10 orbs for 1 turn
+	[1] ESAttackMultihit(15:45840) -> トリリオンメテオ
+	Deal 150% damage (3 hits, 50% each)
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESUnknown(150:45842) -> 不吉な予兆
+	No description set
+	[1] ESAttackMultihit(15:45843) -> トリリオンメテオ
+	Deal 177% damage (3 hits, 59% each)
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffMovetime(39:45845) -> 不吉な予兆
+	Movetime 25% for 1 turn
+	[1] ESAttackMultihit(15:45846) -> トリリオンメテオ
+	Deal 201% damage (3 hits, 67% each)
+
+#7: ESBindAwoken(88:45825) -> 絶望の予兆
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#8: SkillSet:
+	[0] ESChangeAttribute(46:45848) -> 兆龍変化
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:45849) -> 終焉の兆滅
+	Deal 1,000% damage (5 hits, 200% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#11: ESDeathCry(69:45850) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: エネルギーが集まっていく…|真の姿を現した！

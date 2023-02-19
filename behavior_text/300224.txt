@@ -1,0 +1,36 @@
+#300224 - 碧槍の英雄・クーフーリン
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300224
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45618:83) 碧盾 + デル・フリス + ドゥヴシェフ
+ | Void damage >= 1,000,000,000 for 7 turns + No description set + Seal the 1st row for 3 turns, Deal 130% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (45624:83) ゲイボルグ + デル・フリス
+     | Change a random attribute to Jammer orbs + Lock 10 random orbs, Deal 100% damage
+     | condition: 50% chance
+     | (45627:83) ゲイボルグ + デル・フリス
+     | Change a random attribute to Heal orbs + No description set, Deal 100% damage
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (45623:67) 隠れ蓑
+   | Absorb damage when combos <= 7 for 3 turns
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45622:15) クルージーン・カザド・ヒャン
+   | Deal 1,000% damage (2 hits, 500% each)

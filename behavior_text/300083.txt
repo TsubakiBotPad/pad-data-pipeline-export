@@ -1,0 +1,37 @@
+#300083 - 真アースガーディアン
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300083
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45515:151) アースディフェンス
+ | No description set
+ group:
+ | group:
+ | condition: turn 2
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (45534:15) 終焉の兆滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (45536:19) 凶兆の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-6
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

@@ -1,0 +1,57 @@
+#300823 - 裏フラッドフェンリルナイト・カムイ
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 16)
+	[0] ESVoidShieldBig(137:45564) -> 魔狼騎士の魂
+	Void damage >= 1,000,000,000 for 5 turns
+	[1] ESDebuffATKTarget(143:45565) -> 神狼の輝牙
+	For 5 turns, 50% ATK for both leaders
+	[2] ESDebuffMovetime(39:45566) -> 氷の斧
+	Movetime 50% for 5 turns, Deal 16% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 11
+
+#5: ESAttackMultihit(15:45567) -> 瞬撃
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Deal 100% damage (2 hits, 50% each)
+
+#6: ESAttackMultihit(15:45568) -> 重撃
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Deal 150% damage (3 hits, 50% each)
+
+#7: ESAttackMultihit(15:45569) -> 轟撃
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Deal 200% damage (4 hits, 50% each)
+
+#8: ESAttackMultihit(15:45570) -> 刻撃
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Deal 250% damage (5 hits, 50% each)
+
+#9: ESAttackMultihit(15:45571) -> 滅撃
+Deal 996% damage (6 hits, 166% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%

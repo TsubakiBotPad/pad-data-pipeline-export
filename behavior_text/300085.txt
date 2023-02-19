@@ -1,0 +1,41 @@
+#300085 - 真マシンゴーレムMk-II
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 300085
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45516:137) マシンガード
+ | Void damage >= 500,000,000 for 7 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turn 3
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+ | condition: turns 5-6
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage
+ | group:
+   | (45534:15) 終焉の兆滅
+   | Deal 5,000% damage (5 hits, 1,000% each)
+ type: REMAINING
+ condition: when 2 enemies remain, hp <= 100
+ | group:
+ | condition: turn 1
+   | (45536:19) 凶兆の解放
+   | Increase damage to 1,000% for the next 999 turns
+ | group:
+ | condition: turns 2-6
+   | (45518:46) パワーフィスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark, Deal 100% damage

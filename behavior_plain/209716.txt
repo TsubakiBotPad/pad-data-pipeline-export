@@ -1,0 +1,22 @@
+#209716 - 封印されし凶兆
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbCombo(67:45909) -> 絶望の前兆
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 4 for 1 turn
+
+#3: ESAttackMultihit(15:45910) -> 終焉の兆滅
+Deal 100% damage (4 hits, 25% each)
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESDeathCry(69:45829) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: 封印が解き放たれていく…|姿が変化した！

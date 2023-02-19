@@ -1,0 +1,39 @@
+#309717 - 再臨せし凶兆龍
+monster size: 5
+new AI: True
+start/max counter: 63
+counter increment: 0
+monster_id: 309717
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45830:83) 兆龍結界 + トリリオンガード + 破砕球 + トリリオンダーク
+ | Voids status ailments for 999 turns + Void damage >= 3,000,000,000 for 6 turns + Specific orbs change every 1.0s for 6 turns + Change all orbs to Dark, Deal 100% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (45835:83) 不吉な予兆 + トリリオンメテオ
+   | Movetime 50% for 1 turn + Deal 126% damage (3 hits, 42% each), Deal 126% damage (3 hits, 42% each)
+ | group:
+ | condition: turn 2
+   | (45838:83) 不吉な予兆 + トリリオンメテオ
+   | Blind random 8~10 orbs for 1 turn + Deal 150% damage (3 hits, 50% each), Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: turn 3
+   | (45841:83) 不吉な予兆 + トリリオンメテオ
+   | No description set + Deal 177% damage (3 hits, 59% each), Deal 177% damage (3 hits, 59% each)
+ | group:
+ | condition: turn 4
+   | (45844:83) 不吉な予兆 + トリリオンメテオ
+   | Movetime 25% for 1 turn + Deal 201% damage (3 hits, 67% each), Deal 201% damage (3 hits, 67% each)
+ | group:
+ | condition: turn 5
+   | (45825:88) 絶望の予兆
+   | Bind awoken skills for 1 turn
+ | group:
+   | (45847:83) 兆龍変化 + 終焉の兆滅
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 1,000% damage (5 hits, 200% each), Deal 1,000% damage (5 hits, 200% each)

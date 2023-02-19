@@ -1,0 +1,53 @@
+#3519 - Cannon Sweeper Steel Star Goddess, Kuvia
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:44284) -> フレイムプロテクション
+	Voids status ailments for 999 turns
+	[1] ESSkyfallLocked(96:44285) -> メカニカルレイン
+	Locked random skyfall +25% for 5 turns
+	[2] ESAttackMultihit(15:44286) -> フレイムスプラッシュ
+	Deal 102% damage (3 hits, 34% each)
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 9
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbAttribute(53:44288) -> フレイムブースト
+	Absorb Fire and Water damage for 3 turns
+	[1] ESRowSpawnMulti(79:44289) -> スターリロード・フレア
+	Change the 1st row to Fire orbs and the 5th row to Water orbs, Deal 101% damage
+
+#5: ESRandomSpawn(92:44293) -> フレイムバズーカ
+Condition: 33% chance (ai:33 rnd:0)
+Spawn 3 random Fire and Water orbs, Deal 101% damage
+
+#6: ESVoidShield(71:44294) -> バーニングウォール
+Condition: 50% chance (ai:50 rnd:0)
+Void damage >= 1,000,000,000 for 1 turn, Deal 100% damage
+
+#7: SkillSet:
+	[0] ESChangeAttribute(46:44296) -> マシンチェンジ
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:44297) -> フレイムスプラッシュ
+	Deal 102% damage (3 hits, 34% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	[0] ESBindAwoken(88:44291) -> 星の煌めき
+	Bind awoken skills for 1 turn, Deal 100% damage
+	[1] ESSkillDelay(89:44292) -> シグナルアウト
+	Delay active skills by 3 turns
+
+#10: ESResolve(73:44298) -> 根性
+Survive attacks with 1 HP when HP > 50%

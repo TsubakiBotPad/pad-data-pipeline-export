@@ -1,0 +1,36 @@
+#300919 - 裏炎戒の大精霊・シャイターン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300919
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45679:83) 大精霊の加護 + 爆炎の結界 + 喰らってやる！
+ | Voids status ailments for 999 turns + Absorb Fire, Water, and Wood damage for 7 turns + Change all Jammer and Poison orbs to Fire orbs, Deal 250% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (45685:83) 炎玉 + ダスキーマリス
+     | Specific orbs change every 1.0s for 1 turn + Change all orbs to Fire, Heal, and Jammer, Deal 100% damage
+     | condition: 50% chance
+     | (45688:83) 炎拳 + ロブヒート
+     | Lock 10 random orbs + Change all orbs to Fire, Heal, and Poison, Deal 100% damage
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (45684:108) 喰らってやる！
+   | Change all Jammer and Poison orbs to Fire orbs, Deal 150% damage
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45683:15) デスバーニングナックル
+   | Deal 1,000% damage (2 hits, 500% each)

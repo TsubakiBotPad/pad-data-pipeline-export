@@ -1,0 +1,39 @@
+#300823 - 裏フラッドフェンリルナイト・カムイ
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 300823
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45563:83) 魔狼騎士の魂 + 神狼の輝牙 + 氷の斧
+ | Void damage >= 1,000,000,000 for 5 turns + For 5 turns, 50% ATK for both leaders + Movetime 50% for 5 turns, Deal 16% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (45567:15) 瞬撃
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: turn 2
+   | (45568:15) 重撃
+   | Deal 150% damage (3 hits, 50% each)
+ | group:
+ | condition: turn 3
+   | (45569:15) 轟撃
+   | Deal 200% damage (4 hits, 50% each)
+ | group:
+ | condition: turn 4
+   | (45570:15) 刻撃
+   | Deal 250% damage (5 hits, 50% each)
+ | group:
+ | condition: turns 5-6
+   | (45571:15) 滅撃
+   | Deal 996% damage (6 hits, 166% each)
+ | group:
+   | (45532:83) 凶兆の波動 + 終焉の兆滅
+   | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)

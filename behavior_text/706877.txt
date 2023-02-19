@@ -1,0 +1,36 @@
+#706877 - 裏創壊神・ブラフマー＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 706877
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45753:83) 創壊神の結界 + 破壊の導 + 失われた天眼
+ | Voids status ailments for 999 turns + Void damage >= 1,000,000,000 for 7 turns + Unable to match Heal orbs for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (45762:83) 左手が赤く光り輝いている + 天地心眼
+     | Spawn Bomb orbs in the specified positions + No description set, Deal 100% damage
+     | condition: 50% chance
+     | (45765:83) 右手が青く光り輝いている + 天地心眼
+     | Specific orbs change every 1.0s for 1 turn + No description set, Deal 100% damage
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (45758:83) 破滅の胎動 + 創壊の反発 + 天地心眼
+   | Bind awoken skills for 4 turns + Bind 1 random sub for 5 turns + Lock all orbs, Deal 100% damage
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45757:15) 終極の殴撃
+   | Deal 1,000% damage (10 hits, 100% each)

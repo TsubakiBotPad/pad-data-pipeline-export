@@ -1,0 +1,76 @@
+#302129 - 真無間の破戒神・大天狗
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESLeaderSwap(75:45668) -> 大天狗の舞
+	Leader changes to random sub for 2 turns
+	[1] ESVoidShieldBig(137:45669) -> 壁！！
+	Void damage >= 1,000,000,000 for 7 turns
+	[2] ESBoardSizeChange(126:45670) -> 滅！！
+	Change board size to 6x5 for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 14
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBindRandom(1:45674) -> 縛！！
+	Bind 6 random cards for 1 turn
+	[1] ESAttackMultihit(15:45675) -> 壊！！
+	Deal 100% damage (2 hits, 50% each)
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBindSkill(14:45677) -> 封！！
+	Bind active skills for 1 turn
+	[1] ESAttackMultihit(15:45678) -> 壊！！
+	Deal 80% damage (2 hits, 40% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESStatusShield(20:45672) -> 守！！
+Voids status ailments for 999 turns, Deal 150% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:45671) -> 罪業消滅
+Deal 1,000% damage (4 hits, 250% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,87 @@
+#300983 - 裏黒翼熾姫・グレイスヴァルキリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:45538) -> 守護薔薇
+	Voids status ailments for 999 turns
+	[1] ESDebuffRCV(105:45539) -> 選別の命枷
+	RCV 25% for 4 turns
+	[2] ESUnknown(153:45540) -> グレイスローズ
+	No description set
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 16
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESBlind5(5:45544) -> ダークディシジョン
+	Blind all orbs on the board
+	[1] ESAttackMultihit(15:45545) -> ダブルスラッシュ
+	Deal 110% damage (2 hits, 55% each)
+
+#8: SkillSet:
+	Condition: 50% chance (ai:0 rnd:50)
+	[0] ESUnknown(153:45547) -> グレイスローズ
+	No description set
+	[1] ESOrbChangeAttack(48:45548) -> ライフディシジョン
+	Change a random attribute to Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: SkillSet:
+	[0] ESChangeAttribute(46:45617) -> ローズディシジョン
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:45542) -> ダブルブレイヴァー
+	Deal 260% damage (2 hits, 130% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:45541) -> ヴァルキュリアブレイド
+Deal 1,000% damage (5 hits, 200% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:45531) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#19: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(153:45550) -> グレイスローズ
+	No description set
+
+#20: ESAttributeResist(72:45525) -> 光軽減
+Reduce damage from Light attrs by 50%

@@ -1,0 +1,63 @@
+#300814 - 真黄泉の主神・イザナミ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:45594) -> 八雷結界
+	Voids status ailments for 999 turns
+	[1] ESBoardSizeChange(126:45595) -> 怨みの嗤笑
+	Change board size to 5x4 for 4 turns
+	[2] ESAbsorbThresholdBig(138:45596) -> 黄泉の掟
+	Absorb damage when damage >= 500,000,000 for 4 turns, Deal 100% damage
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 9
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 9
+
+#7: SkillSet:
+	[0] ESSpinnersRandom(109:45602) -> 忌避の領域
+	Random 1 orbs change every 0.5s for 1 turn
+	[1] ESAttackMultihit(15:45591) -> 天地万物
+	Deal 50% damage (2 hits, 25% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffMovetime(39:45599) -> ラストチャンスよ…
+	Movetime 50% for 1 turn
+	[1] ESDisableAssists(141:45600) -> 黄泉への誘い
+	Disable active skills for 1 turn
+
+#10: ESAttackMultihit(15:45597) -> 神滅の業炎
+Deal 1,000% damage (5 hits, 200% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%

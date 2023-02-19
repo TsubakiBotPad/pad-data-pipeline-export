@@ -1,0 +1,38 @@
+#301845 - 真解放の騎龍王・ノルディス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 301845
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (45525:72) 光軽減
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (45797:83) ゆくぞ！好敵手よ！ + ナイト・オブ・ドラゴン + ブレイブスラッシュ
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 9 for 7 turns + No description set
+ group:
+ | group:
+   | group:
+   | condition: turns 1-6 while HP > 49
+     | condition: 50% chance
+     | (45803:83) スタンチャージ + ブレイブスラッシュ
+     | Deal 110% damage (2 hits, 55% each) + No description set, Deal 110% damage (2 hits, 55% each)
+     | condition: 50% chance
+     | (45806:83) スタンフォール + ブレイブスラッシュ
+     | No skyfall for 1 turn + No description set
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turn 1 while HP > 2, hp <= 49
+   | (45802:155) ブレイブスラッシュ
+   | No description set, Deal 150% damage
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45801:15) ラストビリーフ
+   | Deal 1,000% damage (2 hits, 500% each)

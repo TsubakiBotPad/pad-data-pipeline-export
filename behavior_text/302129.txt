@@ -1,0 +1,44 @@
+#302129 - 真無間の破戒神・大天狗
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 302129
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45667:83) 大天狗の舞 + 壁！！ + 滅！！
+ | Leader changes to random sub for 2 turns + Void damage >= 1,000,000,000 for 7 turns + Change board size to 6x5 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 2
+     | condition: 50% chance
+     | (45673:83) 縛！！ + 壊！！
+     | Bind 6 random cards for 1 turn + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 50% chance
+     | (45676:83) 封！！ + 壊！！
+     | Bind active skills for 1 turn + Deal 80% damage (2 hits, 40% each), Deal 80% damage (2 hits, 40% each)
+   | group:
+   | condition: turn 2 while HP > 2
+     | (45672:20) 守！！
+     | Voids status ailments for 999 turns, Deal 150% damage
+   | group:
+   | condition: turns 3-6 while HP > 2
+     | condition: 50% chance
+     | (45673:83) 縛！！ + 壊！！
+     | Bind 6 random cards for 1 turn + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+     | condition: 50% chance
+     | (45676:83) 封！！ + 壊！！
+     | Bind active skills for 1 turn + Deal 80% damage (2 hits, 40% each), Deal 80% damage (2 hits, 40% each)
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45671:15) 罪業消滅
+   | Deal 1,000% damage (4 hits, 250% each)

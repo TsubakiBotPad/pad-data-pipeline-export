@@ -1,0 +1,44 @@
+#300822 - 裏バーンフェニックスナイト・ホムラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 300822
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (42619:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45551:83) 焔の翼 + 鳳凰の舞 + バーンフェニックス
+ | Voids status ailments for 999 turns + No description set + Absorb damage when combos <= 9 for 1 turn, Deal 16% damage
+ group:
+ | group:
+   | group:
+   | condition: turns 1-3 while HP > 2
+     | condition: 50% chance
+     | (45557:83) アカンパニアッシュフレア + バーンフェニックス
+     | Spawn 5 random Jammer orbs + Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (45560:83) アカンパニアッシュフレア + バーンフェニックス
+     | Spawn 5 random Poison orbs + Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+   | group:
+   | condition: turn 4 while HP > 2
+     | (45556:137) ハイテンペラチュア
+     | Void damage >= 1,000,000,000 for 3 turns, Deal 150% damage
+   | group:
+   | condition: turns 5-6 while HP > 2
+     | condition: 50% chance
+     | (45557:83) アカンパニアッシュフレア + バーンフェニックス
+     | Spawn 5 random Jammer orbs + Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+     | condition: 50% chance
+     | (45560:83) アカンパニアッシュフレア + バーンフェニックス
+     | Spawn 5 random Poison orbs + Absorb damage when combos <= 7 for 1 turn, Deal 100% damage
+   | group:
+     | (45532:83) 凶兆の波動 + 終焉の兆滅
+     | Bind awoken skills for 1 turn + Deal 5,000% damage (5 hits, 1,000% each), Deal 5,000% damage (5 hits, 1,000% each)
+ | group:
+ | condition: turns 1-6, hp <= 2
+   | (45555:15) 炎舞鳳凰斬
+   | Deal 999% damage (3 hits, 333% each)

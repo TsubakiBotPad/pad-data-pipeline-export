@@ -1,0 +1,68 @@
+#300922 - 裏宝輝の大精霊・ジーニャ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:45692) -> ランプの守護
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:45693) -> ランプの奇跡
+	Void damage >= 1,000,000,000 for 5 turns
+	[2] ESAbsorbAttribute(53:45694) -> 閃光の結界
+	Absorb Light and Dark damage for 5 turns
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 7, target rnd 12
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 3, target rnd 10
+
+#6: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 9
+
+#7: SkillSet:
+	[0] ESRandomSpawn(92:45701) -> 閃光の宝輝
+	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
+	[1] ESOrbLock(94:45702) -> ランプの奇跡
+	Lock all orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackUPRemainingEnemies(17:45697) -> 宝輝の開放
+	Increase damage to 1,000% for the next 999 turns
+	[1] ESUnknown(150:45698) -> ランプの奇跡
+	No description set
+	[2] ESOrbLock(94:45699) -> 閃光陣
+	Lock all orbs
+
+#10: ESAttackMultihit(15:45695) -> ランプの暴走
+Deal 1,000% damage (4 hits, 250% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: SkillSet:
+	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	Deal 5,000% damage (5 hits, 1,000% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESResolve(73:42619) -> 根性
+Survive attacks with 1 HP when HP > 50%
+
+#15: ESAttributeResist(72:45526) -> 闇軽減
+Reduce damage from Dark attrs by 50%
