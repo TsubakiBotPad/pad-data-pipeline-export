@@ -1,0 +1,60 @@
+#9722 - ガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:46149) -> ESBranchCard
+Branch on player_cards HAS [9726], target rnd 6
+
+#5: ESVoidShieldBig(137:46140) -> アムロ、行きます！
+Void damage >= 1,000,000,000 for 3 turns
+
+#6: ESVoidShieldBig(137:46141) -> シャアかッ！
+Void damage >= 1,000,000,000 for 3 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESColumnSpawnMulti(77:46142) -> ラストシューティング
+Condition: When < 10% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Change the 1st and 6th columns to Light orbs and the 2nd and 5th columns to Heal orbs, Deal 140% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESDebuffMovetime(39:46144) -> 何故でてくる！？
+	Movetime 50% for 1 turn
+	[1] ESUnknown(151:46145) -> そんな腕で………！
+	No description set, Deal 90% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	[0] ESRowSpawnMulti(79:46147) -> ビーム・ライフル
+	Change the 4th and 5th rows to Light and Heal orbs, Deal 100% damage
+	[1] ESDebuffATKTarget(143:46148) -> そこッ！迂闊な奴め！！
+	For 1 turn, 1% ATK for 1 random sub, Deal 105% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESResolve(73:46138) -> ＿78根性
+Survive attacks with 1 HP when HP > 50%

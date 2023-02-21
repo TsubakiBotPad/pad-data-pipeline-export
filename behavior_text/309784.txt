@@ -1,0 +1,46 @@
+#309784 - ガンダム・エアリアル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309784
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46349:129) ＿エアリアル超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (46350:83) スレッタ・マーキュリー + エアリアル、出ます
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000,000 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46356:83) ビットオンフォーム + 逃げたら一つ、進めば二つ
+     | Absorb damage when combos <= 10 for 1 turn + Delay active skills by 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46359:83) ガンビット + 私とエアリアルは負けません！
+     | Deal 108% damage (6 hits, 18% each) + ATK -75% for 1 turn, Deal 108% damage (6 hits, 18% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | condition: 20% chance
+     | (46362:83) お願いみんな、力を貸して + エスカッシャン
+     | Unable to match Fire orbs for 1 turn + Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+     | condition: 20% chance
+     | (46363:83) お願いみんな、力を貸して + エスカッシャン
+     | Unable to match Water orbs for 1 turn + Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+     | condition: 20% chance
+     | (46364:83) お願いみんな、力を貸して + エスカッシャン
+     | Unable to match Wood orbs for 1 turn + Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+     | condition: 20% chance
+     | (46365:83) お願いみんな、力を貸して + エスカッシャン
+     | Unable to match Light orbs for 1 turn + Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+     | condition: 20% chance
+     | (46366:83) お願いみんな、力を貸して + エスカッシャン
+     | Unable to match Dark orbs for 1 turn + Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46353:83) やりたいことリスト + 全然埋まってない！
+   | Bind awoken skills for 3 turns + Blind random 5 orbs for 3 turns, Deal 90% damage

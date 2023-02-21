@@ -1,0 +1,81 @@
+#309743 - フリーダムガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:46301) -> ESBranchCard
+Branch on player_cards HAS [9762], target rnd 6
+
+#5: SkillSet:
+	[0] ESFixedStart(101:46288) -> 力だけが僕の全てじゃない！
+	Fix orb movement starting point to random position on the board
+	[1] ESBoardSizeChange(126:46287) -> フルバーストモード
+	Change board size to 7x6 for 5 turns
+
+#6: SkillSet:
+	[0] ESFixedStart(101:46285) -> アナタは！……アナタだけは！
+	Fix orb movement starting point to random position on the board
+	[1] ESBoardSizeChange(126:46284) -> フルバーストモード
+	Change board size to 7x6 for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESChangeAttribute(46:46290) -> それでも！
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:46291) -> 守りたい世界があるんだッ！
+	Deal 90% damage (5 hits, 18% each)
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 17
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESSkyfall(68:46293) -> 想いだけでも………
+	Water skyfall +20% for 1 turn
+	[1] ESSkyfallLocked(96:46294) -> 力だけでも………！
+	Locked Water skyfall +100% for 1 turn, Deal 80% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: SkillSet:
+	[0] ESAbsorbCombo(67:46296) -> 何故こんなことを平然と出来る！
+	Absorb damage when combos <= 13 for 1 turn
+	[1] ESDebuffATKTarget(143:46297) -> ラケルタビームサーベル
+	For 1 turn, 1% ATK for ???, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: SkillSet:
+	[0] ESSpinnersRandom(109:46299) -> ルプスビームライフル
+	Random 3 orbs change every 1.0s for 1 turn
+	[1] ESColumnSpawnMulti(77:46300) -> バラエーナプラズマ収束ビーム砲
+	Change the 4th, 5th, and 6th columns to Water and Light orbs, Deal 94% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

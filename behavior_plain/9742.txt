@@ -1,0 +1,49 @@
+#9742 - エールストライクガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESNoSkyfall(127:46210) -> キラ・ヤマト！ガンダム行きます！
+No skyfall for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDebuffATK(130:46211) -> なんで戦争をしたりするんだ！？
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+ATK -50% for 5 turns, Deal 85% damage
+
+#7: ESAttackUPRemainingEnemies(17:46212) -> 僕は…殺したくなんかないのにぃぃ！！
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESUnknown(151:46213) -> ここでやられてたまるか！
+No description set, Deal 90% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESColumnSpawnMulti(77:46214) -> 高エネルギービーム・ライフル
+Change the 1st and 2nd columns to Water orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

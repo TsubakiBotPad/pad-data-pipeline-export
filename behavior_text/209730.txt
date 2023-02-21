@@ -1,0 +1,32 @@
+#209730 - Zガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209730
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46497:73) ＿Z根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46498:53) カミーユ・ビダン行きます！
+ | Absorb Fire and Water damage for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (46499:83) 貴様のような者がいるから + 戦いは終わらないんだ！！
+   | RCV 50% for 3 turns + No description set, Deal 80% damage
+ | group:
+ | condition: turn 2
+   | (46502:85) 俺の身体をみんなに貸すぞ！！
+   | Change all orbs to Fire, Water, and Heal, Deal 105% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (46503:83) 遊びでやってるんじゃないんだよぉッ！ + ビーム・ライフル
+   | No description set + Deal 90% damage (3 hits, 30% each), Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (46506:83) まだ抵抗するのならッ！！ + ハイパー・メガ・ランチャー
+   | Fix orb movement starting point to random position on the board + Change the 1st and 6th columns to Water orbs, Deal 100% damage

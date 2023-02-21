@@ -1,0 +1,64 @@
+#409762 - プロヴィデンスガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:46028) -> そして滅ぶ！人は！
+	Jammer skyfall +15% for 3 turns
+	[1] ESRandomSpawn(92:46029) -> 滅ぶべくしてな！
+	Spawn 10 random Jammer orbs
+
+#6: ESAttackUPRemainingEnemies(17:46030) -> 他者より強く！他者より先へ！
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 3 turns
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBlindStickyRandom(97:46031) -> ドラグーンシステム
+Blind random 8 orbs for 1 turn, Deal 90% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESDebuffATK(130:46033) -> 知らぬさ！
+	ATK -50% for 1 turn
+	[1] ESAttributeBlock(107:46034) -> 所詮、人は己の知る事しか知らぬ！
+	Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESGravity(50:46035) -> 大型ビームサーベル
+Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

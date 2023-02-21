@@ -1,0 +1,42 @@
+#409727 - サザビー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409727
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46076:129) ＿サザビー超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+
+level: 4
+ type: PASSIVE
+ | (46076:129) ＿サザビー超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (46079:83) ならば今すぐ愚民ども全てに + 英知を授けてみせろ！
+ | Voids status ailments for 999 turns + No description set
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (46087:63) ビーム・トマホーク投擲
+     | Bind 1 random sub for 5 turns, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 4
+     | (46088:83) そんなもので私が倒せるものか！ + ファンネル
+     | Reduce damage from all sources by 75% for 1 turn + Blind random 6 orbs for 3 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 4
+     | (46091:92) ビーム・ショット・ライフル
+     | Spawn 10 random Fire orbs, Deal 110% damage
+   | group:
+   | condition: execute repeatedly, turn 4 of 4
+     | (46092:83) キサマがいなければッ！！ + ビームサーベル
+     | Fix orb movement starting point to random position on the board + Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46084:83) メガ粒子砲 + パワーダウンだと………！？
+   | Deal 120% damage (3 hits, 40% each) + For 2 turns, 1% ATK for 4 random subs, Deal 120% damage (3 hits, 40% each)

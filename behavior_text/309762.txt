@@ -1,0 +1,42 @@
+#309762 - プロヴィデンスガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 309762
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46026:157) ＿プロヴィ演出開幕
+ | No description set
+ type: DEATH
+ condition: when defeated
+ | (46037:95) ＿プロヴィ演出死亡
+ | No description set
+
+level: 4
+ type: PREEMPT
+ | (46025:83) ＿プロヴィ演出開幕 + そして滅ぶ！人は！ + 滅ぶべくしてな！
+ | No description set + Jammer skyfall +15% for 3 turns + Spawn 10 random Jammer orbs
+ type: DEATH
+ condition: when defeated
+ | (46037:95) ＿プロヴィ演出死亡
+ | No description set
+ group:
+ | group:
+ | condition: turn 1
+   | (46030:17) 他者より強く！他者より先へ！
+   | Increase damage to 150% for the next 3 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (46031:97) ドラグーンシステム
+   | Blind random 8 orbs for 1 turn, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (46032:83) 知らぬさ！ + 所詮、人は己の知る事しか知らぬ！
+   | ATK -50% for 1 turn + Unable to match Dark orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (46035:50) 大型ビームサーベル
+   | Player -99% HP

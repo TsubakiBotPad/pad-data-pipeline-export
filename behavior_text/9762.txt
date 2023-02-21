@@ -1,0 +1,30 @@
+#9762 - プロヴィデンスガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9762
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46215:83) 間もなく最後の扉が開く！……… + この私が開く！
+ | Absorb damage when combos <= 6 for 3 turns + Dark skyfall +15% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46219:97) ドラグーンシステム
+     | Blind random 8 orbs for 1 turn, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46220:77) ユーディキウムビームライフル
+     | Change the 1st and 2nd columns to Dark and Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46221:50) 大型ビームサーベル
+     | Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46218:17) 他者より強く！他者より先へ！
+   | Increase damage to 150% for the next 999 turns

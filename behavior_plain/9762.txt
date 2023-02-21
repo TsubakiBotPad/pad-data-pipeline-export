@@ -1,0 +1,60 @@
+#9762 - プロヴィデンスガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:46216) -> 間もなく最後の扉が開く！………
+	Absorb damage when combos <= 6 for 3 turns
+	[1] ESSkyfall(68:46217) -> この私が開く！
+	Dark skyfall +15% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPRemainingEnemies(17:46218) -> 他者より強く！他者より先へ！
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBlindStickyRandom(97:46219) -> ドラグーンシステム
+Blind random 8 orbs for 1 turn, Deal 85% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESColumnSpawnMulti(77:46220) -> ユーディキウムビームライフル
+Change the 1st and 2nd columns to Dark and Jammer orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESGravity(50:46221) -> 大型ビームサーベル
+Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn

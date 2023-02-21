@@ -1,0 +1,33 @@
+#209787 - デミトレーナー チュチュ専用機
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209787
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46333:73) ＿チュチュ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46334:83) 決闘開始 + 地球寮舐めんじゃねぇ！
+ | Bind active skills for 5 turns + Change all orbs to Wood, Deal 60% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46342:15) 連射
+     | Deal 90% damage (3 hits, 30% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46343:83) 照準を合わせた + 長距離射撃
+     | Fix orb movement starting point to random position on the board + Blind random 3 orbs for 3 turns, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46346:83) ビームライフル + 武器で殴る
+     | Change the 1st column to Water orbs + No description set, Deal 50% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46337:83) 後方からのサポート + 移動撃ち
+   | For 1 turn, 50% ATK for 4 random subs + Leader changes to random sub for 1 turn, Deal 100% damage

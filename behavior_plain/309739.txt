@@ -1,0 +1,68 @@
+#309739 - ウイングガンダムゼロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:46282) -> ESBranchCard
+Branch on player_cards HAS [9760], target rnd 6
+
+#5: SkillSet:
+	[0] ESUnknown(152:46267) -> お前がいる限り
+	No description set
+	[1] ESUnknown(151:46268) -> 同じ過ちが何度も繰り返される！
+	No description set
+
+#6: SkillSet:
+	[0] ESUnknown(152:46270) -> 人類全てが弱者なんだ！
+	No description set
+	[1] ESUnknown(151:46271) -> 俺もお前も弱者なんだッ！！
+	No description set
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShieldBig(137:46273) -> ゼロシステム
+	Void damage >= 1,000,000,000 for 2 turns
+	[1] ESDebuffRCV(105:46274) -> ゼロよ………
+	RCV 0% for 2 turns
+	[2] ESBlind62(62:46275) -> 俺を導いてくれ………！
+	Blind all orbs on the board, Deal 100% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESAttackMultihit(15:46277) -> マシンキャノン
+	Deal 102% damage (6 hits, 17% each)
+	[1] ESDamageShield(74:46278) -> 俺は………俺は死なない！
+	Reduce damage from all sources by 50% for 1 turn
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	[0] ESColumnSpawnMulti(77:46280) -> ツインバスターライフル
+	Change the 1st and 3rd columns to Light orbs, Deal 100% damage
+	[1] ESUnknown(150:46281) -> 命なんて安い物だ。特に俺のは！
+	No description set
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

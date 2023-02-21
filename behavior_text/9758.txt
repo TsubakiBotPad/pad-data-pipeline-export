@@ -1,0 +1,36 @@
+#9758 - キュベレイ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9758
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46158:73) ＿キュベ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | condition: when 9734, 9735 on team
+ | (46162:83) ジュドー・アーシタ！ + 決着をつけよう！
+ | Blind all orbs on the board + ATK -50% for 1 turn
+ | (46159:83) こんな所で朽ち果てる + 己の身を呪うがいい！
+ | Blind all orbs on the board + ATK -50% for 1 turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46168:88) プレッシャー
+     | Bind awoken skills for 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46169:109) ファンネル
+     | Random 3 orbs change every 1.0s for 1 turn, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46170:77) ビームサーベル
+     | Change the 1st column to Fire orbs and the 6th column to Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46165:83) このキュベレイ……… + 見くびってもらっては困る！
+   | Jammer and Poison skyfall +15% for 5 turns + No skyfall for 5 turns

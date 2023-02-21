@@ -1,0 +1,25 @@
+#9772 - ドム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9772
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46111:67) ホバー移動
+ | Absorb damage when combos <= 5 for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (46112:53) 黒い三連星
+   | Absorb Dark damage for 3 turns, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (46113:110) ジェット・ストリーム・アタック
+   | Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (46114:92) ジャイアント・バズ
+   | Spawn 3 random Fire, Water, and Jammer orbs, Deal 90% damage

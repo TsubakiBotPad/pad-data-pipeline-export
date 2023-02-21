@@ -1,0 +1,73 @@
+#9738 - ウイングガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESDebuffMovetime(39:46189) -> 任務了解……ただちに目標を破壊する！
+Movetime -2s for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 18
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESOrbLock(94:46195) -> ターゲット確認………
+	Lock all orbs
+	[1] ESFixedStart(101:46196) -> ターゲット、ロックオン………！
+	Fix orb movement starting point to random position on the board, Deal 95% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESDebuffATKTarget(143:46197) -> 余裕で避けきれる………！
+For 1 turn, 50% ATK for 1 random sub
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESColumnSpawnMulti(77:46198) -> バスターライフル
+Change the 1st column to Light orbs, Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#19: ESAttackMultihit(15:46199) -> マシンキャノン
+Deal 90% damage (6 hits, 15% each)
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESSkillSet(83:46190) -> 自爆 + ……死ぬほど痛いぞ
+	Jammer skyfall +15% for 5 turns + Do nothing, Deal 50% damage

@@ -1,0 +1,111 @@
+#409727 - サザビー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:46080) -> ならば今すぐ愚民ども全てに
+	Voids status ailments for 999 turns
+	[1] ESUnknown(150:46081) -> 英知を授けてみせろ！
+	No description set
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 22
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESBindAttack(63:46087) -> ビーム・トマホーク投擲
+Bind 1 random sub for 5 turns, Deal 95% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: SkillSet:
+	[0] ESDamageShield(74:46089) -> そんなもので私が倒せるものか！
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESBlindStickyRandom(97:46090) -> ファンネル
+	Blind random 6 orbs for 3 turns, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESRandomSpawn(92:46091) -> ビーム・ショット・ライフル
+Spawn 10 random Fire orbs, Deal 110% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: SkillSet:
+	[0] ESFixedStart(101:46093) -> キサマがいなければッ！！
+	Fix orb movement starting point to random position on the board
+	[1] ESColumnSpawnMulti(77:46094) -> ビームサーベル
+	Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 27
+
+#23: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#24: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#27: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#28: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#29: SkillSet:
+	[0] ESAttackMultihit(15:46085) -> メガ粒子砲
+	Deal 120% damage (3 hits, 40% each)
+	[1] ESDebuffATKTarget(143:46086) -> パワーダウンだと………！？
+	For 2 turns, 1% ATK for 4 random subs
+
+#30: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#31: ESSuperResolve(129:46076) -> ＿サザビー超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

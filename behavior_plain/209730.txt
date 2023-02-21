@@ -1,0 +1,61 @@
+#209730 - Zガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbAttribute(53:46498) -> カミーユ・ビダン行きます！
+Absorb Fire and Water damage for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDebuffRCV(105:46500) -> 貴様のような者がいるから
+	RCV 50% for 3 turns
+	[1] ESUnknown(150:46501) -> 戦いは終わらないんだ！！
+	No description set, Deal 80% damage
+
+#7: ESBoardChangeAttackBits(85:46502) -> 俺の身体をみんなに貸すぞ！！
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Change all orbs to Fire, Water, and Heal, Deal 105% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESUnknown(151:46504) -> 遊びでやってるんじゃないんだよぉッ！
+	No description set
+	[1] ESAttackMultihit(15:46505) -> ビーム・ライフル
+	Deal 90% damage (3 hits, 30% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: SkillSet:
+	[0] ESFixedStart(101:46507) -> まだ抵抗するのならッ！！
+	Fix orb movement starting point to random position on the board
+	[1] ESColumnSpawnMulti(77:46508) -> ハイパー・メガ・ランチャー
+	Change the 1st and 6th columns to Water orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:46497) -> ＿Z根性
+Survive attacks with 1 HP when HP > 50%

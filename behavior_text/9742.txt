@@ -1,0 +1,30 @@
+#9742 - エールストライクガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9742
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46210:127) キラ・ヤマト！ガンダム行きます！
+ | No skyfall for 5 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | (46211:130) なんで戦争をしたりするんだ！？
+   | ATK -50% for 5 turns, Deal 85% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46213:151) ここでやられてたまるか！
+     | No description set, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46214:77) 高エネルギービーム・ライフル
+     | Change the 1st and 2nd columns to Water orbs, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (46212:17) 僕は…殺したくなんかないのにぃぃ！！
+   | Increase damage to 150% for the next 999 turns

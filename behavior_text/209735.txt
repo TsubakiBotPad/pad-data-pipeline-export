@@ -1,0 +1,29 @@
+#209735 - フルアーマーZZガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209735
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46488:83) ジュドー・アーシタ！ + ガンダムZZ！行きます！
+ | Fire skyfall +15% for 3 turns + Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (46491:83) 血に縛られたような人間は + 邪魔なんだよ！
+   | Locked Fire skyfall +100% for 2 turns + No description set
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (46494:92) ミサイル一斉射撃
+   | Spawn 10 random Jammer orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (46495:77) ハイ・メガ・キャノン
+   | Change the 1st, 2nd, and 3rd columns to Fire and Heal orbs, Deal 110% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (46496:143) 消えろよッ！
+   | For 1 turn, 50% ATK for 1 random sub, Deal 90% damage

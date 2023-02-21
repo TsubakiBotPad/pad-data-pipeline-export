@@ -1,0 +1,56 @@
+#309764 - ユニオンフラッグカスタムII
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESUnknown(157:46011) -> ＿フラッグ演出開幕
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+No description set
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 8)
+	[0] ESUnknown(157:46011) -> ＿フラッグ演出開幕
+	No description set
+	[1] ESSkyfallLocked(96:46013) -> 私は君の圧倒的な性能に
+	Locked Heal skyfall +100% for 3 turns
+	[2] ESDebuffRCV(105:46014) -> 心を奪われた………！
+	RCV 50% for 3 turns
+
+#6: ESBoardChangeAttackBits(85:46015) -> この気持ち、まさしく愛だ！
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Change all orbs to Heal, Deal 100% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRowSpawnMulti(79:46017) -> だが愛を超越すれば
+	Change the 5th row to Heal orbs, Deal 100% damage
+	[1] ESUnknown(151:46018) -> それは憎しみとなる………！
+	No description set
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbChangeAttack(48:46020) -> 私を歪ませたのは
+	Change a random attribute to Dark orbs, Deal 100% damage
+	[1] ESAttackUPRemainingEnemies(17:46021) -> ガンダムという存在だッ！！
+	Increase damage to 150% for the next 999 turns
+
+#9: ESRandomSpawn(92:46022) -> GNビームサーベル
+Spawn 5 random Dark orbs, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(157:46023) -> ＿フラッグ演出死亡
+	No description set

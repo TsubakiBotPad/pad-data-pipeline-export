@@ -1,0 +1,45 @@
+#9772 - ドム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESAbsorbCombo(67:46111) -> ホバー移動
+Absorb damage when combos <= 5 for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAbsorbAttribute(53:46112) -> 黒い三連星
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Absorb Dark damage for 3 turns, Deal 100% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESSpinnersFixed(110:46113) -> ジェット・ストリーム・アタック
+Specific orbs change every 1.0s for 1 turn, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESRandomSpawn(92:46114) -> ジャイアント・バズ
+Spawn 3 random Fire, Water, and Jammer orbs, Deal 90% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

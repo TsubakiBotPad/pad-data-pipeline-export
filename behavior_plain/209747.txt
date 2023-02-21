@@ -1,0 +1,57 @@
+#209747 - ガンダムエクシア トランザムモード
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESChangeAttribute(46:46460) -> TRANS-AM
+	Change own attribute to Fire
+	[1] ESDebuffMovetime(39:46461) -> 俺は、託されたんだ………！
+	Movetime -3s for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombRandomSpawn(102:46463) -> そうだ！
+	Spawn 3 random Bomb orbs
+	[1] ESAttackMultihit(15:46464) -> 俺が…俺達が…ガンダムだッ！！
+	Deal 100% damage (4 hits, 25% each)
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESRowSpawnMulti(79:46466) -> GNロングブレイド
+	Change the 5th row to Heal orbs, Deal 50% damage
+	[1] ESColumnSpawnMulti(77:46467) -> GNショートブレイド
+	Change the 5th column to Fire and Water orbs, Deal 40% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: SkillSet:
+	[0] ESSpinnersRandom(109:46469) -> 貴様のその歪み………
+	Random 1 orbs change every 0.5s for 1 turn
+	[1] ESLeaderSwap(75:46470) -> この俺が断ち切るッ！！
+	Leader changes to random sub for 1 turn, Deal 85% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

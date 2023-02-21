@@ -1,0 +1,26 @@
+#9760 - ガンダムエピオン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9760
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46200:83) 私はまだ自分を + 弱者と認めていないッ！！
+ | Voids status ailments for 999 turns + Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46207:65) ヒートロッド
+     | Bind 2 random subs for 3 turns, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46208:77) ビームソード
+     | Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46206:53) ゼロシステム
+   | Absorb Water and Light damage for 3 turns

@@ -1,0 +1,53 @@
+#9774 - ズゴック
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESFixedStart(101:46115) -> 全周囲モノアイ
+Fix orb movement starting point to random position on the board
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESUnknown(150:46116) -> アイアン・ネイル
+No description set, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESColumnSpawnMulti(77:46117) -> メガ粒子砲
+Change the 1st and 2nd columns to Water and Dark orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESGravity(50:46118) -> 体当たり
+Player -70% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

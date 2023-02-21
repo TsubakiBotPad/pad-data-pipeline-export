@@ -1,0 +1,57 @@
+#9754 - グフ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:46110) -> ESBranchCard
+Branch on player_cards HAS [9722], target rnd 6
+
+#5: SkillSet:
+	[0] ESRowSpawnMulti(79:46102) -> フフ………
+	Change the 1st row to Water and Dark orbs, Deal 30% damage
+	[1] ESCloud(104:46103) -> この風、この肌触りこそ戦争よ！
+	A row of clouds appears for 3 turns at 5th row, 1st column
+
+#6: SkillSet:
+	[0] ESRowSpawnMulti(79:46105) -> ガンダムという奴か！
+	Change the 1st row to Water and Dark orbs, Deal 30% damage
+	[1] ESCloud(104:46106) -> どこに隠れていたのだ！？
+	A row of clouds appears for 3 turns at 5th row, 1st column
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDebuffATKTarget(143:46107) -> ザクとは違うのだよ！ザクとは！！
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+For 1 turn, 50% ATK for both leaders, Deal 105% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESAttackMultihit(15:46108) -> 5連装75mm機関砲
+Deal 85% damage (5 hits, 17% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESBindRandomSub(65:46109) -> ヒート・ロッド
+Bind 1 random sub for 5 turns, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

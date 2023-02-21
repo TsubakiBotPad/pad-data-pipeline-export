@@ -1,0 +1,37 @@
+#9756 - ジ・O
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9756
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46172:73) ＿ジオ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46173:152) 不愉快だな………この感覚は！
+ | No description set
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46180:85) 墜ちろ！カトンボッ！！
+     | Change all orbs to Light, Dark, Heal, and Jammer, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46181:79) ビーム・ライフル
+     | Change the 1st, 2nd, and 3rd rows to Light and Dark orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46182:110) ビーム・ソード
+     | Specific orbs change every 1.0s for 1 turn, Deal 90% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (46177:83) プレッシャー + 道を誤ったのだよ！貴様は！！
+   | Delay active skills by 1 turn + Seal the 1st row for 5 turns
+ | group:
+ | condition: hp <= 19
+   | (46174:83) ジ………ジ・Ｏ！ + 何故動かん………！
+   | Do nothing + Fix orb movement starting point to random position on the board, Deal 20% damage

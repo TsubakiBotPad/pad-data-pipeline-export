@@ -1,0 +1,29 @@
+#209784 - ガンダム・エアリアル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209784
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46438:83) スレッタ・マーキュリー + エアリアル、出ます
+ | Voids status ailments for 999 turns + Void damage >= 1,000,000,000 for 2 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (46441:83) エスカッシャン + 逃げたら一つ、進めば二つ
+   | Reduce damage from all sources by 75% for 1 turn + Delay active skills by 2 turns, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (46444:83) ビットオンフォーム + 私とエアリアルは負けません！
+   | Absorb damage when combos <= 7 for 3 turns + ATK -50% for 3 turns, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (46447:15) ガンビット
+   | Deal 108% damage (6 hits, 18% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (46448:92) ビームライフル
+   | Spawn 4 random Water and Heal orbs, Deal 95% damage

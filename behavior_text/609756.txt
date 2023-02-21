@@ -1,0 +1,34 @@
+#609756 - ジ・O
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 609756
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46400:152) 不愉快だな………この感覚は！
+ | No description set
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (46404:83) 常に世の中を動かしてきたのは + 一握りの天才だ！！
+     | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46407:89) プレッシャー
+     | Delay active skills by 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46408:85) 墜ちろ！カトンボッ！！
+     | Change all orbs to Light, Dark, and Heal, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46409:110) ビーム・ソード
+     | Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+ | group:
+ | condition: hp <= 19
+   | (46401:83) ジ………ジ・Ｏ！ + 何故動かん………！
+   | Do nothing + Fix orb movement starting point to random position on the board, Deal 20% damage

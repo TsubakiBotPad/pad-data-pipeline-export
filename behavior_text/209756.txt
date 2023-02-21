@@ -1,0 +1,33 @@
+#209756 - ジ・O
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209756
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46063:73) ＿ジオ根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (46063:73) ＿ジオ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46066:83) 常に世の中を動かしてきたのは + 一握りの天才だ！！
+ | Voids status ailments for 999 turns + Absorb damage when combos <= 6 for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (46069:83) 道を誤ったのだよ！貴様は！！ + プレッシャー
+   | Seal the 1st row for 1 turn + Delay active skills by 2 turns, Deal 80% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (46072:85) 墜ちろ！カトンボッ！！
+   | Change all orbs to Light and Dark, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (46073:110) ビーム・ソード
+   | Specific orbs change every 1.0s for 1 turn, Deal 105% damage

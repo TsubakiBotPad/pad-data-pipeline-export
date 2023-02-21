@@ -1,0 +1,71 @@
+#309747 - ガンダムエクシア トランザムモード
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:46303) -> TRANS-AM
+	Absorb damage when combos <= 9 for 3 turns
+	[1] ESDebuffMovetime(39:46304) -> 俺は、託されたんだ………！
+	Movetime 50% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESOrbLock(94:46306) -> 武力による戦争根絶！
+	Lock 10 random orbs
+	[1] ESBoardChangeAttackBits(85:46307) -> それこそが！ソレスタルビーイング！！
+	Change all orbs to Fire, Water, Wood, and Heal, Deal 100% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSpinnersFixed(110:46309) -> 貴様のその歪み………
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESLeaderSwap(75:46310) -> この俺が断ち切るッ！！
+	Leader changes to random sub for 1 turn, Deal 85% damage
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBombRandomSpawn(102:46312) -> そうだ！
+	Spawn 6 random Bomb orbs
+	[1] ESAttackMultihit(15:46313) -> 俺が…俺達が…ガンダムだッ！！
+	Deal 100% damage (4 hits, 25% each)
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: SkillSet:
+	[0] ESOrbSealColumn(99:46315) -> GNロングブレイド
+	Seal the 1st column for 1 turn, Deal 55% damage
+	[1] ESBlindStickyFixed(98:46316) -> GNショートブレイド
+	Blind orbs in specific positions for 1 turn, Deal 40% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: SkillSet:
+	[0] ESOrbSealColumn(99:46318) -> GNロングブレイド
+	Seal the 6th column for 1 turn, Deal 55% damage
+	[1] ESBlindStickyFixed(98:46319) -> GNショートブレイド
+	Blind orbs in specific positions for 1 turn, Deal 40% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

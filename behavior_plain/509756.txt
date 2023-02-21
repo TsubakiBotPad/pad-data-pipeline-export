@@ -1,0 +1,71 @@
+#509756 - ジ・O
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESUnknown(157:46065) -> ＿ジオ演出開幕
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESUnknown(157:46065) -> ＿ジオ演出開幕
+	No description set
+	[1] ESStatusShield(20:46067) -> 常に世の中を動かしてきたのは
+	Voids status ailments for 999 turns
+	[2] ESAbsorbCombo(67:46068) -> 一握りの天才だ！！
+	Absorb damage when combos <= 6 for 5 turns
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESOrbSealRow(100:46070) -> 道を誤ったのだよ！貴様は！！
+	Seal the 1st row for 1 turn
+	[1] ESSkillDelay(89:46071) -> プレッシャー
+	Delay active skills by 2 turns, Deal 80% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBoardChangeAttackBits(85:46072) -> 墜ちろ！カトンボッ！！
+Change all orbs to Light and Dark, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESSpinnersFixed(110:46073) -> ビーム・ソード
+Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(157:46074) -> ＿ジオ演出死亡
+	No description set
+
+#18: ESResolve(73:46063) -> ＿ジオ根性
+Survive attacks with 1 HP when HP > 50%

@@ -1,0 +1,53 @@
+#9782 - ジン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESColumnSpawnMulti(76:46184) -> 重斬刀
+Change the 4th, 5th, and 6th columns to Wood orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttackMultihit(15:46185) -> 76mm重突撃機銃
+Deal 90% damage (3 hits, 30% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBombRandomSpawn(102:46186) -> キャニス　短距離誘導弾発射筒
+Spawn 3 random Bomb orbs, Deal 90% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESRandomSpawn(92:46187) -> バルルス改　特火重粒子砲
+Spawn 3 random Fire, Water, and Jammer orbs, Deal 100% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

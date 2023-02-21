@@ -1,0 +1,32 @@
+#9722 - ガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9722
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46138:73) ＿78根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | condition: when 9726 on team
+ | (46141:137) シャアかッ！
+ | Void damage >= 1,000,000,000 for 3 turns
+ | (46140:137) アムロ、行きます！
+ | Void damage >= 1,000,000,000 for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46143:83) 何故でてくる！？ + そんな腕で………！
+     | Movetime 50% for 1 turn + No description set, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46146:83) ビーム・ライフル + そこッ！迂闊な奴め！！
+     | Change the 4th and 5th rows to Light and Heal orbs + For 1 turn, 1% ATK for 1 random sub, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 9
+   | (46142:77) ラストシューティング
+   | Change the 1st and 6th columns to Light orbs and the 2nd and 5th columns to Heal orbs, Deal 140% damage

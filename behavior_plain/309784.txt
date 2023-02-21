@@ -1,0 +1,104 @@
+#309784 - ガンダム・エアリアル
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:46351) -> スレッタ・マーキュリー
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:46352) -> エアリアル、出ます
+	Void damage >= 2,000,000,000 for 5 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBindAwoken(88:46354) -> やりたいことリスト
+	Bind awoken skills for 3 turns
+	[1] ESBlindStickyRandom(97:46355) -> 全然埋まってない！
+	Blind random 5 orbs for 3 turns, Deal 90% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESAbsorbCombo(67:46357) -> ビットオンフォーム
+	Absorb damage when combos <= 10 for 1 turn
+	[1] ESSkillDelay(89:46358) -> 逃げたら一つ、進めば二つ
+	Delay active skills by 2 turns, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESAttackMultihit(15:46360) -> ガンビット
+	Deal 108% damage (6 hits, 18% each)
+	[1] ESDebuffATK(130:46361) -> 私とエアリアルは負けません！
+	ATK -75% for 1 turn
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:46367) -> お願いみんな、力を貸して
+	Unable to match Fire orbs for 1 turn
+	[1] ESDamageShield(74:46372) -> エスカッシャン
+	Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+
+#17: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:46368) -> お願いみんな、力を貸して
+	Unable to match Water orbs for 1 turn
+	[1] ESDamageShield(74:46372) -> エスカッシャン
+	Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+
+#18: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:46369) -> お願いみんな、力を貸して
+	Unable to match Wood orbs for 1 turn
+	[1] ESDamageShield(74:46372) -> エスカッシャン
+	Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+
+#19: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:46370) -> お願いみんな、力を貸して
+	Unable to match Light orbs for 1 turn
+	[1] ESDamageShield(74:46372) -> エスカッシャン
+	Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+
+#20: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAttributeBlock(107:46371) -> お願いみんな、力を貸して
+	Unable to match Dark orbs for 1 turn
+	[1] ESDamageShield(74:46372) -> エスカッシャン
+	Reduce damage from all sources by 75% for 1 turn, Deal 95% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESSuperResolve(129:46349) -> ＿エアリアル超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

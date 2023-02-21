@@ -1,0 +1,73 @@
+#509760 - ガンダムエピオン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESUnknown(157:46039) -> ＿エピオン演出開幕
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+No description set
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESUnknown(157:46039) -> ＿エピオン演出開幕
+	No description set
+	[1] ESDamageShield(74:46041) -> 私が全てを正してみせる！
+	Reduce damage from all sources by 50% for 3 turns
+
+#6: ESBindSkill(14:46042) -> ゼロシステム
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Bind active skills for 5 turns
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBindRandomSub(65:46043) -> ヒートロッド
+Bind 1 random sub for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESDebuffATK(130:46045) -> その程度で私の相手が
+	ATK -50% for 1 turn
+	[1] ESDebuffMovetime(39:46046) -> 務まると思うな………！
+	Movetime 50% for 1 turn, Deal 85% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: SkillSet:
+	[0] ESOrbLock(94:46048) -> 完全平和のためには
+	Lock all orbs
+	[1] ESAttackMultihit(15:46049) -> 必要な犠牲なのだッ！
+	Deal 105% damage (5 hits, 21% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(157:46050) -> ＿エピオン演出死亡
+	No description set

@@ -1,0 +1,57 @@
+#209766 - ガンダム・キマリス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:46003) -> この出力、この性能
+	Absorb damage when combos <= 5 for 3 turns
+	[1] ESRandomSpawn(92:46004) -> 予想以上だ！
+	Spawn 5 random Water and Dark orbs
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBlindStickyRandom(97:46005) -> グングニール
+Blind random 1 orbs for 10 turns, Deal 102% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESSpinnersRandom(109:46006) -> スラッシュディスク
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESGravity(50:46007) -> とどめだ！
+Player -99% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

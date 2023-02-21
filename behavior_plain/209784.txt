@@ -1,0 +1,58 @@
+#209784 - ガンダム・エアリアル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:46439) -> スレッタ・マーキュリー
+	Voids status ailments for 999 turns
+	[1] ESVoidShieldBig(137:46440) -> エアリアル、出ます
+	Void damage >= 1,000,000,000 for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:46442) -> エスカッシャン
+	Reduce damage from all sources by 75% for 1 turn
+	[1] ESSkillDelay(89:46443) -> 逃げたら一つ、進めば二つ
+	Delay active skills by 2 turns, Deal 100% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:46445) -> ビットオンフォーム
+	Absorb damage when combos <= 7 for 3 turns
+	[1] ESDebuffATK(130:46446) -> 私とエアリアルは負けません！
+	ATK -50% for 3 turns, Deal 90% damage
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESAttackMultihit(15:46447) -> ガンビット
+Deal 108% damage (6 hits, 18% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESRandomSpawn(92:46448) -> ビームライフル
+Spawn 4 random Water and Heal orbs, Deal 95% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn

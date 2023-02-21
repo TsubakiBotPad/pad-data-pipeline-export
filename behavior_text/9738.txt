@@ -1,0 +1,33 @@
+#9738 - ウイングガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9738
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46189:39) 任務了解……ただちに目標を破壊する！
+ | Movetime -2s for 5 turns
+ type: DEATH
+ condition: when defeated
+ | (46193:95) 自爆 + ……死ぬほど痛いぞ
+ | Jammer skyfall +15% for 5 turns + Do nothing, Deal 50% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (46194:83) ターゲット確認……… + ターゲット、ロックオン………！
+   | Lock all orbs + Fix orb movement starting point to random position on the board, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (46197:143) 余裕で避けきれる………！
+   | For 1 turn, 50% ATK for 1 random sub
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (46198:77) バスターライフル
+   | Change the 1st column to Light orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (46199:15) マシンキャノン
+   | Deal 90% damage (6 hits, 15% each)

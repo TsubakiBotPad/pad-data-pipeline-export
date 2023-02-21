@@ -1,0 +1,33 @@
+#609727 - サザビー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 609727
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46422:129) ＿サザビー超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (46423:83) 私、シャア・アズナブルが粛清するッ！ + ファンネル
+ | Voids status ailments for 999 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+ | condition: always turn 1
+   | (46429:83) ならば今すぐ愚民ども全てに + 英知を授けてみせろ！
+   | Absorb Fire damage for 3 turns + Haste all cards' skills by 3 turns, Deal 105% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46432:83) ビーム・トマホーク投擲 + ビーム・ショット・ライフル
+     | Bind 1 random card for 2 turns + Spawn 6 random Fire orbs, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46435:83) そんなもので私が倒せるものか！ + ビームサーベル
+     | Reduce damage from all sources by 50% for 1 turn + Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (46426:83) メガ粒子砲 + パワーダウンだと………！？
+   | Deal 120% damage (3 hits, 40% each) + For 2 turns, 1% ATK for 4 random subs, Deal 120% damage (3 hits, 40% each)

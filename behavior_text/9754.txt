@@ -1,0 +1,29 @@
+#9754 - グフ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9754
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 9722 on team
+ | (46104:83) ガンダムという奴か！ + どこに隠れていたのだ！？
+ | Change the 1st row to Water and Dark orbs + A row of clouds appears for 3 turns at 5th row, 1st column, Deal 30% damage
+ | (46101:83) フフ……… + この風、この肌触りこそ戦争よ！
+ | Change the 1st row to Water and Dark orbs + A row of clouds appears for 3 turns at 5th row, 1st column, Deal 30% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46108:15) 5連装75mm機関砲
+     | Deal 85% damage (5 hits, 17% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46109:65) ヒート・ロッド
+     | Bind 1 random sub for 5 turns, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46107:143) ザクとは違うのだよ！ザクとは！！
+   | For 1 turn, 50% ATK for both leaders, Deal 105% damage

@@ -1,0 +1,36 @@
+#309751 - ガンダム・バルバトスルプス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 309751
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46320:73) ＿ルプス根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46321:83) おい、バルバトス + あれはお前の獲物なんだろ？
+ | ATK -50% for 3 turns + Reduce damage from all sources by 75% for 3 turns, Deal 80% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (46324:83) 余計な鎖は外してやるから + 見せてみろよお前の力
+   | Poison skyfall +15% for 5 turns + For 5 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+ | group:
+ | condition: turn 2
+   | (46327:83) 使ってやるから、もっとよこせ + 阿頼耶識リミッター解除
+   | No skyfall for 10 turns + Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (46330:79) ソードメイス
+   | Change the 1st and 2nd rows to Fire and Dark orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (46331:110) ツインメイス
+   | Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (46332:94) 邪魔だな、あんた
+   | Lock all orbs, Deal 90% damage

@@ -1,0 +1,67 @@
+#609727 - サザビー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:46424) -> 私、シャア・アズナブルが粛清するッ！
+	Voids status ailments for 999 turns
+	[1] ESBlindStickySkyfall(128:46425) -> ファンネル
+	For 5 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:46430) -> ならば今すぐ愚民ども全てに
+	Absorb Fire damage for 3 turns
+	[1] ESTargetedSkillHaste(139:46431) -> 英知を授けてみせろ！
+	Haste all cards' skills by 3 turns, Deal 105% damage
+
+#7: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAttackMultihit(15:46427) -> メガ粒子砲
+	Deal 120% damage (3 hits, 40% each)
+	[1] ESDebuffATKTarget(143:46428) -> パワーダウンだと………！？
+	For 2 turns, 1% ATK for 4 random subs
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESBindAttack(63:46433) -> ビーム・トマホーク投擲
+	Bind 1 random card for 2 turns, Deal 95% damage
+	[1] ESRandomSpawn(92:46434) -> ビーム・ショット・ライフル
+	Spawn 6 random Fire orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: SkillSet:
+	[0] ESDamageShield(74:46436) -> そんなもので私が倒せるものか！
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESColumnSpawnMulti(77:46437) -> ビームサーベル
+	Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSuperResolve(129:46422) -> ＿サザビー超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

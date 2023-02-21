@@ -1,0 +1,76 @@
+#9750 - ガンダム・バルバトス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:46240) -> バルバトス
+	Voids status ailments for 999 turns
+	[1] ESBlindStickySkyfall(128:46241) -> 三日月・オーガス、出るよ
+	For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCard(90:46253) -> ESBranchCard
+Branch on player_cards HAS [9766], target rnd 8
+
+#7: ESAttributeBlock(107:46243) -> 今はとりあえずあんたが邪魔だ！
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Light orbs for 2 turns, Deal 50% damage
+
+#8: ESAttributeBlock(107:46242) -> あんた、チョコの隣の…
+Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Unable to match Light orbs for 2 turns, Deal 50% damage
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 17
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: SkillSet:
+	[0] ESOrbLock(94:46245) -> まぁいいか
+	Lock all orbs
+	[1] ESAttackMultihit(15:46246) -> こいつは死んでいい奴だから
+	Deal 96% damage (4 hits, 24% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: SkillSet:
+	[0] ESColumnSpawnMulti(77:46248) -> 太刀
+	Change the 4th, 5th, and 6th columns to Fire and Dark orbs, Deal 50% damage
+	[1] ESCloud(104:46249) -> そろそろ消えろ…！
+	A row of clouds appears for 1 turn at 5th row, 1st column
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#18: SkillSet:
+	[0] ESGravity(50:46251) -> メイス
+	Player -50% HP
+	[1] ESRowSpawnMulti(79:46252) -> 300mm滑腔砲
+	Change the 5th row to Fire orbs, Deal 70% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

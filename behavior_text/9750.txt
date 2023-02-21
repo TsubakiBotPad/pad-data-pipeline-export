@@ -1,0 +1,33 @@
+#9750 - ガンダム・バルバトス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9750
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46239:83) バルバトス + 三日月・オーガス、出るよ
+ | Voids status ailments for 999 turns + For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46244:83) まぁいいか + こいつは死んでいい奴だから
+     | Lock all orbs + Deal 96% damage (4 hits, 24% each), Deal 96% damage (4 hits, 24% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46247:83) 太刀 + そろそろ消えろ…！
+     | Change the 4th, 5th, and 6th columns to Fire and Dark orbs + A row of clouds appears for 1 turn at 5th row, 1st column, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46250:83) メイス + 300mm滑腔砲
+     | Player -50% HP + Change the 5th row to Fire orbs, Deal 70% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: when 9766 on team
+   | (46242:107) あんた、チョコの隣の…
+   | Unable to match Light orbs for 2 turns, Deal 50% damage
+   | (46243:107) 今はとりあえずあんたが邪魔だ！
+   | Unable to match Light orbs for 2 turns, Deal 50% damage

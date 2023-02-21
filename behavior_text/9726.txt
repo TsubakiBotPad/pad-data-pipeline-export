@@ -1,0 +1,33 @@
+#9726 - シャア専用ザク
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 9726
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 9722 on team
+ | (46128:83) 見せてもらおうか！ + 連邦軍のMSの性能とやらを！
+ | Absorb damage when combos <= 6 for 3 turns + Fire skyfall +15% for 3 turns
+ | (46125:83) 戦いとは + ２手３手先を考えて行うものだ！
+ | Absorb damage when combos <= 6 for 3 turns + Fire skyfall +15% for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46134:77) ザク・バズーカ
+     | Change the 4th, 5th, and 6th columns to Fire and Jammer orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46135:110) ヒート・ホーク
+     | Specific orbs change every 1.0s for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46136:15) ザク・マシンガン
+     | Deal 104% damage (4 hits, 26% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46131:83) 通常の3倍のスピード + 当たらなければどうということは無い！
+   | Increase damage to 300% for the next 1 turn + Void damage >= 500,000,000 for 3 turns

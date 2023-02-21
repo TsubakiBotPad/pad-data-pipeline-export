@@ -1,0 +1,33 @@
+#309743 - フリーダムガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309743
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 9762 on team
+ | (46283:83) アナタは！……アナタだけは！ + フルバーストモード
+ | Fix orb movement starting point to random position on the board + Change board size to 7x6 for 5 turns
+ | (46286:83) 力だけが僕の全てじゃない！ + フルバーストモード
+ | Fix orb movement starting point to random position on the board + Change board size to 7x6 for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46292:83) 想いだけでも……… + 力だけでも………！
+     | Water skyfall +20% for 1 turn + Locked Water skyfall +100% for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46295:83) 何故こんなことを平然と出来る！ + ラケルタビームサーベル
+     | Absorb damage when combos <= 13 for 1 turn + For 1 turn, 1% ATK for ???, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46298:83) ルプスビームライフル + バラエーナプラズマ収束ビーム砲
+     | Random 3 orbs change every 1.0s for 1 turn + Change the 4th, 5th, and 6th columns to Water and Light orbs, Deal 94% damage
+ | group:
+ | condition: turn 1, hp <= 19
+   | (46289:83) それでも！ + 守りたい世界があるんだッ！
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 90% damage (5 hits, 18% each), Deal 90% damage (5 hits, 18% each)

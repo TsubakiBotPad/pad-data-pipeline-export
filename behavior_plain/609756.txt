@@ -1,0 +1,67 @@
+#609756 - ジ・O
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESUnknown(152:46400) -> 不愉快だな………この感覚は！
+No description set
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 20% HP (ai:100 rnd:0)
+	[0] ESInactivity66(66:46402) -> ジ………ジ・Ｏ！
+	Do nothing
+	[1] ESFixedStart(101:46403) -> 何故動かん………！
+	Fix orb movement starting point to random position on the board, Deal 20% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:46405) -> 常に世の中を動かしてきたのは
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:46406) -> 一握りの天才だ！！
+	Absorb damage when combos <= 6 for 2 turns
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESSkillDelay(89:46407) -> プレッシャー
+Delay active skills by 1 turn, Deal 80% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESBoardChangeAttackBits(85:46408) -> 墜ちろ！カトンボッ！！
+Change all orbs to Light, Dark, and Heal, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: ESSpinnersFixed(110:46409) -> ビーム・ソード
+Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
