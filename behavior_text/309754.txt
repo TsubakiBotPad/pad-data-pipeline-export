@@ -1,0 +1,32 @@
+#309754 - グフ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 309754
+approved: False
+
+level: 1
+ type: PREEMPT
+ | condition: when 9722 on team
+ | (46531:83) ガンダムという奴か！ + どこに隠れていたのだ！？
+ | Change all orbs to Water and Dark + A row of clouds appears for 5 turns at 5th row, 1st column, Deal 85% damage
+ | (46528:83) フフ……… + この風、この肌触りこそ戦争よ！
+ | Change all orbs to Water and Dark + A row of clouds appears for 5 turns at 5th row, 1st column, Deal 85% damage
+ group:
+ | group:
+ | condition: turn 1
+   | (46534:83) 貴様の度胸気に入ったぞ！ + そちらの手並み………！ + 見せてもらうとしようか！
+   | Haste all cards' skills by 15 turns + Spawn 10 random Water, Dark, and Heal orbs + Void damage >= 1,000,000,000 for 5 turns
+ | group:
+ | condition: turn 2
+   | (46538:83) 正確な攻撃だな……… + だがそれ故に予測もたやすい！
+   | Fix orb movement starting point to random position on the board + Movetime 25% for 1 turn, Deal 105% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (46541:83) ヒート・ロッド + ヒート・サーベル
+   | Bind 2 random subs for 3 turns + Change the 5th column to Water orbs and the 6th column to Dark orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (46544:143) ザクとは違うのだよ！ザクとは！！
+   | For 1 turn, 1% ATK for both leaders, Deal 102% damage

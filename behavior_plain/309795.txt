@@ -1,0 +1,78 @@
+#309795 - ジオング
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESUnknown(157:46568) -> ＿ジオング演出先制
+	No description set
+	[1] ESAttributeBlock(107:46570) -> オールレンジ攻撃
+	Unable to match Heal orbs for 3 turns
+	[2] ESStatusShield(20:46571) -> 私もニュータイプのはずだ！
+	Voids status ailments for 999 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESUnknown(157:46573) -> ＿ジオング50以下演出
+	No description set
+	[1] ESAbsorbCombo(67:46575) -> ええい！
+	Absorb damage when combos <= 13 for 3 turns
+	[2] ESBoardSizeChange(126:46576) -> 奴め………バケモノか！！
+	Change board size to 7x6 for 3 turns, Deal 105% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESDebuffATK(130:46578) -> 沈めい！
+	ATK -75% for 1 turn
+	[1] ESAttackMultihit(15:46579) -> 腰部メガ粒子砲
+	Deal 100% damage (5 hits, 20% each)
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESUnknown(151:46580) -> 頭部メガ粒子砲
+No description set, Deal 102% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#16: ESBoardChangeAttackBits(85:46581) -> 腕部有線式5連装メガ粒子砲
+Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 110% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(157:46582) -> ＿ジオング演出死亡
+	No description set
+
+#19: ESSuperResolve(129:46566) -> ＿ジオング超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

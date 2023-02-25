@@ -1,0 +1,33 @@
+#309770 - ザクII
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: ESSpinnersFixed(110:46525) -> ミサイル・ポッド
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Specific orbs change every 1.0s for 1 turn, Deal 40% damage
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: ESUnknown(151:46585) -> ヒート・ホーク
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+No description set, Deal 65% damage
+
+#6: ESAttackMultihit(15:46526) -> ザク・マシンガン
+Condition: 50% chance (ai:0 rnd:50)
+Deal 70% damage (5 hits, 14% each)
+
+#7: ESUnknown(151:46527) -> ヒート・ホーク
+Condition: 50% chance (ai:0 rnd:50)
+No description set, Deal 65% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
