@@ -1,0 +1,50 @@
+#609760 - ガンダムエピオン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDamageShield(74:46706) -> 私が全てを正してみせる！
+	Reduce damage from all sources by 50% for 3 turns
+	[1] ESAbsorbAttribute(53:46707) -> ゼロシステム
+	Absorb Water and Light damage for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: SkillSet:
+	[0] ESDebuffATK(130:46709) -> その程度で私の相手が
+	ATK -50% for 1 turn
+	[1] ESBoardChangeAttackBits(85:46710) -> 務まると思うな………！
+	Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 90% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: SkillSet:
+	[0] ESOrbLock(94:46712) -> 完全平和のためには
+	Lock all orbs
+	[1] ESAttackMultihit(15:46713) -> 必要な犠牲なのだッ！
+	Deal 105% damage (5 hits, 21% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

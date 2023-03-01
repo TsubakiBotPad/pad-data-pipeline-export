@@ -1,0 +1,56 @@
+#709756 - ジ・O
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkillDelay(89:46748) -> プレッシャー
+	Delay active skills by 1 turn
+	[1] ESUnknown(152:46749) -> 不愉快だな………この感覚は！
+	No description set
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESOrbSealRow(100:46750) -> 道を誤ったのだよ！貴様は！！
+Seal the 1st row for 1 turn
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBoardChangeAttackBits(85:46751) -> 墜ちろ！カトンボッ！！
+Change all orbs to Light and Dark, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESSpinnersFixed(110:46752) -> ビーム・ソード
+Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

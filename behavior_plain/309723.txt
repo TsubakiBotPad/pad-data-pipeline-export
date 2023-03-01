@@ -1,0 +1,62 @@
+#309723 - νガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:46776) -> 邪気が来たか！
+	Voids status ailments for 999 turns
+	[1] ESUnknown(151:46777) -> フィン・ファンネル
+	No description set, Deal 50% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:46779) -> サイコフレームの共振
+	ATK -75% for 2 turns
+	[1] ESDamageShield(74:46780) -> νガンダムは伊達じゃない！
+	Reduce damage from all sources by 75% for 2 turns
+	[2] ESBindAwoken(88:46781) -> 離れろ！ガンダムの力はっ！
+	Bind awoken skills for 1 turn, Deal 110% damage
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESColumnSpawnMulti(77:46783) -> ビーム・ライフル
+	Change the 1st and 6th columns to Heal orbs, Deal 50% damage
+	[1] ESCloud(104:46784) -> ニュー・ハイパー・バズーカ
+	A row of clouds appears for 1 turn at 5th row, 1st column, Deal 55% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: SkillSet:
+	[0] ESVoidShieldBig(137:46786) -> フィン・ファンネルバリア
+	Void damage >= 500,000,000 for 1 turn
+	[1] ESRowSpawnMulti(79:46787) -> ビームサーベル
+	Change the 4th and 5th rows to Wood and Light orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSuperResolve(129:46774) -> ＿ν超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

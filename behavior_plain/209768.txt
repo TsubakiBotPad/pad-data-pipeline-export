@@ -1,0 +1,29 @@
+#209768 - ジム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 6
+
+#3: ESAbsorbAttribute(53:46590) -> シールド
+Absorb Fire damage for 3 turns
+
+#4: ESRandomSpawn(92:46592) -> ビーム・スプレーガン
+Spawn 3 random Fire and Light orbs, Deal 55% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAbsorbAttribute(53:46591) -> シールド
+Absorb Light damage for 3 turns
+
+#7: ESAttackMultihit(15:46593) -> 60mmバルカン砲
+Deal 40% damage (4 hits, 10% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn

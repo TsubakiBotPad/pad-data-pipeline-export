@@ -1,0 +1,25 @@
+#409747 - ガンダムエクシア トランザムモード
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409747
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46693:83) TRANS-AM + 俺は、託されたんだ………！
+ | Delay both leaders' skills by 5 turns + Movetime 50% for 3 turns
+ group:
+ | group:
+ | condition: turn 1
+   | (46696:83) そうだ！ + 俺が…俺達が…ガンダムだッ！！
+   | Spawn 6 random locked Bomb orbs + Deal 100% damage (4 hits, 25% each), Deal 100% damage (4 hits, 25% each)
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (46699:83) GNロングブレイド + GNショートブレイド
+   | Change the 5th row to Heal orbs + Change the 5th column to Fire and Water orbs, Deal 50% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (46702:83) 貴様のその歪み……… + この俺が断ち切るッ！！
+   | Random 1 orbs change every 0.5s for 1 turn + Blind orbs in specific positions for 1 turn, Deal 85% damage

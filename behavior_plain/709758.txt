@@ -1,0 +1,76 @@
+#709758 - キュベレイ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:46804) -> このキュベレイ………
+	Mortal Poison skyfall +15% for 3 turns
+	[1] ESBindAwoken(88:46805) -> 見くびってもらっては困る！
+	Bind awoken skills for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBlind5(5:46807) -> こんな所で朽ち果てる
+	Blind all orbs on the board
+	[1] ESDebuffATK(130:46808) -> 己の身を呪うがいい！
+	ATK -50% for 1 turn
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 19
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 16
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESDebuffMovetime(39:46809) -> プレッシャー
+Movetime 25% for 1 turn, Deal 80% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESSpinnersRandom(109:46810) -> ファンネル
+Random 4 orbs change every 1.0s for 1 turn, Deal 95% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#17: ESRandomSpawn(92:46811) -> ビーム・ガン
+Spawn 5 random Fire and Dark orbs, Deal 90% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#20: ESBoardChangeAttackBits(85:46812) -> 恥を知れ！俗物！
+Change all orbs to Fire and Dark, Deal 115% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn

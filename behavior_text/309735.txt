@@ -1,0 +1,32 @@
+#309735 - フルアーマーZZガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309735
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46763:73) ＿ZZ根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46764:83) 血に縛られたような人間は + 邪魔なんだよ！
+ | Locked Fire skyfall +100% for 2 turns + No description set
+ group:
+ | group:
+ | condition: turn 1
+   | (46767:83) 人間の可能性を……… + ちっぽけな自己満足の為に + 潰されてたまるか！
+   | Change the 1st and 6th columns to Fire and Heal orbs + Lock 10 random orbs + No description set, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (46771:92) ミサイル一斉射撃
+   | Spawn 10 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (46772:79) ダブル・ビーム・ライフル
+   | Change the 1st and 5th rows to Fire orbs, Deal 90% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (46773:85) ハイ・メガ・キャノン
+   | Change all orbs to Fire, Heal, and Jammer, Deal 115% damage

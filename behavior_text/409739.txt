@@ -1,0 +1,30 @@
+#409739 - ウイングガンダムゼロ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409739
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46714:83) 行くぞゼロ………！ + これが最後の出撃だ………！
+ | Change all orbs to Light + No description set, Deal 40% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46721:74) 俺は………俺は死なない！
+     | Reduce damage from all sources by 50% for 1 turn, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46722:15) マシンキャノン
+     | Deal 102% damage (6 hits, 17% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46723:77) ツインバスターライフル
+     | Change the 1st and 3rd columns to Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46717:83) ゼロシステム + ゼロよ……… + 俺を導いてくれ………！
+   | Void damage >= 1,000,000,000 for 2 turns + RCV 0% for 2 turns + Blind all orbs on the board, Deal 100% damage

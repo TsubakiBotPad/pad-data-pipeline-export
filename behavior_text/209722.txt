@@ -1,0 +1,33 @@
+#209722 - ガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209722
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46621:73) ＿ガンダム根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46623:83) アムロ、行きます！ + そこッ！迂闊な奴め！！
+ | Void damage >= 1,000,000,000 for 2 turns + Unable to match Heal orbs for 2 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46627:110) ハイパー・ハンマー
+     | Specific orbs change every 1.0s for 1 turn, Deal 95% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46628:98) ハイパー・バズーカ
+     | Blind orbs in specific positions for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46629:79) ビーム・ライフル
+     | Change the 1st row to Heal orbs, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 9
+   | (46626:77) ラストシューティング
+   | Change the 1st and 6th columns to Light orbs and the 2nd and 5th columns to Heal orbs, Deal 140% damage

@@ -1,0 +1,33 @@
+#609762 - プロヴィデンスガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 609762
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46647:83) 間もなく最後の扉が開く！……… + この私が開く！
+ | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + Dark skyfall +15% for 3 turns
+ group:
+ | group:
+ | condition: always turn 1
+   | condition: when 9743 on team
+   | (46655:83) 知れば誰もが望むだろう！ + 君のようになりたいと！ + 君のようでありたいと！
+   | Change all orbs to Dark, Jammer, and Poison + Lock all Dark, Jammer, and Poison orbs + Fix orb movement starting point to random position on the board, Deal 85% damage
+   | (46651:83) これが人の夢！ + 人の望み！人の業！ + 君とてその１つだろうが！
+   | Change all orbs to Dark, Jammer, and Poison + Lock all Dark, Jammer, and Poison orbs + Fix orb movement starting point to random position on the board, Deal 85% damage
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46659:97) ドラグーンシステム
+     | Blind random 8 orbs for 1 turn, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46660:50) 大型ビームサーベル
+     | Player -99% HP
+ | group:
+ | condition: turn 2, hp <= 49
+   | (46650:17) 他者より強く！他者より先へ！
+   | Increase damage to 150% for the next 999 turns

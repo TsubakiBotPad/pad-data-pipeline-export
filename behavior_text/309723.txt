@@ -1,0 +1,29 @@
+#309723 - νガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309723
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46774:129) ＿ν超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (46775:83) 邪気が来たか！ + フィン・ファンネル
+ | Voids status ailments for 999 turns + No description set, Deal 50% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (46782:83) ビーム・ライフル + ニュー・ハイパー・バズーカ
+     | Change the 1st and 6th columns to Heal orbs + A row of clouds appears for 1 turn at 5th row, 1st column, Deal 50% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (46785:83) フィン・ファンネルバリア + ビームサーベル
+     | Void damage >= 500,000,000 for 1 turn + Change the 4th and 5th rows to Wood and Light orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46778:83) サイコフレームの共振 + νガンダムは伊達じゃない！ + 離れろ！ガンダムの力はっ！
+   | ATK -75% for 2 turns + Reduce damage from all sources by 75% for 2 turns + Bind awoken skills for 1 turn, Deal 110% damage

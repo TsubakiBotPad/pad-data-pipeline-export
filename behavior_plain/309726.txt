@@ -1,0 +1,53 @@
+#309726 - シャア専用ザク
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:46613) -> 戦いとは
+	Absorb damage when combos <= 8 for 3 turns
+	[1] ESSkyfall(68:46614) -> ２手３手先を考えて行うものだ！
+	Fire skyfall +15% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESColumnSpawnMulti(77:46616) -> モビルスーツの性能の違いが
+	Change the 1st and 6th columns to Fire orbs, Deal 80% damage
+	[1] ESOrbLock(94:46617) -> 戦力の決定的差ではないということを
+	Lock all Fire orbs
+	[2] ESBlind5(5:46618) -> 教えてやる！
+	Blind all orbs on the board
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESColumnSpawnMulti(77:46619) -> ザク・バズーカ
+Change the 4th, 5th, and 6th columns to Fire and Jammer orbs, Deal 100% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESOrbChangeAttack(48:46620) -> 冗談ではない！
+Change a random attribute to Fire orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn

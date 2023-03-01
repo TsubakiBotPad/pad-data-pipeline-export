@@ -1,0 +1,44 @@
+#505858 - 裏極醒の無尽なるもの・ヨグ＝ソトース
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:44454) -> 無尽蔵な世界の排他的概念
+	Voids status ailments for 999 turns
+	[1] ESBindAwoken(88:44455) -> 構音禁戒せし真名
+	Bind awoken skills for 3 turns
+	[2] ESAttackMultihit(15:44456) -> 窮極の原型的終古
+	Deal 72% damage (3 hits, 24% each)
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	[0] ESChangeAttribute(46:44440) -> 確たる存在の超越
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:44441) -> 窮極の原型的終古
+	Deal 102% damage (3 hits, 34% each)
+
+#7: SkillSet:
+	[0] ESChangeAttribute(46:44440) -> 確たる存在の超越
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:44441) -> 窮極の原型的終古
+	Deal 102% damage (3 hits, 34% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESDeathCry(69:44452) -> 変身
+Condition: On death (ai:0 rnd:0)
+Show message: その姿は全てであり、どれでもない|世界の理が書き換えられていく

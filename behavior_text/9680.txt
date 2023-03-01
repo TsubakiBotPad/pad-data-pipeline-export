@@ -1,0 +1,52 @@
+#9680 - Super Reincarnated Lumiel
+monster size: 5
+new AI: True
+start/max counter: 31
+counter increment: 0
+monster_id: 9680
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (44413:83) 遊ぼー♪ + たくさんコンボしてね♪ + 討魔の試練 + まずは6コンボ頑張ってね！
+ | Movetime 160% for 5 turns + No skyfall for 5 turns + Random 2 orbs change every 1.0s for 1 turn + Absorb damage when combos <= 5 for 1 turn
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 6 combos last turn
+   | (44418:83) 次いくよ♪ + 討魔の試練 + 7コンボ頑張ってね！
+   | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Blind random 3 orbs for 1 turn + Absorb damage when combos <= 6 for 1 turn
+   | (44434:50) また挑戦してね！
+   | Player -500% HP
+ | group:
+ | condition: turn 2
+   | condition: when 7 combos last turn
+   | (44422:83) まだまだいくよ♪ + 8コンボ頑張ってね！
+   | Change the 1st and 2nd rows to Light orbs and the 3rd row to Heal orbs + Absorb damage when combos <= 7 for 1 turn
+   | (44434:50) また挑戦してね！
+   | Player -500% HP
+ | group:
+ | condition: turn 3
+   | condition: when 8 combos last turn
+   | (44425:83) どんどんいくよ♪ + これは… + どうかな！？ + 9コンボ頑張ってね！
+   | Change all orbs to Dark + Change the 2nd row to Fire orbs and the 4th row to Water orbs + Change the 1st column to Wood orbs and the 5th and 6th columns to Light orbs + Absorb damage when combos <= 8 for 1 turn
+   | (44434:50) また挑戦してね！
+   | Player -500% HP
+ | group:
+ | condition: turn 4
+   | condition: when 9 combos last turn
+   | (44430:83) 最後だよ♪ + 10コンボ頑張ってね！
+   | Spawn 6 random Fire, Water, Wood, Light, and Dark orbs + Absorb damage when combos <= 9 for 1 turn
+   | (44434:50) また挑戦してね！
+   | Player -500% HP
+ | group:
+ | condition: turn 5
+   | condition: when 10 combos last turn
+   | (44433:40) 楽しかったよ♪ また遊ぼうね！
+   | Reduce self HP to 0
+   | (44434:50) また挑戦してね！
+   | Player -500% HP
+ | group:
+   | condition: when 10 combos last turn
+   | (44433:40) 楽しかったよ♪ また遊ぼうね！
+   | Reduce self HP to 0

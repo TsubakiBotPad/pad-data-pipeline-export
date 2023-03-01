@@ -1,0 +1,33 @@
+#309730 - Zガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309730
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46753:73) ＿Z根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (46754:83) 貴様のような者がいるから + 戦いは終わらないんだ！！
+ | Absorb damage when damage >= 2,000,000,000 for 2 turns + Unable to match Fire and Water orbs for 2 turns, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (46760:150) 遊びでやってるんじゃないんだよぉッ！
+     | No description set, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (46761:105) まだ抵抗するのならッ！！
+     | RCV 50% for 1 turn, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (46762:77) ハイパー・メガ・ランチャー
+     | Change the 1st and 2nd columns to Heal orbs, Deal 110% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46757:83) 俺の身体をみんなに貸すぞ！！ + ここからいなくなれッ！！
+   | Heal skyfall +20% for 1 turn + Change all orbs to Fire, Water, and Heal, Deal 120% damage

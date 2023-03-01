@@ -1,0 +1,69 @@
+#609762 - プロヴィデンスガンダム
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBlindStickySkyfall(128:46648) -> 間もなく最後の扉が開く！………
+	For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESSkyfall(68:46649) -> この私が開く！
+	Dark skyfall +15% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCard(90:46646) -> ESBranchCard
+Branch on player_cards HAS [9743], target rnd 8
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardChangeAttackBits(85:46652) -> これが人の夢！
+	Change all orbs to Dark, Jammer, and Poison, Deal 85% damage
+	[1] ESOrbLock(94:46653) -> 人の望み！人の業！
+	Lock all Dark, Jammer, and Poison orbs
+	[2] ESFixedStart(101:46654) -> 君とてその１つだろうが！
+	Fix orb movement starting point to random position on the board
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBoardChangeAttackBits(85:46656) -> 知れば誰もが望むだろう！
+	Change all orbs to Dark, Jammer, and Poison, Deal 85% damage
+	[1] ESOrbLock(94:46657) -> 君のようになりたいと！
+	Lock all Dark, Jammer, and Poison orbs
+	[2] ESFixedStart(101:46658) -> 君のようでありたいと！
+	Fix orb movement starting point to random position on the board
+
+#9: ESAttackUPRemainingEnemies(17:46650) -> 他者より強く！他者より先へ！
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 14
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBlindStickyRandom(97:46659) -> ドラグーンシステム
+Blind random 8 orbs for 1 turn, Deal 85% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESGravity(50:46660) -> 大型ビームサーベル
+Player -99% HP
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

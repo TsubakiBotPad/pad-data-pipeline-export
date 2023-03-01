@@ -1,0 +1,63 @@
+#609764 - ユニオンフラッグカスタムII
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBranchCard(90:46674) -> ESBranchCard
+Branch on player_cards HAS [9746, 9747], target rnd 6
+
+#5: SkillSet:
+	[0] ESSkillDelay(89:46679) -> 今日の私は！
+	Delay active skills by 3 turns
+	[1] ESOrbLock(94:46680) -> 阿修羅すら凌駕する存在だ！！
+	Lock all orbs, Deal 50% damage
+
+#6: SkillSet:
+	[0] ESSkillDelay(89:46676) -> グラハム・エーカー………！
+	Delay active skills by 3 turns
+	[1] ESOrbLock(94:46677) -> 君の存在に心奪われた男だ！！
+	Lock all orbs, Deal 50% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESSkyfallLocked(96:46682) -> 私は君の圧倒的な性能に
+	Locked Heal skyfall +100% for 3 turns
+	[1] ESDebuffRCV(105:46683) -> 心を奪われた………！
+	RCV 50% for 3 turns
+	[2] ESBoardChangeAttackBits(85:46684) -> この気持ち、まさしく愛だ！！
+	Change all orbs to Heal, Deal 100% damage
+
+#9: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRowSpawnMulti(79:46686) -> だが愛を超越すれば
+	Change the 5th row to Heal orbs, Deal 100% damage
+	[1] ESUnknown(151:46687) -> それは憎しみとなる………！
+	No description set
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATKTarget(143:46689) -> だから私は君を倒す！
+	For 1 turn, 1% ATK for ???
+	[1] ESBlind5(5:46690) -> 世界などどうでもいい………！
+	Blind all orbs on the board
+	[2] ESGravity(50:46691) -> 己の意志でッ！！
+	Player -99% HP
+
+#11: ESRandomSpawn(92:46692) -> GNビームサーベル
+Spawn 10 random Dark orbs, Deal 90% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

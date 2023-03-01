@@ -1,0 +1,61 @@
+#409751 - ガンダム・バルバトスルプス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESDebuffATK(130:46733) -> おい、バルバトス
+	ATK -50% for 2 turns
+	[1] ESDamageShield(74:46734) -> あれはお前の獲物なんだろ？
+	Reduce damage from all sources by 75% for 2 turns, Deal 50% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfall(68:46736) -> 余計な鎖は外してやるから
+	Poison skyfall +15% for 2 turns
+	[1] ESBlindStickySkyfall(128:46737) -> 見せてみろよお前の力
+	For 2 turns, 15% chance for skyfall orbs to be blinded for turn, Deal 100% damage
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESNoSkyfall(127:46739) -> 使ってやるから、もっとよこせ
+	No skyfall for 10 turns
+	[1] ESAttackUPRemainingEnemies(17:46740) -> 阿頼耶識リミッター解除
+	Increase damage to 150% for the next 999 turns
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESRowSpawnMulti(79:46741) -> ソードメイス
+Change the 1st and 2nd rows to Fire and Dark orbs, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#13: ESSpinnersFixed(110:46742) -> ツインメイス
+Specific orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESResolve(73:46731) -> ＿ルプス根性
+Survive attacks with 1 HP when HP > 50%

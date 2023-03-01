@@ -1,0 +1,21 @@
+#409772 - ドム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 409772
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (46605:98) 黒い三連星
+ | Blind orbs in specific positions for 3 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (46606:83) ホバー移動 + ジャイアント・バズ + ヒート・サーベル
+   | Absorb damage when combos <= 9 for 1 turn + Spawn 6 random Dark orbs + Change the 1st and 6th columns to Dark orbs, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (46610:110) ジェット・ストリーム・アタック
+   | Specific orbs change every 1.0s for 1 turn, Deal 100% damage

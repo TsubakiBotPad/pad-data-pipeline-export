@@ -1,0 +1,68 @@
+#609766 - ガンダム・キマリス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBoardChangeAttackBits(85:46725) -> 気でも触れたか？
+	Change all orbs to Water, Deal 70% damage
+	[1] ESDebuffATKTarget(143:46726) -> 宇宙ネズミが！
+	For 1 turn, 50% ATK for 1 random sub
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 18
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESSkillDelay(89:46727) -> 高速移動
+Delay active skills by 2 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: ESSpinnersRandom(109:46728) -> スラッシュディスク
+Random 2 orbs change every 1.0s for 1 turn, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: ESBlindStickyRandom(97:46729) -> グングニール
+Blind random 1 orbs for 15 turns, Deal 105% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#19: ESGravity(50:46730) -> とどめだ！
+Player -99% HP
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

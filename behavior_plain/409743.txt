@@ -1,0 +1,57 @@
+#409743 - フリーダムガンダム
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESBoardSizeChange(126:46663) -> フルバーストモード
+	Change board size to 7x6 for 3 turns
+	[1] ESAbsorbCombo(67:46664) -> 力だけが僕の全てじゃない！
+	Absorb damage when combos <= 13 for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 20% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESChangeAttribute(46:46666) -> それでも！
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:46667) -> 守りたい世界があるんだッ！
+	Deal 90% damage (5 hits, 18% each)
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESSkyfall(68:46669) -> 想いだけでも………
+	Water skyfall +20% for 1 turn
+	[1] ESSkyfallLocked(96:46670) -> 力だけでも………！
+	Locked Water skyfall +100% for 1 turn, Deal 95% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: SkillSet:
+	[0] ESFixedStart(101:46672) -> 何故こんなことを平然と出来る！
+	Fix orb movement starting point to random position on the board
+	[1] ESDebuffATKTarget(143:46673) -> ラケルタビームサーベル
+	For 1 turn, 1% ATK for ???, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
