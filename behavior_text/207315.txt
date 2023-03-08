@@ -1,0 +1,38 @@
+#207315 - 双蛇の青鱗ヴァルナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207315
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45283:118) ドラゴン半減
+ | Reduce damage from Dragon types by 50%
+ type: PREEMPT
+ | (45261:83) 双蛇の縄張り + 水の波紋 + 水天の法
+ | For 5 turns, 15% chance for skyfall orbs to be blinded for turn + Bind awoken skills for 3 turns + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (45274:83) 双蛇の脱皮 + 双蛇の斧
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (45277:83) 水天の輝き + 双蛇の斧
+   | ATK -75% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (45280:83) 水天の煌めき + 双蛇の斧
+   | RCV 25% for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (45271:83) 水天の目覚め + 水光
+   | Water and Light skyfall +15% for 10 turns + Change the 1st row to Water orbs and the 4th and 5th rows to Water and Light orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (45265:83) 双蛇の眼光 + 水天の法
+     | Movetime 25% for 1 turn + Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison, Deal 100% damage
+   | group:
+     | (45268:83) 双蛇の脱皮 + 双蛇の逆鱗
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 600% damage (5 hits, 120% each), Deal 600% damage (5 hits, 120% each)

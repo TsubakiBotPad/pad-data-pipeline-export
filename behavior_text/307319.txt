@@ -1,0 +1,29 @@
+#307319 - 邪竜アスラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 307319
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (41221:118) ＿アスラ神半減
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (45220:83) 竜覇 + 破滅の息吹
+ | Locked random skyfall +100% for 3 turns + Absorb Fire and Water damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (41228:15) 竜の闘爪
+     | Deal 84% damage (3 hits, 28% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (41229:100) 対敵の咆哮
+     | Seal the 5th row for 1 turn, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (41225:83) 邪竜の滅鱗 + レベルアップ
+   | Reduce damage from all sources by 75% for 5 turns + Increase damage to 150% for the next 999 turns

@@ -1,0 +1,64 @@
+#209249 - 山の女神パールヴァティー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:45312) -> 大地の盾
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:45249) -> ルドラの神妃
+	Absorb damage when combos <= 8 for 1 turn
+	[2] ESUnknown(155:45250) -> 吹き荒れる山風
+	No description set
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 70, target rnd 7
+
+#4: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBindAttack(63:45255) -> 女神の束縛
+	Bind 2 random cards for 2 turns, Deal 100% damage
+	[1] ESUnknown(155:45256) -> 吹き荒れる山風
+	No description set
+
+#5: SkillSet:
+	[0] ESAttackMultihit(15:45258) -> 大地の憤怒
+	Deal 102% damage (3 hits, 34% each)
+	[1] ESUnknown(155:45259) -> 吹き荒れる山風
+	No description set
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:45252) -> ルドラの神妃
+	Absorb damage when combos <= 9 for 1 turn
+	[1] ESAttackMultihit(15:45313) -> 大地の憤怒
+	Deal 102% damage (3 hits, 34% each)
+	[2] ESUnknown(155:45253) -> 吹き荒れる山風
+	No description set
+
+#8: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESBindAttack(63:45255) -> 女神の束縛
+	Bind 2 random cards for 2 turns, Deal 100% damage
+	[1] ESUnknown(155:45256) -> 吹き荒れる山風
+	No description set
+
+#9: SkillSet:
+	[0] ESAttackMultihit(15:45258) -> 大地の憤怒
+	Deal 102% damage (3 hits, 34% each)
+	[1] ESUnknown(155:45259) -> 吹き荒れる山風
+	No description set
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSuperResolve(129:45260) -> 超根性70％
+Damage which would reduce HP from above 70% to below 70% is nullified

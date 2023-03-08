@@ -1,0 +1,93 @@
+#9860 - 創造の神ラージャン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:45285) -> 絶対の盾
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:45286) -> 天地創造
+	Absorb Fire, Water, and Wood damage for 3 turns
+	[2] ESUnknown(153:45287) -> 神鳴
+	No description set
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 12
+
+#4: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#5: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESRandomSpawn(92:45306) -> 稲妻
+	Spawn 3 random Light, Dark, and Heal orbs
+	[1] ESAttackMultihit(15:45307) -> 激震
+	Deal 102% damage (3 hits, 34% each)
+
+#6: SkillSet:
+	[0] ESUnknown(151:45309) -> 雷鳴
+	No description set
+	[1] ESAttackMultihit(15:45310) -> 激震
+	Deal 102% damage (3 hits, 34% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRowSpawnMulti(79:45295) -> 闇の波動
+	Change the 1st and 5th rows to Dark orbs, Deal 50% damage
+	[1] ESColumnSpawnMulti(77:45296) -> 光の波動
+	Change the 1st and 6th columns to Light orbs, Deal 50% damage
+	[2] ESOrbLock(94:45297) -> 創造の力
+	Lock all Light and Dark orbs
+	[3] ESAttributeBlock(107:45298) -> 絶対的な神
+	Unable to match Light and Dark orbs for 2 turns
+
+#9: SkillSet:
+	Condition: 50% chance (ai:50 rnd:0)
+	[0] ESUnknown(153:45300) -> 神鳴
+	No description set
+	[1] ESAttackMultihit(15:45301) -> 激震
+	Deal 102% damage (3 hits, 34% each)
+
+#10: SkillSet:
+	[0] ESAbsorbCombo(67:45303) -> 絶対の壁
+	Absorb damage when combos <= 8 for 1 turn
+	[1] ESOrbChangeAttackBits(108:45304) -> 雷光
+	Change all Dark orbs to Light and Heal orbs, Deal 101% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#14: SkillSet:
+	[0] ESDamageShield(74:45289) -> 絶対の守護
+	Reduce damage from all sources by 50% for 1 turn
+	[1] ESDebuffATKTarget(143:45290) -> 創造神の威光
+	For 1 turn, 5% ATK for 2 random subs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	[0] ESBindAwoken(88:45292) -> 終焉の光
+	Bind awoken skills for 1 turn
+	[1] ESAttackMultihit(15:45293) -> 超激震
+	Deal 600% damage (5 hits, 120% each)
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSuperResolve(129:45311) -> 超根性50％
+Damage which would reduce HP from above 50% to below 50% is nullified

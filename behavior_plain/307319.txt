@@ -1,0 +1,54 @@
+#307319 - 邪竜アスラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfallLocked(96:45221) -> 竜覇
+	Locked random skyfall +100% for 3 turns
+	[1] ESAbsorbAttribute(53:45222) -> 破滅の息吹
+	Absorb Fire and Water damage for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:41226) -> 邪竜の滅鱗
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:41227) -> レベルアップ
+	Increase damage to 150% for the next 999 turns
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESAttackMultihit(15:41228) -> 竜の闘爪
+Deal 84% damage (3 hits, 28% each)
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: ESOrbSealRow(100:41229) -> 対敵の咆哮
+Seal the 5th row for 1 turn, Deal 80% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESTypeResist(118:41221) -> ＿アスラ神半減
+Reduce damage from God types by 50%

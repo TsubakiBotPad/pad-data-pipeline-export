@@ -1,0 +1,29 @@
+#207317 - 夜明けの聖母ウシャス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207317
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45247:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (45234:83) 光の盾 + 聖母の天則 + 光の力
+ | Void damage >= 1,000,000,000 for 3 turns + Player -99% HP + Haste both leaders' skills by 20 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (45240:83) 聖母の慈悲 + 夜明けの輝き
+   | Spawn 3 random Heal orbs + Change all Dark orbs to Heal orbs, Deal 100% damage
+   | condition: 50% chance
+   | (45243:83) 光の導き + 光の讃歌
+   | Enemy recover 10% HP + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (45246:104) 夜明けの雲
+   | A 2×2 square of clouds appears for 1 turn at a random location, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (45237:83) 光の導き + 困惑の光
+   | Enemy recover 40% HP + Specific orbs change every 1.0s for 3 turns

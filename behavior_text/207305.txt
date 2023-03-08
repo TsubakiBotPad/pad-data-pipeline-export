@@ -1,0 +1,36 @@
+#207305 - 慈愛の母神シャクティ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 207305
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45223:83) 慈愛の聖域 + 魔力の抱擁
+ | Change board size to 5x4 for 2 turns + Absorb damage when combos <= 5 for 2 turns, Deal 100% damage
+ group:
+ | group:
+ | condition: turn 1
+   | condition: 33% chance
+   | (45229:83) 母神の意志 + 慈愛の剣舞
+   | Seal the 1st row for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (45232:77) 花びらの剣舞
+   | Change the 3rd and 4th columns to Wood and Light orbs, Deal 100% damage
+   | (45233:79) 母神の恵み
+   | Change the 3rd row to Heal orbs, Deal 101% damage
+ | group:
+ | condition: turn 2
+   | (45226:83) 慈愛の聖域 + 魔力の抱擁
+   | Change board size to 7x6 for 2 turns + Absorb damage when combos <= 13 for 2 turns, Deal 101% damage
+ | group:
+   | condition: 33% chance
+   | (45229:83) 母神の意志 + 慈愛の剣舞
+   | Seal the 1st row for 1 turn + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (45232:77) 花びらの剣舞
+   | Change the 3rd and 4th columns to Wood and Light orbs, Deal 100% damage
+   | (45233:79) 母神の恵み
+   | Change the 3rd row to Heal orbs, Deal 101% damage

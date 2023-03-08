@@ -1,0 +1,43 @@
+#9860 - 創造の神ラージャン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9860
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45311:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (45284:83) 絶対の盾 + 天地創造 + 神鳴
+ | Voids status ailments for 999 turns + Absorb Fire, Water, and Wood damage for 3 turns + No description set
+ group:
+ | group:
+   | condition: 50% chance
+   | (45305:83) 稲妻 + 激震
+   | Spawn 3 random Light, Dark, and Heal orbs + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+   | (45308:83) 雷鳴 + 激震
+   | No description set + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (45294:83) 闇の波動 + 光の波動 + 創造の力 + 絶対的な神
+     | Change the 1st and 5th rows to Dark orbs + Change the 1st and 6th columns to Light orbs + Lock all Light and Dark orbs + Unable to match Light and Dark orbs for 2 turns, Deal 50% damage
+   | group:
+     | condition: 50% chance
+     | (45299:83) 神鳴 + 激震
+     | No description set + Deal 102% damage (3 hits, 34% each), Deal 102% damage (3 hits, 34% each)
+     | (45302:83) 絶対の壁 + 雷光
+     | Absorb damage when combos <= 8 for 1 turn + Change all Dark orbs to Light and Heal orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (45288:83) 絶対の守護 + 創造神の威光
+     | Reduce damage from all sources by 50% for 1 turn + For 1 turn, 5% ATK for 2 random subs, Deal 100% damage
+   | group:
+     | (45291:83) 終焉の光 + 超激震
+     | Bind awoken skills for 1 turn + Deal 600% damage (5 hits, 120% each), Deal 600% damage (5 hits, 120% each)
