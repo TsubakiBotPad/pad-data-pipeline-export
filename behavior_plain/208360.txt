@@ -1,4 +1,4 @@
-#208360 - バレンタインの耀星神・アストレア
+#208360 - Valentine Gleaming Star Goddess, Astraea
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:33811) -> こ、こっち見ないでよ！
+	[0] ESStatusShield(20:33811) -> Hey, don't look yet!
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:33812) -> 余ったらあげてもいいけど…
+	[1] ESDamageShield(74:33812) -> I'll give you some if there are any left over...
 	Reduce damage from all sources by 50% for 2 turns
-	[2] ESSkyfallLocked(96:33813) -> 期待しないで
+	[2] ESSkyfallLocked(96:33813) -> Don't get your hopes up, though.
 	Locked random skyfall +25% for 10 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,23 +30,23 @@ Branch on hp < 50, target rnd 11
 
 #7: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESAbsorbAttribute(53:33831) -> シャインヘイズ
+	[0] ESAbsorbAttribute(53:33831) -> Shine Haze
 	Absorb Light damage for 1 turn
-	[1] ESOrbChangeAttackBits(108:33832) -> まだ見るなぁー！
+	[1] ESOrbChangeAttackBits(108:33832) -> No peeking!!
 	Change all Heal orbs to Light orbs, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 33% chance (ai:0 rnd:33)
-	[0] ESAbsorbAttribute(53:33834) -> シャインヘイズ
+	[0] ESAbsorbAttribute(53:33834) -> Shine Haze
 	Absorb Light damage for 1 turn
-	[1] ESOrbChangeAttackBits(108:33835) -> まだ見るなぁー！
+	[1] ESOrbChangeAttackBits(108:33835) -> No peeking!!
 	Change all Dark orbs to Light orbs, Deal 100% damage
 
 #9: SkillSet:
 	Condition: 34% chance (ai:0 rnd:34)
-	[0] ESAbsorbAttribute(53:33837) -> シャインヘイズ
+	[0] ESAbsorbAttribute(53:33837) -> Shine Haze
 	Absorb Dark damage for 1 turn
-	[1] ESAttackMultihit(15:33838) -> スイートステイシス
+	[1] ESAttackMultihit(15:33838) -> Sweet Stasis
 	Deal 105% damage (3 hits, 35% each)
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -59,9 +59,9 @@ Branch on flag & 1, target rnd 15
 flag SET 0b1
 
 #13: SkillSet:
-	[0] ESDebuffATK(130:33815) -> 甘い香り
+	[0] ESDebuffATK(130:33815) -> Sweet Scent
 	ATK -50% for 5 turns
-	[1] ESOrbLock(94:33823) -> ほらっ！あげる！
+	[1] ESOrbLock(94:33823) -> Here! Take these!
 	Lock 15 random orbs, Deal 100% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -69,15 +69,15 @@ end_turn
 
 #15: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESOrbSealRow(100:33825) -> 誘惑のチョコ
+	[0] ESOrbSealRow(100:33825) -> Bewitching Chocolate
 	Seal the 1st row for 1 turn
-	[1] ESColumnSpawnMulti(77:33826) -> 義理チョコだからね！
+	[1] ESColumnSpawnMulti(77:33826) -> Don't think I mean anything by this!
 	Change the 2nd and 5th columns to Dark orbs, Deal 101% damage
 
 #16: SkillSet:
-	[0] ESSkillDelay(89:33828) -> 魅惑のチョコ
+	[0] ESSkillDelay(89:33828) -> Enticing Chocolate
 	Delay active skills by 2 turns
-	[1] ESRowSpawnMulti(79:33829) -> 義理チョコだからね！
+	[1] ESRowSpawnMulti(79:33829) -> Don't think I mean anything by this!
 	Change the 2nd and 4th rows to Dark orbs, Deal 101% damage
 
 #17: ESEndPath(36:26) -> ESEndPath
@@ -90,28 +90,28 @@ Branch on flag & 2, target rnd 22
 flag SET 0b11
 
 #20: SkillSet:
-	[0] ESBindAwoken(88:33818) -> 耀星神の眼差し
+	[0] ESBindAwoken(88:33818) -> Gleaming Star Goddess' Gaze
 	Bind awoken skills for 1 turn
-	[1] ESRandomSpawn(92:33819) -> 焦げたチョコ
+	[1] ESRandomSpawn(92:33819) -> Burnt Chocolate
 	Spawn 7 random Jammer orbs
 
 #21: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#22: ESAttackMultihit(15:33820) -> 超スイートステイシス
+#22: ESAttackMultihit(15:33820) -> Super Sweet Stasis
 Deal 350% damage (7 hits, 50% each)
 
 #23: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #24: SkillSet:
-	[0] ESDamageShield(74:33822) -> 耀星神の守り
+	[0] ESDamageShield(74:33822) -> Gleaming Star Goddess' Protection
 	Reduce damage from all sources by 25% for 99 turns
-	[1] ESAttributeBlock(107:33816) -> 耀星神の想い
+	[1] ESAttributeBlock(107:33816) -> Gleaming Star Goddess' Feelings
 	Unable to match Light and Dark orbs for 3 turns
 
 #25: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#26: ESAttributeResist(72:33840) -> 光半減
+#26: ESAttributeResist(72:33840) -> Light Halved
 Reduce damage from Light attrs by 50%
