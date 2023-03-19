@@ -1,0 +1,29 @@
+#207436 - 海馬瀬人＆青眼の究極竜
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:47141) -> デュエル！
+	Voids status ailments for 999 turns
+	[1] ESOrbLock(94:47142) -> 罠カード「最終突撃命令」
+	Lock 7 random orbs, Deal 100% damage
+
+#3: ESAttackMultihit(15:47143) -> アルティメット・バースト
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#4: ESDebuffRCV(105:47144) -> 貴様を葬り去る
+Condition: 50% chance (ai:50 rnd:0)
+RCV 50% for 1 turn, Deal 100% damage
+
+#5: ESOrbChangeAttackBits(108:47145) -> アルティメット・ドラゴンの攻撃
+Change all Wood orbs to Water orbs, Deal 100% damage
+
+#6: ESTypeResist(118:47146) -> 体力半減
+Reduce damage from Physical types by 50%

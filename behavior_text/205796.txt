@@ -1,0 +1,46 @@
+#205796 - 闇バクラ＆ダーク・ネクロフィア
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+monster_id: 205796
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15730:107) デュエル！
+ | Unable to match Light orbs for 2 turns
+ group:
+ | group:
+   | (15732:15) 念眼殺
+   | Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 74
+   | (15731:5) ダーク・ネクロフィア召喚
+   | Blind all orbs on the board
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: execute repeatedly, turn 1 of 6
+     | (15733:74) 永続罠「ウィジャ盤」
+     | Reduce damage from all sources by 30% for 4 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 6
+     | (15734:66) 死のメッセージ「D」
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 3 of 6
+     | (15735:66) 死のメッセージ「E」
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 4 of 6
+     | (15736:66) 死のメッセージ「A」
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 5 of 6
+     | (15737:66) 死のメッセージ「T」
+     | Do nothing
+   | group:
+   | condition: execute repeatedly, turn 6 of 6
+     | (15738:15) 死のメッセージ「H」
+     | Deal 260% damage

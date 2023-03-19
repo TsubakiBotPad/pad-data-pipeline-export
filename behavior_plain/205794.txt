@@ -1,0 +1,59 @@
+#205794 - 孔雀舞＆ハーピィ・レディ・SB
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:15740) -> デュエル！
+	Voids status ailments for 999 turns
+	[1] ESAttackMultihit(15:15742) -> スクラッチ・クラッシュ
+	Deal 100% damage (2 hits, 50% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDispel(6:15744) -> 魔法カード「ハーピィの羽根帚」
+Voids player buff effects
+
+#9: ESAbsorbCombo(67:15741) -> 罠カード「銀幕のミラーウォール」
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb damage when combos <= 4 for 3 turns
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 14
+
+#11: ESBindRandom(1:15743) -> 装備カード「誘惑のシャドウ」
+Condition: 50% chance (ai:50 rnd:0)
+Bind 1 random card for 1 turn, Deal 95% damage
+
+#12: ESAttackMultihit(15:15742) -> スクラッチ・クラッシュ
+Deal 100% damage (2 hits, 50% each)
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackUPRemainingEnemies(17:15745) -> 装備カード「薔薇の鞭」
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 3 turns
+
+#15: ESAttackMultihit(15:15746) -> ウイップ・パニッシュ
+Deal 120% damage (3 hits, 40% each)
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn

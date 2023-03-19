@@ -1,0 +1,29 @@
+#207445 - ダイナソー竜崎＆二頭を持つキング・レックス
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:47101) -> いくで！
+	Voids status ailments for 999 turns
+	[1] ESColumnSpawnMulti(76:47102) -> 二頭を持つキング・レックス攻撃表示！
+	Change the 1st column to Fire orbs and the 6th column to Wood orbs
+
+#3: ESGravity(50:47103) -> 一撃粉砕！
+Condition: 33% chance (ai:33 rnd:0)
+Player -50% HP
+
+#4: ESOrbLock(94:47104) -> ダイナソー・フット・スタンプ
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Fire orbs, Deal 101% damage
+
+#5: ESTargetedSkillHaste(139:47105) -> さっさと次のカード出せや！
+Haste random sub's skills by 2 turns, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,26 @@
+#207438 - 城之内克也＆レッドアイズ・ブラックメタルドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207438
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (47139:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (47131:83) 俺がここでおまえを倒す！ + 黒炎弾
+ | Locked random skyfall +25% for 5 turns + Change the 2nd row to Fire and Dark orbs, Deal 101% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (47137:15) おもしれーじゃねえか!!
+   | Deal 102% damage (3 hits, 34% each)
+   | (47138:79) 黒炎弾
+   | Change the 4th row to Fire and Dark orbs, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (47134:83) 罠カード「時の機械－タイム・マシーン」 + 魔法カード「闇竜族の爪」
+   | Enemy recover 30% HP + Increase damage to 150% for the next 999 turns, Deal 100% damage

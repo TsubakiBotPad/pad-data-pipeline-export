@@ -1,0 +1,44 @@
+#207438 - 城之内克也＆レッドアイズ・ブラックメタルドラゴン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESSkyfallLocked(96:47132) -> 俺がここでおまえを倒す！
+	Locked random skyfall +25% for 5 turns
+	[1] ESRowSpawnMulti(79:47133) -> 黒炎弾
+	Change the 2nd row to Fire and Dark orbs, Deal 101% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESAttackMultihit(15:47137) -> おもしれーじゃねえか!!
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESRowSpawnMulti(79:47138) -> 黒炎弾
+Change the 4th row to Fire and Dark orbs, Deal 101% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESRecoverEnemy86(86:47135) -> 罠カード「時の機械－タイム・マシーン」
+	Enemy recover 30% HP
+	[1] ESAttackUPRemainingEnemies(17:47136) -> 魔法カード「闇竜族の爪」
+	Increase damage to 150% for the next 999 turns, Deal 100% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESAttributeResist(72:47139) -> 火半減
+Reduce damage from Fire attrs by 50%

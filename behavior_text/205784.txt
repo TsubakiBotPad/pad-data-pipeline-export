@@ -1,0 +1,31 @@
+#205784 - 海馬瀬人＆青眼の白龍
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 205784
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15761:83) デュエル！ + オレの未来はオレが決める！
+ | Reduce damage from all sources by 50% for 5 turns + Seal the 1st row for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (15757:57) 罠カード「死のデッキ破壊ウイルス」
+     | Change a random attribute to Poison orbs
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | (15756:15) 行け、ブルーアイズ！
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (15758:17) 青眼の白龍で攻撃！
+     | Increase damage to 150% for the next 1 turn
+   | group:
+     | (15760:77) 滅びのバースト・ストリーム
+     | Change the 3rd column to Water orbs and the 4th column to Water orbs, Deal 150% damage

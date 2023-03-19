@@ -1,0 +1,29 @@
+#205788 - 闇マリク＆ラーの翼神竜-不死鳥-
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205788
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (47156:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (47147:83) さぁ、闇のゲームの始まりだ + 知らしめてやる　ラーの力をな！
+ | For 3 turns, 15% chance for skyfall orbs to be blinded for turn + No description set
+ group:
+ | group:
+   | condition: 33% chance
+   | (47153:77) 灼熱の炎で焼き尽くしてやるぜぇ
+   | Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+   | condition: 50% chance
+   | (47154:15) さぁて、オレの反撃だ
+   | Deal 102% damage (3 hits, 34% each)
+   | (47155:151) ゴッド・フェニックスの特殊能力発動
+   | No description set, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (47150:83) さぁラーよ、地より蘇生し天を舞え！ + どんな攻撃も通用しない！
+   | Absorb damage when combos <= 7 for 3 turns + Void damage >= 1,000,000,000 for 3 turns, Deal 100% damage

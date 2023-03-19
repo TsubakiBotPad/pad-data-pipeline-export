@@ -1,0 +1,35 @@
+#205792 - 城之内克也＆真紅眼の黒竜
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 205792
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15754:83) デュエル！ + 受けてみろ、オレの真紅眼の黒竜
+ | Player -75% HP + Fire and Dark skyfall +25% for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (15749:17) 行くぜ！
+     | Increase damage to 150% for the next 1 turn
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (15750:92) 黒炎弾
+     | Spawn 3 random Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (15751:86) オレは諦めねぇ！最後の最後まで！
+   | Enemy recover 50% HP
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (15752:74) 罠カード「メタル化・魔法反射装甲」
+     | Reduce damage from all sources by 75% for 3 turns
+   | group:
+     | (15753:92) ダーク・メガ・フレア
+     | Spawn 5 random Fire and Dark orbs, Deal 200% damage

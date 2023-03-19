@@ -1,0 +1,36 @@
+#205794 - 孔雀舞＆ハーピィ・レディ・SB
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205794
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (15739:83) デュエル！ + スクラッチ・クラッシュ
+ | Voids status ailments for 999 turns + Deal 100% damage (2 hits, 50% each), Deal 100% damage (2 hits, 50% each)
+ group:
+ | group:
+ | condition: always turn 1
+   | (15741:67) 罠カード「銀幕のミラーウォール」
+   | Absorb damage when combos <= 4 for 3 turns
+ | group:
+   | (15744:6) 魔法カード「ハーピィの羽根帚」
+   | Voids player buff effects
+   | condition: 50% chance
+   | (15743:1) 装備カード「誘惑のシャドウ」
+   | Bind 1 random card for 1 turn, Deal 95% damage
+   | (15742:15) スクラッチ・クラッシュ
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 2
+     | (15745:17) 装備カード「薔薇の鞭」
+     | Increase damage to 150% for the next 3 turns
+   | group:
+     | (15744:6) 魔法カード「ハーピィの羽根帚」
+     | Voids player buff effects
+     | (15746:15) ウイップ・パニッシュ
+     | Deal 120% damage (3 hits, 40% each)

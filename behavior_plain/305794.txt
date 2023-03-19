@@ -1,0 +1,38 @@
+#305794 - 孔雀舞＆ハーピィ・レディ・SB
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBindAwoken(88:47114) -> 魔法カード「ハーピィの羽根帚」
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 7
+
+#4: ESRandomSpawn(92:47118) -> 装備カード「誘惑のシャドウ」
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 2 random Fire and Wood orbs, Deal 100% damage
+
+#5: ESBlind62(62:47119) -> スクラッチ・クラッシュ
+Blind all orbs on the board, Deal 101% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDebuffATK(130:47116) -> 罠カード「銀幕のミラーウォール」
+	ATK -50% for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:47117) -> 装備カード「薔薇の鞭」
+	Increase damage to 150% for the next 999 turns, Deal 100% damage
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn

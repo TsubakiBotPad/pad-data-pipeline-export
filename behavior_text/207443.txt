@@ -1,0 +1,30 @@
+#207443 - インセクター羽蛾＆インセクト女王
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 207443
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (47106:83) これから教えてやるぜ！ + スーパーインセクトデッキの恐ろしさを！
+ | Voids status ailments for 999 turns + Mortal Poison skyfall +15% for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (47110:67) 魔法カード「虫除けバリアー」
+   | Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+   | condition: 25% chance
+   | (47111:15) クイーンズ・ヘル・ブレス
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 25% chance
+   | (47112:92) クイーンズ・インパクト
+   | Spawn 4 random Wood orbs, Deal 100% damage
+   | condition: 25% chance
+   | (47113:64) さぁ出番だ、女王様！
+   | Change 3 random orbs to Poison orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (47109:17) 魔法カード「寄生虫の暴走」
+   | Increase damage to 150% for the next 999 turns

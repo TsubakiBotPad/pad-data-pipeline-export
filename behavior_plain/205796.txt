@@ -1,0 +1,111 @@
+#205796 - 闇バクラ＆ダーク・ネクロフィア
+monster size: 5
+new AI: True
+start/max counter: 5
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAttributeBlock(107:15730) -> デュエル！
+Unable to match Light orbs for 2 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 75, target rnd 32
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 12
+
+#10: ESAttackMultihit(15:15732) -> 念眼殺
+Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESDamageShield(74:15733) -> 永続罠「ウィジャ盤」
+Condition: One-time use (ai:100 rnd:0) (cost: 5)
+Reduce damage from all sources by 30% for 4 turns
+
+#13: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 17
+
+#14: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#15: ESInactivity66(66:15734) -> 死のメッセージ「D」
+Do nothing
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 21
+
+#18: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#19: ESInactivity66(66:15735) -> 死のメッセージ「E」
+Do nothing
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 25
+
+#22: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#23: ESInactivity66(66:15736) -> 死のメッセージ「A」
+Do nothing
+
+#24: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#25: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 4, target rnd 29
+
+#26: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#27: ESInactivity66(66:15737) -> 死のメッセージ「T」
+Do nothing
+
+#28: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#29: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#30: ESAttackMultihit(15:15738) -> 死のメッセージ「H」
+Deal 260% damage
+
+#31: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#32: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 9
+
+#33: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#34: ESBlind5(5:15731) -> ダーク・ネクロフィア召喚
+Blind all orbs on the board
+
+#35: ESEndPath(36:26) -> ESEndPath
+end_turn

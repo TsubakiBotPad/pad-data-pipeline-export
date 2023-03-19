@@ -1,0 +1,48 @@
+#205788 - 闇マリク＆ラーの翼神竜-不死鳥-
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESBlindStickySkyfall(128:47148) -> さぁ、闇のゲームの始まりだ
+	For 3 turns, 15% chance for skyfall orbs to be blinded for turn
+	[1] ESUnknown(155:47149) -> 知らしめてやる　ラーの力をな！
+	No description set
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESColumnSpawnMulti(77:47153) -> 灼熱の炎で焼き尽くしてやるぜぇ
+Condition: 33% chance (ai:33 rnd:0)
+Change the 1st and 6th columns to Fire orbs, Deal 100% damage
+
+#5: ESAttackMultihit(15:47154) -> さぁて、オレの反撃だ
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESUnknown(151:47155) -> ゴッド・フェニックスの特殊能力発動
+No description set, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESAbsorbCombo(67:47151) -> さぁラーよ、地より蘇生し天を舞え！
+	Absorb damage when combos <= 7 for 3 turns
+	[1] ESVoidShield(71:47152) -> どんな攻撃も通用しない！
+	Void damage >= 1,000,000,000 for 3 turns, Deal 100% damage
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESAttributeResist(72:47156) -> 闇半減
+Reduce damage from Dark attrs by 50%
