@@ -1,0 +1,41 @@
+#205812 - クリボー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:47200) -> クリボー召喚
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThreshold(87:47201) -> クーリッ！
+	Absorb damage when damage >= 1,000,000,000 for 3 turns, Deal 100% damage
+
+#3: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 6
+
+#4: ESUnknown(150:47206) -> クリー！
+No description set, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	[0] ESBoardChangeAttackBits(85:47203) -> 魔法カード「増殖」
+	Change all orbs to Wood, Deal 120% damage
+	[1] ESOrbLock(94:47204) -> クー！
+	Lock all Wood orbs
+	[2] ESEndBattle(40:47205) -> 機雷化
+	Reduce self HP to 0
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESTypeResist(118:47208) -> 体力半減
+Reduce damage from Physical types by 50%
+
+#9: ESSuperResolve(129:47207) -> 超根性50％ 
+Damage which would reduce HP from above 50% to below 50% is nullified

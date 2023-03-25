@@ -1,4 +1,4 @@
-#209660 - 怒りの仮面・キルバーン
+#209660 - Mask of Anger, Killvearn
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESBlind62(62:45056) -> この手でいたぶり殺してやる…!!!
+	[0] ESBlind62(62:45056) -> I'm going to kill you myself...!!!
 	Blind all orbs on the board, Deal 80% damage
-	[1] ESSkyfall(68:45057) -> ファントムレイザー
+	[1] ESSkyfall(68:45057) -> Phantom Razor
 	Jammer and Poison skyfall +15% for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESBombFixedSpawn(103:45058) -> メガンテ
+#6: ESBombFixedSpawn(103:45058) -> Megante
 Condition: When < 1% HP (ai:100 rnd:0)
 Spawn locked Bomb orbs in the specified positions, Deal 125% damage
 
@@ -35,7 +35,7 @@ Branch on counter = 1, target rnd 12
 #9: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#10: ESFixedStart(101:45059) -> 心臓を…真っすぐ一突き!!
+#10: ESFixedStart(101:45059) -> A single stab...to the heart!!
 Fix orb movement starting point to random position on the board, Deal 97% damage
 
 #11: ESEndPath(36:26) -> ESEndPath
@@ -44,7 +44,7 @@ end_turn
 #12: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#13: ESDebuffRCV(105:45060) -> …これでとどめっ!!!
+#13: ESDebuffRCV(105:45060) -> ...And now...it's over!!
 RCV 0% for 1 turn, Deal 85% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -54,13 +54,13 @@ end_turn
 counter = 0
 
 #16: SkillSet:
-	[0] ESRowSpawnMulti(79:45062) -> バーニングクリメイション
+	[0] ESRowSpawnMulti(79:45062) -> Incinerating Inferno
 	Change the 1st, 2nd, and 3rd rows to Fire and Dark orbs, Deal 100% damage
-	[1] ESUnknown(151:45063) -> 死の神なんだぁぁっ!!!!
+	[1] ESUnknown(151:45063) -> I am the god of death!!
 	No description set
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:45054) -> ＿キルバーン根性
+#18: ESResolve(73:45054) -> ＿Killvearn Resolve
 Survive attacks with 1 HP when HP > 50%

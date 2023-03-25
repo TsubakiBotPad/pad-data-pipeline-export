@@ -1,0 +1,29 @@
+#205798 - ブラック・マジシャン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 205798
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (47194:118) バランス半減
+ | Reduce damage from Balanced types by 50%
+ type: PREEMPT
+ | (47187:83) ブラック・マジシャン召喚 + 罠カード「ブラック・イリュージョン」 + 魔法カード「千本ナイフ」
+ | Voids status ailments for 999 turns + Void damage >= 1,000,000,000 for 3 turns + No description set, Deal 101% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (47191:153) 魔法カード「千本ナイフ」
+   | No description set, Deal 101% damage
+   | condition: 50% chance
+   | (47192:14) 魔法カード「拡散する波動」
+   | Bind active skills for 3 turns, Deal 100% damage
+   | (47193:108) ブラック・マジック
+   | Change all Light and Heal orbs to Dark orbs, Deal 101% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (47190:74) 魔法カード「秘術の書」
+   | Reduce damage from all sources by 50% for 5 turns, Deal 100% damage

@@ -14,15 +14,15 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESVoidShieldBig(137:45106) -> みかわしダンス
+	[0] ESVoidShieldBig(137:45106) -> Dodgy Dance
 	Void damage >= 2,000,000,000 for 5 turns
-	[1] ESDamageShield(74:45107) -> スカラ
+	[1] ESDamageShield(74:45107) -> Buff
 	Reduce damage from all sources by 50% for 5 turns
 
 #5: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#6: ESRecoverEnemy86(86:45110) -> ベホイミ
+#6: ESRecoverEnemy86(86:45110) -> Midheal
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Enemy recover 100% HP
 
@@ -32,7 +32,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESSpinnersRandom(109:45108) -> スピンアタック
+#9: ESSpinnersRandom(109:45108) -> Spinning Strike
 Random 3 orbs change every 1.0s for 1 turn, Deal 95% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -41,7 +41,7 @@ end_turn
 #11: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#12: ESSkyfall(68:45109) -> ホイミ
+#12: ESSkyfall(68:45109) -> Heal
 Heal skyfall +25% for 1 turn, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath

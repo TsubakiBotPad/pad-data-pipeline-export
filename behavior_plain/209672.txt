@@ -1,4 +1,4 @@
-#209672 - ゴーレム
+#209672 - Golem
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -14,9 +14,9 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #4: SkillSet:
-	[0] ESAbsorbAttribute(53:45113) -> みがわり
+	[0] ESAbsorbAttribute(53:45113) -> Selflessness
 	Absorb Fire and Water damage for 5 turns
-	[1] ESAttackUPRemainingEnemies(17:45114) -> ちからをためる
+	[1] ESAttackUPRemainingEnemies(17:45114) -> Muster Strength
 	Increase damage to 200% for the next 1 turn
 
 #5: ESEndPath(36:26) -> ESEndPath
@@ -31,7 +31,7 @@ Branch on counter = 1, target rnd 11
 #8: ESSetCounter(26:16) -> ESSetCounter
 counter + 1
 
-#9: ESRandomSpawn(92:45115) -> たいあたり
+#9: ESRandomSpawn(92:45115) -> Body Slam
 Spawn 10 random Wood orbs, Deal 90% damage
 
 #10: ESEndPath(36:26) -> ESEndPath
@@ -41,9 +41,9 @@ end_turn
 counter + 1
 
 #12: SkillSet:
-	[0] ESDamageShield(74:45117) -> におうだち
+	[0] ESDamageShield(74:45117) -> Forbearance
 	Reduce damage from all sources by 75% for 1 turn
-	[1] ESAttackUPRemainingEnemies(17:45118) -> ちからをためる
+	[1] ESAttackUPRemainingEnemies(17:45118) -> Muster Strength
 	Increase damage to 200% for the next 1 turn
 
 #13: ESEndPath(36:26) -> ESEndPath
@@ -52,11 +52,11 @@ end_turn
 #14: ESSetCounter(25:15) -> ESSetCounter
 counter = 0
 
-#15: ESBlindStickyRandom(97:45119) -> つうこんのいちげき
+#15: ESBlindStickyRandom(97:45119) -> Critical hit!
 Blind random 10 orbs for 3 turns, Deal 120% damage
 
 #16: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#17: ESResolve(73:45111) -> ＿ゴーレム根性
+#17: ESResolve(73:45111) -> ＿Golem Resolve
 Survive attacks with 1 HP when HP > 50%

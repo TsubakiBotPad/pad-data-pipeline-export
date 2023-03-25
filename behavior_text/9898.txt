@@ -1,0 +1,40 @@
+#9898 - カオス・ソルジャー
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9898
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (47221:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ | (47222:129) 超根性50％
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (47209:83) 魔法カード「カオスの儀式」 + 生け贄を捧げる + カオス・ソルジャー降臨
+ | Voids status ailments for 999 turns + Unable to match Wood and Heal orbs for 2 turns + Reduce damage from all sources by 50% for 2 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (47218:143) 超戦士の力
+   | For 1 turn, 5% ATK for both leaders, Deal 101% damage
+   | condition: 50% chance
+   | (47219:151) 混沌の場
+   | No description set, Deal 100% damage
+   | (47220:15) カオス・ブレード
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (47215:83) ひとつの魂は光を誘い + ひとつの魂は闇を導く + 超戦士の力
+   | Bind awoken skills for 3 turns + Blind random 7 orbs for 3 turns + For 1 turn, 5% ATK for both leaders, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (47213:17) 攻撃表示
+     | Increase damage to 700% for the next 999 turns, Deal 100% damage
+   | group:
+     | (47214:15) カオス・ブレード
+     | Deal 75% damage (5 hits, 15% each)

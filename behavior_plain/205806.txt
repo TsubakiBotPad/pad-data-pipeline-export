@@ -1,0 +1,33 @@
+#205806 - 暗黒騎士ガイア
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESUnknown(154:47195) -> 暗黒騎士ガイア召喚
+No description set, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESDebuffMovetime(39:47196) -> 暗黒騎士ガイアの攻撃
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Movetime 25% for 1 turn, Deal 100% damage
+
+#7: ESDebuffRCV(105:47197) -> スパイラル・シェイバー
+RCV 25% for 1 turn, Deal 101% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESTypeResist(118:47198) -> 神半減
+Reduce damage from God types by 50%

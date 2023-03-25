@@ -1,0 +1,24 @@
+#9880 - エルフの剣士
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 9880
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (47186:118) マシン半減
+ | Reduce damage from Machine types by 50%
+ type: PREEMPT
+ | (47180:83) エルフの剣士召喚 + ウォォ！ + 攻撃表示
+ | Movetime 25% for 3 turns + ATK -75% for 3 turns + Increase damage to 500% for the next 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (47184:15) 精・剣・斬
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (47185:17) 攻撃表示
+   | Increase damage to 500% for the next 1 turn

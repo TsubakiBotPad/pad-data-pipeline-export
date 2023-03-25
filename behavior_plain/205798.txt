@@ -1,0 +1,47 @@
+#205798 - ブラック・マジシャン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:47188) -> ブラック・マジシャン召喚
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:47189) -> 罠カード「ブラック・イリュージョン」
+	Void damage >= 1,000,000,000 for 3 turns
+	[2] ESUnknown(153:47191) -> 魔法カード「千本ナイフ」
+	No description set, Deal 101% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESUnknown(153:47191) -> 魔法カード「千本ナイフ」
+Condition: 33% chance (ai:33 rnd:0)
+No description set, Deal 101% damage
+
+#5: ESBindSkill(14:47192) -> 魔法カード「拡散する波動」
+Condition: 50% chance (ai:50 rnd:0)
+Bind active skills for 3 turns, Deal 100% damage
+
+#6: ESOrbChangeAttackBits(108:47193) -> ブラック・マジック
+Change all Light and Heal orbs to Dark orbs, Deal 101% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDamageShield(74:47190) -> 魔法カード「秘術の書」
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 5 turns, Deal 100% damage
+
+#9: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 4
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESTypeResist(118:47194) -> バランス半減
+Reduce damage from Balanced types by 50%
