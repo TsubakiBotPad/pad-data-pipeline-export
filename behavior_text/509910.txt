@@ -1,0 +1,29 @@
+#509910 - GS・ノーチラス
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 509910
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (47309:83) 準備はバッチリだよ！ + ミュージックスタート！
+ | Seal the 5th row for 5 turns + Change the 1st and 6th columns to Heal orbs
+ type: DEATH
+ condition: when defeated
+ | (47315:95) 素敵な時間をありがとう！
+ | Reduce self HP to 0
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 3
+   | (47312:92) いっくよー！
+   | Spawn 6 random Wood orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 3
+   | (47313:150) テンポアップ！
+   | No description set, Deal 95% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 3
+   | (47314:151) ちょっと難しい曲になるよ～
+   | No description set, Deal 90% damage

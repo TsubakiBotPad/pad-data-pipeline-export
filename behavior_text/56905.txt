@@ -1,0 +1,38 @@
+#56905 - Vast Ocean's Maiden, Toyotama-Hime
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 56905
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22587:83) Whatever you do, please... + ...don't look upon my true form.
+ | Delay active skills by 1~3 turns + No skyfall for 4 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (22590:89) Divine Power
+     | Delay active skills by 4 turns
+   | group:
+     | condition: 33% chance
+     | (22592:1) You cannot go any further.
+     | Bind 2 random cards for 3 turns, Deal 80% damage
+     | condition: 33% chance
+     | (22591:74) The Boundary of Sea and Shore
+     | Reduce damage from all sources by 50% for 1 turn, Deal 90% damage
+     | condition: 34% chance
+     | (22593:15) Sea God's Fury
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22594:83) You looked, didn't you? + Even after I told you not to...
+     | Increase damage to 150% for the next 4 turns + Lock all orbs
+   | group:
+   | condition: turn 2
+     | (22590:89) Divine Power
+     | Delay active skills by 4 turns

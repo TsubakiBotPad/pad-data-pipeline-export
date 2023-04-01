@@ -1,0 +1,32 @@
+#209908 - GS・シェアト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209908
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46885:73) ＿根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (46887:118) ＿体力半減
+ | Reduce damage from Physical types by 50%
+ type: PREEMPT
+ | (46846:83) さ、歌うよ + 私の歌、聴き逃さないでね
+ | Void damage >= 1,000,000,000 for 3 turns + Lock 8 random orbs, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (46852:153) むか……
+   | No description set, Deal 100% damage
+   | condition: 33% chance
+   | (46853:151) むか……
+   | No description set, Deal 105% damage
+   | condition: 34% chance
+   | (46854:15) 声が小さくない？
+   | Deal 108% damage (3 hits, 36% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46849:83) 音楽を聴いていると + ドキドキ、わくわくするの
+   | Locked random skyfall +100% for 1 turn + Change all orbs to Heal and Poison, Deal 100% damage

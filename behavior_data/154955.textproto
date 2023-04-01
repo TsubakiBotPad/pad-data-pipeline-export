@@ -1,0 +1,96 @@
+  monster_id: 154955
+  levels {
+    level: 4
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 14860
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 29
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 14861
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  condition {
+                    use_chance: 40
+                  }
+                  enemy_skill_id: 14854
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 40
+                  }
+                  enemy_skill_id: 14855
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 29
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 14857
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 14858
+                }
+              }
+              children {
+                behavior {
+                  condition {
+                    use_chance: 50
+                  }
+                  enemy_skill_id: 14859
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

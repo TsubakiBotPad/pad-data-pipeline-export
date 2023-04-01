@@ -1,0 +1,24 @@
+#556958 - High Priest Tenkai
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 556958
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38900:72) ＿Halve Dark
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (38901:97) High Priest's Buddhist Power
+ | Blind random 10 orbs for 1 turn
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38902:98) High Priest's Buddhist Power
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38903:98) High Priest's Buddhist Power
+   | Blind orbs in specific positions for 1 turn, Deal 100% damage

@@ -1,0 +1,33 @@
+#459103 - Viridian Bony Empress, Skull Maiden
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 459103
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38989:129) ＿Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (38990:83) I am Skull Maiden... + ...brought into being by the Skull Curator...
+ | Voids status ailments for 999 turns + Absorb Fire, Water, and Wood damage for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (38994:143) There is only one who may see my face.
+     | For 1 turn, 1% ATK for 1 random sub, Deal 85% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (38995:107) Artificial Flame
+     | Unable to match Light and Dark orbs for 1 turn, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (38996:85) I bring unto you eternal good tidings...
+     | Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 90% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (38993:17) You saw my face, didn't you?
+   | Increase damage to 150% for the next 999 turns, Deal 90% damage

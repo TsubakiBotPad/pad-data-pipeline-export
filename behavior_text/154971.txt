@@ -1,0 +1,38 @@
+#154971 - Ninjor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 154971
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12062:67) Starviiiiing
+ | Absorb damage when combos <= 5 for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 29
+     | (12063:88) I'm starving...
+     | Bind awoken skills for 3 turns
+   | group:
+     | condition: 40% chance
+     | (11896:15) Starve!
+     | Deal 110% damage
+     | condition: 40% chance
+     | (11897:92) Time for a snack!
+     | Spawn 3 random Heal orbs, Deal 120% damage
+ | group:
+ | condition: hp <= 29
+   | group:
+   | condition: turn 1
+     | (11899:86) Hungry Impact
+     | Enemy recover 100% HP
+   | group:
+     | condition: 50% chance
+     | (11900:48) I can't stop drooling!
+     | Change a random attribute to Water orbs, Deal 100% damage
+     | condition: 50% chance
+     | (11901:94) This is my snack!
+     | Lock 10 random orbs, Deal 110% damage

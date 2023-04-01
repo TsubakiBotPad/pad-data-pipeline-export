@@ -1,0 +1,34 @@
+#54978 - The Emperor, Lord Zedd
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 54978
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14871:92) I am Lord Zedd, emperor of all I see.
+ | Spawn 3 random Poison orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 19
+     | (14874:105) Terror and desperation. I love it.
+     | RCV 50% for 3 turns
+   | group:
+     | condition: 40% chance
+     | (14872:15) Your efforts are futile.
+     | Deal 110% damage
+     | condition: 40% chance
+     | (14873:48) I am invincible!
+     | Change a random attribute to Jammer orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (14876:75) Your dreams will become nightmares.
+     | Leader changes to random sub for 1 turn
+   | group:
+     | (14875:15) The entire universe trembles before me!
+     | Deal 200% damage

@@ -1,0 +1,24 @@
+#456906 - Sea God's Eldest Daughter, Toyotama-Hime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 456906
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38955:72) ＿Dark Halved
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (38956:83) Sea God's Whirling Tides + Intervening High Tides
+ | Absorb damage when combos <= 9 for 3 turns + Reduce damage from all sources by 80% for 1 turn, Deal 95% damage
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38959:143) The Boundary of Sea and Shore
+   | For 2 turns, 50% ATK for 1 random sub, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38958:74) Intervening High Tides
+   | Reduce damage from all sources by 80% for 1 turn, Deal 95% damage

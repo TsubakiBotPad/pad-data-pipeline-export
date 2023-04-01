@@ -1,0 +1,43 @@
+#304349 - 騎士道の鑑・レオール
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESInactivity66(66:9649) -> 来たか…
+Do nothing
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAbsorbCombo(67:9627) -> 喧嘩なら負けないぜ
+Condition: When < 2% HP , one-time use (ai:100 rnd:0) (cost: 1)
+Absorb damage when combos <= 6 for 1 turn
+
+#9: ESAttackMultihit(15:9629) -> スクールコンボ
+Condition: When < 20% HP (ai:100 rnd:0)
+Deal 135% damage (3 hits, 45% each)
+
+#10: ESAttackMultihit(15:9628) -> スクールアックス
+Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:9648) -> 犬根性
+Survive attacks with 1 HP when HP > 50%

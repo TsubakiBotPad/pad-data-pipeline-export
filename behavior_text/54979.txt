@@ -1,0 +1,35 @@
+#54979 - Serpentera
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 54979
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14880:83) Battle mode + Energy gathers...
+ | Voids status ailments for 10 turns + Locked Wood skyfall +100% for 10 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (14883:50) Thunder Breath
+   | Player -75% HP
+   | condition: 50% chance
+   | (14884:48) Dragon Stomp
+   | Change a random attribute to Wood orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 50
+   | condition: 50% chance
+   | (14885:101) ROAR!
+   | Fix orb movement starting point to random position on the board, Deal 100% damage
+   | condition: 50% chance
+   | (14883:50) Thunder Breath
+   | Player -75% HP
+   | condition: 50% chance
+   | (14884:48) Dragon Stomp
+   | Change a random attribute to Wood orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | (14886:15) Planet-Destroying Thunder Breath
+   | Deal 300% damage (3 hits, 100% each)

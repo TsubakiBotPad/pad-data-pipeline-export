@@ -1,0 +1,22 @@
+#304351 - インテリ学生・フェロウ
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304351
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (9623:74) 我らが相手だ！
+ | Reduce damage from all sources by 90% for 1 turn
+ group:
+ | condition: 20% chance
+ | (9625:109) ブラックドリル
+ | Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+ | (9626:15) 回し蹴り
+ | Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 100
+ | (9624:52) 立ち上がれ！
+ | Enemy ally recover 100% HP

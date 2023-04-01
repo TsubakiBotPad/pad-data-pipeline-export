@@ -1,0 +1,65 @@
+#54978 - The Emperor, Lord Zedd
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESRandomSpawn(92:14871) -> I am Lord Zedd, emperor of all I see.
+Spawn 3 random Poison orbs
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 17
+
+#9: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#10: ESAttackMultihit(15:14872) -> Your efforts are futile.
+Condition: 40% chance (ai:40 rnd:0)
+Deal 110% damage
+
+#11: ESOrbChangeAttack(48:14873) -> I am invincible!
+Condition: 40% chance (ai:40 rnd:0)
+Change a random attribute to Jammer orbs, Deal 90% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESDebuffRCV(105:14874) -> Terror and desperation. I love it.
+RCV 50% for 3 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESLeaderSwap(75:14876) -> Your dreams will become nightmares.
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Leader changes to random sub for 1 turn
+
+#18: ESAttackMultihit(15:14875) -> The entire universe trembles before me!
+Deal 200% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,43 @@
+#56922 - Crimson Visage Celestial, Vesta
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 56922
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22624:83) Ladies... + ...I'm here to welcome you!
+ | Fire and Dark skyfall +15% for 5 turns + Unable to match Dark orbs for 3 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (22627:92) Orbus' Severed Thread
+   | Spawn 6 random Dark orbs, Deal 100% damage
+   | condition: 25% chance
+   | (22628:94) Sagacity of the Crimson Visage
+   | Lock 10 random orbs, Deal 95% damage
+   | condition: 25% chance
+   | (22631:15) Where are all the cute girls?
+   | Deal 105% damage
+   | condition: 25% chance
+   | (22630:62) High Counter
+   | Blind all orbs on the board, Deal 90% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (22629:88) Hypocrite
+   | Bind awoken skills for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (22633:83) Well well well... + I have to go all out!
+     | Voids status ailments for 999 turns + Movetime -3s for 5 turns
+   | group:
+     | condition: 50% chance
+     | (22635:92) Had enough yet?
+     | Spawn 5 random Fire and Dark orbs, Deal 100% damage
+     | condition: 50% chance
+     | (22632:15) Dance of Threads and Flame
+     | Deal 120% damage (3 hits, 40% each)

@@ -1,0 +1,41 @@
+#509912 - GS・デイトナ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 509912
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (47326:83) ダンスの構成はオレにまかせて + まずはこれで + ちゃんとついてきてよね
+ | For 5 turns, 10% chance for skyfall orbs to be blinded for turn + Locked Water and Dark skyfall +100% for 3 turns + Spawn 3 random Water and Dark orbs
+ type: DEATH
+ condition: when defeated
+ | (47339:95) 悪くないんじゃない？
+ | Reduce self HP to 0
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when Water and Dark attributes are used to attack
+   | (47330:97) 次はもっと強く！
+   | Blind random 3 orbs for 1 turn, Deal 80% damage
+   | (47333:83) だめでしょ + 次はもっと強く！
+   | Spawn 3 random Water and Dark orbs + Blind random 3 orbs for 1 turn, Deal 80% damage
+ | group:
+ | condition: turn 2
+   | condition: when Water and Dark attributes are used to attack
+   | (47331:97) 最後まで気は抜かない
+   | Blind random 5 orbs for 1 turn, Deal 90% damage
+   | (47335:83) だめでしょ + 最後まで気は抜かない
+   | Spawn 4 random Water and Dark orbs + Blind random 5 orbs for 1 turn, Deal 90% damage
+ | group:
+ | condition: turn 3
+   | condition: when Water and Dark attributes are used to attack
+   | (47332:97) 最高のダンスをみせてあげるよ
+   | Blind random 8 orbs for 1 turn, Deal 100% damage
+   | (47337:83) だめでしょ + 最高のダンスをみせてあげるよ
+   | Spawn 5 random Water and Dark orbs + Blind random 8 orbs for 1 turn, Deal 100% damage
+ | group:
+   | (47340:40) 悪くないんじゃない？
+   | Reduce self HP to 0

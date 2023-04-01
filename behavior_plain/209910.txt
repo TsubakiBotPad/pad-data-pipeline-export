@@ -1,0 +1,54 @@
+#209910 - GS・ノーチラス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESLeaderSwap(75:46874) -> 準備はバッチリだよ！
+	Leader changes to random sub for 2 turns
+	[1] ESGravity(50:46875) -> 私たちのパフォーマンス楽しんでね！
+	Player -50% HP
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: ESAttackUPRemainingEnemies(17:46876) -> もう怒ったよ！
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#5: ESOrbChangeAttack(48:46877) -> いっくよー！
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Wood orbs, Deal 105% damage
+
+#6: ESSpinnersRandom(109:46878) -> テンポアップ！
+Condition: 50% chance (ai:0 rnd:50)
+Random 2 orbs change every 0.5s for 1 turn, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESDebuffMovetime(39:46880) -> ちょっと難しい曲になるよ～
+	Movetime 25% for 3 turns
+	[1] ESAbsorbCombo(67:46881) -> ここからが私の真骨頂！
+	Absorb damage when combos <= 7 for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:46885) -> ＿根性
+Survive attacks with 1 HP when HP > 50%
+
+#13: ESAttributeResist(72:46891) -> ＿木半減
+Reduce damage from Wood attrs by 50%

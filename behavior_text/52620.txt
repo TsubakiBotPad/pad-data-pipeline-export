@@ -1,0 +1,27 @@
+#52620 - Conqueror of the Universe, Emperor Zarkon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 52620
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6929:83) You're a fool to bring Voltron here. + I know better than anyone the power of Voltron.
+ | Voids status ailments for 999 turns + Delay active skills by 2~4 turns
+ group:
+ | group:
+   | condition: 30% chance
+   | (6932:74) Black Bayard, Shield Form
+   | Reduce damage from all sources by 50% for 2 turns
+   | condition: 35% chance
+   | (6931:15) Apex Glaive
+   | Deal 160% damage (2 hits, 80% each)
+   | condition: 35% chance
+   | (6930:63) Black Bayard, Whip Form
+   | Bind 1 random card for 1 turn, Deal 140% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (6933:17) No, it will only make me more powerful.
+   | Increase damage to 150% for the next 999 turns

@@ -1,0 +1,43 @@
+#56910 - The Seven Luminaries' Melodic Star, Megrez
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 56910
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22599:83) I will slice and dice everything... + ...with these blades!
+ | Lock all orbs + Reduce damage from all sources by 50% for 3 turns
+ group:
+ | group:
+ | condition: always turn 3
+   | (22602:83) Nova Barrier + Twin Blades - Spinning Cuts
+   | Reduce damage from all sources by 75% for 5 turns + Player -99% HP
+ | group:
+   | group:
+   | condition: turns 1-2 while HP > 49
+     | condition: 33% chance
+     | (22605:75) Cosmic Tornado
+     | Leader changes to random sub for 1 turn, Deal 80% damage
+     | condition: 33% chance
+     | (22606:62) Cosmic Abyss
+     | Blind all orbs on the board, Deal 90% damage
+     | condition: 34% chance
+     | (22607:15) Twin Blades - Successive Cuts
+     | Deal 100% damage
+   | group:
+     | condition: 33% chance
+     | (22605:75) Cosmic Tornado
+     | Leader changes to random sub for 1 turn, Deal 80% damage
+     | condition: 33% chance
+     | (22606:62) Cosmic Abyss
+     | Blind all orbs on the board, Deal 90% damage
+     | condition: 34% chance
+     | (22607:15) Twin Blades - Successive Cuts
+     | Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (22608:105) Unique Third-Magnitude Star
+   | RCV 50% for 5 turns

@@ -1,0 +1,32 @@
+#304349 - 騎士道の鑑・レオール
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 304349
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (9648:73) 犬根性
+ | Survive attacks with 1 HP when HP > 50%
+
+level: 4
+ type: PASSIVE
+ | (9648:73) 犬根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (9649:66) 来たか…
+ | Do nothing
+ group:
+ | group:
+   | (9628:15) スクールアックス
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (9629:15) スクールコンボ
+   | Deal 135% damage (3 hits, 45% each)
+ | group:
+ | condition: turn 1, hp <= 1
+   | (9627:67) 喧嘩なら負けないぜ
+   | Absorb damage when combos <= 6 for 1 turn

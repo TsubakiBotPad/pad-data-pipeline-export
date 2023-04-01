@@ -1,0 +1,40 @@
+#259102 - Viridian Empress, Skull Maiden
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 259102
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38794:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+
+level: 4
+ type: PASSIVE
+ | (38794:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (38784:83) I am Skull Maiden... + ...brought into being by the Skull Curator...
+ | Voids status ailments for 999 turns + Change all orbs to Wood and Heal, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (38791:15) Artificial Maiden
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (38792:94) There is only one who may see my face.
+   | Lock all Wood orbs, Deal 100% damage
+   | (38793:94) There is only one who may see my face.
+   | Lock all Heal orbs, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (38787:83) Receive this light of deliverance. + Skull's Green Fire
+     | Enemy recover 100% HP + Spawn 4 random Jammer orbs
+   | group:
+   | condition: turn 2
+     | (38790:17) You saw my face, didn't you?
+     | Increase damage to 150% for the next 999 turns

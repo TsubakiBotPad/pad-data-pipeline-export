@@ -1,0 +1,84 @@
+#209903 - ダンス部・GEAR STEP
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:33 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:46816) -> ミュージックスタート！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:46817) -> これで最後だ！
+	Absorb damage when damage >= 2,500,000,000 for 3 turns
+	[2] ESAttributeBlock(107:46818) -> 最高のステージをみせてあげるよ！
+	Unable to match Fire and Water orbs for 3 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:50 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:46820) -> ミュージックスタート！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:46821) -> ラスト思いっきりいくぜ！
+	Absorb damage when damage >= 2,500,000,000 for 3 turns
+	[2] ESAttributeBlock(107:46822) -> 最高のダンスをみせてあげるよ
+	Unable to match Light and Dark orbs for 3 turns
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:46824) -> ミュージックスタート！
+	Voids status ailments for 999 turns
+	[1] ESAbsorbThresholdBig(138:46825) -> クライマックスだよ
+	Absorb damage when damage >= 2,500,000,000 for 3 turns
+	[2] ESDebuffATK(130:46826) -> 派手にいくぜ！
+	ATK -50% for 3 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 15, target rnd 15
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESCloud(104:46831) -> 最後まで気は抜かない
+Condition: 33% chance (ai:0 rnd:33)
+A 3×1 rectangle of clouds appears for 1 turn at a random location, Deal 100% damage
+
+#8: ESOrbSealColumn(99:46832) -> 勢いつけるよ
+Condition: 33% chance (ai:0 rnd:33)
+Seal the 6th column for 1 turn, Deal 100% damage
+
+#9: ESBoardChangeAttackBits(85:46833) -> それっ
+Condition: 34% chance (ai:0 rnd:34)
+Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison, Deal 110% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#13: SkillSet:
+	[0] ESDebuffATKTarget(143:46829) -> とっても楽しいです～！
+	For 3 turns, 25% ATK for 4 random subs
+	[1] ESSpinnersRandom(109:46830) -> 最大音量でいっくよー！
+	Random 3 orbs change every 1.0s for 1 turn, Deal 110% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESAttackUPRemainingEnemies(17:46827) -> 出力上昇させますよ～
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 300% for the next 999 turns
+
+#16: ESAttackMultihit(15:46893) -> うおりゃぁああああー！
+Deal 100% damage (5 hits, 20% each)
+
+#17: ESSuperResolve(129:46882) -> ＿超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#18: ESTypeResist(118:46889) -> ＿攻撃半減
+Reduce damage from Attacker types by 50%

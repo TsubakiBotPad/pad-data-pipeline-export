@@ -1,0 +1,61 @@
+#254985 - Pterodactyl Power Coin
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESStatusShield(20:11935) -> Gyrorooon!
+	Voids status ailments for 10 turns
+	[1] ESSkyfallLocked(96:11936) -> It's hot! You're gonna get burned!
+	Locked Fire skyfall +100% for 10 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#9: ESBranchHP(29:19) -> ESBranchHP
+Branch on hp > 51, target rnd 11
+
+#10: ESFixedStart(101:11939) -> Gyorogyoro!
+Condition: 50% chance (ai:50 rnd:0)
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#11: ESGravity(50:11937) -> Gyoro Boom!
+Condition: One-time use (ai:0 rnd:50) (cost: 1)
+Player -75% HP
+
+#12: ESOrbChangeAttack(48:11938) -> Gyoro! How about this!
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Fire orbs, Deal 90% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackMultihit(15:11940) -> Moretsu Three-Pronged Attack
+Deal 300% damage (3 hits, 100% each)
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:11941) -> Gyororon! You got me!
+	Do nothing

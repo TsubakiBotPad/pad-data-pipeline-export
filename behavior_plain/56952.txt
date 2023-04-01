@@ -1,0 +1,64 @@
+#56952 - Thunder Machine God Thor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:22575) -> You dare to get in my way...?
+	Voids status ailments for 999 turns
+	[1] ESOrbSealRow(100:22576) -> Very well, come and fight me!
+	Seal the 1st row for 4 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESCloud(104:22580) -> Thunder!!
+Condition: 33% chance (ai:0 rnd:33)
+A 1×3 rectangle of clouds appears for 1 turn at a random location, Deal 80% damage
+
+#5: ESOrbChangeAttack(48:22579) -> Lightning Hell
+Condition: 33% chance (ai:0 rnd:33)
+Change a random attribute to Light orbs, Deal 90% damage
+
+#6: ESAttackMultihit(15:22578) -> Earth Megin Unleashed
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESBindRandom(1:22583) -> Shaking Thunder Attack
+	Bind 3 random cards for 3 turns
+	[1] ESAttackUPRemainingEnemies(17:22584) -> Magic Lightning Rod
+	Increase damage to 150% for the next 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESRandomSpawn(92:22577) -> Give me power, Megingjörd!
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Light orbs, Deal 80% damage
+
+#13: ESCloud(104:22581) -> Harbinger of Thunder
+Condition: 50% chance (ai:0 rnd:50)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 90% damage
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:22585) -> Nooooo!
+	Do nothing

@@ -1,0 +1,71 @@
+#56910 - The Seven Luminaries' Melodic Star, Megrez
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESOrbLock(94:22600) -> I will slice and dice everything...
+	Lock all orbs
+	[1] ESDamageShield(74:22601) -> ...with these blades!
+	Reduce damage from all sources by 50% for 3 turns
+
+#3: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 14
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESLeaderSwap(75:22605) -> Cosmic Tornado
+Condition: 33% chance (ai:0 rnd:33)
+Leader changes to random sub for 1 turn, Deal 80% damage
+
+#7: ESBlind62(62:22606) -> Cosmic Abyss
+Condition: 33% chance (ai:0 rnd:33)
+Blind all orbs on the board, Deal 90% damage
+
+#8: ESAttackMultihit(15:22607) -> Twin Blades - Successive Cuts
+Condition: 34% chance (ai:0 rnd:34)
+Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#11: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#12: ESDebuffRCV(105:22608) -> Unique Third-Magnitude Star
+RCV 50% for 5 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 5
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: SkillSet:
+	[0] ESDamageShield(74:22603) -> Nova Barrier
+	Reduce damage from all sources by 75% for 5 turns
+	[1] ESGravity(50:22604) -> Twin Blades - Spinning Cuts
+	Player -99% HP
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:22609) -> See you again somewhere in the cosmos.
+	Do nothing

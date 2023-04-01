@@ -1,0 +1,26 @@
+#52628 - Robeast, Myzax
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 52628
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6958:20) War Cry
+ | Voids status ailments for 3 turns
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1-2 of 3
+     | (6959:92) Approaching Light Ball
+     | Spawn 4 random Light orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (6960:8) Charging
+     | Increase damage to 200% for the next attack
+ | group:
+ | condition: hp <= 9
+   | (6961:15) Focused Attack
+   | Deal 250% damage

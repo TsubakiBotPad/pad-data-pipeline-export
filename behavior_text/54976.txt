@@ -1,0 +1,29 @@
+#54976 - Rita Repulsa
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 54976
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (14862:83) It's time to conquer Earth! + Bad is so beautiful.
+ | Reduce damage from all sources by 50% for 5 turns + Bind 2 random subs for 2 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (14865:15) HA HA HA!
+   | Deal 110% damage
+   | condition: 40% chance
+   | (14866:48) By the power and force of lightning!
+   | Change a random attribute to Fire orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (14867:100) Out of my way!
+     | Seal the 1st row for 2 turns
+   | group:
+     | (14868:15) GET THOSE POWER GEEKS!
+     | Deal 150% damage

@@ -1,0 +1,24 @@
+#456970 - Andras
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 456970
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38951:72) ＿Light Halved
+ | Reduce damage from Light attrs by 50%
+ type: PREEMPT
+ | (38952:105) I shall lead you astray!
+ | RCV 50% for 5 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38953:108) I'll tear you limb from limb!!!
+   | Change all Light and Jammer orbs to Dark orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38954:92) Discordance
+   | Spawn 6 random Dark and Jammer orbs, Deal 105% damage

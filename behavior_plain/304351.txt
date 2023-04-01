@@ -1,0 +1,40 @@
+#304351 - インテリ学生・フェロウ
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESDamageShield(74:9623) -> 我らが相手だ！
+Reduce damage from all sources by 90% for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESRecoverEnemyAlly(52:9624) -> 立ち上がれ！
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Enemy ally recover 100% HP
+
+#9: ESSpinnersRandom(109:9625) -> ブラックドリル
+Condition: 20% chance (ai:20 rnd:0)
+Random 1 orbs change every 1.0s for 1 turn, Deal 80% damage
+
+#10: ESAttackMultihit(15:9626) -> 回し蹴り
+Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

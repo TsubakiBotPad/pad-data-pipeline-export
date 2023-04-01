@@ -1,0 +1,40 @@
+#356973 - Crimson Shamaness, Miriam
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 356973
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (22527:83) Today's another beautiful day... + ...to work, work, work♪
+ | Bind 6 random cards for 2 turns + Deal 100% damage, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (22530:1) Do you hate shamancraft?
+   | Bind 2 random cards for 3 turns, Deal 90% damage
+   | condition: 33% chance
+   | (22531:94) Shamancraft of the Wastelands
+   | Lock 8 random orbs, Deal 80% damage
+   | condition: 34% chance
+   | (22535:15) War Hammer
+   | Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 19, hp <= 49
+   | (22532:83) Protection Power + Deprivation Power
+   | Voids status ailments for 999 turns + ATK -50% for 3 turns
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (22537:88) The trap has activated
+     | Bind awoken skills for 1 turn
+   | group:
+     | condition: 50% chance
+     | (22536:92) There's no going back.
+     | Spawn 5 random Fire orbs, Deal 120% damage
+     | condition: 50% chance
+     | (22526:1) I now possess a great Power.
+     | Bind 1 random card for 5 turns, Deal 100% damage

@@ -1,0 +1,46 @@
+#252626 - Commander Sendak
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 252626
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (2661:95) I'm no....not finished yet!
+ | Blind all orbs on the board
+
+level: 4
+ type: PREEMPT
+ | (2655:15) Yaaa!
+ | Deal 30% damage
+ type: DEATH
+ condition: when defeated
+ | (2661:95) I'm no....not finished yet!
+ | Blind all orbs on the board
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 2607, 2608 on team
+   | (2663:92) What's wrong, long haired bastard?
+   | Spawn 8 random Dark orbs
+   | (2656:15) Oraaa!
+   | Deal 150% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (2657:89) Oh! You're tough!
+   | Delay active skills by 1 turn
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (2658:63) Woryaaaa!
+   | Bind player leader for 3 turns, Deal 65% damage
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (2659:17) Is it already the end?!
+   | Increase damage to 200% for the next 3 turns
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (2656:15) Oraaa!
+   | Deal 150% damage

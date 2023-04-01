@@ -1,0 +1,35 @@
+#209906 - GS・プレーナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+monster_id: 209906
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46885:73) ＿根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (46892:72) ＿闇半減
+ | Reduce damage from Dark attrs by 50%
+ type: PREEMPT
+ | (46836:83) もうお疲れですか～？ + 私、歌なら少し自信がありますよ～
+ | Void damage >= 1,000,000,000 for 3 turns + No description set, Deal 6% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 4
+     | (46842:86) ちょっとお水が欲しいです～
+     | Enemy recover 20%~30% HP
+   | group:
+   | condition: execute repeatedly, turn 2-4 of 4
+     | condition: 50% chance
+     | (46843:50) いっきますよ～
+     | Player -99% HP
+     | condition: 50% chance
+     | (46844:151) ほっ！
+     | No description set, Deal 110% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46839:83) パワーセーブさせます～ + いっきますよ～
+   | No description set + Player -99% HP

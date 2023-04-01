@@ -1,0 +1,54 @@
+#2441 - Judging-Claw Orange Dragonbound, Saria
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 2441
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45404:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (45390:83) ジャッジメントシールド + シャインリング + ジャッジメントブレイズ
+ | Voids status ailments for 5 turns + Spawn 20 random Light orbs + Player -135% HP
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (45401:83) フレアリング + ジャッジメントブレイズ
+     | Spawn 20 random Fire orbs + Player -135% HP
+   | group:
+   | condition: turn 2 while HP > 49
+     | (45398:83) シャインリング + ジャッジメントブレイズ
+     | Spawn 20 random Light orbs + Player -135% HP
+   | group:
+   | condition: turn 3 while HP > 49
+     | (45401:83) フレアリング + ジャッジメントブレイズ
+     | Spawn 20 random Fire orbs + Player -135% HP
+   | group:
+   | condition: turn 4 while HP > 49
+     | (45398:83) シャインリング + ジャッジメントブレイズ
+     | Spawn 20 random Light orbs + Player -135% HP
+   | group:
+     | (45394:50) ジャッジメントブレイズ
+     | Player -500% HP
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (45395:83) ハートリング + ジャッジメントロック
+     | Change all orbs to Heal + Lock all Heal orbs, Deal 700% damage
+   | group:
+   | condition: turn 2
+     | (45401:83) フレアリング + ジャッジメントブレイズ
+     | Spawn 20 random Fire orbs + Player -135% HP
+   | group:
+   | condition: turn 3
+     | (45398:83) シャインリング + ジャッジメントブレイズ
+     | Spawn 20 random Light orbs + Player -135% HP
+   | group:
+   | condition: turn 4
+     | (45401:83) フレアリング + ジャッジメントブレイズ
+     | Spawn 20 random Fire orbs + Player -135% HP

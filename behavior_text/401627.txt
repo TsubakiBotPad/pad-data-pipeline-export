@@ -1,0 +1,30 @@
+#401627 - 次元の魔術師・チェスター
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 401627
+approved: False
+
+level: 5
+ type: PREEMPT
+ | (2014:60) 毒対策の授業です、全て消せますか？
+ | Change 5 random orbs (excluding hearts) to Poison orbs
+ group:
+ | group:
+ | condition: always turn 1
+   | (2016:48) 残念、お仕置きです
+   | Change all Poison orbs to Jammer orbs, Deal 100% damage
+   | (2015:78) よく出来ましたね、ご褒美です
+   | Change the 3rd row to Heal orbs
+ | group:
+ | condition: always turn 2
+   | (2013:14) いけませんよ、私語は
+   | Bind active skills for 2 turns
+ | group:
+   | (2017:15) チョークショット
+   | Deal 90% damage (3 hits, 30% each)
+ | group:
+ | condition: hp <= 9
+   | (2018:50) それでは授業を終わります
+   | Player -100% HP

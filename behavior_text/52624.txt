@@ -1,0 +1,26 @@
+#52624 - Full Laser Strike, Drazil Robeast
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 52624
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6943:83) Target Confirmed + Lock-On
+ | Voids status ailments for 3 turns + Fix orb movement starting point to random position on the board
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (6945:50) Focused Laser
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2-3 of 3
+     | (6944:15) Spread Laser
+     | Deal 120% damage (3 hits, 40% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (6946:74) Safety Mode Activated
+   | Reduce damage from all sources by 75% for 1 turn

@@ -1,0 +1,44 @@
+#456918 - Annihilation Pursuer, Benibana the Conqueror
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESBindAwoken(88:38948) -> Determination to Annihilate
+Bind awoken skills for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESCloud(104:38949) -> Upper Stance
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 90% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESDebuffATK(130:38950) -> Lower Stance
+ATK -50% for 1 turn, Deal 100% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESTypeResist(118:38947) -> ＿Attack Halved
+Reduce damage from Attacker types by 50%

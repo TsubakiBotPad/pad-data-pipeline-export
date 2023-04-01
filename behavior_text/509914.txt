@@ -1,0 +1,34 @@
+#509914 - GS・シーウルフ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 509914
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (47317:83) 今日もはりきっていくぜ + 踊りたくてウズウズするな！
+ | Absorb damage when combos <= 3 for 5 turns + No skyfall for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (47324:95) 最高だな！
+ | Reduce self HP to 0
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (47320:68) 盛り上がってこうぜ！
+     | Fire skyfall +15% for 2 turns, Deal 75% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (47321:15) うおりゃぁああああー！
+     | Deal 88% damage (4 hits, 22% each)
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (47322:85) 派手にいくぜ！
+     | Change all orbs to Fire, Water, Light, Dark, and Heal, Deal 80% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (47323:17) パワーアップしていくぜ！
+   | Increase damage to 150% for the next 999 turns

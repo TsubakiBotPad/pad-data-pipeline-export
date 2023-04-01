@@ -1,0 +1,97 @@
+#509903 - ダンス部・GEAR STEP
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESSkyfallLocked(96:47403) -> ミュージックスタート！
+	Locked random skyfall +50% for 3 turns
+	[1] ESDamageShield(74:47404) -> いっきますよ～
+	Reduce damage from all sources by 75% for 3 turns
+	[2] ESOrbLock(94:47405) -> 私の歌、聴き逃さないでね
+	Lock all orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 14
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 11
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: SkillSet:
+	[0] ESOrbSealColumn(99:47407) -> 計算し尽くされた演出を
+	Seal the 1st column for 1 turn
+	[1] ESColumnSpawnMulti(77:47408) -> みせてあげるよ
+	Change the 6th column to Light orbs, Deal 90% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#12: SkillSet:
+	[0] ESSpinnersRandom(109:47410) -> 一瞬だって目が離せない
+	Random 1 orbs change every 0.5s for 1 turn
+	[1] ESAbsorbAttribute(53:47411) -> 最高のステージをみせてあげるよ！
+	Absorb Fire and Light damage for 1 turn, Deal 95% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: SkillSet:
+	Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESBoardChangeAttackBits(85:47413) -> そりゃっ！
+	Change all orbs to Fire and Heal, Deal 100% damage
+	[1] ESAttributeBlock(107:47414) -> ラスト思いっきりいくぜ！
+	Unable to match Heal orbs for 2 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 19
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#17: SkillSet:
+	[0] ESDebuffRCV(105:47416) -> 音楽を聴いていると
+	RCV 50% for 1 turn
+	[1] ESGravity(50:47417) -> ドキドキ、わくわくするの
+	Player -50% HP
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#20: SkillSet:
+	[0] ESChangeAttribute(46:47419) -> ほっ！
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESDebuffATK(130:47420) -> 出力上昇させますよ～
+	ATK -50% for 1 turn, Deal 30% damage
+
+#21: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#22: ESSuperResolve(129:47401) -> ＿GS超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
+
+#23: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESEndBattle(40:47422) -> とっても楽しいです～！
+	Reduce self HP to 0

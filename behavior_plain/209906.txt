@@ -1,0 +1,67 @@
+#209906 - GS・プレーナ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESVoidShieldBig(137:46837) -> もうお疲れですか～？
+	Void damage >= 1,000,000,000 for 3 turns
+	[1] ESUnknown(152:46838) -> 私、歌なら少し自信がありますよ～
+	No description set, Deal 6% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 11
+
+#7: ESRecoverEnemy86(86:46842) -> ちょっとお水が欲しいです～
+Condition: One-time use (ai:100 rnd:0) (cost: 3)
+Enemy recover 20%~30% HP
+
+#8: ESGravity(50:46843) -> いっきますよ～
+Condition: 50% chance (ai:0 rnd:50)
+Player -99% HP
+
+#9: ESUnknown(151:46844) -> ほっ！
+Condition: 50% chance (ai:0 rnd:50)
+No description set, Deal 110% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 7
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#13: SkillSet:
+	[0] ESUnknown(151:46840) -> パワーセーブさせます～
+	No description set
+	[1] ESGravity(50:46841) -> いっきますよ～
+	Player -99% HP
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:46835) -> 盛り上がっていきましょ～
+	Do nothing
+
+#16: ESResolve(73:46885) -> ＿根性
+Survive attacks with 1 HP when HP > 50%
+
+#17: ESAttributeResist(72:46892) -> ＿闇半減
+Reduce damage from Dark attrs by 50%

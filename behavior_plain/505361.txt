@@ -1,0 +1,50 @@
+#505361 - シロオンマル
+monster size: 3
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 9
+
+#2: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 6
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESAbsorbAttribute(53:47341) -> ウインドロール
+Absorb Light damage for 1 turn
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#7: ESRandomSpawn(92:47342) -> ウイングマーチ
+Spawn 5 random Light orbs, Deal 50% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 13
+
+#10: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#11: ESRandomSpawn(92:47342) -> ウイングマーチ
+Spawn 5 random Light orbs, Deal 50% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#14: ESAbsorbAttribute(53:47341) -> ウインドロール
+Absorb Light damage for 1 turn
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn

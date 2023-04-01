@@ -1,0 +1,87 @@
+#504344 - 学園のアイドル・ウルカ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbAttribute(53:47378) -> では始めますね～
+	Absorb Water and Dark damage for 3 turns
+	[1] ESDebuffATK(130:47379) -> しっかり付いてきてください～
+	ATK -50% for 3 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 3, target rnd 18
+
+#7: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 15
+
+#8: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: SkillSet:
+	[0] ESGravity(50:47381) -> 音楽への愛を～
+	Player -50% HP
+	[1] ESRandomSpawn(92:47382) -> ハートを見せてください～！
+	Spawn 5 random Heal orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#13: SkillSet:
+	[0] ESSpinnersFixed(110:47384) -> きらめくステージの～
+	Specific orbs change every 1.0s for 1 turn
+	[1] ESRandomSpawn(92:47385) -> 光と共に～！
+	Spawn 10 random Light orbs
+
+#14: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#15: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#16: SkillSet:
+	[0] ESDebuffRCV(105:47387) -> まだいけますか～？
+	RCV 50% for 1 turn
+	[1] ESUnknown(150:47388) -> いけますよね？
+	No description set
+	[2] ESSkyfall(68:47389) -> とっても素敵ですよ～
+	Heal skyfall +15% for 1 turn
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#19: SkillSet:
+	[0] ESBlind5(5:47391) -> あら～？お顔が…
+	Blind all orbs on the board
+	[1] ESOrbLock(94:47392) -> 下を向いてますよぉ
+	Lock all orbs, Deal 50% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESEndBattle(40:47394) -> ここまでにしておきましょう～
+	Reduce self HP to 0

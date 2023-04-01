@@ -1,0 +1,36 @@
+#56952 - Thunder Machine God Thor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 56952
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22574:83) You dare to get in my way...? + Very well, come and fight me!
+ | Voids status ailments for 999 turns + Seal the 1st row for 4 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (22580:104) Thunder!!
+   | A 1×3 rectangle of clouds appears for 1 turn at a random location, Deal 80% damage
+   | condition: 33% chance
+   | (22579:48) Lightning Hell
+   | Change a random attribute to Light orbs, Deal 90% damage
+   | condition: 34% chance
+   | (22578:15) Earth Megin Unleashed
+   | Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (22582:83) Shaking Thunder Attack + Magic Lightning Rod
+     | Bind 3 random cards for 3 turns + Increase damage to 150% for the next 3 turns
+   | group:
+     | condition: 50% chance
+     | (22577:92) Give me power, Megingjörd!
+     | Spawn 6 random Light orbs, Deal 80% damage
+     | condition: 50% chance
+     | (22581:104) Harbinger of Thunder
+     | A 2×2 square of clouds appears for 1 turn at a random location, Deal 90% damage

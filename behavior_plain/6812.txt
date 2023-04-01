@@ -1,0 +1,58 @@
+#6812 - Pixel Light Wizard, Rei Sirius
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESUnknown(150:45316) -> マジックブースト・フラッシュ
+	No description set
+	[1] ESAbsorbCombo(67:45317) -> リカバリーライト
+	Absorb damage when combos <= 10 for 99 turns
+	[2] ESBoardSizeChange(126:45318) -> マジックライトフィールド
+	Change board size to 6x5 for 7 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:45320) -> ライトガード
+	Voids status ailments for 999 turns
+	[1] ESBoardSizeChange(126:45321) -> マジックライトフィールド
+	Change board size to 5x4 for 6 turns
+	[2] ESDebuffMovetime(39:45322) -> マジックチェーン
+	Movetime 25% for 6 turns, Deal 1,400% damage
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 8
+
+#6: SkillSet:
+	[0] ESChangeAttribute(46:45327) -> マジックカラー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESUnknown(155:45328) -> マジックリフレッシュ
+	No description set
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	[0] ESChangeAttribute(46:45324) -> マジックカラー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:45325) -> マジックライトブラスト
+	Deal 49,000% damage (7 hits, 7,000% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESUnknown(150:45329) -> マジックブースト・フラッシュ
+	No description set
+
+#11: ESSuperResolve(129:45331) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

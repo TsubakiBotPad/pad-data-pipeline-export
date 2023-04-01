@@ -1,0 +1,70 @@
+#54955 - Mighty Morphin Green Ranger
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAbsorbCombo(67:14853) -> My turn! Dragonzord!
+Absorb damage when combos <= 4 for 5 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 30, target rnd 17
+
+#9: ESBranchRemainingEnemies(120:8595) -> ESBranchRemainingEnemies
+Branch on remaining enemies <= 1, target rnd 13
+
+#10: ESAttackMultihit(15:14854) -> HAHAHAHAHAHA!
+Condition: 40% chance (ai:40 rnd:0)
+Deal 110% damage
+
+#11: ESRandomSpawn(92:14855) -> Oh, no you don't!
+Condition: 40% chance (ai:40 rnd:0)
+Spawn 3 random Heal orbs, Deal 120% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 10
+
+#14: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#15: ESBindAwoken(88:14856) -> You are a skilled warrior.
+Bind awoken skills for 2 turns
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESRecoverEnemy86(86:14857) -> Feel the power from the Sword of Darkness!
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Enemy recover 100% HP
+
+#18: ESOrbChangeAttack(48:14858) -> Soon you and your friends will be a memory.
+Condition: 50% chance (ai:0 rnd:50)
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#19: ESOrbLock(94:14859) -> You're finished!
+Condition: 50% chance (ai:0 rnd:50)
+Lock 10 random orbs, Deal 110% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn

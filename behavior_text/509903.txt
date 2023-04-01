@@ -1,0 +1,43 @@
+#509903 - ダンス部・GEAR STEP
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 509903
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (47401:129) ＿GS超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (47402:83) ミュージックスタート！ + いっきますよ～ + 私の歌、聴き逃さないでね
+ | Locked random skyfall +50% for 3 turns + Reduce damage from all sources by 75% for 3 turns + Lock all orbs
+ type: DEATH
+ condition: when defeated
+ | (47421:95) とっても楽しいです～！
+ | Reduce self HP to 0
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (47406:83) 計算し尽くされた演出を + みせてあげるよ
+     | Seal the 1st column for 1 turn + Change the 6th column to Light orbs, Deal 90% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (47409:83) 一瞬だって目が離せない + 最高のステージをみせてあげるよ！
+     | Random 1 orbs change every 0.5s for 1 turn + Absorb Fire and Light damage for 1 turn, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (47412:83) そりゃっ！ + ラスト思いっきりいくぜ！
+     | Change all orbs to Fire and Heal + Unable to match Heal orbs for 2 turns, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (47415:83) 音楽を聴いていると + ドキドキ、わくわくするの
+     | RCV 50% for 1 turn + Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (47418:83) ほっ！ + 出力上昇させますよ～
+     | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + ATK -50% for 1 turn, Deal 30% damage

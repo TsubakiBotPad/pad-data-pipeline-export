@@ -1,0 +1,71 @@
+#259102 - Viridian Empress, Skull Maiden
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 4)
+	[0] ESStatusShield(20:38785) -> I am Skull Maiden...
+	Voids status ailments for 999 turns
+	[1] ESBoardChangeAttackBits(85:38786) -> ...brought into being by the Skull Curator...
+	Change all orbs to Wood and Heal, Deal 100% damage
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#6: ESAttackMultihit(15:38791) -> Artificial Maiden
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESOrbLock(94:38792) -> There is only one who may see my face.
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood orbs, Deal 100% damage
+
+#8: ESOrbLock(94:38793) -> There is only one who may see my face.
+Lock all Heal orbs, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESRecoverEnemy86(86:38788) -> Receive this light of deliverance.
+	Enemy recover 100% HP
+	[1] ESRandomSpawn(92:38789) -> Skull's Green Fire
+	Spawn 4 random Jammer orbs
+
+#11: ESAttackUPRemainingEnemies(17:38790) -> You saw my face, didn't you?
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#12: ESAttackMultihit(15:38791) -> Artificial Maiden
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#13: ESOrbLock(94:38792) -> There is only one who may see my face.
+Condition: 50% chance (ai:50 rnd:0)
+Lock all Wood orbs, Deal 100% damage
+
+#14: ESOrbLock(94:38793) -> There is only one who may see my face.
+Lock all Heal orbs, Deal 100% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESAttributeResist(72:38794) -> Halve Wood
+Reduce damage from Wood attrs by 50%
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:38807) -> I am...an imitation...
+	Do nothing

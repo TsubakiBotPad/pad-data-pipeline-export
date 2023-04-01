@@ -1,0 +1,52 @@
+  monster_id: 701543
+  levels {
+    level: 1
+    groups {
+      group_type: STANDARD
+      condition {
+        hp_threshold: 100
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 3
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              enemy_skill_id: 47346
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 3
+            trigger_turn: 2
+          }
+          children {
+            behavior {
+              enemy_skill_id: 47348
+            }
+          }
+        }
+      }
+      children {
+        group {
+          condition {
+            repeats_every: 3
+            trigger_turn: 3
+          }
+          children {
+            behavior {
+              condition {
+                if_attributes_available: true
+              }
+              enemy_skill_id: 47350
+            }
+          }
+        }
+      }
+    }
+  }

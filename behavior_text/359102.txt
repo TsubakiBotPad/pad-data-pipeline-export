@@ -1,0 +1,41 @@
+#359102 - Viridian Empress, Skull Maiden
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 359102
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38806:72) Halve Wood
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (38795:83) I am Skull Maiden... + ...brought into being by the Skull Curator...
+ | Voids status ailments for 999 turns + Change all orbs to Wood, Deal 100% damage
+ group:
+ | group:
+   | condition: 50% chance
+   | (38804:94) There is only one who may see my face.
+   | Lock all Wood and Heal orbs, Deal 100% damage
+   | (38805:15) Artificial Maiden
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 14
+     | (38798:83) Receive this light of deliverance. + Skull's Green Fire
+     | Enemy recover 100% HP + Spawn 5 random Bomb orbs
+   | group:
+   | condition: turn 2 while HP > 14
+     | (38803:17) You saw my face, didn't you?
+     | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (38801:89) Skull's Skill Forfeiture
+     | Delay active skills by 3 turns
+   | group:
+     | (38802:15) Artificial Flame
+     | Deal 300% damage (5 hits, 60% each)

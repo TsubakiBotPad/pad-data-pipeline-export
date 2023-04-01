@@ -1,0 +1,130 @@
+#356978 - Fierce General, Orlando
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 5
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESInactivity66(66:22661) -> Angelica, I shall find you!
+	Do nothing
+	[1] ESInactivity66(66:22662) -> There is no time to waste!
+	Do nothing
+
+#4: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#5: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:22551) -> Angelica, I shall find you!
+	Voids status ailments for 999 turns
+	[1] ESVoidShield(71:22552) -> Do not interfere!
+	Void damage >= 2,000,000 for 3 turns
+	[2] ESAbsorbCombo(67:22553) -> There is no time to waste!
+	Absorb damage when combos <= 5 for 3 turns
+	[3] ESAttackMultihit(15:22554) -> Leave this place!
+	Deal 100% damage
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 26
+
+#7: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#8: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 12
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBoardSizeChange(126:22559) -> Where have you gone?!
+Change board size to 7x6 for 2 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 2, target rnd 16
+
+#13: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#14: ESOrbLock(94:22558) -> I even laid waste to Africa and yet...
+Lock all orbs, Deal 80% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: ESBlind62(62:22561) -> Who is this "Medoro"?
+Blind all orbs on the board, Deal 100% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESDamageShield(74:22564) -> You betrayed me?!
+	Reduce damage from all sources by 50% for 5 turns
+	[1] ESAttackUPRemainingEnemies(17:22563) -> Orlando Furioso
+	Increase damage to 150% for the next 999 turns
+
+#20: ESAttributeBlock(107:22565) -> I'll never forgive you!
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Fire orbs for 1 turn, Deal 100% damage
+
+#21: ESAttributeBlock(107:22566) -> I'll never forgive you!
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Water orbs for 1 turn, Deal 100% damage
+
+#22: ESAttributeBlock(107:22567) -> I'll never forgive you!
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Wood orbs for 1 turn, Deal 100% damage
+
+#23: ESAttributeBlock(107:22568) -> I'll never forgive you!
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Light orbs for 1 turn, Deal 100% damage
+
+#24: ESAttributeBlock(107:22569) -> I'll never forgive you!
+Condition: 20% chance (ai:0 rnd:20)
+Unable to match Dark orbs for 1 turn, Deal 100% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#26: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 30
+
+#27: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#28: SkillSet:
+	[0] ESBindAwoken(88:22556) -> I'll find Angelica even if I have to tear this world apart!
+	Bind awoken skills for 1 turn
+	[1] ESSkillDelay(89:22557) -> I've already rampaged through Europe!
+	Delay active skills by 0~2 turns
+
+#29: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#30: ESDispel(6:22560) -> Angelicaaaa!!!
+Voids player buff effects
+
+#31: ESAttackMultihit(15:22570) -> Orlando's Holy Strike
+Deal 200% damage (4 hits, 50% each)
+
+#32: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#33: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:22572) -> Angelicaaaa!!!
+	Do nothing

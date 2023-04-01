@@ -1,0 +1,36 @@
+#509905 - 機械工学科・プレーナ
+monster size: 5
+new AI: True
+start/max counter: 7
+counter increment: 0
+monster_id: 509905
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (47300:83) 機械いじりならおまかせを～ + むむ……
+ | Specific orbs change every 1.0s for 10 turns + Spawn 5 random Jammer orbs
+ type: DEATH
+ condition: when defeated
+ | (47307:95) おつかれさまでした～
+ | Reduce self HP to 0
+ group:
+ | group:
+ | condition: turns 1-2
+   | (47304:79) これならどうです～？
+   | Change the 5th row to Jammer orbs, Deal 100% damage
+   | (47303:94) パワーセーブさせます～
+   | Lock all Jammer orbs
+   | (47306:92) いいですよ～
+   | Spawn 10 random Jammer orbs, Deal 80% damage
+ | group:
+ | condition: turn 3
+   | (47304:79) これならどうです～？
+   | Change the 5th row to Jammer orbs, Deal 100% damage
+ | group:
+ | condition: turn 4
+   | (47305:92) これは強敵ですね～！
+   | Spawn 15 random Jammer orbs, Deal 90% damage
+ | group:
+   | (47308:40) おつかれさまでした～
+   | Reduce self HP to 0

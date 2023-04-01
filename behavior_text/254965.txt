@@ -1,0 +1,32 @@
+#254965 - Mighty Morphin Blue Ranger
+monster size: 4
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 254965
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (33437:118) ***** (Yokai Watch)
+ | Reduce damage from Physical types by 50%
+ | (33438:73) ***** (Yokai Watch)
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (33430:68) ***** (Yokai Watch)
+ | Water skyfall +15% for 10 turns
+ group:
+ | group:
+   | condition: 54% chance
+   | (33435:15) ***** (Yokai Watch)
+   | Deal 102% damage (3 hits, 34% each)
+   | (33436:92) ***** (Yokai Watch)
+   | Spawn 6 random Water orbs, Deal 101% damage
+ | group:
+ | condition: hp <= 1
+   | (33431:83) ***** (Yokai Watch) + ***** (Yokai Watch)
+   | Enemy recover 100% HP + Bind awoken skills for 2 turns, Deal 100% damage
+ type: REMAINING
+ condition: when 1 enemies remain, turn 1, hp <= 49
+ | (33434:17) ***** (Yokai Watch)
+ | Increase damage to 150% for the next 999 turns

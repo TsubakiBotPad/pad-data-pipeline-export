@@ -1,0 +1,41 @@
+#154969 - Mighty Morphin Yellow Ranger
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 154969
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12066:14) Never Sleep Ever
+ | Bind active skills for 5 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | (12067:83) Humf... Sorry? + Sorry for the intrusion ♪
+     | Movetime -2s for 5 turns + Change the 3rd and 4th columns to Jammer orbs
+   | group:
+     | condition: 50% chance
+     | (11911:89) Let's talk some more!
+     | Delay active skills by 0~2 turns, Deal 95% damage
+     | condition: 50% chance
+     | (11912:104) Let's make things a little misty ♪
+     | A 1×3 rectangle of clouds appears for 1 turn at a random location, Deal 90% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (11916:19) Here I come ♪
+     | Increase damage to 150% for the next 5 turns
+   | group:
+     | (11917:92) Hahaaah ♪
+     | Spawn 5 random Poison orbs, Deal 80% damage
+ type: UNKNOWN_USE
+ | condition: 40% chance
+ | (11909:15) There! There!
+ | Deal 110% damage
+ | condition: 40% chance
+ | (11910:48) Hey, refreshing ♪
+ | Change a random attribute to Water orbs, Deal 90% damage

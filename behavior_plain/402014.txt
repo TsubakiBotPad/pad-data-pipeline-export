@@ -1,0 +1,77 @@
+#402014 - 生徒会長・ルシファー
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:355) -> ESPreemptive
+Enable preempt if level 5
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 5, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESStatusShield(20:2025) -> 一年坊主か・・・
+Voids status ailments for 4 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 12
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBindRandomSub(65:2026) -> この学園は甘くないぞ
+Bind 1 random sub for 3 turns
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 16
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESRowSpawnMulti(79:2047) -> 一閃
+Change the 3rd row to Light orbs, Deal 50% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 20
+
+#17: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#18: ESRowSpawnMulti(79:2048) -> 二閃
+Change the 2nd and 4th rows to Light orbs, Deal 100% damage
+
+#19: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 24
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#22: ESRowSpawnMulti(79:2049) -> 三閃
+Change the 1st, 3rd, and 5th rows to Light orbs, Deal 150% damage
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#24: ESAttackMultihit(15:2028) -> 明けの明星
+Deal 500% damage

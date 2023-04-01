@@ -1,0 +1,27 @@
+#52622 - Space Witch, Haggar
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 52622
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (6934:5) It is time to reclaim what is rightfully ours.
+ | Blind all orbs on the board
+ group:
+ | group:
+   | condition: 30% chance
+   | (6937:99) Sly Tactics
+   | Seal the 1st column for 1 turn, Deal 100% damage
+   | condition: 30% chance
+   | (6938:76) Astral Deception
+   | Change the 1st column to Poison orbs and the 6th column to Jammer orbs
+   | condition: 40% chance
+   | (6935:77) Black Magic
+   | Change the 3rd column to Light orbs and the 4th column to Dark orbs, Deal 120% damage
+ | group:
+ | condition: turn 1, hp <= 39
+   | (6936:86) Gathering Quintessence
+   | Enemy recover 50% HP

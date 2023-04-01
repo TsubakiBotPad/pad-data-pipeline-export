@@ -1,0 +1,29 @@
+#154967 - Mighty Morphin Pink Ranger
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 154967
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (12069:83) Perfect Guard + It's impossible to best me!
+ | Reduce damage from all sources by 50% for 99 turns + Bind 2 random subs for 2 turns
+ group:
+ | group:
+   | condition: 40% chance
+   | (11921:15) No Way!
+   | Deal 110% damage
+   | condition: 40% chance
+   | (11922:48) That has no effect!
+   | Change a random attribute to Wood orbs, Deal 90% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | (11923:100) Try moving those!
+     | Seal the 1st row for 2 turns
+   | group:
+     | (11924:15) Nooo Waaaay!
+     | Deal 150% damage

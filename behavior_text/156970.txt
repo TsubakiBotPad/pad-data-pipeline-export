@@ -1,0 +1,47 @@
+#156970 - Andras
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 156970
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (22642:83) I am Andras... + ...Who has summoned me?
+ | Jammer and Poison skyfall +15% for 5 turns + Change 2 random orb types to Jammer orbs
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (22516:50) There's no turning back now.
+     | Player -50% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (22517:15) I'll massacre everyone, summoners and all!
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22515:74) Your attacks are futile against a demon.
+     | Reduce damage from all sources by 50% for 3 turns
+   | group:
+     | condition: 25% chance
+     | (22518:75) I shall corrupt your very heart!
+     | Leader changes to random sub for 1 turn, Deal 80% damage
+     | condition: 25% chance
+     | (22520:105) Now how about this?
+     | RCV 50% for 1 turn, Deal 70% damage
+     | condition: 25% chance
+     | (22521:92) Suffer more!
+     | Spawn 5 random Fire orbs, Deal 90% damage
+     | condition: 25% chance
+     | (22519:15) I'll be the one to kill you.
+     | Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | (22523:108) I'll tear you limb from limb!!!
+   | Change all Jammer and Poison orbs to Dark orbs, Deal 120% damage
+   | (22522:57) I shall lead you astray!
+   | Change a random attribute to Poison orbs, Deal 100% damage

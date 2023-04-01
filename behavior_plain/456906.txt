@@ -1,0 +1,47 @@
+#456906 - Sea God's Eldest Daughter, Toyotama-Hime
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESAbsorbCombo(67:38957) -> Sea God's Whirling Tides
+	Absorb damage when combos <= 9 for 3 turns
+	[1] ESDamageShield(74:38958) -> Intervening High Tides
+	Reduce damage from all sources by 80% for 1 turn, Deal 95% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESDebuffATKTarget(143:38959) -> The Boundary of Sea and Shore
+For 2 turns, 50% ATK for 1 random sub, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESDamageShield(74:38958) -> Intervening High Tides
+Reduce damage from all sources by 80% for 1 turn, Deal 95% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttributeResist(72:38955) -> ＿Dark Halved
+Reduce damage from Dark attrs by 50%

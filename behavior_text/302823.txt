@@ -1,0 +1,36 @@
+#302823 - 孤高のヤンキー・闇の龍剣士
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 302823
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2019:6) 夜露死苦
+ | Voids player buff effects
+ | (2020:15) 夜露死苦
+ | Deal 10% damage
+ group:
+ | group:
+   | (2022:15) やんのか？
+   | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: hp <= 79
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2021:15) あぁん？
+     | Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (2022:15) やんのか？
+     | Deal 100% damage (2 hits, 50% each)
+ | group:
+ | condition: always turn 1, hp <= 29
+   | (2023:50) リベンジアタック
+   | Player -99% HP
+ | group:
+ | condition: hp <= 19
+   | (2024:15) 仏恥義理
+   | Deal 200% damage (2 hits, 100% each)

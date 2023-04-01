@@ -1,0 +1,95 @@
+  monster_id: 152622
+  levels {
+    level: 4
+    groups {
+      group_type: PREEMPT
+      children {
+        behavior {
+          enemy_skill_id: 2689
+        }
+      }
+    }
+    groups {
+      group_type: STANDARD
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 100
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 1
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  condition {
+                    trigger_monsters: 2617
+                    trigger_monsters: 2618
+                  }
+                  enemy_skill_id: 2687
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 2675
+                }
+              }
+            }
+          }
+          children {
+            group {
+              condition {
+                trigger_turn: 2
+                always_trigger_above: 49
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 2676
+                }
+              }
+            }
+          }
+          children {
+            group {
+              children {
+                behavior {
+                  enemy_skill_id: 2677
+                }
+              }
+              children {
+                behavior {
+                  enemy_skill_id: 2678
+                }
+              }
+            }
+          }
+        }
+      }
+      children {
+        group {
+          group_type: STANDARD
+          condition {
+            hp_threshold: 49
+            trigger_turn: 1
+          }
+          children {
+            behavior {
+              condition {
+                trigger_monsters: 2617
+                trigger_monsters: 2618
+              }
+              enemy_skill_id: 2687
+            }
+          }
+          children {
+            behavior {
+              enemy_skill_id: 2681
+            }
+          }
+        }
+      }
+    }
+  }

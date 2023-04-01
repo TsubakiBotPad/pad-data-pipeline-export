@@ -1,0 +1,31 @@
+#6812 - Pixel Light Wizard, Rei Sirius
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 6812
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (45331:129) 超根性
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (45315:83) マジックブースト・フラッシュ + リカバリーライト + マジックライトフィールド
+ | No description set + Absorb damage when combos <= 10 for 99 turns + Change board size to 6x5 for 7 turns
+ type: DEATH
+ condition: when defeated
+ | (45330:95) マジックブースト・フラッシュ
+ | No description set
+ group:
+ | group:
+ | condition: turn 1
+   | (45319:83) ライトガード + マジックライトフィールド + マジックチェーン
+   | Voids status ailments for 999 turns + Change board size to 5x4 for 6 turns + Movetime 25% for 6 turns, Deal 1,400% damage
+ | group:
+ | condition: turns 2-6
+   | (45326:83) マジックカラー + マジックリフレッシュ
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + No description set
+ | group:
+   | (45323:83) マジックカラー + マジックライトブラスト
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Deal 49,000% damage (7 hits, 7,000% each), Deal 49,000% damage (7 hits, 7,000% each)

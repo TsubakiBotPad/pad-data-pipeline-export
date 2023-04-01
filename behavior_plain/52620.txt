@@ -1,0 +1,42 @@
+#52620 - Conqueror of the Universe, Emperor Zarkon
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:6927) -> You're a fool to bring Voltron here.
+	Voids status ailments for 999 turns
+	[1] ESSkillDelay(89:6928) -> I know better than anyone the power of Voltron.
+	Delay active skills by 2~4 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESAttackUPRemainingEnemies(17:6933) -> No, it will only make me more powerful.
+Condition: When < 50% HP , one-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#7: ESDamageShield(74:6932) -> Black Bayard, Shield Form
+Condition: 30% chance (ai:0 rnd:30)
+Reduce damage from all sources by 50% for 2 turns
+
+#8: ESAttackMultihit(15:6931) -> Apex Glaive
+Condition: 35% chance (ai:0 rnd:35)
+Deal 160% damage (2 hits, 80% each)
+
+#9: ESBindAttack(63:6930) -> Black Bayard, Whip Form
+Condition: 35% chance (ai:0 rnd:35)
+Bind 1 random card for 1 turn, Deal 140% damage
+
+#10: ESEndPath(36:26) -> ESEndPath
+end_turn

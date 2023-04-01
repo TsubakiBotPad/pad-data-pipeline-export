@@ -1,0 +1,85 @@
+#152622 - Space Witch, Haggar
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: SkillSet:
+	[0] ESInactivity66(66:2688) -> Enough...
+	Do nothing
+	[1] ESStatusShield(20:2674) -> I'm gonna clean that up myself
+	Voids status ailments for 999 turns
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBranchCard(90:2686) -> ESBranchCard
+Branch on player_cards HAS [2617, 2618], target rnd 23
+
+#11: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 20
+
+#12: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 15
+
+#13: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#14: ESSkillDelay(89:2675) -> Beg for forgiveness!
+Delay active skills by 2~5 turns
+
+#15: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 18
+
+#16: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#17: ESRowSpawnMulti(79:2676) -> Kneel!
+Change the 5th row to Poison orbs, Deal 100% damage
+
+#18: ESOrbChangeAttack(48:2677) -> Don't get carried away!
+Change all Heal orbs to Fire orbs, Deal 100% damage
+
+#19: ESRandomSpawn(92:2678) -> Don't get carried away!
+Spawn 6 random Fire orbs, Deal 100% damage
+
+#20: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 18
+
+#21: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#22: SkillSet:
+	[0] ESAttackUPRemainingEnemies(17:2679) -> 1 on 1? or all of you at once?
+	Increase damage to 200% for the next 99 turns
+	[1] ESDamageShield(74:2680) -> I won't go down that easily
+	Reduce damage from all sources by 50% for 1 turn
+
+#23: ESRandomSpawn(92:2687) -> Parko, it's been a while.
+Spawn 8 random Wood orbs
+
+#24: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESSkillSet(83:2685) -> I think I'm gonna find it! + This "light" Teru was talking about...
+	Do nothing + Do nothing

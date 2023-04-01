@@ -1,0 +1,26 @@
+#456952 - Thunder Machine God Thor
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 456952
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38908:118) ＿God Halved
+ | Reduce damage from God types by 50%
+ | (38909:73) ＿Resolve
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (38910:20) Very well, come and fight me!
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (38911:39) Give me power, Megingjörd!
+   | Movetime 50% for 1 turn, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (38912:50) Thunder God's Strike
+   | Player -300% HP

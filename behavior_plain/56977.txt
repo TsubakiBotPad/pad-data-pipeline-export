@@ -1,0 +1,69 @@
+#56977 - Legendary General, Orlando
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESDamageShield(74:22541) -> I am Orlando, one of Charlemagne's knights!
+	Reduce damage from all sources by 50% for 4 turns
+	[1] ESSpinnersFixed(110:22542) -> Let us begin the fight!
+	Specific orbs change every 1.0s for 4 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESAttackMultihit(15:22544) -> Haaa!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 99% damage (3 hits, 33% each)
+
+#8: ESRandomSpawn(92:22545) -> You think you can defeat me?
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 6 random Dark orbs, Deal 80% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 1, target rnd 7
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESLeaderSwap(75:22546) -> This is nothing compared to a Basque assault!
+Leader changes to random sub for 3 turns
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESAttackUPRemainingEnemies(17:22543) -> I shall protect the Frankish Kingdom with my life!
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 5 turns
+
+#15: ESBoardChangeAttackBits(85:22548) -> Holy Sword Durendal
+Condition: 50% chance (ai:0 rnd:50)
+Change all orbs to Fire, Water, Wood, Light, Dark, and Heal, Deal 120% damage
+
+#16: ESAttackMultihit(15:22547) -> I must be dreaming...
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage
+
+#17: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#18: ESDeathCry(69:22549) -> Transform
+Condition: One-time use, on death (ai:0 rnd:0) (cost: 2)
+Show message: She's the one I long for...|...my one and only!

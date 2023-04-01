@@ -1,0 +1,51 @@
+#208889 - 裏超転生ツクヨミ＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: SkillSet:
+	[0] ESStatusShield(20:45372) -> 夜刻神龍の真魂
+	Voids status ailments for 999 turns
+	[1] ESAbsorbAttribute(53:45373) -> 神秘の輝き
+	Absorb Fire and Dark damage for 5 turns
+	[2] ESGravity(50:45374) -> 破滅の月光
+	Player -70% HP
+	[3] ESColumnSpawnMulti(77:45375) -> ツキガミノボウゲツ
+	Change the 1st column to Heal orbs, Deal 75% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShieldBig(137:45377) -> 月光の守り
+	Void damage >= 3,000,000,000 for 1 turn
+	[1] ESGravity(50:45378) -> 破滅の月光
+	Player -130% HP
+
+#7: SkillSet:
+	[0] ESChangeAttribute(46:45380) -> 色づく月
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESGravity(50:45381) -> 破滅の月光
+	Player -99% HP
+	[2] ESColumnSpawnMulti(77:45382) -> ツキガミノボウゲツ
+	Change the 1st column to Heal orbs, Deal 36% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttributeResist(72:45383) -> 光半減
+Reduce damage from Light attrs by 50%
+
+#10: ESNone(136:38166) -> ESNone
+nothing

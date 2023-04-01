@@ -1,0 +1,44 @@
+#556964 - Ama no Iwato
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 6
+
+#3: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#4: ESSpinnersFixed(110:38905) -> Cave-Bound
+Specific orbs change every 1.0s for 2 turns
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 10
+
+#7: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#8: ESFixedStart(101:38906) -> Iwato Miracle
+Fix orb movement starting point to random position on the board, Deal 100% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#11: ESSpinnersRandom(109:38907) -> Cave-Bound
+Random 3 orbs change every 1.0s for 1 turn, Deal 95% damage
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttributeResist(72:38904) -> ＿Halve Dark
+Reduce damage from Dark attrs by 50%

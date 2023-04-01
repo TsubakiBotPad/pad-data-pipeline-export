@@ -1,0 +1,69 @@
+#252624 - Full Laser Strike, Drazil Robeast
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 252624
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (2671:95) Not... Not yet!
+ | Heal skyfall +20% for 99 turns
+
+level: 4
+ type: PREEMPT
+ | (2664:65) Leave it to me
+ | Bind 4 random subs for 1 turn
+ type: DEATH
+ condition: when defeated
+ | (2671:95) Not... Not yet!
+ | Heal skyfall +20% for 99 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 89
+     | condition: when 2601, 2602 on team
+     | (2673:55) I'm gonna slowly play with you after
+     | Player recover 100% HP
+     | (2665:48) Moron
+     | Change all Heal orbs to Fire orbs, Deal 150% damage
+     | (2666:92) Moron
+     | Spawn 4 random Fire orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2667:50) I'm going in
+     | Player -99% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (2665:48) Moron
+     | Change all Heal orbs to Fire orbs, Deal 150% damage
+     | (2666:92) Moron
+     | Spawn 4 random Fire orbs, Deal 150% damage
+ | group:
+ | condition: hp <= 89
+   | group:
+   | condition: turn 1 while HP > 29
+     | condition: when 2601, 2602 on team
+     | (2673:55) I'm gonna slowly play with you after
+     | Player recover 100% HP
+     | (2668:68) You bastard
+     | Fire skyfall +15% for 99 turns
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2665:48) Moron
+     | Change all Heal orbs to Fire orbs, Deal 150% damage
+     | (2666:92) Moron
+     | Spawn 4 random Fire orbs, Deal 150% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (2667:50) I'm going in
+     | Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 29
+   | condition: when 2601, 2602 on team
+   | (2673:55) I'm gonna slowly play with you after
+   | Player recover 100% HP
+   | (2669:17) Keep up with me, will ya?
+   | Increase damage to 400% for the next 99 turns

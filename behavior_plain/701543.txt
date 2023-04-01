@@ -1,0 +1,39 @@
+#701543 - イエローシードラ
+monster size: 2
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 9
+
+#2: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 1, target rnd 6
+
+#3: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#4: ESRandomSpawn(92:47346) -> こうですか？
+Spawn 3 random Light orbs
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#7: ESRandomSpawn(92:47348) -> こ、こうですか？
+Spawn 3 random Light and Heal orbs
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#10: ESRandomSpawn(92:47350) -> バッチリですか？
+Condition: When fire, wood, jammer, poison, or mortal poison orbs are on the board (ai:100 rnd:0)
+Spawn 3 random Water, Light, Dark, and Heal orbs
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn

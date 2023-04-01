@@ -1,0 +1,28 @@
+#302822 - 新聞部の新人・ウォーロン
+monster size: 4
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 302822
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (4109:94) 取材いいでやんすか？
+ | Lock 5 random orbs
+ group:
+ | group:
+ | condition: turn 1
+   | condition: when 2815 on team
+   | (4112:92) おやびんも取材でやんすか？
+   | Spawn 3 random Heal orbs
+   | (4111:77) アイスカメラ
+   | Change the 1st column to Water orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 1 of 2
+   | (4110:92) 号外
+   | Spawn 3 random Jammer orbs, Deal 100% damage
+ | group:
+ | condition: execute repeatedly, turn 2 of 2
+   | (4111:77) アイスカメラ
+   | Change the 1st column to Water orbs, Deal 100% damage

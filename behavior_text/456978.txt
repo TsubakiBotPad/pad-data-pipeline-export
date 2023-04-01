@@ -1,0 +1,37 @@
+#456978 - Fierce General, Orlando
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 456978
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (38978:129) ＿Super Resolve
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (38979:83) Angelica, I shall find you! + Holy Sword Durendal
+ | Voids status ailments for 999 turns + Jammer and Poison skyfall +15% for 5 turns, Deal 80% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (38986:15) Slashing Onslaught
+     | Deal 105% damage (3 hits, 35% each)
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (38987:110) Orlando Furioso
+     | Specific orbs change every 1.0s for 1 turn, Deal 105% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (38988:137) Horn of Oliphant
+     | Void damage >= 3,000,000,000 for 2 turns, Deal 100% damage
+ | group:
+ | condition: always turn 1, hp <= 49
+   | (38982:107) You betrayed me?!
+   | Unable to match Heal orbs for 1 turn, Deal 90% damage
+ | group:
+ | condition: turn 2, hp <= 19
+   | (38983:83) Where have you gone?! + Angelicaaaa!!!
+   | Bind awoken skills for 1 turn + Bind 3 random subs for 99 turns

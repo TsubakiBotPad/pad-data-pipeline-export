@@ -1,0 +1,68 @@
+#305945 - 裏転生ツクヨミ＝ドラゴン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:45347) -> 夜刻神の風格
+	Voids status ailments for 999 turns
+	[1] ESSkyfall(68:45348) -> 月光の導き
+	Heal skyfall +20% for 20 turns
+	[2] ESGravity(50:45349) -> 暗黒の波動
+	Player -150% HP
+
+#3: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:45351) -> 桂月の輝き
+	Absorb Fire damage for 1 turn
+	[1] ESGravity(50:45352) -> 暗黒の波動
+	Player -99% HP
+	[2] ESAttackMultihit(15:45353) -> 月光の息吹
+	Deal 36% damage (3 hits, 12% each)
+
+#4: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:45355) -> 桂月の輝き
+	Absorb Water damage for 1 turn
+	[1] ESGravity(50:45356) -> 暗黒の波動
+	Player -99% HP
+	[2] ESAttackMultihit(15:45357) -> 月光の息吹
+	Deal 36% damage (3 hits, 12% each)
+
+#5: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:45359) -> 桂月の輝き
+	Absorb Wood damage for 1 turn
+	[1] ESGravity(50:45360) -> 暗黒の波動
+	Player -99% HP
+	[2] ESAttackMultihit(15:45361) -> 月光の息吹
+	Deal 36% damage (3 hits, 12% each)
+
+#6: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:45363) -> 桂月の輝き
+	Absorb Light damage for 1 turn
+	[1] ESGravity(50:45364) -> 暗黒の波動
+	Player -99% HP
+	[2] ESAttackMultihit(15:45365) -> 月光の息吹
+	Deal 36% damage (3 hits, 12% each)
+
+#7: SkillSet:
+	Condition: 20% chance (ai:0 rnd:20)
+	[0] ESAbsorbAttribute(53:45367) -> 桂月の輝き
+	Absorb Dark damage for 1 turn
+	[1] ESGravity(50:45368) -> 暗黒の波動
+	Player -99% HP
+	[2] ESAttackMultihit(15:45369) -> 月光の息吹
+	Deal 36% damage (3 hits, 12% each)
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESAttributeResist(72:45384) -> 光半減
+Reduce damage from Light attrs by 50%

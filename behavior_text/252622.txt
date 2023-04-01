@@ -1,0 +1,37 @@
+#252622 - Space Witch, Haggar
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+monster_id: 252622
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (2689:83) Enough... + I'm gonna clean that up myself
+ | Do nothing + Voids status ailments for 999 turns
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2617, 2618 on team
+     | (2687:92) Parko, it's been a while.
+     | Spawn 8 random Wood orbs
+     | (2675:89) Beg for forgiveness!
+     | Delay active skills by 2~5 turns
+   | group:
+   | condition: turn 2 while HP > 49
+     | (2676:79) Kneel!
+     | Change the 5th row to Poison orbs, Deal 100% damage
+   | group:
+     | (2677:48) Don't get carried away!
+     | Change all Heal orbs to Fire orbs, Deal 100% damage
+     | (2678:92) Don't get carried away!
+     | Spawn 6 random Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | condition: when 2617, 2618 on team
+   | (2687:92) Parko, it's been a while.
+   | Spawn 8 random Wood orbs
+   | (2681:83) 1 on 1? or all of you at once? + I won't go down that easily
+   | Increase damage to 200% for the next 99 turns + Reduce damage from all sources by 50% for 1 turn

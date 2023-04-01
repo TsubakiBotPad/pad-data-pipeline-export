@@ -1,0 +1,39 @@
+#209910 - GS・ノーチラス
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209910
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46885:73) ＿根性
+ | Survive attacks with 1 HP when HP > 50%
+ | (46891:72) ＿木半減
+ | Reduce damage from Wood attrs by 50%
+ type: PREEMPT
+ | (46873:83) 準備はバッチリだよ！ + 私たちのパフォーマンス楽しんでね！
+ | Leader changes to random sub for 2 turns + Player -50% HP
+ group:
+ | group:
+   | condition: 50% chance
+   | (46877:48) いっくよー！
+   | Change a random attribute to Wood orbs, Deal 105% damage
+   | condition: 50% chance
+   | (46878:109) テンポアップ！
+   | Random 2 orbs change every 0.5s for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (46876:17) もう怒ったよ！
+   | Increase damage to 150% for the next 999 turns
+ | group:
+ | condition: hp <= 1
+   | group:
+   | condition: turn 1
+     | (46879:83) ちょっと難しい曲になるよ～ + ここからが私の真骨頂！
+     | Movetime 25% for 3 turns + Absorb damage when combos <= 7 for 3 turns
+   | group:
+   | condition: turn 2
+     | (46876:17) もう怒ったよ！
+     | Increase damage to 150% for the next 999 turns

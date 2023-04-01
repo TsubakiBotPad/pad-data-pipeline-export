@@ -1,0 +1,33 @@
+#504344 - 学園のアイドル・ウルカ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 504344
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (47377:83) では始めますね～ + しっかり付いてきてください～
+ | Absorb Water and Dark damage for 3 turns + ATK -50% for 3 turns
+ type: DEATH
+ condition: when defeated
+ | (47393:95) ここまでにしておきましょう～
+ | Reduce self HP to 0
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1 of 4
+   | (47380:83) 音楽への愛を～ + ハートを見せてください～！
+   | Player -50% HP + Spawn 5 random Heal orbs
+ | group:
+ | condition: execute repeatedly, turn 2 of 4
+   | (47383:83) きらめくステージの～ + 光と共に～！
+   | Specific orbs change every 1.0s for 1 turn + Spawn 10 random Light orbs
+ | group:
+ | condition: execute repeatedly, turn 3 of 4
+   | (47386:83) まだいけますか～？ + いけますよね？ + とっても素敵ですよ～
+   | RCV 50% for 1 turn + No description set + Heal skyfall +15% for 1 turn
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (47390:83) あら～？お顔が… + 下を向いてますよぉ
+   | Blind all orbs on the board + Lock all orbs, Deal 50% damage

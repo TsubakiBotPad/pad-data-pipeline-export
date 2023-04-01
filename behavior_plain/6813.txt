@@ -1,0 +1,51 @@
+#6813 - Pixel Dark Wizard, Dill Sirius
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESAbsorbAttribute(53:45333) -> マジックドレイン
+	Absorb Light damage for 7 turns
+	[1] ESAbsorbCombo(67:45334) -> リカバリーダーク
+	Absorb damage when combos <= 10 for 99 turns
+	[2] ESSpinnersFixed(110:45335) -> マジックダークフィールド
+	Specific orbs change every 1.0s for 7 turns
+
+#3: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:45337) -> ダークガード
+	Voids status ailments for 999 turns
+	[1] ESUnknown(153:45338) -> マジックニードル
+	No description set, Deal 100% damage
+
+#4: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#5: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 6, target rnd 8
+
+#6: SkillSet:
+	[0] ESChangeAttribute(46:45343) -> マジックカラー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESUnknown(153:45344) -> マジックニードル
+	No description set, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	[0] ESChangeAttribute(46:45340) -> マジックカラー
+	Change own attribute to random one of Fire, Water, Wood, Light, or Dark
+	[1] ESAttackMultihit(15:45341) -> マジックダークブラスト
+	Deal 3,500% damage (7 hits, 500% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESSuperResolve(129:45345) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,0 +1,69 @@
+#156967 - Demeter
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESGravity(50:22640) -> I am Demeter...
+	Player -75% HP
+	[1] ESBindSkill(14:22641) -> ...goddess of the Earth and harvest.
+	Bind active skills for 5 turns
+
+#5: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 14
+
+#6: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 10
+
+#7: ESRandomSpawn(92:22506) -> Enough!
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 3 random Wood orbs, Deal 80% damage
+
+#8: ESAttackMultihit(15:22505) -> Silence! Silence!
+Condition: 50% chance (ai:0 rnd:50)
+Deal 100% damage (2 hits, 50% each)
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESDebuffRCV(105:22507) -> Disastrous Harvest
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+RCV 50% for 3 turns
+
+#11: ESOrbLock(94:22504) -> Hades stole her away?
+Condition: 50% chance (ai:0 rnd:50)
+Lock all Dark orbs, Deal 90% damage
+
+#12: ESRandomSpawn(92:22503) -> Where is Persephone?
+Condition: 50% chance (ai:0 rnd:50)
+Spawn 4 random Dark orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESBlindStickyRandom(97:22509) -> Arrival of a Harsh Winter
+Condition: 50% chance (ai:0 rnd:50)
+Blind random 4~6 orbs for 1 turn, Deal 100% damage
+
+#15: ESAttackMultihit(15:22508) -> Winter of Sorrow
+Condition: 50% chance (ai:0 rnd:50)
+Deal 120% damage
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:22510) -> Ohh, Persephone...
+	Do nothing

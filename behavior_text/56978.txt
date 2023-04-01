@@ -1,0 +1,64 @@
+#56978 - Fierce General, Orlando
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 56978
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (22660:83) Angelica, I shall find you! + There is no time to waste!
+ | Do nothing + Do nothing
+
+level: 4
+ type: PREEMPT
+ | (22550:83) Angelica, I shall find you! + Do not interfere! + There is no time to waste! + Leave this place!
+ | Voids status ailments for 999 turns + Void damage >= 2,000,000 for 3 turns + Absorb damage when combos <= 5 for 3 turns + Deal 100% damage, Deal 100% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (22559:126) Where have you gone?!
+     | Change board size to 7x6 for 2 turns
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (22558:94) I even laid waste to Africa and yet...
+     | Lock all orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (22561:62) Who is this "Medoro"?
+     | Blind all orbs on the board, Deal 100% damage
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1 while HP > 19
+     | (22562:83) You betrayed me?! + Orlando Furioso
+     | Reduce damage from all sources by 50% for 5 turns + Increase damage to 150% for the next 999 turns
+   | group:
+     | condition: 20% chance
+     | (22565:107) I'll never forgive you!
+     | Unable to match Fire orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22566:107) I'll never forgive you!
+     | Unable to match Water orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22567:107) I'll never forgive you!
+     | Unable to match Wood orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22568:107) I'll never forgive you!
+     | Unable to match Light orbs for 1 turn, Deal 100% damage
+     | condition: 20% chance
+     | (22569:107) I'll never forgive you!
+     | Unable to match Dark orbs for 1 turn, Deal 100% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (22555:83) I'll find Angelica even if I have to tear this world apart! + I've already rampaged through Europe!
+     | Bind awoken skills for 1 turn + Delay active skills by 0~2 turns
+   | group:
+     | (22560:6) Angelicaaaa!!!
+     | Voids player buff effects
+     | (22570:15) Orlando's Holy Strike
+     | Deal 200% damage (4 hits, 50% each)

@@ -1,0 +1,51 @@
+#152628 - Robeast, Myzax
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 152628
+approved: False
+
+level: 1
+ type: DEATH
+ condition: when defeated
+ | (2652:95) Gwah!
+ | Change all Heal orbs to Dark orbs
+
+level: 4
+ type: PREEMPT
+ | (2643:17) Shut up and fight me!
+ | Increase damage to 200% for the next 1 turn
+ type: DEATH
+ condition: when defeated
+ | (2652:95) Gwah!
+ | Change all Heal orbs to Dark orbs
+ group:
+ | group:
+   | group:
+   | condition: turn 1 while HP > 49
+     | condition: when 2609, 2610 on team
+     | (2654:50) Don't mess with me!
+     | Player -50% HP
+     | (2644:92) Yeah!
+     | Spawn 6 random Jammer orbs, Deal 80% damage
+   | group:
+   | condition: execute repeatedly, turn 1 of 2
+     | (2646:50) Daryaaaa!
+     | Player -70% HP
+   | group:
+   | condition: execute repeatedly, turn 2 of 2
+     | (2645:15) Heyyy!
+     | Deal 120% damage (2 hits, 60% each)
+ | group:
+ | condition: hp <= 49
+   | group:
+   | condition: turn 1
+     | condition: when 2609, 2610 on team
+     | (2654:50) Don't mess with me!
+     | Player -50% HP
+     | (2650:83) Crap... + Graahhh!
+     | Spawn 4 random Jammer orbs + Player -50% HP
+   | group:
+     | (2647:15) Heyyy Heyyy!
+     | Deal 240% damage (4 hits, 60% each)

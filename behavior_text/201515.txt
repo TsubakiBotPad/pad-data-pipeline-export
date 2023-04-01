@@ -1,0 +1,40 @@
+#201515 - 裏幽幻の猫又・クロネ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 201515
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (45414:83) 一緒に遊んでほしいな + 痛くしないでね + 絶対だよ
+ | Reduce damage from all sources by 80% for 5 turns + Bind awoken skills for 1 turn + Voids status ailments for 999 turns, Deal 11% damage
+ group:
+ | group:
+ | condition: always turn 2
+   | (16081:14) もっと遊ぼうよ
+   | Bind active skills for 5 turns, Deal 150% damage
+ | group:
+   | group:
+   | condition: turn 1 while HP > 79
+     | (16077:109) はい、あげる
+     | Random 3 orbs change every 2.0s for 5 turns
+   | group:
+     | condition: 33% chance
+     | (16082:50) ぎゅーん
+     | Player -99% HP
+     | condition: 33% chance
+     | (16083:102) どっかーん
+     | Spawn 7 random locked Bomb orbs, Deal 100% damage
+     | condition: 34% chance
+     | (16084:97) 消えちゃえ
+     | Blind random 5~10 orbs for 2 turns, Deal 110% damage
+ | group:
+ | condition: always turn 1, hp <= 79
+   | (16078:83) 痛いなぁ + 悪い子にはお仕置きだよ
+   | Bind awoken skills for 1 turn + Bind 4 random subs for 5 turns
+ | group:
+ | condition: hp <= 9
+   | (16085:15) あー、楽しかった
+   | Deal 400% damage

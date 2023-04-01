@@ -1,0 +1,59 @@
+#209908 - GS・シェアト
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESVoidShieldBig(137:46847) -> さ、歌うよ
+	Void damage >= 1,000,000,000 for 3 turns
+	[1] ESOrbLock(94:46848) -> 私の歌、聴き逃さないでね
+	Lock 8 random orbs, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESUnknown(153:46852) -> むか……
+Condition: 33% chance (ai:0 rnd:33)
+No description set, Deal 100% damage
+
+#5: ESUnknown(151:46853) -> むか……
+Condition: 33% chance (ai:0 rnd:33)
+No description set, Deal 105% damage
+
+#6: ESAttackMultihit(15:46854) -> 声が小さくない？
+Condition: 34% chance (ai:0 rnd:34)
+Deal 108% damage (3 hits, 36% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 4
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#10: SkillSet:
+	[0] ESSkyfallLocked(96:46850) -> 音楽を聴いていると
+	Locked random skyfall +100% for 1 turn
+	[1] ESBoardChangeAttackBits(85:46851) -> ドキドキ、わくわくするの
+	Change all orbs to Heal and Poison, Deal 100% damage
+
+#11: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#12: ESResolve(73:46885) -> ＿根性
+Survive attacks with 1 HP when HP > 50%
+
+#13: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:46845) -> もすこし歌いたかった……
+	Do nothing
+
+#14: ESTypeResist(118:46887) -> ＿体力半減
+Reduce damage from Physical types by 50%

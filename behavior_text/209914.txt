@@ -1,0 +1,36 @@
+#209914 - GS・シーウルフ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209914
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (46883:129) ＿超根性
+ | Damage which would reduce HP from above 95% to below 95% is nullified
+ | (46890:72) ＿火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (46864:83) 今日もはりきっていくぜ + 踊りたくてウズウズするな！
+ | Void damage >= 1,000,000,000 for 3 turns + For 1 turn, 5% ATK for 2 random subs, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (46870:48) 最高だな！
+   | Change a random attribute to Fire orbs, Deal 110% damage
+   | condition: 33% chance
+   | (46871:62) 派手にいくぜ！
+   | Blind all orbs on the board, Deal 100% damage
+   | condition: 34% chance
+   | (46872:127) そりゃっ！
+   | No skyfall for 1 turn
+ | group:
+ | condition: always turn 1, hp <= 94
+   | (46867:83) まだまだこれからだぜ！ + 盛り上がってこうぜ！
+   | Absorb Fire damage for 3 turns + Change all orbs to Fire, Deal 120% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (46894:17) パワーアップしていくぜ！
+   | Increase damage to 150% for the next 999 turns

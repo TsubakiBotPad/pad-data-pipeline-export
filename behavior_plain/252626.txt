@@ -1,0 +1,77 @@
+#252626 - Commander Sendak
+monster size: 5
+new AI: True
+start/max counter: 0
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAttackMultihit(15:2655) -> Yaaa!
+Deal 30% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 11
+
+#9: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#10: ESBranchCard(90:2662) -> ESBranchCard
+Branch on player_cards HAS [2607, 2608], target rnd 22
+
+#11: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 4, target rnd 14
+
+#12: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b111
+
+#13: ESAttackMultihit(15:2656) -> Oraaa!
+Deal 150% damage
+
+#14: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 8, target rnd 17
+
+#15: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1111
+
+#16: ESSkillDelay(89:2657) -> Oh! You're tough!
+Delay active skills by 1 turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 16, target rnd 20
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11111
+
+#19: ESBindAttack(63:2658) -> Woryaaaa!
+Bind player leader for 3 turns, Deal 65% damage
+
+#20: ESFlagOperation(24:14) -> ESFlagOperation
+flag UNSET 0b11100
+
+#21: ESAttackUPRemainingEnemies(17:2659) -> Is it already the end?!
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 200% for the next 3 turns
+
+#22: ESRandomSpawn(92:2663) -> What's wrong, long haired bastard?
+Spawn 8 random Dark orbs
+
+#23: SkillSet:
+	Condition: On death (ai:100 rnd:0)
+	[0] ESBlind5(5:2660) -> I'm no....not finished yet!
+	Blind all orbs on the board
