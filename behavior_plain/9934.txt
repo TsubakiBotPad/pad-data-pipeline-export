@@ -1,0 +1,39 @@
+#9934 - 福運の幸兎神・ラビリル
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:47236) -> セイクリッドシールド
+	Voids status ailments for 999 turns
+	[1] ESAbsorbCombo(67:47237) -> 幸兎神の試練
+	Absorb damage when combos <= 8 for 2 turns
+	[2] ESSpinnersRandom(109:47238) -> セイクリッドルーレット
+	Random 3 orbs change every 1.0s for 2 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 6
+
+#4: ESRandomSpawn(92:47240) -> セイクリッドサイン
+Spawn 2 random Water and Light orbs, Deal 100% damage
+
+#5: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#6: ESBlind62(62:47239) -> 幸兎神の戯れ
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Blind all orbs on the board, Deal 100% damage
+
+#7: ESRandomSpawn(92:47240) -> セイクリッドサイン
+Spawn 2 random Water and Light orbs, Deal 100% damage
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESSuperResolve(129:47241) -> 超根性
+Damage which would reduce HP from above 50% to below 50% is nullified
