@@ -1,4 +1,4 @@
-#706083 - 聖都の魔導機士・メノア
+#706083 - Magical Machinist of the Sacred City, Menoa
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,28 +9,28 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:18146) -> 魔導機装・マシンアテナ
+	[0] ESStatusShield(20:18146) -> Equip Magical Mech, Machine Athena
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:18126) -> 機工障壁
+	[1] ESDamageShield(74:18126) -> Mechanical Wall
 	Reduce damage from all sources by 90% for 999 turns
-	[2] ESAbsorbAttribute(53:18361) -> 魔導ローブ
+	[2] ESAbsorbAttribute(53:18361) -> Magical Robe
 	Absorb Fire damage for 10 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 50, target rnd 9
 
-#4: ESAttackUPCooldown(19:18121) -> 魔導エネルギー解放
+#4: ESAttackUPCooldown(19:18121) -> Unleash Magical Energy
 Increase damage to 200% for the next 999 turns
 
-#5: ESGravity(50:18147) -> 改機・シケリアストライク
+#5: ESGravity(50:18147) -> Upgraded Siculus Strike
 Condition: 33% chance (ai:0 rnd:33)
 Player -180% HP
 
-#6: ESAttackMultihit(15:18148) -> 改機・スターバースト
+#6: ESAttackMultihit(15:18148) -> Upgraded Starburst
 Condition: 33% chance (ai:0 rnd:33)
 Deal 120% damage (10 hits, 12% each)
 
-#7: ESRandomSpawn(92:18125) -> ヒーリングシンドローム
+#7: ESRandomSpawn(92:18125) -> Healing Syndrome
 Condition: 34% chance (ai:0 rnd:34)
 Spawn 10 random Heal orbs, Deal 110% damage
 
@@ -43,12 +43,12 @@ Branch on flag & 1, target rnd 4
 #10: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#11: ESAbsorbThreshold(87:18144) -> アイアンDEF of アイギス
+#11: ESAbsorbThreshold(87:18144) -> Iron DEF of Aegis
 Condition: One-time use (ai:100 rnd:0) (cost: 1)
 Absorb damage when damage >= 100,000,000 for 999 turns
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESSuperResolve(129:18143) -> 超根性
+#13: ESSuperResolve(129:18143) -> Super Resolve
 Damage which would reduce HP from above 50% to below 50% is nullified

@@ -1,4 +1,4 @@
-#301670 - 裏過去の時女神・ウルド
+#301670 - Alt. Norn of the Past, Urd
 monster size: 5
 new AI: True
 start/max counter: 0
@@ -20,11 +20,11 @@ Branch on flag & 1, target rnd 8
 flag SET 0b1
 
 #6: SkillSet:
-	[0] ESAbsorbCombo(67:12177) -> ノルンの軌跡
+	[0] ESAbsorbCombo(67:12177) -> Norn's Trace
 	Absorb damage when combos <= 5 for 99 turns
-	[1] ESVoidShield(71:12178) -> 時空障壁
+	[1] ESVoidShield(71:12178) -> Space-Time Barrier
 	Void damage >= 40,000,000 for 6 turns
-	[2] ESDispel(6:12176) -> 次元滅
+	[2] ESDispel(6:12176) -> Dimension Extinction
 	Voids player buff effects
 
 #7: ESEndPath(36:26) -> ESEndPath
@@ -39,21 +39,21 @@ Branch on hp < 50, target rnd 21
 #10: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 60, target rnd 15
 
-#11: ESBlindStickyFixed(98:9252) -> ブライドゥニル
+#11: ESBlindStickyFixed(98:9252) -> Bridenir
 Condition: 33% chance (ai:33 rnd:0)
 Blind orbs in specific positions for 2 turns, Deal 170% damage
 
 #12: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESColumnSpawnMulti(77:9253) -> フェイトビフレスト
+	[0] ESColumnSpawnMulti(77:9253) -> Bifröst Fate
 	Change the 1st column to Fire orbs and the 6th column to Water orbs, Deal 155% damage
-	[1] ESBombFixedSpawn(103:9254) -> 女神の落とし物
+	[1] ESBombFixedSpawn(103:9254) -> Norn's Dropped Items
 	Spawn Bomb orbs in the specified positions
 
 #13: SkillSet:
-	[0] ESSkyfall(68:9256) -> 過去のしがらみ
+	[0] ESSkyfall(68:9256) -> Bonds of the Past
 	Jammer skyfall +15% for 1 turn
-	[1] ESBoardChangeAttackBits(85:9257) -> ノルンスレイヴ
+	[1] ESBoardChangeAttackBits(85:9257) -> Norn Slave
 	Change all orbs to Fire, Water, and Heal, Deal 180% damage
 
 #14: ESEndPath(36:26) -> ESEndPath
@@ -65,13 +65,13 @@ Branch on flag & 2, target rnd 19
 #16: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b11
 
-#17: ESOrbSealColumn(99:9245) -> 時流停止
+#17: ESOrbSealColumn(99:9245) -> Time Stasis
 Seal the 1st column for 2 turns
 
 #18: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#19: ESAttackMultihit(15:9266) -> フィンブルヴェトウィーブ
+#19: ESAttackMultihit(15:9266) -> Fimbulvetr Weaving
 Deal 600% damage (6 hits, 100% each)
 
 #20: ESEndPath(36:26) -> ESEndPath
@@ -84,11 +84,11 @@ Branch on flag & 4, target rnd 25
 flag SET 0b111
 
 #23: SkillSet:
-	[0] ESStatusShield(20:12180) -> 運命の歯車が動き出した
+	[0] ESStatusShield(20:12180) -> The cogs of fate are now in motion
 	Voids status ailments for 999 turns
-	[1] ESDebuffMovetime(39:12181) -> ノルニルの呪縛
+	[1] ESDebuffMovetime(39:12181) -> Nornil Curse
 	Movetime 50% for 12 turns
-	[2] ESDispel(6:12176) -> 次元滅
+	[2] ESDispel(6:12176) -> Dimension Extinction
 	Voids player buff effects
 
 #24: ESEndPath(36:26) -> ESEndPath
@@ -96,19 +96,19 @@ end_turn
 
 #25: SkillSet:
 	Condition: 33% chance (ai:33 rnd:0)
-	[0] ESRowSpawnMulti(79:9259) -> フェイトビフレスト
+	[0] ESRowSpawnMulti(79:9259) -> Bifröst Fate
 	Change the 1st row to Fire orbs and the 5th row to Water orbs, Deal 110% damage
-	[1] ESDebuffRCV(105:9260) -> 抗いの女神
+	[1] ESDebuffRCV(105:9260) -> Norn Resistance
 	RCV 50% for 1 turn
 
 #26: SkillSet:
 	Condition: 50% chance (ai:50 rnd:0)
-	[0] ESBoardChangeAttackBits(85:9262) -> ノルンスレイヴ
+	[0] ESBoardChangeAttackBits(85:9262) -> Norn Slave
 	Change all orbs to Fire, Water, and Jammer, Deal 90% damage
-	[1] ESSkillDelay(89:9263) -> 時を遡る
+	[1] ESSkillDelay(89:9263) -> Time winds backwards
 	Delay active skills by 0~2 turns
 
-#27: ESAttackMultihit(15:9265) -> ウィーブテイン
+#27: ESAttackMultihit(15:9265) -> Weaving Teinn
 Deal 120% damage (3 hits, 40% each)
 
 #28: ESEndPath(36:26) -> ESEndPath
@@ -123,7 +123,7 @@ Branch on flag & 8, target rnd 19
 #31: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1111
 
-#32: ESBindAwoken(88:9251) -> 終焉の刻
+#32: ESBindAwoken(88:9251) -> End of Time
 Bind awoken skills for 1 turn
 
 #33: ESEndPath(36:26) -> ESEndPath
@@ -136,23 +136,23 @@ Branch on flag & 4, target rnd 30
 flag SET 0b111
 
 #36: SkillSet:
-	[0] ESRecoverEnemy86(86:12183) -> 癒しの刻
+	[0] ESRecoverEnemy86(86:12183) -> Healing Hour
 	Enemy recover 50% HP
-	[1] ESStatusShield(20:12180) -> 運命の歯車が動き出した
+	[1] ESStatusShield(20:12180) -> The cogs of fate are now in motion
 	Voids status ailments for 999 turns
-	[2] ESDebuffMovetime(39:12181) -> ノルニルの呪縛
+	[2] ESDebuffMovetime(39:12181) -> Nornil Curse
 	Movetime 50% for 12 turns
-	[3] ESDispel(6:12176) -> 次元滅
+	[3] ESDispel(6:12176) -> Dimension Extinction
 	Voids player buff effects
 
 #37: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#38: ESResolve(73:9241) -> 根性
+#38: ESResolve(73:9241) -> Resolve
 Survive attacks with 1 HP when HP > 51%
 
-#39: ESAttributeResist(72:9240) -> 光闇耐性
+#39: ESAttributeResist(72:9240) -> Light & Dark Resistance
 Reduce damage from Light and Dark attrs by 50%
 
-#40: ESTurnChangePassive(106:9239) -> 時間の流れが変わる
+#40: ESTurnChangePassive(106:9239) -> The flow of time has changed
 Enemy turn counter change to 1 when HP <= 50%

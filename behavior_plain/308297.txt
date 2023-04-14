@@ -1,4 +1,4 @@
-#308297 - 裏狛犬龍・センリ＝ドラゴン
+#308297 - Alt. Komainu Beast, Senri Dragon
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:45739) -> 狛犬龍の結界
+	[0] ESStatusShield(20:45739) -> Komainu Beast's Barrier
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:45740) -> 対龍の炎盾
+	[1] ESVoidShieldBig(137:45740) -> Twin Dragons' Flame Shield
 	Void damage >= 1,000,000,000 for 7 turns
-	[2] ESSkillDelay(89:45741) -> 天手炎舞
+	[2] ESSkillDelay(89:45741) -> Bursting Rush
 	Delay active skills by 4 turns, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESSpinnersRandom(109:45748) -> 退魔炎
+	[0] ESSpinnersRandom(109:45748) -> Purifying Flame
 	Random 2 orbs change every 0.5s for 1 turn
-	[1] ESUnknown(153:45749) -> 双浄の焔
+	[1] ESUnknown(153:45749) -> Dual Flame
 	No description set, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESSpinnersRandom(109:45751) -> 退魔炎
+	[0] ESSpinnersRandom(109:45751) -> Purifying Flame
 	Random 3 orbs change every 1.0s for 1 turn
-	[1] ESBoardChangeAttackBits(85:45752) -> 狛陣の焔
+	[1] ESBoardChangeAttackBits(85:45752) -> Komainu Formation's Flames
 	Change all orbs to Heal and Poison, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -52,28 +52,28 @@ Branch on flag & 1, target rnd 7
 flag SET 0b1
 
 #12: SkillSet:
-	[0] ESNoSkyfall(127:45744) -> 退魔双浄破
+	[0] ESNoSkyfall(127:45744) -> Purifying Destructive Dual Flame
 	No skyfall for 3 turns
-	[1] ESBoardChangeAttackBits(85:45745) -> 狛陣の焔
+	[1] ESBoardChangeAttackBits(85:45745) -> Komainu Formation's Flames
 	Change all orbs to Heal, Deal 150% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESBoardChangeAttackBits(85:45742) -> 退魔双浄炎砲
+#14: ESBoardChangeAttackBits(85:45742) -> Purifying Dual Flame Cannon
 Change all orbs to Fire, Deal 1,000% damage
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	[0] ESBindAwoken(88:45533) -> Wave of a Trillion Evil Omens
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	[1] ESAttackMultihit(15:45534) -> Doom of a Trillion Catastrophes
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%

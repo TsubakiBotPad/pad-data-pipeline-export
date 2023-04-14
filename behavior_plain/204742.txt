@@ -1,4 +1,4 @@
-#204742 - 裏奇炎なるもの・クトゥグア
+#204742 - Alt. Cthugha, the Bizarre Flame
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,23 +9,23 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:13560) -> 無尽蔵な世界の排他的概念
+	[0] ESStatusShield(20:13560) -> Concept of Boundless Worlds
 	Voids status ailments for 999 turns
-	[1] ESVoidShield(71:13561) -> 凡てを焦土せし狂気の輪廻
+	[1] ESVoidShield(71:13561) -> Cycle of Scorched-Earth Madness
 	Void damage >= 40,000,000 for 999 turns
 
 #3: SkillSet:
 	Condition: When < 10% HP (ai:100 rnd:0)
-	[0] ESRecoverEnemy86(86:11531) -> 久遠に灯る慟哭刻みし劫火
+	[0] ESRecoverEnemy86(86:11531) -> Eternally Burning Wails of Calamity
 	Enemy recover 50% HP
-	[1] ESAttackUPRemainingEnemies(17:11532) -> 火を従えし生ける炎の王
+	[1] ESAttackUPRemainingEnemies(17:11532) -> King of the Fire Subduing Flame
 	Increase damage to 200% for the next 99 turns
 
-#4: ESBoardChangeAttackBits(85:11534) -> 広袤大なる暗黒神の幽棲せし森の焼燬
+#4: ESBoardChangeAttackBits(85:11534) -> Spreading Dark God's Blazing Forest
 Condition: When < 50% HP , one-time use (ai:100 rnd:0) (cost: 1)
 Change all orbs to Fire, Deal 140% damage
 
-#5: ESDispel(6:11541) -> 忽焉に訪れる羽翼の寂滅
+#5: ESDispel(6:11541) -> Death of Sudden Help
 Condition: 10% chance (ai:10 rnd:0)
 Voids player buff effects
 
@@ -35,7 +35,7 @@ Branch on flag & 1, target rnd 10
 #7: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#8: ESGravity(50:11535) -> 空劫過る焔の残像
+#8: ESGravity(50:11535) -> Reminiscence of Universe's Last Flame
 Player -99% HP
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -44,18 +44,18 @@ end_turn
 #10: ESFlagOperation(24:14) -> ESFlagOperation
 flag UNSET 0b1
 
-#11: ESBlindStickyRandom(97:13769) -> 剥落する七角漆黒の炎
+#11: ESBlindStickyRandom(97:13769) -> Scraping Jet-Black Flames
 Condition: 50% chance (ai:50 rnd:0)
 Blind random 3~5 orbs for 4 turns, Deal 70% damage
 
-#12: ESAttackMultihit(15:11536) -> 落魄した生命の殄滅
+#12: ESAttackMultihit(15:11536) -> Annihilation of a Straitened Existence
 Deal 75% damage (5 hits, 15% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESResolve(73:11527) -> 根性
+#14: ESResolve(73:11527) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#15: ESAttributeResist(72:13768) -> 火水半減
+#15: ESAttributeResist(72:13768) -> Fire & Water damage halved
 Reduce damage from Fire and Water attrs by 50%

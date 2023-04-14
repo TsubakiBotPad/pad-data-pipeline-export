@@ -1,4 +1,4 @@
-#406657 - 眩惑の妖精王・アルバート
+#406657 - Dazzling King of the Fairies, Albrecht
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,9 +9,9 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:24585) -> 妖精の楽園
+	[0] ESStatusShield(20:24585) -> Fairy Paradise
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:24586) -> 妖精王の招宴
+	[1] ESVoidShieldBig(137:24586) -> Feast of the Fairy King
 	Void damage >= 5,000,000,000 for 999 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
@@ -26,19 +26,19 @@ Branch on hp < 50, target rnd 19
 #6: ESBranchCounter(32:22) -> ESBranchCounter
 Branch on counter >= 4, target rnd 12
 
-#7: ESOrbLock(94:24587) -> プライマリーロック
+#7: ESOrbLock(94:24587) -> Primary Lock
 Condition: 25% chance (ai:0 rnd:25)
 Lock 20 random orbs, Deal 95% damage
 
-#8: ESSkyfallLocked(96:24588) -> プライマリーバースト
+#8: ESSkyfallLocked(96:24588) -> Primary Burst
 Condition: 25% chance (ai:0 rnd:25)
 Locked random skyfall +100% for 1 turn, Deal 105% damage
 
-#9: ESDebuffRCV(105:24589) -> フェアリーウィッシュ
+#9: ESDebuffRCV(105:24589) -> Fae Wish
 Condition: 25% chance (ai:0 rnd:25)
 RCV 50% for 1 turn, Deal 90% damage
 
-#10: ESBlindStickySkyfall(128:24590) -> フェアリーランプ
+#10: ESBlindStickySkyfall(128:24590) -> Fairy Lamp
 Condition: 25% chance (ai:0 rnd:25)
 For 1 turn, 30% chance for skyfall orbs to be blinded for turn, Deal 100% damage
 
@@ -49,9 +49,9 @@ end_turn
 Branch on counter >= 5, target rnd 14
 
 #13: SkillSet:
-	[0] ESBindAwoken(88:24595) -> 妖精の牢獄
+	[0] ESBindAwoken(88:24595) -> Fairy Prison
 	Bind awoken skills for 1 turn
-	[1] ESBoardChange(84:24596) -> 森域の荒廃
+	[1] ESBoardChange(84:24596) -> Woodland Devastation
 	Change all orbs to Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison
 
 #14: ESSetCounter(25:15) -> ESSetCounter
@@ -60,10 +60,10 @@ counter = 0
 #15: ESBranchEraseAttr(117:24602) -> ESBranchEraseAttr
 Branch on color erased == 0, target rnd 17
 
-#16: ESSkillDelay(89:24598) -> フェアリーフォース
+#16: ESSkillDelay(89:24598) -> Fae Force
 Delay active skills by 3 turns, Deal 90% damage
 
-#17: ESTargetedSkillHaste(139:24597) -> フェアリーフォース
+#17: ESTargetedSkillHaste(139:24597) -> Fae Force
 Condition: Fire, Water, Wood, Light, Dark, Heal, Jammer, Poison, and Mortal Poison are erased (ai:100 rnd:0)
 Haste all cards' skills by 3 turns
 
@@ -77,22 +77,22 @@ Branch on flag & 1, target rnd 6
 flag SET 0b1
 
 #21: SkillSet:
-	[0] ESAttackUPRemainingEnemies(17:24592) -> 破壊の権化
+	[0] ESAttackUPRemainingEnemies(17:24592) -> Incarnation of Destruction
 	Increase damage to 150% for the next 999 turns
-	[1] ESDebuffATK(130:24593) -> 妖精悪戯
+	[1] ESDebuffATK(130:24593) -> Fairy Mischief
 	ATK -99% for 10 turns
 
 #22: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #23: SkillSet:
-	[0] ESBindAwoken(88:24600) -> 妖精の牢獄
+	[0] ESBindAwoken(88:24600) -> Fairy Prison
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:24601) -> エーテルブラスト
+	[1] ESAttackMultihit(15:24601) -> Ether Blast
 	Deal 1,000% damage (10 hits, 100% each)
 
 #24: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#25: ESResolve(73:24626) -> 根性
+#25: ESResolve(73:24626) -> Resolve
 Survive attacks with 1 HP when HP > 25%

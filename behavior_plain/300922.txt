@@ -1,4 +1,4 @@
-#300922 - 裏宝輝の大精霊・ジーニャ
+#300922 - Alt. Elemental of Gold Glimmer, Genie
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:45692) -> ランプの守護
+	[0] ESStatusShield(20:45692) -> Protection of the Lamp
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:45693) -> ランプの奇跡
+	[1] ESVoidShieldBig(137:45693) -> Miracle of the Lamp
 	Void damage >= 1,000,000,000 for 5 turns
-	[2] ESAbsorbAttribute(53:45694) -> 閃光の結界
+	[2] ESAbsorbAttribute(53:45694) -> Flashing Field
 	Absorb Light and Dark damage for 5 turns
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -29,9 +29,9 @@ Branch on hp < 3, target rnd 10
 Branch on counter >= 4, target rnd 9
 
 #7: SkillSet:
-	[0] ESRandomSpawn(92:45701) -> 閃光の宝輝
+	[0] ESRandomSpawn(92:45701) -> Flashing Treasure's Glimmer
 	Spawn 3 random Fire, Water, Wood, Light, Dark, Heal, Jammer, and Poison orbs
-	[1] ESOrbLock(94:45702) -> ランプの奇跡
+	[1] ESOrbLock(94:45702) -> Miracle of the Lamp
 	Lock all orbs, Deal 100% damage
 
 #8: ESEndPath(36:26) -> ESEndPath
@@ -39,30 +39,30 @@ end_turn
 
 #9: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESAttackUPRemainingEnemies(17:45697) -> 宝輝の開放
+	[0] ESAttackUPRemainingEnemies(17:45697) -> Treasure's Glimmer
 	Increase damage to 1,000% for the next 999 turns
-	[1] ESUnknown(150:45698) -> ランプの奇跡
+	[1] ESUnknown(150:45698) -> Miracle of the Lamp
 	No description set
-	[2] ESOrbLock(94:45699) -> 閃光陣
+	[2] ESOrbLock(94:45699) -> Flashing Formation
 	Lock all orbs
 
-#10: ESAttackMultihit(15:45695) -> ランプの暴走
+#10: ESAttackMultihit(15:45695) -> Lamp out of control
 Deal 1,000% damage (4 hits, 250% each)
 
 #11: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #12: SkillSet:
-	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	[0] ESBindAwoken(88:45533) -> Wave of a Trillion Evil Omens
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	[1] ESAttackMultihit(15:45534) -> Doom of a Trillion Catastrophes
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESResolve(73:42619) -> 根性
+#14: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#15: ESAttributeResist(72:45526) -> 闇軽減
+#15: ESAttributeResist(72:45526) -> Dark Reduced
 Reduce damage from Dark attrs by 50%

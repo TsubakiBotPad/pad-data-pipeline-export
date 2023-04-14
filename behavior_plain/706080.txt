@@ -1,4 +1,4 @@
-#706080 - 星壊の魔導機士・メノア
+#706080 - Magical Machinist of the Star Crusher, Menoa
 monster size: 5
 new AI: True
 start/max counter: 3
@@ -9,28 +9,28 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 2)
-	[0] ESStatusShield(20:18132) -> 魔導機装・デスファリオン
+	[0] ESStatusShield(20:18132) -> Equip Magical Mech, Despharion
 	Voids status ailments for 999 turns
-	[1] ESDamageShield(74:18126) -> 機工障壁
+	[1] ESDamageShield(74:18126) -> Mechanical Wall
 	Reduce damage from all sources by 90% for 999 turns
-	[2] ESAbsorbAttribute(53:18358) -> 魔導ローブ
+	[2] ESAbsorbAttribute(53:18358) -> Magical Robe
 	Absorb Light damage for 10 turns
 
 #3: ESBranchHP(28:18) -> ESBranchHP
 Branch on hp < 1, target rnd 9
 
-#4: ESAttackUPCooldown(19:18121) -> 魔導エネルギー解放
+#4: ESAttackUPCooldown(19:18121) -> Unleash Magical Energy
 Increase damage to 200% for the next 999 turns
 
-#5: ESBindAwoken(88:18133) -> 改機・ニエンテスパーツィオ
+#5: ESBindAwoken(88:18133) -> Upgraded Nessuno Spazio
 Condition: 33% chance (ai:0 rnd:33)
 Bind awoken skills for 2 turns, Deal 100% damage
 
-#6: ESAttackMultihit(15:18134) -> 改機・インヌメレーヴォレモルテ
+#6: ESAttackMultihit(15:18134) -> Upgraded Innumerevoli Morti
 Condition: 33% chance (ai:0 rnd:33)
 Deal 120% damage (10 hits, 12% each)
 
-#7: ESRandomSpawn(92:18125) -> ヒーリングシンドローム
+#7: ESRandomSpawn(92:18125) -> Healing Syndrome
 Condition: 34% chance (ai:0 rnd:34)
 Spawn 10 random Heal orbs, Deal 110% damage
 
@@ -45,13 +45,13 @@ flag SET 0b1
 
 #11: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESRecoverEnemy86(86:18123) -> オートリペア作動
+	[0] ESRecoverEnemy86(86:18123) -> Engage Auto Repair
 	Enemy recover 10% HP
-	[1] ESDebuffMovetime(39:18124) -> タイムアウト
+	[1] ESDebuffMovetime(39:18124) -> Time Out
 	Movetime 50% for 10 turns
 
 #12: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#13: ESResolve(73:18113) -> 根性
+#13: ESResolve(73:18113) -> Resolve
 Survive attacks with 1 HP when HP > 50%

@@ -1,4 +1,4 @@
-#300224 - 碧槍の英雄・クーフーリン
+#300224 - Cu Chulainn, the Green Lancer
 monster size: 3
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESVoidShieldBig(137:45619) -> 碧盾
+	[0] ESVoidShieldBig(137:45619) -> Holy Shield
 	Void damage >= 1,000,000,000 for 7 turns
-	[1] ESUnknown(152:45620) -> デル・フリス
+	[1] ESUnknown(152:45620) -> Del Chliss
 	No description set
-	[2] ESOrbSealRow(100:45621) -> ドゥヴシェフ
+	[2] ESOrbSealRow(100:45621) -> Duaibsech
 	Seal the 1st row for 3 turns, Deal 130% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on hp < 50, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESOrbChangeAttack(48:45625) -> ゲイボルグ
+	[0] ESOrbChangeAttack(48:45625) -> Gáe Bulg
 	Change a random attribute to Jammer orbs, Deal 100% damage
-	[1] ESOrbLock(94:45626) -> デル・フリス
+	[1] ESOrbLock(94:45626) -> Del Chliss
 	Lock 10 random orbs
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESOrbChangeAttack(48:45628) -> ゲイボルグ
+	[0] ESOrbChangeAttack(48:45628) -> Gáe Bulg
 	Change a random attribute to Heal orbs, Deal 100% damage
-	[1] ESUnknown(151:45629) -> デル・フリス
+	[1] ESUnknown(151:45629) -> Del Chliss
 	No description set
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,26 +51,26 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESAbsorbCombo(67:45623) -> 隠れ蓑
+#12: ESAbsorbCombo(67:45623) -> Cloak of Invisibility
 Absorb damage when combos <= 7 for 3 turns
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:45622) -> クルージーン・カザド・ヒャン
+#14: ESAttackMultihit(15:45622) -> Cruadín Cotut-Chend
 Deal 1,000% damage (2 hits, 500% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	[0] ESBindAwoken(88:45533) -> Wave of a Trillion Evil Omens
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	[1] ESAttackMultihit(15:45534) -> Doom of a Trillion Catastrophes
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%

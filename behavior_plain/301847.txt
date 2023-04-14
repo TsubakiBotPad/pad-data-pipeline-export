@@ -1,4 +1,4 @@
-#301847 - 真黒天の幻龍王・ゼローグ∞
+#301847 - True Maleficent Phantom Dragon King, Zeroag∞
 monster size: 5
 new AI: True
 start/max counter: 1
@@ -9,11 +9,11 @@ Enable preempt if level 1
 
 #2: SkillSet:
 	Condition: One-time use (ai:100 rnd:0) (cost: 1)
-	[0] ESStatusShield(20:45810) -> 幻龍王の結界
+	[0] ESStatusShield(20:45810) -> Phantom Dragon King's Barrier
 	Voids status ailments for 999 turns
-	[1] ESVoidShieldBig(137:45811) -> 幻龍障壁
+	[1] ESVoidShieldBig(137:45811) -> Phantom Dragon Wall
 	Void damage >= 1,000,000,000 for 1 turn
-	[2] ESDebuffRCV(105:45812) -> リターン・ゼロ
+	[2] ESDebuffRCV(105:45812) -> Return Zero
 	RCV 0% for 1 turn, Deal 100% damage
 
 #3: ESSetCounter(26:16) -> ESSetCounter
@@ -30,16 +30,16 @@ Branch on counter >= 1, target rnd 10
 
 #7: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESSpinnersRandom(109:45816) -> 幻龍砲
+	[0] ESSpinnersRandom(109:45816) -> Phantom Dragon Cannon
 	Random 2 orbs change every 0.5s for 1 turn
-	[1] ESBlind62(62:45817) -> ダークパルス
+	[1] ESBlind62(62:45817) -> Dark Pulse
 	Blind all orbs on the board, Deal 100% damage
 
 #8: SkillSet:
 	Condition: 50% chance (ai:0 rnd:50)
-	[0] ESUnknown(153:45819) -> 幻龍砲
+	[0] ESUnknown(153:45819) -> Phantom Dragon Cannon
 	No description set
-	[1] ESBlind62(62:45820) -> ダークパルス
+	[1] ESBlind62(62:45820) -> Dark Pulse
 	Blind all orbs on the board, Deal 100% damage
 
 #9: ESEndPath(36:26) -> ESEndPath
@@ -51,29 +51,29 @@ Branch on flag & 1, target rnd 7
 #11: ESFlagOperation(22:12) -> ESFlagOperation
 flag SET 0b1
 
-#12: ESAbsorbThresholdBig(138:45814) -> ライジングリバース
+#12: ESAbsorbThresholdBig(138:45814) -> Rising Rebirth
 Absorb damage when damage >= 1,000,000,000 for 6 turns, Deal 100% damage
 
 #13: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#14: ESAttackMultihit(15:45813) -> エンド・オブ・ゼロ
+#14: ESAttackMultihit(15:45813) -> End of Zero
 Deal 1,000% damage (4 hits, 250% each)
 
 #15: ESEndPath(36:26) -> ESEndPath
 end_turn
 
 #16: SkillSet:
-	[0] ESBindAwoken(88:45533) -> 凶兆の波動
+	[0] ESBindAwoken(88:45533) -> Wave of a Trillion Evil Omens
 	Bind awoken skills for 1 turn
-	[1] ESAttackMultihit(15:45534) -> 終焉の兆滅
+	[1] ESAttackMultihit(15:45534) -> Doom of a Trillion Catastrophes
 	Deal 5,000% damage (5 hits, 1,000% each)
 
 #17: ESEndPath(36:26) -> ESEndPath
 end_turn
 
-#18: ESResolve(73:42619) -> 根性
+#18: ESResolve(73:42619) -> Resolve
 Survive attacks with 1 HP when HP > 50%
 
-#19: ESAttributeResist(72:45526) -> 闇軽減
+#19: ESAttributeResist(72:45526) -> Dark Reduced
 Reduce damage from Dark attrs by 50%
