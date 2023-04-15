@@ -1,0 +1,73 @@
+#304615 - ラノワールのエルフ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESOrbChangeAttack(48:48132) -> 自然の知識
+Change a random attribute to Wood orbs, Deal 10% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 20, target rnd 17
+
+#9: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#10: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 14
+
+#11: ESDispel(6:10248) -> 帰化
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Voids player buff effects
+
+#12: ESOrbChangeAttack(48:10247) -> 自然の知識
+Change a random attribute to Wood orbs, Deal 100% damage
+
+#13: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#14: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#15: ESAttackUPRemainingEnemies(17:10249) -> 巨大化
+Condition: when <= 1 enemies remain (ai:100 rnd:0)
+Increase damage to 300% for the next 1 turn
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 2, target rnd 21
+
+#18: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b11
+
+#19: ESRandomSpawn(92:10250) -> 精霊信者の覚醒
+Spawn 8 random Wood orbs
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESAttackMultihit(15:10251) -> 空を射抜く
+Deal 240% damage (4 hits, 60% each)
+
+#22: ESEndPath(36:26) -> ESEndPath
+end_turn

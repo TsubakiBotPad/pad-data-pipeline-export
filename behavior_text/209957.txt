@@ -1,0 +1,28 @@
+#209957 - マハモティ・ジン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 209957
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48141:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (48134:83) 高貴な血筋 + 風の翼 + 計略
+ | Fire and Water skyfall +15% for 3 turns + Movetime 25% for 3 turns + Change all orbs to Water
+ type: DEATH
+ condition: when defeated
+ | (48140:95) 計略
+ | Change all orbs to Water
+ group:
+ | group:
+ | condition: execute repeatedly, turn 1-3 of 4
+   | (-1:-1) Countdown Message
+   | Display '0' and skip turn
+ | group:
+ | condition: execute repeatedly, turn 4 of 4
+   | (48138:85) 詐術
+   | Change all orbs to Fire, Deal 700% damage

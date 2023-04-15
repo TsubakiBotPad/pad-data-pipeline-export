@@ -1,0 +1,29 @@
+#309968 - アーテイ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 309968
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48182:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (48172:83) 作戦を立てて、 + 自分自身を設計し直す + 気分はどうだい？
+ | Voids status ailments for 999 turns + Disable active skills for 3 turns + Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (48179:15) 友への復讐心
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (48180:102) 芸術への敬意というものがないね
+   | Spawn 7 random Bomb orbs, Deal 100% damage
+   | (48181:153) 悪意と好奇心
+   | No description set, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (48176:83) 美学の革命だよ + 見るがいい
+   | Enemy recover 40% HP + Bind awoken skills for 1 turn, Deal 101% damage

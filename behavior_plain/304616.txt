@@ -1,0 +1,71 @@
+#304616 - ジョイラの使い魔
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESBindAwoken(88:10265) -> 妨害電波
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 15, target rnd 17
+
+#10: ESBindSkill(14:10263) -> フラッシュ
+Condition: One-time use (ai:50 rnd:0) (cost: 1)
+Bind active skills for 2 turns
+
+#11: ESBindAwoken(88:10265) -> 妨害電波
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Bind awoken skills for 1 turn
+
+#12: ESBindRandom(1:10262) -> 超音波
+Condition: 25% chance (ai:0 rnd:25)
+Bind 1 random card for 2 turns
+
+#13: ESSkillDelay(89:10264) -> 羽ばたき
+Condition: 25% chance (ai:0 rnd:25)
+Delay active skills by 1~2 turns
+
+#14: ESLeaderSwap(75:10266) -> 視界共有
+Condition: 25% chance (ai:0 rnd:25)
+Leader changes to random sub for 1 turn
+
+#15: ESRandomSpawn(92:10261) -> 大量破壊の網
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 6 random Poison orbs
+
+#16: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#17: ESGravity(50:10267) -> マナ燃焼器
+Player -1,000% HP
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESInactivity66(66:10268) -> 退避
+	Do nothing

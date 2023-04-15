@@ -1,0 +1,46 @@
+#309968 - アーテイ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:48173) -> 作戦を立てて、
+	Voids status ailments for 999 turns
+	[1] ESDisableAssists(141:48174) -> 自分自身を設計し直す
+	Disable active skills for 3 turns
+	[2] ESBoardChangeAttackBits(85:48175) -> 気分はどうだい？
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: ESAttackMultihit(15:48179) -> 友への復讐心
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESBombRandomSpawn(102:48180) -> 芸術への敬意というものがないね
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 7 random Bomb orbs, Deal 100% damage
+
+#6: ESUnknown(153:48181) -> 悪意と好奇心
+No description set, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	[0] ESRecoverEnemy86(86:48177) -> 美学の革命だよ
+	Enemy recover 40% HP
+	[1] ESBindAwoken(88:48178) -> 見るがいい
+	Bind awoken skills for 1 turn, Deal 101% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESResolve(73:48182) -> 根性
+Survive attacks with 1 HP when HP > 50%

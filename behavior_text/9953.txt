@@ -1,0 +1,26 @@
+#9953 - アジャニ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9953
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (48042:53) 魂の光
+ | Absorb Light damage for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (48044:67) 跳躍
+   | Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (48045:15) 斧を振るう
+   | Deal 102% damage (3 hits, 34% each)
+   | (48046:50) 両刃の斧
+   | Player -80% HP
+ | group:
+ | condition: turn 1, hp <= 49
+   | (48043:17) 好機を察知
+   | Increase damage to 150% for the next 999 turns

@@ -1,0 +1,29 @@
+#4602 - Jhoira
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4602
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48082:72) 水半減
+ | Reduce damage from Water attrs by 50%
+ type: PREEMPT
+ | (48075:83) 陽動を開始しましょう + 対抗呪文
+ | Voids status ailments for 999 turns + No description set
+ group:
+ | group:
+   | condition: 33% chance
+   | (48079:155) ここから離れて！
+   | No description set, Deal 100% damage
+   | condition: 50% chance
+   | (48080:92) ウェザーライト号
+   | Spawn 4 random Fire and Water orbs, Deal 100% damage
+   | (48081:15) みんな、身構えて！
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (48078:74) 攻撃と防御の呪文
+   | Reduce damage from all sources by 50% for 3 turns, Deal 101% damage

@@ -1,0 +1,53 @@
+#4602 - Jhoira
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 2)
+	[0] ESStatusShield(20:48076) -> 陽動を開始しましょう
+	Voids status ailments for 999 turns
+	[1] ESUnknown(150:48077) -> 対抗呪文
+	No description set
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESUnknown(155:48079) -> ここから離れて！
+Condition: 33% chance (ai:33 rnd:0)
+No description set, Deal 100% damage
+
+#5: ESRandomSpawn(92:48080) -> ウェザーライト号
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Fire and Water orbs, Deal 100% damage
+
+#6: ESAttackMultihit(15:48081) -> みんな、身構えて！
+Deal 102% damage (3 hits, 34% each)
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESDamageShield(74:48078) -> 攻撃と防御の呪文
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Reduce damage from all sources by 50% for 3 turns, Deal 101% damage
+
+#9: ESUnknown(155:48079) -> ここから離れて！
+Condition: 33% chance (ai:33 rnd:0)
+No description set, Deal 100% damage
+
+#10: ESRandomSpawn(92:48080) -> ウェザーライト号
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Fire and Water orbs, Deal 100% damage
+
+#11: ESAttackMultihit(15:48081) -> みんな、身構えて！
+Deal 102% damage (3 hits, 34% each)
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#13: ESAttributeResist(72:48082) -> 水半減
+Reduce damage from Water attrs by 50%

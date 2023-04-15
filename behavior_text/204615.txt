@@ -1,0 +1,37 @@
+#204615 - ラノワールのエルフ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 1
+monster_id: 204615
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (48132:48) 自然の知識
+ | Change a random attribute to Wood orbs, Deal 10% damage
+ group:
+ | group:
+   | group:
+   | condition: execute repeatedly, turn 1 of 3
+     | (10248:6) 帰化
+     | Voids player buff effects
+     | (10247:48) 自然の知識
+     | Change a random attribute to Wood orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 2 of 3
+     | (10247:48) 自然の知識
+     | Change a random attribute to Wood orbs, Deal 100% damage
+   | group:
+   | condition: execute repeatedly, turn 3 of 3
+     | (10249:17) 巨大化
+     | Increase damage to 300% for the next 1 turn
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10250:92) 精霊信者の覚醒
+     | Spawn 8 random Wood orbs
+   | group:
+     | (10251:15) 空を射抜く
+     | Deal 240% damage (4 hits, 60% each)

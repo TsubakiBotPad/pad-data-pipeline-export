@@ -1,0 +1,29 @@
+#204598 - カーン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 204598
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48092:73) 根性
+ | Survive attacks with 1 HP when HP > 50%
+ type: PREEMPT
+ | (48083:83) 行きましょう + ５色すべてのマナを制御
+ | Voids status ailments for 999 turns + Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (48089:15) 創造主の才能を引き継ぐ
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (48090:109) 自動人形を作りだす
+   | Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+   | (48091:153) 幸運は続きませんよ
+   | No description set, Deal 100% damage
+ | group:
+ | condition: hp <= 1
+   | (48086:83) 行動は早ければ早いほど + 良いだろう
+   | Enemy recover 40% HP + Blind random 4 orbs for 3 turns, Deal 101% damage

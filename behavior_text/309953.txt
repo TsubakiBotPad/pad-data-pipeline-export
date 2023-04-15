@@ -1,0 +1,31 @@
+#309953 - アジャニ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 309953
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48170:129) 超根性70%
+ | Damage which would reduce HP from above 70% to below 70% is nullified
+ | (48171:72) 木光半減
+ | Reduce damage from Wood and Light attrs by 50%
+ type: PREEMPT
+ | (48161:83) 魂の光 + 跳躍
+ | Absorb Wood and Light damage for 3 turns + Absorb damage when combos <= 12 for 1 turn, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (48167:67) 跳躍
+   | Absorb damage when combos <= 8 for 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (48168:15) 斧を振るう
+   | Deal 102% damage (3 hits, 34% each)
+   | (48169:50) 両刃の斧
+   | Player -99% HP
+ | group:
+ | condition: turn 1, hp <= 69
+   | (48164:83) 君に私を + 打ち負かすことなどできない
+   | Specific orbs change every 1.0s for 3 turns + Change all orbs to Wood and Light, Deal 101% damage

@@ -1,0 +1,52 @@
+#9975 - エリシュ・ノーン
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9975
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48202:72) 光半減
+ | Reduce damage from Light attrs by 50%
+ | (48203:72) 闇半減
+ | Reduce damage from Dark attrs by 50%
+ | (48201:129) 超根性50%
+ | Damage which would reduce HP from above 50% to below 50% is nullified
+ type: PREEMPT
+ | (48183:83) 機械の母 + 多元宇宙を統一する計画 + 密かな戦略
+ | Voids status ailments for 999 turns + Light and Heal skyfall +15% for 5 turns + A 6×2 rectangle of clouds appears for 3 turns at 4th row, 1st column
+ group:
+ | group:
+   | condition: 16% chance
+   | (48195:94) 鉤爪
+   | Lock 15 random orbs, Deal 101% damage
+   | condition: 16% chance
+   | (48196:53) ひとつの特異性
+   | Absorb Fire damage for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (48197:53) ひとつの特異性
+   | Absorb Water damage for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (48198:53) ひとつの特異性
+   | Absorb Wood damage for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (48199:53) ひとつの特異性
+   | Absorb Light damage for 1 turn, Deal 100% damage
+   | condition: 17% chance
+   | (48200:53) ひとつの特異性
+   | Absorb Dark damage for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 1 while HP > 14, hp <= 49
+   | (48191:83) 機械兵団 + ここまでの旅路は快適だったであろう + 精鋭の護衛天使
+   | Bind awoken skills for 1 turn + Haste all cards' skills by 20 turns + Void damage >= 1,000,000,000 for 3 turns, Deal 101% damage
+ | group:
+ | condition: hp <= 14
+   | group:
+   | condition: turn 1
+     | (48187:83) 機械兵団 + 辛抱だ。辛抱せよ
+     | Bind awoken skills for 1 turn + Change 15 random orbs to Poison orbs, Deal 100% damage
+   | group:
+     | (48190:15) 次元壊し
+     | Deal 600% damage (6 hits, 100% each)

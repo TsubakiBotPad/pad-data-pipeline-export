@@ -1,0 +1,29 @@
+#309938 - ミシュラ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 309938
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48160:118) 悪魔半減
+ | Reduce damage from Devil types by 50%
+ type: PREEMPT
+ | (48150:83) ミシュラ軍 + ミシュラのエンジン + 邪悪なひらめき
+ | Voids status ailments for 999 turns + Change board size to 7x6 for 2 turns + Unable to match Fire orbs for 3 turns, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (48157:100) 対立はもう終わりにしよう
+   | Seal the 1st row for 1 turn, Deal 101% damage
+   | condition: 50% chance
+   | (48158:15) 勝利を確信した男の笑み
+   | Deal 102% damage (3 hits, 34% each)
+   | (48159:77) 自動人形
+   | Change the 2nd and 4th columns to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (48154:83) もはや相違を + 気にしている場合ではない
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Reduce damage from all sources by 75% for 2 turns, Deal 100% damage

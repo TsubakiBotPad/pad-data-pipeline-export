@@ -1,0 +1,47 @@
+#209953 - アジャニ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: ESAbsorbAttribute(53:48042) -> 魂の光
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Absorb Light damage for 3 turns
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 8
+
+#4: ESAbsorbCombo(67:48044) -> 跳躍
+Condition: 33% chance (ai:33 rnd:0)
+Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+
+#5: ESAttackMultihit(15:48045) -> 斧を振るう
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#6: ESGravity(50:48046) -> 両刃の斧
+Player -80% HP
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttackUPRemainingEnemies(17:48043) -> 好機を察知
+Condition: One-time use, when <= 1 enemies remain (ai:100 rnd:0) (cost: 1)
+Increase damage to 150% for the next 999 turns
+
+#9: ESAbsorbCombo(67:48044) -> 跳躍
+Condition: 33% chance (ai:33 rnd:0)
+Absorb damage when combos <= 6 for 1 turn, Deal 100% damage
+
+#10: ESAttackMultihit(15:48045) -> 斧を振るう
+Condition: 50% chance (ai:50 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#11: ESGravity(50:48046) -> 両刃の斧
+Player -80% HP
+
+#12: ESEndPath(36:26) -> ESEndPath
+end_turn

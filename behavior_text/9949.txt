@@ -1,0 +1,26 @@
+#9949 - ヤヤ・バラード
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 9949
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (48052:83) 守りの炎 + しばらくぶりだねえ
+ | Voids status ailments for 999 turns + Bind active skills for 3 turns
+ group:
+ | group:
+   | condition: 33% chance
+   | (48058:92) 火球を放つ
+   | Spawn 5 random Fire orbs, Deal 101% damage
+   | condition: 50% chance
+   | (48059:15) 燃やし尽くしてやるよ
+   | Deal 102% damage (3 hits, 34% each)
+   | (48060:77) 燃え盛る炎
+   | Change the 1st and 2nd columns to Fire orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (48055:83) 手元の問題に + 集中させておくれよ
+   | Reduce damage from all sources by 50% for 3 turns + Bind 3 random subs for 2 turns, Deal 100% damage

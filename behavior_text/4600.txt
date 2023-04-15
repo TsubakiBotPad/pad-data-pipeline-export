@@ -1,0 +1,29 @@
+#4600 - Nicol Bolas
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4600
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48102:118) 攻撃半減
+ | Reduce damage from Attacker types by 50%
+ type: PREEMPT
+ | (48093:83) 生と死は取り替えが利く + 青、黒、赤の呪文
+ | Voids status ailments for 999 turns + Change all orbs to Fire, Water, and Dark, Deal 100% damage
+ group:
+ | group:
+   | condition: 33% chance
+   | (48099:15) 破滅の刻
+   | Deal 102% damage (3 hits, 34% each)
+   | condition: 50% chance
+   | (48100:53) 混沌と対立
+   | Absorb Light damage for 1 turn, Deal 101% damage
+   | (48101:79) もはや救済は不可能
+   | Change the 3rd row to Dark orbs, Deal 100% damage
+ | group:
+ | condition: turn 1, hp <= 49
+   | (48096:83) 次の策謀 + 悪逆なる破壊の力
+   | Movetime 50% for 3 turns + For 1 turn, 50% ATK for both leaders, Deal 101% damage

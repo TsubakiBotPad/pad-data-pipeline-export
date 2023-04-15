@@ -1,0 +1,38 @@
+#404607 - セラの天使
+monster size: 5
+new AI: True
+start/max counter: 2
+counter increment: 1
+monster_id: 404607
+approved: False
+
+level: 4
+ type: PREEMPT
+ | (10252:20) 予防
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 50% chance
+   | (10255:86) 素早い正義
+   | Enemy recover 10% HP, Deal 90% damage
+   | condition: 50% chance
+   | (10253:74) 勇士の決意
+   | Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | (10254:1) 名誉の神盾
+   | Bind 1 random card for 1~2 turns, Deal 95% damage
+ | group:
+ | condition: hp <= 49
+   | condition: 50% chance
+   | (10257:83) 回復期 + 勇士の決意
+   | Enemy recover 10% HP + Reduce damage from all sources by 50% for 1 turn, Deal 100% damage
+   | (10258:83) 回復期 + 名誉の神盾
+   | Enemy recover 10% HP + Bind 1 random card for 1~2 turns, Deal 95% damage
+ | group:
+ | condition: hp <= 19
+   | group:
+   | condition: turn 1
+     | (10259:14) 沈黙
+     | Bind active skills for 1 turn
+   | group:
+     | (10260:15) 報いの波
+     | Deal 250% damage

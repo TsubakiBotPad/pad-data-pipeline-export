@@ -1,0 +1,32 @@
+#209938 - ミシュラ
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfallLocked(96:48115) -> 邪悪なひらめき
+	Locked random skyfall +25% for 5 turns
+	[1] ESUnknown(154:48116) -> ただ殺すためだけの機械
+	No description set, Deal 100% damage
+
+#3: ESAttackMultihit(15:48117) -> 勝利を確信した男の笑み
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#4: ESRandomSpawn(92:48118) -> ミシュラ軍
+Condition: 50% chance (ai:50 rnd:0)
+Spawn 4 random Fire and Dark orbs, Deal 100% damage
+
+#5: ESOrbSealRow(100:48119) -> 対立はもう終わりにしよう
+Seal the 1st row for 1 turn, Deal 100% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: ESAttributeResist(72:48120) -> 火半減
+Reduce damage from Fire attrs by 50%

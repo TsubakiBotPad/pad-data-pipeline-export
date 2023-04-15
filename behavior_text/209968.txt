@@ -1,0 +1,33 @@
+#209968 - アーテイ
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 209968
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48113:118) 神半減
+ | Reduce damage from God types by 50%
+ type: PREEMPT
+ | (48103:83) 作戦を立てて、 + 自分自身を設計し直す
+ | Voids status ailments for 999 turns + Unable to match Dark orbs for 2 turns, Deal 100% damage
+ group:
+ | group:
+ | condition: always turn 1
+   | (48106:139) 気分はどうだい？
+   | Haste all cards' skills by 3 turns, Deal 101% damage
+ | group:
+   | condition: 33% chance
+   | (48110:89) 悪意と好奇心
+   | Delay active skills by 1 turn, Deal 100% damage
+   | condition: 50% chance
+   | (48111:15) 友への復讐心
+   | Deal 102% damage (3 hits, 34% each)
+   | (48112:74) ファイレクシア製の鎧
+   | Reduce damage from all sources by 75% for 1 turn, Deal 100% damage
+ | group:
+ | condition: turn 2, hp <= 49
+   | (48107:83) 魔法的才能 + 蘇生による強化
+   | Change own attribute to random one of Fire, Water, Wood, Light, or Dark + Increase damage to 150% for the next 999 turns

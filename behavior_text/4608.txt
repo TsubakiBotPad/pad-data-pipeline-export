@@ -1,0 +1,30 @@
+#4608 - Gideon Jura
+monster size: 5
+new AI: True
+start/max counter: 3
+counter increment: 0
+monster_id: 4608
+approved: False
+
+level: 1
+ type: PREEMPT
+ | (48004:20) 防護呪文
+ | Voids status ailments for 999 turns
+ group:
+ | group:
+   | condition: 25% chance
+   | (48006:77) 神聖術
+   | Change the 1st column to Heal orbs, Deal 100% damage
+   | condition: 25% chance
+   | (48007:92) 聖なる正義の魔法
+   | Spawn 4 random Light orbs, Deal 100% damage
+   | condition: 25% chance
+   | (48008:94) すぐに終わるさ
+   | Lock 4 random orbs, Deal 101% damage
+   | condition: 25% chance
+   | (48009:15) 剣で突き刺す
+   | Deal 102% damage (3 hits, 34% each)
+ | group:
+ | condition: turn 1, hp <= 49
+   | (48005:74) 不滅の盾
+   | Reduce damage from all sources by 25% for 3 turns, Deal 101% damage

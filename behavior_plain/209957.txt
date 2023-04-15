@@ -1,0 +1,37 @@
+#209957 - マハモティ・ジン
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESSkyfall(68:48135) -> 高貴な血筋
+	Fire and Water skyfall +15% for 3 turns
+	[1] ESDebuffMovetime(39:48136) -> 風の翼
+	Movetime 25% for 3 turns
+	[2] ESBoardChange(84:48137) -> 計略
+	Change all orbs to Water
+
+#3: ESSetCounterIf(38:177) -> ESSetCounterIf
+set counter = 4 if counter == 0
+
+#4: ESCountdown(37:178) -> ESCountdown
+countdown
+
+#5: ESBoardChangeAttackBits(85:48138) -> 詐術
+Change all orbs to Fire, Deal 700% damage
+
+#6: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#7: SkillSet:
+	Condition: On death (ai:0 rnd:0)
+	[0] ESBoardChange(84:48139) -> 計略
+	Change all orbs to Water
+
+#8: ESAttributeResist(72:48141) -> 水半減
+Reduce damage from Water attrs by 50%

@@ -1,0 +1,88 @@
+#304614 - 悪魔王ベルゼンロック
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 9
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESSetCounter(25:15) -> ESSetCounter
+counter = 3
+
+#7: SkillSet:
+	[0] ESAbsorbAttribute(53:10290) -> 狂気の力
+	Absorb Light damage for 5 turns
+	[1] ESDebuffMovetime(39:10291) -> 精神腐敗
+	Movetime -2s for 5 turns
+
+#8: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#9: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 5, target rnd 19
+
+#10: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 50, target rnd 19
+
+#11: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#12: ESBranchCounter(32:22) -> ESBranchCounter
+Branch on counter >= 3, target rnd 16
+
+#13: ESSkillDelay(89:10293) -> 強迫
+Condition: 50% chance (ai:50 rnd:0)
+Delay active skills by 1~2 turns, Deal 100% damage
+
+#14: ESRecoverEnemy86(86:10294) -> 生命吸収
+Enemy recover 10% HP, Deal 150% damage
+
+#15: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#16: ESSetCounter(25:15) -> ESSetCounter
+counter = 0
+
+#17: ESBindRandom(1:10295) -> 闇の掌握
+Bind 1 random card for 4 turns, Deal 95% damage
+
+#18: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#19: ESSetCounter(25:15) -> ESSetCounter
+counter = 5
+
+#20: ESDamageShield(74:10296) -> ベルゼンロック典礼I
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Reduce damage from all sources by 50% for 4 turns
+
+#21: ESBindRandom(1:10297) -> ベルゼンロック典礼II
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Bind 6 random cards for 2 turns
+
+#22: ESBindAwoken(88:10298) -> ベルゼンロック典礼III
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Bind awoken skills for 1 turn
+
+#23: ESRandomSpawn(92:10299) -> 暗黒の儀式
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 3 random Dark orbs
+
+#24: ESBoardChangeAttackBits(85:10300) -> 滅び
+Change all orbs to Poison, Deal 350% damage
+
+#25: ESEndPath(36:26) -> ESEndPath
+end_turn

@@ -1,0 +1,24 @@
+#4611 - Chandra Nalaar
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+monster_id: 4611
+approved: False
+
+level: 1
+ type: PASSIVE
+ | (48028:72) 火半減
+ | Reduce damage from Fire attrs by 50%
+ type: PREEMPT
+ | (48022:83) 準備はいい？ + 紅蓮術
+ | Voids status ailments for 999 turns + Fire skyfall +15% for 5 turns
+ group:
+ | condition: 33% chance
+ | (48025:92) 炎を連射
+ | Spawn 5 random Fire orbs, Deal 100% damage
+ | condition: 50% chance
+ | (48026:77) 強烈な炎
+ | Change the 5th column to Fire orbs, Deal 100% damage
+ | (48027:15) 焼き払う
+ | Deal 102% damage (3 hits, 34% each)

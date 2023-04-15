@@ -1,0 +1,44 @@
+#4598 - Karn
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:48084) -> 行きましょう
+	Voids status ailments for 999 turns
+	[1] ESBoardChangeAttackBits(85:48085) -> ５色すべてのマナを制御
+	Change all orbs to Fire, Water, Wood, Light, and Dark, Deal 100% damage
+
+#3: ESBranchHP(28:18) -> ESBranchHP
+Branch on hp < 1, target rnd 8
+
+#4: ESAttackMultihit(15:48089) -> 創造主の才能を引き継ぐ
+Condition: 33% chance (ai:33 rnd:0)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESSpinnersRandom(109:48090) -> 自動人形を作りだす
+Condition: 50% chance (ai:50 rnd:0)
+Random 2 orbs change every 1.0s for 1 turn, Deal 100% damage
+
+#6: ESUnknown(153:48091) -> 幸運は続きませんよ
+No description set, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: SkillSet:
+	[0] ESRecoverEnemy86(86:48087) -> 行動は早ければ早いほど
+	Enemy recover 40% HP
+	[1] ESBlindStickyRandom(97:48088) -> 良いだろう
+	Blind random 4 orbs for 3 turns, Deal 101% damage
+
+#9: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#10: ESResolve(73:48092) -> 根性
+Survive attacks with 1 HP when HP > 50%

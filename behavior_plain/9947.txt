@@ -1,0 +1,37 @@
+#9947 - テフェリー
+monster size: 5
+new AI: True
+start/max counter: 1
+counter increment: 0
+
+#1: ESPreemptive(49:318) -> ESPreemptive
+Enable preempt if level 1
+
+#2: SkillSet:
+	Condition: One-time use (ai:100 rnd:0) (cost: 1)
+	[0] ESStatusShield(20:48062) -> 定命の魔道士
+	Voids status ailments for 999 turns
+	[1] ESDebuffMovetime(39:48063) -> 時間の速度を半減させる
+	Movetime 50% for 3 turns
+
+#3: ESCloud(104:48064) -> 浮遊
+Condition: 25% chance (ai:0 rnd:25)
+A 2×2 square of clouds appears for 1 turn at a random location, Deal 100% damage
+
+#4: ESAttackMultihit(15:48065) -> 素晴らしい
+Condition: 25% chance (ai:0 rnd:25)
+Deal 102% damage (3 hits, 34% each)
+
+#5: ESDebuffATKTarget(143:48066) -> 完璧だ
+Condition: 25% chance (ai:0 rnd:25)
+For 1 turn, 50% ATK for 2 random subs, Deal 101% damage
+
+#6: ESRandomSpawn(92:48067) -> 休む時間はあるかい？
+Condition: 25% chance (ai:0 rnd:25)
+Spawn 4 random Heal orbs, Deal 100% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESAttributeResist(72:48068) -> 水半減
+Reduce damage from Water attrs by 50%

@@ -1,0 +1,78 @@
+#204606 - シヴ山のドラゴン
+monster size: 5
+new AI: True
+start/max counter: 15
+counter increment: 0
+
+#1: ESPreemptive(49:3402) -> ESPreemptive
+Enable preempt if level 4
+
+#2: ESBranchLevel(35:25) -> ESBranchLevel
+Branch on level >= 4, target rnd 4
+
+#3: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#4: ESBranchFlag(43:10) -> ESBranchFlag
+Branch on flag & 1, target rnd 8
+
+#5: ESFlagOperation(22:12) -> ESFlagOperation
+flag SET 0b1
+
+#6: ESAttackMultihit(15:48133) -> 炎のブレス
+Deal 2% damage
+
+#7: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#8: ESSetCounter(26:16) -> ESSetCounter
+counter + 1
+
+#9: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 2, target rnd 21
+
+#10: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 4, target rnd 22
+
+#11: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 6, target rnd 21
+
+#12: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 8, target rnd 22
+
+#13: ESBranchCounter(31:21) -> ESBranchCounter
+Branch on counter = 9, target rnd 19
+
+#14: ESRandomSpawn(92:10272) -> 燃えがらの匂い
+Condition: One-time use (ai:100 rnd:0) (cost: 8)
+Spawn 1 random Fire orb, Deal 105% damage
+
+#15: ESRandomSpawn(92:10273) -> 燃えがらの匂い
+Condition: One-time use (ai:100 rnd:0) (cost: 4)
+Spawn 2 random Fire orbs, Deal 115% damage
+
+#16: ESRandomSpawn(92:10274) -> 燃えがらの匂い
+Condition: One-time use (ai:100 rnd:0) (cost: 2)
+Spawn 3 random Fire orbs, Deal 125% damage
+
+#17: ESRandomSpawn(92:10275) -> 燃えがらの匂い
+Condition: One-time use (ai:100 rnd:0) (cost: 1)
+Spawn 4 random Fire orbs, Deal 135% damage
+
+#18: ESOrbChangeAttack(48:10279) -> 燎原の火
+Change all Fire orbs to Jammer orbs, Deal 300% damage
+
+#19: ESRandomSpawn(92:10276) -> 燃えがらの匂い
+Spawn 5 random Fire orbs, Deal 145% damage
+
+#20: ESEndPath(36:26) -> ESEndPath
+end_turn
+
+#21: ESAttackMultihit(15:10277) -> シヴの火
+Deal 110% damage (2 hits, 55% each)
+
+#22: ESAttackMultihit(15:10278) -> シヴの火
+Deal 120% damage (4 hits, 30% each)
+
+#23: ESEndPath(36:26) -> ESEndPath
+end_turn
